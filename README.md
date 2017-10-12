@@ -7,86 +7,94 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 # Classes
 
 * Entity Class
-  * setAttr, getAttr, delAttr
-  * Subclasses
-    * Point Class
-      * getPosition
-    * Vertex Class
-      * getPoint
-      * Subclasses
-        * Acorn Class
-    * Edge Class
-    * Wire Class
-      * getPoints, getVertices, getEdges
-      * getNumPoints, getNumVertices, getNumEdges
-      * Subclasses
-        * Polyline Class
-    * Face Class
-    * Shell Class
-      * getPoints, getVertices, getEdges, getWires, getFaces
-      * getNumPoints, getNumVertices, getNumEdges, getNumWires, getNumFaces
-      * Subclasses
-        * PolygonMesh Class
+  * Point Class
+  * Vertex Class
+    * Acorn Class
+  * Edge Class
+  * Wire Class
+    * Polyline Class
+  * Face Class
+    * PolygonMesh Class
+      * TriMesh Class
+      * QuadMesh Class
+  * Collection Class
 
-* Collection Class
-  * addEntity, remEntity
-  * addProperty, delProperty
-  
-* Frame Class
-  * byPoints, byAxes
-* Vector Class
-  * byXYZ
-  * add, subtract, multiply, length, normalize, setLength
-* Matrix Class
+* Other Clases
+  * Frame Class
+  * Vector Class
+  * Matrix Class
 
 # Functions
 
-## Point
-
-### Creation
-* byXYZ
-
-## Acorn Functions
-
-### Creation
-* byPoint
-
-## Polyline Functions 
-
-### Creation
-* byPoints
-
-### Modification
-* offset
-* divide
-
-## Polygon Meshe Functions
-* byPoints
-
-### Modification
-* offset 
-* divide
-
-## Transform Functions
-* transform
-* move
-* reflect
-* rotate 
-* scale
+## Creation
+* vector.byXYZ
+* matrix.byRows
+* frame.byPoints, byAxes
+* point.byXYZ
+* acorn.byPoint
+* polyline.byPoints
+* polygonMesh.byPoints
 
 ## Generate Functions
-* extrude
-* revolve
-* loft
-* sweep
+* gen.extrude
+* gen.revolve
+* gen.loft
+* gen.sweep
+
+## Vector Functions
+* vec.add
+* vec.subtract
+* vec.multiply
+* vec.length
+* vec.normalize
+* vec.setLength
+
+## Matrix Functions
+* matrix.multiply
+* matrix.invert
+
+## Transform Functions
+* xform.transform
+* xform.move
+* xform.reflect
+* xform.rotate 
+* xform.scale
 
 ## Measure Functions
-* distance
-* length
-* area
-* volumes
+* measure.distance
+* measure.length
+* measure.area
+* measure.volume
 
-## Analyze Functions
-* centroid
-* bbox
+## Analyse Functions
+* analyse.centroid
+* analyse.bbox
+* analyse.normal
 
+## Topology Functions
+* topo.type
+* topo.parent, children
+* topo.getPoints, getVertices, getEdges, getWires, getFaces, getShells
+* topo.getNumPoints, getNumVertices, getNumEdges, getNumWires, getNumFaces, getNumShells
+* topo.copy
+
+## Polyline Functions
+* polyline.dividByNum
+* polyline.dividByDist
+
+## PolygonMesh Functions
+* polygonMesh.holes
+* polygonMesh.perimeter
+
+## Attribute Functions
+* attrib.set, get
+* attrib.add, rem
+* attrib.promote, demote
+
+## Collection Functions
+* coll.create, delete
+
+## Property Functions
+* prop.parent, children
+* prop.set, get
+* prop.add, rem
