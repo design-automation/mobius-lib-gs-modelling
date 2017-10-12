@@ -26,14 +26,14 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 
 # Functions
 
-## Creation Functions
-* vector.byXYZ
+## Create Functions
+* vec.byXYZ
 * matrix.byRows
 * frame.byPoints, byAxes
 * point.byXYZ
 * acorn.byPoint
-* polyline.byPoints
-* polygonMesh.byPoints
+* pline.byPoints
+* pgon.byPoints
 
 ## Generate Functions
 * gen.extrude
@@ -79,12 +79,12 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 * topo.copy
 
 ## Polyline Functions
-* polyline.dividByNum
-* polyline.dividByDist
+* pline.dividByNum
+* pline.dividByDist
 
 ## PolygonMesh Functions
-* polygonMesh.holes
-* polygonMesh.perimeter
+* pgon.holes
+* pgon.perimeter
 
 ## Attribute Functions
 * attrib.set, get
