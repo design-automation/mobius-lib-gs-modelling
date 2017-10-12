@@ -1,4 +1,4 @@
-# gs-lib
+# gs-modelling
 A TypeScript modelling library using the gs-JSON format
 
 Conventions
