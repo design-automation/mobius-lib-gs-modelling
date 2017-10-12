@@ -95,6 +95,5 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 * coll.create, delete
 
 ## Property Functions
-* prop.parent, children
 * prop.set, get
 * prop.add, rem
