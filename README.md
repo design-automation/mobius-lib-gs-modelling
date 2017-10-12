@@ -26,7 +26,7 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 
 # Functions
 
-## Creation
+## Creation Functions
 * vector.byXYZ
 * matrix.byRows
 * frame.byPoints, byAxes
