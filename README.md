@@ -56,13 +56,6 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 * analyse.bbox
 * analyse.normal
 
-## Topology Functions
-* topo.type
-* topo.parent, children
-* topo.getPoints, getVertices, getEdges, getWires, getFaces, getShells
-* topo.getNumPoints, getNumVertices, getNumEdges, getNumWires, getNumFaces, getNumShells
-* topo.copy
-
 ## Polyline Functions
 * pline.dividByNum
 * pline.dividByDist
