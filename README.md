@@ -5,24 +5,9 @@ Conventions
 https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 
 # Classes
-
-* Entity Class
-  * Point Class
-  * Vertex Class
-    * Acorn Class
-  * Edge Class
-  * Wire Class
-    * Polyline Class
-  * Face Class
-    * PolygonMesh Class
-      * TriMesh Class
-      * QuadMesh Class
-  * Collection Class
-
-* Other Clases
-  * Frame Class
-  * Vector Class
-  * Matrix Class
+* Frame Class
+* Vector Class
+* Matrix Class
 
 # Functions
 
