@@ -64,14 +64,3 @@ https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
 * pgon.holes
 * pgon.perimeter
 
-## Attribute Functions
-* attrib.set, get
-* attrib.add, rem
-* attrib.promote, demote
-
-## Collection Functions
-* coll.create, delete
-
-## Property Functions
-* prop.set, get
-* prop.add, rem
