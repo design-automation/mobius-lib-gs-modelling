@@ -9,3 +9,8 @@ export interface IPolyline {
 export interface IPolygon {
 	points: IPoint[];
 }
+export interface IVec {
+// a Vector is defined by 2 points
+    	a: IPoint;
+    	b: IPoint;
+}
