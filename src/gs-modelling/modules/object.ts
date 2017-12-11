@@ -1,6 +1,6 @@
 import * as gs from "../../libs/gs-json/utils/gs-json";
 import * as arr from "../../libs/gs-json/utils/arr";
-// follows http://developer.rhino3d.com/api/RhinoScriptSyntax/
+//follows http://developer.rhino3d.com/api/RhinoScriptSyntax/
 
 //http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]):gs.IObj {

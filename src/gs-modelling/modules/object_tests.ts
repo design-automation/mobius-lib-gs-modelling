@@ -10,6 +10,6 @@ export function test_MoveObject() {
     const p4: gs.IPoint = g.addPoint([3,3,3]);
     const poly: gs.IPolyline = g.addPolyline([p1, p2, p3, p4], false);
     test.MoveObject(m, poly, [10,0,0]);
-    if (poly.getPoints()[0][0][0][0] !== 10) {return false;} // TOFO flatten=true
+    if (poly.getPoints()[0][0][0].getPosition()[0] !== 10) {return false;} // TOFO flatten=true
     return true;
 }

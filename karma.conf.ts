@@ -5,6 +5,7 @@ module.exports = (config) => {
         browsers : ["Chrome"],
         basePath: "./src/",
         files: [
+            {pattern: "libs/gs-json/utils/**/*.ts" },
             {pattern: "gs-modelling/**/*.ts" },
         ],
         karmaTypescriptConfig: {
