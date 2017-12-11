@@ -1,20 +1,19 @@
-import * as gs from "../libs/gs-json/utils/gs-json";
-import * as arr from "../libs/gs-json/utils/arr";
+import * as gs from "../../libs/gs-json/utils/gs-json";
+import * as arr from "../../libs/gs-json/utils/arr";
 // follows http://developer.rhino3d.com/api/RhinoScriptSyntax/
 
 //http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
-export function MoveObject(m: gs.IModel, id: number, translation: number[]):number {
-    const obj: gs.IObj = m.getGeom().getObj(id);
+export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]):gs.IObj {
     if (obj === undefined) {return null;}
     const points: gs.IPoint[][][] = obj.getPoints();
-    const points_flat: gs.IPoint[] = arr.Arr.flatten(points);
+    const points_flat: gs.IPoint[] = arr.Arr.flatten(points); // TODO flatten=true
     for (const point of points_flat) {
         let xyz: number[] = point.getPosition();
         point.setPosition([xyz[0] + translation[0],
                            xyz[1] + translation[1],
                            xyz[2] + translation[2]]);
     }
-    return id;
+    return obj;
 }
 
 //http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects

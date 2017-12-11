@@ -1,11 +1,11 @@
 {
     "name": "gs-modelling",
-    "version": "0.1",
+    "version": "0.1.1",
     "description": "A set of 3D modelling functions for gs-JSON.",
     "main": "index.ts",
     "scripts": {
         "test": "karma start ./karma.conf.ts",
-        "docs": "typedoc --out  ./docs ./src/modules --module commonjs"
+        "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs"
     },
     "repository": {
         "type": "git",

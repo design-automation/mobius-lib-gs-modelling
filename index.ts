@@ -1,3 +1,3 @@
-import * as gs_json from "./src/typescript/gs-json/utils/gs-json";
+import * as gs_modelling from "./src/gs-modelling/modules/gs-modelling";
 
-export { gs_json };
+export { gs_modelling };

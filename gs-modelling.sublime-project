@@ -10,7 +10,7 @@
             "name": "JS Dist Code"
         },
         {
-            "path": "docs/typescript",
+            "path": "docs",
             "name": "TS Documentation"
         },
         {
