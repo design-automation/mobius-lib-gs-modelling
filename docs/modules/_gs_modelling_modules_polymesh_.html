@@ -66,6 +66,114 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_gs_modelling_modules_polymesh_.html#addplanarpolymesh" class="tsd-kind-icon">Add<wbr>Planar<wbr>Polymesh</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_gs_modelling_modules_polymesh_.html#extrudepolymesh" class="tsd-kind-icon">Extrude<wbr>Polymesh</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="addplanarpolymesh" class="tsd-anchor"></a>
+					<h3>Add<wbr>Planar<wbr>Polymesh</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">Add<wbr>Planar<wbr>Polymesh<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, objs<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/22fd1c8/src/gs-modelling/modules/polymesh.ts#L13">gs-modelling/modules/polymesh.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates one or more polygons from planar polylines.
+										<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPlanarSrf">http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPlanarSrf</a>
+									<a href="http://verbnurbs.com/docs/geom/ISurface/">http://verbnurbs.com/docs/geom/ISurface/</a> (?)</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model</p>
+									</div>
+								</li>
+								<li>
+									<h5>objs: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of polylines to create planar polygon from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a></h4>
+							<p>List of polygons created if successful, none if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="extrudepolymesh" class="tsd-anchor"></a>
+					<h3>Extrude<wbr>Polymesh</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">Extrude<wbr>Polymesh<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, polymesh<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a>, polyline<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a>, cap<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/22fd1c8/src/gs-modelling/modules/polymesh.ts#L26">gs-modelling/modules/polymesh.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a polymesh by extruding a polymesh along a path polyline.
+									<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-ExtrudeSurface">http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-ExtrudeSurface</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model</p>
+									</div>
+								</li>
+								<li>
+									<h5>polymesh: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh to extrude.</p>
+									</div>
+								</li>
+								<li>
+									<h5>polyline: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline to extrude along.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> cap: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Extrusion capped at both ends if true. Open if false.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolymesh.html" class="tsd-signature-type">IPolymesh</a></h4>
+							<p>New polymesh if successful, none if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -90,9 +198,6 @@
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_gs_modelling_modules_polymesh_.html">"gs-<wbr>modelling/modules/polymesh"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_gs_modelling_modules_polysurface_.html">"gs-<wbr>modelling/modules/polysurface"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
@@ -143,6 +248,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_gs_modelling_modules_polymesh_.html#addplanarpolymesh" class="tsd-kind-icon">Add<wbr>Planar<wbr>Polymesh</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_gs_modelling_modules_polymesh_.html#extrudepolymesh" class="tsd-kind-icon">Extrude<wbr>Polymesh</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
