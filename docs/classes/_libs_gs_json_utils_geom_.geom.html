@@ -110,6 +110,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_libs_gs_json_utils_geom_.geom.html#addpoint" class="tsd-kind-icon">add<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_libs_gs_json_utils_geom_.geom.html#addpoints" class="tsd-kind-icon">add<wbr>Points</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_libs_gs_json_utils_geom_.geom.html#addpolyline" class="tsd-kind-icon">add<wbr>Polyline</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_libs_gs_json_utils_geom_.geom.html#addpolymesh" class="tsd-kind-icon">add<wbr>Polymesh</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_libs_gs_json_utils_geom_.geom.html#delobj" class="tsd-kind-icon">del<wbr>Obj</a></li>
@@ -201,10 +202,43 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>xyz: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>xyz coordinates are required to create a point</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a></h4>
-							<p>a instance of type Point is returned</p>
+							<p>A point instance.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="addpoints" class="tsd-anchor"></a>
+					<h3>add<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Points<span class="tsd-signature-symbol">(</span>xyz_arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#addpoints">addPoints</a></p>
+								<ul>
+									<li>Defined in libs/gs-json/utils/geom.ts:40</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a set of new points to the model, from an array of xyz coordinates.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>xyz_arr: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An array Point instances.</p>
 						</li>
 					</ul>
 				</section>
@@ -219,7 +253,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#addpolyline">addPolyline</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:40</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:49</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +286,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#addpolymesh">addPolymesh</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:51</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:60</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,7 +319,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#delobj">delObj</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:191</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:200</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -317,7 +351,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#delpoint">delPoint</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:101</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:110</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -346,7 +380,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#delpoints">delPoints</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:92</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:101</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -375,7 +409,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#getobj">getObj</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:173</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:182</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -404,7 +438,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#getobjids">getObjIDs</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:139</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +460,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:148</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:157</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +483,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#getpoint">getPoint</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:83</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:92</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -478,7 +512,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#getpointids">getPointIDs</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:64</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:73</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,7 +535,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#getpointposition">getPointPosition</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:128</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:137</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -529,7 +563,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:73</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:82</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +586,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#gettopos">getTopos</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:212</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:221</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -588,7 +622,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#numobjs">numObjs</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:200</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:209</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -611,7 +645,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#numpoints">numPoints</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:110</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:119</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -634,7 +668,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#numtopos">numTopos</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:231</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:240</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -663,7 +697,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html">IGeom</a>.<a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.igeom.html#setpointposition">setPointPosition</a></p>
 								<ul>
-									<li>Defined in libs/gs-json/utils/geom.ts:119</li>
+									<li>Defined in libs/gs-json/utils/geom.ts:128</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,6 +743,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_gs_modelling_modules_polymesh_.html">"gs-<wbr>modelling/modules/polymesh"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_gs_modelling_modules_polysurface_.html">"gs-<wbr>modelling/modules/polysurface"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
@@ -772,6 +809,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_libs_gs_json_utils_geom_.geom.html#addpoint" class="tsd-kind-icon">add<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_libs_gs_json_utils_geom_.geom.html#addpoints" class="tsd-kind-icon">add<wbr>Points</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_libs_gs_json_utils_geom_.geom.html#addpolyline" class="tsd-kind-icon">add<wbr>Polyline</a>

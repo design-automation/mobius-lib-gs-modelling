@@ -66,6 +66,220 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_gs_modelling_modules_polyline_.html#addline" class="tsd-kind-icon">Add<wbr>Line</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_gs_modelling_modules_polyline_.html#addpolyellipse" class="tsd-kind-icon">Add<wbr>Poly<wbr>Ellipse</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_gs_modelling_modules_polyline_.html#addpolyline" class="tsd-kind-icon">Add<wbr>Polyline</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_gs_modelling_modules_polyline_.html#polylinelength" class="tsd-kind-icon">Polyline<wbr>Length</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="addline" class="tsd-anchor"></a>
+					<h3>Add<wbr>Line</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Add<wbr>Line<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, start<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a>, end<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e089596/src/gs-modelling/modules/polyline.ts#L13">gs-modelling/modules/polyline.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a line to the model
+										<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine">http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine</a>
+									<a href="http://verbnurbs.com/docs/geom/Line/">http://verbnurbs.com/docs/geom/Line/</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model</p>
+									</div>
+								</li>
+								<li>
+									<h5>start: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Start point of line</p>
+									</div>
+								</li>
+								<li>
+									<h5>end: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>End point of line</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h4>
+							<p>Polyline object</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="addpolyellipse" class="tsd-anchor"></a>
+					<h3>Add<wbr>Poly<wbr>Ellipse</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Add<wbr>Poly<wbr>Ellipse<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, radiusX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, radiusY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, segments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e089596/src/gs-modelling/modules/polyline.ts#L40">gs-modelling/modules/polyline.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an elliptical polyline.
+										<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse">http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse</a>
+									<a href="http://verbnurbs.com/docs/geom/Circle/">http://verbnurbs.com/docs/geom/Circle/</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model.</p>
+									</div>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Plane on which the elliptical polyline will lie. //TODO</p>
+									</div>
+								</li>
+								<li>
+									<h5>radiusX: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius in X-axis direction.</p>
+									</div>
+								</li>
+								<li>
+									<h5>radiusY: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius in Y-axis direction.</p>
+									</div>
+								</li>
+								<li>
+									<h5>segments: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of segments in ellipes.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h4>
+							<p>The elliptical polyline object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="addpolyline" class="tsd-anchor"></a>
+					<h3>Add<wbr>Polyline</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Add<wbr>Polyline<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, points<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e089596/src/gs-modelling/modules/polyline.ts#L25">gs-modelling/modules/polyline.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a polyline to the model
+										<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine">http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine</a>
+									<a href="http://verbnurbs.com/docs/geom/Line/">http://verbnurbs.com/docs/geom/Line/</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model</p>
+									</div>
+								</li>
+								<li>
+									<h5>points: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipoint.html" class="tsd-signature-type">IPoint</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An array of points.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h4>
+							<p>Polyline object</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="polylinelength" class="tsd-anchor"></a>
+					<h3>Polyline<wbr>Length</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Polyline<wbr>Length<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a>, polyline<span class="tsd-signature-symbol">: </span><a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a>, segment_index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sub_domain<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e089596/src/gs-modelling/modules/polyline.ts#L54">gs-modelling/modules/polyline.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns length of a polyline object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model</p>
+									</div>
+								</li>
+								<li>
+									<h5>polyline: <a href="../interfaces/_libs_gs_json_utils_ifaces_gs_.ipolyline.html" class="tsd-signature-type">IPolyline</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline object.</p>
+									</div>
+								</li>
+								<li>
+									<h5>segment_index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline segment index.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sub_domain: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of two numbers identifying the subdomain of the curve to calculate.
+										Ascending order. If omitted, entire polyline length is used. (optional, omit?)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>Length of polyline as number if successful, none if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -90,6 +304,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_gs_modelling_modules_polymesh_.html">"gs-<wbr>modelling/modules/polymesh"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_gs_modelling_modules_polysurface_.html">"gs-<wbr>modelling/modules/polysurface"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
@@ -140,6 +357,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_gs_modelling_modules_polyline_.html#addline" class="tsd-kind-icon">Add<wbr>Line</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_gs_modelling_modules_polyline_.html#addpolyellipse" class="tsd-kind-icon">Add<wbr>Poly<wbr>Ellipse</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_gs_modelling_modules_polyline_.html#addpolyline" class="tsd-kind-icon">Add<wbr>Polyline</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_gs_modelling_modules_polyline_.html#polylinelength" class="tsd-kind-icon">Polyline<wbr>Length</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
