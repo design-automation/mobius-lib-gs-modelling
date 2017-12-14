@@ -80,7 +80,7 @@ export function DivideCurve(m: gs.IModel, polyline: gs.IPolyline, segments: numb
  * @param points List of points to interpolate
  * @returns New polyline object if successful, none if unsuccessful or on error
  */
-export function AddInterpPolyline(m: gs.IModel, points: [gs.IPoint, gs.IPoint...])  {
+export function AddInterpPolyline(m: gs.IModel, points: [gs.IPoint, gs.IPoint...]) gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
@@ -95,7 +95,7 @@ export function AddInterpPolyline(m: gs.IModel, points: [gs.IPoint, gs.IPoint...
  * @returns New polyline object if successful, none if unsuccessful or on error
  */
 export function ExtendPolylineLength(m: gs.IModel, polyline: gs.IPolyline, extrusion_type: number,
-                            extrusion_side: number,  ) {
+                            extrusion_side: number,  ) gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
@@ -108,7 +108,7 @@ export function ExtendPolylineLength(m: gs.IModel, polyline: gs.IPolyline, extru
  * @param t Parameter to evaluate
  * @returns 3D point if successful, none if unsuccessful or on error
  */
-export function EvaluatePolyline(m: gs.IModel, polyline: gs.IPolyline, t: number) {
+export function EvaluatePolyline(m: gs.IModel, polyline: gs.IPolyline, t: number) gs.IPoint {
     throw new Error("Method not implemented");
 }
 
