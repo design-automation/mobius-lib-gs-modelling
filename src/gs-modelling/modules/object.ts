@@ -15,7 +15,9 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
     }
     return obj;
 }
-
+/**
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
+ */
 export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
 	if (objs === undefined) {return null;}
 	for(const obj of objs){
@@ -30,17 +32,43 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
 	}
 	return objs;
 }
-
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
+/**
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
+ */
+export function ScaleObject(m: gs.IModel, obj: gs.IObj, scale: number[]): gs.IObj {
+    if (obj === undefined) {return null;}
+    const points: gs.IPoint[] = obj.getPointsArr();
+    for (const point of points) {
+        const xyz: number[] = point.getPosition();
+        point.setPosition([xyz[0] * scale[0],
+                           xyz[1] * scale[1],
+                           xyz[2] * scale[2]]);
+    }
+    return obj;
+}
+/**
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
+ */
+export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], scale: number[]): gs.IObj[] {
+	if (objs === undefined) {return null;}
+	for(const obj of objs){
+    if (obj === undefined) {return null;}
+    const points: gs.IPoint[] = obj.getPointsArr();
+    for (const point of points) {
+        const xyz: number[] = point.getPosition();
+        point.setPosition([xyz[0] * scale[0],
+                           xyz[1] * scale[1],
+                           xyz[2] * scale[2]]);
+    }
+	}
+	return objs;
+}
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
-
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
