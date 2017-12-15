@@ -8,7 +8,7 @@ import * as arr from "../../libs/gs-json/utils/arr";
  * @param point List of x, y and z coordinates of point (x,y,z)
  * @returns Point if successful, none if unsuccessful or on error
  */
-export function AddPoint(m: gs.IModel, point: (number,number,number)): gs.IPoint {
+export function AddPoint(m: gs.IModel, point: gs.IPoint) {
     throw new Error("Method not implemented");
 }
 
@@ -19,6 +19,6 @@ export function AddPoint(m: gs.IModel, point: (number,number,number)): gs.IPoint
  * @param point Point
  * @returns List of x, y and z coordinates of point if successful, none if unsuccessful or on error
  */
-export function PointCoordinates(m: gs.IModel, point: gs.IPoint): {
+export function PointCoordinates(m: gs.IModel, point: gs.IPoint) {
     throw new Error("Method not implemented");
 }

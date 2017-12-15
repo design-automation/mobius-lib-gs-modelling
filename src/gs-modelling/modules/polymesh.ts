@@ -52,7 +52,7 @@ function BooleanDifference2D(m: gs.IModel, input0: gs.IPolymesh, input1: gs.IPol
  * @param closed Closes the loft back to the first polyline if true. (optional)
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function AddLoftPolymesh(m: gs.IModel, objs: [ gs.IPolyline, gs.IPolyline.. ],
+function AddLoftPolymesh(m: gs.IModel, objs: [ gs.IPolyline, gs.IPolyline],
                          closed: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
@@ -78,7 +78,7 @@ function AddPolymeshPt(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
  * @param cap Caps end with a flat surface if true.
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function AddPipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number..],
+function AddPipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number],
                  cap: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }

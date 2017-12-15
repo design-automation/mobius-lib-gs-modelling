@@ -24,6 +24,6 @@ export function AddPoint(m: gs.IModel, origin: gs.IPoint, normal: [number, numbe
 [0] = type of intersection. 1 = point, 2 = overlap
 [1] = intersection point if [0] = 1, list of intersection start point and end point if [0] = 2
  */
-export function PlanePolylineIntersection(m: gs.IModel, plane: gs.IPlane, polyline: gs.IPlolyline): {
+export function PlanePolylineIntersection(m: gs.IModel, plane: gs.IPlane, polyline: gs.IPolyline):void {
     throw new Error("Method not implemented");
 }

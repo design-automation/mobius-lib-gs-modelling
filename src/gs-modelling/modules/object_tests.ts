@@ -9,7 +9,9 @@ export function test_MoveObject() {
     const p3: gs.IPoint = g.addPoint([2,2,2]);
     const p4: gs.IPoint = g.addPoint([3,3,3]);
     const poly: gs.IPolyline = g.addPolyline([p1, p2, p3, p4], false);
-    test.MoveObject(m, poly, [10,0,0]);
+    test.MoveObject(m, poly, [10,20,30]);
     if (poly.getPoints()[0][0][0].getPosition()[0] !== 10) {return false;} // TOFO flatten=true
+    if (poly.getPoints()[0][0][0].getPosition()[1] !== 20) {return false;} // TOFO flatten=true
+    if (poly.getPoints()[0][0][0].getPosition()[2] !== 30) {return false;} // TOFO flatten=true            
     return true;
 }

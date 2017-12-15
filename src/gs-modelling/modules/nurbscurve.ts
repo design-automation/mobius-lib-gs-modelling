@@ -72,7 +72,7 @@ export function DivideCurve(m: gs.IModel, curve: gs.INurbsCurve, segments: numbe
  * @param points List of points to interpolate
  * @returns New curve object if successful, none if unsuccessful or on error
  */
-export function AddInterpCurve(m: gs.IModel, points: [gs.IPoint, gs.IPoint...]) gs.INurbsCurve {
+export function AddInterpCurve(m: gs.IModel, points: [gs.IPoint, gs.IPoint]): gs.INurbsCurve {
     throw new Error("Method not implemented");
 }
 
@@ -87,7 +87,7 @@ export function AddInterpCurve(m: gs.IModel, points: [gs.IPoint, gs.IPoint...]) 
  * @returns New curve object if successful, none if unsuccessful or on error
  */
 export function ExtendCurveLength(m: gs.IModel, curve: gs.INurbsCurve, extrusion_type: number,
-                            extrusion_side: number,  ) gs.INurbsCurve {
+                            extrusion_side: number,  ): gs.INurbsCurve {
     throw new Error("Method not implemented");
 }
 
@@ -100,7 +100,7 @@ export function ExtendCurveLength(m: gs.IModel, curve: gs.INurbsCurve, extrusion
  * @param t Parameter to evaluate
  * @returns 3D point if successful, none if unsuccessful or on error
  */
-export function EvaluateCurve(m: gs.IModel, curve: gs.INurbsCurve, t: number) gs.IPoint {
+export function EvaluateCurve(m: gs.IModel, curve: gs.INurbsCurve, t: number): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
