@@ -1,20 +1,20 @@
 {
     "name": "gs-modelling",
+    "license": "GPL-3.0",
     "version": "0.1.1",
     "description": "A set of 3D modelling functions for gs-JSON.",
     "main": "index.ts",
     "scripts": {
         "test": "karma start ./karma.conf.ts",
-        "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs --theme minimal"
+        "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs     "
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/phtj/gs-modelling.git"
     },
     "author": "Patrick Janssen",
-    "license": "GPL3",
     "devDependencies": {
-
+        "gs-json": "git://github.com/phtj/gs-json.git",
         "@types/jasmine": "^2.6.3",
         "@types/node": "^8.0.53",
         "jasmine": "^2.8.0",
