@@ -1,5 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
-import * as arr from "../../libs/gs-json/utils/arr";
+import * as gs from "gs-json";
 
 /**
  * Adds a point to the model

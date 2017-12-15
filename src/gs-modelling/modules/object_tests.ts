@@ -1,4 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
+import * as gs from "gs-json";
 import * as test from "./object";
 
 export function test_MoveObject() {
@@ -12,6 +12,6 @@ export function test_MoveObject() {
     test.MoveObject(m, poly, [10,20,30]);
     if (poly.getPoints()[0][0][0].getPosition()[0] !== 10) {return false;} // TOFO flatten=true
     if (poly.getPoints()[0][0][0].getPosition()[1] !== 20) {return false;} // TOFO flatten=true
-    if (poly.getPoints()[0][0][0].getPosition()[2] !== 30) {return false;} // TOFO flatten=true            
+    if (poly.getPoints()[0][0][0].getPosition()[2] !== 30) {return false;} // TOFO flatten=true
     return true;
 }

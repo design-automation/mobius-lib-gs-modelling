@@ -1,5 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
-import * as arr from "../../libs/gs-json/utils/arr";
+import * as gs from "gs-json";
 
 /**
  * Creates one or more polygons from planar polylines.
@@ -65,7 +64,7 @@ function AddLoftPolymesh(m: gs.IModel, objs: [ gs.IPolyline, gs.IPolyline],
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
 function AddPolymeshPt(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
-                                              gs.IPoint ]): gs.IPolymesh {
+                       gs.IPoint ]): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 

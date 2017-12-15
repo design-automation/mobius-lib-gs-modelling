@@ -1,5 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
-import * as arr from "../../libs/gs-json/utils/arr";
+import * as gs from "gs-json";
 
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
@@ -15,23 +14,25 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
     }
     return obj;
 }
+
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
  */
 export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
-	if (objs === undefined) {return null;}
-	for(const obj of objs){
-	if (obj === undefined) {return null;}
-	const points: gs.IPoint[] = obj.getPointsArr();
-	for (const point of points) {
-	const xyz: number[] = point.getPosition();
-	point.setPosition([xyz[0] + translation[0],
-	xyz[1] + translation[1],
-	xyz[2] + translation[2]]);
-	}
-	}
-	return objs;
+    if (objs === undefined) {return null; }
+    for(const obj of objs) {
+        if (obj === undefined) {return null; }
+        const points: gs.IPoint[] = obj.getPointsArr();
+        for (const point of points) {
+            const xyz: number[] = point.getPosition();
+            point.setPosition([xyz[0] + translation[0],
+            xyz[1] + translation[1],
+            xyz[2] + translation[2]]);
+        }
+    }
+    return objs;
 }
+
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
  */
@@ -46,30 +47,32 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, scale: number[]): gs.IOb
     }
     return obj;
 }
+
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
  */
 export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], scale: number[]): gs.IObj[] {
-	if (objs === undefined) {return null;}
-	for(const obj of objs){
-    if (obj === undefined) {return null;}
-    const points: gs.IPoint[] = obj.getPointsArr();
-    for (const point of points) {
-        const xyz: number[] = point.getPosition();
-        point.setPosition([xyz[0] * scale[0],
-                           xyz[1] * scale[1],
-                           xyz[2] * scale[2]]);
+    if (objs === undefined) {return null;}
+    for(const obj of objs) {
+        if (obj === undefined) {return null; }
+        const points: gs.IPoint[] = obj.getPointsArr();
+        for (const point of points) {
+            const xyz: number[] = point.getPosition();
+            point.setPosition([xyz[0] * scale[0],
+                               xyz[1] * scale[1],
+                               xyz[2] * scale[2]]);
+        }
     }
-	}
-	return objs;
+    return objs;
 }
+
 /**
-* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
-* Rotation angle in Degrees around this axis (Z by default).
-*/
-export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?: number): gs.IObj{
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
+ * Rotation angle in Degrees around this axis (Z by default).
+ */
+export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?: number): gs.IObj {
 // Z axis
-	rotation = rotation * 360 / (2 * Math.PI) ;
+    rotation = rotation * 360 / (2 * Math.PI) ;
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
     for (const point of points) {
@@ -78,27 +81,28 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?
                            xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
                            xyz[2]]);
     }
-	return obj;
+    return obj;
 }
+
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
-* Rotation angle in Degrees around this axis (Z by default).
+ * Rotation angle in Degrees around this axis (Z by default).
  */
-export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number): gs.IObj[]{
-// Z axis
-	rotation = rotation * 360 / (2 * Math.PI) ;
-	if (objs === undefined) {return null;}
-	for(const obj of objs){
-	if (obj === undefined) {return null;}
-    const points: gs.IPoint[] = obj.getPointsArr();
-    for (const point of points) {
-        const xyz: number[] = point.getPosition();
-        point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
-                           xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
-                           xyz[2]]);
+export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number): gs.IObj[] {
+    // Z axis
+    rotation = rotation * 360 / (2 * Math.PI);
+    if (objs === undefined) {return null;}
+    for(const obj of objs) {
+        if (obj === undefined) {return null;}
+        const points: gs.IPoint[] = obj.getPointsArr();
+        for (const point of points) {
+            const xyz: number[] = point.getPosition();
+            point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
+                               xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
+                               xyz[2]]);
+        }
     }
-	}
-	return objs;
+    return objs;
 }
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject

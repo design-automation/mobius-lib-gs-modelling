@@ -1,5 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
-import * as arr from "../../libs/gs-json/utils/arr";
+import * as gs from "gs-json";
 
 // http://verbnurbs.com/
 // http://verbnurbs.com/docs/geom/NurbsCurve/
@@ -28,7 +27,7 @@ export function AddEllipse(m: gs.IModel, plane: string, radiusX: number, radiusY
  * @param segment_index Curve segment index if 'curve_id' identifies a polycurve (optional, omit?)
  * @returns 3D point of midpoint of curve if successful, none if unsuccessful or on error
  */
-export function CurveMidPoint(m: gs.IModel, curve: gs.INurbsCurve, segment_index: number ) {
+export function CurveMidPoint(m: gs.IModel, curve: gs.INurbsCurve, segment_index: number ): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -44,7 +43,7 @@ export function CurveMidPoint(m: gs.IModel, curve: gs.INurbsCurve, segment_index
  * @returns Length of curve as number if successful, none if unsuccessful or on error
  */
 export function CurveLength(m: gs.IModel, curve: gs.INurbsCurve, segment_index: number,
-                            sub_domain: [number,number] ) {
+                            sub_domain: [number, number] ): number {
     throw new Error("Method not implemented");
 }
 
@@ -56,11 +55,11 @@ export function CurveLength(m: gs.IModel, curve: gs.INurbsCurve, segment_index: 
  * @param curve Curve object
  * @param segments Number of segments
  * @param return_points Returns list of 3D division points if true. Returns list of parameters if false.
- * @returns Returns list of 3D division points if 'returns_points' is true. 
- Returns list of parameters if 'returns_points' false. None if unsuccessful or on error
+ * @returns Returns list of 3D division points if 'returns_points' is true.
+ * Returns list of parameters if 'returns_points' false. None if unsuccessful or on error
  */
 export function DivideCurve(m: gs.IModel, curve: gs.INurbsCurve, segments: number,
-                            return_points: boolean=true ) {
+                            return_points: boolean=true ): gs.INurbsCurve {
     throw new Error("Method not implemented");
 }
 
@@ -87,7 +86,7 @@ export function AddInterpCurve(m: gs.IModel, points: [gs.IPoint, gs.IPoint]): gs
  * @returns New curve object if successful, none if unsuccessful or on error
  */
 export function ExtendCurveLength(m: gs.IModel, curve: gs.INurbsCurve, extrusion_type: number,
-                            extrusion_side: number,  ): gs.INurbsCurve {
+                                  extrusion_side: number): gs.INurbsCurve {
     throw new Error("Method not implemented");
 }
 
@@ -113,6 +112,6 @@ export function EvaluateCurve(m: gs.IModel, curve: gs.INurbsCurve, t: number): g
  * @param point Test point
  * @returns Param on curve if successful, none if unsuccessful or on error
  */
-export function CurveClosestPoint(m: gs.IModel, curve: gs.INurbsCurve, point: gs.IPoint) {
+export function CurveClosestPoint(m: gs.IModel, curve: gs.INurbsCurve, point: gs.IPoint): gs.IPoint {
     throw new Error("Method not implemented");
 }
