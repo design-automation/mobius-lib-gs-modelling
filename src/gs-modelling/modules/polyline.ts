@@ -66,7 +66,7 @@ export function PolylineLength(m: gs.IModel, polyline: gs.IPolyline, segment_ind
  * @returns Returns list of 3D division points if 'returns_points' is true.
  * Returns list of parameters if 'returns_points' false. None if unsuccessful or on error
  */
-export function DivideCurve(m: gs.IModel, polyline: gs.IPolyline, segments: number,
+export function DividePolyline(m: gs.IModel, polyline: gs.IPolyline, segments: number,
                             return_points: boolean=true ) {
     throw new Error("Method not implemented");
 }

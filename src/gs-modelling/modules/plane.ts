@@ -9,7 +9,7 @@ import * as gs from "gs-json";
  * @param xaxis Vector to use define x-axis of plane (optional)
  * @returns New plane if successful, none if unsuccessful or on error
  */
-export function AddPoint(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
+export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
