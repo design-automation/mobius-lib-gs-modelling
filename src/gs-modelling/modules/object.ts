@@ -63,12 +63,46 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], scale: number[]): gs
 	}
 	return objs;
 }
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
+* Rotation angle in Degrees around this axis (Z by default).
+*/
+export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?: number): gs.IObj{
+// Z axis
+	rotation = rotation * 360 / (2 * Math.PI) ;
+    if (obj === undefined) {return null;}
+    const points: gs.IPoint[] = obj.getPointsArr();
+    for (const point of points) {
+        const xyz: number[] = point.getPosition();
+        point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
+                           xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
+                           xyz[2]]);
+    }
+	return obj;
+}
+/**
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
+* Rotation angle in Degrees around this axis (Z by default).
+ */
+export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number): gs.IObj[]{
+// Z axis
+	rotation = rotation * 360 / (2 * Math.PI) ;
+	if (objs === undefined) {return null;}
+	for(const obj of objs){
+	if (obj === undefined) {return null;}
+    const points: gs.IPoint[] = obj.getPointsArr();
+    for (const point of points) {
+        const xyz: number[] = point.getPosition();
+        point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
+                           xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
+                           xyz[2]]);
+    }
+	}
+	return objs;
+}
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
-
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
