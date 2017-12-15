@@ -16,6 +16,21 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
     return obj;
 }
 
+export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
+	if (objs === undefined) {return null;}
+	for(const obj of objs){
+	if (obj === undefined) {return null;}
+	const points: gs.IPoint[] = obj.getPointsArr();
+	for (const point of points) {
+	const xyz: number[] = point.getPosition();
+	point.setPosition([xyz[0] + translation[0],
+	xyz[1] + translation[1],
+	xyz[2] + translation[2]]);
+	}
+	}
+	return objs;
+}
+
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
