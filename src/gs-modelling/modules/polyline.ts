@@ -55,3 +55,72 @@ export function PolylineLength(m: gs.IModel, polyline: gs.IPolyline, segment_ind
                                sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
+
+/**
+ * Divide polyline into specified number of segments (not sure if applicable?)
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
+ * http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
+ * @param m Model
+ * @param polyline Polyline object
+ * @param segments Number of segments
+ * @param return_points Returns list of 3D division points if true. Returns list of parameters if false.
+ * @returns Returns list of 3D division points if 'returns_points' is true. 
+ Returns list of parameters if 'returns_points' false. None if unsuccessful or on error
+ */
+export function DivideCurve(m: gs.IModel, polyline: gs.IPolyline, segments: number,
+                            return_points: boolean=true ) {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Creates an interpolated polyline object (not sure if applicable?)
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddInterpCurve
+ * http://verbnurbs.com/docs/geom/NurbsCurve/#bypoints
+ * @param m Model
+ * @param points List of points to interpolate
+ * @returns New polyline object if successful, none if unsuccessful or on error
+ */
+export function AddInterpPolyline(m: gs.IModel, points: [gs.IPoint, gs.IPoint...]) gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Extends a non-closed polyline by specified distance
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
+ * @param m Model
+ * @param curve Polyline object
+ * @param extrusion_type 0 = line, 1 = smooth, 2 = arc (not sure if applicable?)
+ * @param extrusion_side 0 = start, 1 = end, 2 = both
+ * @param length Distance to extend
+ * @returns New polyline object if successful, none if unsuccessful or on error
+ */
+export function ExtendPolylineLength(m: gs.IModel, polyline: gs.IPolyline, extrusion_type: number,
+                            extrusion_side: number,  ) gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Evaluate a point on a polyline
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
+ * http://verbnurbs.com/docs/geom/ICurve/#point
+ * @param m Model
+ * @param polyline Polyline object
+ * @param t Parameter to evaluate
+ * @returns 3D point if successful, none if unsuccessful or on error
+ */
+export function EvaluatePolyline(m: gs.IModel, polyline: gs.IPolyline, t: number) gs.IPoint {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Finds closest point on polyline to test point
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-CurveClosestPoint
+ * http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
+ * @param m Model
+ * @param polyline Polyline object
+ * @param point Test point
+ * @returns Param on polyline if successful, none if unsuccessful or on error
+ */
+export function PolylineClosestPoint(m: gs.IModel, polyline: gs.IPolyline, point: gs.IPoint) {
+    throw new Error("Method not implemented");
+}
