@@ -1,1 +1,1 @@
-export *  from "./src/gs-modelling/modules/gs-modelling";
+export * from "./src/gs-modelling/modules/gs-modelling";
