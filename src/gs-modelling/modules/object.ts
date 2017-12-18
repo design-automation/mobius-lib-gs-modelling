@@ -33,31 +33,49 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
 }
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
+ * Scaling an object corresponds to modifying its underlying points according
+ * to an origin and a scale factor. The function is designed such as any origin point of
+ * the 3D space can be selected, even if the origin coincides with an object point.
  */
-export function ScaleObject(m: gs.IModel, obj: gs.IObj, scale: number[]): gs.IObj {
+export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale: number): gs.IObj {
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
     for (const point of points) {
         const xyz: number[] = point.getPosition();
-        point.setPosition([xyz[0] * scale[0],
-                           xyz[1] * scale[1],
-                           xyz[2] * scale[2]]);
+        const unit_vector: number[] = [];
+        if( !(Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) === 0) ){
+        unit_vector[0] = (xyz[0] - origin[0]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        unit_vector[1] = (xyz[1] - origin[1]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        unit_vector[2] = (xyz[2] - origin[2]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        point.setPosition([xyz[0] + scale * unit_vector[0],
+                           xyz[1] + scale * unit_vector[1],
+                           xyz[2] + scale * unit_vector[2]]);
+        }
     }
     return obj;
 }
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
+ * Scaling objects corresponds to modifying its underlying points according
+ * to an origin and a scale factor. The function is designed such as any origin point of
+ * the 3D space can be selected, even if the origin coincides with a point which belongs to the cloud of points
+ * induced by objects.
  */
-export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], scale: number[]): gs.IObj[] {
+export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[], scale: number): gs.IObj[] {
 	if (objs === undefined) {return null;}
 	for(const obj of objs){
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
     for (const point of points) {
         const xyz: number[] = point.getPosition();
-        point.setPosition([xyz[0] * scale[0],
-                           xyz[1] * scale[1],
-                           xyz[2] * scale[2]]);
+        const unit_vector: number[] = [];
+        if( !(Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) === 0) ){
+        unit_vector[0] = (xyz[0] - origin[0]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        unit_vector[1] = (xyz[1] - origin[1]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        unit_vector[2] = (xyz[2] - origin[2]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
+        point.setPosition([xyz[0] + scale * unit_vector[0],
+                           xyz[1] + scale * unit_vector[1],
+                           xyz[2] + scale * unit_vector[2]]);
     }
 	}
 	return objs;
