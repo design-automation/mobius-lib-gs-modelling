@@ -1,4 +1,4 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
+import * as gs from "gs-json";
 
 /**
  * Creates a plane from an origin point and normal direction vector

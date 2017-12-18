@@ -1,5 +1,4 @@
-// import * as gs from "gs-json";
-import * as gs from "../../libs/gs-json/utils/gs-json";
+import * as gs from "gs-json";
 
 /**
  * Creates one or more polygons from planar polylines.

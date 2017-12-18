@@ -1,6 +1,5 @@
-import * as gs from "../../libs/gs-json/utils/gs-json";
+import * as gs from "gs-json";
 import * as arr from "../../libs/gs-json/utils/arr";
-
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
  */
@@ -94,7 +93,7 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?
 	return obj;
 }
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
 * Rotation angle in Degrees around this axis (Z by default).
 * axis = 0 : Z axis
 * axis = 1 : X axis
@@ -126,18 +125,52 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,  
 	}
 	return objs;
 }
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
-
-
-
-
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
+* This function is called Mirror Object and corresponds to 
+*
+*/
+export function MirrorObject(m: gs.IModel, obj: gs.IObj): gs.IObj {
+  return obj;
+}
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
+* This function is called Mirror Object and corresponds to 
+*
+*/
+export function MirrorObjects(m: gs.IModel, objs: gs.IObj[]): gs.IObj[] {
+  return objs;
+}
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
 
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObject
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObjects
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObject
+* This function is a deletion function aimed at deleting a selected object from
+* a model's geometry. Two options are featured, namely keeping the points of the
+* selected object or unkeeping.
+*/
+export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): boolean{
+  if(obj === undefined){return false;}
+  if(obj.getID() === undefined){return false;}
+  m.getGeom().delObj(obj.getID(), keep_points);
+  return true;
+}
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObjects
+* This function is a deletion function aimed at deleting a set of selected objects from
+* a model's geometry. Two options are featured, namely keeping the points of the
+* selected object or unkeeping.
+*/
+export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolean): boolean{
+  if(objs === undefined){return false;} 
+      for(const obj of objs){
+          if(obj.getID() === undefined){return false;}
+          m.getGeom().delObj(obj.getID(), keep_points);
+                              }
+  return true;
+}
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObjects
