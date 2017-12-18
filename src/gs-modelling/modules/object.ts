@@ -80,6 +80,7 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[], sc
 	}
 	return objs;
 }
+}
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
 * Rotation angle in Degrees around this axis (Z by default).
@@ -189,12 +190,37 @@ export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolea
                               }
   return true;
 }
-
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObjects
 
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-IsObjectInGroup
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ObjectGroups
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-IsObjectInGroup
+*
+*/
+export function IsObjectInGroup(m: gs.IModel, obj: gs.IObj, group: gs.IGroup): boolean {
+  if(obj === undefined){return false;}
+  if(obj.getID() === undefined){throw new Error("Undefined object");}
+  return group.hasObj(obj.getID()) ;
+}
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ObjectGroups
+* If an object is present in all groups, the function returns True.
+*/
+export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): boolean {
+  if(obj === undefined){return false;}
+  if(obj.getID() === undefined){throw new Error("Undefined object");}
+  const objGps: boolean = true ;
+  for(const group of groups){
+  if(!(objGps === true)){return false}
+  objGps === group.hasObj(obj.getID());
+                            }
+  return true;
+}
+
+
+
+
+
 
 // =================================================================================================
 // To be added at a later time
