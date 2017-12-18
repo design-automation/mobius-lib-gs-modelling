@@ -190,21 +190,44 @@ export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolea
                               }
   return true;
 }
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
+* Copies object from one location to another, or in-place
+@ parameters Object to copy and optional translation vector
+@ return Object ID if successfull
+*/
+export function CopyObject(m: gs.IModel, obj: gs.IObj, translation?: number[]): number {
+// To implement
+  if(obj.getID() === undefined){throw new Error("Undefined object");}
+  return obj.getID();
+}
+/**
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObjects
-
+* Copies a set of objects from one location to another, or in-place
+@ parameters Object to copy and optional translation vector
+@ return Object IDs if successfull
+*/
+export function CopyObjects(m: gs.IModel, objs: gs.IObj[], translation?: number[]): number[] {
+  // To implement
+  if(objs === undefined){return [];}
+  const IDs: number[] = [];
+  for(const obj of objs){
+  if(obj.getID() === undefined){throw new Error("Undefined object");}
+  IDs.push(obj.getID()) }
+  return IDs;
+}
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-IsObjectInGroup
-*
+* This function returns True if an object is recorded in a specified group.
 */
 export function IsObjectInGroup(m: gs.IModel, obj: gs.IObj, group: gs.IGroup): boolean {
   if(obj === undefined){return false;}
   if(obj.getID() === undefined){throw new Error("Undefined object");}
-  return group.hasObj(obj.getID()) ;
+  return group.hasObj(obj.getID());
 }
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ObjectGroups
-* If an object is present in all groups, the function returns True.
+* This function returns True if an object is present in a set of specified group.
 */
 export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): boolean {
   if(obj === undefined){return false;}
@@ -216,11 +239,6 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
                             }
   return true;
 }
-
-
-
-
-
 
 // =================================================================================================
 // To be added at a later time
