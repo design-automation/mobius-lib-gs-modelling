@@ -2,6 +2,9 @@ import * as gs from "gs-json";
 import * as arr from "../../libs/gs-json/utils/arr";
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
+ * Moves a single object
+ @ parameters Object and Translation Vector
+ @ Return Translated Object if successfull
  */
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): gs.IObj {
     if (obj === undefined) {return null;}
@@ -16,6 +19,9 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
 }
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
+ * Moves a set of objects
+ @ parameters Objects and Translation Vector
+ @ Return Translated Objects if successfull
  */
 export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
 	if (objs === undefined) {return null;}
@@ -146,21 +152,39 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,  
 }
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
-* This function is called Mirror Object and corresponds to 
-*
+* Mirrors a single object 
+@param Object, Start Point of the the Mirror Plane, End Point of the Mirror Plane
+@return Mirrored object if successful
 */
-export function MirrorObject(m: gs.IModel, obj: gs.IObj): gs.IObj {
+export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: number[], end_plane_point?: number[], plane?: gs.IPlane): gs.IObj {
+const unit_norm: number[] = [];
+if( !(Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) + Math.pow(end_plane_point[1] - start_plane_point[1],2) + Math.pow(end_plane_point[2] - start_plane_point[2],2) ) === 0) ){
+unit_norm[0] = (end_plane_point[0] - start_plane_point[0]) / Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) + Math.pow(end_plane_point[1] - start_plane_point[1],2) + Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
+unit_norm[1] = (end_plane_point[1] - start_plane_point[1]) / Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) + Math.pow(end_plane_point[1] - start_plane_point[1],2) + Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
+unit_norm[2] = (end_plane_point[2] - start_plane_point[2]) / Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) + Math.pow(end_plane_point[1] - start_plane_point[1],2) + Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
+if(gs.Arr.equal(unit_norm,[])){throw new Error("Start point and End point must be different to define a Mirror plan");}
+// Implementation to be continued;
+
+    const points: gs.IPoint[] = obj.getPointsArr();
+    if(plane === undefined){ } // If Plane not specified, it needs to be created.
+    for (const point of points) {
+      const xyz: number[] = point.getPosition();    
+      point.setPosition([ xyz[0] + unit_norm[0] * DistanceToPlane(m, xyz, plane) * 2 ,
+                          xyz[1] + unit_norm[1] * DistanceToPlane(m, xyz, plane) * 2 ,
+                          xyz[2] + unit_norm[2] * DistanceToPlane(m, xyz, plane) * 2 ])
+}
   return obj;
+}
 }
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
-* This function is called Mirror Object and corresponds to 
-*
+* Mirrors a set of objects
+@param Objects, Start Point of the the Mirror Plane, End Point of the Mirror Plane
+@return Mirrored object if successful
 */
 export function MirrorObjects(m: gs.IModel, objs: gs.IObj[]): gs.IObj[] {
   return objs;
 }
-
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
 
@@ -239,6 +263,20 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
                             }
   return true;
 }
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#plane
+* Returns the distance from a 3D point to a plane
+@param A plane and a 3 dimension point
+@return The distance if successful, otherwise None
+*/
+export function DistanceToPlane(m: gs.IModel, xyz: number[], plane: gs.IPlane):number {
+const distance: number = undefined;
+// To Be Implemented
+return distance;
+}
+
+
+
 
 // =================================================================================================
 // To be added at a later time
