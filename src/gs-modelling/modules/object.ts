@@ -182,7 +182,13 @@ if(gs.Arr.equal(unit_norm,[])){throw new Error("Start point and End point must b
 @param Objects, Start Point of the the Mirror Plane, End Point of the Mirror Plane
 @return Mirrored object if successful
 */
-export function MirrorObjects(m: gs.IModel, objs: gs.IObj[]): gs.IObj[] {
+export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], start_plane_point?: number[], end_plane_point?: number[], plane?: gs.IPlane): gs.IObj[] {
+if(objs === undefined){throw new Error("Undefined objects");}
+// If the plane is undefined, it needs to be created from start_plane_point and end_plane_point.
+// if(plane === undefined){ const plane: gs.IPlane = new gs.Plane()}
+  for(const obj of objs){
+        MirrorObject(m, obj, undefined, undefined, plane);
+  }
   return objs;
 }
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
