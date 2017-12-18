@@ -191,9 +191,39 @@ if(objs === undefined){throw new Error("Undefined objects");}
   }
   return objs;
 }
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
-// http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
-
+/**
+*
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
+* Moves, scales, or rotates an object given a rotation angle, an origin point, scaling factor and translation vector
+* Rotation angle in Degrees around this axis (Z by default).
+* axis = 0 : Z axis
+* axis = 1 : X axis
+* axis = 2 : Y axis
+*/
+export function TransformObject(m: gs.IModel, obj: gs.IObj, scale:number, origin: number[], translation:number[], rotation: number, axis?: number): gs.IObj{
+if(axis === undefined){const axis:number = 0;}
+RotateObject(m, obj, rotation, axis);
+ScaleObject(m, obj, origin, scale);
+MoveObject(m, obj, translation);
+return obj;
+}
+/**
+* http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
+* Moves, scales, or rotates a set of objects given a rotation angle, an origin point, scaling factor and translation vector
+* Rotation angle in Degrees around this axis (Z by default).
+* axis = 0 : Z axis
+* axis = 1 : X axis
+* axis = 2 : Y axis
+*/
+export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale:number, origin: number[], translation:number[], rotation: number, axis?: number): gs.IObj[]{
+if(axis === undefined){const axis:number = 0;}
+for(const obj of objs){
+RotateObject(m, obj, rotation, axis);
+ScaleObject(m, obj, origin, scale);
+MoveObject(m, obj, translation);
+}
+return objs;
+}
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObject
 * This function is a deletion function aimed at deleting a selected object from
