@@ -126,9 +126,12 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,  
 	}
 	return objs;
 }
-
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
+
+
+
+
 
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 // http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects

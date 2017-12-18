@@ -1,4 +1,5 @@
-import * as gs from "gs-json";
+//import * as gs from "gs-json";
+import * as gs from "../../libs/gs-json/utils/gs-json";
 
 // http://verbnurbs.com/
 // http://verbnurbs.com/docs/geom/NurbsCurve/
