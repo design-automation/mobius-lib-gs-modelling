@@ -1,50 +1,51 @@
 {
-  "name": "gs-modelling",
-  "license": "GPL-3.0",
-  "version": "0.1.0",
-  "description": "A set of 3D modelling functions for gs-JSON.",
-  "types": "index.ts",
-  "scripts": {
-    "test": "karma start ./karma.conf.ts",
-    "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/phtj/gs-modelling.git"
-  },
-  "author": "Patrick Janssen",
-  "dependencies": {
-    "gs-json": "git://github.com/phtj/gs-json.git"
-  },
-  "devDependencies": {
-    "@types/jasmine": "^2.6.3",
-    "@types/node": "^8.0.53",
-    "jasmine": "^2.8.0",
-    "jasmine-core": "^2.8.0",
-    "karma": "^1.7.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-cli": "^1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.3.0",
-    "karma-html-reporter": "^0.2.7",
-    "karma-jasmine": "^1.1.1",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-typescript": "^3.0.8",
-    "karma-typescript-preprocessor": "^0.3.1",
-    "typedoc": "^0.9.0",
-    "typescript": "^2.6.1"
-  },
-  "bugs": {
-    "url": "https://github.com/phtj/gs-modelling/issues"
-  },
-  "homepage": "https://github.com/phtj/gs-modelling#readme",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "keywords": [
-    "3d",
-    "modelling",
-    "geometry",
-    "semantics"
-  ]
+    "name": "gs-modelling",
+    "license": "GPL-3.0",
+    "version": "0.1.0",
+    "author": "Patrick Janssen",
+    "description": "A set of 3D modelling functions for gs-JSON.",
+    "homepage": "https://github.com/phtj/gs-modelling#readme",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "karma start ./karma.conf.ts",
+        "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/phtj/gs-modelling.git"
+    },
+    "dependencies": {
+        "gs-json": "git://github.com/phtj/gs-json.git"
+    },
+    "devDependencies": {
+        "@types/jasmine": "^2.6.3",
+        "@types/node": "^8.0.53",
+        "jasmine": "^2.8.0",
+        "jasmine-core": "^2.8.0",
+        "karma": "^1.7.1",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-cli": "^1.0.1",
+        "karma-coverage-istanbul-reporter": "^1.3.0",
+        "karma-html-reporter": "^0.2.7",
+        "karma-jasmine": "^1.1.1",
+        "karma-jasmine-html-reporter": "^0.2.2",
+        "karma-typescript": "^3.0.8",
+        "karma-typescript-es6-transform": "^1.0.2",
+        "karma-typescript-preprocessor": "^0.3.1",
+        "typedoc": "^0.9.0",
+        "typescript": "^2.6.1"
+    },
+    "bugs": {
+        "url": "https://github.com/phtj/gs-modelling/issues"
+    },
+    "keywords": [
+        "3d",
+        "modelling",
+        "geometry",
+        "semantics"
+    ]
 }
