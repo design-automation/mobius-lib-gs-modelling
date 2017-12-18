@@ -11,6 +11,8 @@
         "doc": "docs"
     },
     "scripts": {
+        "prepare": "npm run build",
+        "build": "tsc",
         "test": "karma start ./karma.conf.ts",
         "docs": "typedoc --out  ./docs ./src/gs-modelling/modules --module commonjs"
     },

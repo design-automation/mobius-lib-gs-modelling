@@ -1,5 +1,4 @@
 import * as gs from "gs-json";
-import * as arr from "../../libs/gs-json/utils/arr";
 /**
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
  * Moves a single object
@@ -99,7 +98,7 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
     for (const point of points) {
-        const xyz: number[] = point.getPosition();        
+        const xyz: number[] = point.getPosition();
         switch(axis){
                       case 0: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
                                                  xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
@@ -109,7 +108,7 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?
                                                                  xyz[1] * Math.sin(rotation) + xyz[2] * Math.cos(rotation) ]);
                       case 2: point.setPosition([xyz[0] * Math.cos(rotation)                 + xyz[2] * Math.sin(rotation),
                                                                                xyz[1],
-                                                 - xyz[0] * Math.sin(rotation)               + xyz[2] * Math.cos(rotation) ]);                                        
+                                                 - xyz[0] * Math.sin(rotation)               + xyz[2] * Math.cos(rotation) ]);
                       default: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
                                                    xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
                                                                                                                xyz[2]]);
@@ -141,18 +140,18 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,  
                                                                  xyz[1] * Math.sin(rotation) + xyz[2] * Math.cos(rotation) ]);
                       case 2: point.setPosition([xyz[0] * Math.cos(rotation)                 + xyz[2] * Math.sin(rotation),
                                                                                xyz[1],
-                                                 - xyz[0] * Math.sin(rotation)               + xyz[2] * Math.cos(rotation) ]);                                        
+                                                 - xyz[0] * Math.sin(rotation)               + xyz[2] * Math.cos(rotation) ]);
                       default: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
                                                    xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
                                                                                                                xyz[2]]);
-                    }   
+                    }
     }
 	}
 	return objs;
 }
 /**
 * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
-* Mirrors a single object 
+* Mirrors a single object
 @param Object, Start Point of the the Mirror Plane, End Point of the Mirror Plane
 @return Mirrored object if successful
 */
@@ -168,7 +167,7 @@ if(gs.Arr.equal(unit_norm,[])){throw new Error("Start point and End point must b
     const points: gs.IPoint[] = obj.getPointsArr();
     if(plane === undefined){ } // If Plane not specified, it needs to be created.
     for (const point of points) {
-      const xyz: number[] = point.getPosition();    
+      const xyz: number[] = point.getPosition();
       point.setPosition([ xyz[0] + unit_norm[0] * DistanceToPlane(m, xyz, plane) * 2 ,
                           xyz[1] + unit_norm[1] * DistanceToPlane(m, xyz, plane) * 2 ,
                           xyz[2] + unit_norm[2] * DistanceToPlane(m, xyz, plane) * 2 ])
@@ -243,7 +242,7 @@ export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): 
 * selected object or unkeeping.
 */
 export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolean): boolean{
-  if(objs === undefined){return false;} 
+  if(objs === undefined){return false;}
       for(const obj of objs){
           if(obj.getID() === undefined){return false;}
           m.getGeom().delObj(obj.getID(), keep_points);
