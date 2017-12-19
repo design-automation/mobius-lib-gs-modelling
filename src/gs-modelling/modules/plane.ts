@@ -11,6 +11,9 @@ import * as gs from "gs-json";
  */
 
 export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
+	
+	// m.getGeom().addPlane();
+
 
     throw new Error("Method not implemented");
 }

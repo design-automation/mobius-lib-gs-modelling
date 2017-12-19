@@ -1,6 +1,6 @@
 import * as gs from "gs-json";
 /**
-*
+* Creates a Model
 */
 export function CreateModel(): gs.IModel {
 
