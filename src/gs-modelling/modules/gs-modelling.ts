@@ -1,7 +1,23 @@
+import * as model from "./model";
 import * as object from "./object";
+import * as plane from "./plane";
+import * as ray from "./ray";
+import * as point from "./point";
+import * as pline from "./pline";
+import * as pcurve from "./pcurve";
+import * as pmesh from "./pmesh";
+import * as topo from "./topo";
+import * as attrib from "./attrib";
+import * as group from "./group";
+
+export {model};
 export {object};
-export * from "./plane";
-export * from "./points";
-export * from "./polyline";
-export * from "./polymesh";
-export * from "./nurbscurve";
+export {plane};
+export {ray};
+export {point};
+export {pline};
+export {pcurve};
+export {pmesh};
+export {topo};
+export {attrib};
+export {group};
