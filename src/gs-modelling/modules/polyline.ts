@@ -67,7 +67,7 @@ export function PolylineLength(m: gs.IModel, polyline: gs.IPolyline, segment_ind
  * Returns list of parameters if 'returns_points' false. None if unsuccessful or on error
  */
 export function DividePolyline(m: gs.IModel, polyline: gs.IPolyline, segments: number,
-                            return_points: boolean=true ) {
+                               return_points: boolean=true ) {
     throw new Error("Method not implemented");
 }
 

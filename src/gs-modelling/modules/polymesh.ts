@@ -9,7 +9,7 @@ import * as gs from "gs-json";
  * @returns List of polygons created if successful, none if unsuccessful or on error
  */
 
-function AddPlanarPolymesh(m: gs.IModel, objs: gs.IPolyline ): gs.IPolymesh {
+function ByPolyline(m: gs.IModel, polyline: gs.IPolyline ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -22,7 +22,7 @@ function AddPlanarPolymesh(m: gs.IModel, objs: gs.IPolyline ): gs.IPolymesh {
  * @param cap Extrusion capped at both ends if true. Open if false.
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function ExtrudePolymesh(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline,
+function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline,
                          cap: boolean=true ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
@@ -38,7 +38,7 @@ function ExtrudePolymesh(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPol
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
 function BooleanDifference2D(m: gs.IModel, input0: gs.IPolymesh, input1: gs.IPolymesh,
-                             plane: string, delete_input: boolean=true ): gs.IPolymesh {
+                             plane: gs.IPlane, delete_input: boolean=true ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -51,7 +51,7 @@ function BooleanDifference2D(m: gs.IModel, input0: gs.IPolymesh, input1: gs.IPol
  * @param closed Closes the loft back to the first polyline if true. (optional)
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function AddLoftPolymesh(m: gs.IModel, objs: [ gs.IPolyline, gs.IPolyline],
+function Loft(m: gs.IModel, objs: gs.IPolyline[],
                          closed: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
@@ -63,7 +63,7 @@ function AddLoftPolymesh(m: gs.IModel, objs: [ gs.IPolyline, gs.IPolyline],
  * @param points List of 3 or 4 corner points
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function AddPolymeshPt(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
+function ByPoints(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
                        gs.IPoint ]): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
@@ -77,7 +77,7 @@ function AddPolymeshPt(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
  * @param cap Caps end with a flat surface if true.
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function AddPipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number],
+function Pipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number],
                  cap: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }

@@ -10,6 +10,7 @@
         "prefer-const": true,
         "whitespace": true,
         "semicolon": true,
+        "indent": [true, "spaces", 4],
         "no-trailing-whitespace": true,
         "no-irregular-whitespace": true,
         "no-unused-variable": true,
