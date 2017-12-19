@@ -21,6 +21,7 @@
         "url": "git+https://github.com/phtj/gs-modelling.git"
     },
     "dependencies": {
+        "@types/mathjs": "0.0.35",
         "gs-json": "git://github.com/phtj/gs-json.git"
     },
     "devDependencies": {

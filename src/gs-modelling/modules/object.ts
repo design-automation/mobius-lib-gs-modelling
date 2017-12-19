@@ -1,10 +1,12 @@
 import * as gs from "gs-json";
+import * as mathjs from "mathjs";
+
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
  * Moves a single object
  * @ parameters Object and Translation Vector
  * @ Return Translated Object if successfull
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): gs.IObj {
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
@@ -18,11 +20,11 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
  * Moves a set of objects
  * @ parameters Objects and Translation Vector
  * @ Return Translated Objects if successfull
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObjects
 export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
     if (objs === undefined) {return null;}
     for(const obj of objs) {
@@ -39,11 +41,11 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
  * Scaling an object corresponds to modifying its underlying points according
  * to an origin and a scale factor. The function is designed such as any origin point of
  * the 3D space can be selected, even if the origin coincides with an object point.
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
 export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale: number): gs.IObj {
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
@@ -68,13 +70,13 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
  * Scaling objects corresponds to modifying its underlying points according
  * to an origin and a scale factor. The function is designed such as any origin point of
  * the 3D space can be selected, even if the origin coincides with a point which belongs to the
  * cloud of points
  * induced by objects.
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
 export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
                              scale: number): gs.IObj[] {
     if (objs === undefined) {return null;}
@@ -102,12 +104,12 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
  * Rotation angle in Degrees around this axis (Z by default).
  * axis = 0 : Z axis
  * axis = 1 : X axis
  * axis = 2 : Y axis
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
 export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?: number): gs.IObj {
     rotation = rotation * 360 / (2 * Math.PI) ;
     if (obj === undefined) {return null;}
@@ -138,12 +140,12 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
  * Rotation angle in Degrees around this axis (Z by default).
  * axis = 0 : Z axis
  * axis = 1 : X axis
  * axis = 2 : Y axis
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
 export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,
                               axis?: number): gs.IObj[] {
     rotation = rotation * 360 / (2 * Math.PI) ;
@@ -174,11 +176,11 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
  * Mirrors a single object
  * @param Object, Start Point of the the Mirror Plane, End Point of the Mirror Plane
  * @return Mirrored object if successful
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
 export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: number[],
                              end_plane_point?: number[], plane?: gs.IPlane): gs.IObj {
     const unit_norm: number[] = [];
@@ -216,11 +218,11 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: num
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
  * Mirrors a set of objects
  * @param Objects, Start Point of the the Mirror Plane, End Point of the Mirror Plane
  * @return Mirrored object if successful
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
 export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], start_plane_point?: number[],
                               end_plane_point?: number[], plane?: gs.IPlane): gs.IObj[] {
     if(objs === undefined) {throw new Error("Undefined objects");}
@@ -234,13 +236,13 @@ export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], start_plane_point?:
 
 /**
  *
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
  * Moves, scales, or rotates an object given a rotation angle, an origin point, scaling factor and translation vector
  * Rotation angle in Degrees around this axis (Z by default).
  * axis = 0 : Z axis
  * axis = 1 : X axis
  * axis = 2 : Y axis
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObject
 export function TransformObject(m: gs.IModel, obj: gs.IObj, scale: number, origin: number[],
                                 translation: number[], rotation: number, axis?: number): gs.IObj {
     if(axis === undefined) {axis = 0;}
@@ -251,7 +253,6 @@ export function TransformObject(m: gs.IModel, obj: gs.IObj, scale: number, origi
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
  * Moves, scales, or rotates a set of objects given a rotation angle, an origin point,
  * scaling factor and translation vector
  * Rotation angle in Degrees around this axis (Z by default).
@@ -259,6 +260,7 @@ export function TransformObject(m: gs.IModel, obj: gs.IObj, scale: number, origi
  * axis = 1 : X axis
  * axis = 2 : Y axis
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
 export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale: number, origin: number[],
                                  translation: number[], rotation: number, axis?: number): gs.IObj[] {
     if(axis === undefined) {axis = 0;}
@@ -271,11 +273,11 @@ export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale: number, o
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObject
  * This function is a deletion function aimed at deleting a selected object from
  * a model's geometry. Two options are featured, namely keeping the points of the
  * selected object or unkeeping.
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObject
 export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): boolean {
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {return false;}
@@ -284,11 +286,11 @@ export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): 
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObjects
  * This function is a deletion function aimed at deleting a set of selected objects from
  * a model's geometry. Two options are featured, namely keeping the points of the
  * selected object or unkeeping.
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObjects
 export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolean): boolean {
     if(objs === undefined) {return false;}
     for(const obj of objs) {
@@ -299,11 +301,11 @@ export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolea
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
  * Copies object from one location to another, or in-place
  * @ parameters Object to copy and optional translation vector
  * @ return Object ID if successfull
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObject
 export function CopyObject(m: gs.IModel, obj: gs.IObj, translation?: number[]): number {
 // To implement
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
@@ -311,11 +313,11 @@ export function CopyObject(m: gs.IModel, obj: gs.IObj, translation?: number[]): 
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObjects
  * Copies a set of objects from one location to another, or in-place
  * @ parameters Object to copy and optional translation vector
  * @ return Object IDs if successfull
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-CopyObjects
 export function CopyObjects(m: gs.IModel, objs: gs.IObj[], translation?: number[]): number[] {
     // To implement
     if(objs === undefined) {return [];}
@@ -338,9 +340,9 @@ export function IsObjectInGroup(m: gs.IModel, obj: gs.IObj, group: gs.IGroup): b
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ObjectGroups
  * This function returns True if an object is present in a set of specified group.
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ObjectGroups
 export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): boolean {
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
@@ -353,11 +355,11 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
 }
 
 /**
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#plane
  * Returns the distance from a 3D point to a plane
  * @param A plane and a 3 dimension point
  * @return The distance if successful, otherwise None
  */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#plane
 export function DistanceToPlane(m: gs.IModel, xyz: number[], plane: gs.IPlane): number {
     const distance: number = undefined;
     // To Be Implemented
