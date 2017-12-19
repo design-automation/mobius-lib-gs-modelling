@@ -9,10 +9,10 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
     for (const point of points) {
-            const xyz: number[] = point.getPosition();
-            point.setPosition([xyz[0] + translation[0],
-                               xyz[1] + translation[1],
-                               xyz[2] + translation[2]]);
+        const xyz: number[] = point.getPosition();
+        point.setPosition([xyz[0] + translation[0],
+                           xyz[1] + translation[1],
+                           xyz[2] + translation[2]]);
     }
     return obj;
 }
@@ -50,7 +50,8 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
     for (const point of points) {
         const xyz: number[] = point.getPosition();
         const unit_vector: number[] = [];
-        if( !(Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) +
+        if( !(
+            Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) +
             Math.pow(xyz[2] - origin[2],2) ) === 0) ) {
         unit_vector[0] = (xyz[0] - origin[0]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
             Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
@@ -181,7 +182,8 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,
 export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: number[],
                              end_plane_point?: number[], plane?: gs.IPlane): gs.IObj {
     const unit_norm: number[] = [];
-    if( !(Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) +
+    if( !(
+        Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) +
         Math.pow(end_plane_point[1] - start_plane_point[1],2) +
         Math.pow(end_plane_point[2] - start_plane_point[2],2) ) === 0) ) {
     unit_norm[0] = (end_plane_point[0] - start_plane_point[0]) / Math.sqrt(
