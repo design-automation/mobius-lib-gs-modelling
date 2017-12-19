@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @returns Polyline object
  */
 export function AddLine(m: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    throw new Error("Method not implemented");
+    return m.getGeom().addPolyline([start, end], false);
 }
 
 /**
@@ -22,7 +22,7 @@ export function AddLine(m: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPol
  * @returns Polyline object
  */
 export function AddPolyline(m: gs.IModel, points: gs.IPoint[]): gs.IPolyline {
-    throw new Error("Method not implemented");
+    return m.getGeom().addPolyline(points, false);
 }
 
 /**

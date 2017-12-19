@@ -8,7 +8,7 @@ import * as gs from "gs-json";
  * @returns Point if successful, none if unsuccessful or on error
  */
 export function AddPoint(m: gs.IModel, point: gs.IPoint) {
-    throw new Error("Method not implemented");
+	m.getGeom().addPoint(point.getPosition());
 }
 
 /**
@@ -19,5 +19,5 @@ export function AddPoint(m: gs.IModel, point: gs.IPoint) {
  * @returns List of x, y and z coordinates of point if successful, none if unsuccessful or on error
  */
 export function PointCoordinates(m: gs.IModel, point: gs.IPoint) {
-    throw new Error("Method not implemented");
+	m.getGeom().getPointPosition(point.getID());
 }
