@@ -38,14 +38,11 @@ export function addLine(m: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPol
 export function addCircle(m: gs.IModel, plane: gs.IPlane, rad: number, segs: number):
                           gs.IPolyline {
     const angle: number = (Math.PI * 2) / segs;
-    const xyz_list: number[][] = [];
+    let xyz_list: number[][] = [];
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
-
-    // TODO Trasform the points using a matrix multiplication
-    // xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.origin, plane.xaxis, plane.yaxis);
-
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
     return m.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
 }
 
