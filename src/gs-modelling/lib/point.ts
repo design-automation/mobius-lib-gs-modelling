@@ -35,3 +35,5 @@ export function copy(m: gs.IModel, point: gs.IPoint) {
 export function getXYZ(point: gs.IPoint) {
     point.getPosition();
 }
+
+//getPointsFromObj()

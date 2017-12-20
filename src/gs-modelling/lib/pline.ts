@@ -59,27 +59,12 @@ export function addCircle(m: gs.IModel, plane: gs.IPlane, rad: number, segs: num
 export function addEllipse(m: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y: number,
                            segs: number): gs.IPolyline {
     const angle: number = (Math.PI * 2) / segs;
-    const xyz_list: number[][] = [];
+    let xyz_list: number[][] = [];
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
-
-    // TODO Trasform the points using a matrix multiplication
-    // xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.origin, plane.xaxis, plane.yaxis);
-
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
     return m.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
-}
-
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
-//  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
-/**
- * Divide polyline into specified number of segments.
- * @param m Model to add to.
- * @param pline Polyline object
- * @param segs Number of segments
- */
-export function divide(pline: gs.IPolyline, segs: number): void {
-    throw new Error("Method not implemented");
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
@@ -90,8 +75,21 @@ export function divide(pline: gs.IPolyline, segs: number): void {
  * @param length Distance to extend
  * @returns New polyline object if successful, none if unsuccessful or on error
  */
-export function extend(pline: gs.IPolyline, extrusion_side: number): gs.IPolyline {
-    throw new Error("Method not implemented");
+export function extend(pline: gs.IPolyline, extrusion_side: number, length: number): void {
+    const points: gs.IPoint[] = pline.getPointsArr();
+    switch (extrusion_side) {
+        case 0: case 2:
+            let pos0: number[] = utils.extendLine(
+                points[1].getPosition(), points[0].getPosition(), length);
+            points[0].setPosition(pos0);
+            break;
+        case 1: case 2:
+            const num_points: number = points.length;
+            let pos1: number[] = utils.extendLine(
+                points[num_points - 2].getPosition(), points[num_points - 1].getPosition(), length);
+            points[num_points - 1].setPosition(pos1);
+            break;
+    }
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
@@ -116,6 +114,18 @@ export function evaluate(pline: gs.IPolyline, t: number): gs.IPoint {
  * @returns Param on polyline if successful, none if unsuccessful or on error
  */
 export function closestPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
+    throw new Error("Method not implemented");
+}
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
+//  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
+/**
+ * Divide polyline into specified number of segments.
+ * @param m Model to add to.
+ * @param pline Polyline object
+ * @param segs Number of segments
+ */
+export function divide(pline: gs.IPolyline, segs: number): void {
     throw new Error("Method not implemented");
 }
 
