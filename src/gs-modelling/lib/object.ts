@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as mathjs from "mathjs";
+import * as utils from "./utils";
 
 /**
  * Moves a single object
@@ -349,7 +349,7 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
     const objGps: boolean = true ;
     for(const group of groups) {
         if(!(objGps === true)) {return false;}
-        objGps === group.hasObj(obj.getID()); //TODO ???
+        objGps === group.hasObj(obj.getID()); // TODO ???
     }
     return true;
 }

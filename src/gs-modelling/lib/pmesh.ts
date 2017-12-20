@@ -22,8 +22,7 @@ function ByPolyline(m: gs.IModel, polyline: gs.IPolyline ): gs.IPolymesh {
  * @param cap Extrusion capped at both ends if true. Open if false.
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline,
-                         cap: boolean=true ): gs.IPolymesh {
+function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline, cap: boolean=true ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -51,8 +50,7 @@ function BooleanDifference2D(m: gs.IModel, input0: gs.IPolymesh, input1: gs.IPol
  * @param closed Closes the loft back to the first polyline if true. (optional)
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function Loft(m: gs.IModel, objs: gs.IPolyline[],
-                         closed: boolean=false ): gs.IPolymesh {
+function Loft(m: gs.IModel, objs: gs.IPolyline[], closed: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -77,7 +75,6 @@ function ByPoints(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
  * @param cap Caps end with a flat surface if true.
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function Pipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number],
-                 cap: boolean=false ): gs.IPolymesh {
+function Pipe(m: gs.IModel, polyline: gs.IPolyline, radius: [number, number], cap: boolean=false ): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
