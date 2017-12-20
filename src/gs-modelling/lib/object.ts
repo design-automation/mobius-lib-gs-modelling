@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as mathjs from "mathjs";
+import * as utils from "./utils";
 
 /**
  * Moves a single object
@@ -206,14 +206,14 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: num
     // Implementation to be continued;
 
     const points: gs.IPoint[] = obj.getPointsArr();
-    if(plane === undefined) { } // If Plane not specified, it needs to be created.
-    for (const point of points) {
+    if(plane === undefined) { throw new Error("Undefined plane");
+        for(const point of points) {
                 const xyz: number[] = point.getPosition();
                 point.setPosition([ xyz[0] + unit_norm[0] * DistanceToPlane(m, xyz, plane) * 2 ,
                                     xyz[1] + unit_norm[1] * DistanceToPlane(m, xyz, plane) * 2 ,
                                     xyz[2] + unit_norm[2] * DistanceToPlane(m, xyz, plane) * 2 ]);
     }
-    return obj;
+        return obj;
     }
 }
 
@@ -349,7 +349,7 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
     const objGps: boolean = true ;
     for(const group of groups) {
         if(!(objGps === true)) {return false;}
-        objGps === group.hasObj(obj.getID()); //TODO ???
+        objGps === group.hasObj(obj.getID()); // TODO ???
     }
     return true;
 }

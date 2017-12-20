@@ -9,7 +9,6 @@ import * as gs from "gs-json";
  * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
  * @returns Length of polyline as number if successful, none if unsuccessful or on error
  */
-export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number,
-                               sub_domain: [number,number] ) {
+export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }

@@ -6,10 +6,10 @@ import * as three from "three";
 export function transfromXYZ(xyz_list: number[][],
                              from_origin: number[], from_vectors: number[][],
                              to_origin: number[],   to_vectors: number[][]): number[][] {
-
+    // mathjs.matrix
     throw new Error("Method not implemented");
 
-    //matrix multiplication
+    // matrix multiplication
 
 }
 
