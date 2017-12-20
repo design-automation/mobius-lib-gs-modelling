@@ -1,5 +1,5 @@
 import {} from "jasmine";
-import * as tests from "../modules/object_tests";
+import * as tests from "../lib/object_tests";
 
 //an eample of a simple test
 describe("Object tests", () => {
