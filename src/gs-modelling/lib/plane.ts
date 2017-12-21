@@ -10,7 +10,6 @@ import * as three from "three";
  * @param xaxis Vector to use define x-axis of plane (optional)
  * @returns New plane if successful, none if unsuccessful or on error
  */
-
 export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
     const e3: three.Vector3 = new three.Vector3(...normal).normalize();
     const e1: three.Vector3 = new three.Vector3(-e3.y,e3.x,0).normalize();

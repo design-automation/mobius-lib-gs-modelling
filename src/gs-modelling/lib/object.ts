@@ -9,12 +9,12 @@ import * as utils from "./utils";
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): gs.IObj {
     if (obj === undefined) {return null;}
-    const points: gs.IPoint[] = obj.getPointsArr();
-    for (const point of points) {
-        const xyz: number[] = point.getPosition();
-        point.setPosition([xyz[0] + translation[0],
-                           xyz[1] + translation[1],
-                           xyz[2] + translation[2]]);
+    const points_IDs: Set<number> = obj.getPointsSet() ;
+    for (const point_ID of points_IDs) {
+    const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
+    m.getGeom().getPoint(point_ID).setPosition([xyz[0] + translation[0],
+                                               xyz[1] + translation[1],
+                                               xyz[2] + translation[2]]);
     }
     return obj;
 }
@@ -29,10 +29,10 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
     if (objs === undefined) {return null;}
     for(const obj of objs) {
         if (obj === undefined) {return null;}
-        const points: gs.IPoint[] = obj.getPointsArr();
-        for (const point of points) {
-            const xyz: number[] = point.getPosition();
-            point.setPosition([xyz[0] + translation[0],
+        const points_IDs: Set<number> = obj.getPointsSet();
+        for (const point_ID of points_IDs) {
+            const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
+            m.getGeom().getPoint(point_ID).setPosition([xyz[0] + translation[0],
                                xyz[1] + translation[1],
                                xyz[2] + translation[2]]);
         }
