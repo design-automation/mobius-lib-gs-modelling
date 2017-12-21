@@ -1,8 +1,8 @@
 // karma.conf.ts
 module.exports = (config) => {
     config.set({
-        frameworks: ["jasmine", "karma-typescript"],
         browsers: ["Chrome"],
+        frameworks: ["jasmine", "karma-typescript"],
         basePath: "./",
         files: [
             {pattern: "src/gs-modelling/**/*.ts",
