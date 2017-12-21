@@ -2,27 +2,27 @@ import * as gs from "gs-json";
 //import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
 
 /**
- * Adds a point to the model
+ * Adds a point to the model.
  */
 export function addByXYZ(m: gs.IModel, xyz: number[]): gs.IPoint {
     return m.getGeom().addPoint(xyz);
 }
 
 /**
- * Adds a set of points to the model
+ * Adds a set of points to the model.
  */
 export function addByXYZList(m: gs.IModel, xyz_list: number[][]): gs.IPoint[] {
     return m.getGeom().addPoints(xyz_list);
 }
 
 /**
- * Adds a point to the model
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-AddPoint
- * @param point List of x, y and z coordinates of point (x,y,z)
- * @returns Point if successful, none if unsuccessful or on error
+ * Copy a point from one model to another model.
+ * @param model The model to add the point to.
+ * @param point The point, in some other model.
+ * @returns The point.
  */
-export function copy(m: gs.IModel, point: gs.IPoint) {
-    m.getGeom().addPoint(point.getPosition());
+export function copy(m: gs.IModel, point: gs.IPoint): gs.IPoint {
+    return m.getGeom().addPoint(point.getPosition());
 }
 
 /**
@@ -35,4 +35,11 @@ export function getXYZ(point: gs.IPoint) {
     point.getPosition();
 }
 
-//getPointsFromObj()
+/**
+ * Gets all the points from an object.
+ * @param obj Object
+ * @returns List of points.
+ */
+export function getPointsFromObj(obj: gs.IObj): gs.IPoint[] {
+    return obj.getPointsArr();
+}
