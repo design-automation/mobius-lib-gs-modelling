@@ -1,5 +1,5 @@
-import * as gs from "gs-json";
-
+// import * as gs from "gs-json";
+import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
 /**
  * Creates one or more polygons from planar polylines.
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPlanarSrf

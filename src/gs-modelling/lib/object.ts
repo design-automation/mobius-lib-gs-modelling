@@ -1,4 +1,5 @@
-import * as gs from "gs-json";
+// import * as gs from "gs-json";
+import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
 import * as utils from "./utils";
 
 /**
@@ -206,7 +207,7 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: num
     // Implementation to be continued;
 
     const points: gs.IPoint[] = obj.getPointsArr();
-    if(plane === undefined) { throw new Error("Undefined plane");
+    if(plane === undefined) { throw new Error("Undefined plane");}
         for(const point of points) {
                 const xyz: number[] = point.getPosition();
                 point.setPosition([ xyz[0] + unit_norm[0] * DistanceToPlane(m, xyz, plane) * 2 ,
@@ -224,7 +225,7 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: num
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
 export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], start_plane_point?: number[],
-                              end_plane_point?: number[], plane?: gs.IPlane): gs.IObj[] {
+                end_plane_point?: number[], plane?: gs.IPlane): gs.IObj[] {
     if(objs === undefined) {throw new Error("Undefined objects");}
     // If the plane is undefined, it needs to be created from start_plane_point and end_plane_point.
     // if(plane === undefined){ const plane: gs.IPlane = new gs.Plane()}

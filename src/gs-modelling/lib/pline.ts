@@ -1,4 +1,5 @@
-import * as gs from "gs-json";
+// import * as gs from "gs-json";
+import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
 import * as utils from "./utils";
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
