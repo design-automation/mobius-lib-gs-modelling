@@ -1,6 +1,5 @@
 import * as gs from "gs-json";
-//import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
-//import * as mathjs from "mathjs";
+import * as mathjs from "mathjs";
 import * as three from "three";
 
 // For internal use only
