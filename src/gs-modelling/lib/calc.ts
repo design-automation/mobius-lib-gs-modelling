@@ -1,5 +1,5 @@
-// import * as gs from "gs-json";
-import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
+import * as gs from "gs-json";
+//import * as gs from "../../../dist/src/libs/gs-json/utils/gs-json";
 
 /**
  * Returns length of a polyline object
