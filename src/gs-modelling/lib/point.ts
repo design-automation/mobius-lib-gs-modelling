@@ -30,8 +30,8 @@ export function copy(m: gs.IModel, point: gs.IPoint): gs.IPoint {
  * @param point Point
  * @returns List of x, y and z coordinates of point if successful, none if unsuccessful or on error
  */
-export function getXYZ(point: gs.IPoint) {
-    point.getPosition();
+export function getXYZ(point: gs.IPoint): number[] {
+    return point.getPosition();
 }
 
 /**
