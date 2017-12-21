@@ -9,7 +9,7 @@ import * as gs from "gs-json";
  */
 
 function ByPolyline(m: gs.IModel, polyline: gs.IPolyline ): gs.IPolymesh {
-    throw new Error("Method not implemented");
+    return m.getGeom().addPolyline(polyline.getPointsArr(), false);
 }
 
 /**
