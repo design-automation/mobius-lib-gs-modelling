@@ -1,23 +1,24 @@
 // karma.conf.ts
 module.exports = (config) => {
     config.set({
-        browsers: ["Chrome"],
-        frameworks: ["jasmine", "karma-typescript"],
+
         basePath: "./",
+        browsers: ["Chrome"],
         files: [
-            {pattern: "src/gs-modelling/**/*.ts",
-                watched: true,  included: true,  served: true, nocache: false},
+            {included: true,   nocache: false, pattern: "src/gs-modelling/**/*.ts", served: true, watched: true,
+},
         ],
+        frameworks: ["jasmine", "karma-typescript"],
         karmaTypescriptConfig: {
-            compilerOptions: {
-                module: "commonjs",
-            },
-            tsconfig: "./tsconfig.json",
             bundlerOptions: {
                 transforms: [
                     require("karma-typescript-es6-transform")(),
                 ],
             },
+            compilerOptions: {
+                module: "commonjs",
+            },
+            tsconfig: "./tsconfig.json",
         },
         plugins: [
             require("karma-typescript"),
@@ -30,8 +31,8 @@ module.exports = (config) => {
             clearContext: false, // leave Jasmine Spec Runner output visible in browser
         },
         coverageIstanbulReporter: {
-            reports: [ "html", "lcovonly" ],
             fixWebpackSourcePaths: true,
+            reports: [ "html", "lcovonly" ],
         },
         autoWatch: true,
         preprocessors: {
@@ -40,7 +41,7 @@ module.exports = (config) => {
         reporters: ["progress", "karma-typescript", "kjhtml"],
         port: 9876,
         colors: true,
-        logLevel: config.LOG_INFO, //LOG_INFO or LOG_DEBUG
+        logLevel: config.LOG_INFO, // LOG_INFO or LOG_DEBUG
         singleRun: false,
     });
 };
