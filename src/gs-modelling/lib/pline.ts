@@ -80,13 +80,13 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
     const points: gs.IPoint[] = pline.getPointsArr();
     switch (extrusion_side) {
         case 0: case 2:
-            let pos0: number[] = utils.extendLine(
+            const pos0: number[] = utils.extendLine(
                 points[1].getPosition(), points[0].getPosition(), length);
             points[0].setPosition(pos0);
             break;
         case 1: case 2:
             const num_points: number = points.length;
-            let pos1: number[] = utils.extendLine(
+            const pos1: number[] = utils.extendLine(
                 points[num_points - 2].getPosition(), points[num_points - 1].getPosition(), length);
             points[num_points - 1].setPosition(pos1);
             break;
