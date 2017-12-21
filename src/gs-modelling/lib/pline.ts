@@ -44,7 +44,7 @@ export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs:
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
     xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return model.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
+    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse
@@ -65,7 +65,7 @@ export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, ra
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
     xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return model.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
+    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
