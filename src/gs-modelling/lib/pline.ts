@@ -36,8 +36,7 @@ export function addLine(model: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.
  * @param segments Number of segments in ellipes.
  * @returns The circular closed polyline object.
  */
-export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs: number):
-                          gs.IPolyline {
+export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs: number): gs.IPolyline {
     const angle: number = (Math.PI * 2) / segs;
     let xyz_list: number[][] = [];
     for (let i = 0; i < segs; i++) {

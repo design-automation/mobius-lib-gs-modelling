@@ -1,4 +1,5 @@
 import * as gs from "gs-json";
+import * as three from "three";
 
 /**
  * Creates a plane from an origin point and normal direction vector
@@ -11,10 +12,12 @@ import * as gs from "gs-json";
  */
 
 export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
-
-// m.getGeom().addPlane(origin, )
-
-    throw new Error("Method not implemented");
+    const e3: three.Vector3 = new three.Vector3(...normal).normalize();
+    const e1: three.Vector3 = new three.Vector3(-e3.y,e3.x,0).normalize();
+    const e2: three.Vector3 = e3.cross(e1);
+    const x_axis_point: gs.IPoint = m.getGeom().addPoint(e1.toArray());
+    const y_axis_point: gs.IPoint = m.getGeom().addPoint(e2.toArray());
+    return m.getGeom().addPlane(origin, x_axis_point, y_axis_point);
 }
 
 /**

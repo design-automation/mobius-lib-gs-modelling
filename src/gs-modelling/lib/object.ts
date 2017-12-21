@@ -111,6 +111,7 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
 export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, axis?: number): gs.IObj {
+    // TO DO: develop a rotation by defining 1 plane, 1 axis, 1 angle and use the concerned transformation matrix
     rotation = rotation * 360 / (2 * Math.PI) ;
     if (obj === undefined) {return null;}
     const points: gs.IPoint[] = obj.getPointsArr();
