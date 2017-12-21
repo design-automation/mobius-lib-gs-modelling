@@ -11,11 +11,23 @@ import * as gs from "gs-json";
  * @param m Model
  * @param plane Plane on which the circle will lie.
  * @param radiusX Radius in X-axis direction
- * @param radiusY Radius in Y-axis direction (in THREE.js, Y is vertical for some reason,
- * not sure how that would affect?)
  * @returns New curve object
  */
-export function AddEllipse(m: gs.IModel, plane: string, radiusX: number, radiusY: number ): gs.INurbsCurve {
+export function circle(m: gs.IModel, plane: gs.IPlane, radius: number): gs.INurbsCurve {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Returns an elliptical curve.
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse
+ * http://verbnurbs.com/docs/geom/Circle/
+ * @param m Model
+ * @param plane Plane on which the circle will lie.
+ * @param radiusX Radius in X-axis direction
+ * @param radiusY Radius in Y-axis direction
+ * @returns New curve object
+ */
+export function ellipse(m: gs.IModel, plane: gs.IPlane, radiusX: number, radiusY: number ): gs.INurbsCurve {
     throw new Error("Method not implemented");
 }
 

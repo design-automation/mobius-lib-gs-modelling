@@ -7,37 +7,37 @@ import * as three from "three";
 //  http://verbnurbs.com/docs/geom/Line/
 /**
  * Adds a polyline to the model
- * @param m Model to add to.
+ * @param model Model to add to.
  * @param points A list of points.
  * @returns Polyline object
  */
-export function add(m: gs.IModel, points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
-    return m.getGeom().addPolyline(points, is_closed);
+export function add(model: gs.IModel, points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
+    return model.getGeom().addPolyline(points, is_closed);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
  * Adds a line to the model
- * @param m Model to add to.
+ * @param model Model to add to.
  * @param start Start point of line
  * @param end End point of line
  * @returns Polyline object, consisting of a single segment.
  */
-export function addLine(m: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return m.getGeom().addPolyline([start, end], false);
+export function addLine(model: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+    return model.getGeom().addPolyline([start, end], false);
 }
 
 //  http://verbnurbs.com/docs/geom/Circle/
 /**
  * Returns an circular closed polyline.
- * @param m Model to add to.
+ * @param model Model to add to.
  * @param plane Plane on which the elliptical polyline will lie.
  * @param radius Circle radius.
  * @param segments Number of segments in ellipes.
  * @returns The circular closed polyline object.
  */
-export function addCircle(m: gs.IModel, plane: gs.IPlane, rad: number, segs: number):
+export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs: number):
                           gs.IPolyline {
     const angle: number = (Math.PI * 2) / segs;
     let xyz_list: number[][] = [];
@@ -45,20 +45,20 @@ export function addCircle(m: gs.IModel, plane: gs.IPlane, rad: number, segs: num
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
     xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return m.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
+    return model.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse
 /**
  * Returns an eliptical closed polyline.
- * @param m Model to add to.
+ * @param model Model to add to.
  * @param plane Plane on which the elliptical polyline will lie.
  * @param radiusX Radius in X-axis direction.
  * @param radiusY Radius in Y-axis direction.
  * @param segments Number of segments in ellipes.
  * @returns The elliptical polyline object.
  */
-export function addEllipse(m: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y: number,
+export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y: number,
                            segs: number): gs.IPolyline {
     const angle: number = (Math.PI * 2) / segs;
     let xyz_list: number[][] = [];
@@ -66,7 +66,7 @@ export function addEllipse(m: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y:
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
     xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return m.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
+    return model.getGeom().addPolyline(m.getGeom().addPoints(xyz_list), true);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
