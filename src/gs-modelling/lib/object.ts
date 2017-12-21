@@ -48,9 +48,10 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
 export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale: number): gs.IObj {
     if (obj === undefined) {return null;}
-    const points: gs.IPoint[] = obj.getPointsArr();
-    for (const point of points) {
-        const xyz: number[] = point.getPosition();
+
+    const points_IDs: Set<number> = obj.getPointsSet();
+    for (const point_ID of points_IDs) {
+        const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
         const unit_vector: number[] = [];
         if( !(
             Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) +
@@ -61,7 +62,7 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
             Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
         unit_vector[2] = (xyz[2] - origin[2]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
             Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
-        point.setPosition([xyz[0] + scale * unit_vector[0],
+        m.getGeom().getPoint(point_ID).setPosition([xyz[0] + scale * unit_vector[0],
                                              xyz[1] + scale * unit_vector[1],
                                              xyz[2] + scale * unit_vector[2]]);
         }
@@ -82,9 +83,10 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
     if (objs === undefined) {return null;}
     for(const obj of objs) {
         if (obj === undefined) {return null;}
-        const points: gs.IPoint[] = obj.getPointsArr();
-        for (const point of points) {
-            const xyz: number[] = point.getPosition();
+
+        const points_IDs: Set<number> = obj.getPointsSet();
+        for (const point_ID of points_IDs) {
+            const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
             const unit_vector: number[] = [];
             if( !(Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) +
                 Math.pow(xyz[2] - origin[2],2) ) === 0) ) {
@@ -94,7 +96,7 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
                 Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
             unit_vector[2] = (xyz[2] - origin[2]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
                 Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
-            point.setPosition([xyz[0] + scale * unit_vector[0],
+            m.getGeom().getPoint(point_ID).setPosition([xyz[0] + scale * unit_vector[0],
                                                  xyz[1] + scale * unit_vector[1],
                                                  xyz[2] + scale * unit_vector[2]]);
         }
