@@ -60,10 +60,10 @@ function Loft(m: gs.IModel, objs: gs.IPolyline[], closed: boolean=false ): gs.IP
  * @param points List of 3 or 4 corner points
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function ByPoints(m: gs.IModel, points: [ gs.IPoint, gs.IPoint, gs.IPoint,
-                       gs.IPoint ]): gs.IPolymesh {
-    throw new Error("Method not implemented");
-}
+function ByPoints(m: gs.IModel, points: gs.IPoint[][]): gs.IPolymesh {
+    if( points.length >= 5) {throw new Error("Select 4 corner points maximum");}
+    return m.getGeom().addPolymesh(points);
+    }
 
 /**
  * Creates a pipe surface along a input polyline.
