@@ -101,13 +101,47 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
 }
 
 /**
- * Rotation angle in Degrees around this axis (Z by default).
- * axis = 0 : Z axis
- * axis = 1 : X axis
- * axis = 2 : Y axis
+ * Direct rotation of an object in degrees according to a specified plane.
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObject
 export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane: gs.IPlane): gs.IObj {
+   if (obj === undefined) {return null;}
+   rotation = rotation * 360 / (2 * Math.PI);
+   const x_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[0]).normalize();
+   const y_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[1]).normalize();
+   const z_axis: three.Vector3 =  (x_axis.cross(y_axis)).normalize();
+   const e1: three.Vector3 =  new three.Vector3(1,0,0);
+   const e2: three.Vector3 =  new three.Vector3(0,1,0);
+   const e3: three.Vector3 =  new three.Vector3(0,0,1);
+   const matrix_1_to_2: three.Matrix3 = new three.Matrix3();
+   matrix_1_to_2.set(e1.dot(x_axis),e1.dot(y_axis),e1.dot(z_axis),
+              e2.dot(x_axis),e2.dot(y_axis),e2.dot(z_axis),
+              e3.dot(x_axis),e3.dot(y_axis),e3.dot(z_axis));
+   const matrix_2_to_1: three.Matrix3 = matrix_1_to_2.getInverse(matrix_1_to_2, true);
+   const matrix_rotation: three.Matrix3 = new three.Matrix3();
+   matrix_rotation.set(Math.cos(rotation), -Math.sin(rotation),0,
+                      Math.sin(rotation),Math.cos(rotation),0,
+                      0,0,1);
+
+   const points_IDs: Set<number> = obj.getPointsSet();
+   for (const point_ID of points_IDs) {
+        const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
+        let matrix_vec: three.Matrix3 = new three.Matrix3();
+        matrix_vec.set(xyz[0],0,0,
+                       xyz[1],0,0,
+                       xyz[2],0,0);
+        matrix_vec = matrix_2_to_1.multiply(matrix_rotation.multiply(matrix_1_to_2.multiply(matrix_vec)));
+        m.getGeom().getPoint(point_ID).setPosition([matrix_vec.toArray()[0],
+                            matrix_vec.toArray()[1], matrix_vec.toArray()[2]]); // column-major format;
+        }
+   return obj;
+}
+/**
+ * Direct rotation of collection of object in degrees according to a specified plane.
+ */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
+export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number, plane: gs.IPlane): gs.IObj[] {
+   if (objs === undefined) {return null;}
    rotation = rotation * 360 / (2 * Math.PI) ;
    const x_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[0]).normalize();
    const y_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[1]).normalize();
@@ -124,118 +158,21 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane
    matrix_rotation.set(Math.cos(rotation), -Math.sin(rotation),0,
                       Math.sin(rotation),Math.cos(rotation),0,
                       0,0,1);
-   if (obj === undefined) {return null;}
-   const points_IDs: Set<number> = obj.getPointsSet();
-   for (const point_ID of points_IDs) {
-        const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
-        // let vec: three.Vector3 =  new three.Vector3(...xyz);
-        // vec = matrix_2_to_1.multiply(matrix_rotation.multiply(matrix_1_to_2.multiply(vec)))
-        //    m.getGeom().getPoint(point_ID).setPosition( , , );
-    }
-
-    // const e1: three.Vector3 = new three.Vector3(from_vectors[0][0]).normalize();
-    // const e2: three.Vector3 = new three.Vector3(from_vectors[0][1]).normalize();
-    // const e3: three.Vector3 = new three.Vector3(from_vectors[0][2]).normalize();
-
-    // const b1: three.Vector3 = new three.Vector3(to_vectors[0][0]).normalize();
-    // const b2: three.Vector3 = new three.Vector3(to_vectors[0][1]).normalize();
-    // const b3: three.Vector3 = new three.Vector3(to_vectors[0][2]).normalize();
-
-    // if(e1.dot(e2) === 0) {throw new Error("Orthonormal initial basis required");}
-    // if(e1.dot(e3) === 0) {throw new Error("Orthonormal initial basis required");}
-    // if(e2.dot(e3) === 0) {throw new Error("Orthonormal initial basis required");}
-    // if(b1.dot(b2) === 0) {throw new Error("Orthonormal initial basis required");}
-    // if(b1.dot(b3) === 0) {throw new Error("Orthonormal initial basis required");}
-    // if(b2.dot(b3) === 0) {throw new Error("Orthonormal initial basis required");}
-
-    // const matrix: three.Matrix3 = new three.Matrix3();
-    // matrix.set(e1.dot(b1),e1.dot(b2),e1.dot(b3),
-    //            e2.dot(b1),e2.dot(b2),e2.dot(b3),
-    //            e3.dot(b1),e3.dot(b2),e3.dot(b3));
-
-    // const t_x: number = to_origin[0]- from_origin[0];
-    // const t_y: number = to_origin[1]- from_origin[1];
-    // const t_z: number = to_origin[2]- from_origin[2];
-
-    // return [[e1.dot(b1),e1.dot(b2),e1.dot(b3),t_x],
-    //         [e2.dot(b1),e2.dot(b2),e2.dot(b3),t_y],
-    //         [e3.dot(b1),e3.dot(b2),e3.dot(b3),t_z],
-    //         [0,0,0,1]];
-
-// To Do: express a rotation of angle theta in the referencial of the considered plane
-// Change of basis matrix to be considered:
-// Step 1: express the object's points coordinate in the new basis
-// Step 2: rotate along the e3 axis
-// Step 3: express the result in the original basis
-
-// export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane: gs.IPlane): gs.IObj {
-// export function transfromXYZfromGlobal(xyz_list: number[][],
-// to_origin: number[], to_vectors: number[][]): number[][] {
-// Transform that object along the e3 axis
-
-    // TO DO: develop a rotation by defining 1 plane, 1 axis, 1 angle and use the concerned transformation matrix
-
-    // if (obj === undefined) {return null;}
-    // const points: gs.IPoint[] = obj.getPointsArr();
-    // for (const point of points) {
-    //     const xyz: number[] = point.getPosition();
-    //     switch(axis) {
-    //         case 0: point.setPosition([
-    //             xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
-    //             xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
-    //             xyz[2]]);
-    //         case 1: point.setPosition([
-    //             xyz[0] ,
-    //             xyz[1] * Math.cos(rotation) - xyz[2] * Math.sin(rotation),
-    //             xyz[1] * Math.sin(rotation) + xyz[2] * Math.cos(rotation) ]);
-    //         case 2: point.setPosition([
-    //             xyz[0] * Math.cos(rotation) + xyz[2] *
-    //             Math.sin(rotation),
-    //             xyz[1],
-    //             - xyz[0] * Math.sin(rotation) + xyz[2] * Math.cos(rotation) ]);
-    //         default: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] *
-    //             Math.sin(rotation),
-    //             xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
-    //                                                        xyz[2]]);
-    //     }
-    // }
-   return obj;
-}
-
-/**
- * Rotation angle in Degrees around this axis (Z by default).
- * axis = 0 : Z axis
- * axis = 1 : X axis
- * axis = 2 : Y axis
- */
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
-export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number,
-                              axis?: number): gs.IObj[] {
-    rotation = rotation * 360 / (2 * Math.PI) ;
-    if (objs === undefined) {return null;}
-    for(const obj of objs) {
+   for(const obj of objs) {
     if (obj === undefined) {return null;}
-    const points: gs.IPoint[] = obj.getPointsArr();
-    for (const point of points) {
-        const xyz: number[] = point.getPosition();
-        switch(axis) {
-            case 0: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
-            xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
-            xyz[2]]);
-            case 1: point.setPosition([xyz[0] ,
-            xyz[1] * Math.cos(rotation) - xyz[2] * Math.sin(rotation),
-            xyz[1] * Math.sin(rotation) + xyz[2] * Math.cos(rotation) ]);
-            case 2: point.setPosition([xyz[0] * Math.cos(rotation)                 + xyz[2] *
-                Math.sin(rotation),
-            xyz[1],
-            - xyz[0] * Math.sin(rotation)               + xyz[2] * Math.cos(rotation) ]);
-            default: point.setPosition([xyz[0] * Math.cos(rotation) - xyz[1] * Math.sin(rotation),
-            xyz[0] * Math.sin(rotation) + xyz[1] * Math.cos(rotation),
-            xyz[2]]);
-            }
-        }
+    const points_IDs: Set<number> = obj.getPointsSet();
+    for (const point_ID of points_IDs) {
+        const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
+        let matrix_vec: three.Matrix3 = new three.Matrix3();
+        matrix_vec.set(xyz[0],0,0,
+                       xyz[1],0,0,
+                       xyz[2],0,0);
+        matrix_vec = matrix_2_to_1.multiply(matrix_rotation.multiply(matrix_1_to_2.multiply(matrix_vec)));
+        m.getGeom().getPoint(point_ID).setPosition([matrix_vec.toArray()[0],
+                            matrix_vec.toArray()[1], matrix_vec.toArray()[2]]); // column-major format;
+       }
     }
-    return objs;
+   return objs;
 }
 
 /**
