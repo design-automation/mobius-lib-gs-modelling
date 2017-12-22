@@ -9,12 +9,12 @@ import * as three from "three";
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): gs.IObj {
     if (obj === undefined) {return null;}
-    const points_IDs: Set<number> = obj.getPointsSet() ;
+    const points_IDs: Set<number> = obj.getPointsSet();
     for (const point_ID of points_IDs) {
     const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
     m.getGeom().getPoint(point_ID).setPosition([xyz[0] + translation[0],
-                                               xyz[1] + translation[1],
-                                               xyz[2] + translation[2]]);
+                                                xyz[1] + translation[1],
+                                                xyz[2] + translation[2]]);
     }
     return obj;
 }
@@ -70,7 +70,7 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
 export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[], scale: number): gs.IObj[] {
     if (objs === undefined) {return null;}
     for(const obj of objs) {
-        if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+        if (obj === undefined) {throw new Error("An object in the list of objects is undefined");}
         ScaleObject(m, obj, origin, scale);
     }
     return objs;
@@ -118,7 +118,7 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane
 export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number, plane: gs.IPlane): gs.IObj[] {
    if (objs === undefined) {return null;}
    for(const obj of objs) {
-    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    if (obj === undefined) {throw new Error("An object in the list of objects is undefined");}
     RotateObject(m, obj, rotation, plane);
     }
    return objs;
@@ -172,7 +172,7 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, plane: gs.IPlane): gs.I
 export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], plane: gs.IPlane): gs.IObj[] {
    if (objs === undefined) {return null;}
    for(const obj of objs) {
-    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    if (obj === undefined) {throw new Error("An object in the list of objects is undefined");}
     MirrorObject(m, obj, plane);
     }
    return objs;
@@ -208,7 +208,7 @@ export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale: number, o
                                  translation: number[], rotation: number, plane: gs.IPlane): gs.IObj[] {
    if (objs === undefined) {return null;}
    for(const obj of objs) {
-    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    if (obj === undefined) {throw new Error("An object in the list of objects is undefined");}
     TransformObject(m, obj, scale, origin, translation, rotation, plane);
     }
    return objs;
@@ -234,12 +234,12 @@ export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): 
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-DeleteObjects
 export function DeleteObjects(m: gs.IModel, objs: gs.IObj[], keep_points: boolean): boolean {
-    if(objs === undefined) {return false;}
-    for(const obj of objs) {
-        if(obj.getID() === undefined) {return false;}
-        m.getGeom().delObj(obj.getID(), keep_points);
+   if (objs === undefined) {return null;}
+   for(const obj of objs) {
+    if (obj === undefined) {throw new Error("An object in the list of objects is undefined");}
+    DeleteObject(m, obj, keep_points);
     }
-    return true;
+   return true;
 }
 
 /**
@@ -280,7 +280,6 @@ export function IsObjectInGroup(m: gs.IModel, obj: gs.IObj, group: gs.IGroup): b
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
     return group.hasObj(obj.getID());
 }
-
 /**
  * This function returns True if an object is present in a set of specified group.
  */
@@ -291,11 +290,10 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
     const objGps: boolean = true ;
     for(const group of groups) {
         if(!(objGps === true)) {return false;}
-        objGps === group.hasObj(obj.getID()); // TODO ???
+    objGps === group.hasObj(obj.getID()); // TODO ???
     }
     return true;
 }
-
 /**
  * Returns the distance from a 3D point to a plane
  * @param A plane and a 3 dimension point
