@@ -27,14 +27,7 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
 export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]): gs.IObj[] {
     if (objs === undefined) {return null;}
     for(const obj of objs) {
-        if (obj === undefined) {return null;}
-        const points_IDs: Set<number> = obj.getPointsSet();
-        for (const point_ID of points_IDs) {
-            const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
-            m.getGeom().getPoint(point_ID).setPosition([xyz[0] + translation[0],
-                               xyz[1] + translation[1],
-                               xyz[2] + translation[2]]);
-        }
+        MoveObject(m, obj, translation);
     }
     return objs;
 }
@@ -74,32 +67,14 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
  * induced by objects.
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObjects
-export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[],
-                             scale: number): gs.IObj[] {
+export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[], scale: number): gs.IObj[] {
     if (objs === undefined) {return null;}
     for(const obj of objs) {
-        if (obj === undefined) {return null;}
-        const points_IDs: Set<number> = obj.getPointsSet();
-        for (const point_ID of points_IDs) {
-            const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
-            const unit_vector: number[] = [];
-            if( !(Math.sqrt( Math.pow(xyz[0] - origin[0],2) + Math.pow(xyz[1] - origin[1],2) +
-                Math.pow(xyz[2] - origin[2],2) ) === 0) ) {
-            unit_vector[0] = (xyz[0] - origin[0]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
-                Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
-            unit_vector[1] = (xyz[1] - origin[1]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
-                Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
-            unit_vector[2] = (xyz[2] - origin[2]) / Math.sqrt( Math.pow(xyz[0] - origin[0],2) +
-                Math.pow(xyz[1] - origin[1],2) + Math.pow(xyz[2] - origin[2],2) ) ;
-            m.getGeom().getPoint(point_ID).setPosition([xyz[0] + scale * unit_vector[0],
-                                                 xyz[1] + scale * unit_vector[1],
-                                                 xyz[2] + scale * unit_vector[2]]);
-        }
+        if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+        ScaleObject(m, obj, origin, scale);
     }
-        return objs;
+    return objs;
     }
-}
-
 /**
  * Direct rotation of an object in degrees according to a specified plane.
  */
@@ -142,7 +117,24 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-RotateObjects
 export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number, plane: gs.IPlane): gs.IObj[] {
    if (objs === undefined) {return null;}
-   rotation = rotation * 360 / (2 * Math.PI) ;
+   for(const obj of objs) {
+    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    RotateObject(m, obj, rotation, plane);
+    }
+   return objs;
+}
+
+/**
+ * Mirrors a single object
+ * @param Object, Plane
+ * @return Mirrored object if successful
+ */
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
+export function MirrorObject(m: gs.IModel, obj: gs.IObj, plane: gs.IPlane): gs.IObj {
+   if (obj === undefined) {return null;}
+   // Case 1: Linear Transforming, meaning that [0,0,0] belongs to the Mirror
+   // A general case with two extra transforming needs to be taken into account as well
+   // in the case for which the transformation is Affine.
    const x_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[0]).normalize();
    const y_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[1]).normalize();
    const z_axis: three.Vector3 =  (x_axis.cross(y_axis)).normalize();
@@ -154,86 +146,36 @@ export function RotateObjects(m: gs.IModel, objs: gs.IObj[], rotation: number, p
               e2.dot(x_axis),e2.dot(y_axis),e2.dot(z_axis),
               e3.dot(x_axis),e3.dot(y_axis),e3.dot(z_axis));
    const matrix_2_to_1: three.Matrix3 = matrix_1_to_2.getInverse(matrix_1_to_2, true);
-   const matrix_rotation: three.Matrix3 = new three.Matrix3();
-   matrix_rotation.set(Math.cos(rotation), -Math.sin(rotation),0,
-                      Math.sin(rotation),Math.cos(rotation),0,
-                      0,0,1);
-   for(const obj of objs) {
-    if (obj === undefined) {return null;}
-    const points_IDs: Set<number> = obj.getPointsSet();
-    for (const point_ID of points_IDs) {
+   const matrix_symetry: three.Matrix3 = new three.Matrix3();
+   matrix_symetry.set(1, 0, 0,
+                      0,-1, 0,
+                      0, 0,-1);
+   const points_IDs: Set<number> = obj.getPointsSet();
+   for (const point_ID of points_IDs) {
         const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
         let matrix_vec: three.Matrix3 = new three.Matrix3();
         matrix_vec.set(xyz[0],0,0,
                        xyz[1],0,0,
                        xyz[2],0,0);
-        matrix_vec = matrix_2_to_1.multiply(matrix_rotation.multiply(matrix_1_to_2.multiply(matrix_vec)));
+        matrix_vec = matrix_symetry.multiply(matrix_vec);
         m.getGeom().getPoint(point_ID).setPosition([matrix_vec.toArray()[0],
                             matrix_vec.toArray()[1], matrix_vec.toArray()[2]]); // column-major format;
-       }
-    }
-   return objs;
+        }
+   return obj;
 }
-
-/**
- * Mirrors a single object
- * @param Object, Start Point of the the Mirror Plane, End Point of the Mirror Plane
- * @return Mirrored object if successful
- */
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObject
-export function MirrorObject(m: gs.IModel, obj: gs.IObj, start_plane_point?: number[],
-                             end_plane_point?: number[], plane?: gs.IPlane): gs.IObj {
-// Matrix for mirror + Set for Points
-
-    const unit_norm: number[] = [];
-    if( !(
-        Math.sqrt( Math.pow(end_plane_point[0] - start_plane_point[0],2) +
-        Math.pow(end_plane_point[1] - start_plane_point[1],2) +
-        Math.pow(end_plane_point[2] - start_plane_point[2],2) ) === 0) ) {
-    unit_norm[0] = (end_plane_point[0] - start_plane_point[0]) / Math.sqrt(
-        Math.pow(end_plane_point[0] - start_plane_point[0],2) +
-        Math.pow(end_plane_point[1] - start_plane_point[1],2) +
-        Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
-    unit_norm[1] = (end_plane_point[1] - start_plane_point[1]) / Math.sqrt(
-        Math.pow(end_plane_point[0] - start_plane_point[0],2) +
-        Math.pow(end_plane_point[1] - start_plane_point[1],2) +
-        Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
-    unit_norm[2] = (end_plane_point[2] - start_plane_point[2]) / Math.sqrt(
-        Math.pow(end_plane_point[0] - start_plane_point[0],2) +
-        Math.pow(end_plane_point[1] - start_plane_point[1],2) +
-        Math.pow(end_plane_point[2] - start_plane_point[2],2) ) ;
-    if(gs.Arr.equal(unit_norm,[])) {
-        throw new Error("Start point and End point must be different to define a Mirror plan");
-    }
-    // Implementation to be continued;
-
-    const points: gs.IPoint[] = obj.getPointsArr();
-    if(plane === undefined) { throw new Error("Undefined plane");}
-        for(const point of points) {
-                const xyz: number[] = point.getPosition();
-                point.setPosition([ xyz[0] + unit_norm[0] * DistanceToPlane(m, xyz, plane) * 2 ,
-                                    xyz[1] + unit_norm[1] * DistanceToPlane(m, xyz, plane) * 2 ,
-                                    xyz[2] + unit_norm[2] * DistanceToPlane(m, xyz, plane) * 2 ]);
-    }
-    return obj;
-    }
-}
-
 /**
  * Mirrors a set of objects
  * @param Objects, Start Point of the the Mirror Plane, End Point of the Mirror Plane
  * @return Mirrored object if successful
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MirrorObjects
-export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], start_plane_point?: number[],
-    end_plane_point?: number[], plane?: gs.IPlane): gs.IObj[] {
-    if(objs === undefined) {throw new Error("Undefined objects");}
-    // If the plane is undefined, it needs to be created from start_plane_point and end_plane_point.
-    // if(plane === undefined){ const plane: gs.IPlane = new gs.Plane()}
-    for(const obj of objs) {
-                    MirrorObject(m, obj, undefined, undefined, plane);
-        }
-    return objs;
+export function MirrorObjects(m: gs.IModel, objs: gs.IObj[], plane: gs.IPlane): gs.IObj[] {
+   if (objs === undefined) {return null;}
+   for(const obj of objs) {
+    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    MirrorObject(m, obj, plane);
+    }
+   return objs;
 }
 
 /**
@@ -264,12 +206,12 @@ export function TransformObject(m: gs.IModel, obj: gs.IObj, scale: number, origi
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-TransformObjects
 export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale: number, origin: number[],
                                  translation: number[], rotation: number, plane: gs.IPlane): gs.IObj[] {
-    for(const obj of objs) {
-    RotateObject(m, obj, rotation, plane);
-    ScaleObject(m, obj, origin, scale);
-    MoveObject(m, obj, translation);
+   if (objs === undefined) {return null;}
+   for(const obj of objs) {
+    if (obj === undefined) {throw new Error("An object in the list of objects is underfined");}
+    TransformObject(m, obj, scale, origin, translation, rotation, plane);
     }
-    return objs;
+   return objs;
 }
 
 /**
