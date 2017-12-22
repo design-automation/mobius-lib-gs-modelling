@@ -289,8 +289,8 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
     const objGps: boolean = true ;
     for(const group of groups) {
-        if(!(objGps === true)) {return false;}
-    objGps === group.hasObj(obj.getID()); // TODO ???
+    if(!(objGps === true)) {return false;}
+        objGps === group.hasObj(obj.getID()); // TODO ???
     }
     return true;
 }
