@@ -12,3 +12,12 @@ import * as gs from "gs-json";
 export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
+
+/**
+ * Returns the roots of a four degree polynomial
+ * @param the five coefficients of the polynomial
+ * @returns the four roots
+ */
+export function quarticRoots(coefficients: number[]): number[] {
+    throw new Error("Method not implemented");
+ }
