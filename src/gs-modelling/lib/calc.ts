@@ -25,7 +25,9 @@ export function quarticRoots(coefficients: number[]): number[] {
     const c: number = coefficients[2];
     const d: number = coefficients[3];
     const e: number = coefficients[4];
-
+    const p: number = (8*a*c - 3*Math.pow(b,2))/(8*Math.pow(a,2));
+    const q: number = (Math.pow(b,3) - 4*a*b*c + 8*Math.pow(a,2)*d)/(8*Math.pow(a,3));
+    if(a === 0) {throw new Error("Non quartic polynomial");}
     const delta: number =  256*Math.pow(a,3) - 192*Math.pow(a,2)*b*d*Math.pow(e,2)
                          - 128*Math.pow(a,2)*Math.pow(c,2)*Math.pow(e,2) + 144*Math.pow(a,2)*c*Math.pow(d,2)*e
                          - 27*Math.pow(a,2)*Math.pow(d,4) + 144*a*Math.pow(b,2)*c*Math.pow(e,2)
@@ -37,8 +39,12 @@ export function quarticRoots(coefficients: number[]): number[] {
     const P: number = 8*a*c - 3*Math.pow(b,2);
     const R: number = Math.pow(b,3) + 8*d*Math.pow(a,2);
     const delta_0: number = Math.pow(c,2) - 3*b*d + 12*a*e;
+    const delta_1: number = 2*Math.pow(c,3) - 9*b*c*d + 27*Math.pow(b,2)*e +27*a*Math.pow(d,2) - 72*a*c*e;
     const D: number =  64*Math.pow(a,3)*e - 16* Math.pow(a,2)*Math.pow(c,2) + 16*a*Math.pow(b,2)*c
                      - 16*Math.pow(a,2)*b*d - 3*Math.pow(b,4);
+
+    // const S: number = Math.pow();
+    // const Q: number = Math.pow();
 
     return [];
      }
