@@ -55,6 +55,7 @@ export function quarticRoots(coefficients: number[]): number[] {
      }
 
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
+
 /**
  * Returns length of a polyline object
  * @param m Model
