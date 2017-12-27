@@ -1,4 +1,5 @@
 import * as gs from "gs-json";
+import * as mathjs from "mathjs";
 
 /**
  * Calculates distance between two points or two clusters of points
@@ -41,7 +42,28 @@ export function quarticRoots(coefficients: number[]): number[] {
     const D: number =  64*Math.pow(a,3)*e - 16* Math.pow(a,2)*Math.pow(c,2) + 16*a*Math.pow(b,2)*c
                      - 16*Math.pow(a,2)*b*d - 3*Math.pow(b,4);
 
-    // const S: number = Math.pow();
-    // const Q: number = Math.pow();
+    const Q: number = Math.pow((delta_1 + Math.pow(Math.pow(delta_1,2) - 4*Math.pow(delta_0,3),1/2))/2,1/3);
+    const S: number = Math.pow(-2/3*p + (Q + delta_0/Q) /(3*a),2 )/2 ;
+
+    const x1: number = -b/(4*a) - S + Math.sqrt(-4*Math.pow(S,2) - 2*p + q/S)/2 ;
+    const x2: number = -b/(4*a) - S - Math.sqrt(-4*Math.pow(S,2) - 2*p + q/S)/2 ;
+    const x3: number = -b/(4*a) + S + Math.sqrt(-4*Math.pow(S,2) - 2*p - q/S)/2 ;
+    const x4: number = -b/(4*a) + S + Math.sqrt(-4*Math.pow(S,2) - 2*p - q/S)/2 ;
+
+    // return [x1, x2, x3, x4]; // To Do
     return [];
      }
+
+/////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
+/**
+ * Returns length of a polyline object
+ * @param m Model
+ * @param polyline Polyline object.
+ * @param segment_index Polyline segment index.
+ * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
+ * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
+ * @returns Length of polyline as number if successful, none if unsuccessful or on error
+ */
+export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
+    throw new Error("Method not implemented");
+}
