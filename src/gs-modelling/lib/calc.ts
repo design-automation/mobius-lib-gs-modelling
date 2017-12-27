@@ -1,4 +1,5 @@
 import * as gs from "gs-json";
+import * as mathjs from "mathjs";
 
 /**
  * Calculates distance between two points or two clusters of points
