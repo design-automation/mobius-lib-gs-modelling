@@ -2,74 +2,98 @@ import * as gs from "gs-json";
 import * as utils from "./utils";
 import * as three from "three";
 
+//  ===============================================================================================================
+//  Pline Constructors ============================================================================================
+//  ===============================================================================================================
+
+/**
+ * Gets a polyline from the model based on an index number
+ * - WEEK 2 -
+ * @param model Model to get polyline from
+ * @param index Index number of polyline
+ * @returns Polyline object if successful
+ */
+export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Adds a polyline from the model based on a conic curve
+ * - WEEK 2 -
+ * @param curve Conic curve to construct polyline from
+ * @param segs Number of segments in polyline
+ * @returns Polyline object if successful
+ */
+export function fromConic(points: gs.IPoint[], segs: number): gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
- * Adds a polyline to the model
+ * Adds a polyline to the model from a list of points
+ * - WEEK 2 -
  * @param model Model to add to.
- * @param points A list of points.
- * @returns Polyline object
+ * @param points A list of points
+ * @param is_closed Creates a closed polyline object if true
+ * @returns New polyline object if successful
  */
-export function add(model: gs.IModel, points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
+export function fromPoints(model: gs.IModel, points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
     return model.getGeom().addPolyline(points, is_closed);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
- * Adds a line to the model
+ * Adds a line to the model from two points
  * @param model Model to add to.
  * @param start Start point of line
  * @param end End point of line
- * @returns Polyline object, consisting of a single segment.
+ * @returns New polyline object, consisting of a single segment.
  */
-export function addLine(model: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+export function lineFromPoints(model: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
     return model.getGeom().addPolyline([start, end], false);
 }
 
-//  http://verbnurbs.com/docs/geom/Circle/
+//  ===============================================================================================================
+//  Pline Functions ===============================================================================================
+//  ===============================================================================================================
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
+//  http://verbnurbs.com/docs/geom/ICurve/#point
 /**
- * Returns an circular closed polyline.
- * @param model Model to add to.
- * @param plane Plane on which the elliptical polyline will lie.
- * @param radius Circle radius.
- * @param segments Number of segments in ellipes.
- * @returns The circular closed polyline object.
+ * Returns a point on a polyline based on a parameter along the polyline
+ * @param pline Polyline to evaluate
+ * @param t Parameter to evaluate
+ * @param segment_index The segment of the polyline to evaluate.
+ * @returns 3D point if successful, none if unsuccessful or on error
  */
-export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs: number): gs.IPolyline {
-    const angle: number = (Math.PI * 2) / segs;
-    let xyz_list: number[][] = [];
-    for (let i = 0; i < segs; i++) {
-        xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
+export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
+    let points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {points.push(points[points.length - 1]); }
+    if (segment_index !== -1) {
+        if (segment_index > points.length - 1) {throw new Error("segments_index is out of range."); }
+        points = points.splice(segment_index, 2);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
+    return pointsEvaluate(points, t);
 }
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-CurveClosestPoint
+//  http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
 /**
- * Returns an eliptical closed polyline.
- * @param model Model to add to.
- * @param plane Plane on which the elliptical polyline will lie.
- * @param radiusX Radius in X-axis direction.
- * @param radiusY Radius in Y-axis direction.
- * @param segments Number of segments in ellipes.
- * @returns The elliptical polyline object.
+ * Returns a param along a polyline based on a point on the polyline
+ * @param pline Polyline to evaluate
+ * @param point Point to evaluate
+ * @returns Param on polyline if successful, none if unsuccessful or on error
  */
-export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y: number,
-                           segs: number): gs.IPolyline {
-    const angle: number = (Math.PI * 2) / segs;
-    let xyz_list: number[][] = [];
-    for (let i = 0; i < segs; i++) {
-        xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
-    }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
-    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
+export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
+    throw new Error("Method not implemented");
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
 /**
  * Extends a non-closed polyline by specified distance
+ * - WEEK 5 -
  * @param pline Polyline object
  * @param extrusion_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
@@ -91,63 +115,110 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
     return extended_points;
 }
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
-//  http://verbnurbs.com/docs/geom/ICurve/#point
 /**
- * Evaluate a point on a polyline
- * @param pline Polyline object
- * @param t Parameter to evaluate
- * @param segment_index The segment of the polyline to evaluate.
- * @returns 3D point if successful, none if unsuccessful or on error
+ * Extrudes a polyline according to a specified vector to create a polymesh
+ * @param pline Polyline to extrude
+ * @param vector Vector describing direction and distance of extrusion
+ * @param cap Closes polymesh by creating a flat surface on each end of the extrusion if true
+ * @returns Polymesh created from extrusion
  */
-export function evaluate(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
-    let points: gs.IPoint[] = pline.getPointsArr();
-    if (pline.isClosed()) {points.push(points[points.length - 1]); }
-    if (segment_index !== -1) {
-        if (segment_index > points.length - 1) {throw new Error("segments_index is out of range."); }
-        points = points.splice(segment_index, 2);
-    }
-    return pointsEvaluate(points, t);
-}
-
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-CurveClosestPoint
-//  http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
-/**
- * Finds closest point on polyline to test point
- * @param pline Polyline object
- * @param point Test point
- * @returns Param on polyline if successful, none if unsuccessful or on error
- */
-export function closestPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
-    throw new Error("Method not implemented");
-}
-
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
-//  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
-/**
- * Divide polyline into specified number of segments.
- * @param pline Polyline object
- * @param segs Number of segments
- */
-export function divide(pline: gs.IPolyline, segs: number): void {
+export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean=false): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
 /**
- * Checks if the polyline is closed.
+ * Checks if the polyline is closed
  * @param pline Polyline object
- * @return True if the polline is closed.
+ * @return True if the polyline is closed
  */
 export function isCLosed(pline: gs.IPolyline): boolean {
     return pline.isClosed();
 }
 
 /**
- * Sets the polline to be open or cosed.
+ * Returns length of a polyline object
+ * @param m Model
+ * @param polyline Polyline object
+ * @param segment_index Polyline segment index
+ * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
+ * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
+ * @returns Length of polyline as number if successful, none if unsuccessful or on error
+ */
+export function length(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Lofts a list of polylines with the same number of segments to create a polymesh
+ * - WEEK 4 -
+ * @param plines List of polylines to loft (in order)
+ * @param is_closed Closes polymesh by lofting back to first polyline if true
+ * @returns Polymesh created from loft
+ */
+export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
+//  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
+/**
+ * Rebuilds and divides a polyline into specified number of segments
  * @param pline Polyline object
- * @param is_closed The value to set.
+ * @param segments Number of segments
+ * @returns New points of polyline
+ */
+export function rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Revolves a polyline about a specified axis ray (or line?) to create a polymesh
+ * @param pline Polyline to revolve
+ * @param axis Axis ray (or line?) to revolve about
+ * @param ang_s Start angle of revolution in degrees
+ * @param ang_e End angle of revolution in degrees
+ * @returns Polymesh created from revolution
+ */
+export function revolve(pline: gs.IPolyline, axis: gs.IRay, ang_s: number, ang_e: number): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Sets the polyline to be open or cosed
+ * @param pline Polyline object
+ * @param is_closed The value to set
  */
 export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Sweeps a polyline along a specified polyline (or conic curve?) to create a polymesh
+ * @param pline Polyline to sweep
+ * @param rail Rail polyline (or conic curve?) to sweep along
+ * @returns Polymesh created from sweep
+ */
+export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Unwelds a segment from a polyline
+ * @param pline Polyline to unweld segment from
+ * @param segment_index Index number of polyline segment to unweld
+ * @returns New polylines created from unweld
+ */
+export function unweld(pline: gs.IPolyline, segment_index: number): gs.IPolyline[] {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Weld a list of polylines together
+ * @param plines List of polyline to weld
+ * @param is_closed Creates a closed polyline object if true
+ * @returns New polyline created from weld
+ */
+export function weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
@@ -216,4 +287,49 @@ function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
             return geom.addPoint(xyz);
         }
     }
+}
+
+
+//  ===============================================================================================================
+//  Old Functions No Longer in API ================================================================================
+//  ===============================================================================================================
+
+//  http://verbnurbs.com/docs/geom/Circle/
+/**
+ * Returns an circular closed polyline.
+ * @param model Model to add to.
+ * @param plane Plane on which the elliptical polyline will lie.
+ * @param radius Circle radius.
+ * @param segments Number of segments in ellipes.
+ * @returns The circular closed polyline object.
+ */
+export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs: number): gs.IPolyline {
+    const angle: number = (Math.PI * 2) / segs;
+    let xyz_list: number[][] = [];
+    for (let i = 0; i < segs; i++) {
+        xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
+    }
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
+}
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddEllipse
+/**
+ * Returns an eliptical closed polyline.
+ * @param model Model to add to.
+ * @param plane Plane on which the elliptical polyline will lie.
+ * @param radiusX Radius in X-axis direction.
+ * @param radiusY Radius in Y-axis direction.
+ * @param segments Number of segments in ellipes.
+ * @returns The elliptical polyline object.
+ */
+export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, rad_y: number,
+                           segs: number): gs.IPolyline {
+    const angle: number = (Math.PI * 2) / segs;
+    let xyz_list: number[][] = [];
+    for (let i = 0; i < segs; i++) {
+        xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
+    }
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }

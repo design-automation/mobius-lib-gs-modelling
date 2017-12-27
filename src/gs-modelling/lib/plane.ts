@@ -1,6 +1,10 @@
 import * as gs from "gs-json";
 import * as three from "three";
 
+//  ===============================================================================================================
+//  Plane Constructors ============================================================================================
+//  ===============================================================================================================
+
 /**
  * Creates a plane from an origin point and two points describing the x and y axis
  * @param m Model
@@ -37,7 +41,9 @@ export function fromOriginVectors(m: gs.IModel, origin: gs.IPoint): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
-////////////////////////////////////////old functions no longer in API list///////////////////////////////////////////////
+//  ===============================================================================================================
+//  Old Functions No Longer in API ================================================================================
+//  ===============================================================================================================
 
  /**
  * Creates a plane from an origin point and normal direction vector

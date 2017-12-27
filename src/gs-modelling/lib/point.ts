@@ -1,5 +1,9 @@
 import * as gs from "gs-json";
 
+//  ===============================================================================================================
+//  Point Constructors ============================================================================================
+//  ===============================================================================================================
+
 /**
  * Copy a point from one model to another model.
  * @param model Model to add the point to.
@@ -43,6 +47,10 @@ export function getFromModel(m: gs.IModel, i: number[]): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
+//  ===============================================================================================================
+//  Point Functions ===============================================================================================
+//  ===============================================================================================================
+
 /**
  * Finds closest point on an object to a test point.
  * - WEEK 5 -
@@ -65,8 +73,6 @@ export function fuse(m: gs.IModel, poinst: gs.IPoint[], tolerance: number): gs.I
     throw new Error("Method not implemented");
 }
 
-////////////////////////////////////////old functions no longer in API list///////////////////////////////////////////////
-
 /**
  * Obtains x, y and z coordinates of 3D point
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
@@ -76,6 +82,11 @@ export function fuse(m: gs.IModel, poinst: gs.IPoint[], tolerance: number): gs.I
 export function getXYZ(point: gs.IPoint): number[] {
     return point.getPosition();
 }
+
+//  ===============================================================================================================
+//  Old Functions No Longer in API ================================================================================
+//  ===============================================================================================================
+
 
 /**
  * Gets all the points from an object.

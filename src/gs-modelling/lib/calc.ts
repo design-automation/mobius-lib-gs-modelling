@@ -45,18 +45,3 @@ export function quarticRoots(coefficients: number[]): number[] {
     // const Q: number = Math.pow();
     return [];
      }
-
-////////////////////////////////////////old functions no longer in API list///////////////////////////////////////////////
-
-/**
- * Returns length of a polyline object
- * @param m Model
- * @param polyline Polyline object.
- * @param segment_index Polyline segment index.
- * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
- * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
- * @returns Length of polyline as number if successful, none if unsuccessful or on error
- */
-export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
-    throw new Error("Method not implemented");
-}
