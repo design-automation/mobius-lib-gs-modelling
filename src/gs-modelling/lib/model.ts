@@ -4,9 +4,9 @@ import * as gs from "gs-json";
 //  Model Constructors ============================================================================================
 //  ===============================================================================================================
 
+//- WEEK 2 -
 /**
  * Creates a new Model.
- * - WEEK 2 -
  * @param geom Geometry to add to new model
  * @returns New model if successful, none if unsuccessful or on error
  */
@@ -36,9 +36,9 @@ export function purge(model: gs.IModel): boolean {
     return new gs.Model(data);
 }
 
+//- WEEK 2 -
 /**
  * Saves model as a JSON file.
- * - WEEK 2 -
  * @param model Model to save
  * @returns JSON file if successful, none if unsuccessful or on error
  */

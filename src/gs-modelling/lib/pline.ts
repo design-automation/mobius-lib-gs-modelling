@@ -6,9 +6,9 @@ import * as three from "three";
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
+//- WEEK 2 -
 /**
  * Gets a polyline from the model based on an index number
- * - WEEK 2 -
  * @param model Model to get polyline from
  * @param index Index number of polyline
  * @returns Polyline object if successful
@@ -17,42 +17,42 @@ export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
- * - WEEK 2 -
  * @param curve Conic curve to construct polyline from
- * @param segs Number of segments in polyline
+ * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function fromConic(points: gs.IPoint[], segs: number): gs.IPolyline {
+export function fromConic(curve: gs.IPoint[], segments: number): gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
+//- WEEK 2 -
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
+//  http://verbnurbs.com/docs/geom/Line/
+/**
+ * Adds a polyline to the model from a list of points
+ * @param points A list of points
+ * @param is_closed Creates a closed polyline object if true
+ * @returns New polyline object if successful
+ */
+export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
+    //return model.getGeom().addPolyline(points, is_closed);
     throw new Error("Method not implemented");
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
- * Adds a polyline to the model from a list of points
- * - WEEK 2 -
- * @param model Model to add to.
- * @param points A list of points
- * @param is_closed Creates a closed polyline object if true
- * @returns New polyline object if successful
- */
-export function fromPoints(model: gs.IModel, points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
-    return model.getGeom().addPolyline(points, is_closed);
-}
-
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
-//  http://verbnurbs.com/docs/geom/Line/
-/**
  * Adds a line to the model from two points
- * @param model Model to add to.
  * @param start Start point of line
  * @param end End point of line
  * @returns New polyline object, consisting of a single segment.
  */
-export function lineFromPoints(model: gs.IModel, start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return model.getGeom().addPolyline([start, end], false);
+export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+    //return model.getGeom().addPolyline([start, end], false);
+    throw new Error("Method not implemented");
 }
 
 //  ===============================================================================================================
@@ -90,10 +90,20 @@ export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
+/**
+ * Explodes a polyline into individual segments
+ * @param pline Polyline to explode
+ * @param copy Creates a copy of pline before execution
+ * @returns List of new polylines created from explode
+ */
+export function explode(pline: gs.IPolyline, copy: boolean=true): gs.IPolyline[] {
+    throw new Error("Method not implemented");
+}
+
+//- WEEK 5 -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
 /**
  * Extends a non-closed polyline by specified distance
- * - WEEK 5 -
  * @param pline Polyline object
  * @param extrusion_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
@@ -113,6 +123,17 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
             break;
     }
     return extended_points;
+}
+
+/**
+ * Extracts a list of segments from a polyline
+ * @param pline Polyline to extract segments from
+ * @param segment_index Index numbers of polyline segments to extract
+ * @param copy Creates a copy of pline before execution
+ * @returns List of new polylines created from extract
+ */
+export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean=true): gs.IPolyline[] {
+    throw new Error("Method not implemented");
 }
 
 /**
@@ -137,20 +158,21 @@ export function isCLosed(pline: gs.IPolyline): boolean {
 
 /**
  * Returns length of a polyline object
- * @param m Model
+ * @param model Model
  * @param polyline Polyline object
  * @param segment_index Polyline segment index
  * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
  * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
  * @returns Length of polyline as number if successful, none if unsuccessful or on error
  */
-export function length(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
+export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
+                       sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 4 -
 /**
  * Lofts a list of polylines with the same number of segments to create a polymesh
- * - WEEK 4 -
  * @param plines List of polylines to loft (in order)
  * @param is_closed Closes polymesh by lofting back to first polyline if true
  * @returns Polymesh created from loft
@@ -174,12 +196,12 @@ export function rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
 /**
  * Revolves a polyline about a specified axis ray (or line?) to create a polymesh
  * @param pline Polyline to revolve
- * @param axis Axis ray (or line?) to revolve about
- * @param ang_s Start angle of revolution in degrees
- * @param ang_e End angle of revolution in degrees
+ * @param axis Axis ray to revolve about
+ * @param angle_s Start angle of revolution in degrees
+ * @param angle_e End angle of revolution in degrees
  * @returns Polymesh created from revolution
  */
-export function revolve(pline: gs.IPolyline, axis: gs.IRay, ang_s: number, ang_e: number): gs.IPolymesh {
+export function revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, angle_e: number): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -195,20 +217,10 @@ export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
 /**
  * Sweeps a polyline along a specified polyline (or conic curve?) to create a polymesh
  * @param pline Polyline to sweep
- * @param rail Rail polyline (or conic curve?) to sweep along
+ * @param rail Rail polyline to sweep along
  * @returns Polymesh created from sweep
  */
 export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Unwelds a segment from a polyline
- * @param pline Polyline to unweld segment from
- * @param segment_index Index number of polyline segment to unweld
- * @returns New polylines created from unweld
- */
-export function unweld(pline: gs.IPolyline, segment_index: number): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
@@ -297,6 +309,7 @@ function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
 //  http://verbnurbs.com/docs/geom/Circle/
 /**
  * Returns an circular closed polyline.
+ *
  * @param model Model to add to.
  * @param plane Plane on which the elliptical polyline will lie.
  * @param radius Circle radius.

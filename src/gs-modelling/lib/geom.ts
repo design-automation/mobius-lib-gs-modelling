@@ -4,13 +4,13 @@ import * as gs from "gs-json";
 //  Geom Functions ================================================================================================
 //  ===============================================================================================================
 
+//- WEEK 2 -
 /**
  * Deletes geometry or a list of geometry.
- * - WEEK 2 -
  * @param geom Geometry or list of geometry to delete
  * @returns Number of items deleted if successful, none if unsuccessful or on error
  */
-export function delete(geom: gs.IGeom, translation: number[]): Number {
+export function del(geom: gs.IGeom, translation: number[]): Number {
     throw new Error("Method not implemented");
 }
 
@@ -24,9 +24,9 @@ export function mirror(geom: gs.IGeom, plane: gs.IPlane): gs.IGeom {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 2 -
 /**
  * Moves geometry or a list of geometry.
- * - WEEK 2 -
  * @param geom Geometry or list of geometry to move
  * @param translation Translation vector
  * @returns Geometry in new location if successful, none if unsuccessful or on error
@@ -50,7 +50,7 @@ export function rotate(geom: gs.IGeom, rotation: number, plane: gs.IPlane): gs.I
  * Scales geometry or a list of geometry based on an origin and a scale factor
  * @param geom Geometry or list of geometry to move
  * @param origin Origin of scale function
- * @param scale Scale factor 
+ * @param scale Scale factor
  * @returns Scaled geometry if successful, none if unsuccessful or on error
  */
 export function scale(geom: gs.IGeom, origin: number[], scale: number): gs.IGeom {
@@ -67,7 +67,7 @@ export function scale(geom: gs.IGeom, origin: number[], scale: number): gs.IGeom
  * @param translation Translation vector
  * @returns Geometry in new location if successful, none if unsuccessful or on error
  */
-export function transform(geom: gs.IGeom, rotation: number, origin: number[], scale: number, 
+export function transform(geom: gs.IGeom, rotation: number, origin: number[], scale: number,
 						  translation: number[]): gs.IGeom {
     throw new Error("Method not implemented");
 }

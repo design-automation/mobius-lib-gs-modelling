@@ -4,9 +4,9 @@ import * as gs from "gs-json";
 //  Pmesh Constructors ============================================================================================
 //  ===============================================================================================================
 
+//- WEEK 2 -
 /**
  * Gets a polymesh from the model based on an index number
- * - WEEK 2 -
  * @param model Model to get polymesh from
  * @param index Index number of polymesh
  * @returns Polymesh object if successful
@@ -15,31 +15,31 @@ export function getFromModel(model: gs.IModel, index: number): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 5 -
 /**
  * Creates a polymesh from 3 or 4 corner points.
- * - WEEK 5 -
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddSrfPt
- * @param m Model
  * @param points List of 3 or 4 corner points
  * @returns New polymesh if successful, none if unsuccessful or on error
  */
-function fromPoints(m: gs.IModel, points: gs.IPoint[][]): gs.IPolymesh {
-    if( points.length >= 5) {throw new Error("Select 4 corner points maximum");}
-    return m.getGeom().addPolymesh(points);
+function fromPoints(points: gs.IPoint[][]): gs.IPolymesh {
+    //if( points.length >= 5) {throw new Error("Select 4 corner points maximum");}
+    //return m.getGeom().addPolymesh(points);
+    throw new Error("Method not implemented");
     }
 
+//- WEEK 2 -
 /**
  * Creates one or more polygons from planar polylines.
- * - WEEK 2 -
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPlanarSrf
  * http://verbnurbs.com/docs/geom/ISurface/ (?)
- * @param m Model
- * @param objs List of polylines to create planar polygon from
+ * @param plines List of polylines to create planar polygon from
  * @returns List of polygons created if successful, none if unsuccessful or on error
  */
 
-function fromPolyline(m: gs.IModel, polyline: gs.IPolyline ): gs.IPolymesh {
-    return m.getGeom().addPolyline(polyline.getPointsArr(), false);
+function fromPline(plines: gs.IPolyline[] ): gs.IPolymesh {
+    //return m.getGeom().addPolyline(polyline.getPointsArr(), false);
+    throw new Error("Method not implemented");
 }
 
 /**
@@ -54,11 +54,10 @@ function boxFromPlane(plane: gs.IPlane, length_x: number, length_y: number, leng
     throw new Error("Method not implemented");
 }
 
+// - WEEK 2/3/6 -
 /**
  * Creates a piped polymesh along a input polyline
- * - WEEK 2/3/6 -
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPipe
- * @param m Model
  * @param polyline Rail polyline
  * @param radius List of radius values
  * @param cap Caps end with a flat surface if true.
@@ -102,6 +101,27 @@ export function isCLosed(pmesh: gs.IPolymesh): number {
 }
 
 /**
+ * Explodes a polymesh into individual polygons
+ * @param pmesh Polymesh to explode
+ * @param copy Creates a copy of pmesh before execution
+ * @returns List of new polymeshes created from explode
+ */
+export function explode(pmesh: gs.IPolymesh, copy: boolean=true): gs.IPolymesh[] {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Extracts a list of polygons from a polymesh
+ * @param pmesh Polymesh to extract segments from
+ * @param polygon_index Index numbers of polygons to extract
+ * @param copy Creates a copy of pmesh before execution
+ * @returns List of new polymeshes created from extract
+ */
+export function extract(pmesh: gs.IPolymesh, polygon_index: number[], copy: boolean=true): gs.IPolymesh[] {
+    throw new Error("Method not implemented");
+}
+
+/**
  * Calculates perimeter of a polymesh
  * @param pmesh Polymesh object
  * @returns Perimeter of polymesh if successful
@@ -111,22 +131,23 @@ export function perimeter(pmesh: gs.IPolymesh): boolean {
 }
 
 /**
- * Unwelds a polygon from a polymesh
- * @param pmesh Polymesh to unweld polygon from
- * @param polygon_index Index number of polygon to unweld
- * @returns New polymeshes created from unweld
+ * Thickens a polymesh by extruding it along its normal on both sides
+ * @param pmesh Polymesh to thicken
+ * @param dist_1 Distance to thicken in positive direction
+ * @param dist_2 Distance to thicken in negative direction
+ * @returns List of new polymeshes created from extract
  */
-export function unweld(pmesh: gs.IPolymesh, polygon_index: number): gs.IPolymesh[] {
+export function thicken(pmesh: gs.IPolymesh, dist_1: number, dist_2: number): gs.IPolymesh[] {
     throw new Error("Method not implemented");
 }
 
 /**
- * Weld a list of polylines together
- * @param plines List of polyline to weld
- * @param is_closed Creates a closed polyline object if true
- * @returns New polyline created from weld
+ * Weld a list of polymeshes together
+ * @param pmeshes List of polymeshes to weld
+ * @param is_closed Creates a closed polymesh object if true
+ * @returns New polymesh created from weld
  */
-export function weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolymesh {
+export function weld(pmeshes: gs.IPolymesh[], is_closed: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 

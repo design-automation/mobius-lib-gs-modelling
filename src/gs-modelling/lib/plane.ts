@@ -7,37 +7,35 @@ import * as three from "three";
 
 /**
  * Creates a plane from an origin point and two points describing the x and y axis
- * @param m Model
  * @param origin 3D point to use as origin of plane
- * @param on_x Point that lies on x-axis
- * @param on_y Point that lies on y-axis
+ * @param pt_x Point that lies on x-axis
+ * @param pt_y Point that lies on y-axis
  * @returns New plane if successful, none if unsuccessful or on error
  */
-export function fromOriginPoints(m: gs.IModel, origin: gs.IPoint, on_x: gs.IPoint, on_y: gs.IPoint ): gs.IPlane {
+export function fromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
+                                gs.IPlane {
     throw new Error("Method not implemented");
 }
 
 /**
  * Creates a plane from an origin point and two direction vectors describing the x and y axis
- * @param m Model
  * @param origin 3D point to use as origin of plane
  * @param vec_x Direction vector describing x-axis of plane
  * @param vec_y Direction vector describing y-axis of plane
  * @returns New plane if successful, none if unsuccessful or on error
  */
-export function fromOriginVectors(m: gs.IModel, origin: gs.IPoint, vec_x: [number, number, number],
+export function fromOriginVectors(origin: gs.IPoint, vec_x: [number, number, number],
 								  vec_y: [number, number, number]): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 3 -
 /**
  * Creates a plane from an origin point and the World x and y axis
- * - WEEK 3 -
- * @param m Model
  * @param origin 3D point to use as origin of plane
  * @returns New plane if successful, none if unsuccessful or on error
  */
-export function fromOriginVectors(m: gs.IModel, origin: gs.IPoint): gs.IPlane {
+export function fromOriginVectors(origin: gs.IPoint): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
