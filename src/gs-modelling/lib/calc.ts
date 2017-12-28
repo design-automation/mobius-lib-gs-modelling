@@ -1,5 +1,6 @@
 import * as gs from "gs-json";
 import * as mathjs from "mathjs";
+// import * as quartic from "quartic";
 
 /**
  * Calculates distance between two points or two clusters of points
@@ -18,6 +19,7 @@ export function distBetweenPoints(point_1: gs.IPoint, point_2: gs.IPoint, min: b
  * @returns the four roots
  */
 export function quarticRoots(coefficients: number[]): number[] {
+
     if(!(coefficients.length === 5)) {throw new Error("5 coefficients required for a quartic");}
     const a: number = coefficients[0];
     const b: number = coefficients[1];
@@ -51,8 +53,159 @@ export function quarticRoots(coefficients: number[]): number[] {
     const x4: number = -b/(4*a) + S + Math.sqrt(-4*Math.pow(S,2) - 2*p - q/S)/2 ;
 
     // return [x1, x2, x3, x4]; // To Do
-    return [];
+    const xx: number[] = [];
+    switch(xx.length {
+            case 5: {const coeff4: number[] = xx;}
+            case 4: {const coeff3: number[] = xx;}
+            case 3: {const coeff2: number[] = xx;}
+            case 2: {const coeff1: number[] = xx;}
+            case 1: {const coeff0: number[] = xx;}
+//            default: {throw new Error("Quartic solver, max polynomial degree is 4");}                    }
+        }
+return [];
      }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////// DRAFT /////////////////////////////////////////////////////////////////////
+
+// import * as quartic from "quartic";
+// import * as math from "mathjs";
+// import * as algebra from "algebra.js";
+
+// export function solver(coeff: number[]): number[]{
+//     switch(coeff.length){
+//         case 5: {
+//             const order_4:number = quartic(coeff);
+//             const sol: number[] = [];
+//             if(order_4[0].im === 0){sol.push(order_4[0].re);}
+//             if(order_4[1].im === 0){sol.push(order_4[1].re);}
+//             if(order_4[2].im === 0){sol.push(order_4[2].re);}
+//             if(order_4[3].im === 0){sol.push(order_4[3].re);}
+//             return sol; // use Set in Sol.
+//         }
+//         case 4: {
+//             let order_3: algebra.Expression = new algebra.Expression("x");
+//             order_3 = ((((order_3.multiply(order_3.multiply(order_3.multiply(coeff[0]))))
+// .add((order_3.multiply(order_3.multiply(coeff[1])))))).add(order_3.multiply(coeff[2]))).add(coeff[3]);
+//             const eq1: algebra.cubic = new algebra.Equation(order_3,0);
+//             console.log(eq1.toString())
+//             return eq1.solveFor("x");
+//         }
+//         case 3: {
+//             let order_2: algebra.Expression = new algebra.Expression("x");
+//             order_2 = ((((order_2.multiply(order_2.multiply(coeff[0]))))))
+// .add(order_2.multiply(coeff[1])).add(coeff[2]);
+//             const eq2: algebra.quadratic = new algebra.Equation(order_2,0);
+//             console.log(eq2.toString())
+//             console.log(33);
+//             return eq2.solveFor("x");
+//         }
+//         case 2: {
+//             let order_1: algebra.Expression = new algebra.Expression("x");
+//             order_1 = (order_1.multiply(coeff[0])).add(coeff[1]);
+//             const eq3: algebra.cubic = new algebra.Equation(order_1,0);
+//             console.log(eq3.toString());
+//             return eq3.solveFor("x");
+//         }
+//         default: {throw new Error("Quartic solver, polynomial degree is 4");}
+//         }
+// }
+
+// export function c2_coefficients( /* c1 */ ):number[]{
+//     let a:number = null;
+//     let b:number = null;
+//     let r:number = null;
+//     let p:number = null;
+//     return [a,b,r,p];
+// }
+
+// export function c1_coefficients(  /* c1 and c2 */ ):number[]{
+//     let A:number = null;
+//     let B:number = null;
+//     let C:number = null;
+//     let D:number = null;
+//     let E:number = null;
+//     return [A,B,C,D,E];
+// }
+
+// export function quartic_coefficients( /* c1, c2 */):number[]{
+//     let a: number = null;
+//     let b: number = null;
+//     let c: number = null;
+//     let d: number = null;
+//     let e: number = null;
+
+//     return [a,b,c,d,e];
+// }
+
+// export function split_conic_conic( /* c1, c2*/ ):number[]{
+
+//     /* solver(quartic_coefficients(c1, c2)) */
+
+// }
+
+// // console.log(solver([1,0,0,0]));
+
+// export function conics_to_quartics():any{
+//     // ellipse: origin, radius 1, radius2
+//     // circle: origin, radius 1, radius2
+//     // hyperbola:
+//     // parabola:
+
+// // 1 equation centree reduite
+// // de forme x/
+
+// // 1 equation non centree reduite
+//     return null }
+
+// let order_3: algebra.Expression = new algebra.Expression("x");
+// order_3 = order_3.multiply(3);
+// console.log(order_3.toString());
+// order_3 = ((order_3.multiply(3)).multiply(order_3)).add(order_3.multiply(order_3));
+// console.log(order_3.toString());
+
+// order_3 = ((((order_3.multiply(order_3.multiply(order_3.multiply(coeff[0]))))
+// .add((order_3.multiply(order_3.multiply(coeff[1])))))).add(order_3.multiply(coeff[2]))).add(coeff[3]);
+
+// // let y: algebra.Expression = new algebra.Expression("y");
+// // let x: algebra.Expression = new algebra.Expression("x");
+// // let m1:algebra.Expression = x.multiply(y);
+// // let m2:algebra.Expression = m1.eval({y:order_3});
+// // console.log(m1.toString());
+// // console.log(m2.toString());
+
+// // P1: member1
+// // P2: member 2
+// // expression = P1 - P2 ;
+// // expression y =
+// // expression 2 = expression.eval({})
+
+// // get Coefficients
+// let a3: number = 4.5;
+// let a4: number = 5;
+// let a5: number = 6;
+
+// console.log(a3);
+
+// let x: algebra.Expression = new algebra.Expression("x")
+// let order_1 = algebra.Expression = x.multiply(x.multiply(a3));
+// order_1 = order_1.add(x.multiply(a4));
+// order_1 = order_1.add(a5);
+// console.log(order_1.toString());
+
+// console.log(order_1.terms[0].coefficients[0])
+
+// // .simplify
+// // console.log(m1.eval({}))
+// // const equation = new algebra.Equation(x.multiply(y),0);
+// // console.log(equation.toString());
+// // const answer = y.eval({x: y});
+// // console.log(equation.toString());
+
+///////////////////////////////////////// DRAFT /////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
 
