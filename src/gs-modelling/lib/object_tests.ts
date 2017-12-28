@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as test from "./object";
+import * as test from "./object_old";
 
 export function test_MoveObject() {
     const m: gs.IModel = new gs.Model();
