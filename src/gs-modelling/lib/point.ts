@@ -14,7 +14,7 @@ export function copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
     return model.getGeom().addPoint(point.getPosition());
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Find the mean of a list of points and adds a new point to the model.
  * @param points List of points
@@ -24,18 +24,18 @@ export function fromPointsMean(points: gs.IPoint[]): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Adds a point or list of points to the model.
- * @param m Model to add point to
+ * @param model Model to add point to
  * @param xyz List of X, Y and Z coordinates of point
  * @returns New point or list of points if successful, null if unsuccessful or on error
  */
 export function fromXYZ(model: gs.IModel, xyz: number[]): gs.IPoint {
-    return m.getGeom().addPoint(xyz);
+    return model.getGeom().addPoint(xyz);
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Gets a point from the model.
  * @param model Model to get point from
@@ -50,7 +50,7 @@ export function getFromModel(model: gs.IModel, index: number[]): gs.IPoint {
 //  Point Functions ===============================================================================================
 //  ===============================================================================================================
 
-//- WEEK 5 -
+// - WEEK 5 -
 /**
  * Finds closest point on an object to a test point.
  * @param point Test point to consider
@@ -68,7 +68,7 @@ export function closestPoint(point: gs.IPoint, obj: gs.IObj): gs.IPoint {
  * @param copy Performs transformation on duplicate copy of input points
  * @returns New point if successful, null if unsuccessful or on error
  */
-export function fuse(poinst: gs.IPoint[], tolerance: number, copy: boolean): gs.IPoint {
+export function fuse(points: gs.IPoint[], tolerance: number, copy: boolean): gs.IPoint {
     throw new Error("Method not implemented");
 }
 

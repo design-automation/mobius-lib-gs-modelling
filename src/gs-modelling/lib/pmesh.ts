@@ -37,7 +37,7 @@ function fromPoints(points: gs.IPoint[][]): gs.IPolymesh {
  * @returns List of polygons created if successful, null if unsuccessful or on error
  */
 
-function fromPline(plines: gs.IPolyline[] ): gs.IPolymesh {
+function fromPline(plines: gs.IPolyline[] ): gs.IPolymesh[] {
     //return m.getGeom().addPolyline(polyline.getPointsArr(), false);
     throw new Error("Method not implemented");
 }
@@ -54,7 +54,7 @@ function boxFromPlane(plane: gs.IPlane, length_x: number, length_y: number, leng
     throw new Error("Method not implemented");
 }
 
-// - WEEK 2/3/6 -
+// - Assignment 1 -
 /**
  * Creates a piped polymesh along a input polyline
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPipe
@@ -63,7 +63,7 @@ function boxFromPlane(plane: gs.IPlane, length_x: number, length_y: number, leng
  * @param cap Caps end with a flat surface if true.
  * @returns New polymesh if successful, null if unsuccessful or on error
  */
-function pipeFromPline(polyline: gs.IPolyline, radius: [number, number], cap: boolean=false ): gs.IPolymesh {
+function pipeFromPline(polyline: gs.IPolyline, radius: [number, number], cap: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -141,6 +141,7 @@ export function perimeter(pmesh: gs.IPolymesh): boolean {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 2 -
 /**
  * Thickens a polymesh by extruding it along its normal in both the positive and negative directions
  * @param pmesh Polymesh to thicken
@@ -175,7 +176,7 @@ export function weld(pmeshes: gs.IPolymesh[], is_closed: boolean): gs.IPolymesh 
  * @param cap Extrusion capped at both ends if true. Open if false.
  * @returns New polymesh if successful, null if unsuccessful or on error
  */
-function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline, cap: boolean=true ): gs.IPolymesh {
+function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline, cap: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -190,6 +191,6 @@ function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline, c
  * @returns New polymesh if successful, null if unsuccessful or on error
  */
 function BooleanDifference2D(m: gs.IModel, input0: gs.IPolymesh, input1: gs.IPolymesh,
-                             plane: gs.IPlane, delete_input: boolean=true ): gs.IPolymesh {
+                             plane: gs.IPlane, delete_input: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }

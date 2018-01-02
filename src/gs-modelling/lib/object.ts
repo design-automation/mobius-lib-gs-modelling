@@ -40,7 +40,7 @@ export function getFaces(obj: gs.IObj): gs.IFace[] {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+//- WEEK 4 -
 /**
  * Gets points from an object
  * @param obj Object to get points from
@@ -99,7 +99,7 @@ export function numFaces(obj: gs.IObj): number {
 }
 
 /**
- * Gets number points in an object
+ * Gets number of points in an object
  * @param obj Object to get number of points from
  * @returns Number of points if successful, null if unsuccesful or on error
  */

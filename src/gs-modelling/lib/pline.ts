@@ -24,7 +24,7 @@ export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function fromConic(curve: gs.IPoint[], segments: number): gs.IPolyline {
+export function fromConic(curve: gs.IConic[], segments: number): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
@@ -32,9 +32,9 @@ export function fromConic(curve: gs.IPoint[], segments: number): gs.IPolyline {
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
- * Adds a polyline to the model from a list of points
- * @param points A list of points
- * @param is_closed Creates a closed polyline object if true
+ * Adds a polyline to the model by joining a list of points
+ * @param points A list of points (in order)
+ * @param is_closed Creates a closed polyline object by joining the last point to the first point if true
  * @returns New polyline object if successful
  */
 export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
@@ -236,6 +236,7 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
+//- WEEK 2 -
 /**
  * Weld a list of polylines together
  * @param plines List of polyline to weld

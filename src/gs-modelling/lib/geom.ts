@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param geom Geometry or list of geometry to delete
  * @returns Number of items deleted if successful, null if unsuccessful or on error
  */
-export function del(geom: gs.IGeom, translation: number[]): Number {
+export function del(geom: gs.IGeom[]): Number {
     /* Old Implementation for one obj
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {return false;}

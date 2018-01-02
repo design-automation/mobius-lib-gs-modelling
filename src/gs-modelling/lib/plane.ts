@@ -35,7 +35,7 @@ export function fromOriginVectors(origin: gs.IPoint, vec_x: [number, number, num
  * @param origin 3D point to use as origin of plane
  * @returns New plane if successful, null if unsuccessful or on error
  */
-export function fromOriginVectors(origin: gs.IPoint): gs.IPlane {
+export function fromOriginWCS(origin: gs.IPoint): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
@@ -43,7 +43,7 @@ export function fromOriginVectors(origin: gs.IPoint): gs.IPlane {
 //  Old Functions No Longer in API ================================================================================
 //  ===============================================================================================================
 
- /**
+/**
  * Creates a plane from an origin point and normal direction vector
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#plane-PlaneFromNormal
  * @param m Model

@@ -7,19 +7,19 @@ import * as gs from "gs-json";
 /**
  * Adds a group to a model
  * @param model Model to add to
- * @param ...
+ * @param name Name of new group
  * @returns New group
  */
-export function add(model: gs.IModel, ... ): gs.IGroup {
+export function add(model: gs.IModel, name: string ): gs.IGroup {
     throw new Error("Method not implemented");
 }
 
 /**
- * Gets a group from a model
+ * Gets groups from a model
  * @param model Model to get group from
- * @returns New group
+ * @returns List of groups
  */
-export function getFromModel(model: gs.IModel): gs.IGroup {
+export function getFromModel(model: gs.IModel): gs.IGroup[] {
     throw new Error("Method not implemented");
 }
 
