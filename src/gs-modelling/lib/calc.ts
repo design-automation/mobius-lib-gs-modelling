@@ -1,6 +1,8 @@
 import * as gs from "gs-json";
 import * as mathjs from "mathjs";
-// import * as quartic from "quartic";
+import * as quartic from "quartic";
+import * as cubic from "poly-roots";
+import * as quadratic from "solve-quadratic-equation";
 
 /**
  * Calculates distance between two points or two clusters of points
@@ -14,56 +16,61 @@ export function distBetweenPoints(point_1: gs.IPoint, point_2: gs.IPoint, min: b
 }
 
 /**
- * Returns the roots of a four degree polynomial
- * @param the five coefficients of the polynomial
- * @returns the four roots
+ * Analyze a set of 5 coefficients and returns its associated polynomial roots
+ * @param the set of five coefficients by descending order
+ * @returns the set of real roots if any
  */
-export function quarticRoots(coefficients: number[]): number[] {
-
-    if(!(coefficients.length === 5)) {throw new Error("5 coefficients required for a quartic");}
-    const a: number = coefficients[0];
-    const b: number = coefficients[1];
-    const c: number = coefficients[2];
-    const d: number = coefficients[3];
-    const e: number = coefficients[4];
-    const p: number = (8*a*c - 3*Math.pow(b,2))/(8*Math.pow(a,2));
-    const q: number = (Math.pow(b,3) - 4*a*b*c + 8*Math.pow(a,2)*d)/(8*Math.pow(a,3));
-    if(a === 0) {throw new Error("Non quartic polynomial");}
-    const delta: number =  256*Math.pow(a,3) - 192*Math.pow(a,2)*b*d*Math.pow(e,2)
-                         - 128*Math.pow(a,2)*Math.pow(c,2)*Math.pow(e,2) + 144*Math.pow(a,2)*c*Math.pow(d,2)*e
-                         - 27*Math.pow(a,2)*Math.pow(d,4) + 144*a*Math.pow(b,2)*c*Math.pow(e,2)
-                         - 6*a*Math.pow(b,2)*Math.pow(d,2)*e - 80*a*b*Math.pow(c,2)*d*e + 18*a*b*c*Math.pow(d,3)
-                         + 16*a*Math.pow(c,4)*e - 4*a*Math.pow(c,3)*Math.pow(d,2) - 27*Math.pow(b,4)*Math.pow(e,2)
-                         + 18*Math.pow(b,3)*c*d*e - 4*Math.pow(b,3)*Math.pow(d,3) - 4*Math.pow(b,3)*Math.pow(d,3)
-                         - 4*Math.pow(b,2)*Math.pow(c,3)*e + Math.pow(b*c*d,2);
-
-    const P: number = 8*a*c - 3*Math.pow(b,2);
-    const R: number = Math.pow(b,3) + 8*d*Math.pow(a,2);
-    const delta_0: number = Math.pow(c,2) - 3*b*d + 12*a*e;
-    const delta_1: number = 2*Math.pow(c,3) - 9*b*c*d + 27*Math.pow(b,2)*e +27*a*Math.pow(d,2) - 72*a*c*e;
-    const D: number =  64*Math.pow(a,3)*e - 16* Math.pow(a,2)*Math.pow(c,2) + 16*a*Math.pow(b,2)*c
-                     - 16*Math.pow(a,2)*b*d - 3*Math.pow(b,4);
-
-    const Q: number = Math.pow((delta_1 + Math.pow(Math.pow(delta_1,2) - 4*Math.pow(delta_0,3),1/2))/2,1/3);
-    const S: number = Math.pow(-2/3*p + (Q + delta_0/Q) /(3*a),2 )/2 ;
-
-    const x1: number = -b/(4*a) - S + Math.sqrt(-4*Math.pow(S,2) - 2*p + q/S)/2 ;
-    const x2: number = -b/(4*a) - S - Math.sqrt(-4*Math.pow(S,2) - 2*p + q/S)/2 ;
-    const x3: number = -b/(4*a) + S + Math.sqrt(-4*Math.pow(S,2) - 2*p - q/S)/2 ;
-    const x4: number = -b/(4*a) + S + Math.sqrt(-4*Math.pow(S,2) - 2*p - q/S)/2 ;
-
-    // return [x1, x2, x3, x4]; // To Do
-    const xx: number[] = [];
-    switch(xx.length {
-            case 5: {const coeff4: number[] = xx;}
-            case 4: {const coeff3: number[] = xx;}
-            case 3: {const coeff2: number[] = xx;}
-            case 2: {const coeff1: number[] = xx;}
-            case 1: {const coeff0: number[] = xx;}
-//            default: {throw new Error("Quartic solver, max polynomial degree is 4");}                    }
+export function solver(coeff: number[]): number[] {
+    // To Do: use set;
+    if(!(coeff.length === 5)) {throw new Error("5 coefficients expected");}
+    if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 && coeff[3] === 0 && coeff[4] === 0 ) { coeff = [] ;}
+    if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 && coeff[3] === 0 ) { coeff.splice(0,4) ;}
+    if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 ) { coeff.splice(0,3) ;}
+    if( coeff[0] === 0 && coeff[1] === 0 ) { coeff.splice(0,2) ;}
+    if( coeff[0] === 0 ) { coeff.splice(0,1) ;}
+    switch(coeff.length) {
+        case 5: {
+            const order_4: number = quartic(coeff);
+            const sol: number[] = [];
+            if(order_4[0].im === 0) {sol.push(order_4[0].re);}
+            if(order_4[1].im === 0) {sol.push(order_4[1].re);}
+            if(order_4[2].im === 0) {sol.push(order_4[2].re);}
+            if(order_4[3].im === 0) {sol.push(order_4[3].re);}
+            return sol; // use Set in Sol.
         }
-return [];
-     }
+        case 4: {
+            let root: number[] = [];
+            if( coeff[3] === 0) {
+                root = quadratic(coeff[0],coeff[1],coeff[2]);
+                root.push(0);
+                return root;}
+            // Third degree polynomial has at least 1 real root
+            const threshold: number = 1e-10;
+            if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][0])
+             < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][0]);}
+            if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][1])
+             < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][1]);}
+            if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][2])
+             < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][2]);}
+            if(root.length === 0) {throw new Error("Smaller threshold required in solver");}
+            return root;
+       }
+        case 3: {
+            return quadratic(coeff[0],coeff[1],coeff[2]);
+        }
+        case 2: {
+            if(coeff[0] === 0) {return [];}
+            return [-coeff[1]/coeff[0]];
+        }
+        case 1: {
+            return [];
+        }
+        case 0: {
+            return [];
+        }
+        default: {throw new Error(" ");}
+        }
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,45 +79,6 @@ return [];
 // import * as quartic from "quartic";
 // import * as math from "mathjs";
 // import * as algebra from "algebra.js";
-
-// export function solver(coeff: number[]): number[]{
-//     switch(coeff.length){
-//         case 5: {
-//             const order_4:number = quartic(coeff);
-//             const sol: number[] = [];
-//             if(order_4[0].im === 0){sol.push(order_4[0].re);}
-//             if(order_4[1].im === 0){sol.push(order_4[1].re);}
-//             if(order_4[2].im === 0){sol.push(order_4[2].re);}
-//             if(order_4[3].im === 0){sol.push(order_4[3].re);}
-//             return sol; // use Set in Sol.
-//         }
-//         case 4: {
-//             let order_3: algebra.Expression = new algebra.Expression("x");
-//             order_3 = ((((order_3.multiply(order_3.multiply(order_3.multiply(coeff[0]))))
-// .add((order_3.multiply(order_3.multiply(coeff[1])))))).add(order_3.multiply(coeff[2]))).add(coeff[3]);
-//             const eq1: algebra.cubic = new algebra.Equation(order_3,0);
-//             console.log(eq1.toString())
-//             return eq1.solveFor("x");
-//         }
-//         case 3: {
-//             let order_2: algebra.Expression = new algebra.Expression("x");
-//             order_2 = ((((order_2.multiply(order_2.multiply(coeff[0]))))))
-// .add(order_2.multiply(coeff[1])).add(coeff[2]);
-//             const eq2: algebra.quadratic = new algebra.Equation(order_2,0);
-//             console.log(eq2.toString())
-//             console.log(33);
-//             return eq2.solveFor("x");
-//         }
-//         case 2: {
-//             let order_1: algebra.Expression = new algebra.Expression("x");
-//             order_1 = (order_1.multiply(coeff[0])).add(coeff[1]);
-//             const eq3: algebra.cubic = new algebra.Equation(order_1,0);
-//             console.log(eq3.toString());
-//             return eq3.solveFor("x");
-//         }
-//         default: {throw new Error("Quartic solver, polynomial degree is 4");}
-//         }
-// }
 
 // export function c2_coefficients( /* c1 */ ):number[]{
 //     let a:number = null;

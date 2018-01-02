@@ -23,7 +23,6 @@
     "dependencies": {
         "@types/three": "^0.84.35",
         "gs-json": "git://github.com/phtj/gs-json.git"
-
     },
     "devDependencies": {
         "@types/jasmine": "^2.6.3",
