@@ -10,7 +10,7 @@ import * as three from "three";
  * @param origin 3D point to use as origin of plane
  * @param pt_x Point that lies on x-axis
  * @param pt_y Point that lies on y-axis
- * @returns New plane if successful, none if unsuccessful or on error
+ * @returns New plane if successful, null if unsuccessful or on error
  */
 export function fromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
                                 gs.IPlane {
@@ -22,10 +22,10 @@ export function fromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IP
  * @param origin 3D point to use as origin of plane
  * @param vec_x Direction vector describing x-axis of plane
  * @param vec_y Direction vector describing y-axis of plane
- * @returns New plane if successful, none if unsuccessful or on error
+ * @returns New plane if successful, null if unsuccessful or on error
  */
 export function fromOriginVectors(origin: gs.IPoint, vec_x: [number, number, number],
-								  vec_y: [number, number, number]): gs.IPlane {
+                                  vec_y: [number, number, number]): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
@@ -33,7 +33,7 @@ export function fromOriginVectors(origin: gs.IPoint, vec_x: [number, number, num
 /**
  * Creates a plane from an origin point and the World x and y axis
  * @param origin 3D point to use as origin of plane
- * @returns New plane if successful, none if unsuccessful or on error
+ * @returns New plane if successful, null if unsuccessful or on error
  */
 export function fromOriginVectors(origin: gs.IPoint): gs.IPlane {
     throw new Error("Method not implemented");
@@ -50,7 +50,7 @@ export function fromOriginVectors(origin: gs.IPoint): gs.IPlane {
  * @param origin 3D point to use as origin of plane
  * @param normal 3D vector to define normal direction of plane
  * @param xaxis Vector to use define x-axis of plane (optional)
- * @returns New plane if successful, none if unsuccessful or on error
+ * @returns New plane if successful, null if unsuccessful or on error
  */
 export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, number, number]): gs.IPlane {
      const e3: three.Vector3 = new three.Vector3(...normal).normalize();
@@ -67,7 +67,7 @@ export function AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, numbe
  * @param m Model
  * @param plane Plane to intersect
  * @param polyline Polyline to intersect
- * @returns List of intersection information if successful, none if unsuccessful or on error.
+ * @returns List of intersection information if successful, null if unsuccessful or on error.
  * [0] = type of intersection. 1 = point, 2 = overlap
  * [1] = intersection point if [0] = 1, list of intersection start point and end point if [0] = 2
  */

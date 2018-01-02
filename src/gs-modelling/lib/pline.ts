@@ -66,7 +66,7 @@ export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
  * @param pline Polyline to evaluate
  * @param t Parameter to evaluate
  * @param segment_index The segment of the polyline to evaluate.
- * @returns 3D point if successful, none if unsuccessful or on error
+ * @returns 3D point if successful, null if unsuccessful or on error
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
     let points: gs.IPoint[] = pline.getPointsArr();
@@ -84,7 +84,7 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
  * Returns a param along a polyline based on a point on the polyline
  * @param pline Polyline to evaluate
  * @param point Point to evaluate
- * @returns Param on polyline if successful, none if unsuccessful or on error
+ * @returns Param on polyline if successful, null if unsuccessful or on error
  */
 export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
     throw new Error("Method not implemented");
@@ -93,10 +93,10 @@ export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
 /**
  * Explodes a polyline into individual segments
  * @param pline Polyline to explode
- * @param copy Creates a copy of pline before execution
+ * @param copy Performs transformation on duplicate copy of input polyline
  * @returns List of new polylines created from explode
  */
-export function explode(pline: gs.IPolyline, copy: boolean=true): gs.IPolyline[] {
+export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
@@ -107,10 +107,11 @@ export function explode(pline: gs.IPolyline, copy: boolean=true): gs.IPolyline[]
  * @param pline Polyline object
  * @param extrusion_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
- * @returns New polyline object if successful, none if unsuccessful or on error
+ * @param copy Performs transformation on duplicate copy of input polyline
+ * @returns New polyline object if successful, null if unsuccessful or on error
  */
 export function extend(pline: gs.IPolyline, extrusion_side: number, length: number,
-                       create_points: boolean = true): gs.IPoint[] {
+                       create_points: boolean, copy: boolean): gs.IPoint[] {
     const points: gs.IPoint[] = pline.getPointsArr();
     const extended_points: gs.IPoint[] = [];
     switch (extrusion_side) {
@@ -129,10 +130,10 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
  * Extracts a list of segments from a polyline
  * @param pline Polyline to extract segments from
  * @param segment_index Index numbers of polyline segments to extract
- * @param copy Creates a copy of pline before execution
+ * @param copy Performs transformation on duplicate copy of input polyline
  * @returns List of new polylines created from extract
  */
-export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean=true): gs.IPolyline[] {
+export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
@@ -143,7 +144,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
  * @param cap Closes polymesh by creating a flat surface on each end of the extrusion if true
  * @returns Polymesh created from extrusion
  */
-export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean=false): gs.IPolymesh {
+export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -163,7 +164,7 @@ export function isCLosed(pline: gs.IPolyline): boolean {
  * @param segment_index Polyline segment index
  * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
  * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
- * @returns Length of polyline as number if successful, none if unsuccessful or on error
+ * @returns Length of polyline as number if successful, null if unsuccessful or on error
  */
 export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
                        sub_domain: [number,number] ) {
@@ -178,6 +179,17 @@ export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: num
  * @returns Polymesh created from loft
  */
 export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Offsets planar polyline along its plane by a specified distance
+ * @param plines Polyline to offset
+ * @param distance Distance to offset
+ * @param copy Performs transformation on duplicate copy of input polyline
+ * @returns New offset polyline
+ */
+export function offset(plines: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -300,7 +312,6 @@ function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
         }
     }
 }
-
 
 //  ===============================================================================================================
 //  Old Functions No Longer in API ================================================================================

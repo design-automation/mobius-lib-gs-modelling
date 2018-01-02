@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param pt1 First point on arc
  * @param pt2 Second point on arc
  * @param pt3 Third point on arc
- * @returns New arc if successful, none if unsuccessful or on error
+ * @returns New arc if successful, null if unsuccessful or on error
  */
 export function arcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConic {
     throw new Error("Method not implemented");
@@ -22,7 +22,7 @@ export function arcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
  * @param plane Plane to construct arc on. The origin of the plane is the center of the arc
  * @param radius Radius of arc
  * @param angle Angle of arc in degrees
- * @returns New arc if successful, none if unsuccessful or on error
+ * @returns New arc if successful, null if unsuccessful or on error
  */
 export function arcFromPlane(plane: gs.IPlane, radius: number, angle: number ): gs.IConic {
     throw new Error("Method not implemented");
@@ -33,7 +33,7 @@ export function arcFromPlane(plane: gs.IPlane, radius: number, angle: number ): 
  * @param pt1 First point on circle
  * @param pt2 Second point on circle
  * @param pt3 Third point on circle
- * @returns New circle if successful, none if unsuccessful or on error
+ * @returns New circle if successful, null if unsuccessful or on error
  */
 export function circleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConic {
     throw new Error("Method not implemented");
@@ -45,7 +45,7 @@ export function circleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
  * Adds a circle to the model based on an origin point and radius, using the world XY plane
  * @param origin Center point of circle
  * @param radius Radius of circle
- * @returns New circle if successful, none if unsuccessful or on error
+ * @returns New circle if successful, null if unsuccessful or on error
  */
 export function circleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConic {
     throw new Error("Method not implemented");
@@ -55,7 +55,7 @@ export function circleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConic 
  * Adds a circle to the model based on a plane and radius
  * @param plane Plane to construct circle on. The origin of the plane is the center of the circle
  * @param radius Radius of circle
- * @returns New circle if successful, none if unsuccessful or on error
+ * @returns New circle if successful, null if unsuccessful or on error
  */
 export function circleFromPlane(plane: gs.IPlane, radius: number ): gs.IConic {
     throw new Error("Method not implemented");
@@ -66,7 +66,7 @@ export function circleFromPlane(plane: gs.IPlane, radius: number ): gs.IConic {
  * @param plane Plane to construct ellipse on. The origin of the plane is the center of the ellipse
  * @param radius_x Radius of ellipse in x-direction
  * @param radius_y Radius of ellipse in y-direction
- * @returns New ellipse if successful, none if unsuccessful or on error
+ * @returns New ellipse if successful, null if unsuccessful or on error
  */
 export function ellipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number ): gs.IConic {
     throw new Error("Method not implemented");
@@ -79,17 +79,17 @@ export function ellipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: n
  * @param radius_y Radius of arc in y-direction
  * @param angle_s Starting angle of arc in degrees
  * @param angle_e Ending angle of arc in degrees
- * @returns New arc if successful, none if unsuccessful or on error
+ * @returns New arc if successful, null if unsuccessful or on error
  */
 export function ellipticalArcFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number, angle_s: number,
-							           angle_e: number ): gs.IConic {
+                                       angle_e: number ): gs.IConic {
     throw new Error("Method not implemented");
 }
 
 /**
  * Gets a conic curve from an edge
  * @param edge Edge to get curve from
- * @returns New conic curve if successful, none if unsuccessful or on error
+ * @returns New conic curve if successful, null if unsuccessful or on error
  */
 export function fromEdge(edge: gs.IEdge ): gs.IConic {
     throw new Error("Method not implemented");
@@ -100,7 +100,7 @@ export function fromEdge(edge: gs.IEdge ): gs.IConic {
  * Gets a conic curve from the model
  * @param model Model to get curve from
  * @param index Index number of conic curve
- * @returns Conic curve if successful, none if unsuccessful or on error
+ * @returns Conic curve if successful, null if unsuccessful or on error
  */
 export function getFromModel(model: gs.IModel, index: number ): gs.IConic {
     throw new Error("Method not implemented");
@@ -137,9 +137,10 @@ export function evalPoint(curve: gs.IConic, point: gs.IPoint): number {
  * @param curve Conic curve to extend
  * @param direction Direction to extend curve in (0-Start, 1-End, 2-Both)
  * @param distance Distance to extend curve
+ * @param copy Performs transformation on a duplicate of the input curve if true
  * @returns Extended conic curve
  */
-export function extend(curve: gs.IConic): gs.IConic {
+export function extend(curve: gs.IConic, direction: number, distance: number, copy: boolean): gs.IConic {
     throw new Error("Method not implemented");
 }
 
@@ -167,7 +168,7 @@ export function getOrigin(curve: gs.IConic): gs.IPoint {
  * @param curve Conic curve to obtain type
  * @returns Number describing type of conic curve (0-Circle, 1-Ellipse, 2-Hyperbola, 3-Parabola)
  */
-export function getType(curve: gs.IConic): number {
+export function getType(curve: gs.IConic): number /*enum TO-DO*/ {
     throw new Error("Method not implemented");
 }
 
@@ -213,18 +214,9 @@ export function setIsClosed(curve: gs.IConic, is_closed: boolean): void {
  * Changes number of segments a conic curve is divided into
  * @param curve Conic curve to change
  * @param segments New number of segments
+ * @param copy Performs transformation on a duplicate of the input curve if true
  * @returns Conic curve with updated segments
  */
-export function setNumSegs(curve: gs.IConic, segments: number): gs.IConic {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Sweeps a conic curve along a specified polyline (or conic curve?) to create a polymesh
- * @param curve Conic curve to sweep
- * @param rail Rail polyline (or conic curve?) to sweep along
- * @returns Polymesh created from sweep
- */
-export function sweep(curve: gs.IConic, rail: gs.IPline): gs.IPolymesh {
+export function setNumSegs(curve: gs.IConic, segments: number, copy: boolean): gs.IConic {
     throw new Error("Method not implemented");
 }
