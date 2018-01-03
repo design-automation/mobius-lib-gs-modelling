@@ -12,7 +12,7 @@ import * as gs from "gs-json";
  * @param pt3 Third point on arc
  * @returns New arc if successful, null if unsuccessful or on error
  */
-export function arcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConic {
+export function arcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -24,7 +24,7 @@ export function arcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
  * @param angle Angle of arc in degrees
  * @returns New arc if successful, null if unsuccessful or on error
  */
-export function arcFromPlane(plane: gs.IPlane, radius: number, angle: number ): gs.IConic {
+export function arcFromPlane(plane: gs.IPlane, radius: number, angle: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -35,7 +35,7 @@ export function arcFromPlane(plane: gs.IPlane, radius: number, angle: number ): 
  * @param pt3 Third point on circle
  * @returns New circle if successful, null if unsuccessful or on error
  */
-export function circleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConic {
+export function circleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -47,7 +47,7 @@ export function circleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
  * @param radius Radius of circle
  * @returns New circle if successful, null if unsuccessful or on error
  */
-export function circleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConic {
+export function circleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -57,7 +57,7 @@ export function circleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConic 
  * @param radius Radius of circle
  * @returns New circle if successful, null if unsuccessful or on error
  */
-export function circleFromPlane(plane: gs.IPlane, radius: number ): gs.IConic {
+export function circleFromPlane(plane: gs.IPlane, radius: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -68,7 +68,7 @@ export function circleFromPlane(plane: gs.IPlane, radius: number ): gs.IConic {
  * @param radius_y Radius of ellipse in y-direction
  * @returns New ellipse if successful, null if unsuccessful or on error
  */
-export function ellipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number ): gs.IConic {
+export function ellipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -82,7 +82,7 @@ export function ellipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: n
  * @returns New arc if successful, null if unsuccessful or on error
  */
 export function ellipticalArcFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number, angle_s: number,
-                                       angle_e: number ): gs.IConic {
+                                       angle_e: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -91,7 +91,7 @@ export function ellipticalArcFromPlane(plane: gs.IPlane, radius_x: number, radiu
  * @param edge Edge to get curve from
  * @returns New conic curve if successful, null if unsuccessful or on error
  */
-export function fromEdge(edge: gs.IEdge ): gs.IConic {
+export function fromEdge(edge: gs.IEdge ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -102,7 +102,7 @@ export function fromEdge(edge: gs.IEdge ): gs.IConic {
  * @param index Index number of conic curve
  * @returns Conic curve if successful, null if unsuccessful or on error
  */
-export function getFromModel(model: gs.IModel, index: number ): gs.IConic {
+export function getFromModel(model: gs.IModel, index: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -117,7 +117,7 @@ export function getFromModel(model: gs.IModel, index: number ): gs.IConic {
  * @param t Parameter along curve to evaluate
  * @returns Point on curve
  */
-export function evalParam(curve: gs.IConic, t: number): gs.IPoint {
+export function evalParam(curve: gs.IConicCurve, t: number): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -128,7 +128,7 @@ export function evalParam(curve: gs.IConic, t: number): gs.IPoint {
  * @param point Point to evaluate
  * @returns Parameter on curve
  */
-export function evalPoint(curve: gs.IConic, point: gs.IPoint): number {
+export function evalPoint(curve: gs.IConicCurve, point: gs.IPoint): number {
     throw new Error("Method not implemented");
 }
 
@@ -140,7 +140,7 @@ export function evalPoint(curve: gs.IConic, point: gs.IPoint): number {
  * @param copy Performs transformation on a duplicate of the input curve if true
  * @returns Extended conic curve
  */
-export function extend(curve: gs.IConic, direction: number, distance: number, copy: boolean): gs.IConic {
+export function extend(curve: gs.IConicCurve, direction: number, distance: number, copy: boolean): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 
@@ -150,7 +150,7 @@ export function extend(curve: gs.IConic, direction: number, distance: number, co
  * @param curve Conic curve to obtain number of segments from
  * @returns Number of segments in curve
  */
-export function getNumSegs(curve: gs.IConic): number {
+export function getNumSegs(curve: gs.IConicCurve): number {
     throw new Error("Method not implemented");
 }
 
@@ -159,7 +159,7 @@ export function getNumSegs(curve: gs.IConic): number {
  * @param curve Conic curve to obtain origin from
  * @returns Origin point of conic curve
  */
-export function getOrigin(curve: gs.IConic): gs.IPoint {
+export function getOrigin(curve: gs.IConicCurve): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -168,7 +168,7 @@ export function getOrigin(curve: gs.IConic): gs.IPoint {
  * @param curve Conic curve to obtain type
  * @returns Number describing type of conic curve (0-Circle, 1-Ellipse, 2-Hyperbola, 3-Parabola)
  */
-export function getType(curve: gs.IConic): number /*enum TO-DO*/ {
+export function getType(curve: gs.IConicCurve): number /*enum TO-DO*/ {
     throw new Error("Method not implemented");
 }
 
@@ -177,7 +177,7 @@ export function getType(curve: gs.IConic): number /*enum TO-DO*/ {
  * @param curve Conic curve to obtain vectors from
  * @returns List of x and y vectors of a conic curve
  */
-export function getVectors(curve: gs.IConic): number[] {
+export function getVectors(curve: gs.IConicCurve): number[] {
     throw new Error("Method not implemented");
 }
 
@@ -186,7 +186,7 @@ export function getVectors(curve: gs.IConic): number[] {
  * @param curve Conic curve to test
  * @returns True if conic curve is closed
  */
-export function isClosed(curve: gs.IConic): boolean {
+export function isClosed(curve: gs.IConicCurve): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -196,7 +196,7 @@ export function isClosed(curve: gs.IConic): boolean {
  * @param curve Conic curve to obtain length from
  * @returns Length of curve
  */
-export function length(curve: gs.IConic): number {
+export function length(curve: gs.IConicCurve): number {
     throw new Error("Method not implemented");
 }
 
@@ -205,7 +205,7 @@ export function length(curve: gs.IConic): number {
  * @param curve Conic curve to close
  * @param is_closed The value to set
  */
-export function setIsClosed(curve: gs.IConic, is_closed: boolean): void {
+export function setIsClosed(curve: gs.IConicCurve, is_closed: boolean): void {
     throw new Error("Method not implemented");
 }
 
@@ -217,6 +217,6 @@ export function setIsClosed(curve: gs.IConic, is_closed: boolean): void {
  * @param copy Performs transformation on a duplicate of the input curve if true
  * @returns Conic curve with updated segments
  */
-export function setNumSegs(curve: gs.IConic, segments: number, copy: boolean): gs.IConic {
+export function setNumSegs(curve: gs.IConicCurve, segments: number, copy: boolean): gs.IConicCurve {
     throw new Error("Method not implemented");
 }

@@ -29,7 +29,7 @@ export function pointIsOnPline(point: gs.IPoint, pline: gs.IPolyline): boolean {
  * @param curve Conic curve to check
  * @returns True if point lies on conic curve
  */
-export function pointIsOnConic(point: gs.IPoint, curve: gs.IConic): boolean {
+export function pointIsOnConic(point: gs.IPoint, curve: gs.IConicCurve): boolean {
     throw new Error("Method not implemented");
 }
 

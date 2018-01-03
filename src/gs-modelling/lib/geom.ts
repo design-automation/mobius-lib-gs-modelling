@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param geom Geometry or list of geometry to delete
  * @returns Number of items deleted if successful, null if unsuccessful or on error
  */
-export function del(geom: gs.IGeom[]): Number {
+export function del(geom: gs.IGeom[]): number {
     /* Old Implementation for one obj
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {return false;}
@@ -34,7 +34,7 @@ export function del(geom: gs.IGeom[]): Number {
  * @param geom Geometry
  * @returns List of attributes of specified geometry if successful, null if unsuccessful or on error
  */
-export function del(geom: gs.IGeom): gs.IAttrib[] {
+export function getAttrib(geom: gs.IGeom): gs.IAttrib[] {
     throw new Error("Method not implemented");
 }
 
@@ -43,7 +43,7 @@ export function del(geom: gs.IGeom): gs.IAttrib[] {
  * @param geom Geometry
  * @returns List of groups that contain specified geometry if successful, null if unsuccessful or on error
  */
-export function del(geom: gs.IGeom): gs.IGroup[] {
+export function getGroups(geom: gs.IGeom): gs.IGroup[] {
     throw new Error("Method not implemented");
 }
 

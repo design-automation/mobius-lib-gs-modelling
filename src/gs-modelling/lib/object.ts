@@ -8,12 +8,19 @@ import * as three from "three";
 
 /**
  * Copy an object from one model to another model.
+ *
+ * Copy an object from one model to another model.
+ * <h1>Test</h1>
+ * <img src="../../test.jpg"/>
  * @param model Model to add the object to.
  * @param obj Object to copy in other model.
  * @returns Added object in specified model.
+ * <h4>Examples</h4>
+ * <code>This is some code.</code>
  */
 export function copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
-    return model.getGeom().addPoint(point.getPosition());
+    //return model.getGeom().addPoint(point.getPosition());
+    throw new Error("Method not implemented");
 }
 
 //- WEEK 2 -

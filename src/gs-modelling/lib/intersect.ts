@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param curve_2 Conic curve 2
  * @returns List of intersection points successful, null if unsuccessful or on error
  */
-export function conicConic2D(curve_1: gs.IConic, curve_2: gs.IConic): gs.IPoint[] {
+export function conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -22,7 +22,7 @@ export function conicConic2D(curve_1: gs.IConic, curve_2: gs.IConic): gs.IPoint[
  * @returns List of intersection points and/or intersecting edges if successful,
             null if unsuccessful or on error
  */
-export function conicPlane(curve: gs.IConic, plane: gs.IPlane): gs.IGeom[] {
+export function conicPlane(curve: gs.IConicCurve, plane: gs.IPlane): gs.IGeom[] {
     throw new Error("Method not implemented");
 }
 
@@ -32,7 +32,7 @@ export function conicPlane(curve: gs.IConic, plane: gs.IPlane): gs.IGeom[] {
  * @param pline Polyline
  * @returns List of intersection points if successful, null if unsuccessful or on error
  */
-export function conicPline2D(curve: gs.IConic, pline: gs.IPolyline): gs.IGeom[] {
+export function conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline): gs.IGeom[] {
     throw new Error("Method not implemented");
 }
 
@@ -43,7 +43,7 @@ export function conicPline2D(curve: gs.IConic, pline: gs.IPolyline): gs.IGeom[] 
  * @returns List of intersection points and/or intersecting edges if successful,
             null if unsuccessful or on error
  */
-export function conicPmesh(curve: gs.IConic, pmesh: gs.IPolymesh): gs.IgGeom[] {
+export function conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh): gs.IGeom[] {
     throw new Error("Method not implemented");
 }
 
@@ -53,7 +53,7 @@ export function conicPmesh(curve: gs.IConic, pmesh: gs.IPolymesh): gs.IgGeom[] {
  * @param ray Ray
  * @returns List of intersection points if successful, null if unsuccessful or on error
  */
-export function conicRay(curve: gs.IConic, ray: gs.IRay): gs.IPoint[] {
+export function conicRay(curve: gs.IConicCurve, ray: gs.IRay): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -119,7 +119,7 @@ export function plineRay(pline: gs.IPolyline, ray: gs.IRay): gs.IPoint[] {
  * @returns List of intersection points and/or intersecting edges and/or overlapping polymeshes if successful,
             null if unsuccessful or on error
  */
-export function pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh): gs.IGeom[]] {
+export function pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh): gs.IGeom[] {
     throw new Error("Method not implemented");
 }
 
@@ -142,7 +142,7 @@ export function pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane): gs.IGeom[] {
  * @returns List of intersection points and/or intersecting edges if successful,
             null if unsuccessful or on error
  */
-export function pmeshRay(pmesh: gs.IPolymesh, ray: gs.IRay): gs.IGeom] {
+export function pmeshRay(pmesh: gs.IPolymesh, ray: gs.IRay): gs.IGeom[] {
     throw new Error("Method not implemented");
 }
 

@@ -96,8 +96,9 @@ export function area(pmesh: gs.IPolymesh): boolean {
  * @param pmesh Polymesh object
  * @returns True if the polymesh is closed
  */
-export function isCLosed(pmesh: gs.IPolymesh): number {
-    return pmesh.isClosed();
+export function isClosed(pmesh: gs.IPolymesh): number {
+    //return pmesh.isClosed();
+    throw new Error("Method not implemented");
 }
 
 /**
@@ -180,7 +181,7 @@ function Extrude(m: gs.IModel, polymesh: gs.IPolymesh, polyline: gs.IPolyline, c
     throw new Error("Method not implemented");
 }
 
-/**
+/*
  * Performs a boolean difference operation on two 2D input polymeshes on a plane.
  * http://www.angusj.com/delphi/clipper.php
  * @param m Model

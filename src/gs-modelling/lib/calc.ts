@@ -54,16 +54,16 @@ export function quarticRoots(coefficients: number[]): number[] {
 
     // return [x1, x2, x3, x4]; // To Do
     const xx: number[] = [];
-    switch(xx.length {
-            case 5: {const coeff4: number[] = xx;}
-            case 4: {const coeff3: number[] = xx;}
-            case 3: {const coeff2: number[] = xx;}
-            case 2: {const coeff1: number[] = xx;}
-            case 1: {const coeff0: number[] = xx;}
-//            default: {throw new Error("Quartic solver, max polynomial degree is 4");}                    }
-        }
-return [];
-     }
+    switch(xx.length) {
+        case 5: {const coeff4: number[] = xx;}
+        case 4: {const coeff3: number[] = xx;}
+        case 3: {const coeff2: number[] = xx;}
+        case 2: {const coeff1: number[] = xx;}
+        case 1: {const coeff0: number[] = xx;}
+        //default: {throw new Error("Quartic solver, max polynomial degree is 4");}                    }
+    }
+    return [];
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -24,7 +24,7 @@ export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function fromConic(curve: gs.IConic[], segments: number): gs.IPolyline {
+export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 

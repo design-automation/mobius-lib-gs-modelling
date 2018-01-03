@@ -9,7 +9,7 @@
         "sourceMap": true,
         "types": ["jasmine", "node"],
         "typeRoots": ["./node_modules/@types"],
-        "baseUrl": ".",
+        "baseUrl": "."
     },
     "include": [
         "index.ts",

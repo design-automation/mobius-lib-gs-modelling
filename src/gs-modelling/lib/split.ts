@@ -13,7 +13,7 @@ import * as gs from "gs-json";
  * @returns List of new conic curves if successful, none if unsuccessful or on error
             ([[List of curves from curve_1],[List of curves from curve_2]])
  */
-export function conicConic2D(curve_1: gs.IConic, curve_2: gs.IConic, copy: boolean): [gs.IConic[],gs.IConic[]] {
+export function conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve, copy: boolean): [gs.IConicCurve[],gs.IConicCurve[]] {
     throw new Error("Method not implemented");
 }
 
@@ -24,7 +24,7 @@ export function conicConic2D(curve_1: gs.IConic, curve_2: gs.IConic, copy: boole
  * @param copy Peforms split function on duplicate copies of input curve
  * @returns List of new conic curves if successful, none if unsuccessful or on error
  */
-export function conicPlane(curve: gs.IConic, plane: gs.IPlane, copy: boolean): gs.IConic[] {
+export function conicPlane(curve: gs.IConicCurve, plane: gs.IPlane, copy: boolean): gs.IConicCurve[] {
     throw new Error("Method not implemented");
 }
 
@@ -36,7 +36,7 @@ export function conicPlane(curve: gs.IConic, plane: gs.IPlane, copy: boolean): g
  * @returns List of new conic curves and polylines if successful, none if unsuccessful or on error
             ([[List of curves from curve],[List of polylines from pline]])
  */
-export function conicPline2D(curve: gs.IConic, pline: gs.IPolyline, copy: boolean): [gs.IConic[],gs.IPolyline[]] {
+export function conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline, copy: boolean): [gs.IConicCurve[],gs.IPolyline[]] {
     throw new Error("Method not implemented");
 }
 
@@ -47,7 +47,7 @@ export function conicPline2D(curve: gs.IConic, pline: gs.IPolyline, copy: boolea
  * @param copy Peforms split function on duplicate copies of input curve and polymesh
  * @returns List of new conic curves and polymeshes if successful, none if unsuccessful or on error
  */
- export function conicPmesh(curve: gs.IConic, pmesh: gs.IPolymesh, copy: boolean): [gs.IConic[],gs.IPolymesh[]] {
+ export function conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh, copy: boolean): [gs.IConicCurve[],gs.IPolymesh[]] {
     throw new Error("Method not implemented");
 }
 
