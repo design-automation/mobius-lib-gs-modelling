@@ -300,20 +300,14 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
 // //console.log(General_Form(conic1,origin1,origin2,alpha));
 // console.log(Split(conic1,conic2,origin1,origin2,alpha));
 
-// let conic1: number[] = [2,0.9,0.5,0];
-// let origin1: number[] = [0.4,0];
-// let conic2: number[] = [1,1,0,1];
-// let origin2: number[] = [0,0];
-// let alpha: number = 0;
-// console.log("Split Conics");
-// console.log(Split(conic1,conic2,origin1,origin2,alpha));
-// conic1 = [2,0.9,-0.5,0];
-// origin1 = [0.4,0];
-// conic2 = [1,1,0,1];
-// origin2 = [0,0];
-// alpha = 0;
-// console.log("Split Conics");
-// console.log(Split(conic1,conic2,origin1,origin2,alpha));
+// Next steps:
+// (1) r, theta instead of x0,y0
+// (2) plug-in
+// (3) check "solve-quadratic-equation" & "poly-roots" (2nd order polynomial & Jenkins Traub)
+// (4) further robustness checking
+// Looks to work well
+
+//////
 
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
 
