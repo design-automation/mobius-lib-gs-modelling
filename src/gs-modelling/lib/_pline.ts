@@ -2,6 +2,108 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as utils from "./utils";
 
+//  ===============================================================================================================
+//  TO BE IMPLEMENTED ============================================================================================
+//  ===============================================================================================================
+
+// - WEEK 2 -
+/**
+ * Adds a polyline from the model based on a conic curve
+ * @param curve Conic curve to construct polyline from
+ * @param segments Number of segments in polyline
+ * @returns Polyline object if successful
+ */
+export function _fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+    // TODO
+    throw new Error("Method not implemented");
+}
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-CurveClosestPoint
+//  http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
+/**
+ * Returns a param along a polyline based on a point on the polyline
+ * @param pline Polyline to evaluate
+ * @param point Point to evaluate
+ * @returns Param on polyline if successful, null if unsuccessful or on error
+ */
+export function _evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
+    // TODO
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Returns length of a polyline object
+ * @param model Model
+ * @param polyline Polyline object
+ * @param segment_index Polyline segment index
+ * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
+ * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
+ * @returns Length of polyline as number if successful, null if unsuccessful or on error
+ */
+export function _length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
+                        sub_domain: [number,number] ) {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Offsets planar polyline along its plane by a specified distance
+ * @param plines Polyline to offset
+ * @param distance Distance to offset
+ * @param copy Performs transformation on duplicate copy of input polyline
+ * @returns New offset polyline
+ */
+export function _offset(plines: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
+//  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
+/**
+ * Rebuilds and divides a polyline into specified number of segments
+ * @param pline Polyline object
+ * @param segments Number of segments
+ * @returns New points of polyline
+ */
+export function _rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Revolves a polyline about a specified axis ray (or line?) to create a polymesh
+ * @param pline Polyline to revolve
+ * @param axis Axis ray to revolve about
+ * @param angle_s Start angle of revolution in degrees
+ * @param angle_e End angle of revolution in degrees
+ * @returns Polymesh created from revolution
+ */
+export function _revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, angle_e: number): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Sets the polyline to be open or cosed
+ * @param pline Polyline object
+ * @param is_closed The value to set
+ */
+export function _setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+    throw new Error("Method not implemented");
+}
+
+// - WEEK 2 -
+/**
+ * Weld a list of polylines together
+ * @param plines List of polyline to weld
+ * @param is_closed Creates a closed polyline object if true
+ * @returns New polyline created from weld
+ */
+export function _weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
+    throw new Error("Method not implemented");
+}
+
+//  ===============================================================================================================
+//  PRIVATE ======================================================================================================
+//  ===============================================================================================================
+
 /**
  * Private function that moves the end point away from the start point by distance.
  * If create_point is true, then a new point get created, otherwise the existing point gets moved.
