@@ -1,23 +1,44 @@
-import * as model from "./model";
-import * as object from "./object";
-import * as plane from "./plane";
-import * as ray from "./ray";
-import * as point from "./point";
-import * as pline from "./pline";
-import * as pcurve from "./pcurve";
-import * as pmesh from "./pmesh";
-import * as topo from "./topo";
 import * as attrib from "./attrib";
-import * as group from "./group";
-
-export {model};
-export {object};
-export {plane};
-export {ray};
-export {point};
-export {pline};
-export {pcurve};
-export {pmesh};
-export {topo};
 export {attrib};
-export {group};
+
+import * as conic from "./conic";
+export {conic};
+
+import * as examples from "./examples";
+export {examples};
+
+import * as intersect from "./intersect";
+export {intersect};
+
+import * as model from "./model";
+export {model};
+
+import * as object from "./object";
+export {object};
+
+import * as pcurve from "./pcurve";
+export {pcurve};
+
+import * as plane from "./plane";
+export {plane};
+
+import * as pline from "./pline";
+export {pline};
+
+import * as pmesh from "./pmesh";
+export {pmesh};
+
+import * as point from "./point";
+export {point};
+
+import * as query from "./query";
+export {query};
+
+import * as ray from "./ray";
+export {ray};
+
+import * as split from "./split";
+export {split};
+
+import * as topo from "./topo";
+export {topo};
