@@ -105,9 +105,20 @@ export function identifier(coeff: number[]): number[] {
 // e = 0 : parabola & p
 ///////////////////////////////
 
-export function General_Form(conic1: number[], origin1: number[], origin2: number[], alpha?: number): number[] {
+export function General_Form(conic1: number[], origin1: number[], origin2: number[], alpha: number): number[] {
  // change of coordinates of orthonormal basis (angle + translation) with an appearing x.y term due to the Alpha
     // General form of C1 expressed in R2
+
+    // change of coordinates of orthonormal basis (angle + translation) with an appearing x.y term due to the Alpha
+    // General form of C1 expressed in R2
+    // We use the reducted form of the C1 expression in R1 that we
+    // transform by translating (x0,y0) (in R1'),
+    // then rotating (by alpha degrees, alpha is the Direct Angle from R2 to R1')
+    // The general form is then C1 in R2.
+    // Alpha is espressed in degrees, we convert it into radians
+
+    const alpha_rd: number = alpha * ( 2* Math.PI) /360;
+
     const a: number = conic1[0];
     const b: number = conic1[1];
     const p: number = conic1[2];
@@ -121,13 +132,21 @@ export function General_Form(conic1: number[], origin1: number[], origin2: numbe
     let E: number = null;
     let F: number = null;
     switch(e) {
-        case 1 || -1:
-            A = 1/(a*a);
-            B = 0;
-            C = e/(b*b);
-            D = -2*x0/(a*a);
-            E = -2*y0*e/(b*b);
-            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1 ;
+        case 1:
+            A = (Math.cos(alpha_rd)/a)*(Math.cos(alpha_rd)/a) + e*(Math.sin(alpha_rd)/b)*(Math.sin(alpha_rd)/b);
+            B = Math.sin(2 * alpha_rd)*( 1/(a*a) - e/(b*b) );
+            C = (Math.sin(alpha_rd)/a)*(Math.sin(alpha_rd)/a) + e*(Math.cos(alpha_rd)/b)*(Math.cos(alpha_rd)/b);
+            D = -2*x0*Math.cos(alpha_rd)/(a*a) + e*2*y0*Math.sin(alpha_rd)/(b*b);
+            E = -2*x0*Math.sin(alpha_rd)/(a*a) - e*2*y0*Math.cos(alpha_rd)/(b*b);
+            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1;
+            return [A,B,C,D,E,F];
+        case -1:
+            A = (Math.cos(alpha_rd)/a)*(Math.cos(alpha_rd)/a) + e*(Math.sin(alpha_rd)/b)*(Math.sin(alpha_rd)/b);
+            B = Math.sin(2 * alpha_rd)*( 1/(a*a) - e/(b*b) );
+            C = (Math.sin(alpha_rd)/a)*(Math.sin(alpha_rd)/a) + e*(Math.cos(alpha_rd)/b)*(Math.cos(alpha_rd)/b);
+            D = -2*x0*Math.cos(alpha_rd)/(a*a) + e*2*y0*Math.sin(alpha_rd)/(b*b);
+            E = -2*x0*Math.sin(alpha_rd)/(a*a) - e*2*y0*Math.cos(alpha_rd)/(b*b);
+            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1;
             return [A,B,C,D,E,F];
         case 0:
             A = 1;
@@ -142,18 +161,18 @@ export function General_Form(conic1: number[], origin1: number[], origin2: numbe
     }
 }
 
-export function Split(conic1: number[], conic2: number[], origin1: number[], origin2: number[], alpha?: number): number[][] {
+export function Split(conic1: number[], conic2: number[], origin1: number[], origin2: number[], alpha: number): number[][] {
     // Results expressed in R2
     const a: number = conic2[0];
     const b: number = conic2[1];
     const p: number = conic2[2];
     const e: number = conic2[3];
-    const A: number = General_Form(conic1,origin1,origin2)[0];
-    const B: number = General_Form(conic1,origin1,origin2)[1];
-    const C: number = General_Form(conic1,origin1,origin2)[2];
-    const D: number = General_Form(conic1,origin1,origin2)[3];
-    const E: number = General_Form(conic1,origin1,origin2)[4];
-    const F: number = General_Form(conic1,origin1,origin2)[5];
+    const A: number = General_Form(conic1,origin1,origin2,alpha)[0];
+    const B: number = General_Form(conic1,origin1,origin2,alpha)[1];
+    const C: number = General_Form(conic1,origin1,origin2,alpha)[2];
+    const D: number = General_Form(conic1,origin1,origin2,alpha)[3];
+    const E: number = General_Form(conic1,origin1,origin2,alpha)[4];
+    const F: number = General_Form(conic1,origin1,origin2,alpha)[5];
     const L1: number = null;
     const L2: number = null;
     const L3: number = null;
