@@ -6,34 +6,6 @@ import * as three from "three";
 //  Utils Functions ===============================================================================================
 //  ===============================================================================================================
 
-/**
- * Prints an input to the console
- * @param input Input to print
- */
-export function print(input): void {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Creates an empty function
- *
- * JavaScript code can be input directly and executed
- * @param code JavaScript code
- */
-export function Empty(input): any {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Inserts a comment into procedure
- *
- * Comments will not be executed and can be used to leave notes or divide procedure into parts
- * @param comment Comment
- */
-export function Comment(input): void {
-    throw new Error("Method not implemented");
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // For internal use only
 

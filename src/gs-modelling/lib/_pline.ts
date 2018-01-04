@@ -9,6 +9,9 @@ import * as utils from "./utils";
 // - WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
+ *
+ * Creates equally spaced points along a conic curve and joins them to create a polyline<br/>
+ * If specified conic curve is closed, returns a closed polyline
  * @param curve Conic curve to construct polyline from
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
@@ -22,6 +25,9 @@ export function _fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyl
 //  http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
 /**
  * Returns a param along a polyline based on a point on the polyline
+ *
+ * Point should lie on polyline (within a tolerane of 0.1)<br/>
+ * Returns null if point does not lie on polyline
  * @param pline Polyline to evaluate
  * @param point Point to evaluate
  * @returns Param on polyline if successful, null if unsuccessful or on error
