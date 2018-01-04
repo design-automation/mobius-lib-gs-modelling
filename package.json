@@ -21,12 +21,12 @@
         "url": "git+https://github.com/phtj/gs-modelling.git"
     },
     "dependencies": {
-        "@types/three": "^0.84.36",
+        "@types/three": "^0.84.37",
         "gs-json": "git://github.com/phtj/gs-json.git"
     },
     "devDependencies": {
         "@types/jasmine": "^2.8.3",
-        "@types/node": "^8.5.2",
+        "@types/node": "^8.5.5",
         "jasmine": "^2.8.0",
         "jasmine-core": "^2.8.0",
         "karma": "^1.7.1",
