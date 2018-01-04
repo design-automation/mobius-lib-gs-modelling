@@ -6,18 +6,22 @@ import * as three from "three";
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Gets a polyline from the model based on an index number
  * @param model Model to get polyline from
  * @param index Index number of polyline
  * @returns Polyline object if successful
  */
-export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
-    throw new Error("Method not implemented");
+export function getFromModel(model: gs.IModel, id: number): gs.IPolyline {
+    const obj: gs.IObj = model.getGeom().getObj(id);
+    if (obj.getObjType() !== gs.EObjType.polyline) {
+        throw new Error("Object is not a polyline. Object type is: " + obj.getObjType());
+    }
+    return obj as gs.IPolyline;
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
  * @param curve Conic curve to construct polyline from
@@ -25,6 +29,7 @@ export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
  * @returns Polyline object if successful
  */
 export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+
     throw new Error("Method not implemented");
 }
 
@@ -38,8 +43,16 @@ export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyli
  * @returns New polyline object if successful
  */
 export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
-    //return model.getGeom().addPolyline(points, is_closed);
-    throw new Error("Method not implemented");
+    if (points.length < 2) {
+        throw new Error("A minimum of two points are required.");
+    }
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if  (point.getModel() !== model) {
+            throw new Error("All points must be in the same model.");
+        }
+    }
+    return model.getGeom().addPolyline(points, is_closed);
 }
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
@@ -51,8 +64,7 @@ export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @returns New polyline object, consisting of a single segment.
  */
 export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    //return model.getGeom().addPolyline([start, end], false);
-    throw new Error("Method not implemented");
+    return this.fromPoints([start, end], false);
 }
 
 //  ===============================================================================================================
@@ -70,7 +82,7 @@ export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
     let points: gs.IPoint[] = pline.getPointsArr();
-    if (pline.isClosed()) {points.push(points[points.length - 1]); }
+    if (pline.isClosed()) {points.push(points[0]); }
     if (segment_index !== -1) {
         if (segment_index > points.length - 1) {throw new Error("segments_index is out of range."); }
         points = points.splice(segment_index, 2);
