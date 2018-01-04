@@ -105,9 +105,20 @@ export function identifier(coeff: number[]): number[] {
 // e = 0 : parabola & p
 ///////////////////////////////
 
-export function General_Form(conic1: number[], origin1: number[], origin2: number[], alpha?: number): number[] {
+export function General_Form(conic1: number[], origin1: number[], origin2: number[], alpha: number): number[] {
  // change of coordinates of orthonormal basis (angle + translation) with an appearing x.y term due to the Alpha
     // General form of C1 expressed in R2
+
+    // change of coordinates of orthonormal basis (angle + translation) with an appearing x.y term due to the Alpha
+    // General form of C1 expressed in R2
+    // We use the reducted form of the C1 expression in R1 that we
+    // transform by translating (x0,y0) (in R1'),
+    // then rotating (by alpha degrees, alpha is the Direct Angle from R2 to R1')
+    // The general form is then C1 in R2.
+    // Alpha is espressed in degrees, we convert it into radians
+
+    const alpha_rd: number = alpha * ( 2* Math.PI) /360;
+
     const a: number = conic1[0];
     const b: number = conic1[1];
     const p: number = conic1[2];
@@ -121,13 +132,21 @@ export function General_Form(conic1: number[], origin1: number[], origin2: numbe
     let E: number = null;
     let F: number = null;
     switch(e) {
-        case 1 || -1:
-            A = 1/(a*a);
-            B = 0;
-            C = e/(b*b);
-            D = -2*x0/(a*a);
-            E = -2*y0*e/(b*b);
-            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1 ;
+        case 1:
+            A = (Math.cos(alpha_rd)/a)*(Math.cos(alpha_rd)/a) + e*(Math.sin(alpha_rd)/b)*(Math.sin(alpha_rd)/b);
+            B = Math.sin(2 * alpha_rd)*( 1/(a*a) - e/(b*b) );
+            C = (Math.sin(alpha_rd)/a)*(Math.sin(alpha_rd)/a) + e*(Math.cos(alpha_rd)/b)*(Math.cos(alpha_rd)/b);
+            D = -2*x0*Math.cos(alpha_rd)/(a*a) + e*2*y0*Math.sin(alpha_rd)/(b*b);
+            E = -2*x0*Math.sin(alpha_rd)/(a*a) - e*2*y0*Math.cos(alpha_rd)/(b*b);
+            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1;
+            return [A,B,C,D,E,F];
+        case -1:
+            A = (Math.cos(alpha_rd)/a)*(Math.cos(alpha_rd)/a) + e*(Math.sin(alpha_rd)/b)*(Math.sin(alpha_rd)/b);
+            B = Math.sin(2 * alpha_rd)*( 1/(a*a) - e/(b*b) );
+            C = (Math.sin(alpha_rd)/a)*(Math.sin(alpha_rd)/a) + e*(Math.cos(alpha_rd)/b)*(Math.cos(alpha_rd)/b);
+            D = -2*x0*Math.cos(alpha_rd)/(a*a) + e*2*y0*Math.sin(alpha_rd)/(b*b);
+            E = -2*x0*Math.sin(alpha_rd)/(a*a) - e*2*y0*Math.cos(alpha_rd)/(b*b);
+            F = x0*x0/(a*a) + e*y0*y0/(b*b) - 1;
             return [A,B,C,D,E,F];
         case 0:
             A = 1;
@@ -142,18 +161,18 @@ export function General_Form(conic1: number[], origin1: number[], origin2: numbe
     }
 }
 
-export function Split(conic1: number[], conic2: number[], origin1: number[], origin2: number[], alpha?: number): number[][] {
+export function Split(conic1: number[], conic2: number[], origin1: number[], origin2: number[], alpha: number): number[][] {
     // Results expressed in R2
     const a: number = conic2[0];
     const b: number = conic2[1];
     const p: number = conic2[2];
     const e: number = conic2[3];
-    const A: number = General_Form(conic1,origin1,origin2)[0];
-    const B: number = General_Form(conic1,origin1,origin2)[1];
-    const C: number = General_Form(conic1,origin1,origin2)[2];
-    const D: number = General_Form(conic1,origin1,origin2)[3];
-    const E: number = General_Form(conic1,origin1,origin2)[4];
-    const F: number = General_Form(conic1,origin1,origin2)[5];
+    const A: number = General_Form(conic1,origin1,origin2,alpha)[0];
+    const B: number = General_Form(conic1,origin1,origin2,alpha)[1];
+    const C: number = General_Form(conic1,origin1,origin2,alpha)[2];
+    const D: number = General_Form(conic1,origin1,origin2,alpha)[3];
+    const E: number = General_Form(conic1,origin1,origin2,alpha)[4];
+    const F: number = General_Form(conic1,origin1,origin2,alpha)[5];
     const L1: number = null;
     const L2: number = null;
     const L3: number = null;
@@ -264,180 +283,31 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
     }
 }
 
-// let conic1: number[] = [2,0.9,0.5,0];
-// let origin1: number[] = [0.4,0];
-// let conic2: number[] = [1,1,0,1];
-// let origin2: number[] = [0,0];
-// let alpha: number = 0;
+// let conic1:number[] = [7,0.5,0,1];
+// let origin1:number[] = [5,0];
+// let conic2:number[] = [1,1,0,1];
+// let origin2:number[] = [0,0];
+// let alpha:number = 45;
+
+// // Unit test = OK
+// // no sol if a<4
+// // 1 sol if a = 4
+// // 2 sols if 4<a<6
+// // 3 sols if a = 6
+// // 4 sols if a>6
+
 // console.log("Split Conics");
-// console.log(Split(conic1,conic2,origin1,origin2,alpha));
-// conic1 = [2,0.9,-0.5,0];
-// origin1 = [0.4,0];
-// conic2 = [1,1,0,1];
-// origin2 = [0,0];
-// alpha = 0;
-// console.log("Split Conics");
+// //console.log(General_Form(conic1,origin1,origin2,alpha));
 // console.log(Split(conic1,conic2,origin1,origin2,alpha));
 
-// /**
-//  * Analyze a set of 5 coefficients and returns its associated polynomial roots
-//  * @param the set of five coefficients by descending order
-//  * @returns the set of real roots if any
-//  */
-// export function solver(coeff: number[]): number[] {
-//     // To Do: use set;
-//     if(!(coeff.length === 5)) {throw new Error("5 coefficients expected");}
-//     if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 && coeff[3] === 0 && coeff[4] === 0 ) { coeff = [] ;}
-//     if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 && coeff[3] === 0 ) { coeff.splice(0,4) ;}
-//     if( coeff[0] === 0 && coeff[1] === 0 && coeff[2] === 0 ) { coeff.splice(0,3) ;}
-//     if( coeff[0] === 0 && coeff[1] === 0 ) { coeff.splice(0,2) ;}
-//     if( coeff[0] === 0 ) { coeff.splice(0,1) ;}
-//     switch(coeff.length) {
-//         case 5: {
-//             const order_4: number = quartic(coeff);
-//             const sol: number[] = [];
-//             if(order_4[0].im === 0) {sol.push(order_4[0].re);}
-//             if(order_4[1].im === 0) {sol.push(order_4[1].re);}
-//             if(order_4[2].im === 0) {sol.push(order_4[2].re);}
-//             if(order_4[3].im === 0) {sol.push(order_4[3].re);}
-//             return sol; // use Set in Sol.
-//         }
-//         case 4: {
-//             let root: number[] = [];
-//             if( coeff[3] === 0) {
-//                 root = quadratic(coeff[0],coeff[1],coeff[2]);
-//                 root.push(0);
-//                 return root;}
-//             // Third degree polynomial has at least 1 real root
-//             const threshold: number = 1e-10;
-//             if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][0])
-//              < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][0]);}
-//             if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][1])
-//              < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][1]);}
-//             if ( Math.abs(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[1][2])
-//              < threshold) {root.push(cubic([coeff[0],coeff[1],coeff[2],coeff[3]])[0][2]);}
-//             if(root.length === 0) {throw new Error("Smaller threshold required in solver");}
-//             return root;
-//        }
-//         case 3: {
-//             return quadratic(coeff[0],coeff[1],coeff[2]);
-//         }
-//         case 2: {
-//             if(coeff[0] === 0) {return [];}
-//             return [-coeff[1]/coeff[0]];
-//         }
-//         case 1: {
-//             return [];
-//         }
-//         case 0: {
-//             return [];
-//         }
-//         default: {throw new Error(" ");}
-//         }
-//     }
+// Next steps:
+// (1) r, theta instead of x0,y0
+// (2) plug-in
+// (3) check "solve-quadratic-equation" & "poly-roots" (2nd order polynomial & Jenkins Traub)
+// (4) further robustness checking
+// Looks to work well
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////// DRAFT /////////////////////////////////////////////////////////////////////
-
-// import * as quartic from "quartic";
-// import * as math from "mathjs";
-// import * as algebra from "algebra.js";
-
-// export function c2_coefficients( /* c1 */ ):number[]{
-//     let a:number = null;
-//     let b:number = null;
-//     let r:number = null;
-//     let p:number = null;
-//     return [a,b,r,p];
-// }
-
-// export function c1_coefficients(  /* c1 and c2 */ ):number[]{
-//     let A:number = null;
-//     let B:number = null;
-//     let C:number = null;
-//     let D:number = null;
-//     let E:number = null;
-//     return [A,B,C,D,E];
-// }
-
-// export function quartic_coefficients( /* c1, c2 */):number[]{
-//     let a: number = null;
-//     let b: number = null;
-//     let c: number = null;
-//     let d: number = null;
-//     let e: number = null;
-
-//     return [a,b,c,d,e];
-// }
-
-// export function split_conic_conic( /* c1, c2*/ ):number[]{
-
-//     /* solver(quartic_coefficients(c1, c2)) */
-
-// }
-
-// // console.log(solver([1,0,0,0]));
-
-// export function conics_to_quartics():any{
-//     // ellipse: origin, radius 1, radius2
-//     // circle: origin, radius 1, radius2
-//     // hyperbola:
-//     // parabola:
-
-// // 1 equation centree reduite
-// // de forme x/
-
-// // 1 equation non centree reduite
-//     return null }
-
-// let order_3: algebra.Expression = new algebra.Expression("x");
-// order_3 = order_3.multiply(3);
-// console.log(order_3.toString());
-// order_3 = ((order_3.multiply(3)).multiply(order_3)).add(order_3.multiply(order_3));
-// console.log(order_3.toString());
-
-// order_3 = ((((order_3.multiply(order_3.multiply(order_3.multiply(coeff[0]))))
-// .add((order_3.multiply(order_3.multiply(coeff[1])))))).add(order_3.multiply(coeff[2]))).add(coeff[3]);
-
-// // let y: algebra.Expression = new algebra.Expression("y");
-// // let x: algebra.Expression = new algebra.Expression("x");
-// // let m1:algebra.Expression = x.multiply(y);
-// // let m2:algebra.Expression = m1.eval({y:order_3});
-// // console.log(m1.toString());
-// // console.log(m2.toString());
-
-// // P1: member1
-// // P2: member 2
-// // expression = P1 - P2 ;
-// // expression y =
-// // expression 2 = expression.eval({})
-
-// // get Coefficients
-// let a3: number = 4.5;
-// let a4: number = 5;
-// let a5: number = 6;
-
-// console.log(a3);
-
-// let x: algebra.Expression = new algebra.Expression("x")
-// let order_1 = algebra.Expression = x.multiply(x.multiply(a3));
-// order_1 = order_1.add(x.multiply(a4));
-// order_1 = order_1.add(a5);
-// console.log(order_1.toString());
-
-// console.log(order_1.terms[0].coefficients[0])
-
-// // .simplify
-// // console.log(m1.eval({}))
-// // const equation = new algebra.Equation(x.multiply(y),0);
-// // console.log(equation.toString());
-// // const answer = y.eval({x: y});
-// // console.log(equation.toString());
-
-///////////////////////////////////////// DRAFT /////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////
 
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
 
