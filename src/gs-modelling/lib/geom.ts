@@ -4,11 +4,13 @@ import * as gs from "gs-json";
 //  Geom Functions ================================================================================================
 //  ===============================================================================================================
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
- * Deletes geometry or a list of geometry.
+ * Deletes geometry or a list of geometry from its model
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to delete
- * @returns Number of items deleted if successful, null if unsuccessful or on error
+ * @returns Number of items deleted if successful
  */
 export function del(geom: gs.IGeom[]): number {
     /* Old Implementation for one obj
@@ -31,6 +33,8 @@ export function del(geom: gs.IGeom[]): number {
 
 /**
  * Gets attributes of specified geometry
+ *
+ * Returns null if specified geometry does not have any attributes
  * @param geom Geometry
  * @returns List of attributes of specified geometry if successful, null if unsuccessful or on error
  */
@@ -40,6 +44,8 @@ export function getAttrib(geom: gs.IGeom): gs.IAttrib[] {
 
 /**
  * Gets groups that contain specified geometry
+ *
+ * Returns null if specified geometry is not found in any groups
  * @param geom Geometry
  * @returns List of groups that contain specified geometry if successful, null if unsuccessful or on error
  */
@@ -49,10 +55,12 @@ export function getGroups(geom: gs.IGeom): gs.IGroup[] {
 
 /**
  * Mirrors geometry or a list of geometry about a plane.
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to mirror
  * @param plane Plane to mirror object
  * @param copy Performs transformation on duplicate copy of input geometry if true
- * @returns Mirrored geometry if successful, null if unsuccessful or on error
+ * @returns Mirrored geometry if successful
  */
 export function mirror(geom: gs.IGeom, plane: gs.IPlane, copy: boolean): gs.IGeom {
     /* Old Implementation for one obj
@@ -100,13 +108,15 @@ export function mirror(geom: gs.IGeom, plane: gs.IPlane, copy: boolean): gs.IGeo
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Moves geometry or a list of geometry.
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to move
  * @param translation Translation vector
  * @param copy Performs transformation on duplicate copy of input geometry if true
- * @returns Geometry in new location if successful, null if unsuccessful or on error
+ * @returns Geometry in new location if successful
  */
 export function move(geom: gs.IGeom, translation: number[], copy: boolean): gs.IGeom {
     /* Old implementation for one obj
@@ -132,9 +142,9 @@ export function move(geom: gs.IGeom, translation: number[], copy: boolean): gs.I
 }
 
 /**
- * Removes geomtery from all groups that contain it
+ * Removes geometry from all groups that contain it
  * @param geom Geometry
- * @returns True if successful, null if unsuccessful or on error
+ * @returns True if successful
  */
 export function removeFromAllGroups(geom: gs.IGeom): boolean {
     throw new Error("Method not implemented");
@@ -142,6 +152,8 @@ export function removeFromAllGroups(geom: gs.IGeom): boolean {
 
 /**
  * Rotates geometry or a list of geometry on a plane.
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to rotate
  * @param rotation Rotation angle in degrees
  * @param plane Plane to rotate objects
@@ -195,6 +207,8 @@ export function rotate(geom: gs.IGeom, rotation: number, plane: gs.IPlane, copy:
 
 /**
  * Scales geometry or a list of geometry based on an origin and a scale factor
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to scale
  * @param origin Origin of scale function
  * @param scale Scale factor
@@ -239,6 +253,8 @@ export function scale(geom: gs.IGeom, origin: number[], scale: number, copy: boo
 /**
  * Moves, scales, or rotates geometry or a list of geometry given a rotation angle,
  * an origin point, scaling factor and translation vector
+ *
+ * Affects geometry that contains or is based off specified geometry
  * @param geom Geometry or list of geometry to move
  * @param rotation Rotation angle in degrees
  * @param origin Origin point of function

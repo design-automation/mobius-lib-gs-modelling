@@ -8,11 +8,11 @@ import * as three from "three";
 /**
  * Creates a plane from an origin point and two points describing the x and y axis
  * @param origin 3D point to use as origin of plane
- * @param pt_x Point that lies on x-axis
- * @param pt_y Point that lies on y-axis
+ * @param pt_x Point that lies on x-axis of plane
+ * @param pt_y Point that lies on y-axis of plane
  * @returns New plane if successful, null if unsuccessful or on error
  */
-export function fromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
+export function FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
                                 gs.IPlane {
     throw new Error("Method not implemented");
 }
@@ -24,18 +24,20 @@ export function fromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IP
  * @param vec_y Direction vector describing y-axis of plane
  * @returns New plane if successful, null if unsuccessful or on error
  */
-export function fromOriginVectors(origin: gs.IPoint, vec_x: [number, number, number],
+export function FromOriginVectors(origin: gs.IPoint, vec_x: [number, number, number],
                                   vec_y: [number, number, number]): gs.IPlane {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 3 -
+// - WEEK 3 -
 /**
  * Creates a plane from an origin point and the World x and y axis
+ *
+ * Creates a plane parallel to the World XY plane
  * @param origin 3D point to use as origin of plane
  * @returns New plane if successful, null if unsuccessful or on error
  */
-export function fromOriginWCS(origin: gs.IPoint): gs.IPlane {
+export function FromOriginWCS(origin: gs.IPoint): gs.IPlane {
     throw new Error("Method not implemented");
 }
 

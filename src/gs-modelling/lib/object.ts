@@ -7,30 +7,29 @@ import * as three from "three";
 //  ===============================================================================================================
 
 /**
- * Copy an object from one model to another model.
+ * Copy an object from one model to another model
  *
- * Copy an object from one model to another model.
- * <h1>Test</h1>
- * <img src="../../test.jpg"/>
- * @param model Model to add the object to.
- * @param obj Object to copy in other model.
- * @returns Added object in specified model.
+ * If the specified model is the same as the model the object is located in, the specified object is
+ * duplicated
+ * @param model Model to add the object to
+ * @param obj Object to copy in other model
+ * @returns Added object in specified model
  * <h4>Examples</h4>
  * <code>This is some code.</code>
  */
-export function copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
+export function Copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
     //return model.getGeom().addPoint(point.getPosition());
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Gets an object from the model
  * @param model Model to get object from
  * @param index Index of object to get
  * @returns Specified object if successful, null if unsuccessful or on error
  */
-export function getFromModel(model: gs.IModel, index: number[]): gs.IObj {
+export function GetFromModel(model: gs.IModel, index: number[]): gs.IObj {
     throw new Error("Method not implemented");
 }
 
@@ -47,7 +46,7 @@ export function getFaces(obj: gs.IObj): gs.IFace[] {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 4 -
+// - WEEK 4 -
 /**
  * Gets points from an object
  * @param obj Object to get points from
@@ -66,7 +65,7 @@ export function getWires(obj: gs.IObj): gs.IWire[] {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Gets the type of an object
  * @param obj Object
@@ -78,6 +77,9 @@ export function getType(obj: gs.IObj): number /*enum TO-DO*/ {
 
 /**
  * Joins vertices of a list of objects
+ *
+ * Forces vertices (from list of objects) that are at the same position (within a tolerance of 1)
+ * to share the same point
  * @param objs List of objects
  * @param copy Performs transformation on duplicate copy of input objects
  * @returns Number of vertices joined
@@ -88,6 +90,8 @@ export function join(objs: gs.IObj[], copy: boolean): number {
 
 /**
  * Separates vertices of a list of objects
+ *
+ * Forces vertices (from list of objects) that share the same point to split into individual points
  * @param objs List of objects
  * @param copy Performs transformation on duplicate copy of input objects
  * @returns Number of vertices unjoined
@@ -97,7 +101,7 @@ export function unjoin(objs: gs.IObj[], copy: boolean): number {
 }
 
 /**
- * Gets number of faces from an object
+ * Gets the number of faces in an object
  * @param obj Object to get number of faces from
  * @returns Number of faces if successful, null if unsuccesful or on error
  */
@@ -106,7 +110,7 @@ export function numFaces(obj: gs.IObj): number {
 }
 
 /**
- * Gets number of points in an object
+ * Gets the number of points in an object
  * @param obj Object to get number of points from
  * @returns Number of points if successful, null if unsuccesful or on error
  */
@@ -115,7 +119,7 @@ export function numPoints(obj: gs.IObj): number {
 }
 
 /**
- * Gets number of wires from an object
+ * Gets the number of wires in an object
  * @param obj Object to get number of wires from
  * @returns Number of wires if successful, null if unsuccesful or on error
  */

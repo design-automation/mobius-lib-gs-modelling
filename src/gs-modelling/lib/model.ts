@@ -4,13 +4,15 @@ import * as gs from "gs-json";
 //  Model Constructors ============================================================================================
 //  ===============================================================================================================
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
- * Creates a new Model.
+ * Creates a new Model
+ *
+ * Creates an empty model if no geometry is specified
  * @param geom Geometry to add to new model
  * @returns New model if successful, null if unsuccessful or on error
  */
-export function create(geom: gs.IModelData): gs.IModel {
+export function Create(geom: gs.IModelData): gs.IModel {
     //return new gs.Model(data);
     throw new Error("Method not implemented");
 }
@@ -20,7 +22,7 @@ export function create(geom: gs.IModelData): gs.IModel {
 //  ===============================================================================================================
 
 /**
- * Discards unused points from model.
+ * Discards unused points from model
  * @param model Model to discard points from
  * @returns Number of points discarded if successful, null if unsuccessful or on error
  */
@@ -29,7 +31,7 @@ export function discardUnusedPoints(model: gs.IModel): number {
 }
 
 /**
- * Discards unused geometry from model.
+ * Discards unused geometry from model
  * @param model Model to discard geometry from
  * @returns True if successful, null if unsuccessful or on error
  */
@@ -37,9 +39,9 @@ export function purge(model: gs.IModel): boolean {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
- * Saves model as a JSON file.
+ * Saves model as a JSON file
  * @param model Model to save
  * @returns JSON file if successful, null if unsuccessful or on error
  */

@@ -11,7 +11,7 @@ import * as gs from "gs-json";
  * @param name Name of new attribute
  * @returns New attribute
  */
-export function add(model: gs.IModel, geom_type: number /*enum TO-DO*/, name: string ): gs.IAttrib {
+export function Add(model: gs.IModel, geom_type: number /*enum TO-DO*/, name: string ): gs.IAttrib {
     throw new Error("Method not implemented");
 }
 
@@ -21,7 +21,7 @@ export function add(model: gs.IModel, geom_type: number /*enum TO-DO*/, name: st
  * @param geom_type Type of geometry to get attribute from
  * @returns List of attributes
  */
-export function getFromModel(model: gs.IModel, geom_type: number /*enum TO-DO*/ ): gs.IAttrib[] {
+export function GetFromModel(model: gs.IModel, geom_type: number /*enum TO-DO*/ ): gs.IAttrib[] {
     throw new Error("Method not implemented");
 }
 

@@ -6,38 +6,43 @@ import * as three from "three";
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Gets a polyline from the model based on an index number
  * @param model Model to get polyline from
  * @param index Index number of polyline
  * @returns Polyline object if successful
  */
-export function getFromModel(model: gs.IModel, index: number): gs.IPolyline {
+export function GetFromModel(model: gs.IModel, index: number): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
+ *
+ * Creates equally spaced points along a conic curve and joins them to create a polyline<br/>
+ * If specified conic curve is closed, returns a closed polyline
  * @param curve Conic curve to construct polyline from
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+export function FromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
  * Adds a polyline to the model by joining a list of points
+ *
+ * Creates a straight line segment between every two points and joins them to create a polyline
  * @param points A list of points (in order)
  * @param is_closed Creates a closed polyline object by joining the last point to the first point if true
  * @returns New polyline object if successful
  */
-export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
+export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
     //return model.getGeom().addPolyline(points, is_closed);
     throw new Error("Method not implemented");
 }
@@ -45,12 +50,14 @@ export function fromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
- * Adds a line to the model from two points
+ * Adds a straight line to the model from two points
+ *
+ * Returns null if both points have the same position
  * @param start Start point of line
  * @param end End point of line
- * @returns New polyline object, consisting of a single segment.
+ * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
-export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
     //return model.getGeom().addPolyline([start, end], false);
     throw new Error("Method not implemented");
 }
@@ -64,9 +71,9 @@ export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
 /**
  * Returns a point on a polyline based on a parameter along the polyline
  * @param pline Polyline to evaluate
- * @param t Parameter to evaluate
+ * @param t Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)
  * @param segment_index The segment of the polyline to evaluate.
- * @returns 3D point if successful, null if unsuccessful or on error
+ * @returns Point if successful
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
     let points: gs.IPoint[] = pline.getPointsArr();
@@ -82,6 +89,9 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
 //  http://verbnurbs.com/docs/geom/NurbsSurface/#closestparam
 /**
  * Returns a param along a polyline based on a point on the polyline
+ *
+ * Point should lie on polyline (within a tolerane of 0.1)<br/>
+ * Returns null if point does not lie on polyline
  * @param pline Polyline to evaluate
  * @param point Point to evaluate
  * @returns Param on polyline if successful, null if unsuccessful or on error
@@ -92,6 +102,8 @@ export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
 
 /**
  * Explodes a polyline into individual segments
+ *
+ * Each straight line segment in the polyline is returned as a separate polyline object
  * @param pline Polyline to explode
  * @param copy Performs transformation on duplicate copy of input polyline
  * @returns List of new polylines created from explode
@@ -100,10 +112,13 @@ export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 5 -
+// - WEEK 5 -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
 /**
  * Extends a non-closed polyline by specified distance
+ *
+ * Extention is straight and continues in the same direction as the extended segment<br/>
+ * Returns null if distance is negative
  * @param pline Polyline object
  * @param extrusion_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
@@ -128,20 +143,36 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
 
 /**
  * Extracts a list of segments from a polyline
+ *
+ * Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>
+ * The remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,
+ * or multiple polylines if they have been broken up<br/>
+ * List returned is in order (from t=0 to t=1 of orginal input pline)
  * @param pline Polyline to extract segments from
  * @param segment_index Index numbers of polyline segments to extract
+ * @param return_remainder Returns polylines created from the remainder of the polyline if true, returns only
+ *                         specified segments if false
  * @param copy Performs transformation on duplicate copy of input polyline
  * @returns List of new polylines created from extract
  */
-export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean): gs.IPolyline[] {
+export function extract(pline: gs.IPolyline, segment_index: number[], return_remainder: boolean,
+                        copy: boolean,): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
 /**
  * Extrudes a polyline according to a specified vector to create a polymesh
+ *
+ * Pline is moved by the specified vector and straight line segments are created between the vertices of
+ * the input pline and moved pline. The resulting straight line segments and the straight line segments of the
+ * input and moved plines are used to define the edges of four-sided polygons. The polygons are joined to
+ * create a polymesh<br/>
+ *
+ * If cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are
+ * joined to the polymesh from above.
  * @param pline Polyline to extrude
  * @param vector Vector describing direction and distance of extrusion
- * @param cap Closes polymesh by creating a flat surface on each end of the extrusion if true
+ * @param cap Closes polymesh by creating a flat polygon on each end of the extrusion if true
  * @returns Polymesh created from extrusion
  */
 export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean): gs.IPolymesh {
@@ -164,32 +195,42 @@ export function isCLosed(pline: gs.IPolyline): boolean {
  * @param segment_index Polyline segment index
  * @param sub_domain List of two numbers identifying the subdomain of the curve to calculate.
  * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
- * @returns Length of polyline as number if successful, null if unsuccessful or on error
+ * @returns Length of polyline as number if successful
  */
 export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
                        sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 4 -
+// - WEEK 4 -
 /**
  * Lofts a list of polylines with the same number of segments to create a polymesh
+ *
+ * Straight line segments are created between the vertices of every two input plines. The resulting
+ * straight line segments and the straight line segments of the plines are used to define the edges of
+ * four-sided polygons. The polygons created from all the plines are joined to create a polymesh<br/>
+ *
+ * Returns null if polylines do not have the same number of segments
  * @param plines List of polylines to loft (in order)
  * @param is_closed Closes polymesh by lofting back to first polyline if true
- * @returns Polymesh created from loft
+ * @returns Polymesh created from loft if successful, null if unsuccessful or on error
  */
 export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
+// https://seant23.files.wordpress.com/2010/11/anoffsetalgorithm.pdf
 /**
  * Offsets planar polyline along its plane by a specified distance
- * @param plines Polyline to offset
+ *
+ *
+ * @param pline Polyline to offset
+ * @param direction Point that describes direction to offset
  * @param distance Distance to offset
  * @param copy Performs transformation on duplicate copy of input polyline
  * @returns New offset polyline
  */
-export function offset(plines: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
+export function offset(pline: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -236,7 +277,7 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
-//- WEEK 2 -
+// - WEEK 2 -
 /**
  * Weld a list of polylines together
  * @param plines List of polyline to weld
@@ -252,8 +293,8 @@ export function weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
 //  ===============================================================================================================
 
 /**
- * Private function that moves the end point away from the start point by distance.
- * If create_point is true, then a new point get created, otherwise the existing point gets moved.
+ * Private function that moves the end point away from the start point by distance
+ * If create_point is true, then a new point get created, otherwise the existing point gets moved
  */
 function pointsExtend(start: gs.IPoint, end: gs.IPoint, distance: number, create: boolean = true): gs.IPoint {
     const start_vec: three.Vector3 = new three.Vector3(...start.getPosition());
@@ -271,8 +312,8 @@ function pointsExtend(start: gs.IPoint, end: gs.IPoint, distance: number, create
 }
 
 /**
- * Private function that evaluates the position between a sequence of points.
- * A new point is always created.
+ * Private function that evaluates the position between a sequence of points
+ * A new point is always created
  */
 function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
     const geom: gs.IGeom = points[0].getGeom();

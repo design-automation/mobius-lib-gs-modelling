@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param name Name of new group
  * @returns New group
  */
-export function add(model: gs.IModel, name: string ): gs.IGroup {
+export function Add(model: gs.IModel, name: string ): gs.IGroup {
     throw new Error("Method not implemented");
 }
 
@@ -19,7 +19,7 @@ export function add(model: gs.IModel, name: string ): gs.IGroup {
  * @param model Model to get group from
  * @returns List of groups
  */
-export function getFromModel(model: gs.IModel): gs.IGroup[] {
+export function GetFromModel(model: gs.IModel): gs.IGroup[] {
     throw new Error("Method not implemented");
 }
 
@@ -29,9 +29,11 @@ export function getFromModel(model: gs.IModel): gs.IGroup[] {
 
 /**
  * Add geometry to a group
+ *
+ * Returns null if geometry is already present in group
  * @param group Group to add to
  * @param geom Geometry to add
- * @returns True if successful
+ * @returns True if successful, null if unsuccessful or on error
  */
 export function addGeom(group: gs.IGroup, geom: gs.IGeom): boolean {
     throw new Error("Method not implemented");
@@ -41,7 +43,7 @@ export function addGeom(group: gs.IGroup, geom: gs.IGeom): boolean {
  * Checks if a group contains a specified geometry
  * @param group Group to check
  * @param geom Geometry to check
- * @returns True if group contains geometry
+ * @returns True if group contains geometry, false if group does not contain geometry
  */
 export function contains(group: gs.IGroup, geom: gs.IGeom): boolean {
     /* Old Implementation for one group (using obj)
@@ -67,9 +69,10 @@ export function contains(group: gs.IGroup, geom: gs.IGeom): boolean {
 /**
  * Deletes a group
  * @param group Group to delete
+ * @param deleteGeom Deletes geometry contained in group if true
  * @returns True if successful
  */
-export function del(group: gs.IGroup): boolean {
+export function del(group: gs.IGroup, deleteGeom: boolean): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -84,8 +87,10 @@ export function getName(group: gs.IGroup): string {
 
 /**
  * Gets the parent group of a group
+ *
+ * Returns null if specified group does not have a parent group
  * @param group Group
- * @returns Parent group of specified group
+ * @returns Parent group of specified group if successful, null if unsuccessful or on error
  */
 export function getParent(group: gs.IGroup): gs.IGroup {
     throw new Error("Method not implemented");
@@ -93,9 +98,11 @@ export function getParent(group: gs.IGroup): gs.IGroup {
 
 /**
  * Remove geometry from a group
+ *
+ * Returns null if specified geometry cannot be found in specified group
  * @param group Group
  * @param geom Geometry to remove
- * @returns True if successful
+ * @returns True if successful, null if unsuccessfull or on error
  */
 export function removeGeom(group: gs.IGroup, geom: gs.IGeom): boolean {
     throw new Error("Method not implemented");
@@ -115,7 +122,7 @@ export function setName(group: gs.IGroup, name: string ): string {
  * Sets the parent group of a group
  * @param group Group
  * @param parent New parent group
- * @returns Old parent group of specified group
+ * @returns True if successful
  */
 export function setParent(group: gs.IGroup, parent: gs.IGroup): gs.IGroup {
     throw new Error("Method not implemented");
