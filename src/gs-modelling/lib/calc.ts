@@ -309,6 +309,26 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
 
 //////
 
+export function Function_F(x: number): number {
+    let y: number = null;
+    const t1: number = Math.sqrt(1 + x*x);
+    y = (1/2)* ( x*t1 + Math.log( x + t1 )  );
+    return y;
+}
+
+export function parabola_lenght(conic: number , x1: number, x2: number): number {
+    const a: number = conic[0];
+    const b: number = conic[1];
+    const p: number = conic[2];
+    const e: number = conic[3];
+    let distance: number = null;
+    if (!(e === 0)) { throw new Error("Parabola required");}
+    distance = p * ( Function_F(x2/p) - Function_F(x1/p)  ) ;
+    return Math.abs(distance);
+}
+
+// Next step: Unit test + plug
+
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
 
 /**
