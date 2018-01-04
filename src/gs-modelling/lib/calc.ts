@@ -186,7 +186,33 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
     const precision: number = 1000 ;
 
     switch(e) {
-        case 1||-1:
+        case 1:
+            x1 = Math.pow(A, 2) + Math.pow(C, 2) * Math.pow(b / a, 4)
+            - 2 * A * C * e * Math.pow(b / a, 2) + e * Math.pow(B * b / a, 2);
+            x2 = 2 * A * D - 2 * C * D * e * Math.pow(b / a, 2) + 2 * e * E * B * Math.pow(b / a, 2);
+            x3 = Math.pow(D, 2) + 2 * A * C * e + 2 * A * F - 2 * Math.pow(C * b * b / a, 2)
+            - 2 * C * F * e * Math.pow(b / a, 2) - e * Math.pow(b * B, 2) + e * Math.pow(E * b / a, 2);
+            x4 = 2 * C * D * e * Math.pow(b, 2) + 2 * D * F - 2 * e * E * B * Math.pow(b, 2);
+            x5 = Math.pow(C, 2) * Math.pow(b, 4) + Math.pow(F, 2)
+            + 2 * e * C * F * Math.pow(b, 2) - e * Math.pow(b * E, 2);
+            identify_x = identifier([x1, x2, x3, x4, x5]) ;
+            for (const x of identify_x) {
+                // is on C1 ?
+                // console.log(identify_x)
+                x11 = 0;
+                x12 = 0;
+                x13 = C;
+                x14 = B * x + E;
+                x15 = A * x * x + D * x + F;
+                identify_y = identifier([x11, x12, x13, x14, x15]);
+                for(const y of identify_y) {
+                // is on C2 ?
+                if (Math.abs((x / a) * (x / a) + e * (y / b) * (y / b) * e - 1) < threshold_x_y) {
+                sol.push([Math.round(x * precision) / precision, Math.round(y * precision) / precision]);}
+                }
+                }
+            return sol;
+        case -1:
             x1 = Math.pow(A, 2) + Math.pow(C, 2) * Math.pow(b / a, 4)
             - 2 * A * C * e * Math.pow(b / a, 2) + e * Math.pow(B * b / a, 2);
             x2 = 2 * A * D - 2 * C * D * e * Math.pow(b / a, 2) + 2 * e * E * B * Math.pow(b / a, 2);
