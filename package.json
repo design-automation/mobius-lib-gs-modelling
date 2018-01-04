@@ -1,7 +1,7 @@
 {
     "name": "gs-modelling",
     "license": "GPL-3.0",
-    "version": "0.1.1",
+    "version": "0.1.5",
     "author": "Patrick Janssen",
     "description": "A set of 3D modelling functions for gs-JSON.",
     "homepage": "https://github.com/phtj/gs-modelling#readme",
@@ -21,12 +21,14 @@
         "url": "git+https://github.com/phtj/gs-modelling.git"
     },
     "dependencies": {
-        "@types/three": "^0.84.35",
-        "gs-json": "git://github.com/phtj/gs-json.git"
+        "@types/three": "^0.84.37",
+        "gs-json": "git://github.com/phtj/gs-json.git",
+        "poly-roots": "^1.0.8",
+        "solve-quadratic-equation": "^0.1.0"
     },
     "devDependencies": {
-        "@types/jasmine": "^2.6.3",
-        "@types/node": "^8.5.2",
+        "@types/jasmine": "^2.8.3",
+        "@types/node": "^8.5.5",
         "jasmine": "^2.8.0",
         "jasmine-core": "^2.8.0",
         "karma": "^1.7.1",
@@ -39,9 +41,9 @@
         "karma-typescript": "^3.0.9",
         "karma-typescript-es6-transform": "^1.0.3",
         "karma-typescript-preprocessor": "^0.3.1",
+        "tslint": "^5.8.0",
         "typedoc": "^0.9.0",
-        "typescript": "^2.6.1",
-        "tslint": "^5.8.0"
+        "typescript": "^2.6.1"
     },
     "bugs": {
         "url": "https://github.com/phtj/gs-modelling/issues"

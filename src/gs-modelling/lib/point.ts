@@ -30,7 +30,20 @@ export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
  * @returns New point if successful, null if unsuccessful or on error
  */
 export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
-    throw new Error("Method not implemented");
+    const m: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== m) {
+            throw new Error("All points must be in the same model.");
+        }
+    }
+    const xyz: number[] = [0,0,0];
+    for (const point of points) {
+        const pos: number[] = point.getPosition();
+        xyz[0] += pos[0];
+        xyz[1] += pos[1];
+        xyz[2] += pos[2];
+    }
+    return m.getGeom().addPoint([xyz[0]/points.length, xyz[1]/points.length, xyz[2]/points.length]);
 }
 
 // - WEEK 2 -
@@ -45,72 +58,4 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  */
 export function FromXYZ(model: gs.IModel, xyz: number[]): gs.IPoint {
     return model.getGeom().addPoint(xyz);
-}
-
-// - WEEK 2 -
-/**
- * Gets a point from the model based on an index number
- * @param model Model to get point from
- * @param index Index of point to get
- * @returns Specified point if successful, null if unsuccessful or on error
- */
-export function GetFromModel(model: gs.IModel, index: number[]): gs.IPoint {
-    throw new Error("Method not implemented");
-}
-
-//  ===============================================================================================================
-//  Point Functions ===============================================================================================
-//  ===============================================================================================================
-
-// - WEEK 5 -
-/**
- * Finds closest point on an object to a test point
- *
- * Distance between the test point and every point in an object is calculated and returns the point that gives
- * the shortest distance<br/>
- * Points must already exist in the object<br/>
- * A new point along an edge or face of the object will not be created
- * @param point Test point to consider
- * @param obj Object to test for closest point
- * @returns Closest point on object if successful, null if unsuccessful or on error
- */
-export function closestPoint(point: gs.IPoint, obj: gs.IObj): gs.IPoint {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Fuses two points into a single point
- *
- * Returns a new point that is the center of the two points if they have the same position (within a
- * tolerance of 1) and deletes input points
- * @param points Points to fuse
- * @param tolerance Max distance between the two points allowed
- * @param copy Performs transformation on duplicate copy of input points
- * @returns New point if successful, null if unsuccessful or on error
- */
-export function fuse(points: gs.IPoint[], tolerance: number, copy: boolean): gs.IPoint {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Obtains x, y and z coordinates of 3D point
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
- * @param point Point
- * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
- */
-export function getXYZ(point: gs.IPoint): number[] {
-    return point.getPosition();
-}
-
-//  ===============================================================================================================
-//  Old Functions No Longer in API ================================================================================
-//  ===============================================================================================================
-
-/**
- * Gets all the points from an object
- * @param obj Object
- * @returns List of points
- */
-export function getPointsFromObj(obj: gs.IObj): gs.IPoint[] {
-    return obj.getPointsArr();
 }

@@ -9,7 +9,7 @@ import * as three from "three";
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-MoveObject
 export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): gs.IObj {
     if (obj === undefined) {return null;}
-    const points_IDs: Set<number> = obj.getPointsSet();
+    const points_IDs: number[] = obj.getPointsSet().map((v) => v.getID());
     for (const point_ID of points_IDs) {
     const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
     m.getGeom().getPoint(point_ID).setPosition([xyz[0] + translation[0],
@@ -39,7 +39,7 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#object-ScaleObject
 export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale: number): gs.IObj {
     if (obj === undefined) {return null;}
-    const points_IDs: Set<number> = obj.getPointsSet();
+    const points_IDs: number[] = obj.getPointsSet().map((v) => v.getID());
     for (const point_ID of points_IDs) {
         const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
         const unit_vector: number[] = [];
@@ -98,7 +98,7 @@ export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane
                       Math.sin(rotation),Math.cos(rotation),0,
                       0,0,1);
 
-   const points_IDs: Set<number> = obj.getPointsSet();
+   const points_IDs: number[] = obj.getPointsSet().map((v) => v.getID());
    for (const point_ID of points_IDs) {
         const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
         let matrix_vec: three.Matrix3 = new three.Matrix3();
@@ -150,7 +150,7 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, plane: gs.IPlane): gs.I
    matrix_symetry.set(1, 0, 0,
                       0,-1, 0,
                       0, 0,-1);
-   const points_IDs: Set<number> = obj.getPointsSet();
+   const points_IDs: number[] = obj.getPointsSet().map((v) => v.getID());
    for (const point_ID of points_IDs) {
         const xyz: number[] = m.getGeom().getPoint(point_ID).getPosition();
         let matrix_vec: three.Matrix3 = new three.Matrix3();
