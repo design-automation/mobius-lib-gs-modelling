@@ -2,7 +2,7 @@
 module.exports = (config) => {
     config.set({
         autoWatch: true,
-        basePath: "./",
+        basePath: "",
         browsers: ["Chrome"],
         client:{
             clearContext: false, // leave Jasmine Spec Runner output visible in browser
@@ -13,8 +13,8 @@ module.exports = (config) => {
             reports: [ "html", "lcovonly" ],
         },
         files: [
-            {included: true,   nocache: false, pattern: "src/gs-modelling/**/*.ts", served: true, watched: true,
-            },
+            {pattern: "src/gs-modelling/**/*.ts",
+             watched: true, included: true, served: true, nocache: false},
         ],
         frameworks: ["jasmine", "karma-typescript"],
         karmaTypescriptConfig: {

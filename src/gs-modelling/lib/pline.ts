@@ -57,7 +57,7 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
 export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return this.fromPoints([start, end], false);
+    return this.FromPoints([start, end], false);
 }
 
 //  ===============================================================================================================
@@ -175,7 +175,7 @@ export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, cop
     const mesh_points: gs.IPoint[][] = [];
     for (let i = 0; i < points.length; i++) {
         const i2 = i%2;
-        if (i2 === 2) {mesh_points.push([]);}
+        if (i2 === 0) {mesh_points.push([]);}
         const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
         const pos: number[] = points[i].getPosition();
         face[i2] = points[i];
@@ -183,9 +183,10 @@ export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, cop
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
+        m.getGeom().delObj(pline.getID(), false); //TODO causes error
     }
     return pmesh;
+    //  TODO deal with cap
 }
 
 /**
