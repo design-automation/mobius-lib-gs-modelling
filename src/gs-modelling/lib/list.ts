@@ -35,7 +35,7 @@ export function FromRange(min: number, max: number): number[] {
  * @param list List
  * @returns Length of specified list
  */
-export function length(list): any[] {
+export function length(list: any[]): number {
     return list.length;
 }
 
@@ -48,8 +48,9 @@ export function length(list): any[] {
  * @param item Item to add
  * @returns List with added item
  */
-export function append(list, item): any[] {
-    return list.push(item);
+export function append(list: any[], item: any): any[] {
+    list.push(item);
+    return list;
 }
 
 /**
@@ -61,8 +62,9 @@ export function append(list, item): any[] {
  * @param item Item to add
  * @returns List with added item
  */
-export function appendFront(list, item): any[] {
-    return list.shift(item);
+export function appendFront(list: any[], item: any): any[] {
+    list.unshift(item);
+    return list;
 }
 
 /**
@@ -74,8 +76,8 @@ export function appendFront(list, item): any[] {
  * @param items List of items to add
  * @returns List with added items
  */
-export function extend(list, item): any[] {
-    return list.concat(item);
+export function extend(list: any[], items: any[]): any[] {
+    return list.concat(items);
 }
 
 /**
@@ -87,7 +89,7 @@ export function extend(list, item): any[] {
  * @param items List of items to add
  * @returns List with added items
  */
-export function extendFront(list, items): any[] {
+export function extendFront(list: any[], items: any[]): any[] {
     return items.concat(list);
 }
 
@@ -99,8 +101,9 @@ export function extendFront(list, items): any[] {
  * @param index Index number of item to remove
  * @returns List with item removed
  */
-export function removeIndex(list, index: number): any[] {
-    return list.splice(index,1);
+export function removeIndex(list: any[], index: number): any[] {
+    list.splice(index,1);
+    return list;
 }
 
 /**
@@ -115,14 +118,14 @@ export function removeIndex(list, index: number): any[] {
  *        false
  * @returns List with item removed
  */
-export function removeValue(list, value, remove_all: boolean): any[] {
+export function removeValue(list: any[], value: any, remove_all: boolean): any[] {
     for (var i = list.length - 1; i >= 0; i--) {
         if (list[i] === value) {
             list.splice(i,1);
             if (remove_all === false) {break}
         }
     }
-    return list
+    return list;
 }
 
 /**
@@ -132,8 +135,9 @@ export function removeValue(list, value, remove_all: boolean): any[] {
  * @param list List to reverse
  * @returns New reversed list
  */
-export function reverse(list): any[] {
-    return list.reverse();
+export function reverse(list: any[]): any[] {
+    list.reverse();
+    return list;
 }
 
 /**
@@ -146,8 +150,9 @@ export function reverse(list): any[] {
  * @param list List to sort
  * @returns New sorted list
  */
-export function sortAplha(list): any[] {
-    return list.sort();
+export function sortAplha(list: any[]): any[] {
+    list.sort();
+    return list;
 }
 
 /**
@@ -158,6 +163,37 @@ export function sortAplha(list): any[] {
  * @param list List to add to
  * @returns New sorted list
  */
-export function sortNum(list): any[] {
-    return list.sort(function(a, b){return a - b});
+export function sortNum(list: any[]): any[] {
+    list.sort(function(a, b){return a - b});
+    return list;
+}
+
+/**
+ * Removes items with index numbers that fall within a range from a list and return them
+ *
+ * Alters input list<br/>
+ * Bottom bound number of range is inclusive, top bound number is exclusive
+ * @param list List slice
+ * @param min Bottom bound number of range
+ * @param max Top bound number of range
+ * @returns List of removed items
+ */
+export function slice(list: any[], min: number, max: number): any[] {
+    return list.slice(min,max);
+}
+
+/**
+ * Adds and/or removes items to/from a list at a specific point and returns removed items
+ *
+ * Alters input list<br/>
+ * If no items to add are specified, only removes items<br/>
+ * If howmany specified as 0, only adds items
+ * @param list List to splice
+ * @param index Index number of position to add/remove (items added/removed after specified index)
+ * @param howmany Number of items to remove
+ * @param items Items to add
+ * @returns List of removed items
+ */
+export function splice(list: any[], index: number, howmany: number, items: any[]): any[] {
+    return list.splice(index, howmany, ...items);
 }

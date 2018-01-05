@@ -16,6 +16,6 @@ import * as gs from "gs-json";
  * @param list List to add to
  * @returns Flattened list
  */
-export function _flatten(list): any[] {
+export function _flatten(list: any[]): any[] {
     throw new Error("Method not implemented");
 }
