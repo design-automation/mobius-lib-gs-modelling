@@ -56,7 +56,7 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @param end End point of line
  * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
-export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
     return this.fromPoints([start, end], false);
 }
 
