@@ -316,7 +316,7 @@ export function Function_F(x: number): number {
     return y;
 }
 
-export function parabola_lenght(conic: number , x1: number, x2: number): number {
+export function parabola_lenght(conic: number[] , x1: number, x2: number): number {
     const a: number = conic[0];
     const b: number = conic[1];
     const p: number = conic[2];
@@ -327,6 +327,8 @@ export function parabola_lenght(conic: number , x1: number, x2: number): number 
     return Math.abs(distance);
 }
 
+// console.log("parabola length is " + parabola_length([1,1,0.5,0],0,1))
+// 1.47, looks ok
 // Next step: Unit test + plug
 
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
