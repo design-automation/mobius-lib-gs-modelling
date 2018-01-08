@@ -17,7 +17,7 @@ export function test_pline_lineFromPoints(): boolean {
     const g: gs.IGeom = m.getGeom();
     const p1: gs.IPoint = g.addPoint([0,0,0]);
     const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const pline: gs.IPolyline = gsm.pline.lineFromPoints(p1, p2);
+    const pline: gs.IPolyline = gsm.pline.LineFromPoints(p1, p2);
     if (pline === undefined) {return false;}
     return true;
 }

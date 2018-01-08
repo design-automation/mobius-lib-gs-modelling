@@ -56,13 +56,8 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @param end End point of line
  * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
-<<<<<<< HEAD
-export function lineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return this.FromPoints([start, end], false);
-=======
 export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return this.fromPoints([start, end], false);
->>>>>>> 7fe3c3a513308eb11a7627db498758e98a55e41d
+    return this.FromPoints([start, end], false);
 }
 
 //  ===============================================================================================================
@@ -153,7 +148,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
         }
     }
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
+        m.getGeom().delObj(pline, false);
     }
     return plines;
 }
@@ -188,7 +183,7 @@ export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, cop
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false); //TODO causes error
+        m.getGeom().delObj(pline, false);
     }
     return pmesh;
     //  TODO deal with cap
@@ -251,7 +246,7 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false, copy: boo
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
         for (const pline of plines) {
-            m.getGeom().delObj(pline.getID(), false);
+            m.getGeom().delObj(pline, false);
         }
     }
     return pmesh;
@@ -308,8 +303,8 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=tru
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
-        m.getGeom().delObj(rail.getID(), false);
+        m.getGeom().delObj(pline, false);
+        m.getGeom().delObj(rail, false);
     }
     return pmesh;
 }

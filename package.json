@@ -21,15 +21,16 @@
         "url": "git+https://github.com/phtj/gs-modelling.git"
     },
     "dependencies": {
-        "@types/three": "^0.84.37",
-        "gs-json": "^0.1.5",
-        "mathjs": "^3.18.1",
+        "@types/three": "^0.89.2",
+        "gs-json": "^0.1.7",
+        "mathjs": "^3.19.0",
         "poly-roots": "^1.0.8",
-        "solve-quadratic-equation": "^0.1.0"
+        "solve-quadratic-equation": "^0.1.0",
+        "three": "^0.89.0"
     },
     "devDependencies": {
         "@types/jasmine": "^2.8.3",
-        "@types/node": "^8.5.5",
+        "@types/node": "^8.5.7",
         "babel-cli": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
         "jasmine": "^2.8.0",

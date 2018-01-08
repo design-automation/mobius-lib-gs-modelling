@@ -112,14 +112,14 @@ export function abs(num: number): number {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 /**
  * Returns the largest number in a list of numbers
- * @param num List of numbers
+ * @param nums List of numbers
  * @returns A number representing the largest number in specified list of numbers
  */
-export function _max(num: number[]): number {
-    var max = Number.NEGATIVE_INFINITY;
-    for (var i = 0; i < num.length; i++) {
-        if(num[i] > max){
-            max = num[i];
+export function _max(nums: number[]): number {
+    let max = Number.NEGATIVE_INFINITY;
+    for (const num of nums) {
+        if(num > max) {
+            max = num;
         }
     }
     return max;
@@ -131,11 +131,11 @@ export function _max(num: number[]): number {
  * @param num List of numbers
  * @returns A number representing the smallest number in specified list of numbers
  */
-export function min(num: number[]): number {
-    var min = Number.POSITIVE_INFINITY;
-    for (var i = 0; i < num.length; i++) {
-        if(num[i] < min){
-            min = num[i];
+export function min(nums: number[]): number {
+    let min = Number.POSITIVE_INFINITY;
+    for (const num of nums) {
+        if(num < min) {
+            min = num;
         }
     }
     return min;
@@ -177,13 +177,8 @@ export function randomInt(min: number, max: number): number {
  * @param max Top bound number of range
  * @returns A pseudo-random number
  */
-<<<<<<< HEAD
-
-const x = "temp";
-=======
 export function randomIntInclusive(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
->>>>>>> 7fe3c3a513308eb11a7627db498758e98a55e41d

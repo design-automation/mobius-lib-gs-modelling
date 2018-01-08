@@ -195,7 +195,7 @@ export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs:
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
 
@@ -216,6 +216,6 @@ export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, ra
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }

@@ -194,11 +194,6 @@ export function slice(list: any[], min: number, max: number): any[] {
  * @param items Items to add
  * @returns List of removed items
  */
-<<<<<<< HEAD
-
-const x = "temp";
-=======
 export function splice(list: any[], index: number, howmany: number, items: any[]): any[] {
     return list.splice(index, howmany, ...items);
 }
->>>>>>> 7fe3c3a513308eb11a7627db498758e98a55e41d

@@ -42,3 +42,9 @@ export {split};
 
 import * as topo from "./topo";
 export {topo};
+
+import * as list from "./list";
+export {list};
+
+import * as math from "./math";
+export {math};
