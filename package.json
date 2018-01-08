@@ -1,7 +1,7 @@
 {
     "name": "gs-modelling",
     "license": "GPL-3.0",
-    "version": "0.1.5",
+    "version": "0.1.7",
     "author": "Patrick Janssen",
     "description": "A set of 3D modelling functions for gs-JSON.",
     "homepage": "https://github.com/phtj/gs-modelling#readme",
@@ -14,29 +14,33 @@
         "prepare": "npm run build",
         "build": "tsc",
         "test": "karma start ./karma.conf.ts",
-        "docs": "typedoc --out  ./docs ./src/gs-modelling/lib --module commonjs --exclude **/*test*.ts"
+        "docs": "typedoc --out  ./docs ./src/gs-modelling/lib --module commonjs --exclude **/*test*.ts --theme minimal"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/phtj/gs-modelling.git"
     },
     "dependencies": {
-        "@types/three": "^0.84.37",
-        "gs-json": "git://github.com/phtj/gs-json.git",
+        "@types/three": "^0.89.2",
+        "gs-json": "^0.1.7",
+        "mathjs": "^3.19.0",
         "poly-roots": "^1.0.8",
-        "solve-quadratic-equation": "^0.1.0"
+        "solve-quadratic-equation": "^0.1.0",
+        "three": "^0.89.0"
     },
     "devDependencies": {
         "@types/jasmine": "^2.8.3",
-        "@types/node": "^8.5.5",
+        "@types/node": "^8.5.7",
+        "babel-cli": "^6.26.0",
+        "babel-preset-es2015": "^6.24.1",
         "jasmine": "^2.8.0",
         "jasmine-core": "^2.8.0",
-        "karma": "^1.7.1",
+        "karma": "^2.0.0",
         "karma-chrome-launcher": "^2.2.0",
         "karma-cli": "^1.0.1",
         "karma-coverage-istanbul-reporter": "^1.3.3",
         "karma-html-reporter": "^0.2.7",
-        "karma-jasmine": "^1.1.1",
+        "karma-jasmine": "^1.1.0",
         "karma-jasmine-html-reporter": "^0.2.2",
         "karma-typescript": "^3.0.9",
         "karma-typescript-es6-transform": "^1.0.3",

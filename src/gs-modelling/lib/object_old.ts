@@ -223,7 +223,7 @@ export function TransformObjects(m: gs.IModel, objs: gs.IObj[], scale: number, o
 export function DeleteObject(m: gs.IModel, obj: gs.IObj, keep_points: boolean): boolean {
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {return false;}
-    m.getGeom().delObj(obj.getID(), keep_points);
+    m.getGeom().delObj(obj, keep_points);
     return true;
 }
 
@@ -278,7 +278,7 @@ export function CopyObjects(m: gs.IModel, objs: gs.IObj[], translation?: number[
 export function IsObjectInGroup(m: gs.IModel, obj: gs.IObj, group: gs.IGroup): boolean {
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
-    return group.hasObj(obj.getID());
+    return group.hasObj(obj);
 }
 /**
  * This function returns True if an object is present in a set of specified group.
@@ -290,7 +290,7 @@ export function ObjectGroups(m: gs.IModel, obj: gs.IObj, groups: gs.IGroup[]): b
     const objGps: boolean = true ;
     for(const group of groups) {
     if(!(objGps === true)) {return false;}
-        objGps === group.hasObj(obj.getID()); // TODO ???
+        objGps === group.hasObj(obj); // TODO ???
     }
     return true;
 }

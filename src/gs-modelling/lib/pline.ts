@@ -57,7 +57,7 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
 export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
-    return this.fromPoints([start, end], false);
+    return this.FromPoints([start, end], false);
 }
 
 //  ===============================================================================================================
@@ -148,7 +148,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
         }
     }
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
+        m.getGeom().delObj(pline, false);
     }
     return plines;
 }
@@ -175,7 +175,7 @@ export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, cop
     const mesh_points: gs.IPoint[][] = [];
     for (let i = 0; i < points.length; i++) {
         const i2 = i%2;
-        if (i2 === 2) {mesh_points.push([]);}
+        if (i2 === 0) {mesh_points.push([]);}
         const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
         const pos: number[] = points[i].getPosition();
         face[i2] = points[i];
@@ -183,9 +183,10 @@ export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, cop
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
+        m.getGeom().delObj(pline, false);
     }
     return pmesh;
+    //  TODO deal with cap
 }
 
 /**
@@ -245,7 +246,7 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false, copy: boo
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
         for (const pline of plines) {
-            m.getGeom().delObj(pline.getID(), false);
+            m.getGeom().delObj(pline, false);
         }
     }
     return pmesh;
@@ -302,8 +303,8 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=tru
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     if (!copy) {
-        m.getGeom().delObj(pline.getID(), false);
-        m.getGeom().delObj(rail.getID(), false);
+        m.getGeom().delObj(pline, false);
+        m.getGeom().delObj(rail, false);
     }
     return pmesh;
 }

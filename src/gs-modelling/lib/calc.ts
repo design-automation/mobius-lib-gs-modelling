@@ -331,6 +331,53 @@ export function parabola_lenght(conic: number[] , x1: number, x2: number): numbe
 // 1.47, looks ok
 // Next step: Unit test + plug
 
+export function ellipse_length(conic: number[], theta_1: number, theta_2: number): number {
+    // convention = Direct sense for angles ;
+    // Input angles in degrees ;
+    // Double check angles ;
+    const K: number = 1000;
+    let curve: number = 0;
+    let theta: number = null;
+    const a: number = Math.max(conic[0],conic[1]);
+    const b: number = Math.min(conic[0],conic[1]);
+    const e: number = Math.sqrt( 1 - (b/a)*(b/a) );
+    theta_1 = theta_1 *(2*Math.PI)/360 ;
+    theta_2 = theta_2 *(2*Math.PI)/360 ;
+    const d_th: number = (theta_2 - theta_1)/K ;
+    for(let k = 0; k < K ; k++ ) {
+    theta = theta_1 + k*(theta_2 - theta_1)/K ;
+    curve = curve + d_th * Math.sqrt(1 - e*Math.sin(theta)*e*Math.sin(theta));}
+    curve = a * curve ;
+    return curve;
+}
+// console.log(ellipse_length([1,3,0,1],0,360))
+export function hyperbola_length(conic: number[], theta_1: number, theta_2: number): number {
+    // convention = Direct sense for angles ;
+    // Input angles in degrees ;
+    const K: number = 100;
+    let curve: number = 0;
+    let theta: number = null;
+    const a: number = conic[0];
+    const b: number = conic[1];
+    const e: number = Math.sqrt(1 + (b/a)*(b/a));
+    const theta_min: number = Math.min(theta_1, theta_2);
+    const theta_max: number = Math.max(theta_1, theta_2);
+    theta_1 = theta_min *(2*Math.PI)/360 ;
+    theta_2 = theta_max *(2*Math.PI)/360 ;
+    const d_th: number = (theta_2 - theta_1)/K ;
+    if(((b/a) - Math.tan(Math.abs(theta_1))) <= 0) {throw new Error("Theta_1 not on curve");}
+    if(((b/a) - Math.tan(Math.abs(theta_2))) <= 0) {throw new Error("Theta_2 not on curve");}
+    for(let k = 0; k < K ; k++ ) {
+        theta = theta_1 + k*(theta_2 - theta_1)/K ;
+        curve = curve + d_th * b/(Math.sqrt((e*Math.cos(theta))*(e*Math.cos(theta)) - 1));
+        // console.log(theta);
+    }
+    return curve;
+}
+// Unit test to perform
+// console.log(hyperbola_length([1,100,0,-1],0,45));
+// console.log(Math.tan(45 * 2 * Math.PI / 360));
+
 /////////////////////////////////// old functions no longer in API list///////////////////////////////////////////////
 
 /**

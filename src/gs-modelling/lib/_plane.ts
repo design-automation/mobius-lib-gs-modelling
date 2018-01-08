@@ -58,9 +58,7 @@ export function _AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, numb
      const e3: three.Vector3 = new three.Vector3(...normal).normalize();
      const e1: three.Vector3 = new three.Vector3(-e3.y,e3.x,0).normalize();
      const e2: three.Vector3 = e3.cross(e1);
-     const x_axis_point: gs.IPoint = m.getGeom().addPoint(e1.toArray());
-     const y_axis_point: gs.IPoint = m.getGeom().addPoint(e2.toArray());
-     return m.getGeom().addPlane(origin, x_axis_point, y_axis_point);
+     return m.getGeom().addPlane(origin, e1.toArray(), e2.toArray());
  }
 
 /**

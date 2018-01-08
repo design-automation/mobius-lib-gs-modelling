@@ -1,6 +1,7 @@
 import * as gs from "gs-json";
 import * as three from "three";
 import * as utils from "./utils";
+import * as three_utils from "./_three_utils2";
 
 //  ===============================================================================================================
 //  TO BE IMPLEMENTED ============================================================================================
@@ -119,9 +120,9 @@ export function _weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline 
 export function _pointsExtend(start: gs.IPoint, end: gs.IPoint, distance: number, create: boolean = true): gs.IPoint {
     const start_vec: three.Vector3 = new three.Vector3(...start.getPosition());
     const end_vec: three.Vector3 = new three.Vector3(...end.getPosition());
-    const dir_vec: three.Vector3 = end_vec.sub(start_vec);
+    const dir_vec: three.Vector3 = three_utils.subVectors(end_vec, start_vec);
     dir_vec.setLength(distance);
-    const new_xyz: number[] = end_vec.add(dir_vec).toArray();
+    const new_xyz: number[] = three_utils.addVectors(end_vec, dir_vec).toArray();
     if (create) {
         const geom: gs.IGeom = start.getGeom();
         return geom.addPoint(new_xyz);
@@ -144,32 +145,33 @@ export function _pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint
     const num_segs = points.length - 1;
     const dists_to_segends: number[] = [];
     let total_length: number = 0;
-    for  (let i = 0; i < num_segs; i++) {
-        total_length += vec_points[i+1].sub(vec_points[i]).length();
+    for  (let i = 0; i < num_segs - 1; i++) {
+        const seg_vec: three.Vector3 = three_utils.subVectors(vec_points[i+1], vec_points[i]);
+        total_length += seg_vec.length();
         dists_to_segends.push(total_length);
     }
     const t_mapped = t_param * total_length;
-    for  (let i = 0; i < num_segs; i++) {
+    for  (let i = 0; i < num_segs - 1; i++) {
         if (t_mapped === dists_to_segends[i]) { // choose end point of this segment
             return geom.addPoint(points[i+1].getPosition());
         }
         if (t_mapped > dists_to_segends[i]) { // gone too far, go back one
             const seg_start_point: three.Vector3 = vec_points[i - 1];
             const seg_end_point: three.Vector3 = vec_points[i];
-            const seg_vec: three.Vector3 = seg_start_point.sub(seg_end_point);
+            const seg_vec: three.Vector3 = three_utils.subVectors(seg_start_point, seg_end_point);
             let start_dist: number;
             if (i === 1) {start_dist = 0;} else {start_dist = dists_to_segends[i - 2];}
             seg_vec.setLength(t_mapped - start_dist);
-            const xyz: number[] = seg_start_point.add(seg_vec).toArray();
+            const xyz: number[] = three_utils.addVectors(seg_start_point, seg_vec).toArray();
             return geom.addPoint(xyz);
         }
         if (i === num_segs - 1) { // last seg, so must be this one
             const start_seg: three.Vector3 = vec_points[i];
             const end_seg: three.Vector3 = vec_points[i + 1];
-            const seg_vec: three.Vector3 = start_seg.sub(end_seg);
+            const seg_vec: three.Vector3 = three_utils.subVectors(start_seg, end_seg);
             const start_dist: number = dists_to_segends[i - 1];
             seg_vec.setLength(t_mapped - start_dist);
-            const xyz: number[] = start_seg.add(seg_vec).toArray();
+            const xyz: number[] = three_utils.addVectors(start_seg, seg_vec).toArray();
             return geom.addPoint(xyz);
         }
     }
@@ -195,7 +197,7 @@ export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs:
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
 
@@ -216,6 +218,6 @@ export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, ra
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin(), plane.getVectors());
+    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
