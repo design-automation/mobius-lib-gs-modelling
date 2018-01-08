@@ -46,7 +46,7 @@ export function _getFaces(obj: gs.IObj): gs.IFace[] {
     throw new Error("Method not implemented");
 }
 
-// - WEEK 4 -
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Gets points from an object
  * @param obj Object to get points from

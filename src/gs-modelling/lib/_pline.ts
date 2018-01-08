@@ -51,6 +51,7 @@ export function _length(model: gs.IModel, pline: gs.IPolyline, segment_index: nu
     throw new Error("Method not implemented");
 }
 
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Offsets planar polyline along its plane by a specified distance
  * @param plines Polyline to offset
@@ -62,6 +63,7 @@ export function _offset(plines: gs.IPolyline[], distance: number, copy: boolean)
     throw new Error("Method not implemented");
 }
 
+// - Possibly Assignment 1 (WEEK 2-3) -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
 //  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
 /**

@@ -65,7 +65,7 @@ function _BoxFromPlane(plane: gs.IPlane, length_x: number, length_y: number, len
     throw new Error("Method not implemented");
 }
 
-// - Assignment 1 -
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Creates a piped polymesh along a input polyline
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPipe

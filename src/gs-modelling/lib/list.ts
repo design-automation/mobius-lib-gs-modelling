@@ -94,6 +94,18 @@ export function extendFront(list: any[], items: any[]): any[] {
 }
 
 /**
+ * Flattens an n-dimensional list into a one-dimensional list
+ *
+ * Alters input list<br/>
+ * List returned will be in order
+ * @param list List to add to
+ * @returns Flattened list
+ */
+export function _flatten(list: any[]): any[] {
+    return gs.Arr.flatten(list);
+}
+
+/**
  * Removes the item with the specified index number from a list
  *
  * Alters input list
