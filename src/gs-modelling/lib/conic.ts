@@ -1,5 +1,12 @@
 import * as gs from "gs-json";
 
+/**
+ * Conic curves are a type of object. They consist of circles, ellipses, hyperbolas, parabolas and arcs.
+ *
+ * Conic curves are represented by a point and a set of vectors.
+ */
+module conic {}
+
 //  ===============================================================================================================
 //  Conic Constructors ============================================================================================
 //  ===============================================================================================================

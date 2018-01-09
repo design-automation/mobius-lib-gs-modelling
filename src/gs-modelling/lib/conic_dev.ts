@@ -6,6 +6,17 @@ import * as gs from "gs-json";
 
 // - WEEK 3 -
 /**
+ * Copies conic curves from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of conic curves copied into specified model if successful
+ */
+export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IConicCurve[] {
+    throw new Error("Method not implemented");
+}
+
+// - WEEK 3 -
+/**
  * Adds an arc to the model based on three points
  *
  * All points are taken to be points along the arc
@@ -133,7 +144,7 @@ export function _FromEdge(edge: gs.IEdge ): gs.IConicCurve {
  * @param index Index number of conic curve
  * @returns Conic curve if successful, null if unsuccessful or on error
  */
-export function _GetFromModel(model: gs.IModel, index: number ): gs.IConicCurve {
+export function _GetByIndex (model: gs.IModel, index: number ): gs.IConicCurve {
     throw new Error("Method not implemented");
 }
 

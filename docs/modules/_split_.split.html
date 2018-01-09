@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;_point&quot; | gs-modelling</title>
+	<title>split | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,229 +909,21 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__point_.html#closestpoint" class="tsd-kind-icon">closest<wbr>Point</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__point_.html#fuse" class="tsd-kind-icon">fuse</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__point_.html#getfrommodel" class="tsd-kind-icon">get<wbr>From<wbr>Model</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__point_.html#getpointsfromobj" class="tsd-kind-icon">get<wbr>Points<wbr>From<wbr>Obj</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__point_.html#getxyz" class="tsd-kind-icon">getXYZ</a>
-		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__point_.html#closestpoint" class="tsd-kind-icon">closest<wbr>Point</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__point_.html#fuse" class="tsd-kind-icon">fuse</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__point_.html#getfrommodel" class="tsd-kind-icon">get<wbr>From<wbr>Model</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__point_.html#getpointsfromobj" class="tsd-kind-icon">get<wbr>Points<wbr>From<wbr>Obj</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__point_.html#getxyz" class="tsd-kind-icon">getXYZ</a></li>
-						</ul>
-					</section>
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Split functions find points of intersection and conics, polylines and polymeshes where two objects
+					overlap and split the input objects. They return the split segments, arcs or polymeshes in a list of lists.</p>
 				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="closestpoint" class="tsd-anchor"></a>
-				<h3>closest<wbr>Point</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">closest<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_point.ts#L21">_point.ts:21</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Finds closest point on an object to a test point.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Test point to consider</p>
-								</div>
-							</li>
-							<li>
-								<h5>obj: <span class="tsd-signature-type">IObj</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Object to test for closest point</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-						<p>Closest point on object if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="fuse" class="tsd-anchor"></a>
-				<h3>fuse</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">fuse<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span>, tolerance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_point.ts#L32">_point.ts:32</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Fuses two points into a single point.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>points: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Points to fuse</p>
-								</div>
-							</li>
-							<li>
-								<h5>tolerance: <span class="tsd-signature-type">number</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Max distance between the two points allowed</p>
-								</div>
-							</li>
-							<li>
-								<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Performs transformation on duplicate copy of input points</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-						<p>New point if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="getfrommodel" class="tsd-anchor"></a>
-				<h3>get<wbr>From<wbr>Model</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Model<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_point.ts#L10">_point.ts:10</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Gets a point from the model.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>model: <span class="tsd-signature-type">IModel</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Model to get point from</p>
-								</div>
-							</li>
-							<li>
-								<h5>index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Index of point to get</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-						<p>Specified point if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="getpointsfromobj" class="tsd-anchor"></a>
-				<h3>get<wbr>Points<wbr>From<wbr>Obj</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Points<wbr>From<wbr>Obj<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_point.ts#L55">_point.ts:55</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Gets all the points from an object.</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>obj: <span class="tsd-signature-type">IObj</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Object</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
-						<p>List of points.</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="getxyz" class="tsd-anchor"></a>
-				<h3>getXYZ</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">getXYZ<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_point.ts#L42">_point.ts:42</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Obtains x, y and z coordinates of 3D point
-								<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates">http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates</a></p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Point</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-						<p>List of x, y and z coordinates of point if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
+				<p><code>[0][i]</code> contains the split parts of the first input, where <code>i</code> is the index number
+					of each individual part obtained from the split function.<br/>
+					<code>[1][i]</code> contains the split parts of the second input, if available, where <code>i</code> is the
+				index number of each individual part obtained from the split function.</p>
+			</div>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">

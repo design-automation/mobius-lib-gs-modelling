@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;_ray&quot; | gs-modelling</title>
+	<title>pline | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,108 +909,17 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__ray_.html#_fromoriginpoint" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Point</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="__ray_.html#_fromoriginvector" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vector</a>
-		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__ray_.html#_fromoriginpoint" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Point</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="__ray_.html#_fromoriginvector" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vector</a></li>
-						</ul>
-					</section>
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Polylines are a type of object.</p>
 				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="_fromoriginpoint" class="tsd-anchor"></a>
-				<h3>_<wbr>From<wbr>Origin<wbr>Point</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Point<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRay</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_ray.ts#L13">_ray.ts:13</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Creates a ray from an origin point and one point describing its direction</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>3D point to use as origin of plane</p>
-								</div>
-							</li>
-							<li>
-								<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Point that lies on direction of ray</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IRay</span></h4>
-						<p>New ray if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="_fromoriginvector" class="tsd-anchor"></a>
-				<h3>_<wbr>From<wbr>Origin<wbr>Vector</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vector<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IRay</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/_ray.ts#L23">_ray.ts:23</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Creates a ray from an origin point and one direction vector describing its direction</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>3D point to use as origin of plane</p>
-								</div>
-							</li>
-							<li>
-								<h5>vector: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>Direction vector describing direction of ray</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IRay</span></h4>
-						<p>New ray if successful, null if unsuccessful or on error</p>
-					</li>
-				</ul>
-			</section>
+				<p>Polylines are formed from straight line segments joined to form a continuous line.</p>
+			</div>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">

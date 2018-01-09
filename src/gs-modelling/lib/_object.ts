@@ -22,6 +22,16 @@ export function _Copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
     throw new Error("Method not implemented");
 }
 
+/**
+ * Copies all objects from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of objects copied into specified model if successful
+ */
+export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IObj[] {
+    throw new Error("Method not implemented");
+}
+
 // - WEEK 2 -
 /**
  * Gets an object from the model

@@ -1,5 +1,12 @@
 import * as gs from "gs-json";
 
+/**
+ * Objects are a type of entity. They consist of conics, polylines, polymeshes, planes and rays.
+ *
+ * Objects are formed by a combination of topologies. More information can be found on the plage for topo.
+ */
+module obj {}
+
 //  ===============================================================================================================
 //  Object Constructors ===========================================================================================
 //  ===============================================================================================================

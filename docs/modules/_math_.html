@@ -919,9 +919,6 @@ img { max-width: 100%; }
 			<a href="_math_.html#positive_infinity" class="tsd-kind-icon">POSITIVE_<wbr>INFINITY</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="_math_.html#_max" class="tsd-kind-icon">_max</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
 			<a href="_math_.html#abs" class="tsd-kind-icon">abs</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
@@ -932,6 +929,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
 			<a href="_math_.html#floor" class="tsd-kind-icon">floor</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module">
+			<a href="_math_.html#max" class="tsd-kind-icon">max</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
 			<a href="_math_.html#min" class="tsd-kind-icon">min</a>
@@ -962,17 +962,23 @@ img { max-width: 100%; }
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
+					<section class="tsd-index-section tsd-is-not-exported">
+						<h3>Modules</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-module tsd-parent-kind-external-module tsd-is-not-exported"><a href="_math_.math.html" class="tsd-kind-icon">math</a></li>
+						</ul>
+					</section>
 					<section class="tsd-index-section ">
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#negative_infinity" class="tsd-kind-icon">NEGATIVE_<wbr>INFINITY</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#pi" class="tsd-kind-icon">PI</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#positive_infinity" class="tsd-kind-icon">POSITIVE_<wbr>INFINITY</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#_max" class="tsd-kind-icon">_max</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#abs" class="tsd-kind-icon">abs</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#ceiling" class="tsd-kind-icon">ceiling</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#cos" class="tsd-kind-icon">cos</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#floor" class="tsd-kind-icon">floor</a></li>
+							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#max" class="tsd-kind-icon">max</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#min" class="tsd-kind-icon">min</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#pow" class="tsd-kind-icon">pow</a></li>
 							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_math_.html#random" class="tsd-kind-icon">random</a></li>
@@ -997,7 +1003,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L31">math.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L36">math.ts:36</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1020,7 +1026,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L15">math.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L20">math.ts:20</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1043,7 +1049,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L23">math.ts:23</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L28">math.ts:28</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1057,38 +1063,6 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="_max" class="tsd-anchor"></a>
-				<h3>_max</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">_max<span class="tsd-signature-symbol">(</span>nums<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L118">math.ts:118</a></li>
-							</ul>
-						</aside>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Returns the largest number in a list of numbers</p>
-							</div>
-						</div>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>nums: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								<div class="tsd-comment tsd-typography">
-									<p>List of numbers</p>
-								</div>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						<p>A number representing the largest number in specified list of numbers</p>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 				<a name="abs" class="tsd-anchor"></a>
 				<h3>abs</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -1098,7 +1072,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L108">math.ts:108</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L113">math.ts:113</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1131,7 +1105,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L86">math.ts:86</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L91">math.ts:91</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1163,7 +1137,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L45">math.ts:45</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L50">math.ts:50</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1195,7 +1169,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L96">math.ts:96</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L101">math.ts:101</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1218,6 +1192,38 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+				<a name="max" class="tsd-anchor"></a>
+				<h3>max</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+					<li class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">(</span>nums<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L123">math.ts:123</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Returns the largest number in a list of numbers</p>
+							</div>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>nums: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>List of numbers</p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						<p>A number representing the largest number in specified list of numbers</p>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 				<a name="min" class="tsd-anchor"></a>
 				<h3>min</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -1227,7 +1233,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L134">math.ts:134</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L139">math.ts:139</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1256,7 +1262,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L76">math.ts:76</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L81">math.ts:81</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1294,7 +1300,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L152">math.ts:152</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L157">math.ts:157</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1312,13 +1318,13 @@ img { max-width: 100%; }
 				<a name="randomint" class="tsd-anchor"></a>
 				<h3>random<wbr>Int</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">random<wbr>Int<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">random<wbr>Int<span class="tsd-signature-symbol">(</span>bottom_bound<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, top_bound<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L165">math.ts:165</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L170">math.ts:170</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1330,13 +1336,13 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>min: <span class="tsd-signature-type">number</span></h5>
+								<h5>bottom_bound: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Bottom bound number of range</p>
 								</div>
 							</li>
 							<li>
-								<h5>max: <span class="tsd-signature-type">number</span></h5>
+								<h5>top_bound: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Top bound number of range</p>
 								</div>
@@ -1351,13 +1357,13 @@ img { max-width: 100%; }
 				<a name="randomintinclusive" class="tsd-anchor"></a>
 				<h3>random<wbr>Int<wbr>Inclusive</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">random<wbr>Int<wbr>Inclusive<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">random<wbr>Int<wbr>Inclusive<span class="tsd-signature-symbol">(</span>bottom_bound<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, top_bound<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L180">math.ts:180</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L185">math.ts:185</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1369,13 +1375,13 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>min: <span class="tsd-signature-type">number</span></h5>
+								<h5>bottom_bound: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Bottom bound number of range</p>
 								</div>
 							</li>
 							<li>
-								<h5>max: <span class="tsd-signature-type">number</span></h5>
+								<h5>top_bound: <span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>Top bound number of range</p>
 								</div>
@@ -1396,7 +1402,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L55">math.ts:55</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L60">math.ts:60</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1428,7 +1434,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1e97f44/src/gs-modelling/lib/math.ts#L65">math.ts:65</a></li>
+								<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85699fe/src/gs-modelling/lib/math.ts#L70">math.ts:70</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

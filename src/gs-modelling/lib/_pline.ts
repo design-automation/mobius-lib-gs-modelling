@@ -7,6 +7,17 @@ import * as three_utils from "./_three_utils2";
 //  TO BE IMPLEMENTED ============================================================================================
 //  ===============================================================================================================
 
+// - Possibly Assignment 1 (WEEK 2-3) -
+/**
+ * Copies polylines from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of polylines copied into specified model if successful
+ */
+export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolyline[] {
+    throw new Error("Method not implemented");
+}
+
 // - WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
@@ -17,7 +28,7 @@ import * as three_utils from "./_three_utils2";
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function _fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+export function _FromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
     // TODO
     throw new Error("Method not implemented");
 }
