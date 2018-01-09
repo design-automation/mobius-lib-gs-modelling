@@ -1,3 +1,11 @@
+/**
+ * Geometry contains geometric information. Geometry consists of topology and entities.
+ */
+
+ /**
+  *
+  */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================

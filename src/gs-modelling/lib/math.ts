@@ -1,16 +1,12 @@
-import * as gs from "gs-json";
-
 /**
  * Math contains funtions for calculations, analysing numbers and representing numbers like pi and infinty.
  */
-module math {}
 
-// based on standard built-in Math object for JavaScript
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+/**
+ *
+ */
 
-//  ===============================================================================================================
-//  Math Properties ===============================================================================================
-//  ===============================================================================================================
+import * as gs from "gs-json";
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI
 /**

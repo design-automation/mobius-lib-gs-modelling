@@ -1,14 +1,17 @@
-import * as gs from "gs-json";
-import {_pointsExtend, _pointsEvaluate} from "./_pline";
-import * as utils from "./utils";
-import * as three from "three";
-
 /**
  * Polylines are a type of object.
  *
  * Polylines are formed from straight line segments joined to form a continuous line.
  */
-module pline {}
+
+ /**
+  *
+  */
+
+import * as gs from "gs-json";
+import {_pointsExtend, _pointsEvaluate} from "./_pline";
+import * as utils from "./utils";
+import * as three from "three";
 
 //  ===============================================================================================================
 //  Pline Constructors ============================================================================================

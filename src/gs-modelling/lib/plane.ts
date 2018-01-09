@@ -1,12 +1,15 @@
-import * as gs from "gs-json";
-
 /**
  * Planes are a type of object.
  *
  * Planes are imaginary flat surfaces that stretch infinitely along an x and y axis and are defined by two
  * perpendicular vectors.
  */
- module plane {}
+
+/**
+ *
+ */
+
+import * as gs from "gs-json";
 
 //  ===============================================================================================================
 //  Plane Constructors ============================================================================================

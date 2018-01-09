@@ -1,11 +1,14 @@
-import * as gs from "gs-json";
-
 /**
  * Points are a type of entity.
  *
  * Points are defined by a set of x, y and z coordinates.
  */
-module point {}
+
+/**
+ *
+ */
+
+import * as gs from "gs-json";
 
 //  ===============================================================================================================
 //  Point Constructors ============================================================================================

@@ -1,7 +1,14 @@
+/**
+ * Models contain geometry that can be viewed on the 3D viewer if output as geometry.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 // - WEEK 2 -
-
 /**
  * Creates a new Model that is empty.
  * @returns New model empty if successful, null if unsuccessful or on error

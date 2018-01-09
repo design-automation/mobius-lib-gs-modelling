@@ -1,11 +1,14 @@
-import * as gs from "gs-json";
-
 /**
  * Polymeshes are a type of object.
  *
  * Polymeshes are formed from flat polygons joined to form a continuous surface.
  */
-module pmesh {}
+
+/**
+ *
+ */
+
+import * as gs from "gs-json";
 
 //  ===============================================================================================================
 //  Pmesh Constructors ============================================================================================

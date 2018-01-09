@@ -1,9 +1,12 @@
-import * as gs from "gs-json";
-
 /**
  * Query functions check if an entity fufils certain conditions.
  */
-module query {}
+
+/**
+ *
+ */
+
+import * as gs from "gs-json";
 
 //  ===============================================================================================================
 //  Query Functions ===============================================================================================

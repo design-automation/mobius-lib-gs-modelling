@@ -1,3 +1,11 @@
+/**
+ * These functions call examples for mobius.
+ */
+
+ /**
+  *
+  */
+
 import * as gs from "gs-json";
 
 /**

@@ -1,5 +1,3 @@
-import * as gs from "gs-json";
-
 /**
  * Lists are a tool to manage a collection of data.<br/>
  *
@@ -11,7 +9,12 @@ import * as gs from "gs-json";
  * To access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly
  * into functions.
  */
-module list {}
+
+/**
+ *
+ */
+
+import * as gs from "gs-json";
 
 //  ===============================================================================================================
 //  List Constructors =============================================================================================

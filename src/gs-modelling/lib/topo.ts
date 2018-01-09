@@ -1,3 +1,12 @@
+/**
+ * Topology are sub-components within each object that are connected together.<br/>
+ * Topology consists of vertices, edges, wires and faces.<br/>
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================
