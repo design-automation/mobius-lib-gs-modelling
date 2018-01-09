@@ -30,7 +30,7 @@ export function test_pline_evalParam(): boolean {
     const p3: gs.IPoint = g.addPoint([0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     const pt4: gs.IPoint = gsm.pline.evalParam(pline, 0.5);
-    //if (pt4 === undefined) {return false;}
+    if (pt4 === undefined) {return false;}
     return true;
 }
 
@@ -42,6 +42,6 @@ export function test_pline_extrude(): boolean {
     const p3: gs.IPoint = g.addPoint([0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     const mesh: gs.IPolymesh = gsm.pline.extrude(pline, [1,2,3], false, true);
-    //if (pt4 === undefined) {return false;}
+    const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false, false);
     return true;
 }
