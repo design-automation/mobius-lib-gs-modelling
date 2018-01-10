@@ -1,7 +1,7 @@
 import * as gs from "gs-json";
 import * as three from "three";
 import * as xform from "./_math_xform_dev";
-import * as three_utils from "./_three_dev";
+import * as three_utils from "./_three_utils_dev";
 
 //  ===============================================================================================================
 //  TO BE IMPLEMENTED ============================================================================================

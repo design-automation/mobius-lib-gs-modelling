@@ -4,6 +4,42 @@ import * as roots from "poly-roots";
 import * as quadratic from "solve-quadratic-equation";
 
 /**
+ * Circle-circle intersection
+ * @param circle1
+ * @param circle2
+ * @returns An array of intersection points
+ */
+export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
+
+    throw new Error("Method not implemented.");
+
+}
+
+/**
+ * Circle-ellipse intersection
+ * @param circle
+ * @param ellipse
+ * @returns An array of intersection points
+ */
+export function _isectCircleEllipse2D(circle: gs.ICircle, ellipse: gs.IEllipse): gs.IPoint[] {
+
+    throw new Error("Method not implemented.");
+
+}
+
+/**
+ * Circle-ellipse intersection
+ * @param ellipse1
+ * @param ellipse2
+ * @returns An array of intersection points
+ */
+export function _isectEllipseEllipse2D(ellipse1: gs.IEllipse, ellipse2: gs.IEllipse): gs.IPoint[] {
+
+    throw new Error("Method not implemented.");
+
+}
+
+/**
  * Calculates distance between two points or two clusters of points
  * @param points_1 Point 1 or first cluster of points
  * @param points_2 Point 2 or second cluster of points
