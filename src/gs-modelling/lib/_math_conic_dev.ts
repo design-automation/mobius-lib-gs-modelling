@@ -2,6 +2,8 @@ import * as gs from "gs-json";
 import * as mathjs from "mathjs";
 import * as roots from "poly-roots";
 import * as quadratic from "solve-quadratic-equation";
+import * as three from "three";
+import * as threex from "./_three_utils_dev";
 
 /**
  * Circle-circle intersection
@@ -10,9 +12,8 @@ import * as quadratic from "solve-quadratic-equation";
  * @returns An array of intersection points
  */
 export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
-
+    const m: three.Matrix4 = threex.xformMatrixPointXYZs(circle1.getOrigin(), circle1.getVectors());
     throw new Error("Method not implemented.");
-
 }
 
 /**

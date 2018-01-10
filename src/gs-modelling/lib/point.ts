@@ -27,7 +27,29 @@ export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
     return model.getGeom().addPoint(point.getPosition());
 }
 
-// - WEEK 2 -
+/**
+ * Gets a point from the model.
+ * @param model Model to get point from
+ * @param index Index of point to get
+ * @returns Specified point if successful, null if unsuccessful or on error
+ */
+export function GetByID(model: gs.IModel, id: number): gs.IPoint {
+    return model.getGeom().getPoint(id);
+}
+
+/**
+ * Adds a point or list of points to the model
+ *
+ * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
+ * Points are returned in order of input
+ * @param model Model to add point to
+ * @param xyz List of X, Y and Z coordinates of point
+ * @returns New point or list of points if successful, null if unsuccessful or on error
+ */
+export function FromXYZ(model: gs.IModel, xyz: number[]): gs.IPoint {
+    return model.getGeom().addPoint(xyz);
+}
+
 /**
  * Adds a point that is the center of a list of points
  *
@@ -56,16 +78,16 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
     return m.getGeom().addPoint([xyz[0]/points.length, xyz[1]/points.length, xyz[2]/points.length]);
 }
 
-// - WEEK 2 -
+//  ===============================================================================================================
+//  Point Functions ============================================================================================
+//  ===============================================================================================================
+
 /**
- * Adds a point or list of points to the model
- *
- * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
- * Points are returned in order of input
- * @param model Model to add point to
- * @param xyz List of X, Y and Z coordinates of point
- * @returns New point or list of points if successful, null if unsuccessful or on error
+ * Obtains x, y and z coordinates of 3D point
+ * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
+ * @param point Point
+ * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
  */
-export function FromXYZ(model: gs.IModel, xyz: number[]): gs.IPoint {
-    return model.getGeom().addPoint(xyz);
+export function getXYZ(point: gs.IPoint): number[] {
+    return point.getPosition();
 }

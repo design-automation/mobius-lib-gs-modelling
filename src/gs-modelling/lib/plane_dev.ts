@@ -17,17 +17,7 @@ export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.I
     throw new Error("Method not implemented");
 }
 
-/**
- * Creates a plane from an origin point and two direction vectors describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param vec_x Direction vector describing x-axis of plane
- * @param vec_y Direction vector describing y-axis of plane
- * @returns New plane if successful, null if unsuccessful or on error
- */
-export function _FromOriginVectors(origin: gs.IPoint, vec_x: [number, number, number],
-                                  vec_y: [number, number, number]): gs.IPlane {
-    throw new Error("Method not implemented");
-}
+
 
 // - WEEK 3 -
 /**

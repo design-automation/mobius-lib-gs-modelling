@@ -14,12 +14,4 @@ export function _FromOriginPoint(origin: gs.IPoint, point: gs.IPoint ): gs.IRay 
     throw new Error("Method not implemented");
 }
 
-/**
- * Creates a ray from an origin point and one direction vector describing its direction
- * @param origin 3D point to use as origin of plane
- * @param vector Direction vector describing direction of ray
- * @returns New ray if successful, null if unsuccessful or on error
- */
-export function _FromOriginVector(origin: gs.IPoint, vector: [number, number, number]): gs.IRay {
-    throw new Error("Method not implemented");
-}
+

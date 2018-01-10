@@ -5,12 +5,19 @@ import * as three from "three";
  * Utility functions for threejs.
  */
 
+const EPS: number = 1e-6;
+
  // Matrices ======================================================================================================
 
 export function multVectorMatrix(v: three.Vector3, m: three.Matrix4): three.Vector3 {
     const v2: three.Vector3 = v.clone();
     v2.applyMatrix4(m);
     return v2;
+}
+
+export function xformMatrixPointXYZs(o: gs.IPoint, vecs: number[][]): three.Matrix4 {
+    return xformMatrix(new three.Vector3(...o.getPosition()),
+        new three.Vector3(...vecs[0]), new three.Vector3(...vecs[1]), new three.Vector3(...vecs[2]));
 }
 
 export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3, z: three.Vector3): three.Matrix4 {
@@ -26,6 +33,14 @@ export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3
 }
 
 //  Vectors =======================================================================================================
+
+export function vectorFromVertex(vertex: gs.IVertex): three.Vector3 {
+    return new three.Vector3(...vertex.getPoint().getPosition());
+}
+
+export function vectorFromPoint(point: gs.IPoint): three.Vector3 {
+    return new three.Vector3(...point.getPosition());
+}
 
 export function vectorsFromVertices(vertices: gs.IVertex[]): three.Vector3[] {
     return vertices.map((v) => new three.Vector3(...v.getPoint().getPosition()));
@@ -56,6 +71,10 @@ export function crossVectors(v1: three.Vector3, v2: three.Vector3, norm: boolean
     return v3;
 }
 
+export function dotVectors(v1: three.Vector3, v2: three.Vector3): number {
+    return v1.dot(v2);
+}
+
 export function vectorFromPointsAtoB(a: gs.IPoint, b: gs.IPoint, norm: boolean = false): three.Vector3 {
     const v: three.Vector3 = subVectors(new three.Vector3(...b.getPosition()),
         new three.Vector3(...a.getPosition()));
@@ -73,19 +92,23 @@ export function vectorFromVerticesAtoB(a: gs.IVertex, b: gs.IVertex, norm: boole
 //  XYZ ===========================================================================================================
 
 export function subXYZs(xyz1: number[], xyz2: number[], norm: boolean = false): number[] {
-    return subVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray();
+    return subVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray().slice(0,3);;
 }
 
 export function addXYZs(xyz1: number[], xyz2: number[], norm: boolean = false): number[] {
-    return addVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray();
+    return addVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray().slice(0,3);
 }
 
 export function crossXYZs(xyz1: number[], xyz2: number[], norm: boolean = false): number[] {
-    return crossVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray();
+    return crossVectors(new three.Vector3(...xyz1), new three.Vector3(...xyz2), norm).toArray().slice(0,3);
+}
+
+export function dotXYZs(xyz1: number[], xyz2: number[]): number {
+    return new three.Vector3(...xyz1).dot(new three.Vector3(...xyz2));
 }
 
 export function normalizeXYZ(xyz: number[]): number[] {
-    return new three.Vector3(...xyz).normalize().toArray();
+    return new three.Vector3(...xyz).normalize().toArray().slice(0,3);
 }
 
 export function lengthXYZ(xyz: number[]): number {
@@ -96,30 +119,30 @@ export function lengthXYZ(xyz: number[]): number {
 
 export function subPoints(p1: gs.IPoint, p2: gs.IPoint, norm: boolean = false): number[]  {
     return subVectors(new three.Vector3(...p1.getPosition()),
-        new three.Vector3(...p2.getPosition()), norm).toArray();
+        new three.Vector3(...p2.getPosition()), norm).toArray().slice(0,3);
 }
 
 export function addPoints(p1: gs.IPoint, p2: gs.IPoint, norm: boolean = false): number[]  {
     return addVectors(new three.Vector3(...p1.getPosition()),
-        new three.Vector3(...p2.getPosition()), norm).toArray();
+        new three.Vector3(...p2.getPosition()), norm).toArray().slice(0,3);
 }
 
 //  Vertices ======================================================================================================
 
 export function subVertices(v1: gs.IVertex, v2: gs.IVertex, norm: boolean = false): number[]  {
     return subVectors(new three.Vector3(...v1.getPoint().getPosition()),
-        new three.Vector3(...v2.getPoint().getPosition()), norm).toArray();
+        new three.Vector3(...v2.getPoint().getPosition()), norm).toArray().slice(0,3);
 }
 
 export function addVertices(v1: gs.IVertex, v2: gs.IVertex, norm: boolean = false): number[]  {
     return addVectors(new three.Vector3(...v1.getPoint().getPosition()),
-        new three.Vector3(...v2.getPoint().getPosition()), norm).toArray();
+        new three.Vector3(...v2.getPoint().getPosition()), norm).toArray().slice(0,3);
 }
 
 //  3D to 2D ======================================================================================================
 
 /**
- * Function to transform a set of vertices in 3d space onto the xy plane. This function assumes that the vertices
+ * Transform a set of vertices in 3d space onto the xy plane. This function assumes that the vertices
  * are co-planar. Returns a set of three Vectors that represent points on the xy plane.
  */
 export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
@@ -150,4 +173,42 @@ export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
     return points_2d;
 }
 
+//  Query ======================================================================================================
 
+/**
+ * Check a point is on a plane.
+ * The plane is represented by an origin and a normal.
+ */
+export function planesAreCoplanar(origin1: gs.IPoint, normal1: number[], origin2: gs.IPoint, normal2: number[]): boolean {
+    // Check if point is on plane
+    const origin1_v  = new three.Vector3(...origin1.getPosition());
+    const normal1_v  = new three.Vector3(...normal1).normalize();
+    const origin2_v  = new three.Vector3(...origin2.getPosition());
+    const normal2_v  = new three.Vector3(...normal2).normalize();
+    if (Math.abs(dotVectors(subVectors(origin1_v, origin2_v), normal2_v)) > EPS) {return false;}
+    // check is vectors are same
+    if (Math.abs(1- normal1_v.dot(normal2_v)) > EPS) {return false; }
+    return true;
+}
+
+/**
+ * Check a point is on a plane.
+ * The plane is represented by an origin and a normal.
+ */
+export function pointIsOnPlane(origin: gs.IPoint, normal: number[], point: gs.IPoint): boolean {
+    const origin_v  = new three.Vector3(...origin.getPosition());
+    const normal_v  = new three.Vector3(...normal).normalize();
+    const point_v  = new three.Vector3(...point.getPosition());
+    return Math.abs(dotVectors(subVectors(point_v, origin_v), normal_v)) > 0;
+}
+
+/**
+ * Check if vectors are same dir.
+ */
+export function vectorsAreCodir(xyz1: number[], xyz2: number[]): boolean {
+    // Check if point is on plane
+    const v1  = new three.Vector3(...xyz1).normalize();
+    const v2  = new three.Vector3(...xyz2).normalize();
+    if (Math.abs(1- v1.dot(v2)) > EPS) {return false; }
+    return true;
+}

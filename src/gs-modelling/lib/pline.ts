@@ -4,20 +4,14 @@
  * Polylines are formed from straight line segments joined to form a continuous line.
  */
 
- /**
-  *
-  */
-
 import * as gs from "gs-json";
 import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
-//import * as utils from "./utils";
 import * as three from "three";
 
 //  ===============================================================================================================
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
-// - WEEK 2 -
 /**
  * Gets a polyline from the model based on an index number
  * @param model Model to get polyline from
@@ -215,7 +209,6 @@ export function isCLosed(pline: gs.IPolyline): boolean {
     return pline.isClosed();
 }
 
-// - WEEK 4 -
 /**
  * Lofts a list of polylines with the same number of segments to create a polymesh
  *

@@ -1,15 +1,7 @@
 import * as gs from "gs-json";
 
 // - WEEK 2 -
-/**
- * Gets a point from the model.
- * @param model Model to get point from
- * @param index Index of point to get
- * @returns Specified point if successful, null if unsuccessful or on error
- */
-export function _GetByIndex(model: gs.IModel, index: number[]): gs.IPoint {
-    throw new Error("Method not implemented");
-}
+
 
 // - WEEK 2 -
 /**

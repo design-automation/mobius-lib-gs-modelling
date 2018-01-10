@@ -1,6 +1,6 @@
 import * as gs from "gs-json";
-import {_isectCircleCircle2D, _isectCircleEllipse2D, _isectEllipseEllipse2D} from "./_math_conic_dev";
-import {_pointIsOnPlane} from "./_math_poly_dev";
+import * as conic from "./_math_conic_dev";
+import * as threex from "./_three_utils_dev";
 
 //  ===============================================================================================================
 //  Intersect Functions ===========================================================================================
@@ -20,19 +20,20 @@ import {_pointIsOnPlane} from "./_math_poly_dev";
  */
 export function conicConic2D(curve1: gs.ICircle|gs.IEllipse, curve2: gs.ICircle|gs.IEllipse): gs.IPoint[] {
     // check that the curves have the same plane
-    if (!_pointIsOnPlane(curve1.getOrigin(), curve1.getVectors()[2], curve2.getOrigin())) { return null; }
+    if (!threex.planesAreCoplanar(curve1.getOrigin(), curve1.getVectors()[2],
+        curve2.getOrigin(), curve2.getVectors()[2])) { return null; }
     // calculate the intersection points
     if (curve1.getObjType() === gs.EObjType.circle) {
         if(curve2.getObjType() === gs.EObjType.circle) {
-            return _isectCircleCircle2D(curve1 as gs.ICircle, curve2  as gs.ICircle);
+            return conic._isectCircleCircle2D(curve1 as gs.ICircle, curve2  as gs.ICircle);
         } else {
-            return _isectCircleEllipse2D(curve1 as gs.ICircle, curve2  as gs.IEllipse);
+            return conic._isectCircleEllipse2D(curve1 as gs.ICircle, curve2  as gs.IEllipse);
         }
     } else  {
         if(curve2.getObjType() === gs.EObjType.circle) {
-            return _isectCircleEllipse2D(curve2 as gs.ICircle, curve1 as gs.IEllipse);
+            return conic._isectCircleEllipse2D(curve2 as gs.ICircle, curve1 as gs.IEllipse);
         } else {
-            return _isectEllipseEllipse2D(curve1 as gs.IEllipse, curve2  as gs.IEllipse);
+            return conic._isectEllipseEllipse2D(curve1 as gs.IEllipse, curve2  as gs.IEllipse);
         }
     }
 }
