@@ -1,3 +1,13 @@
+/**
+ * Polymeshes are a type of object.
+ *
+ * Polymeshes are formed from flat polygons joined to form a continuous surface.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================

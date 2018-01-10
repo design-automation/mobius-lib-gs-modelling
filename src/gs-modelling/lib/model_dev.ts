@@ -27,3 +27,24 @@ export function purge(model: gs.IModel): boolean {
 export function toJSON(model: gs.IModel): JSON {
     throw new Error("Method not implemented");
 }
+
+/**
+ * Helper for saving files.
+ */
+export function downloadContent(options) {
+    if (window.navigator.msSaveBlob) {
+        const blob = new Blob([options.content],
+               {type: options.type });
+        window.navigator.msSaveBlob(blob, options.filename);
+    } else {
+        const link = document.createElement("a");
+        const content = options.content;
+        const uriScheme = ['data:', options.type, ","].join("");
+        link.href = uriScheme + content;
+        link.download = options.filename;
+        //FF requires the link in actual DOM
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}

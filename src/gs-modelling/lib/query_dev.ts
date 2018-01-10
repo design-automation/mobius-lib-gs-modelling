@@ -11,7 +11,7 @@ import * as gs from "gs-json";
  * @param ent Entity to check and cast
  * @returns Entity as its corresponding type
  */
-export function _cast(geom: gs.IEnt): any {
+export function cast(geom: gs.IEnt): any {
     throw new Error("Method not implemented");
 }
 
@@ -23,7 +23,7 @@ export function _cast(geom: gs.IEnt): any {
  * @param pline Polyline to check
  * @returns True if point lies on polyline
  */
-export function _pointIsOnPline(point: gs.IPoint, pline: gs.IPolyline): boolean {
+export function pointIsOnPline(point: gs.IPoint, pline: gs.IPolyline): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -35,7 +35,7 @@ export function _pointIsOnPline(point: gs.IPoint, pline: gs.IPolyline): boolean 
  * @param curve Conic curve to check
  * @returns True if point lies on conic curve
  */
-export function _pointIsOnConic(point: gs.IPoint, curve: gs.IConicCurve): boolean {
+export function pointIsOnConic(point: gs.IPoint, curve: gs.ICircle|gs.IEllipse): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -47,7 +47,7 @@ export function _pointIsOnConic(point: gs.IPoint, curve: gs.IConicCurve): boolea
  * @param pmesh Polymesh to check
  * @returns True if point lies on polymesh
  */
-export function _pointIsOnPmesh(point: gs.IPoint, pmesh: gs.IPolymesh): boolean {
+export function pointIsOnPmesh(point: gs.IPoint, pmesh: gs.IPolymesh): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -59,7 +59,7 @@ export function _pointIsOnPmesh(point: gs.IPoint, pmesh: gs.IPolymesh): boolean 
  * @param ray Ray to check
  * @returns True if point lies on ray
  */
-export function _pointIsOnRay(point: gs.IPoint, ray: gs.IRay): boolean {
+export function pointIsOnRay(point: gs.IPoint, ray: gs.IRay): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -71,7 +71,7 @@ export function _pointIsOnRay(point: gs.IPoint, ray: gs.IRay): boolean {
  * @param plane Plane to check
  * @returns True if point lies on plane
  */
-export function _pointIsOnPlane(point: gs.IPoint, plane: gs.IPlane): boolean {
+export function pointIsOnPlane(point: gs.IPoint, plane: gs.IPlane): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -83,6 +83,6 @@ export function _pointIsOnPlane(point: gs.IPoint, plane: gs.IPlane): boolean {
  * @param pmesh Polymesh to check
  * @returns True if point lies in polymesh
  */
-export function _pointIsInPmesh(point: gs.IPoint, pmesh: gs.IPolymesh): boolean {
+export function pointIsInPmesh(point: gs.IPoint, pmesh: gs.IPolymesh): boolean {
     throw new Error("Method not implemented");
 }

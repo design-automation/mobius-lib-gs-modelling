@@ -1,3 +1,13 @@
+/**
+ * Rays are a type of object.
+ *
+ * Rays are imaginary lines that stretch infinitely along an axis and are defined by a single vector.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================

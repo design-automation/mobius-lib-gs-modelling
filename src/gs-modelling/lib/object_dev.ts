@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as utils from "./utils";
+//import * as utils from "./utils";
 import * as three from "three";
 
 //  ===============================================================================================================
@@ -17,8 +17,18 @@ import * as three from "three";
  * <h4>Examples</h4>
  * <code>This is some code.</code>
  */
-export function _Copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
+export function Copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
     //return model.getGeom().addPoint(point.getPosition());
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Copies all objects from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of objects copied into specified model if successful
+ */
+export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IObj[] {
     throw new Error("Method not implemented");
 }
 
@@ -29,7 +39,7 @@ export function _Copy(model: gs.IModel, obj: gs.IObj): gs.IObj {
  * @param index Index of object to get
  * @returns Specified object if successful, null if unsuccessful or on error
  */
-export function _GetFromModel(model: gs.IModel, index: number[]): gs.IObj {
+export function GetFromModel(model: gs.IModel, index: number[]): gs.IObj {
     throw new Error("Method not implemented");
 }
 
@@ -42,17 +52,17 @@ export function _GetFromModel(model: gs.IModel, index: number[]): gs.IObj {
  * @param obj Object to get faces from
  * @returns List of faces if successful, null if unsuccesful or on error
  */
-export function _getFaces(obj: gs.IObj): gs.IFace[] {
+export function getFaces(obj: gs.IObj): gs.IFace[] {
     throw new Error("Method not implemented");
 }
 
-// - WEEK 4 -
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Gets points from an object
  * @param obj Object to get points from
  * @returns List of  points if successful, null if unsuccesful or on error
  */
-export function _getPoints(obj: gs.IObj): gs.IPoint[] {
+export function getPoints(obj: gs.IObj): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -61,7 +71,7 @@ export function _getPoints(obj: gs.IObj): gs.IPoint[] {
  * @param obj Object to get wires from
  * @returns List of  wires if successful, null if unsuccesful or on error
  */
-export function _getWires(obj: gs.IObj): gs.IWire[] {
+export function getWires(obj: gs.IObj): gs.IWire[] {
     throw new Error("Method not implemented");
 }
 
@@ -71,7 +81,7 @@ export function _getWires(obj: gs.IObj): gs.IWire[] {
  * @param obj Object
  * @returns Type of object represented as a number (...)
  */
-export function _getType(obj: gs.IObj): number /*enum TO-DO*/ {
+export function getType(obj: gs.IObj): number /*enum TO-DO*/ {
     throw new Error("Method not implemented");
 }
 
@@ -84,7 +94,7 @@ export function _getType(obj: gs.IObj): number /*enum TO-DO*/ {
  * @param copy Performs transformation on duplicate copy of input objects
  * @returns Number of vertices joined
  */
-export function _join(objs: gs.IObj[], copy: boolean): number {
+export function join(objs: gs.IObj[], copy: boolean): number {
     throw new Error("Method not implemented");
 }
 
@@ -96,7 +106,7 @@ export function _join(objs: gs.IObj[], copy: boolean): number {
  * @param copy Performs transformation on duplicate copy of input objects
  * @returns Number of vertices unjoined
  */
-export function _unjoin(objs: gs.IObj[], copy: boolean): number {
+export function unjoin(objs: gs.IObj[], copy: boolean): number {
     throw new Error("Method not implemented");
 }
 
@@ -105,7 +115,7 @@ export function _unjoin(objs: gs.IObj[], copy: boolean): number {
  * @param obj Object to get number of faces from
  * @returns Number of faces if successful, null if unsuccesful or on error
  */
-export function _numFaces(obj: gs.IObj): number {
+export function numFaces(obj: gs.IObj): number {
     throw new Error("Method not implemented");
 }
 
@@ -114,7 +124,7 @@ export function _numFaces(obj: gs.IObj): number {
  * @param obj Object to get number of points from
  * @returns Number of points if successful, null if unsuccesful or on error
  */
-export function _numPoints(obj: gs.IObj): number {
+export function numPoints(obj: gs.IObj): number {
     throw new Error("Method not implemented");
 }
 
@@ -123,9 +133,10 @@ export function _numPoints(obj: gs.IObj): number {
  * @param obj Object to get number of wires from
  * @returns Number of wires if successful, null if unsuccesful or on error
  */
-export function _numWires(obj: gs.IObj): number {
+export function numWires(obj: gs.IObj): number {
     throw new Error("Method not implemented");
 }
+
 
 //  ===============================================================================================================
 //  Old Functions No Longer in API ================================================================================
@@ -137,7 +148,7 @@ export function _numWires(obj: gs.IObj): number {
  * @return The distance if successful, otherwise null
  */
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#plane
-export function _DistanceToPlane(m: gs.IModel, xyz: number[], plane: gs.IPlane): number {
+export function DistanceToPlane(m: gs.IModel, xyz: number[], plane: gs.IPlane): number {
     const distance: number = undefined;
     // To Be Implemented
     return distance;

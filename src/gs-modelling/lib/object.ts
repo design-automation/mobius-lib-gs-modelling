@@ -1,3 +1,13 @@
+/**
+ * Objects are a type of entity. They consist of conics, polylines, polymeshes, planes and rays.
+ *
+ * Objects are formed by a combination of topologies. More information can be found on the page for topo.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================

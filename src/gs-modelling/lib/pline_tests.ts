@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as gsm from "./gs-modelling";
+import * as gsm from "./_export_dev";
 
 export function test_pline_fromPoints(): boolean {
     const m: gs.IModel = new gs.Model();
@@ -59,8 +59,8 @@ export function test_pline_extend(): boolean {
     const p2: gs.IPoint = g.addPoint([10,0,0]);
     const p3: gs.IPoint = g.addPoint([0,10,10]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-    gsm.pline.extend(pline, 0, 5, true, true);
-    gsm.pline.extend(pline, 1, 7, false, false);
+    gsm.pline.extend(pline, 0, 5, true, true); // create points and copy
+    gsm.pline.extend(pline, 1, 7, false, false); // dont create points, dont copy
     console.log(pline);
     return true;
 }

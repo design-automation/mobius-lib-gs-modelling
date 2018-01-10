@@ -1,3 +1,13 @@
+/**
+ * Points are a type of entity.
+ *
+ * Points are defined by a set of x, y and z coordinates.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================

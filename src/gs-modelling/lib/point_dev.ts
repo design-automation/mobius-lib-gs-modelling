@@ -7,7 +7,18 @@ import * as gs from "gs-json";
  * @param index Index of point to get
  * @returns Specified point if successful, null if unsuccessful or on error
  */
-export function getFromModel(model: gs.IModel, index: number[]): gs.IPoint {
+export function _GetByIndex(model: gs.IModel, index: number[]): gs.IPoint {
+    throw new Error("Method not implemented");
+}
+
+// - WEEK 2 -
+/**
+ * Copies points from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of points copied into specified model if successful
+ */
+export function _CopyFromModel(model_1: gs.IModel, model_2: gs.Model): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 

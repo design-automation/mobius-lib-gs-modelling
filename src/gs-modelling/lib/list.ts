@@ -1,3 +1,19 @@
+/**
+ * Lists are a tool to manage a collection of data.<br/>
+ *
+ * Any information can be stored in a list (including other lists) and they are refered to as items.<br/>
+ * Items in a list are ordered and will be returned in the same order or accessed by the same index unless
+ * changes are made to alter it.<br/>
+ *
+ * To create an empty list, use the assignment button and define the value as <code>[]</code><br/>
+ * To access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly
+ * into functions.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================
@@ -94,6 +110,18 @@ export function extendFront(list: any[], items: any[]): any[] {
 }
 
 /**
+ * Flattens an n-dimensional list into a one-dimensional list
+ *
+ * Alters input list<br/>
+ * List returned will be in order
+ * @param list List to add to
+ * @returns Flattened list
+ */
+export function flatten(list: any[]): any[] {
+    return gs.Arr.flatten(list);
+}
+
+/**
  * Removes the item with the specified index number from a list
  *
  * Alters input list
@@ -119,10 +147,10 @@ export function removeIndex(list: any[], index: number): any[] {
  * @returns List with item removed
  */
 export function removeValue(list: any[], value: any, remove_all: boolean): any[] {
-    for (var i = list.length - 1; i >= 0; i--) {
+    for (let i = list.length - 1; i >= 0; i--) {
         if (list[i] === value) {
             list.splice(i,1);
-            if (remove_all === false) {break}
+            if (remove_all === false) {break;}
         }
     }
     return list;
@@ -164,7 +192,7 @@ export function sortAplha(list: any[]): any[] {
  * @returns New sorted list
  */
 export function sortNum(list: any[]): any[] {
-    list.sort(function(a, b){return a - b});
+    list.sort(function(a, b) {return a - b;} );
     return list;
 }
 

@@ -1,6 +1,16 @@
+/**
+ * Polylines are a type of object.
+ *
+ * Polylines are formed from straight line segments joined to form a continuous line.
+ */
+
+ /**
+  *
+  */
+
 import * as gs from "gs-json";
-import {_pointsExtend, _pointsEvaluate} from "./_pline";
-import * as utils from "./utils";
+import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
+//import * as utils from "./utils";
 import * as three from "three";
 
 //  ===============================================================================================================
@@ -14,7 +24,7 @@ import * as three from "three";
  * @param index Index number of polyline
  * @returns Polyline object if successful
  */
-export function GetFromModel(model: gs.IModel, id: number): gs.IPolyline {
+export function GetByIndex(model: gs.IModel, id: number): gs.IPolyline {
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj.getObjType() !== gs.EObjType.polyline) {
         throw new Error("Object is not a polyline. Object type is: " + obj.getObjType());

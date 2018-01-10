@@ -14,7 +14,7 @@ import * as gs from "gs-json";
  * @param pt3 End point of arc
  * @returns New arc if successful
  */
-export function _ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConicCurve {
+export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.ICircle {
     throw new Error("Method not implemented");
 }
 
@@ -32,8 +32,8 @@ export function _ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint )
  * @param clockwise Constructs arc in a clockwise direction of true, anticlockwise if false
  * @returns New arc if successful
  */
-export function _ArcFromPlane(plane: gs.IPlane, radius: number, angle: number, clockwise: boolean ):
-                gs.IConicCurve {
+export function ArcFromPlane(plane: gs.IPlane, radius: number, angle: number, clockwise: boolean ):
+                gs.ICircle {
     throw new Error("Method not implemented");
 }
 
@@ -46,10 +46,9 @@ export function _ArcFromPlane(plane: gs.IPlane, radius: number, angle: number, c
  * @param pt3 Third point on circle
  * @returns New circle if successful
  */
-export function _CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.IConicCurve {
+export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.ICircle {
     throw new Error("Method not implemented");
 }
-
 
 // - WEEK 2 -
 /**
@@ -61,7 +60,7 @@ export function _CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoin
  * @param radius Radius of circle
  * @returns New circle if successful
  */
-export function _CircleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConicCurve {
+export function CircleFromOrigin(origin: gs.IPoint, radius: number ): gs.ICircle {
     throw new Error("Method not implemented");
 }
 
@@ -74,7 +73,7 @@ export function _CircleFromOrigin(origin: gs.IPoint, radius: number ): gs.IConic
  * @param radius Radius of circle
  * @returns New circle if successful
  */
-export function _CircleFromPlane(plane: gs.IPlane, radius: number ): gs.IConicCurve {
+export function CircleFromPlane(plane: gs.IPlane, radius: number ): gs.ICircle {
     throw new Error("Method not implemented");
 }
 
@@ -88,7 +87,7 @@ export function _CircleFromPlane(plane: gs.IPlane, radius: number ): gs.IConicCu
  * @param radius_y Radius of ellipse in y-direction of plane
  * @returns New ellipse if successful
  */
-export function _EllipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number ): gs.IConicCurve {
+export function EllipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number ): gs.IEllipse {
     throw new Error("Method not implemented");
 }
 
@@ -107,19 +106,8 @@ export function _EllipseFromPlane(plane: gs.IPlane, radius_x: number, radius_y: 
  * @param clockwise Constructs arc in a clockwise direction of true, anticlockwise if false
  * @returns New arc if successful
  */
-export function _EllipticalArcFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number, angle_s: number,
-                                       angle_e: number, clockwise: boolean ): gs.IConicCurve {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Converts an edge into a conic curve
- *
- * Returns null if specified edge does not describe a conic curve
- * @param edge Edge to get curve from
- * @returns New conic curve if successful, null if unsuccessful or on error
- */
-export function _FromEdge(edge: gs.IEdge ): gs.IConicCurve {
+export function EllArcFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number, angle_s: number,
+                                 angle_e: number, clockwise: boolean ): gs.IEllipse {
     throw new Error("Method not implemented");
 }
 
@@ -133,7 +121,20 @@ export function _FromEdge(edge: gs.IEdge ): gs.IConicCurve {
  * @param index Index number of conic curve
  * @returns Conic curve if successful, null if unsuccessful or on error
  */
-export function _GetFromModel(model: gs.IModel, index: number ): gs.IConicCurve {
+export function GetCircleByIndex(model: gs.IModel, index: number ): gs.ICircle {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Gets a conic curve from the model based on its index number
+ *
+ * Returns null if index number cannot be found in model<br/>
+ * Returns null if object linked to index number is not a conic curve
+ * @param model Model to get curve from
+ * @param index Index number of conic curve
+ * @returns Conic curve if successful, null if unsuccessful or on error
+ */
+export function GetEllipseByIndex(model: gs.IModel, index: number ): gs.IEllipse {
     throw new Error("Method not implemented");
 }
 
@@ -149,7 +150,7 @@ export function _GetFromModel(model: gs.IModel, index: number ): gs.IConicCurve 
  * @param t Parameter along curve to evaluate (0 is the start of the curve and 1 is the end)
  * @returns Point on curve
  */
-export function _evalParam(curve: gs.IConicCurve, t: number): gs.IPoint {
+export function evalParam(curve: gs.ICircle|gs.IEllipse, t: number): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -162,12 +163,12 @@ export function _evalParam(curve: gs.IConicCurve, t: number): gs.IPoint {
  * @param point Point to evaluate
  * @returns Parameter on curve if successful, null if unsuccessful or on error
  */
-export function _evalPoint(curve: gs.IConicCurve, point: gs.IPoint): number {
+export function evalPoint(curve: gs.ICircle|gs.IEllipse, point: gs.IPoint): number {
     throw new Error("Method not implemented");
 }
 
 /**
- * Extends a conic curve
+ * Extends an arc
  *
  * Changes the starting and ending angles for a conic curve such that the curve is lengthened<br/>
  * Conic curve should be either a circular arc or an elliptical arc<br/>
@@ -181,18 +182,28 @@ export function _evalPoint(curve: gs.IConicCurve, point: gs.IPoint): number {
  * @param copy Performs transformation on a duplicate copy of the input curve if true
  * @returns Extended conic curve, null if unsuccessful or on error
  */
-export function _extend(curve: gs.IConicCurve, direction: number, distance: number, copy: boolean):
-                gs.IConicCurve {
+export function extendArc(curve: gs.ICircle, direction: number, distance: number, copy: boolean):
+                gs.ICircle {
     throw new Error("Method not implemented");
 }
 
-// - WEEK 4 -
 /**
- * Gets the number of segments a conic curve is divided into
- * @param curve Conic curve to obtain number of segments from
- * @returns Number of segments in curve
+ * Extends an elliptical arc
+ *
+ * Changes the starting and ending angles for a conic curve such that the curve is lengthened<br/>
+ * Conic curve should be either a circular arc or an elliptical arc<br/>
+ * Extension will follow the original curvature of the circle or ellipse the arc was constructed from<br>
+ * If extension causes length of curve to exceed the circumference of the underlying circle or ellipse,
+ * returns a closed circle or ellipse.<br/>
+ * Returns null if distance is negative
+ * @param curve Conic curve to extend
+ * @param direction Direction to extend curve in (0-Start, 1-End, 2-Both)
+ * @param distance Distance to extend curve
+ * @param copy Performs transformation on a duplicate copy of the input curve if true
+ * @returns Extended conic curve, null if unsuccessful or on error
  */
-export function _getNumSegs(curve: gs.IConicCurve): number {
+export function extendEllArc(curve: gs.IEllipse, direction: number, distance: number, copy: boolean):
+                gs.IEllipse {
     throw new Error("Method not implemented");
 }
 
@@ -201,7 +212,7 @@ export function _getNumSegs(curve: gs.IConicCurve): number {
  * @param curve Conic curve to obtain origin from
  * @returns Origin point of conic curve
  */
-export function _getOrigin(curve: gs.IConicCurve): gs.IPoint {
+export function getOrigin(curve: gs.ICircle|gs.IEllipse): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -210,7 +221,7 @@ export function _getOrigin(curve: gs.IConicCurve): gs.IPoint {
  * @param curve Conic curve to obtain type
  * @returns Number describing type of conic curve (0-Circle, 1-Ellipse, 2-Hyperbola, 3-Parabola)
  */
-export function _getType(curve: gs.IConicCurve): number /*enum TO-DO*/ {
+export function getType(curve: gs.ICircle|gs.IEllipse): number /*enum TO-DO*/ {
     throw new Error("Method not implemented");
 }
 
@@ -222,7 +233,7 @@ export function _getType(curve: gs.IConicCurve): number /*enum TO-DO*/ {
  * @param curve Conic curve to obtain vectors from
  * @returns List of x and y vectors of a conic curve
  */
-export function _getVectors(curve: gs.IConicCurve): number[] {
+export function getVectors(curve: gs.ICircle|gs.IEllipse): number[] {
     throw new Error("Method not implemented");
 }
 
@@ -231,7 +242,7 @@ export function _getVectors(curve: gs.IConicCurve): number[] {
  * @param curve Conic curve to test
  * @returns True if conic curve is closed
  */
-export function _isClosed(curve: gs.IConicCurve): boolean {
+export function isClosed(curve: gs.ICircle|gs.IEllipse): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -243,7 +254,7 @@ export function _isClosed(curve: gs.IConicCurve): boolean {
  * @param curve Conic curve to obtain length from
  * @returns Length of curve
  */
-export function _length(curve: gs.IConicCurve): number {
+export function length(curve: gs.ICircle|gs.IEllipse): number {
     throw new Error("Method not implemented");
 }
 
@@ -257,9 +268,15 @@ export function _length(curve: gs.IConicCurve): number {
  * @param is_closed The value to set
  * @returns True if successful, null if unsuccessful or on error
  */
-export function _setIsClosed(curve: gs.IConicCurve, is_closed: boolean): void {
+export function setIsClosed(curve: gs.ICircle|gs.IEllipse, is_closed: boolean): void {
     throw new Error("Method not implemented");
 }
+
+//  ==========================================================================================================
+//  TO BE DELETED
+//  ==========================================================================================================
+
+// the number of segs can be defined when we divide the curve
 
 // - WEEK 4 -
 /**
@@ -269,6 +286,43 @@ export function _setIsClosed(curve: gs.IConicCurve, is_closed: boolean): void {
  * @param copy Performs transformation on a duplicate of the input curve if true
  * @returns Conic curve with updated segments
  */
-export function _setNumSegs(curve: gs.IConicCurve, segments: number, copy: boolean): gs.IConicCurve {
+export function setNumSegs(curve: gs.ICircle|gs.IEllipse, segments: number, copy: boolean): gs.ICircle|gs.IEllipse {
     throw new Error("Method not implemented");
 }
+
+// - WEEK 4 -
+/**
+ * Gets the number of segments a conic curve is divided into
+ * @param curve Conic curve to obtain number of segments from
+ * @returns Number of segments in curve
+ */
+export function getNumSegs(curve: gs.ICircle|gs.IEllipse): number {
+    throw new Error("Method not implemented");
+}
+
+// we can do this at the geom level
+
+// - WEEK 3 -
+// *
+//  * Copies conic curves from one model to another
+//  * @param model Model to copy from
+//  * @param circle Model to copy to
+//  * @returns List of conic curves copied into specified model if successful
+
+// export function CopyCircleToModel(model: gs.IModel, circle: gs.ICircle ): gs.IConicCurve[] {
+//     throw new Error("Method not implemented");
+// }
+
+// this is difficult, edges are straight lines
+
+// *
+//  * Converts an edge into a conic curve
+//  *
+//  * Returns null if specified edge does not describe a conic curve
+//  * @param edge Edge to get curve from
+//  * @returns New conic curve if successful, null if unsuccessful or on error
+
+// export function FromEdge(edge: gs.IEdge ): gs.IEllipse {
+//     throw new Error("Method not implemented");
+// }
+

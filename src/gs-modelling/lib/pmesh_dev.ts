@@ -11,7 +11,17 @@ import * as gs from "gs-json";
  * @param index Index number of polymesh
  * @returns Polymesh object if successful
  */
-export function _GetFromModel(model: gs.IModel, index: number): gs.IPolymesh {
+export function _GetByIndex(model: gs.IModel, index: number): gs.IPolymesh {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Copies polymeshes from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of polymeshes copied into specified model if successful
+ */
+export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolymesh[] {
     throw new Error("Method not implemented");
 }
 
@@ -65,7 +75,7 @@ function _BoxFromPlane(plane: gs.IPlane, length_x: number, length_y: number, len
     throw new Error("Method not implemented");
 }
 
-// - Assignment 1 -
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Creates a piped polymesh along a input polyline
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPipe

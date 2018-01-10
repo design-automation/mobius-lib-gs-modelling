@@ -14,7 +14,7 @@
         "prepare": "npm run build",
         "build": "tsc",
         "test": "karma start ./karma.conf.ts",
-        "docs": "typedoc --out  ./docs ./src/gs-modelling/lib --module commonjs --exclude **/*test*.ts --theme minimal"
+        "docs": "typedoc --out ./docs --json ./docs_json/gs-modelling.json ./src/gs-modelling/lib --module commonjs --exclude \"**/*+(dev|tests).ts\" --mode modules  --excludeExternals"
     },
     "repository": {
         "type": "git",
@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@types/three": "^0.89.2",
-        "gs-json": "^0.1.10",
+        "gs-json": "^0.1.11",
         "mathjs": "^3.19.0",
         "poly-roots": "^1.0.8",
         "solve-quadratic-equation": "^0.1.0",

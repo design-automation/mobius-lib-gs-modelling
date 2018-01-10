@@ -1,5 +1,5 @@
 import {} from "jasmine";
-import * as pline_tests from "../lib/pline_test";
+import * as pline_tests from "../lib/pline_tests";
 
 describe("Tests for Pline Module", () => {
     it("test_pline_fromPoints", () => {

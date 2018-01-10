@@ -16,7 +16,7 @@ import * as gs from "gs-json";
  * @returns List of intersection points and/or overlapping arcs if successful,
  *          null if unsuccessful or on error
  */
-export function _conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve): gs.IPoint[] {
+export function conicConic2D(curve_1: gs.ICircle|gs.IEllipse, curve_2: gs.ICircle|gs.IEllipse): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -32,7 +32,7 @@ export function _conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve):
  * @returns List of intersection points and/or overlapping arcs if successful,
  *          null if unsuccessful or on error
  */
-export function _conicPlane(curve: gs.IConicCurve, plane: gs.IPlane): gs.IEnt[] {
+export function conicPlane(curve: gs.ICircle|gs.IEllipse, plane: gs.IPlane): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -47,7 +47,7 @@ export function _conicPlane(curve: gs.IConicCurve, plane: gs.IPlane): gs.IEnt[] 
  * @param pline Polyline
  * @returns List of intersection points if successful, null if unsuccessful or on error
  */
-export function _conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline): gs.IPoint[] {
+export function conicPline2D(curve: gs.ICircle|gs.IEllipse, pline: gs.IPolyline): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -62,7 +62,7 @@ export function _conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline): gs.IP
  * @returns List of intersection points and/or overlapping arcs if successful,
  *          null if unsuccessful or on error
  */
-export function _conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh): gs.IEnt[] {
+export function conicPmesh(curve: gs.ICircle|gs.IEllipse, pmesh: gs.IPolymesh): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -75,7 +75,7 @@ export function _conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh): gs.IEnt
  * @param ray Ray
  * @returns List of intersection points if successful, null if unsuccessful or on error
  */
-export function _conicRay(curve: gs.IConicCurve, ray: gs.IRay): gs.IPoint[] {
+export function conicRay(curve: gs.ICircle|gs.IEllipse, ray: gs.IRay): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -92,7 +92,7 @@ export function _conicRay(curve: gs.IConicCurve, ray: gs.IRay): gs.IPoint[] {
  * @returns List of intersection points and/or overlapping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.IEnt[] {
+export function plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -107,7 +107,7 @@ export function _plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.
  * @returns List of intersection points and/or overlaping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _plinePline(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.IEnt[] {
+export function plinePline(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -122,7 +122,7 @@ export function _plinePline(pline_1: gs.IPolyline, pline_2: gs.IPolyline): gs.IE
  * @returns List of intersection points and/or overlapping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _plinePlane(pline: gs.IPolyline, plane: gs.IPlane): gs.IEnt[] {
+export function plinePlane(pline: gs.IPolyline, plane: gs.IPlane): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -137,7 +137,7 @@ export function _plinePlane(pline: gs.IPolyline, plane: gs.IPlane): gs.IEnt[] {
  * @returns List of intersection points and/or overlapping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh): gs.IEnt[] {
+export function plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -152,7 +152,7 @@ export function _plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh): gs.IEnt[]
  * @returns List of intersection points and/or overlapping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _plineRay(pline: gs.IPolyline, ray: gs.IRay): gs.IEnt[] {
+export function plineRay(pline: gs.IPolyline, ray: gs.IRay): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -168,7 +168,7 @@ export function _plineRay(pline: gs.IPolyline, ray: gs.IRay): gs.IEnt[] {
  * @returns List of intersection points and/or intersecting edges and/or overlapping polymeshes if successful,
  *          null if unsuccessful or on error
  */
-export function _pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh): gs.IEnt[] {
+export function pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -184,7 +184,7 @@ export function _pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh): gs.IE
  * @returns List of intersection points and/or intersecting edges and/or overlapping polymeshes if successful,
  *          null if unsuccessful or on error
  */
-export function _pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane): gs.IEnt[] {
+export function pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -199,7 +199,7 @@ export function _pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane): gs.IEnt[] {
  * @returns List of intersection points and/or overlapping segments if successful,
  *          null if unsuccessful or on error
  */
-export function _pmeshRay(pmesh: gs.IPolymesh, ray: gs.IRay): gs.IEnt[] {
+export function pmeshRay(pmesh: gs.IPolymesh, ray: gs.IRay): gs.IEnt[] {
     throw new Error("Method not implemented");
 }
 
@@ -212,7 +212,7 @@ export function _pmeshRay(pmesh: gs.IPolymesh, ray: gs.IRay): gs.IEnt[] {
  * @param plane_2 Plane
  * @returns Intersecting edge as a ray if successful, null if unsuccessful or on error
  */
-export function _planePlane(plane_1: gs.IPlane, plane_2: gs.IPlane): gs.IRay {
+export function planePlane(plane_1: gs.IPlane, plane_2: gs.IPlane): gs.IRay {
     throw new Error("Method not implemented");
 }
 
@@ -225,7 +225,7 @@ export function _planePlane(plane_1: gs.IPlane, plane_2: gs.IPlane): gs.IRay {
  * @param ray Ray
  * @returns Intersection point if successful, null if unsuccessful or on error
  */
-export function _planeRay(plane: gs.IPlane, ray: gs.IRay): gs.IPoint {
+export function planeRay(plane: gs.IPlane, ray: gs.IRay): gs.IPoint {
     throw new Error("Method not implemented");
 }
 
@@ -237,6 +237,6 @@ export function _planeRay(plane: gs.IPlane, ray: gs.IRay): gs.IPoint {
  * @param ray_2 Ray 1
  * @returns Intersection point if successful, null if unsuccessful or on error
  */
-export function _rayRay(ray_1: gs.IRay, ray_2: gs.IRay): gs.IPoint {
+export function rayRay(ray_1: gs.IRay, ray_2: gs.IRay): gs.IPoint {
     throw new Error("Method not implemented");
 }

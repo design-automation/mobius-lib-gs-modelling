@@ -1,11 +1,22 @@
 import * as gs from "gs-json";
 import * as three from "three";
-import * as utils from "./utils";
-import * as three_utils from "./_three_utils2";
+import * as xform from "./_math_xform_dev";
+import * as three_utils from "./_three_dev";
 
 //  ===============================================================================================================
 //  TO BE IMPLEMENTED ============================================================================================
 //  ===============================================================================================================
+
+// - Possibly Assignment 1 (WEEK 2-3) -
+/**
+ * Copies polylines from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of polylines copied into specified model if successful
+ */
+export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolyline[] {
+    throw new Error("Method not implemented");
+}
 
 // - WEEK 2 -
 /**
@@ -17,7 +28,7 @@ import * as three_utils from "./_three_utils2";
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+export function FromConic(curve: gs.ICircle|gs.IEllipse, segments: number): gs.IPolyline {
     // TODO
     throw new Error("Method not implemented");
 }
@@ -52,6 +63,7 @@ export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: num
     throw new Error("Method not implemented");
 }
 
+// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Offsets planar polyline along its plane by a specified distance
  * @param plines Polyline to offset
@@ -63,6 +75,7 @@ export function offset(plines: gs.IPolyline[], distance: number, copy: boolean):
     throw new Error("Method not implemented");
 }
 
+// - Possibly Assignment 1 (WEEK 2-3) -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-DivideCurve
 //  http://verbnurbs.com/docs/geom/NurbsCurve/#dividebyequalarclength
 /**
@@ -182,7 +195,7 @@ export function addCircle(model: gs.IModel, plane: gs.IPlane, rad: number, segs:
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad * Math.cos(angle), rad * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
+    xyz_list = xform.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }
 
@@ -203,6 +216,6 @@ export function addEllipse(model: gs.IModel, plane: gs.IPlane, rad_x: number, ra
     for (let i = 0; i < segs; i++) {
         xyz_list.push([rad_x * Math.cos(angle), rad_y * Math.sin(angle), 0]);
     }
-    xyz_list = utils.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
+    xyz_list = xform.transfromXYZfromGlobal(xyz_list, plane.getOrigin().getPosition(), plane.getVectors());
     return model.getGeom().addPolyline(model.getGeom().addPoints(xyz_list), true);
 }

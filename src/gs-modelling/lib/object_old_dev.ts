@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as utils from "./utils";
+//import * as utils from "./utils";
 import * as three from "three";
 /**
  * Moves a single object
@@ -18,6 +18,7 @@ export function MoveObject(m: gs.IModel, obj: gs.IObj, translation: number[]): g
     }
     return obj;
 }
+
 /**
  * Moves a set of objects
  * @ parameters Objects and Translation Vector
@@ -31,6 +32,7 @@ export function MoveObjects(m: gs.IModel, objs: gs.IObj[], translation: number[]
     }
     return objs;
 }
+
 /**
  * Scaling an object corresponds to modifying its underlying points according
  * to an origin and a scale factor. The function is designed such as any origin point of
@@ -59,6 +61,7 @@ export function ScaleObject(m: gs.IModel, obj: gs.IObj, origin: number[], scale:
     }
     return obj;
 }
+
 /**
  * Scaling objects corresponds to modifying its underlying points according
  * to an origin and a scale factor. The function is designed such as any origin point of

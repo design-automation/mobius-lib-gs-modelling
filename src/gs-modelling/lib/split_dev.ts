@@ -18,7 +18,7 @@ import * as gs from "gs-json";
  * @returns List of new conic curves if successful, none if unsuccessful or on error
  *          ([[List of curves from curve_1],[List of curves from curve_2]])
  */
-export function _conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve, copy: boolean): [gs.IConicCurve[],gs.IConicCurve[]] {
+export function conicConic2D(curve_1: gs.ICircle|gs.IEllipse, curve_2: gs.ICircle|gs.IEllipse, copy: boolean): [gs.ICircle|gs.IEllipse[],gs.ICircle|gs.IEllipse[]] {
     throw new Error("Method not implemented");
 }
 
@@ -32,7 +32,7 @@ export function _conicConic2D(curve_1: gs.IConicCurve, curve_2: gs.IConicCurve, 
  * @param copy Peforms split function on duplicate copies of input curve
  * @returns List of new conic curves if successful, none if unsuccessful or on error
  */
-export function _conicPlane(curve: gs.IConicCurve, plane: gs.IPlane, copy: boolean): gs.IConicCurve[] {
+export function conicPlane(curve: gs.ICircle|gs.IEllipse, plane: gs.IPlane, copy: boolean): gs.ICircle|gs.IEllipse[] {
     throw new Error("Method not implemented");
 }
 
@@ -49,7 +49,7 @@ export function _conicPlane(curve: gs.IConicCurve, plane: gs.IPlane, copy: boole
  * @returns List of new conic curves and polylines if successful, none if unsuccessful or on error
  *          ([[List of curves from curve],[List of polylines from pline]])
  */
-export function _conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline, copy: boolean): [gs.IConicCurve[],gs.IPolyline[]] {
+export function conicPline2D(curve: gs.ICircle|gs.IEllipse, pline: gs.IPolyline, copy: boolean): [gs.ICircle|gs.IEllipse[],gs.IPolyline[]] {
     throw new Error("Method not implemented");
 }
 
@@ -64,7 +64,7 @@ export function _conicPline2D(curve: gs.IConicCurve, pline: gs.IPolyline, copy: 
  * @param copy Peforms split function on duplicate copies of input curve and polymesh
  * @returns List of new conic curves and polymeshes if successful, none if unsuccessful or on error
  */
-export function _conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh, copy: boolean): [gs.IConicCurve[],gs.IPolymesh[]] {
+export function conicPmesh(curve: gs.ICircle|gs.IEllipse, pmesh: gs.IPolymesh, copy: boolean): [gs.ICircle|gs.IEllipse[],gs.IPolymesh[]] {
     throw new Error("Method not implemented");
 }
 
@@ -81,7 +81,7 @@ export function _conicPmesh(curve: gs.IConicCurve, pmesh: gs.IPolymesh, copy: bo
  * @returns List of new polylines if successful, none if unsuccessful or on error
  *          ([[List of polylines from pline_1],[List of polylines from pline_2]])
  */
-export function _plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline, copy: boolean): [gs.IPolyline[],gs.IPolyline[]] {
+export function plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline, copy: boolean): [gs.IPolyline[],gs.IPolyline[]] {
     throw new Error("Method not implemented");
 }
 
@@ -95,7 +95,7 @@ export function _plinePline2D(pline_1: gs.IPolyline, pline_2: gs.IPolyline, copy
  * @param copy Peforms split function on duplicate copies of input polyline
  * @returns List of new polylines if successful, none if unsuccessful or on error
  */
-export function _plinePlane(pline: gs.IPolyline, plane: gs.IPlane, copy: boolean): gs.IPolyline[] {
+export function plinePlane(pline: gs.IPolyline, plane: gs.IPlane, copy: boolean): gs.IPolyline[] {
     throw new Error("Method not implemented");
 }
 
@@ -110,7 +110,7 @@ export function _plinePlane(pline: gs.IPolyline, plane: gs.IPlane, copy: boolean
  * @param copy Peforms split function on duplicate copies of input polyline and polymesh
  * @returns List of new polylines and polymeshes if successful, none if unsuccessful or on error
  */
-export function _plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh, copy: boolean): [gs.IPolyline[],gs.IPolymesh[]] {
+export function plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh, copy: boolean): [gs.IPolyline[],gs.IPolymesh[]] {
     throw new Error("Method not implemented");
 }
 
@@ -125,7 +125,7 @@ export function _plinePmesh(pline: gs.IPolyline, pmesh: gs.IPolymesh, copy: bool
  * @returns List of new polymeshes if successful, none if unsuccessful or on error
  *          ([[List of polymeshes from pmesh_1],[List of polymeshes from pmesh_2]])
  */
-export function _pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh, copy: boolean): [gs.IPolymesh[],gs.IPolymesh[]] {
+export function pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh, copy: boolean): [gs.IPolymesh[],gs.IPolymesh[]] {
     throw new Error("Method not implemented");
 }
 
@@ -139,6 +139,6 @@ export function _pmeshPmesh(pmesh_1: gs.IPolymesh, pmesh_2: gs.IPolymesh, copy: 
  * @param copy Peforms split function on duplicate copies of input polymesh
  * @returns List of new polylines if successful, none if unsuccessful or on error
  */
-export function _pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane, copy:boolean): gs.IPolymesh[] {
+export function pmeshPlane(pmesh: gs.IPolymesh, plane: gs.IPlane, copy:boolean): gs.IPolymesh[] {
     throw new Error("Method not implemented");
 }

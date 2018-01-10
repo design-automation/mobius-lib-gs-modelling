@@ -1,5 +1,5 @@
 import * as gs from "gs-json";
-import * as gsm from "./gs-modelling";
+import * as gsm from "./_export_dev";
 
 export function test_model_New(): boolean {
     const m: gs.IModel = gsm.model.New();

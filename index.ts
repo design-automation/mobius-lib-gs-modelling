@@ -1,1 +1,1 @@
-export * from "./src/gs-modelling/lib/gs-modelling";
+export * from "./src/gs-modelling/lib/_export_dev";

@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param name Name of new group
  * @returns New group
  */
-export function _Add(model: gs.IModel, name: string ): gs.IGroup {
+export function Create(model: gs.IModel, name: string ): gs.IGroup {
     throw new Error("Method not implemented");
 }
 
@@ -19,7 +19,7 @@ export function _Add(model: gs.IModel, name: string ): gs.IGroup {
  * @param model Model to get group from
  * @returns List of groups
  */
-export function _GetFromModel(model: gs.IModel): gs.IGroup[] {
+export function GetFromModel(model: gs.IModel): gs.IGroup[] {
     throw new Error("Method not implemented");
 }
 
@@ -27,17 +27,7 @@ export function _GetFromModel(model: gs.IModel): gs.IGroup[] {
 //  Group Functions ===============================================================================================
 //  ===============================================================================================================
 
-/**
- * Add geometry to a group
- *
- * Returns null if geometry is already present in group
- * @param group Group to add to
- * @param geom Geometry to add
- * @returns True if successful, null if unsuccessful or on error
- */
-export function _addGeom(group: gs.IGroup, geom: gs.IGeom): boolean {
-    throw new Error("Method not implemented");
-}
+
 
 /**
  * Checks if a group contains a specified geometry
@@ -45,7 +35,7 @@ export function _addGeom(group: gs.IGroup, geom: gs.IGeom): boolean {
  * @param geom Geometry to check
  * @returns True if group contains geometry, false if group does not contain geometry
  */
-export function _contains(group: gs.IGroup, geom: gs.IGeom): boolean {
+export function contains(group: gs.IGroup, geom: gs.IGeom): boolean {
     /* Old Implementation for one group (using obj)
     if(obj === undefined) {return false;}
     if(obj.getID() === undefined) {throw new Error("Undefined object");}
@@ -72,7 +62,7 @@ export function _contains(group: gs.IGroup, geom: gs.IGeom): boolean {
  * @param deleteGeom Deletes geometry contained in group if true
  * @returns True if successful
  */
-export function _del(group: gs.IGroup, deleteGeom: boolean): boolean {
+export function del(group: gs.IGroup, deleteGeom: boolean): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -81,7 +71,7 @@ export function _del(group: gs.IGroup, deleteGeom: boolean): boolean {
  * @param group Group
  * @returns Name of specified group
  */
-export function _getName(group: gs.IGroup): string {
+export function getName(group: gs.IGroup): string {
     throw new Error("Method not implemented");
 }
 
@@ -92,19 +82,7 @@ export function _getName(group: gs.IGroup): string {
  * @param group Group
  * @returns Parent group of specified group if successful, null if unsuccessful or on error
  */
-export function _getParent(group: gs.IGroup): gs.IGroup {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Remove geometry from a group
- *
- * Returns null if specified geometry cannot be found in specified group
- * @param group Group
- * @param geom Geometry to remove
- * @returns True if successful, null if unsuccessfull or on error
- */
-export function _(group: gs.IGroup, geom: gs.IGeom): boolean {
+export function getParent(group: gs.IGroup): gs.IGroup {
     throw new Error("Method not implemented");
 }
 
@@ -114,7 +92,7 @@ export function _(group: gs.IGroup, geom: gs.IGeom): boolean {
  * @param name New name of group
  * @returns Old name of specified group
  */
-export function _setName(group: gs.IGroup, name: string ): string {
+export function setName(group: gs.IGroup, name: string ): string {
     throw new Error("Method not implemented");
 }
 
@@ -124,6 +102,30 @@ export function _setName(group: gs.IGroup, name: string ): string {
  * @param parent New parent group
  * @returns True if successful
  */
-export function _setParent(group: gs.IGroup, parent: gs.IGroup): gs.IGroup {
+export function setParent(group: gs.IGroup, parent: gs.IGroup): gs.IGroup {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Add entity to a group
+ *
+ * Returns null if objects is already present in group
+ * @param group Group to add to
+ * @param geom Geometry to add, can be IPoint, IObj, or ITopo
+ * @returns True if successful, null if unsuccessful or on error
+ */
+export function addEntity(group: gs.IGroup, geom: gs.IPoint | gs.IObj | gs.ITopo): boolean {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Remove entity from a group
+ *
+ * Returns null if specified geometry cannot be found in specified group
+ * @param group Group
+ * @param geom Geometry to remove,  can be IPoint, IObj, or ITopo
+ * @returns True if successful, null if unsuccessfull or on error
+ */
+export function remEntity(group: gs.IGroup, geom: gs.IPoint | gs.IObj | gs.ITopo): boolean {
     throw new Error("Method not implemented");
 }

@@ -16,9 +16,6 @@ export {model};
 import * as object from "./object";
 export {object};
 
-import * as pcurve from "./pcurve";
-export {pcurve};
-
 import * as plane from "./plane";
 export {plane};
 

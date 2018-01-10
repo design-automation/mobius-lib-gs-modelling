@@ -1,0 +1,4001 @@
+{
+	"id": 0,
+	"name": "gs-modelling",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "\"attrib\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/attrib.ts",
+			"comment": {
+				"shortText": "Attributes are properties assigned to each object."
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "attrib.ts",
+							"line": 23,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						2
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "attrib.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "\"conic\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/conic.ts",
+			"comment": {
+				"shortText": "Conic curves are a type of object. They consist of circles, ellipses, hyperbolas, parabolas and arcs.",
+				"text": "Conic curves are represented by a point and a set of vectors.\n"
+			},
+			"children": [
+				{
+					"id": 4,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "conic.ts",
+							"line": 25,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						4
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "conic.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "\"examples\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/examples.ts",
+			"comment": {
+				"shortText": "These functions call examples for mobius."
+			},
+			"children": [
+				{
+					"id": 6,
+					"name": "getTorus",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 7,
+							"name": "getTorus",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a model containing a torus with two holes.",
+								"returns": "The model.\n"
+							},
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "examples.ts",
+							"line": 15,
+							"character": 24
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						6
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "examples.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "\"geom\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/geom.ts",
+			"comment": {
+				"shortText": "Geometry contains geometric information. Geometry consists of topology and entities."
+			},
+			"children": [
+				{
+					"id": 9,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "geom.ts",
+							"line": 23,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						9
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "geom.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "\"group\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/group.ts",
+			"comment": {
+				"shortText": "Groups are collections of entities."
+			},
+			"children": [
+				{
+					"id": 11,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "group.ts",
+							"line": 23,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						11
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "group.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 12,
+			"name": "\"intersect\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/intersect.ts",
+			"comment": {
+				"shortText": "Intersect functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap. They return these intersections and overlaps and do not alter the original input objects."
+			},
+			"children": [
+				{
+					"id": 13,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "intersect.ts",
+							"line": 16,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						13
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "intersect.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 14,
+			"name": "\"list\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/list.ts",
+			"comment": {
+				"shortText": "Lists are a tool to manage a collection of data.<br/>",
+				"text": "Any information can be stored in a list (including other lists) and they are refered to as items.<br/>\nItems in a list are ordered and will be returned in the same order or accessed by the same index unless\nchanges are made to alter it.<br/>\n\nTo create an empty list, use the assignment button and define the value as <code>[]</code><br/>\nTo access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly\ninto functions.\n"
+			},
+			"children": [
+				{
+					"id": 15,
+					"name": "Copy",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 16,
+							"name": "Copy",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Duplicates a list",
+								"returns": "New duplicated list\n"
+							},
+							"parameters": [
+								{
+									"id": 17,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to duplicate"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 29,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "FromRange",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 19,
+							"name": "FromRange",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a new list of integers between two integers",
+								"text": "Bottom bound number is inclusive and top bound number is exclusive<br/>",
+								"returns": "New list\n"
+							},
+							"parameters": [
+								{
+									"id": 20,
+									"name": "min",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Bottom bound integer"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 21,
+									"name": "max",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Top bound integer"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "number"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 41,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 25,
+					"name": "append",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 26,
+							"name": "append",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds an item to the end of a list",
+								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
+								"returns": "List with added item\n"
+							},
+							"parameters": [
+								{
+									"id": 27,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 28,
+									"name": "item",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Item to add"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 67,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 29,
+					"name": "appendFront",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 30,
+							"name": "appendFront",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds an item to the front of a list",
+								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
+								"returns": "List with added item\n"
+							},
+							"parameters": [
+								{
+									"id": 31,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 32,
+									"name": "item",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Item to add"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 81,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 33,
+					"name": "extend",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 34,
+							"name": "extend",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds items (from a list) to the end of an list",
+								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
+								"returns": "List with added items\n"
+							},
+							"parameters": [
+								{
+									"id": 35,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 36,
+									"name": "items",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of items to add"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 95,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 37,
+					"name": "extendFront",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 38,
+							"name": "extendFront",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds items (from a list) to the front of an list",
+								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
+								"returns": "List with added items\n"
+							},
+							"parameters": [
+								{
+									"id": 39,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 40,
+									"name": "items",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of items to add"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 108,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 41,
+					"name": "flatten",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 42,
+							"name": "flatten",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Flattens an n-dimensional list into a one-dimensional list",
+								"text": "Alters input list<br/>\nList returned will be in order",
+								"returns": "Flattened list\n"
+							},
+							"parameters": [
+								{
+									"id": 43,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 120,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 22,
+					"name": "length",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 23,
+							"name": "length",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the number of items in an list",
+								"returns": "Length of specified list\n"
+							},
+							"parameters": [
+								{
+									"id": 24,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 54,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "removeIndex",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 45,
+							"name": "removeIndex",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Removes the item with the specified index number from a list",
+								"text": "Alters input list",
+								"returns": "List with item removed\n"
+							},
+							"parameters": [
+								{
+									"id": 46,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to remove item from"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 47,
+									"name": "index",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Index number of item to remove"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 132,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 48,
+					"name": "removeValue",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 49,
+							"name": "removeValue",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Removes items that match specified value from a list",
+								"text": "Alters input list<br/>\nItems must match both the value and type of specified value<br/>\nReturns original list if no items in list match specified value",
+								"returns": "List with item removed\n"
+							},
+							"parameters": [
+								{
+									"id": 50,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to remove item from"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 51,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Value to search for"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 52,
+									"name": "remove_all",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Removes all instances of specified value if true, removes only the first instance if\n       false"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 149,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 53,
+					"name": "reverse",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 54,
+							"name": "reverse",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Reverses the order of items in an list",
+								"text": "Alters input list",
+								"returns": "New reversed list\n"
+							},
+							"parameters": [
+								{
+									"id": 55,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to reverse"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 166,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 62,
+					"name": "slice",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 63,
+							"name": "slice",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Removes items with index numbers that fall within a range from a list and return them",
+								"text": "Alters input list<br/>\nBottom bound number of range is inclusive, top bound number is exclusive",
+								"returns": "List of removed items\n"
+							},
+							"parameters": [
+								{
+									"id": 64,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List slice"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 65,
+									"name": "min",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Bottom bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 66,
+									"name": "max",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Top bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 209,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 56,
+					"name": "sortAplha",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 57,
+							"name": "sortAplha",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Sorts a list of strings alphabetically",
+								"text": "Alters input list<br/>\nIf items are not strings, they are treated as strings<br/>\nItems are sorted according to string Unicode code points (character by character, numbers before upper case\nalphabets, upper case alphabets before lower case alphabets)",
+								"returns": "New sorted list\n"
+							},
+							"parameters": [
+								{
+									"id": 58,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to sort"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 181,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 59,
+					"name": "sortNum",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 60,
+							"name": "sortNum",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Sorts a list of numbers in ascending order",
+								"text": "Alters input list<br/>\nList must contain numbers",
+								"returns": "New sorted list\n"
+							},
+							"parameters": [
+								{
+									"id": 61,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to add to"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 194,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 67,
+					"name": "splice",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 68,
+							"name": "splice",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds and/or removes items to/from a list at a specific point and returns removed items",
+								"text": "Alters input list<br/>\nIf no items to add are specified, only removes items<br/>\nIf howmany specified as 0, only adds items",
+								"returns": "List of removed items\n"
+							},
+							"parameters": [
+								{
+									"id": 69,
+									"name": "list",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List to splice"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 70,
+									"name": "index",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Index number of position to add/remove (items added/removed after specified index)"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 71,
+									"name": "howmany",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number of items to remove"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 72,
+									"name": "items",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Items to add"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "any"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "list.ts",
+							"line": 225,
+							"character": 22
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						15,
+						18,
+						25,
+						29,
+						33,
+						37,
+						41,
+						22,
+						44,
+						48,
+						53,
+						62,
+						56,
+						59,
+						67
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "list.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 73,
+			"name": "\"math\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/math.ts",
+			"comment": {
+				"shortText": "Math contains funtions for calculations, analysing numbers and representing numbers like pi and infinty."
+			},
+			"children": [
+				{
+					"id": 78,
+					"name": "NEGATIVE_INFINITY",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 79,
+							"name": "NEGATIVE_INFINITY",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the value of negative infinity",
+								"returns": "Value of negative infinity\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 32,
+							"character": 33
+						}
+					]
+				},
+				{
+					"id": 74,
+					"name": "PI",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 75,
+							"name": "PI",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the value of pi",
+								"returns": "Value of pi\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 16,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 76,
+					"name": "POSITIVE_INFINITY",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 77,
+							"name": "POSITIVE_INFINITY",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the value of positive infinity",
+								"returns": "Value of positive infinity\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 24,
+							"character": 33
+						}
+					]
+				},
+				{
+					"id": 99,
+					"name": "abs",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 100,
+							"name": "abs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the absolute value of a number",
+								"text": "Returns num if num is positive, -num if num is negative and 0 if num=0<br/>",
+								"returns": "A number representing the absolute value of the specified number\n"
+							},
+							"parameters": [
+								{
+									"id": 101,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 109,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 93,
+					"name": "ceiling",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 94,
+							"name": "ceiling",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Rounds a number up to the nearest integer",
+								"returns": "A number representing the smallest integer more than or equal to the specified number\n"
+							},
+							"parameters": [
+								{
+									"id": 95,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 87,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 80,
+					"name": "cos",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 81,
+							"name": "cos",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the cosine of a specified angle in degrees",
+								"returns": "Cosine of angle\n"
+							},
+							"parameters": [
+								{
+									"id": 82,
+									"name": "angle",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Angle in degrees"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 46,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 96,
+					"name": "floor",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 97,
+							"name": "floor",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Rounds a number down to the nearest integer",
+								"returns": "A number representing the largest integer less than or equal to the specified number\n"
+							},
+							"parameters": [
+								{
+									"id": 98,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 97,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 102,
+					"name": "max",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 103,
+							"name": "max",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the largest number in a list of numbers",
+								"returns": "A number representing the largest number in specified list of numbers\n"
+							},
+							"parameters": [
+								{
+									"id": 104,
+									"name": "nums",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of numbers"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 119,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 105,
+					"name": "min",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 106,
+							"name": "min",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the smallest number in a list of numbers",
+								"returns": "A number representing the smallest number in specified list of numbers\n"
+							},
+							"parameters": [
+								{
+									"id": 107,
+									"name": "nums",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 135,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 89,
+					"name": "pow",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 90,
+							"name": "pow",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a number representing the given base taken to the power of the given exponent",
+								"returns": "Number representing the given base taken to the power of the given exponent\n"
+							},
+							"parameters": [
+								{
+									"id": 91,
+									"name": "base",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Base number"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 92,
+									"name": "exponent",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Power of exponent"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 77,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 108,
+					"name": "random",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 109,
+							"name": "random",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive)",
+								"text": "Number can be scaled to apply for a larger range",
+								"returns": "A pseudo-random number\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 153,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 110,
+					"name": "randomInt",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 111,
+							"name": "randomInt",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random integer between two numbers",
+								"text": "Bottom bound number is inclusive and top bound number is exclusive",
+								"returns": "A pseudo-random number\n"
+							},
+							"parameters": [
+								{
+									"id": 112,
+									"name": "bottom_bound",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Bottom bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 113,
+									"name": "top_bound",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Top bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 166,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 114,
+					"name": "randomIntInclusive",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 115,
+							"name": "randomIntInclusive",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random integer between two numbers",
+								"text": "Bottom and top bound numbers are inclusive",
+								"returns": "A pseudo-random number\n"
+							},
+							"parameters": [
+								{
+									"id": 116,
+									"name": "bottom_bound",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Bottom bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 117,
+									"name": "top_bound",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Top bound number of range"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 181,
+							"character": 34
+						}
+					]
+				},
+				{
+					"id": 83,
+					"name": "sin",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 84,
+							"name": "sin",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the sine of a specified angle in degrees",
+								"returns": "Sine of angle\n"
+							},
+							"parameters": [
+								{
+									"id": 85,
+									"name": "angle",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Angle in degrees"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 56,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 86,
+					"name": "tan",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 87,
+							"name": "tan",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the tangent of a specified angle in degrees",
+								"returns": "Tangent of angle\n"
+							},
+							"parameters": [
+								{
+									"id": 88,
+									"name": "angle",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Angle in degrees"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 66,
+							"character": 19
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						78,
+						74,
+						76,
+						99,
+						93,
+						80,
+						96,
+						102,
+						105,
+						89,
+						108,
+						110,
+						114,
+						83,
+						86
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "math.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 118,
+			"name": "\"model\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/model.ts",
+			"comment": {
+				"shortText": "Models contain geometry that can be viewed on the 3D viewer if output as geometry."
+			},
+			"children": [
+				{
+					"id": 122,
+					"name": "Load",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 123,
+							"name": "Load",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a new Model and populates the model with data.",
+								"returns": "New model if successful, null if unsuccessful or on error.\n"
+							},
+							"parameters": [
+								{
+									"id": 124,
+									"name": "filedata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The file data in gs-json format."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 30,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 119,
+					"name": "New",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 120,
+							"name": "New",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a new Model that is empty.",
+								"returns": "New model empty if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 121,
+									"name": "gs_json_data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModelData"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 21,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 125,
+					"name": "save",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 126,
+							"name": "save",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Save a model to file.",
+								"returns": "New model if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 127,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 128,
+									"name": "filename",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 43,
+							"character": 20
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						122,
+						119,
+						125
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "model.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 129,
+			"name": "\"object\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/object.ts",
+			"comment": {
+				"shortText": "Objects are a type of entity. They consist of conics, polylines, polymeshes, planes and rays.",
+				"text": "Objects are formed by a combination of topologies. More information can be found on the page for topo.\n"
+			},
+			"children": [
+				{
+					"id": 130,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "object.ts",
+							"line": 25,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						130
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "object.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 131,
+			"name": "\"plane\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/plane.ts",
+			"comment": {
+				"shortText": "Planes are a type of object.",
+				"text": "Planes are imaginary flat surfaces that stretch infinitely along an x and y axis and are defined by two\nperpendicular vectors.\n"
+			},
+			"children": [
+				{
+					"id": 132,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "plane.ts",
+							"line": 26,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						132
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plane.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 133,
+			"name": "\"pline\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pline.ts",
+			"comment": {
+				"shortText": "Polylines are a type of object.",
+				"text": "Polylines are formed from straight line segments joined to form a continuous line.\n"
+			},
+			"children": [
+				{
+					"id": 138,
+					"name": "FromPoints",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 139,
+							"name": "FromPoints",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds a polyline to the model by joining a list of points",
+								"text": "Creates a straight line segment between every two points and joins them to create a polyline",
+								"returns": "New polyline object if successful\n"
+							},
+							"parameters": [
+								{
+									"id": 140,
+									"name": "points",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "A list of points (in order)"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "IPoint"
+										}
+									}
+								},
+								{
+									"id": 141,
+									"name": "is_closed",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Creates a closed polyline object by joining the last point to the first point if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolyline"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 46,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 134,
+					"name": "GetByIndex",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 135,
+							"name": "GetByIndex",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Gets a polyline from the model based on an index number",
+								"returns": "Polyline object if successful\n"
+							},
+							"parameters": [
+								{
+									"id": 136,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Model to get polyline from"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 137,
+									"name": "id",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolyline"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 27,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 142,
+					"name": "LineFromPoints",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 143,
+							"name": "LineFromPoints",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds a straight line to the model from two points",
+								"text": "Returns null if both points have the same position",
+								"returns": "New polyline object, consisting of a single segment if successful, null if unsuccesful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 144,
+									"name": "start",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Start point of line"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPoint"
+									}
+								},
+								{
+									"id": 145,
+									"name": "end",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "End point of line"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPoint"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolyline"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 69,
+							"character": 30
+						}
+					]
+				},
+				{
+					"id": 146,
+					"name": "evalParam",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 147,
+							"name": "evalParam",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a point on a polyline based on a parameter along the polyline",
+								"returns": "Point if successful\n"
+							},
+							"parameters": [
+								{
+									"id": 148,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline to evaluate"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 149,
+									"name": "t",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 150,
+									"name": "segment_index",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The segment of the polyline to evaluate."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"defaultValue": " -1"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPoint"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 86,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 151,
+					"name": "explode",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 152,
+							"name": "explode",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Explodes a polyline into individual segments",
+								"text": "Each straight line segment in the polyline is returned as a separate polyline object",
+								"returns": "List of new polylines created from explode\n"
+							},
+							"parameters": [
+								{
+									"id": 153,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline to explode"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 154,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "IPolyline"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 104,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 155,
+					"name": "extend",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 156,
+							"name": "extend",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Extends a non-closed polyline by specified distance",
+								"text": "Extention is straight and continues in the same direction as the extended segment<br/>\nReturns null if distance is negative",
+								"returns": "New polyline object if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 157,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline object"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 158,
+									"name": "extrusion_side",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "0 = start, 1 = end, 2 = both"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 159,
+									"name": "length",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Distance to extend"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 160,
+									"name": "create_points",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								},
+								{
+									"id": 161,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolyline"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 121,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 162,
+					"name": "extract",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 163,
+							"name": "extract",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Extracts a list of segments from a polyline",
+								"text": "Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>\nThe remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,\nor multiple polylines if they have been broken up<br/>\nList returned is in order (from t=0 to t=1 of orginal input pline)",
+								"returns": "List of new polylines created from extract\n"
+							},
+							"parameters": [
+								{
+									"id": 164,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline to extract segments from"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 165,
+									"name": "segment_index",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Index numbers of polyline segments to extract"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								},
+								{
+									"id": 166,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "IPolyline"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 158,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 167,
+					"name": "extrude",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 168,
+							"name": "extrude",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Extrudes a polyline according to a specified vector to create a polymesh",
+								"text": "Pline is moved by the specified vector and straight line segments are created between the vertices of\nthe input pline and moved pline. The resulting straight line segments and the straight line segments of the\ninput and moved plines are used to define the edges of four-sided polygons. The polygons are joined to\ncreate a polymesh<br/>\n\nIf cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are\njoined to the polymesh from above.",
+								"returns": "Polymesh created from extrusion\n"
+							},
+							"parameters": [
+								{
+									"id": 169,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline to extrude"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 170,
+									"name": "vector",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Vector describing direction and distance of extrusion"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								},
+								{
+									"id": 171,
+									"name": "cap",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Closes polymesh by creating a flat polygon on each end of the extrusion if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								},
+								{
+									"id": 172,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolymesh"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 189,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 173,
+					"name": "isCLosed",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 174,
+							"name": "isCLosed",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Checks if the polyline is closed",
+								"returns": "True if the polyline is closed\n"
+							},
+							"parameters": [
+								{
+									"id": 175,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline object"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 214,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 176,
+					"name": "loft",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 177,
+							"name": "loft",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Lofts a list of polylines with the same number of segments to create a polymesh",
+								"text": "Straight line segments are created between the vertices of every two input plines. The resulting\nstraight line segments and the straight line segments of the plines are used to define the edges of\nfour-sided polygons. The polygons created from all the plines are joined to create a polymesh<br/>\n\nReturns null if polylines do not have the same number of segments",
+								"returns": "Polymesh created from loft if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 178,
+									"name": "plines",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of polylines to loft (in order)"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "IPolyline"
+										}
+									}
+								},
+								{
+									"id": 179,
+									"name": "is_closed",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Closes polymesh by lofting back to first polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "false"
+								},
+								{
+									"id": 180,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolymesh"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 232,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 181,
+					"name": "sweep",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 182,
+							"name": "sweep",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Sweeps a polyline along a specified polyline to create a polymesh",
+								"text": "Polyline is used as the cross-section of the polymesh to create",
+								"returns": "Polymesh created from sweep\n"
+							},
+							"parameters": [
+								{
+									"id": 183,
+									"name": "pline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polyline to sweep"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 184,
+									"name": "rail",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Rail polyline to sweep along"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								},
+								{
+									"id": 185,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Performs transformation on duplicate copy of input polyline if true"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "true"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolymesh"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 281,
+							"character": 21
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						138,
+						134,
+						142,
+						146,
+						151,
+						155,
+						162,
+						167,
+						173,
+						176,
+						181
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "pline.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 186,
+			"name": "\"pmesh\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pmesh.ts",
+			"comment": {
+				"shortText": "Polymeshes are a type of object.",
+				"text": "Polymeshes are formed from flat polygons joined to form a continuous surface.\n"
+			},
+			"children": [
+				{
+					"id": 187,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "pmesh.ts",
+							"line": 25,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						187
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "pmesh.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 188,
+			"name": "\"point\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/point.ts",
+			"comment": {
+				"shortText": "Points are a type of entity.",
+				"text": "Points are defined by a set of x, y and z coordinates.\n"
+			},
+			"children": [
+				{
+					"id": 189,
+					"name": "Copy",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 190,
+							"name": "Copy",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Copy a point from one model to another model",
+								"text": "If the specified model is the same as the model the point is located in, the specified point is\nduplicated",
+								"returns": "Added point in specified model\n"
+							},
+							"parameters": [
+								{
+									"id": 191,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Model to add the point to"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 192,
+									"name": "point",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Point to copy in other model"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPoint"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPoint"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "point.ts",
+							"line": 26,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 193,
+					"name": "FromPointsMean",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 194,
+							"name": "FromPointsMean",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds a point that is the center of a list of points",
+								"text": "Calculates the mean of the X, Y and Z coordinates of the list of points and returns a point using the\nresults<br/>\nPoint returned is the three dimensional centroid of the specified list of points<br/>\nIf points inputed are co-planar, this returns their area centroid<br/>\nIf two points are inputed, this returns their mid-point",
+								"returns": "New point if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 195,
+									"name": "points",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of points"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "IPoint"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPoint"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "point.ts",
+							"line": 42,
+							"character": 30
+						}
+					]
+				},
+				{
+					"id": 196,
+					"name": "FromXYZ",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 197,
+							"name": "FromXYZ",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds a point or list of points to the model",
+								"text": "X, Y and Z coordinates are assumed to follow the world coordinate system<br/>\nPoints are returned in order of input",
+								"returns": "New point or list of points if successful, null if unsuccessful or on error\n"
+							},
+							"parameters": [
+								{
+									"id": 198,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Model to add point to"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 199,
+									"name": "xyz",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of X, Y and Z coordinates of point"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPoint"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "point.ts",
+							"line": 69,
+							"character": 23
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						189,
+						193,
+						196
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "point.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 200,
+			"name": "\"query\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/query.ts",
+			"comment": {
+				"shortText": "Query functions check if an entity fufils certain conditions."
+			},
+			"children": [
+				{
+					"id": 201,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "query.ts",
+							"line": 19,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						201
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "query.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 202,
+			"name": "\"ray\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ray.ts",
+			"comment": {
+				"shortText": "Rays are a type of object.",
+				"text": "Rays are imaginary lines that stretch infinitely along an axis and are defined by a single vector.\n"
+			},
+			"children": [
+				{
+					"id": 203,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "ray.ts",
+							"line": 25,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						203
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "ray.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 204,
+			"name": "\"split\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/split.ts",
+			"comment": {
+				"shortText": "Split functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap and split the input objects. They return the split segments, arcs or polymeshes in a list of lists.",
+				"text": "<code>[0][i]</code> contains the split parts of the first input, where <code>i</code> is the index number\nof each individual part obtained from the split function.<br/>\n<code>[1][i]</code> contains the split parts of the second input, if available, where <code>i</code> is the\nindex number of each individual part obtained from the split function.\n"
+			},
+			"children": [
+				{
+					"id": 205,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "split.ts",
+							"line": 29,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						205
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "split.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 206,
+			"name": "\"topo\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/topo.ts",
+			"comment": {
+				"shortText": "Topology are sub-components within each object that are connected together.<br/>\nTopology consists of vertices, edges, wires and faces.<br/>"
+			},
+			"children": [
+				{
+					"id": 207,
+					"name": "x",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"comment": {},
+					"sources": [
+						{
+							"fileName": "topo.ts",
+							"line": 24,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "stringLiteral",
+						"value": "temp"
+					},
+					"defaultValue": "\"temp\""
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						207
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "topo.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 208,
+			"name": "\"util\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/util.ts",
+			"comment": {
+				"shortText": "Util functions...."
+			},
+			"children": [
+				{
+					"id": 215,
+					"name": "_Comment",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 216,
+							"name": "_Comment",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Inserts a comment into procedure",
+								"text": "Comments will not be executed and can be used to leave notes or divide procedure into parts"
+							},
+							"parameters": [
+								{
+									"id": 217,
+									"name": "comment",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Comment\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "util.ts",
+							"line": 35,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 212,
+					"name": "_Empty",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 213,
+							"name": "_Empty",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates an empty function",
+								"text": "JavaScript code can be input directly and executed"
+							},
+							"parameters": [
+								{
+									"id": 214,
+									"name": "input",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "util.ts",
+							"line": 25,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 209,
+					"name": "_print",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 210,
+							"name": "_print",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Prints an input to the console"
+							},
+							"parameters": [
+								{
+									"id": 211,
+									"name": "input",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Input to print\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "util.ts",
+							"line": 15,
+							"character": 22
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						215,
+						212,
+						209
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "util.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				1,
+				3,
+				5,
+				8,
+				10,
+				12,
+				14,
+				73,
+				118,
+				129,
+				131,
+				133,
+				186,
+				188,
+				200,
+				202,
+				204,
+				206,
+				208
+			]
+		}
+	]
+}

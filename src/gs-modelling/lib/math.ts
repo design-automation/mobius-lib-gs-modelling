@@ -1,11 +1,12 @@
+/**
+ * Math contains funtions for calculations, analysing numbers and representing numbers like pi and infinty.
+ */
+
+/**
+ *
+ */
+
 import * as gs from "gs-json";
-
-// based on standard built-in Math object for JavaScript
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-
-//  ===============================================================================================================
-//  Math Properties ===============================================================================================
-//  ===============================================================================================================
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI
 /**
@@ -115,14 +116,14 @@ export function abs(num: number): number {
  * @param nums List of numbers
  * @returns A number representing the largest number in specified list of numbers
  */
-export function _max(nums: number[]): number {
-    let max = Number.NEGATIVE_INFINITY;
+export function max(nums: number[]): number {
+    let maximum = Number.NEGATIVE_INFINITY;
     for (const num of nums) {
-        if(num > max) {
-            max = num;
+        if(num > maximum) {
+            maximum = num;
         }
     }
-    return max;
+    return maximum;
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
@@ -132,13 +133,13 @@ export function _max(nums: number[]): number {
  * @returns A number representing the smallest number in specified list of numbers
  */
 export function min(nums: number[]): number {
-    let min = Number.POSITIVE_INFINITY;
+    let minimum = Number.POSITIVE_INFINITY;
     for (const num of nums) {
-        if(num < min) {
-            min = num;
+        if(num < minimum) {
+            minimum = num;
         }
     }
-    return min;
+    return minimum;
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -158,14 +159,14 @@ export function random(): number {
  * Returns a pseudo-random integer between two numbers
  *
  * Bottom bound number is inclusive and top bound number is exclusive
- * @param min Bottom bound number of range
- * @param max Top bound number of range
+ * @param bottom_bound Bottom bound number of range
+ * @param top_bound Top bound number of range
  * @returns A pseudo-random number
  */
-export function randomInt(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+export function randomInt(bottom_bound: number, top_bound: number): number {
+    const lower = Math.ceil(bottom_bound);
+    const upper = Math.floor(top_bound);
+    return Math.floor(Math.random() * (lower - upper)) + lower;
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -173,12 +174,12 @@ export function randomInt(min: number, max: number): number {
  * Returns a pseudo-random integer between two numbers
  *
  * Bottom and top bound numbers are inclusive
- * @param min Bottom bound number of range
- * @param max Top bound number of range
+ * @param bottom_bound Bottom bound number of range
+ * @param top_bound Top bound number of range
  * @returns A pseudo-random number
  */
-export function randomIntInclusive(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+export function randomIntInclusive(bottom_bound: number, top_bound: number): number {
+    const lower = Math.ceil(bottom_bound);
+    const upper = Math.floor(top_bound);
+    return Math.floor(Math.random() * (lower - upper + 1)) + lower;
 }

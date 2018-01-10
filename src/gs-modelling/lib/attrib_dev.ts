@@ -11,17 +11,18 @@ import * as gs from "gs-json";
  * @param name Name of new attribute
  * @returns New attribute
  */
-export function _Add(model: gs.IModel, geom_type: number /*enum TO-DO*/, name: string ): gs.IAttrib {
+export function Create(model: gs.IModel, geom_type: number /*enum TO-DO*/, name: string ): gs.IAttrib {
     throw new Error("Method not implemented");
 }
 
 /**
  * Gets attributes that apply for a specified geometry type from a model
  * @param model Model to get attribute from
+ * @param name The attribute name
  * @param geom_type Type of geometry to get attribute from
  * @returns List of attributes
  */
-export function _GetFromModel(model: gs.IModel, geom_type: number /*enum TO-DO*/ ): gs.IAttrib[] {
+export function GetFromModel(model: gs.IModel, name: string, geom_type: number /*enum TO-DO*/ ): gs.IAttrib[] {
     throw new Error("Method not implemented");
 }
 
@@ -34,7 +35,7 @@ export function _GetFromModel(model: gs.IModel, geom_type: number /*enum TO-DO*/
  * @param attrib Attribute to delete
  * @returns True if successful
  */
-export function _del(attrib: gs.IAttrib): boolean {
+export function del(attrib: gs.IAttrib): boolean {
     throw new Error("Method not implemented");
 }
 
@@ -43,17 +44,7 @@ export function _del(attrib: gs.IAttrib): boolean {
  * @param attrib Attribute to get name of
  * @returns Name of specified attribute
  */
-export function _getName(attrib: gs.IAttrib): string {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Gets the value of an attribute for a specified geometry
- * @param attrib Attribute
- * @param geom Geometry
- * @returns Value of attribute
- */
-export function _getValue(attrib: gs.IAttrib, geom: gs.IGeom ): any {
+export function getName(attrib: gs.IAttrib): string {
     throw new Error("Method not implemented");
 }
 
@@ -63,7 +54,17 @@ export function _getValue(attrib: gs.IAttrib, geom: gs.IGeom ): any {
  * @param name New name of attribute
  * @returns Old name of specified attribute
  */
-export function _setName(attrib: gs.IAttrib, name: string ): string {
+export function setName(attrib: gs.IAttrib, name: string ): string {
+    throw new Error("Method not implemented");
+}
+
+/**
+ * Gets the value of an attribute for a specified geometry
+ * @param attrib Attribute
+ * @param geom Geometry
+ * @returns Value of attribute
+ */
+export function getGeomValue(attrib: gs.IAttrib, geom: gs.IPoint | gs.IObj | gs.ITopo): any {
     throw new Error("Method not implemented");
 }
 
@@ -74,6 +75,7 @@ export function _setName(attrib: gs.IAttrib, name: string ): string {
  * @param value New value of attribute
  * @returns Old value of specified attribute
  */
-export function _setValue(attrib: gs.IAttrib, geom: gs.IGeom, value: string ): any {
+export function setGeomValue(attrib: gs.IAttrib, geom: gs.IPoint | gs.IObj | gs.ITopo, value: any ): any {
     throw new Error("Method not implemented");
 }
+
