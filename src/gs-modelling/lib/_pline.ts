@@ -17,7 +17,7 @@ import * as three_utils from "./_three_utils2";
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function _fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
+export function fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyline {
     // TODO
     throw new Error("Method not implemented");
 }
@@ -33,7 +33,7 @@ export function _fromConic(curve: gs.IConicCurve[], segments: number): gs.IPolyl
  * @param point Point to evaluate
  * @returns Param on polyline if successful, null if unsuccessful or on error
  */
-export function _evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
+export function evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
     // TODO
     throw new Error("Method not implemented");
 }
@@ -47,7 +47,7 @@ export function _evalPoint(pline: gs.IPolyline, point: gs.IPoint): gs.IPoint {
  * Ascending order. If omitted, entire polyline length is used. (optional, omit?)
  * @returns Length of polyline as number if successful, null if unsuccessful or on error
  */
-export function _length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
+export function length(model: gs.IModel, pline: gs.IPolyline, segment_index: number,
                         sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
@@ -59,7 +59,7 @@ export function _length(model: gs.IModel, pline: gs.IPolyline, segment_index: nu
  * @param copy Performs transformation on duplicate copy of input polyline
  * @returns New offset polyline
  */
-export function _offset(plines: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
+export function offset(plines: gs.IPolyline[], distance: number, copy: boolean): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -71,7 +71,7 @@ export function _offset(plines: gs.IPolyline[], distance: number, copy: boolean)
  * @param segments Number of segments
  * @returns New points of polyline
  */
-export function _rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
+export function rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
     throw new Error("Method not implemented");
 }
 
@@ -83,7 +83,7 @@ export function _rebuild(pline: gs.IPolyline, segments: number): gs.IPoint[] {
  * @param angle_e End angle of revolution in degrees
  * @returns Polymesh created from revolution
  */
-export function _revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, angle_e: number): gs.IPolymesh {
+export function revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, angle_e: number): gs.IPolymesh {
     throw new Error("Method not implemented");
 }
 
@@ -92,7 +92,7 @@ export function _revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, an
  * @param pline Polyline object
  * @param is_closed The value to set
  */
-export function _setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
     throw new Error("Method not implemented");
 }
 
@@ -103,7 +103,7 @@ export function _setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
  * @param is_closed Creates a closed polyline object if true
  * @returns New polyline created from weld
  */
-export function _weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
+export function weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
     throw new Error("Method not implemented");
 }
 
@@ -143,27 +143,14 @@ export function _pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint
     const num_segs = points.length - 1;
     const dists_to_segends: number[] = [];
     let total_length: number = 0;
-    for  (let i = 0; i < num_segs - 1; i++) {
+    for  (let i = 0; i < num_segs; i++) {
         const seg_vec: three.Vector3 = three_utils.subVectors(vec_points[i+1], vec_points[i]);
         total_length += seg_vec.length();
         dists_to_segends.push(total_length);
     }
     const t_mapped = t_param * total_length;
-    for  (let i = 0; i < num_segs - 1; i++) {
-        if (t_mapped === dists_to_segends[i]) { // choose end point of this segment
-            return geom.addPoint(points[i+1].getPosition());
-        }
-        if (t_mapped > dists_to_segends[i]) { // gone too far, go back one
-            const seg_start_point: three.Vector3 = vec_points[i - 1];
-            const seg_end_point: three.Vector3 = vec_points[i];
-            const seg_vec: three.Vector3 = three_utils.subVectors(seg_start_point, seg_end_point);
-            let start_dist: number;
-            if (i === 1) {start_dist = 0;} else {start_dist = dists_to_segends[i - 2];}
-            seg_vec.setLength(t_mapped - start_dist);
-            const xyz: number[] = three_utils.addVectors(seg_start_point, seg_vec).toArray();
-            return geom.addPoint(xyz);
-        }
-        if (i === num_segs - 1) { // last seg, so must be this one
+    for  (let i = 0; i < vec_points.length - 1; i++) {
+        if (t_mapped >= dists_to_segends[i] && t_mapped < dists_to_segends[i + 1]) {
             const start_seg: three.Vector3 = vec_points[i];
             const end_seg: three.Vector3 = vec_points[i + 1];
             const seg_vec: three.Vector3 = three_utils.subVectors(start_seg, end_seg);

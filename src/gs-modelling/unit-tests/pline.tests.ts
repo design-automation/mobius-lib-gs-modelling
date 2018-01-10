@@ -11,6 +11,12 @@ describe("Tests for Pline Module", () => {
     it("test_pline_evalParam", () => {
         expect( pline_tests.test_pline_evalParam() ).toBe(true);
     });
+    it("test_pline_explode", () => {
+        expect( pline_tests.test_pline_explode() ).toBe(true);
+    });
+    it("test_pline_extend", () => {
+        expect( pline_tests.test_pline_extend() ).toBe(true);
+    });
     it("test_pline_extrude", () => {
         expect( pline_tests.test_pline_extrude() ).toBe(true);
     });

@@ -109,19 +109,26 @@ export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
  * @returns New polyline object if successful, null if unsuccessful or on error
  */
 export function extend(pline: gs.IPolyline, extrusion_side: number, length: number,
-                       create_points: boolean, copy: boolean): gs.IPoint[] {
+                       create_points: boolean, copy: boolean): gs.IPolyline {
     const points: gs.IPoint[] = pline.getPointsArr();
-    const extended_points: gs.IPoint[] = [];
     switch (extrusion_side) {
         case 0: case 2:
-            extended_points.push(_pointsExtend(points[1], points[0], length));
-            break;
+            const a1: gs.IPoint = points[1];
+            const b1: gs.IPoint = points[0];
+            const c1: gs.IPoint = _pointsExtend(a1, b1, length, create_points);
+            if (create_points) { points.unshift(c1); }
         case 1: case 2:
-            const num_points: number = points.length;
-            extended_points.push(_pointsExtend(points[num_points - 2], points[num_points - 1], length));
-            break;
+            const a2: gs.IPoint = points[points.length - 2];
+            const b2: gs.IPoint = points[points.length - 1];
+            const c2: gs.IPoint = _pointsExtend(a2, b2, length, create_points);
+            if (create_points) { points.push(c2); }
     }
-    return extended_points;
+    const m: gs.IModel = pline.getModel();
+    const new_pline = m.getGeom().addPolyline(points, false);
+    if (!copy) {
+        m.getGeom().delObj(pline, false);
+    }
+    return new_pline;
 }
 
 /**
@@ -143,7 +150,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
     const plines: gs.IPolyline[] = [];
     const points: gs.IPoint[] = pline.getPointsArr();
     for (const i of  segment_index) {
-        if (i < points.length - 2) {
+        if (i < points.length - 1) {
             plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
         }
     }

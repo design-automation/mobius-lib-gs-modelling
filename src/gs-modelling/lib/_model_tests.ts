@@ -22,7 +22,7 @@ export function test_model_Save(): boolean {
     const m: gs.IModel = gsm.model.New();
     if (m === undefined) {return false;}
     m.getGeom().addPoints([[1,2,3],[2,3,4],[3,4,5]]);
-    gsm.model.Save(m, "file.json");
+    //gsm.model.Save(m, "file.json"); // diable to avoid model being downloaded every time
     return true;
 }
 
