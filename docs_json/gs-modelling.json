@@ -6668,103 +6668,8 @@
 			},
 			"children": [
 				{
-					"id": 389,
-					"name": "_Comment",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 390,
-							"name": "_Comment",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Inserts a comment into procedure",
-								"text": "Comments will not be executed and can be used to leave notes or divide procedure into parts"
-							},
-							"parameters": [
-								{
-									"id": 391,
-									"name": "comment",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Comment\n"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "util.ts",
-							"line": 35,
-							"character": 24
-						}
-					]
-				},
-				{
-					"id": 386,
-					"name": "_Empty",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 387,
-							"name": "_Empty",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Creates an empty function",
-								"text": "JavaScript code can be input directly and executed"
-							},
-							"parameters": [
-								{
-									"id": 388,
-									"name": "input",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "any"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "any"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "util.ts",
-							"line": 25,
-							"character": 22
-						}
-					]
-				},
-				{
 					"id": 383,
-					"name": "_print",
+					"name": "print",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -6773,7 +6678,7 @@
 					"signatures": [
 						{
 							"id": 384,
-							"name": "_print",
+							"name": "print",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -6805,8 +6710,8 @@
 					"sources": [
 						{
 							"fileName": "util.ts",
-							"line": 15,
-							"character": 22
+							"line": 11,
+							"character": 21
 						}
 					]
 				}
@@ -6816,8 +6721,6 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						389,
-						386,
 						383
 					]
 				}
