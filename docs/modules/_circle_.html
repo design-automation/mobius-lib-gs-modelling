@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;geom&quot; | gs-modelling</title>
+	<title>&quot;circle&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,47 +54,116 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_geom_.html">&quot;geom&quot;</a>
+					<a href="_circle_.html">&quot;circle&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;geom&quot;</h1>
+			<h1>External module &quot;circle&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Geometry contains geometric information. Geometry consists of topology and entities.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_geom_.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#get" class="tsd-kind-icon">Get</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"temp"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;temp&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/974e0f7/src/gs-modelling/lib/geom.ts#L23">geom.ts:23</a></li>
-						</ul>
-					</aside>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginvectors" class="tsd-anchor"></a>
+					<h3>From<wbr>Origin<wbr>Vectors</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Txyz</span>, vec_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Txyz</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/circle.ts#L40">circle.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a circle from an origin point and two direction vectors describing the x and y axis</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>3D point to use as origin of plane</p>
+									</div>
+								</li>
+								<li>
+									<h5>vec_x: <span class="tsd-signature-type">Txyz</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Vector describing x-axis of plane, and the radius</p>
+									</div>
+								</li>
+								<li>
+									<h5>vec_y: <span class="tsd-signature-type">Txyz</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Direction vector describing y-axis of plane</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>New circle if successful, null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/circle.ts#L20">circle.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a circle from the model based on an index number</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get circle from</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index number of circle</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>Circle object if successful</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -107,14 +176,17 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_attrib_.html">"attrib"</a>
 					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_circle_.html">"circle"</a>
+					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_conic_.html">"conic"</a>
+						<a href="_ellipse_.html">"ellipse"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_entity_.html">"entity"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_examples_.html">"examples"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="_geom_.html">"geom"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_group_.html">"group"</a>
@@ -156,6 +228,9 @@
 						<a href="_split_.html">"split"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_string_.html">"string"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_topo_.html">"topo"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -165,8 +240,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_geom_.html#x" class="tsd-kind-icon">x</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#get" class="tsd-kind-icon">Get</a>
 					</li>
 				</ul>
 			</nav>

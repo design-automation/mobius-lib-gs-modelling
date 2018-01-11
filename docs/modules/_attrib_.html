@@ -64,37 +64,486 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Attributes are properties assigned to each object.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_attrib_.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#create" class="tsd-kind-icon">Create</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#getall" class="tsd-kind-icon">get<wbr>All</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#getallents" class="tsd-kind-icon">get<wbr>All<wbr>Ents</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#getalltopos" class="tsd-kind-icon">get<wbr>All<wbr>Topos</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#getentvalue" class="tsd-kind-icon">get<wbr>Ent<wbr>Value</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#getname" class="tsd-kind-icon">get<wbr>Name</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#gettopovalue" class="tsd-kind-icon">get<wbr>Topo<wbr>Value</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#setentvalue" class="tsd-kind-icon">set<wbr>Ent<wbr>Value</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#setname" class="tsd-kind-icon">set<wbr>Name</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_attrib_.html#settopovalue" class="tsd-kind-icon">set<wbr>Topo<wbr>Value</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"temp"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;temp&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/974e0f7/src/gs-modelling/lib/attrib.ts#L23">attrib.ts:23</a></li>
-						</ul>
-					</aside>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>Create</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, geom_type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EGeomType</span>, data_type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EDataType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L67">attrib.ts:67</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an attribute to a model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to add to</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of new attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>geom_type: <span class="tsd-signature-type">EGeomType</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Data type for attribute values. (number, string, boolean, number[], string[], boolean[])</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>data_type: <span class="tsd-signature-type">EDataType</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span></h4>
+							<p>New attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, geom_type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EGeomType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L19">attrib.ts:19</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets attribute that apply for a specified geometry type from a model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get attribute from</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The attribute name</p>
+									</div>
+								</li>
+								<li>
+									<h5>geom_type: <span class="tsd-signature-type">EGeomType</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of geometry to get attribute from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span></h4>
+							<p>List of attributes</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L86">attrib.ts:86</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deletes an attribute</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">IAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute to delete</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getall" class="tsd-anchor"></a>
+					<h3>get<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L33">attrib.ts:33</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all entity attribs</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get attribute from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of attributes</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getallents" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Ents</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Ents<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L42">attrib.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all entity attribs</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get attribute from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of attributes</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getalltopos" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Topos</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Topos<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L51">attrib.ts:51</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all topo attribs</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get attribute from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of attributes</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getentvalue" class="tsd-anchor"></a>
+					<h3>get<wbr>Ent<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Ent<wbr>Value<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEntAttrib</span>, ent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L117">attrib.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value of a ent attribute for a specified geometry</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">IEntAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>ent: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Value of attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getname" class="tsd-anchor"></a>
+					<h3>get<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Name<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L95">attrib.ts:95</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the name of an attribute</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">IAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute to get name of</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Name of specified attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="gettopovalue" class="tsd-anchor"></a>
+					<h3>get<wbr>Topo<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Topo<wbr>Value<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITopoAttrib</span>, topo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITopo</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L138">attrib.ts:138</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the value of a topo attribute for a specified geometry</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">ITopoAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>topo: <span class="tsd-signature-type">ITopo</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Value of attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="setentvalue" class="tsd-anchor"></a>
+					<h3>set<wbr>Ent<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Ent<wbr>Value<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEntAttrib</span>, ent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L128">attrib.ts:128</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the value of a ent attribute for a specified geometry</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">IEntAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>ent: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New value of attribute</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Old value of specified attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="setname" class="tsd-anchor"></a>
+					<h3>set<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Name<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L105">attrib.ts:105</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the name of an attribute</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">IAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute to set name</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New name of attribute</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Old name of specified attribute</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="settopovalue" class="tsd-anchor"></a>
+					<h3>set<wbr>Topo<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Topo<wbr>Value<span class="tsd-signature-symbol">(</span>attrib<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITopoAttrib</span>, topo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ITopo</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/attrib.ts#L149">attrib.ts:149</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the value of a topo attribute for a specified geometry</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrib: <span class="tsd-signature-type">ITopoAttrib</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>topo: <span class="tsd-signature-type">ITopo</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New value of attribute</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Old value of specified attribute</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -108,13 +557,16 @@
 						<a href="_attrib_.html">"attrib"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_conic_.html">"conic"</a>
+						<a href="_circle_.html">"circle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_ellipse_.html">"ellipse"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_entity_.html">"entity"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_examples_.html">"examples"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_geom_.html">"geom"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_group_.html">"group"</a>
@@ -156,6 +608,9 @@
 						<a href="_split_.html">"split"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_string_.html">"string"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_topo_.html">"topo"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -165,8 +620,41 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_attrib_.html#x" class="tsd-kind-icon">x</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#create" class="tsd-kind-icon">Create</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#del" class="tsd-kind-icon">del</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#getall" class="tsd-kind-icon">get<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#getallents" class="tsd-kind-icon">get<wbr>All<wbr>Ents</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#getalltopos" class="tsd-kind-icon">get<wbr>All<wbr>Topos</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#getentvalue" class="tsd-kind-icon">get<wbr>Ent<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#getname" class="tsd-kind-icon">get<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#gettopovalue" class="tsd-kind-icon">get<wbr>Topo<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#setentvalue" class="tsd-kind-icon">set<wbr>Ent<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#setname" class="tsd-kind-icon">set<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_attrib_.html#settopovalue" class="tsd-kind-icon">set<wbr>Topo<wbr>Value</a>
 					</li>
 				</ul>
 			</nav>

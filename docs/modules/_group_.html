@@ -64,37 +64,430 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Groups are collections of entities.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_group_.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#create" class="tsd-kind-icon">Create</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getall" class="tsd-kind-icon">Get<wbr>All</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#addgeom" class="tsd-kind-icon">add<wbr>Geom</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#contains" class="tsd-kind-icon">contains</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getname" class="tsd-kind-icon">get<wbr>Name</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#removegeom" class="tsd-kind-icon">remove<wbr>Geom</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#setname" class="tsd-kind-icon">set<wbr>Name</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"temp"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;temp&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/974e0f7/src/gs-modelling/lib/group.ts#L23">group.ts:23</a></li>
-						</ul>
-					</aside>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>Create</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L40">group.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a group to a model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to add to</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of new group</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span></h4>
+							<p>New group</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L17">group.ts:17</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets groups from a model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get group from</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span></h4>
+							<p>List of groups</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getall" class="tsd-anchor"></a>
+					<h3>Get<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>All<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L26">group.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets groups from a model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get group from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of groups</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="addgeom" class="tsd-anchor"></a>
+					<h3>add<wbr>Geom</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Geom<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, geom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L126">group.ts:126</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add geometry to a group</p>
+								</div>
+								<p>Returns null if objects is already present in group</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group to add to</p>
+									</div>
+								</li>
+								<li>
+									<h5>geom: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry to add, can be IPoint, IObj, or ITopo</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if successful, null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="contains" class="tsd-anchor"></a>
+					<h3>contains</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">contains<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, geom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L54">group.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if a group contains a specified geometry</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group to check</p>
+									</div>
+								</li>
+								<li>
+									<h5>geom: <span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry to check</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if group contains geometry, false if group does not contain geometry</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, deleteGeom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L71">group.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deletes a group</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group to delete</p>
+									</div>
+								</li>
+								<li>
+									<h5>deleteGeom: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Deletes geometry contained in group if true</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getname" class="tsd-anchor"></a>
+					<h3>get<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Name<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L83">group.ts:83</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the name of a group</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Name of specified group</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getparent" class="tsd-anchor"></a>
+					<h3>get<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parent<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L94">group.ts:94</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the parent group of a group</p>
+								</div>
+								<p>Returns null if specified group does not have a parent group</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span></h4>
+							<p>Parent group of specified group if successful, null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="removegeom" class="tsd-anchor"></a>
+					<h3>remove<wbr>Geom</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Geom<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, geom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L145">group.ts:145</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove geometry from a group</p>
+								</div>
+								<p>Returns null if specified geometry cannot be found in specified group</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group</p>
+									</div>
+								</li>
+								<li>
+									<h5>geom: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ITopo</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Geometry to remove,  can be IPoint, IObj, or ITopo</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if successful, null if unsuccessfull or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="setname" class="tsd-anchor"></a>
+					<h3>set<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Name<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L104">group.ts:104</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the name of a group</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New name of group</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Old name of specified group</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="setparent" class="tsd-anchor"></a>
+					<h3>set<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Parent<span class="tsd-signature-symbol">(</span>group<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span>, parent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/group.ts#L114">group.ts:114</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the parent group of a group</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>group: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group</p>
+									</div>
+								</li>
+								<li>
+									<h5>parent: <span class="tsd-signature-type">IGroup</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New parent group</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span></h4>
+							<p>The old parent.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -108,13 +501,16 @@
 						<a href="_attrib_.html">"attrib"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_conic_.html">"conic"</a>
+						<a href="_circle_.html">"circle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_ellipse_.html">"ellipse"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_entity_.html">"entity"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_examples_.html">"examples"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_geom_.html">"geom"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_group_.html">"group"</a>
@@ -156,6 +552,9 @@
 						<a href="_split_.html">"split"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_string_.html">"string"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_topo_.html">"topo"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -165,8 +564,38 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_group_.html#x" class="tsd-kind-icon">x</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#create" class="tsd-kind-icon">Create</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#getall" class="tsd-kind-icon">Get<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#addgeom" class="tsd-kind-icon">add<wbr>Geom</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#contains" class="tsd-kind-icon">contains</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#del" class="tsd-kind-icon">del</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#getname" class="tsd-kind-icon">get<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#removegeom" class="tsd-kind-icon">remove<wbr>Geom</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#setname" class="tsd-kind-icon">set<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;point&quot; | gs-modelling</title>
+	<title>&quot;string&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,16 +54,23 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_point_.html">&quot;point&quot;</a>
+					<a href="_string_.html">&quot;string&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;point&quot;</h1>
+			<h1>External module &quot;string&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>String functions return properties and perform actions on strings</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -71,11 +78,12 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#copy" class="tsd-kind-icon">Copy</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#frompointsmean" class="tsd-kind-icon">From<wbr>Points<wbr>Mean</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#fromxyz" class="tsd-kind-icon">FromXYZ</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#getbyid" class="tsd-kind-icon">Get<wbr>ByID</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#getxyz" class="tsd-kind-icon">getXYZ</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#endswith" class="tsd-kind-icon">ends<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#includes" class="tsd-kind-icon">includes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#replace" class="tsd-kind-icon">replace</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#substring" class="tsd-kind-icon">substring</a></li>
 							</ul>
 						</section>
 					</div>
@@ -84,187 +92,240 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="copy" class="tsd-anchor"></a>
-					<h3>Copy</h3>
+					<a name="endswith" class="tsd-anchor"></a>
+					<h3>ends<wbr>With</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Copy<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/point.ts#L39">point.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L21">string.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Copy a point from one model to another model</p>
+									<p>Checks if a string ends with the characters of a specified string</p>
 								</div>
-								<p>If the specified model is the same as the model the point is located in, the specified point is
-								duplicated</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to add the point to</p>
+										<p>String to check</p>
 									</div>
 								</li>
 								<li>
-									<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Point to copy in other model</p>
+										<p>String of characters to check for</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>Added point in specified model</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if str_1 ends with str_2, false if str_1 does not end with str_2</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="frompointsmean" class="tsd-anchor"></a>
-					<h3>From<wbr>Points<wbr>Mean</h3>
+					<a name="includes" class="tsd-anchor"></a>
+					<h3>includes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Points<wbr>Mean<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/point.ts#L67">point.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L31">string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a point that is the center of a list of points</p>
+									<p>Checks if a string contains a specified string of characters</p>
 								</div>
-								<p>Calculates the mean of the X, Y and Z coordinates of the list of points and returns a point using the
-									results<br/>
-									Point returned is the three dimensional centroid of the specified list of points<br/>
-									If points inputed are co-planar, this returns their area centroid<br/>
-								If two points are inputed, this returns their mid-point</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List of points</p>
+										<p>String to check</p>
+									</div>
+								</li>
+								<li>
+									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String to search for</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>New point if successful, null if unsuccessful or on error</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if str_1 contains str_2, false if str_1 does not contain str_2</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="fromxyz" class="tsd-anchor"></a>
-					<h3>FromXYZ</h3>
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">FromXYZ<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, xyz<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Txyz</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/point.ts#L52">point.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L40">string.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a point or list of points to the model</p>
+									<p>Returns the number of characters in a string</p>
 								</div>
-								<p>X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
-								Points are returned in order of input</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to add point to</p>
-									</div>
-								</li>
-								<li>
-									<h5>xyz: <span class="tsd-signature-type">Txyz</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>List of X, Y and Z coordinates of point</p>
+										<p>String to find length of</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>New point or list of points if successful, null if unsuccessful or on error</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Length of string</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getbyid" class="tsd-anchor"></a>
-					<h3>Get<wbr>ByID</h3>
+					<a name="replace" class="tsd-anchor"></a>
+					<h3>replace</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Get<wbr>ByID<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/point.ts#L20">point.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L54">string.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a point from the model.</p>
+									<p>Searches for a specified string of characters in a string and replaces them with another specified string
+									of characters</p>
 								</div>
+								<p>To perfrom a case-insensitive search, use <code>/string/i</code> instead of <code>&quot;string&quot;</code> in search</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to get point from</p>
+										<p>String</p>
 									</div>
 								</li>
 								<li>
-									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String to search for</p>
+									</div>
+								</li>
+								<li>
+									<h5>str_3: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String to replace search value with</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>Specified point if successful, null if unsuccessful or on error</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>New string with replaced characters</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getxyz" class="tsd-anchor"></a>
-					<h3>getXYZ</h3>
+					<a name="search" class="tsd-anchor"></a>
+					<h3>search</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">getXYZ<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Txyz</span></li>
+						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/point.ts#L94">point.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Obtains x, y and z coordinates of 3D point
-									<a href="http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates">http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates</a></p>
+									<p>Returns the position index of where a specified string of characters can be found within a string</p>
 								</div>
+								<p>If specified string of characters cannot be found, returns -1</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Point</p>
+										<p>String to check</p>
+									</div>
+								</li>
+								<li>
+									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String of characters to check for</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Txyz</span></h4>
-							<p>List of x, y and z coordinates of point if successful, null if unsuccessful or on error</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Number that represents position of str_1 in str_2</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="substring" class="tsd-anchor"></a>
+					<h3>substring</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">substring<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6ce079c/src/gs-modelling/lib/string.ts#L79">string.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Extracts characters in a string between 2 specified indices and returns it as a new string</p>
+								</div>
+								<p>Start index is inclusive and end index is exclusive</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String</p>
+									</div>
+								</li>
+								<li>
+									<h5>start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index to start extracting characters</p>
+									</div>
+								</li>
+								<li>
+									<h5>end: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index to stop extracting characters</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>New string with extracted characters</p>
 						</li>
 					</ul>
 				</section>
@@ -318,7 +379,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_pmesh_.html">"pmesh"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_point_.html">"point"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -330,7 +391,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_split_.html">"split"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_string_.html">"string"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -344,19 +405,22 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#copy" class="tsd-kind-icon">Copy</a>
+						<a href="_string_.html#endswith" class="tsd-kind-icon">ends<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#frompointsmean" class="tsd-kind-icon">From<wbr>Points<wbr>Mean</a>
+						<a href="_string_.html#includes" class="tsd-kind-icon">includes</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#fromxyz" class="tsd-kind-icon">FromXYZ</a>
+						<a href="_string_.html#length" class="tsd-kind-icon">length</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#getbyid" class="tsd-kind-icon">Get<wbr>ByID</a>
+						<a href="_string_.html#replace" class="tsd-kind-icon">replace</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#getxyz" class="tsd-kind-icon">getXYZ</a>
+						<a href="_string_.html#search" class="tsd-kind-icon">search</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_string_.html#substring" class="tsd-kind-icon">substring</a>
 					</li>
 				</ul>
 			</nav>
