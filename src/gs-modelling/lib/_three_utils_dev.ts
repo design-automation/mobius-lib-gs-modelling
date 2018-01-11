@@ -199,7 +199,8 @@ export function pointIsOnPlane(origin: gs.IPoint, normal: number[], point: gs.IP
     const origin_v  = new three.Vector3(...origin.getPosition());
     const normal_v  = new three.Vector3(...normal).normalize();
     const point_v  = new three.Vector3(...point.getPosition());
-    return Math.abs(dotVectors(subVectors(point_v, origin_v), normal_v)) > 0;
+    if(dotVectors(subVectors(point_v, origin_v), normal_v) === 0) {return true;}
+    return false;
 }
 
 /**
