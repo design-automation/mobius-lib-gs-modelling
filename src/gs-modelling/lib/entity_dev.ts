@@ -50,18 +50,7 @@ export function mirror(entity: gs.IPoint | gs.IObj, plane: gs.IPlane, copy: bool
 }
 
 // - WEEK 2 -
-/**
- * Moves geometry or a list of geometry.
- *
- * Affects geometry that contains or is based off specified geometry
- * @param entity Geometry or list of geometry to move
- * @param translation Translation vector
- * @param copy Performs transformation on duplicate copy of input geometry if true
- * @returns Geometry in new location if successful
- */
-export function move(entity: gs.IPoint | gs.IObj, translation: number[], copy: boolean): gs.IPoint | gs.IObj {
-    throw new Error("Method not implemented");
-}
+
 
 /**
  * Rotates geometry or a list of geometry on a plane.
@@ -109,36 +98,7 @@ export function transform(entity: gs.IPoint | gs.IObj, rotation: number, origin:
     throw new Error("Method not implemented");
 }
 
-/**
- * Gets attributes of specified geometry
- *
- * Returns null if specified geometry does not have any attributes
- * @param entity Geometry
- * @returns List of attributes of specified geometry if successful, null if unsuccessful or on error
- */
-export function getAttrib(entity: gs.IPoint | gs.IObj): gs.IAttrib[] {
-    throw new Error("Method not implemented");
-}
 
-/**
- * Gets groups that contain specified geometry
- *
- * Returns null if specified geometry is not found in any groups
- * @param entity Geometry
- * @returns List of groups that contain specified geometry if successful, null if unsuccessful or on error
- */
-export function getGroups(entity: gs.IPoint | gs.IObj): gs.IGroup[] {
-    throw new Error("Method not implemented");
-}
-
-/**
- * Removes geometry from all groups that contain it
- * @param entity Geometry
- * @returns True if successful
- */
-export function removeFromAllGroups(entity: gs.IPoint | gs.IObj): boolean {
-    throw new Error("Method not implemented");
-}
 
 
 
