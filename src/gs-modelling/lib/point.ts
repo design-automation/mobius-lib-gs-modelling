@@ -4,11 +4,24 @@
  * Points are defined by a set of x, y and z coordinates.
  */
 
-/**
- *
- */
-
 import * as gs from "gs-json";
+import {Txyz} from "./types_dev";
+
+//  ===============================================================================================================
+//  Point Get =====================================================================================================
+//  ===============================================================================================================
+
+/**
+ * Gets a point from the model.
+ * @param model Model to get point from
+ * @param index Index of point to get
+ * @returns Specified point if successful, null if unsuccessful or on error
+ */
+export function GetByID(model: gs.IModel, id: number): gs.IPoint {
+    const point: gs.IPoint = model.getGeom().getPoint(id);
+    if (point === undefined) {return null; }
+    return point;
+}
 
 //  ===============================================================================================================
 //  Point Constructors ============================================================================================
@@ -28,16 +41,6 @@ export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
 }
 
 /**
- * Gets a point from the model.
- * @param model Model to get point from
- * @param index Index of point to get
- * @returns Specified point if successful, null if unsuccessful or on error
- */
-export function GetByID(model: gs.IModel, id: number): gs.IPoint {
-    return model.getGeom().getPoint(id);
-}
-
-/**
  * Adds a point or list of points to the model
  *
  * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
@@ -46,7 +49,7 @@ export function GetByID(model: gs.IModel, id: number): gs.IPoint {
  * @param xyz List of X, Y and Z coordinates of point
  * @returns New point or list of points if successful, null if unsuccessful or on error
  */
-export function FromXYZ(model: gs.IModel, xyz: number[]): gs.IPoint {
+export function FromXYZ(model: gs.IModel, xyz: Txyz): gs.IPoint {
     return model.getGeom().addPoint(xyz);
 }
 
@@ -88,6 +91,6 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  * @param point Point
  * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
  */
-export function getXYZ(point: gs.IPoint): number[] {
-    return point.getPosition();
+export function getXYZ(point: gs.IPoint): Txyz {
+    return point.getPosition() as Txyz; //TODO
 }

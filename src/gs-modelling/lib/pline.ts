@@ -7,6 +7,7 @@
 import * as gs from "gs-json";
 import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
 import * as three from "three";
+import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
 //  Pline Constructors ============================================================================================
@@ -15,16 +16,21 @@ import * as three from "three";
 /**
  * Gets a polyline from the model based on an index number
  * @param model Model to get polyline from
- * @param index Index number of polyline
+ * @param id Index number of polyline
  * @returns Polyline object if successful
  */
-export function GetByIndex(model: gs.IModel, id: number): gs.IPolyline {
+export function Get(model: gs.IModel, id: number): gs.IPolyline {
     const obj: gs.IObj = model.getGeom().getObj(id);
+    if (obj === undefined) {return null; }
     if (obj.getObjType() !== gs.EObjType.polyline) {
         throw new Error("Object is not a polyline. Object type is: " + obj.getObjType());
     }
     return obj as gs.IPolyline;
 }
+
+//  ===============================================================================================================
+//  Pline Constructors ============================================================================================
+//  ===============================================================================================================
 
 // - WEEK 2 -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
@@ -180,7 +186,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
  * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns Polymesh created from extrusion
  */
-export function extrude(pline: gs.IPolyline, vector: number[], cap: boolean, copy: boolean): gs.IPolymesh {
+export function extrude(pline: gs.IPolyline, vector: Txyz, cap: boolean, copy: boolean): gs.IPolymesh {
     const m: gs.IModel = pline.getModel();
     const points: gs.IPoint[] = pline.getPointsArr();
     const mesh_points: gs.IPoint[][] = [];

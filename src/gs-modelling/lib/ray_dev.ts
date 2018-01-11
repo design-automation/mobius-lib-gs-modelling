@@ -10,7 +10,7 @@ import * as gs from "gs-json";
  * @param point Point that lies on direction of ray
  * @returns New ray if successful, null if unsuccessful or on error
  */
-export function _FromOriginPoint(origin: gs.IPoint, point: gs.IPoint ): gs.IRay {
+export function FromOriginPoint(origin: gs.IPoint, point: gs.IPoint ): gs.IRay {
     throw new Error("Method not implemented");
 }
 

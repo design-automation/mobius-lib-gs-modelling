@@ -1,25 +1,13 @@
-import * as gs from "gs-json";
 /**
  * Groups are collections of geometry. This includes objects, points, and topos.
  */
 
- /**
-  *
-  */
+import * as gs from "gs-json";
+import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
-//  Group Constructors ============================================================================================
+//  Group Get =====================================================================================================
 //  ===============================================================================================================
-
-/**
- * Adds a group to a model
- * @param model Model to add to
- * @param name Name of new group
- * @returns New group
- */
-export function Create(model: gs.IModel, name: string ): gs.IGroup {
-    return model.addGroup(name);
-}
 
 /**
  * Gets groups from a model
@@ -37,6 +25,20 @@ export function Get(model: gs.IModel, name: string): gs.IGroup {
  */
 export function GetAll(model: gs.IModel): gs.IGroup[] {
     return model.getAllGroups();
+}
+
+//  ===============================================================================================================
+//  Group Constructors ============================================================================================
+//  ===============================================================================================================
+
+/**
+ * Adds a group to a model
+ * @param model Model to add to
+ * @param name Name of new group
+ * @returns New group
+ */
+export function Create(model: gs.IModel, name: string ): gs.IGroup {
+    return model.addGroup(name);
 }
 
 //  ===============================================================================================================

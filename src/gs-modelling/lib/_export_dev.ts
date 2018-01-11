@@ -1,8 +1,11 @@
 import * as attrib from "./attrib";
 export {attrib};
 
-import * as conic from "./conic";
-export {conic};
+import * as circle from "./circle";
+export {circle};
+
+import * as ellipse from "./ellipse";
+export {ellipse};
 
 import * as examples from "./examples";
 export {examples};

@@ -2,33 +2,12 @@
  * Attributes are properties assigned to each object.
  */
 
- /**
-  *
-  */
-
 import * as gs from "gs-json";
+import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
-//  Attrib Constructors ===========================================================================================
+//  Attrib Get ====================================================================================================
 //  ===============================================================================================================
-
-/**
- * Adds an attribute to a model
- * @param model Model to add to
- * @param name Name of new attribute
- * @param geom_type Type of geometry to add to
- * @param geom_type Data type for attribute values. (number, string, boolean, number[], string[], boolean[])
- * @returns New attribute
- */
-export function Create(model: gs.IModel, name: string, geom_type: gs.EGeomType,
-                       data_type: gs.EDataType): gs.IAttrib {
-    switch (geom_type) {
-        case gs.EGeomType.points: case gs.EGeomType.objs:
-            return model.addEntAttrib(name, geom_type, data_type);
-        default:
-            return model.addTopoAttrib(name, geom_type, data_type);
-    }
-}
 
 /**
  * Gets attribute that apply for a specified geometry type from a model
@@ -71,6 +50,28 @@ export function getAllEnts(model: gs.IModel): gs.IAttrib[] {
  */
 export function getAllTopos(model: gs.IModel): gs.IAttrib[] {
     return model.getAllTopoAttribs();
+}
+
+//  ===============================================================================================================
+//  Attrib Constructors ===========================================================================================
+//  ===============================================================================================================
+
+/**
+ * Adds an attribute to a model
+ * @param model Model to add to
+ * @param name Name of new attribute
+ * @param geom_type Type of geometry to add to
+ * @param geom_type Data type for attribute values. (number, string, boolean, number[], string[], boolean[])
+ * @returns New attribute
+ */
+export function Create(model: gs.IModel, name: string, geom_type: gs.EGeomType,
+                       data_type: gs.EDataType): gs.IAttrib {
+    switch (geom_type) {
+        case gs.EGeomType.points: case gs.EGeomType.objs:
+            return model.addEntAttrib(name, geom_type, data_type);
+        default:
+            return model.addTopoAttrib(name, geom_type, data_type);
+    }
 }
 
 //  ===============================================================================================================
