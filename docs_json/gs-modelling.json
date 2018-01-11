@@ -2268,85 +2268,6 @@
 					"character": 0
 				}
 			]
-		},
-		{
-			"id": 131,
-			"name": "\"util\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/util.ts",
-			"comment": {
-				"shortText": "Util functions...."
-			},
-			"children": [
-				{
-					"id": 132,
-					"name": "print",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 133,
-							"name": "print",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Prints an input to the console"
-							},
-							"parameters": [
-								{
-									"id": 134,
-									"name": "input",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Input to print\n"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "any"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "util.ts",
-							"line": 11,
-							"character": 21
-						}
-					]
-				}
-			],
-			"groups": [
-				{
-					"title": "Functions",
-					"kind": 64,
-					"children": [
-						132
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "util.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
 		}
 	],
 	"groups": [
@@ -2356,8 +2277,7 @@
 			"children": [
 				1,
 				60,
-				105,
-				131
+				105
 			]
 		}
 	]

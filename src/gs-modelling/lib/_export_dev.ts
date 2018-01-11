@@ -6,6 +6,3 @@ export {list};
 
 import * as math from "./math";
 export {math};
-
-import * as util from "./util";
-export {util};
