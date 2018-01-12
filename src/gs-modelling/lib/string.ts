@@ -37,7 +37,7 @@ export function includes(str_1: string, str_2: string): boolean {
  * @param str String to find length of
  * @returns Length of string
  */
-export function length(str: string): number {
+export function len(str: string): number {
     return str.length;
 }
 

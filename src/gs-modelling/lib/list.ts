@@ -51,7 +51,7 @@ export function FromRange(min: number, max: number): number[] {
  * @param list List
  * @returns Length of specified list
  */
-export function length(list: any[]): number {
+export function len(list: any[]): number {
     return list.length;
 }
 
