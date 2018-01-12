@@ -5,4 +5,7 @@ describe("Tests for Three Utils Dev", () => {
     it("test_pointIsOnPlane", () => {
         expect( _tests.test_pointIsOnPlane() ).toBe(true);
     });
+    it("test for Vectors are codir", () => {
+        expect( _tests.test_vectorsAreCodir()).toBe(true);
+    });
 });

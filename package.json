@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@types/three": "^0.89.2",
-        "gs-json": "^0.1.13",
+        "gs-json": "^0.1.15",
         "mathjs": "^3.19.0",
         "poly-roots": "^1.0.8",
         "solve-quadratic-equation": "^0.1.0",
