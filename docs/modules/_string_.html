@@ -80,9 +80,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#endswith" class="tsd-kind-icon">ends<wbr>With</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#includes" class="tsd-kind-icon">includes</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#len" class="tsd-kind-icon">len</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#replace" class="tsd-kind-icon">replace</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#split" class="tsd-kind-icon">split</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#substring" class="tsd-kind-icon">substring</a></li>
 							</ul>
 						</section>
@@ -101,7 +102,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L21">string.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L21">string.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -139,7 +140,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L31">string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L31">string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -168,16 +169,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="length" class="tsd-anchor"></a>
-					<h3>length</h3>
+					<a name="len" class="tsd-anchor"></a>
+					<h3>len</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">len<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L40">string.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L40">string.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L54">string.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L54">string.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,6 +286,44 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="split" class="tsd-anchor"></a>
+					<h3>split</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">split<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, separator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L76">string.ts:76</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Splits a string into a list of substrings using a specified string of characters as a separator</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String</p>
+									</div>
+								</li>
+								<li>
+									<h5>separator: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String of characters used to split string</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of substrings</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="substring" class="tsd-anchor"></a>
 					<h3>substring</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -294,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/805a884/src/gs-modelling/lib/string.ts#L79">string.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ce70157/src/gs-modelling/lib/string.ts#L89">string.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,13 +396,16 @@
 						<a href="_string_.html#includes" class="tsd-kind-icon">includes</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_string_.html#length" class="tsd-kind-icon">length</a>
+						<a href="_string_.html#len" class="tsd-kind-icon">len</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_string_.html#replace" class="tsd-kind-icon">replace</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_string_.html#search" class="tsd-kind-icon">search</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_string_.html#split" class="tsd-kind-icon">split</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_string_.html#substring" class="tsd-kind-icon">substring</a>
