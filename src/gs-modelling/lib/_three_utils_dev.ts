@@ -179,7 +179,8 @@ export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
  * Check a point is on a plane.
  * The plane is represented by an origin and a normal.
  */
-export function planesAreCoplanar(origin1: gs.IPoint, normal1: number[], origin2: gs.IPoint, normal2: number[]): boolean {
+export function planesAreCoplanar(origin1: gs.IPoint, normal1: number[],
+                                  origin2: gs.IPoint, normal2: number[]): boolean {
     // Check if point is on plane
     const origin1_v  = new three.Vector3(...origin1.getPosition());
     const normal1_v  = new three.Vector3(...normal1).normalize();

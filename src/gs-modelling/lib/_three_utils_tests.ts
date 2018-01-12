@@ -2,6 +2,17 @@ import * as gs from "gs-json";
 import * as test from "./_three_utils_dev";
 
 //  Query ======================================================================================================
+export function test_planesAreCoplanar() {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const O1: gs.IPoint = g.addPoint([0,0,0]);
+    const O2: gs.IPoint = g.addPoint([1,0,1]);
+    if(!test.planesAreCoplanar(O1,[0,0,1],O1,[0,0,1])) {return false;}
+    if(test.planesAreCoplanar(O1,[0,0,1],O2,[0,0,1])) {return false;}
+    if(!test.planesAreCoplanar(O1,[0,0,1],O1,[0,1,1])) {return false;}
+    return true;
+}
+
 export function test_pointIsOnPlane() {
     const m: gs.IModel = new gs.Model();
     const g: gs.IGeom = m.getGeom();
