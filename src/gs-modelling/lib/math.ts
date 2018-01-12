@@ -44,7 +44,7 @@ export function NEGATIVE_INFINITY(): number {
  * @returns Cosine of angle
  */
 export function cos(angle: number): number {
-    return Math.cos(angle);
+    return Math.cos(angle*(180/Math.PI));
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sin
@@ -54,7 +54,7 @@ export function cos(angle: number): number {
  * @returns Sine of angle
  */
 export function sin(angle: number): number {
-    return Math.sin(angle);
+    return Math.sin(angle*(180/Math.PI));
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/tan
@@ -64,7 +64,7 @@ export function sin(angle: number): number {
  * @returns Tangent of angle
  */
 export function tan(angle: number): number {
-    return Math.tan(angle);
+    return Math.tan(angle*(180/Math.PI));
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
