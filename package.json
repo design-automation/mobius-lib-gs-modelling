@@ -1,7 +1,7 @@
 {
     "name": "gs-modelling",
     "license": "GPL-3.0",
-    "version": "0.1.9",
+    "version": "0.1.11",
     "author": "Patrick Janssen",
     "description": "A set of 3D modelling functions for gs-JSON.",
     "homepage": "https://github.com/phtj/gs-modelling#readme",
@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@types/three": "^0.89.2",
-        "gs-json": "^0.1.14",
+        "gs-json": "^0.1.15",
         "mathjs": "^3.19.0",
         "poly-roots": "^1.0.8",
         "solve-quadratic-equation": "^0.1.0",
