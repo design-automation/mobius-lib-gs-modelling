@@ -7,7 +7,6 @@
 import * as gs from "gs-json";
 import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
 import * as three from "three";
-import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
 //  Pline Constructors ============================================================================================
@@ -186,7 +185,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
  * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns Polymesh created from extrusion
  */
-export function extrude(pline: gs.IPolyline, vector: Txyz, cap: boolean, copy: boolean): gs.IPolymesh {
+export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean, copy: boolean): gs.IPolymesh {
     const m: gs.IModel = pline.getModel();
     const points: gs.IPoint[] = pline.getPointsArr();
     const mesh_points: gs.IPoint[][] = [];
@@ -300,8 +299,8 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=tru
             pline_pos2[2] - pline_start_pos[2],
         ];
         for (let j=0; j< rail_points.length-1;j++) {
-            const rail_pos1: number[] = rail_points[j].getPosition();
-            const rail_pos2: number[] = rail_points[j+1].getPosition();
+            const rail_pos1: gs.XYZ = rail_points[j].getPosition();
+            const rail_pos2: gs.XYZ = rail_points[j+1].getPosition();
             const j2 = j%2;
             let vec: number[];
             if (j2 === 0) {
@@ -311,8 +310,8 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=tru
                 vec = vec2;
             }
             const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
-            const pos1: number[] = [rail_pos1[0] + vec[0], rail_pos1[1] + vec[1], rail_pos1[2] + vec[2]];
-            const pos2: number[] = [rail_pos2[0] + vec[0], rail_pos2[1] + vec[1], rail_pos2[2] + vec[2]];
+            const pos1: gs.XYZ = [rail_pos1[0] + vec[0], rail_pos1[1] + vec[1], rail_pos1[2] + vec[2]];
+            const pos2: gs.XYZ = [rail_pos2[0] + vec[0], rail_pos2[1] + vec[1], rail_pos2[2] + vec[2]];
             face[j2] = m.getGeom().addPoint(pos1);
             face[3 - j2] = m.getGeom().addPoint(pos2);
         }

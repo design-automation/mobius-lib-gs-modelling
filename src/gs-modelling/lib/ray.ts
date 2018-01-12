@@ -5,7 +5,6 @@
  */
 
 import * as gs from "gs-json";
-import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
 //  Ray Get =======================================================================================================
@@ -36,7 +35,7 @@ export function Get(model: gs.IModel, id: number): gs.IRay {
  * @param vector Direction vector describing direction of ray
  * @returns New ray if successful, null if unsuccessful or on error
  */
-export function FromOriginVector(origin: gs.IPoint, vector: Txyz): gs.IRay {
+export function FromOriginVector(origin: gs.IPoint, vector: gs.XYZ): gs.IRay {
     return origin.getGeom().addRay(origin, vector);
 }
 

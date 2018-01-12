@@ -6,7 +6,6 @@
  */
 
 import * as gs from "gs-json";
-import {Txyz} from "./types_dev";
 
 //  ===============================================================================================================
 //  Plane Get =====================================================================================================
@@ -38,7 +37,7 @@ export function Get(model: gs.IModel, id: number): gs.IPlane {
  * @param vec_y Direction vector describing y-axis of plane
  * @returns New plane if successful, null if unsuccessful or on error
  */
-export function _FromOriginVectors(origin: gs.IPoint, vec_x: Txyz, vec_y: Txyz): gs.IPlane {
+export function _FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XYZ): gs.IPlane {
     return origin.getGeom().addPlane(origin, vec_x, vec_y);
 }
 

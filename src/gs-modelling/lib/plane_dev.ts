@@ -17,8 +17,6 @@ export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.I
     throw new Error("Method not implemented");
 }
 
-
-
 // - WEEK 3 -
 /**
  * Creates a plane from an origin point and the World x and y axis
@@ -48,7 +46,7 @@ export function _AddPlane(m: gs.IModel, origin: gs.IPoint, normal: [number, numb
      const e3: three.Vector3 = new three.Vector3(...normal).normalize();
      const e1: three.Vector3 = new three.Vector3(-e3.y,e3.x,0).normalize();
      const e2: three.Vector3 = e3.cross(e1);
-     return m.getGeom().addPlane(origin, e1.toArray(), e2.toArray());
+     return m.getGeom().addPlane(origin, e1.toArray() as gs.XYZ, e2.toArray() as gs.XYZ);
  }
 
 /**
