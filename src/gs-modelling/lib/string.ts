@@ -68,6 +68,16 @@ export function search(str_1: string, str_2: string): number {
 }
 
 /**
+ * Splits a string into a list of substrings using a specified string of characters as a separator
+ * @param str String
+ * @param separator String of characters used to split string
+ * @returns List of substrings
+ */
+export function split(str: string, separator: string): string[] {
+    return str.split(separator);
+}
+
+/**
  * Extracts characters in a string between 2 specified indices and returns it as a new string
  *
  * Start index is inclusive and end index is exclusive

@@ -147,7 +147,6 @@ export function min(nums: number[]): number {
  * Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive)
  *
  * Number can be scaled to apply for a larger range
- * @param num List of numbers
  * @returns A pseudo-random number
  */
 export function random(): number {
@@ -166,7 +165,7 @@ export function random(): number {
 export function randomInt(bottom_bound: number, top_bound: number): number {
     const lower = Math.ceil(bottom_bound);
     const upper = Math.floor(top_bound);
-    return Math.floor(Math.random() * (lower - upper)) + lower;
+    return Math.floor(Math.random() * (upper - lower)) + lower;
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -181,5 +180,5 @@ export function randomInt(bottom_bound: number, top_bound: number): number {
 export function randomIntInclusive(bottom_bound: number, top_bound: number): number {
     const lower = Math.ceil(bottom_bound);
     const upper = Math.floor(top_bound);
-    return Math.floor(Math.random() * (lower - upper + 1)) + lower;
+    return Math.floor(Math.random() * (upper - lower + 1)) + lower;
 }

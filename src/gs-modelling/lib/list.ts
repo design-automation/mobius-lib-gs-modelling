@@ -114,7 +114,7 @@ export function extendFront(list: any[], items: any[]): any[] {
  *
  * Alters input list<br/>
  * List returned will be in order
- * @param list List to add to
+ * @param list List to flatten
  * @returns Flattened list
  */
 export function flatten(list: any[]): any[] {
@@ -178,7 +178,7 @@ export function reverse(list: any[]): any[] {
  * @param list List to sort
  * @returns New sorted list
  */
-export function sortAplha(list: any[]): any[] {
+export function sortAlpha(list: any[]): any[] {
     list.sort();
     return list;
 }
