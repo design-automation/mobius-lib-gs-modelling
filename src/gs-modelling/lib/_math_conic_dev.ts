@@ -4,6 +4,7 @@ import * as roots from "poly-roots";
 import * as quadratic from "solve-quadratic-equation";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
+import * as kld from "kld-polynomial";
 
 /**
  * Circle-circle intersection
