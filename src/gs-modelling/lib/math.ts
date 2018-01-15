@@ -2,10 +2,6 @@
  * Math contains funtions for calculations, analysing numbers and representing numbers like pi and infinty.
  */
 
-/**
- *
- */
-
 import * as gs from "gs-json";
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI
@@ -21,7 +17,7 @@ export function PI(): number {
  * Returns the value of positive infinity
  * @returns Value of positive infinity
  */
-export function POSITIVE_INFINITY(): number {
+export function POS_INFINITY(): number {
     return Number.POSITIVE_INFINITY;
 }
 
@@ -29,7 +25,7 @@ export function POSITIVE_INFINITY(): number {
  * Returns the value of negative infinity
  * @returns Value of negative infinity
  */
-export function NEGATIVE_INFINITY(): number {
+export function NEG_INFINITY(): number {
     return Number.NEGATIVE_INFINITY;
 }
 
@@ -149,7 +145,7 @@ export function min(nums: number[]): number {
  * Number can be scaled to apply for a larger range
  * @returns A pseudo-random number
  */
-export function random(): number {
+export function rand(): number {
     return Math.random();
 }
 
@@ -162,7 +158,7 @@ export function random(): number {
  * @param top_bound Top bound number of range
  * @returns A pseudo-random number
  */
-export function randomInt(bottom_bound: number, top_bound: number): number {
+export function randInt(bottom_bound: number, top_bound: number): number {
     const lower = Math.ceil(bottom_bound);
     const upper = Math.floor(top_bound);
     return Math.floor(Math.random() * (upper - lower)) + lower;
@@ -177,7 +173,7 @@ export function randomInt(bottom_bound: number, top_bound: number): number {
  * @param top_bound Top bound number of range
  * @returns A pseudo-random number
  */
-export function randomIntInclusive(bottom_bound: number, top_bound: number): number {
+export function randIntInclusive(bottom_bound: number, top_bound: number): number {
     const lower = Math.ceil(bottom_bound);
     const upper = Math.floor(top_bound);
     return Math.floor(Math.random() * (upper - lower + 1)) + lower;

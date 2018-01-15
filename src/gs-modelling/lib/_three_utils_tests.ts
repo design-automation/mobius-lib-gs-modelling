@@ -9,7 +9,7 @@ export function test_planesAreCoplanar() {
     const O2: gs.IPoint = g.addPoint([1,0,1]);
     if(!test.planesAreCoplanar(O1,[0,0,1],O1,[0,0,1])) {return false;}
     if(test.planesAreCoplanar(O1,[0,0,1],O2,[0,0,1])) {return false;}
-    if(!test.planesAreCoplanar(O1,[0,0,1],O1,[0,1,1])) {return false;}
+    if(test.planesAreCoplanar(O1,[0,0,1],O1,[0,1,1])) {return false;}
     return true;
 }
 
@@ -34,6 +34,6 @@ export function test_vectorsAreCodir() {
     if(!test.vectorsAreCodir(xyz1,xyz2)) {return false;}
     if(test.vectorsAreCodir(xyz1,xyz3)) {return false;}
     if(!test.vectorsAreCodir(xyz1,xyz4)) {return false;}
-    if(!test.vectorsAreCodir(xyz1,xyz5)) {return false;}
+    if(test.vectorsAreCodir(xyz1,xyz5)) {return false;}
     return true;
 }

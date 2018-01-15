@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>gs-modelling</title>
+	<title>&quot;plane&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">gs-modelling</a>
+					<a href="../index.html" class="title">gs-modelling</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -51,112 +51,195 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_plane_.html">&quot;plane&quot;</a>
 				</li>
 			</ul>
-			<h1> gs-modelling</h1>
+			<h1>External module &quot;plane&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<p>[<img src="https://travis-ci.org/phtj/gs-json.svg?branch=master" alt="Build Status">]</p>
-				<h1 id="gs-modelling">gs-modelling</h1>
-				<p>A TypeScript modelling library using the gs-JSON format</p>
-				<p>See the API docs: <a href="https://phtj.github.io/gs-modelling">https://phtj.github.io/gs-modelling</a></p>
-				<p>See the Github page: <a href="https://github.com/phtj/gs-modelling/">https://github.com/phtj/gs-modelling/</a></p>
-				<p>For more information about gs-json:
-				<a href="https://github.com/phtj/gs-json">https://github.com/phtj/gs-json</a></p>
-				<h2 id="ent">Ent</h2>
-				<p>Entities contain geometric information. Entities consist of <em>Point</em> and <em>Obj</em></p>
-				<h3 id="point">Point</h3>
-				<p>Points are a type of entity that represent 3D points in space.</p>
-				<h3 id="obj">Obj</h3>
-				<p>Objects are a type of entity. Objects consist of <em>Ray</em>, <em>Plane</em>, <em>Conic</em>, <em>Polyline</em> and <em>Polymesh</em></p>
-				<h4 id="ray">Ray</h4>
-				<p>Rays are imaginary infinite axis defined by a vector.</p>
-				<h4 id="plane">Plane</h4>
-				<p>Planes are imaginary infinite surfaces defined by 2 vectors.</p>
-				<h4 id="conic">Conic</h4>
-				<p>Conic curves are mathematical curves. They consist of circles, ellipses, hyperbolas, parabolas and arcs.</p>
-				<h4 id="polyline">Polyline</h4>
-				<p>Polylines are straight line segments joined to form a continuous line</p>
-				<h4 id="polymesh">Polymesh</h4>
-				<p>Polymeshes are flat polygons joined to form a continuous surface</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#_fromoriginvectors" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vectors</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/plane.ts#L20">plane.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a plane from the model based on an index number</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get polyline from</p>
+									</div>
+								</li>
+								<li>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index number of polyline</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>Plane object if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="_fromoriginvectors" class="tsd-anchor"></a>
+					<h3>_<wbr>From<wbr>Origin<wbr>Vectors</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/plane.ts#L40">plane.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a plane from an origin point and two direction vectors describing the x and y axis</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>3D point to use as origin of plane</p>
+									</div>
+								</li>
+								<li>
+									<h5>vec_x: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Direction vector describing x-axis of plane</p>
+									</div>
+								</li>
+								<li>
+									<h5>vec_y: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Direction vector describing y-axis of plane</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>New plane if successful, null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_attrib_.html">"attrib"</a>
+						<a href="_attrib_.html">"attrib"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_circle_.html">"circle"</a>
+						<a href="_circle_.html">"circle"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_ellipse_.html">"ellipse"</a>
+						<a href="_ellipse_.html">"ellipse"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_entity_.html">"entity"</a>
+						<a href="_entity_.html">"entity"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_examples_.html">"examples"</a>
+						<a href="_examples_.html">"examples"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_group_.html">"group"</a>
+						<a href="_group_.html">"group"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_intersect_.html">"intersect"</a>
+						<a href="_intersect_.html">"intersect"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_list_.html">"list"</a>
+						<a href="_list_.html">"list"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_math_.html">"math"</a>
+						<a href="_math_.html">"math"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_model_.html">"model"</a>
+						<a href="_model_.html">"model"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_object_.html">"object"</a>
+						<a href="_object_.html">"object"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="_plane_.html">"plane"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_plane_.html">"plane"</a>
+						<a href="_pline_.html">"pline"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_pline_.html">"pline"</a>
+						<a href="_pmesh_.html">"pmesh"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_pmesh_.html">"pmesh"</a>
+						<a href="_point_.html">"point"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_point_.html">"point"</a>
+						<a href="_query_.html">"query"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_query_.html">"query"</a>
+						<a href="_ray_.html">"ray"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_ray_.html">"ray"</a>
+						<a href="_split_.html">"split"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_split_.html">"split"</a>
+						<a href="_string_.html">"string"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_string_.html">"string"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_topo_.html">"topo"</a>
+						<a href="_topo_.html">"topo"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#_fromoriginvectors" class="tsd-kind-icon">_<wbr>From<wbr>Origin<wbr>Vectors</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -225,7 +308,7 @@
 	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
