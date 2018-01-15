@@ -17,15 +17,19 @@ export function multVectorMatrix(v: three.Vector3, m: three.Matrix4): three.Vect
 
 export function xformMatrixPointXYZs(o: gs.IPoint, vecs: gs.XYZ[]): three.Matrix4 {
     return xformMatrix(new three.Vector3(...o.getPosition()),
-        new three.Vector3(...vecs[0]), new three.Vector3(...vecs[1]), new three.Vector3(...vecs[2]));
+        new three.Vector3(...vecs[0]), new three.Vector3(...vecs[1]));
+    // return xformMatrix(new three.Vector3(...o.getPosition()),
+    //     new three.Vector3(...vecs[0]), new three.Vector3(...vecs[1]), new three.Vector3(...vecs[2]));
 }
 
-export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3, z: three.Vector3): three.Matrix4 {
+// export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3, z: three.Vector3): three.Matrix4 {
+export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3): three.Matrix4 {
     const m1: three.Matrix4 = new three.Matrix4();
     const o_neg: three.Vector3 = o.clone().negate();
     m1.setPosition(o_neg);
     const m2: three.Matrix4 = new three.Matrix4();
-    m2.makeBasis(x, y, z);
+    m2.makeBasis(x.normalize(), y.normalize(), crossVectors(x,y,true));
+//    m2.makeBasis(x, y, z);
     m2.getInverse(m2);
     const m3: three.Matrix4 = new three.Matrix4();
     m3.multiplyMatrices(m2, m1);
@@ -166,7 +170,8 @@ export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
         if (i === vertices.length - 1) {throw new Error("Trinagulation found bad face.");}
     }
     const vy: three.Vector3 =  crossVectors(vz, vx);
-    const m: three.Matrix4 = xformMatrix(o, vx, vy, vz);
+    const m: three.Matrix4 = xformMatrix(o, vx, vy);
+    // const m: three.Matrix4 = xformMatrix(o, vx, vy, vz);
     const points_2d: three.Vector3[] = points.map((v) => multVectorMatrix(v,m));
     // console.log(o, vx, vy, vz);
     // console.log(points_2d);
