@@ -32,69 +32,155 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
     if (O1O2.length() > r ) {return null;}
 
-    // Coplanarity
-    if(!threex.planesAreCoplanar(circle1.getOrigin(), circle1.getVectors()[2],
-        circle2.getOrigin(), circle2.getVectors()[2])) {throw new Error("Entities must be coplanar.");}
+    // // Coplanarity
+    // if(!threex.planesAreCoplanar(circle1.getOrigin(), circle1.getVectors()[2],
+    //     circle2.getOrigin(), circle2.getVectors()[2])) {throw new Error("Entities must be coplanar.");}
 
     // XYZ & Inject In KLD
     // return a point
         // threex.xformMatrixPointXYZs(circle1.getOrigin(), [circle1.getVectors()[0],circle1.getVectors()[1]);
         // threex.xformMatrixPointXYZs(circle2.getOrigin(), [circle2.getVectors()[0],circle2.getVectors()[1]);
 
-    const vector1: three.Vector3 = threex.multVectorMatrix(
-        new three.Vector3(circle1.getOrigin()[0],circle1.getOrigin()[1],circle1.getOrigin()[2]),
-        threex.xformMatrixPointXYZs(circle1.getOrigin(), [circle1.getVectors()[0],circle1.getVectors()[1]]));
-    const vector2: three.Vector3 = threex.multVectorMatrix(
-        new three.Vector3(circle2.getOrigin()[0],circle2.getOrigin()[1],circle2.getOrigin()[2]),
-        threex.xformMatrixPointXYZs(circle2.getOrigin(), [circle2.getVectors()[0],circle2.getVectors()[1]]));
+    // Direct Orthonormal Basis of reference
+    const O1: three.Vector3 = new three.Vector3(0,0,0);
+    const e1: three.Vector3 = new three.Vector3(1,0,0);
+    const e2: three.Vector3 = new three.Vector3(0,1,0);
+    const e3: three.Vector3 = new three.Vector3(0,0,1);
 
-    const c1: number[] = [vector1.x,vector1.x];
-    const c2: number[] = [vector2.x,vector2.y];
-    const result: kld.lib.Intersection = kld.lib.Intersection.intersectCircleCircle(c1,
-        circle1.getRadius(),c2,circle2.getRadius());
+    const v1: number[][] = [circle1.getVectors()[0],circle1.getVectors()[1]];
+    const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1]];
 
-    // form vectors and multiply by reverse matrix
+    // Circle 1 Direct Orthonormal Basis
+    const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0]);
+    const U1: three.Vector3 = new three.Vector3(v1[0][0],v1[0][1],v1[0][2]).normalize();
+    const V1: three.Vector3 = new three.Vector3(v1[1][0],v1[1][1],v1[1][2]).normalize();
+    const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
+
+    // Circle 2 Direct Orthonormal Basis
+    const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0]);
+    const U2: three.Vector3 = new three.Vector3(v2[0][0],v2[0][1],v2[0][2]).normalize();
+    const V2: three.Vector3 = new three.Vector3(v2[1][0],v2[1][1],v2[1][2]).normalize();
+    const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
+
+    // //
+    // // Rotation Matrix expressed in the reference direct orthonormal basis
+    //     // Circle 1
+    // const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
+    // const vec_O_1: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(C1O1,U1),
+    //     threex.dotVectors(C1O1,V1),
+    //     threex.dotVectors(C1O1,W1),
+    //     );
+    // const x1: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e1,U1),
+    //     threex.dotVectors(e1,V1),
+    //     threex.dotVectors(e1,W1),
+    //     );
+    // const y1: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e2,U1),
+    //     threex.dotVectors(e2,V1),
+    //     threex.dotVectors(e2,W1),
+    //     );
+    // const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
+
+    // // Rotation Matrix expressed in the reference direct orthonormal basis
+    //     // Circle 2
+    // const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
+    // const vec_O_2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(C2O1,U2),
+    //     threex.dotVectors(C2O1,V2),
+    //     threex.dotVectors(C2O1,W2),
+    //     );
+    // const x2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e1,U2),
+    //     threex.dotVectors(e1,V2),
+    //     threex.dotVectors(e1,W2),
+    //     );
+    // const y2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e2,U2),
+    //     threex.dotVectors(e2,V2),
+    //     threex.dotVectors(e2,W2),
+    //     );
+    // const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
+
+    //
+    // Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 1
+    const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
+    const vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(O1C1,e1),
+        threex.dotVectors(O1C1,e2),
+        threex.dotVectors(O1C1,e3),
+        );
+    const x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(U1,e1),
+        threex.dotVectors(U1,e2),
+        threex.dotVectors(U1,e3),
+        );
+    const y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(V1,e1),
+        threex.dotVectors(V1,e2),
+        threex.dotVectors(V1,e3),
+        );
+    const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
+
+    // Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 2
+    const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
+    const vec_O_2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(O1C2,e1),
+        threex.dotVectors(O1C2,e2),
+        threex.dotVectors(O1C2,e3),
+        );
+    const x2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(U2,e1),
+        threex.dotVectors(U2,e2),
+        threex.dotVectors(U2,e3),
+        );
+    const y2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(V2,e1),
+        threex.dotVectors(V2,e2),
+        threex.dotVectors(V2,e3),
+        );
+    const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
+
+    const circle_1 = {
+    center: new kld.Point2D(C1.x,C1.y),
+    radius: circle1.getRadius(),
+    };
+    const circle_2 = {
+    center: new kld.Point2D(C2.x,C2.y),
+    radius: circle2.getRadius(),
+    };
+
+    // const c1: number[] = [C1.x,C1.y];
+    // const c2: number[] = [C2.x,C2.y];
+
+    const result: kld.Intersection = kld.Intersection.intersectCircleCircle(circle_1.center, circle_1.radius,
+        circle_2.center, circle_2.radius);
 
     // Retransforming into original coordinates system
-    // // const result: gs.IPoint[] = [];
-    // for (let point of result.points) {
-    //     result.push(g1.addPoint(point));
-    // }
-
-    // We obtain the XYZ
+    const results: three.Vector3[] = [];
+    for (const point of result.points) {
+        results.push(new three.Vector3(point.x,point.y,0));
+    }
+    const results_c1: three.Vector3[] = [];
+    for (const point of results) {
+        // console.log("test " + threex.multVectorMatrix(point,rotation1))
+        results_c1.push(threex.multVectorMatrix(point,rotation1));
+    }
+    const results_c2: three.Vector3[] = [];
+    for (const point of results) {
+        results_c2.push(threex.multVectorMatrix(point,rotation2));
+    }
     const points: gs.IPoint[] = [];
-    const xyz: number [][] = [];
-    for(const point of xyz) {
-        points.push(g1.addPoint([point[0],point[1],point[2]]));
+    for(const point of results_c1) {
+        points.push(g1.addPoint([point.x,point.y,point.z]));
+    }
+    for(const point of results_c2) {
+        points.push(g1.addPoint([point.x,point.y,point.z]));
     }
     return points;
-
-    // case 2
-    // const m: gs.IModel = new gs.Model();
-    // const g: gs.IGeom = m.getGeom();
-    // const pt: gs.IPoint = g.addPoint(
-    //     [(circle1.getOrigin().getPosition()[0]+circle2.getOrigin().getPosition()[0])/2,
-    //     (circle1.getOrigin().getPosition()[1]+circle2.getOrigin().getPosition()[1])/2,
-    //     (circle1.getOrigin().getPosition()[2]+circle2.getOrigin().getPosition()[2])/2]);
-    // // if (belongs to Circle 1)
-    // const O1P: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),pt,false);
-    // const u1: three.Vector3 = new three.Vector3(
-    //     circle1.getVectors()[0][0],
-    //     circle1.getVectors()[0][1],
-    //     circle1.getVectors()[0][2]);
-    // const v1: three.Vector3 = new three.Vector3(
-    //     circle1.getVectors()[1][0],
-    //     circle1.getVectors()[1][1],
-    //     circle1.getVectors()[1][2]);
-    // // distance condition
-    // if( Math.abs(O1P.length())> threshold) {return null;}
-    // coplanarity with u and v
-    // angle condition
-    // && if (belongs to Circle 2) [+ threshold]
-    // then return pt
-    // case 3
-//    const m: three.Matrix4 = threex.xformMatrixPointXYZs(circle1.getOrigin(), circle1.getVectors());
- //   throw new Error("Method not implemented.");
 }
 
 /**

@@ -1,11 +1,12 @@
 import * as gs from "gs-json";
 import * as test from "./_math_conic_dev";
+import * as kld from "kld-intersections";
 
 export function test_isectCircleCircle2D() {
     const m: gs.IModel = new gs.Model();
     const g: gs.IGeom = m.getGeom();
     const O1: gs.IPoint = g.addPoint([0,0,0]);
-    const O2: gs.IPoint = g.addPoint([2,0,0]);
+    const O2: gs.IPoint = g.addPoint([1,0,0]);
     const radius1: number = 1;
     const radius2: number = 1;
     // const m2: gs.IModel = new gs.Model();
@@ -15,6 +16,13 @@ export function test_isectCircleCircle2D() {
     // // Same model test = OK
     const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     const circle2: gs.ICircle = g.addCircle(O2, [radius2,0,0], [0,radius2,0], [0,360]);
+
+    const results: gs.IPoint[] = test._isectCircleCircle2D(circle1,circle2);
+
+    for (const k of results) {
+        console.log(k.getPosition());
+    }
+
     // if(!gs.Arr.equal(test._isectCircleCircle2D(circle1,circle2)[0].getPosition(),[1,0,0])) {return false;}
     return true;
 }
