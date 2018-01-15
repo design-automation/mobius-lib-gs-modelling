@@ -4,7 +4,7 @@ import * as roots from "poly-roots";
 import * as quadratic from "solve-quadratic-equation";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
-import * as kld from "kld-polynomial";
+import * as kld from "kld-intersections";
 
 /**
  * Circle-circle intersection
@@ -20,64 +20,81 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     // kld, XYZ
     // 2D to 3D, create the Point
 
+    // Model Comparison
     const m1: gs.IModel = circle1.getModel();
     const m2: gs.IModel = circle2.getModel();
     if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
     const g1: gs.IGeom = m1.getGeom();
 
-    // xformMatrixPointXYZs
-
-
-//    if (coplanar1 !== coplanar2) {throw new Error("Entities must be Coplanar."); }
-
+    // Distance Comparison
     const threshold: number = 1e-6;
-    const r: number = Math.abs(circle1.getRadius() - circle2.getRadius());
+    const r: number = circle1.getRadius() + circle2.getRadius();
     const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
-
-
-
-    // case 1
     if (O1O2.length() > r ) {return null;}
 
+    // Coplanarity
+    if(!threex.planesAreCoplanar(circle1.getOrigin(), circle1.getVectors()[2],
+        circle2.getOrigin(), circle2.getVectors()[2])) {throw new Error("Entities must be coplanar.");}
+
+    // XYZ & Inject In KLD
+    // return a point
+        // threex.xformMatrixPointXYZs(circle1.getOrigin(), [circle1.getVectors()[0],circle1.getVectors()[1]);
+        // threex.xformMatrixPointXYZs(circle2.getOrigin(), [circle2.getVectors()[0],circle2.getVectors()[1]);
+
+    const vector1: three.Vector3 = threex.multVectorMatrix(
+        new three.Vector3(circle1.getOrigin()[0],circle1.getOrigin()[1],circle1.getOrigin()[2]),
+        threex.xformMatrixPointXYZs(circle1.getOrigin(), [circle1.getVectors()[0],circle1.getVectors()[1]]));
+    const vector2: three.Vector3 = threex.multVectorMatrix(
+        new three.Vector3(circle2.getOrigin()[0],circle2.getOrigin()[1],circle2.getOrigin()[2]),
+        threex.xformMatrixPointXYZs(circle2.getOrigin(), [circle2.getVectors()[0],circle2.getVectors()[1]]));
+
+    const c1: number[] = [vector1.x,vector1.x];
+    const c2: number[] = [vector2.x,vector2.y];
+    const result: kld.lib.Intersection = kld.lib.Intersection.intersectCircleCircle(c1,
+        circle1.getRadius(),c2,circle2.getRadius());
+
+    // form vectors and multiply by reverse matrix
+
+    // Retransforming into original coordinates system
+    // // const result: gs.IPoint[] = [];
+    // for (let point of result.points) {
+    //     result.push(g1.addPoint(point));
+    // }
+
+    // We obtain the XYZ
+    const points: gs.IPoint[] = [];
+    const xyz: number [][] = [];
+    for(const point of xyz) {
+        points.push(g1.addPoint([point[0],point[1],point[2]]));
+    }
+    return points;
+
     // case 2
-    
-
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const pt: gs.IPoint = g.addPoint(
-        [(circle1.getOrigin().getPosition()[0]+circle2.getOrigin().getPosition()[0])/2,
-        (circle1.getOrigin().getPosition()[1]+circle2.getOrigin().getPosition()[1])/2,
-        (circle1.getOrigin().getPosition()[2]+circle2.getOrigin().getPosition()[2])/2]);
-
-    // if (belongs to Circle 1)
-    const O1P: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),pt,false);
-    const u1: three.Vector3 = new three.Vector3(
-        circle1.getVectors()[0][0],
-        circle1.getVectors()[0][1],
-        circle1.getVectors()[0][2]);
-    const v1: three.Vector3 = new three.Vector3(
-        circle1.getVectors()[1][0],
-        circle1.getVectors()[1][1],
-        circle1.getVectors()[1][2]);
-
-    // distance condition
-    if( Math.abs(O1P.length())> threshold) {return null;}
-
-
-
+    // const m: gs.IModel = new gs.Model();
+    // const g: gs.IGeom = m.getGeom();
+    // const pt: gs.IPoint = g.addPoint(
+    //     [(circle1.getOrigin().getPosition()[0]+circle2.getOrigin().getPosition()[0])/2,
+    //     (circle1.getOrigin().getPosition()[1]+circle2.getOrigin().getPosition()[1])/2,
+    //     (circle1.getOrigin().getPosition()[2]+circle2.getOrigin().getPosition()[2])/2]);
+    // // if (belongs to Circle 1)
+    // const O1P: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),pt,false);
+    // const u1: three.Vector3 = new three.Vector3(
+    //     circle1.getVectors()[0][0],
+    //     circle1.getVectors()[0][1],
+    //     circle1.getVectors()[0][2]);
+    // const v1: three.Vector3 = new three.Vector3(
+    //     circle1.getVectors()[1][0],
+    //     circle1.getVectors()[1][1],
+    //     circle1.getVectors()[1][2]);
+    // // distance condition
+    // if( Math.abs(O1P.length())> threshold) {return null;}
     // coplanarity with u and v
     // angle condition
-
     // && if (belongs to Circle 2) [+ threshold]
     // then return pt
-
     // case 3
-
-
-
-
 //    const m: three.Matrix4 = threex.xformMatrixPointXYZs(circle1.getOrigin(), circle1.getVectors());
-    throw new Error("Method not implemented.");
+ //   throw new Error("Method not implemented.");
 }
 
 /**

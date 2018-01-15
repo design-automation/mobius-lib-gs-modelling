@@ -2,7 +2,20 @@ import * as gs from "gs-json";
 import * as test from "./_math_conic_dev";
 
 export function test_isectCircleCircle2D() {
-// _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const O1: gs.IPoint = g.addPoint([0,0,0]);
+    const O2: gs.IPoint = g.addPoint([2,0,0]);
+    const radius1: number = 1;
+    const radius2: number = 1;
+    // const m2: gs.IModel = new gs.Model();
+    // const g2: gs.IGeom = m2.getGeom();
+    // const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
+    // const circle2: gs.ICircle = g2.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
+    // // Same model test = OK
+    const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
+    const circle2: gs.ICircle = g.addCircle(O2, [radius2,0,0], [0,radius2,0], [0,360]);
+    // if(!gs.Arr.equal(test._isectCircleCircle2D(circle1,circle2)[0].getPosition(),[1,0,0])) {return false;}
     return true;
 }
 export function test_isectCircleEllipse2D() {
