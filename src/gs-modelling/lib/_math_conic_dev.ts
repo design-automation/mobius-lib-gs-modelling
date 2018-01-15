@@ -13,7 +13,10 @@ import * as kld from "kld-polynomial";
  * @returns An array of intersection points
  */
 export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
-    const m: three.Matrix4 = threex.xformMatrixPointXYZs(circle1.getOrigin(), circle1.getVectors());
+    const r: number = Math.abs(circle1.getRadius() - circle2.getRadius());
+    const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
+    if (O1O2.length() > r ) {return null;}
+//    const m: three.Matrix4 = threex.xformMatrixPointXYZs(circle1.getOrigin(), circle1.getVectors());
     throw new Error("Method not implemented.");
 }
 
