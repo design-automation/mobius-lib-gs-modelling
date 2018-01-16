@@ -13,13 +13,6 @@ import * as kld from "kld-intersections";
  * @returns An array of intersection points
  */
 export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
-    // model comparison
-    // distance
-    // coplanarity
-    // 3D to 2D by the use of xformMatrixPointXYZs and
-    // kld, XYZ
-    // 2D to 3D, create the Point
-
     // Model Comparison
     const m1: gs.IModel = circle1.getModel();
     const m2: gs.IModel = circle2.getModel();
@@ -36,13 +29,11 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1],circle1.getVectors()[2]];
 
     // Coplanarity
-    // if(!threex.planesAreCoplanar(circle1.getOrigin(), [v1[2][0],v1[2][1],v1[2][2]],
-    //     circle2.getOrigin(), [v2[2][0],v2[2][1],v2[2][2]])) {throw new Error("Entities must be coplanar.");}
-
-    // XYZ & Inject In KLD
-    // return a point
-        // threex.xformMatrixPointXYZs(circle1.getOrigin(), [circle1.getVectors()[0],circle1.getVectors()[1]);
-        // threex.xformMatrixPointXYZs(circle2.getOrigin(), [circle2.getVectors()[0],circle2.getVectors()[1]);
+    if(!threex.planesAreCoplanar(circle1.getOrigin(),
+     threex.crossXYZs([v1[0][0],v1[0][1],v1[0][2]],[v1[1][0],v1[1][1],v1[1][2]],false),
+     circle2.getOrigin(),
+     threex.crossXYZs([v2[0][0],v2[0][1],v2[0][2]],[v2[1][0],v2[1][1],v2[1][2]],false))
+        ) {throw new Error("Entities must be coplanar.");}
 
     // Direct Orthonormal Basis of reference
     const O1: three.Vector3 = new three.Vector3(0,0,0);
@@ -152,9 +143,6 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     center: new kld.Point2D(C2.x,C2.y),
     radius: circle2.getRadius(),
     };
-
-    // const c1: number[] = [C1.x,C1.y];
-    // const c2: number[] = [C2.x,C2.y];
 
     const result: kld.Intersection = kld.Intersection.intersectCircleCircle(circle_1.center, circle_1.radius,
         circle_2.center, circle_2.radius);
