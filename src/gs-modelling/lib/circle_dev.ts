@@ -1,4 +1,8 @@
 import * as gs from "gs-json";
+import * as threex from "./_three_utils_dev";
+import * as three from "three";
+import * as math_conic from "./_math_conic_dev";
+
 
 //  ===============================================================================================================
 //  Circle Constructors ============================================================================================
@@ -27,7 +31,38 @@ export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
  * @returns New circle if successful
  */
 export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ): gs.ICircle {
-    throw new Error("Method not implemented");
+    const m1: gs.IModel = pt1.getModel();
+    const m2: gs.IModel = pt2.getModel();
+    const m3: gs.IModel = pt3.getModel();
+    if (m1 !== m2) {throw new Error("Points must be in the same model.");}
+    if (m1 !== m3) {throw new Error("Points must be in the same model.");}
+    const g1: gs.IGeom = m1.getGeom();
+    if(threex.vectorsAreCodir(threex.subPoints(pt1,pt2),
+        threex.subPoints(pt1,pt3))) {throw new Error("Points must be not aligned");}
+    const AB: three.Vector3 = threex.vectorFromPointsAtoB(pt1,pt2);
+    const AC: three.Vector3 = threex.vectorFromPointsAtoB(pt1,pt3);
+    const BC: three.Vector3 = threex.vectorFromPointsAtoB(pt2,pt3);
+    const radius: number = BC.length() / (2*threex.crossVectors(AB.normalize(),AC.normalize(),false).length());
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const circle_1: gs.ICircle = g.addCircle(pt1, [radius,0,0], [0,radius,0]);
+    const circle_2: gs.ICircle = g.addCircle(pt2, [radius,0,0], [0,radius,0]);
+    const circle_3: gs.ICircle = g.addCircle(pt3, [radius,0,0], [0,radius,0]);
+    const c1: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_2);
+    const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_3);
+    if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
+     return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0]);
+    }
+    if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
+     return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0]);
+    }
+    if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
+     return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0]);
+    }
+    if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
+     return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0]);
+    }
+    throw new Error ("Review thresholds");
 }
 
 //  ===============================================================================================================

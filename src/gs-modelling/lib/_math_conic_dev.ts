@@ -32,9 +32,12 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
     if (O1O2.length() > r ) {return null;}
 
-    // // Coplanarity
-    // if(!threex.planesAreCoplanar(circle1.getOrigin(), circle1.getVectors()[2],
-    //     circle2.getOrigin(), circle2.getVectors()[2])) {throw new Error("Entities must be coplanar.");}
+    const v1: number[][] = [circle1.getVectors()[0],circle1.getVectors()[1],circle1.getVectors()[2]];
+    const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1],circle1.getVectors()[2]];
+
+    // Coplanarity
+    // if(!threex.planesAreCoplanar(circle1.getOrigin(), [v1[2][0],v1[2][1],v1[2][2]],
+    //     circle2.getOrigin(), [v2[2][0],v2[2][1],v2[2][2]])) {throw new Error("Entities must be coplanar.");}
 
     // XYZ & Inject In KLD
     // return a point
@@ -46,9 +49,6 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const e1: three.Vector3 = new three.Vector3(1,0,0);
     const e2: three.Vector3 = new three.Vector3(0,1,0);
     const e3: three.Vector3 = new three.Vector3(0,0,1);
-
-    const v1: number[][] = [circle1.getVectors()[0],circle1.getVectors()[1]];
-    const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1]];
 
     // Circle 1 Direct Orthonormal Basis
     const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0]);
