@@ -16,11 +16,20 @@ export function test_isectCircleCircle2D() {
     // // Same model test = OK
     const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     const circle2: gs.ICircle = g.addCircle(O2, [radius2,0,0], [0,radius2,0], [0,360]);
-
     const results: gs.IPoint[] = test._isectCircleCircle2D(circle1,circle2);
-
     for (const k of results) {
-        console.log(k.getPosition());
+        console.log("Set 1 " + k.getPosition());
+    }
+
+    const O3: gs.IPoint = g.addPoint([0,0,0]);
+    const O4: gs.IPoint = g.addPoint([1,1,0]);
+    const radius3: number = 1;
+    const radius4: number = 1;
+    const circle3: gs.ICircle = g.addCircle(O3, [radius3,0,0], [0,radius3,0], [0,360]);
+    const circle4: gs.ICircle = g.addCircle(O4, [radius4,0,0], [0,radius4,0], [0,360]);
+    const results2: gs.IPoint[] = test._isectCircleCircle2D(circle3,circle4);
+    for (const k of results2) {
+        console.log("Set 2 " + k.getPosition());
     }
 
     // if(!gs.Arr.equal(test._isectCircleCircle2D(circle1,circle2)[0].getPosition(),[1,0,0])) {return false;}
