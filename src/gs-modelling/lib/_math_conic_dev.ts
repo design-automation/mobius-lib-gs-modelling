@@ -105,12 +105,12 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         );
     const x1: three.Vector3 = new three.Vector3(
         threex.dotVectors(U1,e1),
-        threex.dotVectors(U1,e2),
+        -threex.dotVectors(U1,e2),
         threex.dotVectors(U1,e3),
         );
     const y1: three.Vector3 = new three.Vector3(
         threex.dotVectors(V1,e1),
-        threex.dotVectors(V1,e2),
+        -threex.dotVectors(V1,e2),
         threex.dotVectors(V1,e3),
         );
     const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
@@ -125,12 +125,12 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         );
     const x2: three.Vector3 = new three.Vector3(
         threex.dotVectors(U2,e1),
-        threex.dotVectors(U2,e2),
+        -threex.dotVectors(U2,e2),
         threex.dotVectors(U2,e3),
         );
     const y2: three.Vector3 = new three.Vector3(
         threex.dotVectors(V2,e1),
-        threex.dotVectors(V2,e2),
+        -threex.dotVectors(V2,e2),
         threex.dotVectors(V2,e3),
         );
     const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
