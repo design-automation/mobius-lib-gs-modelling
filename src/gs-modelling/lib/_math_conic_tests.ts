@@ -3,33 +3,37 @@ import * as test from "./_math_conic_dev";
 import * as kld from "kld-intersections";
 
 export function test_isectCircleCircle2D() {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const O1: gs.IPoint = g.addPoint([0,0,0]);
-    const O2: gs.IPoint = g.addPoint([1,0,0]);
-    const radius1: number = 1;
-    const radius2: number = 1;
+
+    ////// Test with 2 Circles on 2 different models ///////////
     // const m2: gs.IModel = new gs.Model();
     // const g2: gs.IGeom = m2.getGeom();
     // const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     // const circle2: gs.ICircle = g2.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
-    // // Same model test = OK
+    ////// Test = Validated /////////
+
+    ////// Test with a moving Point in the [0,x,y] plan ////
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    // const Ax: number = 14;
+    // const Ay: number = 22;
+    // const Az: number = 46;
+    const radius1: number = 1;
+    const radius2: number = 1;
+
+    for(let ax=0;ax<10;ax++) {
+    for(let ay=0;ay<10;ay++) {
+    for(let az=0;az<10;az++) {
+    const O1: gs.IPoint = g.addPoint([0 + ax,0 + ay,0 + az]);
+    const O2: gs.IPoint = g.addPoint([1 + ax,0 + ay,0 + az]);
     const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     const circle2: gs.ICircle = g.addCircle(O2, [radius2,0,0], [0,radius2,0], [0,360]);
     const results: gs.IPoint[] = test._isectCircleCircle2D(circle1,circle2);
-    for (const k of results) {
-        console.log("Set 1 " + k.getPosition());
+    if(!gs.Arr.equal(results[0].getPosition(), [0.5,0.8660254037844386,0])) {return false;}
+    if(!gs.Arr.equal(results[1].getPosition(), [0.5,-0.8660254037844386,0])) {return false;}
+    if(!gs.Arr.equal(results[2].getPosition(), [-0.5,0.8660254037844386,0])) {return false;}
+    if(!gs.Arr.equal(results[3].getPosition(), [-0.5,-0.8660254037844386,0])) {return false;}
     }
-
-    const O3: gs.IPoint = g.addPoint([0,0,0]);
-    const O4: gs.IPoint = g.addPoint([1,1,0]);
-    const radius3: number = 1;
-    const radius4: number = 1;
-    const circle3: gs.ICircle = g.addCircle(O3, [radius3,0,0], [0,radius3,0], [0,360]);
-    const circle4: gs.ICircle = g.addCircle(O4, [radius4,0,0], [0,radius4,0], [0,360]);
-    const results2: gs.IPoint[] = test._isectCircleCircle2D(circle3,circle4);
-    for (const k of results2) {
-        console.log("Set 2 " + k.getPosition());
+    }
     }
 
     // if(!gs.Arr.equal(test._isectCircleCircle2D(circle1,circle2)[0].getPosition(),[1,0,0])) {return false;}
