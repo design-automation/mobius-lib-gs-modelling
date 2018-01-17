@@ -42,13 +42,15 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const e3: three.Vector3 = new three.Vector3(0,0,1);
 
     // Circle 1 Direct Orthonormal Basis
-    const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0]);
+    // const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0]);
+    const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0],circle1.getOrigin().getPosition()[1],circle1.getOrigin().getPosition()[2]);
     const U1: three.Vector3 = new three.Vector3(v1[0][0],v1[0][1],v1[0][2]).normalize();
     const V1: three.Vector3 = new three.Vector3(v1[1][0],v1[1][1],v1[1][2]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
 
     // Circle 2 Direct Orthonormal Basis
-    const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0]);
+    // const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0]);
+    const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0],circle2.getOrigin().getPosition()[1],circle2.getOrigin().getPosition()[2]);
     const U2: three.Vector3 = new three.Vector3(v2[0][0],v2[0][1],v2[0][2]).normalize();
     const V2: three.Vector3 = new three.Vector3(v2[1][0],v2[1][1],v2[1][2]).normalize();
     const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
