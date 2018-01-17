@@ -17,57 +17,46 @@ export function test_isectCircleCircle2D() {
     const g: gs.IGeom = m.getGeom();
     const radius1: number = 1;
     const radius2: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O1: gs.IPoint = g.addPoint([0 + ax,0 + ay,0 + az]);
-    // const O2: gs.IPoint = g.addPoint([1 + ax,0 + ay,0 + az]);
-    const O1: gs.IPoint = g.addPoint([0,0,0]);
-    const O2: gs.IPoint = g.addPoint([1,0,0]);
+    for(let ax=0;ax<10;ax++) {
+    for(let ay=0;ay<10;ay++) {
+    for(let az=0;az<10;az++) {
+    const O1: gs.IPoint = g.addPoint([0 + ax,0 + ay,0 + az]);
+    const O2: gs.IPoint = g.addPoint([1 + ax,0 + ay,0 + az]);
     const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     const circle2: gs.ICircle = g.addCircle(O2, [radius2,0,0], [0,radius2,0], [0,360]);
     const results12: gs.IPoint[] = test._isectCircleCircle2D(circle1,circle2);
-    // if(!gs.Arr.equal(results12[0].getPosition(), [0.5,-0.8660254037844386,0])) {return false;}
-    // if(!gs.Arr.equal(results12[1].getPosition(), [0.5,0.8660254037844386,0])) {return false;}
-    // if(!gs.Arr.equal(results12[2].getPosition(), [-0.5,-0.8660254037844386,0])) {return false;}
-    // if(!gs.Arr.equal(results12[3].getPosition(), [-0.5,0.8660254037844386,0])) {return false;}
-    // }
-    // }
-    // }
+    if(!gs.Arr.equal(results12[0].getPosition(), [0.5 +ax,0.8660254037844386 +ay,0 +az])) {return false;}
+    if(!gs.Arr.equal(results12[1].getPosition(), [0.5 +ax,-0.8660254037844386 +ay,0 +az])) {return false;}
+    }
+    }
+    }
     ////////// Test = Validated ////////////
 
-    console.log("Pt1_r1 " + results12[0].getPosition());
-    console.log("Pt2_r1 " + results12[1].getPosition());
-    // console.log("Pt1_r2 " + results12[2].getPosition());
-    // console.log("Pt2_r2 " + results12[3].getPosition());
-
+    // console.log("Pt1_r1 " + results12[0].getPosition());
+    // console.log("Pt2_r1 " + results12[1].getPosition());
 
     // Test 3
     ////// Test with moving Origin Points in the [0,x,z] plan ////
     const radius3: number = 1;
     const radius4: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O3: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
-    // const O4: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
-    const O3: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    const O4: gs.IPoint = g.addPoint([1 ,0 ,0 ]);
+    for(let ax=0;ax<10;ax++) {
+    for(let ay=0;ay<10;ay++) {
+    for(let az=0;az<10;az++) {
+    const O3: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
+    const O4: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
+    // // const O3: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
+    // const O4: gs.IPoint = g.addPoint([1 ,0 ,0 ]);
     const circle3: gs.ICircle = g.addCircle(O3, [radius3,0,0], [0,0,radius3], [0,360]);
     const circle4: gs.ICircle = g.addCircle(O4, [radius4,0,0], [0,0,radius4], [0,360]);
     const results34: gs.IPoint[] = test._isectCircleCircle2D(circle3,circle4);
-    // if(!gs.Arr.equal(results34[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[2].getPosition(), [-0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[3].getPosition(), [-0.5,0,0.8660254037844386])) {return false;}
-    // }
-    // }
-    // }
+    if(!gs.Arr.equal(results34[0].getPosition(), [0.5 +ax,0 +ay, 0.8660254037844386 +az])) {return false;}
+    if(!gs.Arr.equal(results34[1].getPosition(), [0.5 +ax,0 +ay,-0.8660254037844386 +az])) {return false;}
+    }
+    }
+    }
 
-    console.log("Pt3_r1 " + results34[0].getPosition());
-    console.log("Pt4_r1 " + results34[1].getPosition());
-    // console.log("Pt3_r2 " + results34[2].getPosition());
-    // console.log("Pt4_r2 " + results34[3].getPosition());
+    // console.log("Pt3_r1 " + results34[0].getPosition());
+    // console.log("Pt4_r1 " + results34[1].getPosition());
 
     ////////// Test = Validated ////////////
 
@@ -75,33 +64,41 @@ export function test_isectCircleCircle2D() {
     // Test for Circles in the [0,x,(z+y).normalized] plan [(x,y,z) rotated along X axis by +45 degrees]
     const radius5: number = 1;
     const radius6: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O5: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
-    // const O6: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
 
-    const O5: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    const O6: gs.IPoint = g.addPoint([1 ,0 ,0 ]);
+    for(let ax=0;ax<10;ax++) {
+    for(let slope=0;slope<10;slope++) {
+
+    const O5: gs.IPoint = g.addPoint([0 +ax ,0 +slope*Math.sqrt(2)/2,0 +slope*Math.sqrt(2)/2]);
+    const O6: gs.IPoint = g.addPoint([1 +ax,0 +slope*Math.sqrt(2)/2,0 +slope*Math.sqrt(2)/2]);
+
+    // const O5: gs.IPoint = g.addPoint([0 ,0 + 2*Math.sqrt(2)/2 , 0 + 2*Math.sqrt(2)/2]);
+    // const O6: gs.IPoint = g.addPoint([1 ,0 + 2*Math.sqrt(2)/2, 0 + 2*Math.sqrt(2)/2]);
     const circle5: gs.ICircle = g.addCircle(O5,
      [radius5,0,0], [0,radius5*Math.sqrt(2)/2,radius5*Math.sqrt(2)/2], [0,360]);
     const circle6: gs.ICircle = g.addCircle(O6,
      [radius6,0,0], [0,radius6*Math.sqrt(2)/2,radius6*Math.sqrt(2)/2], [0,360]);
     const results56: gs.IPoint[] = test._isectCircleCircle2D(circle5,circle6);
 
-    console.log("Pt5_r1 " + results56[0].getPosition());
-    console.log("Pt6_r1 " + results56[1].getPosition());
-    // console.log("Pt5_r2 " + results56[2].getPosition());
-    // console.log("Pt6_r2 " + results56[3].getPosition());
+    // console.log("Pt5_r1 " + results56[0].getPosition());
+    // console.log("Pt6_r1 " + results56[1].getPosition());
+    // console.log([0.5 ,0.6123724356957945 + 2*Math.sqrt(2)/2,0.6123724356957945 + 2*Math.sqrt(2)/2])
+    // console.log([0.5 ,-0.6123724356957945 + 2*Math.sqrt(2)/2,-0.6123724356957945 + 2*Math.sqrt(2)/2])
 
-    // if(!gs.Arr.equal(results56[0].getPosition(), [0.5,0.6123724356957945,0.6123724356957945])) {return false;}
-    // if(!gs.Arr.equal(results56[1].getPosition(), [0.5,-0.6123724356957945,-0.6123724356957945])) {return false;}
-    // if(!gs.Arr.equal(results56[2].getPosition(), [-0.5,-0.6123724356957945,+0.6123724356957945])) {return false;}
-    // if(!gs.Arr.equal(results56[3].getPosition(), [-0.5,-0.6123724356957945,-0.6123724356957945])) {return false;}
 
-    // }
-    // }
-    // }
+    // console.log(results56[0].getPosition())
+    // console.log([0.5 + ax,0.6123724356957945 + ay,0.6123724356957945 +az])
+    // console.log(results56[1].getPosition())
+    // console.log([0.5 + ax,-0.6123724356957945 + ay,-0.6123724356957945 +az])
+
+    // console.log("Left is " + results56[0].getPosition());
+    // console.log("Right is " + [0.5 + ax,0.6123724356957945 + (slope),0.6123724356957945 + (slope )]);
+
+    
+    if(!gs.Arr.equal(results56[0].getPosition(), [0.5 +ax,0.6123724356957945 +slope*Math.sqrt(2)/2,0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    if(!gs.Arr.equal(results56[1].getPosition(), [0.5 +ax,-0.6123724356957945 +slope*Math.sqrt(2)/2,-0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    }
+    }
+    
 
     // Test 5
     // Test for Circles in the [-y,x,0] plan plan [(x,y,z) rotated along Z axis by -90 degrees]
@@ -119,16 +116,11 @@ export function test_isectCircleCircle2D() {
     const circle8: gs.ICircle = g.addCircle(O8, [0,-radius8,0], [radius8,0,0], [0,360]);
     const results78: gs.IPoint[] = test._isectCircleCircle2D(circle7,circle8);
 
-    console.log("Pt7_r1 " + results78[0].getPosition());
-    console.log("Pt8_r1 " + results78[1].getPosition());
-    // console.log("Pt7_r2 " + results78[2].getPosition());
-    // console.log("Pt8_r2 " + results78[3].getPosition());
+    // console.log("Pt7_r1 " + results78[0].getPosition());
+    // console.log("Pt8_r1 " + results78[1].getPosition());
 
     // if(!gs.Arr.equal(results56[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
     // if(!gs.Arr.equal(results56[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results56[2].getPosition(), [-0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results56[3].getPosition(), [-0.5,0,0.8660254037844386])) {return false;}
-
     // }
     // }
     // }
@@ -163,15 +155,11 @@ export function test_isectCircleCircle2D() {
      [radius10*Math.sqrt(2)/2,0,radius10*Math.sqrt(2)/2], [0,radius10,0], [0,360]);
     const results910: gs.IPoint[] = test._isectCircleCircle2D(circle9,circle10);
 
-    console.log("Pt9_r1 " + results910[0].getPosition());
-    console.log("Pt10_r1 " + results910[1].getPosition());
-    // console.log("Pt9_r2 " + results910[2].getPosition());
-    // console.log("Pt10_r2 " + results910[3].getPosition());
+    // console.log("Pt9_r1 " + results910[0].getPosition());
+    // console.log("Pt10_r1 " + results910[1].getPosition());
 
     // if(!gs.Arr.equal(results910[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
     // if(!gs.Arr.equal(results910[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results910[2].getPosition(), [-0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results910[3].getPosition(), [-0.5,0,0.8660254037844386])) {return false;}
 
     // }
     // }
@@ -193,22 +181,16 @@ export function test_isectCircleCircle2D() {
     const results1112: gs.IPoint[] = test._isectCircleCircle2D(circle11,circle12);
     // if(!gs.Arr.equal(results34[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
     // if(!gs.Arr.equal(results34[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[2].getPosition(), [-0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[3].getPosition(), [-0.5,0,0.8660254037844386])) {return false;}
+
+    // console.log("Pt11_r1 " + results1112[0].getPosition());
+    // console.log("Pt12_r1 " + results1112[1].getPosition());
+
     // }
     // }
     // }
 
-    console.log("Pt11_r1 " + results1112[0].getPosition());
-    console.log("Pt12_r1 " + results1112[1].getPosition());
-    // console.log("Pt11_r2 " + results1112[2].getPosition());
-    // console.log("Pt12_r2 " + results1112[3].getPosition());
-
-
-
-
-
-
+//0.6123724356957945
+//0,0.8660254037844386,0.5
 
 
 

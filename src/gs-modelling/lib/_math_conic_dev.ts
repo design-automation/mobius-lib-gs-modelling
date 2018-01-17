@@ -51,9 +51,9 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     // Circle 2 Direct Orthonormal Basis
     // const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0]);
     const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0],circle2.getOrigin().getPosition()[1],circle2.getOrigin().getPosition()[2]);
-    const U2: three.Vector3 = new three.Vector3(v2[0][0],v2[0][1],v2[0][2]).normalize();
-    const V2: three.Vector3 = new three.Vector3(v2[1][0],v2[1][1],v2[1][2]).normalize();
-    const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
+    // const U2: three.Vector3 = new three.Vector3(v2[0][0],v2[0][1],v2[0][2]).normalize();
+    // const V2: three.Vector3 = new three.Vector3(v2[1][0],v2[1][1],v2[1][2]).normalize();
+    // const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
 
     // //
     // Rotation Matrix expressed in the reference direct orthonormal basis
@@ -78,23 +78,23 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
 
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 2
-    const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
-    const vec_O_2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(C2O1,U2),
-        threex.dotVectors(C2O1,V2),
-        threex.dotVectors(C2O1,W2),
-        );
-    const x2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(e1,U2),
-        threex.dotVectors(e1,V2),
-        threex.dotVectors(e1,W2),
-        );
-    const y2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(e2,U2),
-        threex.dotVectors(e2,V2),
-        threex.dotVectors(e2,W2),
-        );
-    const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
+    // const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
+    // const vec_O_2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(C2O1,U2),
+    //     threex.dotVectors(C2O1,V2),
+    //     threex.dotVectors(C2O1,W2),
+    //     );
+    // const x2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e1,U2),
+    //     threex.dotVectors(e1,V2),
+    //     threex.dotVectors(e1,W2),
+    //     );
+    // const y2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(e2,U2),
+    //     threex.dotVectors(e2,V2),
+    //     threex.dotVectors(e2,W2),
+    //     );
+    // const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
 
     //
     // Initial Rotation Matrix expressed in the reference direct orthonormal basis
@@ -121,25 +121,25 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
 
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 2
-    const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
-    // const O1C2: three.Vector3 = threex.subVectors(C2,C2,false);
+    // const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
+    // // const O1C2: three.Vector3 = threex.subVectors(C2,C2,false);
 
-    const init_vec_O_2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(O1C2,e1),
-        threex.dotVectors(O1C2,e2),
-        threex.dotVectors(O1C2,e3),
-        );
-    const init_x2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(U2,e1),
-        threex.dotVectors(U2,e2),
-        threex.dotVectors(U2,e3),
-        );
-    const init_y2: three.Vector3 = new three.Vector3(
-        threex.dotVectors(V2,e1),
-        threex.dotVectors(V2,e2),
-        threex.dotVectors(V2,e3),
-        );
-    const init_rotation2: three.Matrix4 = threex.xformMatrix(init_vec_O_2,init_x2,init_y2);
+    // const init_vec_O_2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(O1C2,e1),
+    //     threex.dotVectors(O1C2,e2),
+    //     threex.dotVectors(O1C2,e3),
+    //     );
+    // const init_x2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(U2,e1),
+    //     threex.dotVectors(U2,e2),
+    //     threex.dotVectors(U2,e3),
+    //     );
+    // const init_y2: three.Vector3 = new three.Vector3(
+    //     threex.dotVectors(V2,e1),
+    //     threex.dotVectors(V2,e2),
+    //     threex.dotVectors(V2,e3),
+    //     );
+    // const init_rotation2: three.Matrix4 = threex.xformMatrix(init_vec_O_2,init_x2,init_y2);
 
     //
     const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
