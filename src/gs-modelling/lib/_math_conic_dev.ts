@@ -56,93 +56,113 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
 
     // //
-    // // Rotation Matrix expressed in the reference direct orthonormal basis
-    //     // Circle 1
-    // const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
-    // const vec_O_1: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(C1O1,U1),
-    //     threex.dotVectors(C1O1,V1),
-    //     threex.dotVectors(C1O1,W1),
-    //     );
-    // const x1: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e1,U1),
-    //     threex.dotVectors(e1,V1),
-    //     threex.dotVectors(e1,W1),
-    //     );
-    // const y1: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e2,U1),
-    //     threex.dotVectors(e2,V1),
-    //     threex.dotVectors(e2,W1),
-    //     );
-    // const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
-
-    // // Rotation Matrix expressed in the reference direct orthonormal basis
-    //     // Circle 2
-    // const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
-    // const vec_O_2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(C2O1,U2),
-    //     threex.dotVectors(C2O1,V2),
-    //     threex.dotVectors(C2O1,W2),
-    //     );
-    // const x2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e1,U2),
-    //     threex.dotVectors(e1,V2),
-    //     threex.dotVectors(e1,W2),
-    //     );
-    // const y2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e2,U2),
-    //     threex.dotVectors(e2,V2),
-    //     threex.dotVectors(e2,W2),
-    //     );
-    // const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
-
-    //
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
-    const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
+    const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
     const vec_O_1: three.Vector3 = new three.Vector3(
-        threex.dotVectors(O1C1,e1),
-        threex.dotVectors(O1C1,e2),
-        threex.dotVectors(O1C1,e3),
+        threex.dotVectors(C1O1,U1),
+        threex.dotVectors(C1O1,V1),
+        threex.dotVectors(C1O1,W1),
         );
     const x1: three.Vector3 = new three.Vector3(
-        threex.dotVectors(U1,e1),
-        -threex.dotVectors(U1,e2),
-        threex.dotVectors(U1,e3),
+        threex.dotVectors(e1,U1),
+        threex.dotVectors(e1,V1),
+        threex.dotVectors(e1,W1),
         );
     const y1: three.Vector3 = new three.Vector3(
-        threex.dotVectors(V1,e1),
-        -threex.dotVectors(V1,e2),
-        threex.dotVectors(V1,e3),
+        threex.dotVectors(e2,U1),
+        threex.dotVectors(e2,V1),
+        threex.dotVectors(e2,W1),
         );
     const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
 
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 2
-    const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
+    const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
     const vec_O_2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(C2O1,U2),
+        threex.dotVectors(C2O1,V2),
+        threex.dotVectors(C2O1,W2),
+        );
+    const x2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e1,U2),
+        threex.dotVectors(e1,V2),
+        threex.dotVectors(e1,W2),
+        );
+    const y2: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e2,U2),
+        threex.dotVectors(e2,V2),
+        threex.dotVectors(e2,W2),
+        );
+    const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
+
+    //
+    // Initial Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 1
+    const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
+    // const O1C1: three.Vector3 = threex.subVectors(C1,C1,false);
+
+    const init_vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(O1C1,e1),
+        threex.dotVectors(O1C1,e2),
+        threex.dotVectors(O1C1,e3),
+        );
+    const init_x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(U1,e1),
+        threex.dotVectors(U1,e2),
+        threex.dotVectors(U1,e3),
+        );
+    const init_y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(V1,e1),
+        threex.dotVectors(V1,e2),
+        threex.dotVectors(V1,e3),
+        );
+    const init_rotation1: three.Matrix4 = threex.xformMatrix(init_vec_O_1,init_x1,init_y1);
+
+    // Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 2
+    const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
+    // const O1C2: three.Vector3 = threex.subVectors(C2,C2,false);
+
+    const init_vec_O_2: three.Vector3 = new three.Vector3(
         threex.dotVectors(O1C2,e1),
         threex.dotVectors(O1C2,e2),
         threex.dotVectors(O1C2,e3),
         );
-    const x2: three.Vector3 = new three.Vector3(
+    const init_x2: three.Vector3 = new three.Vector3(
         threex.dotVectors(U2,e1),
-        -threex.dotVectors(U2,e2),
+        threex.dotVectors(U2,e2),
         threex.dotVectors(U2,e3),
         );
-    const y2: three.Vector3 = new three.Vector3(
+    const init_y2: three.Vector3 = new three.Vector3(
         threex.dotVectors(V2,e1),
-        -threex.dotVectors(V2,e2),
+        threex.dotVectors(V2,e2),
         threex.dotVectors(V2,e3),
         );
-    const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
+    const init_rotation2: three.Matrix4 = threex.xformMatrix(init_vec_O_2,init_x2,init_y2);
+
+    //
+    const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
+    // const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation2);
+    const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
+
+
+    // console.log("C1 = " + [C1.x,C1.y,C1.z]);
+    // console.log("C2 = " + [C2.x,C2.y,C2.z]);
+    // console.log("int_rotation1 is " + init_rotation1.elements);
+    // console.log("int_rotation2 is " + init_rotation2.elements);
+    // console.log("a is " + [a.x,a.y,a.z]);
+    // console.log("b is " + [b.x,b.y,b.z]);
 
     const circle_1 = {
-    center: new kld.Point2D(C1.x,C1.y),
+    // center: new kld.Point2D(C1.x,C1.y),
+    center: new kld.Point2D(a.x,a.y),
+
     radius: circle1.getRadius(),
     };
     const circle_2 = {
-    center: new kld.Point2D(C2.x,C2.y),
+    // center: new kld.Point2D(C2.x,C2.y),
+    center: new kld.Point2D(b.x,b.y),
     radius: circle2.getRadius(),
     };
 
@@ -156,20 +176,20 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     const results_c1: three.Vector3[] = [];
     for (const point of results) {
-        // console.log("test " + threex.multVectorMatrix(point,rotation1))
         results_c1.push(threex.multVectorMatrix(point,rotation1));
     }
     const results_c2: three.Vector3[] = [];
     for (const point of results) {
-        results_c2.push(threex.multVectorMatrix(point,rotation2));
+        // results_c2.push(threex.multVectorMatrix(point,rotation2));
+        results_c2.push(threex.multVectorMatrix(point,rotation1));
     }
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
         points.push(g1.addPoint([point.x,point.y,point.z]));
     }
-    for(const point of results_c2) {
-        points.push(g1.addPoint([point.x,point.y,point.z]));
-    }
+    // for(const point of results_c2) {
+    //     points.push(g1.addPoint([point.x,point.y,point.z]));
+    // }
     return points;
 }
 
@@ -202,7 +222,7 @@ export function _isectEllipseEllipse2D(ellipse1: gs.IEllipse, ellipse2: gs.IElli
  * @param points_1 Point 1 or first cluster of points
  * @param points_2 Point 2 or second cluster of points
  * @param min Returns minimum distance between two clusters of points if true, maximum distance if false
- * @returns Distance between points if successful, none if unsuccessful or on error
+ * @returns Dist0ance between points if successful, none if unsuccessful or on error
  */
 export function distBetweenPoints(point_1: gs.IPoint[], point_2: gs.IPoint[], minimum: boolean=true ) {
         let min: number = 0;
