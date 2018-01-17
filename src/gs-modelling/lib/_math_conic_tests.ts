@@ -9,7 +9,7 @@ export function test_isectCircleCircle2D() {
     // const g2: gs.IGeom = m2.getGeom();
     // const circle1: gs.ICircle = g.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
     // const circle2: gs.ICircle = g2.addCircle(O1, [radius1,0,0], [0,radius1,0], [0,360]);
-    ////// Test = Validated /////////
+    ////// Test1 = Validated /////////
 
     // Test 2
     ////// Test with moving Origin Points in the [0,x,y] plan ////
@@ -30,10 +30,7 @@ export function test_isectCircleCircle2D() {
     }
     }
     }
-    ////////// Test = Validated ////////////
-
-    // console.log("Pt1_r1 " + results12[0].getPosition());
-    // console.log("Pt2_r1 " + results12[1].getPosition());
+    ////////// Test2 = Validated ////////////
 
     // Test 3
     ////// Test with moving Origin Points in the [0,x,z] plan ////
@@ -44,8 +41,6 @@ export function test_isectCircleCircle2D() {
     for(let az=0;az<10;az++) {
     const O3: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
     const O4: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
-    // // const O3: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    // const O4: gs.IPoint = g.addPoint([1 ,0 ,0 ]);
     const circle3: gs.ICircle = g.addCircle(O3, [radius3,0,0], [0,0,radius3], [0,360]);
     const circle4: gs.ICircle = g.addCircle(O4, [radius4,0,0], [0,0,radius4], [0,360]);
     const results34: gs.IPoint[] = test._isectCircleCircle2D(circle3,circle4);
@@ -54,76 +49,47 @@ export function test_isectCircleCircle2D() {
     }
     }
     }
-
-    // console.log("Pt3_r1 " + results34[0].getPosition());
-    // console.log("Pt4_r1 " + results34[1].getPosition());
-
-    ////////// Test = Validated ////////////
+    ////////// Test3 = Validated ////////////
 
     // Test 4
-    // Test for Circles in the [0,x,(z+y).normalized] plan [(x,y,z) rotated along X axis by +45 degrees]
+    // Test for Moving Circles in the [0,x,(z+y).normalized] plan [(x,y,z) rotated along X axis by +45 degrees]
     const radius5: number = 1;
     const radius6: number = 1;
-
     for(let ax=0;ax<10;ax++) {
     for(let slope=0;slope<10;slope++) {
-
     const O5: gs.IPoint = g.addPoint([0 +ax ,0 +slope*Math.sqrt(2)/2,0 +slope*Math.sqrt(2)/2]);
     const O6: gs.IPoint = g.addPoint([1 +ax,0 +slope*Math.sqrt(2)/2,0 +slope*Math.sqrt(2)/2]);
-
-    // const O5: gs.IPoint = g.addPoint([0 ,0 + 2*Math.sqrt(2)/2 , 0 + 2*Math.sqrt(2)/2]);
-    // const O6: gs.IPoint = g.addPoint([1 ,0 + 2*Math.sqrt(2)/2, 0 + 2*Math.sqrt(2)/2]);
     const circle5: gs.ICircle = g.addCircle(O5,
      [radius5,0,0], [0,radius5*Math.sqrt(2)/2,radius5*Math.sqrt(2)/2], [0,360]);
     const circle6: gs.ICircle = g.addCircle(O6,
      [radius6,0,0], [0,radius6*Math.sqrt(2)/2,radius6*Math.sqrt(2)/2], [0,360]);
     const results56: gs.IPoint[] = test._isectCircleCircle2D(circle5,circle6);
-
-    // console.log("Pt5_r1 " + results56[0].getPosition());
-    // console.log("Pt6_r1 " + results56[1].getPosition());
-    // console.log([0.5 ,0.6123724356957945 + 2*Math.sqrt(2)/2,0.6123724356957945 + 2*Math.sqrt(2)/2])
-    // console.log([0.5 ,-0.6123724356957945 + 2*Math.sqrt(2)/2,-0.6123724356957945 + 2*Math.sqrt(2)/2])
-
-
-    // console.log(results56[0].getPosition())
-    // console.log([0.5 + ax,0.6123724356957945 + ay,0.6123724356957945 +az])
-    // console.log(results56[1].getPosition())
-    // console.log([0.5 + ax,-0.6123724356957945 + ay,-0.6123724356957945 +az])
-
-    // console.log("Left is " + results56[0].getPosition());
-    // console.log("Right is " + [0.5 + ax,0.6123724356957945 + (slope),0.6123724356957945 + (slope )]);
-
-    
-    if(!gs.Arr.equal(results56[0].getPosition(), [0.5 +ax,0.6123724356957945 +slope*Math.sqrt(2)/2,0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
-    if(!gs.Arr.equal(results56[1].getPosition(), [0.5 +ax,-0.6123724356957945 +slope*Math.sqrt(2)/2,-0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    if(!gs.Arr.equal(results56[0].getPosition(),
+     [0.5 +ax,0.6123724356957945 +slope*Math.sqrt(2)/2,0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    if(!gs.Arr.equal(results56[1].getPosition(),
+     [0.5 +ax,-0.6123724356957945 +slope*Math.sqrt(2)/2,-0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
     }
     }
-    
+    ////////// Test4 = Validated ////////////
 
     // Test 5
     // Test for Circles in the [-y,x,0] plan plan [(x,y,z) rotated along Z axis by -90 degrees]
     const radius7: number = 1;
     const radius8: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O5: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
-    // const O6: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
-
-    const O7: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    const O8: gs.IPoint = g.addPoint([0 ,-1 ,0 ]);
+    for(let ax=0;ax<10;ax++) {
+    for(let ay=0;ay<10;ay++) {
+    for(let az=0;az<10;az++) {
+    const O7: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
+    const O8: gs.IPoint = g.addPoint([0 +ax,-1 +ay,0 +az]);
     const circle7: gs.ICircle = g.addCircle(O7, [0,-radius7,0], [radius7,0,0], [0,360]);
     const circle8: gs.ICircle = g.addCircle(O8, [0,-radius8,0], [radius8,0,0], [0,360]);
     const results78: gs.IPoint[] = test._isectCircleCircle2D(circle7,circle8);
-
-    // console.log("Pt7_r1 " + results78[0].getPosition());
-    // console.log("Pt8_r1 " + results78[1].getPosition());
-
-    // if(!gs.Arr.equal(results56[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results56[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-    // }
-    // }
-    // }
+    if(!gs.Arr.equal(results78[0].getPosition(), [0.8660254037844386 +ax,-0.5 +ay,0 +az])) {return false;}
+    if(!gs.Arr.equal(results78[1].getPosition(), [-0.8660254037844386 +ax,-0.5 +ay,0 +az])) {return false;}
+    }
+    }
+    }
+    ////////// Test5 = Validated ////////////
 
     // Test 6
     // Test for Circles in the [(x+z).normalize,y,(z-x).normalize] plan [(x,y,z) rotated along Y axis by +45 degrees]
