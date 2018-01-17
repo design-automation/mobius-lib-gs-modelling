@@ -95,72 +95,40 @@ export function test_isectCircleCircle2D() {
     // Test for Circles in the [(x+z).normalize,y,(z-x).normalize] plan [(x,y,z) rotated along Y axis by +45 degrees]
     const radius9: number = 1;
     const radius10: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O9: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
-    // const O10: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
-                                // const O9: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-                                // const O10: gs.IPoint = g.addPoint([0 ,1 ,0 ]);
-                                // const circle9: gs.ICircle = g.addCircle(O9,
-                                //  [radius9*Math.sqrt(2)/2,0,radius9*Math.sqrt(2)/2], [0,radius9,0], [0,360]);
-                                // const circle10: gs.ICircle = g.addCircle(O10,
-                                //  [radius10*Math.sqrt(2)/2,0,radius10*Math.sqrt(2)/2], [0,radius10,0], [0,360]);
-                                // const results910: gs.IPoint[] = test._isectCircleCircle2D(circle9,circle10);
-
-                                // console.log("Pt9_r1 " + results910[0].getPosition());
-                                // console.log("Pt10_r1 " + results910[1].getPosition());
-                                // console.log("Pt9_r2 " + results910[2].getPosition());
-                                // console.log("Pt10_r2 " + results910[3].getPosition());
-
-    const O9: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    const O10: gs.IPoint = g.addPoint([0 ,1 ,0 ]);
+    for(let ay=0;ay<10;ay++) {
+    for(let slope=0;slope<10;slope++) {
+    const O9: gs.IPoint = g.addPoint([0 +slope*Math.sqrt(2)/2,0 + ay,0 +slope*Math.sqrt(2)/2]);
+    const O10: gs.IPoint = g.addPoint([0 +slope*Math.sqrt(2)/2,1 + ay,0 +slope*Math.sqrt(2)/2]);
     const circle9: gs.ICircle = g.addCircle(O9,
      [radius9*Math.sqrt(2)/2,0,radius9*Math.sqrt(2)/2], [0,radius9,0], [0,360]);
     const circle10: gs.ICircle = g.addCircle(O10,
      [radius10*Math.sqrt(2)/2,0,radius10*Math.sqrt(2)/2], [0,radius10,0], [0,360]);
     const results910: gs.IPoint[] = test._isectCircleCircle2D(circle9,circle10);
-
-    // console.log("Pt9_r1 " + results910[0].getPosition());
-    // console.log("Pt10_r1 " + results910[1].getPosition());
-
-    // if(!gs.Arr.equal(results910[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results910[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
-
-    // }
-    // }
-    // }
+    if(!gs.Arr.equal(results910[0].getPosition(),
+        [-0.6123724356957945 +slope*Math.sqrt(2)/2,0.5 + ay,-0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    if(!gs.Arr.equal(results910[1].getPosition(),
+        [0.6123724356957945 +slope*Math.sqrt(2)/2,0.5 + ay,0.6123724356957945 +slope*Math.sqrt(2)/2])) {return false;}
+    }
+    }
 
     // Test 7
     ////// Test with moving Origin Points in the [0,y,z] plan ////
     const radius11: number = 1;
     const radius12: number = 1;
-    // for(let ax=0;ax<10;ax++) {
-    // for(let ay=0;ay<10;ay++) {
-    // for(let az=0;az<10;az++) {
-    // const O3: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
-    // const O4: gs.IPoint = g.addPoint([1 +ax,0 +ay,0 +az]);
-    const O11: gs.IPoint = g.addPoint([0 ,0 ,0 ]);
-    const O12: gs.IPoint = g.addPoint([0 ,0 ,1 ]);
+    for(let ax=0;ax<10;ax++) {
+    for(let ay=0;ay<10;ay++) {
+    for(let az=0;az<10;az++) {
+    const O11: gs.IPoint = g.addPoint([0 +ax,0 +ay,0 +az]);
+    const O12: gs.IPoint = g.addPoint([0 +ax,0 +ay,1 +az]);
     const circle11: gs.ICircle = g.addCircle(O11, [0,radius11,0], [0,0,radius11], [0,360]);
     const circle12: gs.ICircle = g.addCircle(O12, [0,radius12,0], [0,0,radius12], [0,360]);
     const results1112: gs.IPoint[] = test._isectCircleCircle2D(circle11,circle12);
-    // if(!gs.Arr.equal(results34[0].getPosition(), [0.5,0,-0.8660254037844386])) {return false;}
-    // if(!gs.Arr.equal(results34[1].getPosition(), [0.5,0,0.8660254037844386])) {return false;}
+    if(!gs.Arr.equal(results1112[0].getPosition(), [0 +ax,-0.8660254037844386 +ay,0.5 +az])) {return false;}
+    if(!gs.Arr.equal(results1112[1].getPosition(), [0 +ax,0.8660254037844386 +ay,0.5 +az])) {return false;}
+    }
+    }
+    }
 
-    // console.log("Pt11_r1 " + results1112[0].getPosition());
-    // console.log("Pt12_r1 " + results1112[1].getPosition());
-
-    // }
-    // }
-    // }
-
-//0.6123724356957945
-//0,0.8660254037844386,0.5
-
-
-
-    // if(!gs.Arr.equal(test._isectCircleCircle2D(circle1,circle2)[0].getPosition(),[1,0,0])) {return false;}
     return true;
 }
 export function test_isectCircleEllipse2D() {
