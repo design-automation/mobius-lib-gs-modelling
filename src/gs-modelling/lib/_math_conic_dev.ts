@@ -13,49 +13,32 @@ import * as kld from "kld-intersections";
  * @returns An array of intersection points
  */
 export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
-    // Model Comparison
     const m1: gs.IModel = circle1.getModel();
     const m2: gs.IModel = circle2.getModel();
     if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
     const g1: gs.IGeom = m1.getGeom();
-
-    // Distance Comparison
     const threshold: number = 1e-6;
     const r: number = circle1.getRadius() + circle2.getRadius();
     const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
     if (O1O2.length() > r ) {return null;}
-
     const v1: number[][] = [circle1.getVectors()[0],circle1.getVectors()[1],circle1.getVectors()[2]];
     const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1],circle1.getVectors()[2]];
-
-    // Coplanarity
     if(!threex.planesAreCoplanar(circle1.getOrigin(),
      threex.crossXYZs([v1[0][0],v1[0][1],v1[0][2]],[v1[1][0],v1[1][1],v1[1][2]],false),
      circle2.getOrigin(),
      threex.crossXYZs([v2[0][0],v2[0][1],v2[0][2]],[v2[1][0],v2[1][1],v2[1][2]],false))
         ) {throw new Error("Entities must be coplanar.");}
-
     // Direct Orthonormal Basis of reference
     const O1: three.Vector3 = new three.Vector3(0,0,0);
     const e1: three.Vector3 = new three.Vector3(1,0,0);
     const e2: three.Vector3 = new three.Vector3(0,1,0);
     const e3: three.Vector3 = new three.Vector3(0,0,1);
-
     // Circle 1 Direct Orthonormal Basis
-    // const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0]);
     const C1: three.Vector3 = new three.Vector3(circle1.getOrigin().getPosition()[0],circle1.getOrigin().getPosition()[1],circle1.getOrigin().getPosition()[2]);
     const U1: three.Vector3 = new three.Vector3(v1[0][0],v1[0][1],v1[0][2]).normalize();
     const V1: three.Vector3 = new three.Vector3(v1[1][0],v1[1][1],v1[1][2]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
-
-    // Circle 2 Direct Orthonormal Basis
-    // const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0]);
     const C2: three.Vector3 = new three.Vector3(circle2.getOrigin().getPosition()[0],circle2.getOrigin().getPosition()[1],circle2.getOrigin().getPosition()[2]);
-    // const U2: three.Vector3 = new three.Vector3(v2[0][0],v2[0][1],v2[0][2]).normalize();
-    // const V2: three.Vector3 = new three.Vector3(v2[1][0],v2[1][1],v2[1][2]).normalize();
-    // const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
-
-    // //
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
     const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
@@ -75,33 +58,9 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         threex.dotVectors(e2,W1),
         );
     const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
-
-    // Rotation Matrix expressed in the reference direct orthonormal basis
-        // Circle 2
-    // const C2O1: three.Vector3 = threex.subVectors(O1,C2,false);
-    // const vec_O_2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(C2O1,U2),
-    //     threex.dotVectors(C2O1,V2),
-    //     threex.dotVectors(C2O1,W2),
-    //     );
-    // const x2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e1,U2),
-    //     threex.dotVectors(e1,V2),
-    //     threex.dotVectors(e1,W2),
-    //     );
-    // const y2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(e2,U2),
-    //     threex.dotVectors(e2,V2),
-    //     threex.dotVectors(e2,W2),
-    //     );
-    // const rotation2: three.Matrix4 = threex.xformMatrix(vec_O_2,x2,y2);
-
-    //
     // Initial Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
     const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
-    // const O1C1: three.Vector3 = threex.subVectors(C1,C1,false);
-
     const init_vec_O_1: three.Vector3 = new three.Vector3(
         threex.dotVectors(O1C1,e1),
         threex.dotVectors(O1C1,e2),
@@ -118,57 +77,18 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         threex.dotVectors(V1,e3),
         );
     const init_rotation1: three.Matrix4 = threex.xformMatrix(init_vec_O_1,init_x1,init_y1);
-
-    // Rotation Matrix expressed in the reference direct orthonormal basis
-        // Circle 2
-    // const O1C2: three.Vector3 = threex.subVectors(C2,O1,false);
-    // // const O1C2: three.Vector3 = threex.subVectors(C2,C2,false);
-
-    // const init_vec_O_2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(O1C2,e1),
-    //     threex.dotVectors(O1C2,e2),
-    //     threex.dotVectors(O1C2,e3),
-    //     );
-    // const init_x2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(U2,e1),
-    //     threex.dotVectors(U2,e2),
-    //     threex.dotVectors(U2,e3),
-    //     );
-    // const init_y2: three.Vector3 = new three.Vector3(
-    //     threex.dotVectors(V2,e1),
-    //     threex.dotVectors(V2,e2),
-    //     threex.dotVectors(V2,e3),
-    //     );
-    // const init_rotation2: three.Matrix4 = threex.xformMatrix(init_vec_O_2,init_x2,init_y2);
-
-    //
     const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
-    // const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation2);
     const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
-
-
-    // console.log("C1 = " + [C1.x,C1.y,C1.z]);
-    // console.log("C2 = " + [C2.x,C2.y,C2.z]);
-    // console.log("int_rotation1 is " + init_rotation1.elements);
-    // console.log("int_rotation2 is " + init_rotation2.elements);
-    // console.log("a is " + [a.x,a.y,a.z]);
-    // console.log("b is " + [b.x,b.y,b.z]);
-
     const circle_1 = {
-    // center: new kld.Point2D(C1.x,C1.y),
     center: new kld.Point2D(a.x,a.y),
-
     radius: circle1.getRadius(),
     };
     const circle_2 = {
-    // center: new kld.Point2D(C2.x,C2.y),
     center: new kld.Point2D(b.x,b.y),
     radius: circle2.getRadius(),
     };
-
     const result: kld.Intersection = kld.Intersection.intersectCircleCircle(circle_1.center, circle_1.radius,
         circle_2.center, circle_2.radius);
-
     // Retransforming into original coordinates system
     const results: three.Vector3[] = [];
     for (const point of result.points) {
@@ -178,18 +98,10 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     for (const point of results) {
         results_c1.push(threex.multVectorMatrix(point,rotation1));
     }
-    const results_c2: three.Vector3[] = [];
-    for (const point of results) {
-        // results_c2.push(threex.multVectorMatrix(point,rotation2));
-        results_c2.push(threex.multVectorMatrix(point,rotation1));
-    }
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
         points.push(g1.addPoint([point.x,point.y,point.z]));
     }
-    // for(const point of results_c2) {
-    //     points.push(g1.addPoint([point.x,point.y,point.z]));
-    // }
     return points;
 }
 
