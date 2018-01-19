@@ -1,5 +1,8 @@
 /**
- * String functions return properties and perform actions on strings
+ * Strings are a type of data that contains text in the form of alphanumeric characters and symbols.<br/>
+ *
+ * They are enclosed in quotation marks.<br/>
+ * Regular expressions can also be used to search for character matches in strings.
  */
 
 /**
@@ -17,6 +20,12 @@ import * as gs from "gs-json";
  * @param str_1 String to check
  * @param str_2 String of characters to check for
  * @returns True if str_1 ends with str_2, false if str_1 does not end with str_2
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * ends = String.endsWith(string,"e")
+ * //Expected value of ends is true
+ * </code>
  */
 export function endsWith(str_1: string, str_2: string): boolean {
     return str_1.endsWith(str_2);
@@ -27,6 +36,12 @@ export function endsWith(str_1: string, str_2: string): boolean {
  * @param str_1 String to check
  * @param str_2 String to search for
  * @returns True if str_1 contains str_2, false if str_1 does not contain str_2
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * incl = String.includes(string,"an")
+ * //Expected value of incl is true
+ * </code>
  */
 export function includes(str_1: string, str_2: string): boolean {
     return str_1.includes(str_2);
@@ -36,6 +51,12 @@ export function includes(str_1: string, str_2: string): boolean {
  * Returns the number of characters in a string
  * @param str String to find length of
  * @returns Length of string
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * length = String.len(string)
+ * //Expected value of length is 6
+ * </code>
  */
 export function len(str: string): number {
     return str.length;
@@ -50,6 +71,12 @@ export function len(str: string): number {
  * @param str_2 String to search for
  * @param str_3 String to replace search value with
  * @returns New string with replaced characters
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * newString = String.Replace(string,"O","Ar")
+ * //Expected value of newString is "Arrange"
+ * </code>
  */
 export function replace(str_1: string, str_2: string, str_3: string): string {
     return str_1.replace(str_2,str_3);
@@ -62,6 +89,12 @@ export function replace(str_1: string, str_2: string, str_3: string): string {
  * @param str_1 String to check
  * @param str_2 String of characters to check for
  * @returns Number that represents position of str_1 in str_2
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * search = String.search(string,"e")
+ * //Expected value of search is 5
+ * </code>
  */
 export function search(str_1: string, str_2: string): number {
     return str_1.search(str_2);
@@ -72,6 +105,12 @@ export function search(str_1: string, str_2: string): number {
  * @param str String
  * @param separator String of characters used to split string
  * @returns List of substrings
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * split = String.split(string,"a")
+ * //Expected value of split is ["Or","nge"]
+ * </code>
  */
 export function split(str: string, separator: string): string[] {
     return str.split(separator);
@@ -85,6 +124,12 @@ export function split(str: string, separator: string): string[] {
  * @param start Index to start extracting characters
  * @param end Index to stop extracting characters
  * @returns New string with extracted characters
+ * Example:<br/>
+ * <code>
+ * string = "Orange"
+ * substring = String.substring(string,1,4)
+ * //Expected value of ends is "ran"
+ * </code>
  */
 export function substring(str: string, start: number, end: number): string {
     return str.substring(start,end);
