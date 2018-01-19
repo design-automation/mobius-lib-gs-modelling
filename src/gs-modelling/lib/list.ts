@@ -76,7 +76,6 @@ export function len(list: any[]): number {
  * Adds an item to the end of a list
  *
  * If item is a list, the entire list will be appended as one item<br/>
- * Alters original input list
  * @param list List to add to
  * @param item Item to add
  * @returns List with added item
@@ -88,15 +87,15 @@ export function len(list: any[]): number {
  * Expected value of list is [1,2,3,4]
  */
 export function append(list: any[], item: any): any[] {
-    list.push(item);
-    return list;
+    const list2 = list.slice();
+    list2.push(item);
+    return list2;
 }
 
 /**
  * Adds an item to the front of a list
  *
  * If item is a list, the entire list will be appended as one item<br/>
- * Alters original input list
  * @param list List to add to
  * @param item Item to add
  * @returns List with added item
@@ -108,15 +107,15 @@ export function append(list: any[], item: any): any[] {
  * Expected value of list is [4,1,2,3]
  */
 export function appendFront(list: any[], item: any): any[] {
-    list.unshift(item);
-    return list;
+    const list2 = list.slice();
+    list2.unshift(item);
+    return list2;
 }
 
 /**
  * Adds items (from a list) to the end of an list
  *
- * Items are appended to list individually as seperate items<br/>
- * Does not alter original input list
+ * Items are added to list individually as seperate items<br/>
  * @param list List to add to
  * @param items List of items to add
  * @returns List with added items
@@ -135,8 +134,7 @@ export function extend(list: any[], items: any[]): any[] {
 /**
  * Adds items (from a list) to the front of an list
  *
- * Items are appended to list individually as seperate items<br/>
- * Does not alter original input list
+ * Items are added to list individually as seperate items<br/>
  * @param list List to add to
  * @param items List of items to add
  * @returns List with added items
@@ -155,7 +153,6 @@ export function extendFront(list: any[], items: any[]): any[] {
 /**
  * Flattens an n-dimensional list into a one-dimensional list
  *
- * Alters input list<br/>
  * List returned will be in order
  * @param list List to flatten
  * @returns Flattened list
@@ -172,8 +169,6 @@ export function flatten(list: any[]): any[] {
 
 /**
  * Removes the item with the specified index number from a list
- *
- * Alters input list
  * @param list List to remove item from
  * @param index Index number of item to remove
  * @returns List with item removed
@@ -185,14 +180,14 @@ export function flatten(list: any[]): any[] {
  * Expected value of list is [2,3]
  */
 export function removeIndex(list: any[], index: number): any[] {
-    list.splice(index,1);
-    return list;
+    const list2 = list.slice();
+    list2.splice(index,1);
+    return list2;
 }
 
 /**
  * Removes items that match specified value from a list
  *
- * Alters input list<br/>
  * Items must match both the value and type of specified value<br/>
  * Returns original list if no items in list match specified value
  * @param list List to remove item from
@@ -208,19 +203,18 @@ export function removeIndex(list: any[], index: number): any[] {
  * Expected value of list is [1,3]
  */
 export function removeValue(list: any[], value: any, remove_all: boolean): any[] {
-    for (let i = list.length - 1; i >= 0; i--) {
-        if (list[i] === value) {
-            list.splice(i,1);
+    const list2 = list.slice();
+    for (let i = list2.length - 1; i >= 0; i--) {
+        if (list2[i] === value) {
+            list2.splice(i,1);
             if (remove_all === false) {break;}
         }
     }
-    return list;
+    return list2;
 }
 
 /**
  * Reverses the order of items in an list
- *
- * Alters input list
  * @param list List to reverse
  * @returns New reversed list
  *
@@ -231,14 +225,14 @@ export function removeValue(list: any[], value: any, remove_all: boolean): any[]
  * Expected value of list is [3,2,1]
  */
 export function reverse(list: any[]): any[] {
-    list.reverse();
+    const list2 = list.slice();
+    list2.reverse();
     return list;
 }
 
 /**
  * Sorts a list of strings alphabetically
  *
- * Alters input list<br/>
  * If items are not strings, they are treated as strings<br/>
  * Items are sorted according to string Unicode code points (character by character, numbers before upper case
  * alphabets, upper case alphabets before lower case alphabets)
@@ -249,16 +243,17 @@ export function reverse(list: any[]): any[] {
  * <code>
  * list = ["1","2","10","Orange","apple"]<br/>
  * sort = List.sortAlpha(list)</code><br/><br/>
- * Expected value of list is ["1","10","2","Orange","apple"] */
+ * Expected value of list is ["1","10","2","Orange","apple"]
+ */
 export function sortAlpha(list: any[]): any[] {
-    list.sort();
-    return list;
+    const list2 = list.slice();
+    list2.sort();
+    return list2;
 }
 
 /**
  * Sorts a list of numbers in ascending order
  *
- * Alters input list<br/>
  * List must contain numbers
  * @param list List to add to
  * @returns New sorted list
@@ -270,14 +265,14 @@ export function sortAlpha(list: any[]): any[] {
  * Expected value of list is [6,48,56]
  */
 export function sortNum(list: any[]): any[] {
-    list.sort(function(a, b) {return a - b;} );
-    return list;
+    const list2 = list.slice();
+    list2.sort(function(a, b) {return a - b;} );
+    return list2;
 }
 
 /**
  * Removes items with index numbers that fall within a range from a list and return them
  *
- * Alters input list<br/>
  * Bottom bound number of range is inclusive, top bound number is exclusive
  * @param list List slice
  * @param min Bottom bound number of range
@@ -292,7 +287,8 @@ export function sortNum(list: any[]): any[] {
  * Expected value of slice is [2,3]
  */
 export function slice(list: any[], min: number, max: number): any[] {
-    return list.slice(min,max);
+    const list2 = list.slice();
+    return list2.slice(min,max);
 }
 
 /**
@@ -315,5 +311,6 @@ export function slice(list: any[], min: number, max: number): any[] {
  * Expected value of splice is [3,4]
  */
 export function splice(list: any[], index: number, howmany: number, items: any[]): any[] {
-    return list.splice(index, howmany, ...items);
+    const list2 = list.slice();
+    return list2.splice(index, howmany, ...items);
 }
