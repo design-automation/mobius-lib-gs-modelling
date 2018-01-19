@@ -69,11 +69,11 @@ export function tan(angle: number): number {
  * @param base Base number
  * @param exponent Power of exponent
  * @returns Number representing the given base taken to the power of the given exponent
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * num = Math.pow(2,3)
- * //Expected value of num is 8
- * </code>
+ * num = Math.pow(2,3)</code><br/><br/>
+ * Expected value of num is 8
  */
 export function pow(base: number, exponent: number): number {
     return Math.pow(base, exponent);
@@ -84,11 +84,11 @@ export function pow(base: number, exponent: number): number {
  * Rounds a number up to the nearest integer
  * @param num Number
  * @returns A number representing the smallest integer more than or equal to the specified number
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * num = Math.ceiling(4.3)
- * //Expected value of num is 5
- * </code>
+ * num = Math.ceiling(4.3)</code><br/><br/>
+ * Expected value of num is 5
  */
 export function ceiling(num: number): number {
     return Math.ceil(num);
@@ -99,11 +99,11 @@ export function ceiling(num: number): number {
  * Rounds a number down to the nearest integer
  * @param num Number
  * @returns A number representing the largest integer less than or equal to the specified number
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * num = Math.floor(4.3)
- * //Expected value of num is 4
- * </code>
+ * num = Math.floor(4.3)</code><br/><br/>
+ * Expected value of num is 4
  */
 export function floor(num: number): number {
     return Math.floor(num);
@@ -116,11 +116,11 @@ export function floor(num: number): number {
  * Returns num if num is positive, -num if num is negative and 0 if num=0<br/>
  * @param num Number
  * @returns A number representing the absolute value of the specified number
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * num = Math.abs(-5)
- * //Expected value of num is 5
- * </code>
+ * num = Math.abs(-5)</code><br/><br/>
+ * Expected value of num is 5
  */
 export function abs(num: number): number {
     return Math.abs(num);
@@ -131,12 +131,12 @@ export function abs(num: number): number {
  * Returns the largest number in a list of numbers
  * @param nums List of numbers
  * @returns A number representing the largest number in specified list of numbers
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * list = [89,6,1]
- * num = Math.max(list)
- * //Expected value of num is 89
- * </code>
+ * list = [89,6,1]<br/>
+ * num = Math.max(list)</code><br/><br/>
+ * Expected value of num is 89
  */
 export function max(nums: number[]): number {
     let maximum = Number.NEGATIVE_INFINITY;
@@ -153,12 +153,12 @@ export function max(nums: number[]): number {
  * Returns the smallest number in a list of numbers
  * @param num List of numbers
  * @returns A number representing the smallest number in specified list of numbers
- * Example:<br/>
+ *
+ * <h3>Example:</h3>
  * <code>
- * list = [89,6,1]
- * num = Math.max(list)
- * //Expected value of num is 1
- * </code>
+ * list = [89,6,1]<br/>
+ * num = Math.max(list)</code><br/><br/>
+ * Expected value of num is 1
  */
 export function min(nums: number[]): number {
     let minimum = Number.POSITIVE_INFINITY;

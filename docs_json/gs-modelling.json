@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/attrib.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/attrib.ts",
 			"children": [
 				{
 					"id": 16,
@@ -831,7 +831,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/circle.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/circle.ts",
 			"children": [
 				{
 					"id": 74,
@@ -1794,7 +1794,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ellipse.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/ellipse.ts",
 			"children": [
 				{
 					"id": 132,
@@ -2810,7 +2810,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/entity.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/entity.ts",
 			"children": [
 				{
 					"id": 167,
@@ -3122,7 +3122,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/examples.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/examples.ts",
 			"comment": {
 				"shortText": "These functions call examples for mobius."
 			},
@@ -3186,7 +3186,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/group.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/group.ts",
 			"children": [
 				{
 					"id": 192,
@@ -3913,7 +3913,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/intersect.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/intersect.ts",
 			"comment": {
 				"shortText": "Intersect functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap. They return these intersections and overlaps and do not alter the original input objects."
 			},
@@ -3963,7 +3963,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/list.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/list.ts",
 			"comment": {
 				"shortText": "Lists are a tool to manage a collection of data.<br/>",
 				"text": "Any information can be stored in a list (including other lists) and they are refered to as items.<br/>\nItems in a list are ordered and will be returned in the same order or accessed by the same index unless\nchanges are made to alter it.<br/>\n\nTo create an empty list, use the assignment button and define the value as <code>[]</code><br/>\nTo access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly\ninto functions.\n"
@@ -3986,7 +3986,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Duplicates a list",
-								"returns": "New duplicated list\n"
+								"returns": "New duplicated list\n\n<h3>Example:</h3>\n<code>\nlist = [1,2,3]<br/>\ncopy = List.Copy(list)</code><br/><br/>\nExpected value of copy is [1,2,3]\n"
 							},
 							"parameters": [
 								{
@@ -4019,7 +4019,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 29,
+							"line": 35,
 							"character": 20
 						}
 					]
@@ -4042,7 +4042,7 @@
 							"comment": {
 								"shortText": "Creates a new list of integers between two integers",
 								"text": "Bottom bound number is inclusive and top bound number is exclusive<br/>",
-								"returns": "New list\n"
+								"returns": "New list\n\n<h3>Example: </h3>\n<code>\nlist = List.FromRange(0,5)</code><br/><br/>\nExpected value of list is [0,1,2,3,4]\n"
 							},
 							"parameters": [
 								{
@@ -4086,7 +4086,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 41,
+							"line": 52,
 							"character": 25
 						}
 					]
@@ -4109,7 +4109,7 @@
 							"comment": {
 								"shortText": "Adds an item to the end of a list",
 								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
-								"returns": "List with added item\n"
+								"returns": "List with added item\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.append(list,4)</code><br/><br/>\nExpected value of list is [1,2,3,4]\n"
 							},
 							"parameters": [
 								{
@@ -4156,7 +4156,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 67,
+							"line": 90,
 							"character": 22
 						}
 					]
@@ -4179,7 +4179,7 @@
 							"comment": {
 								"shortText": "Adds an item to the front of a list",
 								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
-								"returns": "List with added item\n"
+								"returns": "List with added item\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.appendFront(list,4)</code><br/><br/>\nExpected value of list is [4,1,2,3]\n"
 							},
 							"parameters": [
 								{
@@ -4226,7 +4226,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 81,
+							"line": 110,
 							"character": 27
 						}
 					]
@@ -4249,7 +4249,7 @@
 							"comment": {
 								"shortText": "Adds items (from a list) to the end of an list",
 								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
-								"returns": "List with added items\n"
+								"returns": "List with added items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [1,2,3,9,0]\n"
 							},
 							"parameters": [
 								{
@@ -4299,7 +4299,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 95,
+							"line": 131,
 							"character": 22
 						}
 					]
@@ -4322,7 +4322,7 @@
 							"comment": {
 								"shortText": "Adds items (from a list) to the front of an list",
 								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
-								"returns": "List with added items\n"
+								"returns": "List with added items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [9,0,1,2,3]\n"
 							},
 							"parameters": [
 								{
@@ -4372,7 +4372,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 108,
+							"line": 151,
 							"character": 27
 						}
 					]
@@ -4395,7 +4395,7 @@
 							"comment": {
 								"shortText": "Flattens an n-dimensional list into a one-dimensional list",
 								"text": "Alters input list<br/>\nList returned will be in order",
-								"returns": "Flattened list\n"
+								"returns": "Flattened list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,[4,5]]<br/>\nflatten = List.flatten(list)</code><br/><br/>\nExpected value of list is [1,2,3,4,5]\n"
 							},
 							"parameters": [
 								{
@@ -4428,7 +4428,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 120,
+							"line": 169,
 							"character": 23
 						}
 					]
@@ -4450,7 +4450,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Returns the number of items in an list",
-								"returns": "Length of specified list\n"
+								"returns": "Length of specified list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlen = List.len(list)</code><br/><br/>\nExpected value of len is 3\n"
 							},
 							"parameters": [
 								{
@@ -4480,7 +4480,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 54,
+							"line": 71,
 							"character": 19
 						}
 					]
@@ -4503,7 +4503,7 @@
 							"comment": {
 								"shortText": "Removes the item with the specified index number from a list",
 								"text": "Alters input list",
-								"returns": "List with item removed\n"
+								"returns": "List with item removed\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nremove = List.removeIndex(list,0)</code><br/><br/>\nExpected value of list is [2,3]\n"
 							},
 							"parameters": [
 								{
@@ -4550,7 +4550,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 132,
+							"line": 187,
 							"character": 27
 						}
 					]
@@ -4573,7 +4573,7 @@
 							"comment": {
 								"shortText": "Removes items that match specified value from a list",
 								"text": "Alters input list<br/>\nItems must match both the value and type of specified value<br/>\nReturns original list if no items in list match specified value",
-								"returns": "List with item removed\n"
+								"returns": "List with item removed\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,2,3]<br/>\nremove = List.removeValue(list,2,true)</code><br/><br/>\nExpected value of list is [1,3]\n"
 							},
 							"parameters": [
 								{
@@ -4634,7 +4634,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 149,
+							"line": 210,
 							"character": 27
 						}
 					]
@@ -4657,7 +4657,7 @@
 							"comment": {
 								"shortText": "Reverses the order of items in an list",
 								"text": "Alters input list",
-								"returns": "New reversed list\n"
+								"returns": "New reversed list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nreverse = List.reverse(list)</code><br/><br/>\nExpected value of list is [3,2,1]\n"
 							},
 							"parameters": [
 								{
@@ -4690,7 +4690,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 166,
+							"line": 233,
 							"character": 23
 						}
 					]
@@ -4713,7 +4713,7 @@
 							"comment": {
 								"shortText": "Removes items with index numbers that fall within a range from a list and return them",
 								"text": "Alters input list<br/>\nBottom bound number of range is inclusive, top bound number is exclusive",
-								"returns": "List of removed items\n"
+								"returns": "List of removed items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,4,5]<br/>\nslice = List.slice(list,1,3)</code><br/><br/>\nExpected value of list is [1,4,5]<br/>\nExpected value of slice is [2,3]\n"
 							},
 							"parameters": [
 								{
@@ -4774,7 +4774,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 209,
+							"line": 294,
 							"character": 21
 						}
 					]
@@ -4797,7 +4797,7 @@
 							"comment": {
 								"shortText": "Sorts a list of strings alphabetically",
 								"text": "Alters input list<br/>\nIf items are not strings, they are treated as strings<br/>\nItems are sorted according to string Unicode code points (character by character, numbers before upper case\nalphabets, upper case alphabets before lower case alphabets)",
-								"returns": "New sorted list\n"
+								"returns": "New sorted list\n\n<h3>Example: </h3>\n<code>\nlist = [\"1\",\"2\",\"10\",\"Orange\",\"apple\"]<br/>\nsort = List.sortAlpha(list)</code><br/><br/>\nExpected value of list is [\"1\",\"10\",\"2\",\"Orange\",\"apple\"]"
 							},
 							"parameters": [
 								{
@@ -4830,7 +4830,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 181,
+							"line": 253,
 							"character": 25
 						}
 					]
@@ -4853,7 +4853,7 @@
 							"comment": {
 								"shortText": "Sorts a list of numbers in ascending order",
 								"text": "Alters input list<br/>\nList must contain numbers",
-								"returns": "New sorted list\n"
+								"returns": "New sorted list\n\n<h3>Example: </h3>\n<code>\nlist = [56,6,48]<br/>\nsort = List.sortNum(list)</code><br/><br/>\nExpected value of list is [6,48,56]\n"
 							},
 							"parameters": [
 								{
@@ -4886,7 +4886,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 194,
+							"line": 272,
 							"character": 23
 						}
 					]
@@ -4909,7 +4909,7 @@
 							"comment": {
 								"shortText": "Adds and/or removes items to/from a list at a specific point and returns removed items",
 								"text": "Alters input list<br/>\nIf no items to add are specified, only removes items<br/>\nIf howmany specified as 0, only adds items",
-								"returns": "List of removed items\n"
+								"returns": "List of removed items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,4,5]<br/>\nsplice = List.slice(list,1,2,[9,0])</code><br/><br/>\nExpected value of list is [1,2,9,0,5]<br/>\nExpected value of splice is [3,4]\n"
 							},
 							"parameters": [
 								{
@@ -4987,7 +4987,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 225,
+							"line": 317,
 							"character": 22
 						}
 					]
@@ -5032,7 +5032,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/math.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/math.ts",
 			"children": [
 				{
 					"id": 292,
@@ -5151,7 +5151,7 @@
 							"comment": {
 								"shortText": "Returns the absolute value of a number",
 								"text": "Returns num if num is positive, -num if num is negative and 0 if num=0<br/>",
-								"returns": "A number representing the absolute value of the specified number\n"
+								"returns": "A number representing the absolute value of the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.abs(-5)</code><br/><br/>\nExpected value of num is 5\n"
 							},
 							"parameters": [
 								{
@@ -5178,7 +5178,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 105,
+							"line": 125,
 							"character": 19
 						}
 					]
@@ -5200,7 +5200,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Rounds a number up to the nearest integer",
-								"returns": "A number representing the smallest integer more than or equal to the specified number\n"
+								"returns": "A number representing the smallest integer more than or equal to the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.ceiling(4.3)</code><br/><br/>\nExpected value of num is 5\n"
 							},
 							"parameters": [
 								{
@@ -5227,7 +5227,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 83,
+							"line": 93,
 							"character": 23
 						}
 					]
@@ -5298,7 +5298,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Rounds a number down to the nearest integer",
-								"returns": "A number representing the largest integer less than or equal to the specified number\n"
+								"returns": "A number representing the largest integer less than or equal to the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.floor(4.3)</code><br/><br/>\nExpected value of num is 4\n"
 							},
 							"parameters": [
 								{
@@ -5325,7 +5325,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 93,
+							"line": 108,
 							"character": 21
 						}
 					]
@@ -5347,7 +5347,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Returns the largest number in a list of numbers",
-								"returns": "A number representing the largest number in specified list of numbers\n"
+								"returns": "A number representing the largest number in specified list of numbers\n\n<h3>Example:</h3>\n<code>\nlist = [89,6,1]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 89\n"
 							},
 							"parameters": [
 								{
@@ -5377,7 +5377,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 115,
+							"line": 141,
 							"character": 19
 						}
 					]
@@ -5399,7 +5399,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Returns the smallest number in a list of numbers",
-								"returns": "A number representing the smallest number in specified list of numbers\n"
+								"returns": "A number representing the smallest number in specified list of numbers\n\n<h3>Example:</h3>\n<code>\nlist = [89,6,1]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 1\n"
 							},
 							"parameters": [
 								{
@@ -5426,7 +5426,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 131,
+							"line": 163,
 							"character": 19
 						}
 					]
@@ -5448,7 +5448,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Returns a number representing the given base taken to the power of the given exponent",
-								"returns": "Number representing the given base taken to the power of the given exponent\n"
+								"returns": "Number representing the given base taken to the power of the given exponent\n\n<h3>Example:</h3>\n<code>\nnum = Math.pow(2,3)</code><br/><br/>\nExpected value of num is 8\n"
 							},
 							"parameters": [
 								{
@@ -5489,7 +5489,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 73,
+							"line": 78,
 							"character": 19
 						}
 					]
@@ -5523,7 +5523,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 148,
+							"line": 180,
 							"character": 20
 						}
 					]
@@ -5587,7 +5587,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 161,
+							"line": 193,
 							"character": 23
 						}
 					]
@@ -5651,7 +5651,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 176,
+							"line": 208,
 							"character": 32
 						}
 					]
@@ -5794,7 +5794,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/model.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/model.ts",
 			"comment": {
 				"shortText": "Models contain geometry that can be viewed on the 3D viewer if output as geometry."
 			},
@@ -5981,7 +5981,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/object.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/object.ts",
 			"children": [
 				{
 					"id": 344,
@@ -6072,7 +6072,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/plane.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/plane.ts",
 			"children": [
 				{
 					"id": 349,
@@ -6241,7 +6241,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pline.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/pline.ts",
 			"children": [
 				{
 					"id": 363,
@@ -7107,7 +7107,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pmesh.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/pmesh.ts",
 			"children": [
 				{
 					"id": 412,
@@ -7198,7 +7198,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/point.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/point.ts",
 			"children": [
 				{
 					"id": 421,
@@ -7520,7 +7520,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/query.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/query.ts",
 			"comment": {
 				"shortText": "Query functions check if an entity fufils certain conditions."
 			},
@@ -7571,7 +7571,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ray.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/ray.ts",
 			"children": [
 				{
 					"id": 442,
@@ -7726,7 +7726,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/split.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/split.ts",
 			"comment": {
 				"shortText": "Split functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap and split the input objects. They return the split segments, arcs or polymeshes in a list of lists.",
 				"text": "<code>[0][i]</code> contains the split parts of the first input, where <code>i</code> is the index number\nof each individual part obtained from the split function.<br/>\n<code>[1][i]</code> contains the split parts of the second input, if available, where <code>i</code> is the\nindex number of each individual part obtained from the split function.\n"
@@ -7778,9 +7778,10 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/string.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/string.ts",
 			"comment": {
-				"shortText": "String functions return properties and perform actions on strings"
+				"shortText": "Strings are a type of data that contains text in the form of alphanumeric characters and symbols.<br/>",
+				"text": "They are enclosed in quotation marks.<br/>\nRegular expressions can also be used to search for character matches in strings.\n"
 			},
 			"children": [
 				{
@@ -7800,7 +7801,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Checks if a string ends with the characters of a specified string",
-								"returns": "True if str_1 ends with str_2, false if str_1 does not end with str_2\n"
+								"returns": "True if str_1 ends with str_2, false if str_1 does not end with str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nends = String.endsWith(string,\"e\")<br/></code>\n<br/>Expected value of ends is true\n"
 							},
 							"parameters": [
 								{
@@ -7841,7 +7842,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 21,
+							"line": 29,
 							"character": 24
 						}
 					]
@@ -7863,7 +7864,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Checks if a string contains a specified string of characters",
-								"returns": "True if str_1 contains str_2, false if str_1 does not contain str_2\n"
+								"returns": "True if str_1 contains str_2, false if str_1 does not contain str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nincl = String.includes(string,\"an\")<br/></code>\n<br/>Expected value of incl is true\n"
 							},
 							"parameters": [
 								{
@@ -7904,7 +7905,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 31,
+							"line": 44,
 							"character": 24
 						}
 					]
@@ -7926,7 +7927,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Returns the number of characters in a string",
-								"returns": "Length of string\n"
+								"returns": "Length of string\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nlength = String.len(string)<br/></code>\n<br/>Expected value of length is 6\n"
 							},
 							"parameters": [
 								{
@@ -7953,7 +7954,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 40,
+							"line": 58,
 							"character": 19
 						}
 					]
@@ -7976,7 +7977,7 @@
 							"comment": {
 								"shortText": "Searches for a specified string of characters in a string and replaces them with another specified string\nof characters",
 								"text": "To perfrom a case-insensitive search, use <code>/string/i</code> instead of <code>\"string\"</code> in search",
-								"returns": "New string with replaced characters\n"
+								"returns": "New string with replaced characters\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nnewString = String.Replace(string,\"O\",\"Ar\")<br/></code>\n<br/>Expected value of newString is \"Arrange\"\n"
 							},
 							"parameters": [
 								{
@@ -8031,7 +8032,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 54,
+							"line": 77,
 							"character": 23
 						}
 					]
@@ -8054,7 +8055,7 @@
 							"comment": {
 								"shortText": "Returns the position index of where a specified string of characters can be found within a string",
 								"text": "If specified string of characters cannot be found, returns -1",
-								"returns": "Number that represents position of str_1 in str_2\n"
+								"returns": "Number that represents position of str_1 in str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsearch = String.search(string,\"e\")<br/></code>\n<br/>Expected value of search is 5\n"
 							},
 							"parameters": [
 								{
@@ -8095,7 +8096,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 66,
+							"line": 94,
 							"character": 22
 						}
 					]
@@ -8117,7 +8118,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Splits a string into a list of substrings using a specified string of characters as a separator",
-								"returns": "List of substrings\n"
+								"returns": "List of substrings\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsplit = String.split(string,\"a\")<br/></code>\n<br/>Expected value of split is [\"Or\",\"nge\"]\n"
 							},
 							"parameters": [
 								{
@@ -8161,7 +8162,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 76,
+							"line": 109,
 							"character": 21
 						}
 					]
@@ -8184,7 +8185,7 @@
 							"comment": {
 								"shortText": "Extracts characters in a string between 2 specified indices and returns it as a new string",
 								"text": "Start index is inclusive and end index is exclusive",
-								"returns": "New string with extracted characters\n"
+								"returns": "New string with extracted characters\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsubstring = String.substring(string,1,4)<br/></code>\n<br/>Expected value of ends is \"ran\"\n"
 							},
 							"parameters": [
 								{
@@ -8239,7 +8240,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 89,
+							"line": 127,
 							"character": 25
 						}
 					]
@@ -8276,7 +8277,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/topo.ts",
+			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/topo.ts",
 			"comment": {
 				"shortText": "Topology are sub-components within each object that are connected together.<br/>\nTopology consists of vertices, edges, wires and faces.<br/>"
 			},

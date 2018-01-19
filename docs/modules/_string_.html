@@ -67,8 +67,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>String functions return properties and perform actions on strings</p>
+						<p>Strings are a type of data that contains text in the form of alphanumeric characters and symbols.<br/></p>
 					</div>
+					<p>They are enclosed in quotation marks.<br/>
+					Regular expressions can also be used to search for character matches in strings.</p>
 				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -102,7 +104,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L21">string.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L29">string.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -127,6 +129,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<p>True if str_1 ends with str_2, false if str_1 does not end with str_2</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+ends = String.endsWith(string,&quot;e&quot;)<br/></code>
+							<br/>Expected value of ends is true</p>
 						</li>
 					</ul>
 				</section>
@@ -140,7 +146,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L31">string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L44">string.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,6 +171,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<p>True if str_1 contains str_2, false if str_1 does not contain str_2</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+incl = String.includes(string,&quot;an&quot;)<br/></code>
+							<br/>Expected value of incl is true</p>
 						</li>
 					</ul>
 				</section>
@@ -178,7 +188,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L40">string.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L58">string.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -197,6 +207,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 							<p>Length of string</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+length = String.len(string)<br/></code>
+							<br/>Expected value of length is 6</p>
 						</li>
 					</ul>
 				</section>
@@ -210,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L54">string.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L77">string.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -243,6 +257,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p>New string with replaced characters</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+newString = String.Replace(string,&quot;O&quot;,&quot;Ar&quot;)<br/></code>
+							<br/>Expected value of newString is &quot;Arrange&quot;</p>
 						</li>
 					</ul>
 				</section>
@@ -256,7 +274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L94">string.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,6 +300,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 							<p>Number that represents position of str_1 in str_2</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+search = String.search(string,&quot;e&quot;)<br/></code>
+							<br/>Expected value of search is 5</p>
 						</li>
 					</ul>
 				</section>
@@ -295,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L76">string.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L109">string.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,6 +342,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
 							<p>List of substrings</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+split = String.split(string,&quot;a&quot;)<br/></code>
+							<br/>Expected value of split is [&quot;Or&quot;,&quot;nge&quot;]</p>
 						</li>
 					</ul>
 				</section>
@@ -333,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L89">string.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0f8e22a/src/gs-modelling/lib/string.ts#L127">string.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,6 +391,10 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p>New string with extracted characters</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+substring = String.substring(string,1,4)<br/></code>
+							<br/>Expected value of ends is &quot;ran&quot;</p>
 						</li>
 					</ul>
 				</section>
