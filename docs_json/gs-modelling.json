@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/attrib.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/attrib.ts",
 			"children": [
 				{
 					"id": 16,
@@ -831,7 +831,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/circle.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/circle.ts",
 			"children": [
 				{
 					"id": 74,
@@ -1794,7 +1794,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/ellipse.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ellipse.ts",
 			"children": [
 				{
 					"id": 132,
@@ -2810,7 +2810,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/entity.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/entity.ts",
 			"children": [
 				{
 					"id": 167,
@@ -3122,7 +3122,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/examples.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/examples.ts",
 			"comment": {
 				"shortText": "These functions call examples for mobius."
 			},
@@ -3186,7 +3186,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/group.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/group.ts",
 			"children": [
 				{
 					"id": 192,
@@ -3913,7 +3913,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/intersect.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/intersect.ts",
 			"comment": {
 				"shortText": "Intersect functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap. They return these intersections and overlaps and do not alter the original input objects."
 			},
@@ -3963,11 +3963,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/list.ts",
-			"comment": {
-				"shortText": "Lists are a tool to manage a collection of data.<br/>",
-				"text": "Any information can be stored in a list (including other lists) and they are refered to as items.<br/>\nItems in a list are ordered and will be returned in the same order or accessed by the same index unless\nchanges are made to alter it.<br/>\n\nTo create an empty list, use the assignment button and define the value as <code>[]</code><br/>\nTo access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly\ninto functions.\n"
-			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/list.ts",
 			"children": [
 				{
 					"id": 229,
@@ -3985,8 +3981,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Duplicates a list",
-								"returns": "New duplicated list\n\n<h3>Example:</h3>\n<code>\nlist = [1,2,3]<br/>\ncopy = List.Copy(list)</code><br/><br/>\nExpected value of copy is [1,2,3]\n"
+								"shortText": "Creates a new list by making a copy of an existing list.",
+								"returns": "New duplicated list.\n\n<h3>Example:</h3>\n<code>\nlist = [1,2,3]<br/>\ncopy = List.Copy(list)</code><br/><br/>\nExpected value of copy is [1,2,3].\n"
 							},
 							"parameters": [
 								{
@@ -3996,7 +3992,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to duplicate"
+										"text": "List to copy."
 									},
 									"type": {
 										"type": "array",
@@ -4019,7 +4015,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 35,
+							"line": 33,
 							"character": 20
 						}
 					]
@@ -4040,9 +4036,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Creates a new list of integers between two integers",
-								"text": "Bottom bound number is inclusive and top bound number is exclusive<br/>",
-								"returns": "New list\n\n<h3>Example: </h3>\n<code>\nlist = List.FromRange(0,5)</code><br/><br/>\nExpected value of list is [0,1,2,3,4]\n"
+								"shortText": "Creates a new list of integer numbers between two bounds.\nLower bound is inclusive and upper bound is exclusive.",
+								"returns": "New list.\n\n<h3>Example: </h3>\n<code>\nlist = List.FromRange(0,5)</code><br/><br/>\nExpected value of list is [0,1,2,3,4].\n"
 							},
 							"parameters": [
 								{
@@ -4052,7 +4047,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Bottom bound integer"
+										"text": "Lower bound integer."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4066,7 +4061,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Top bound integer"
+										"text": "Upper bound integer."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4086,7 +4081,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 52,
+							"line": 51,
 							"character": 25
 						}
 					]
@@ -4107,9 +4102,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds an item to the end of a list",
-								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
-								"returns": "List with added item\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.append(list,4)</code><br/><br/>\nExpected value of list is [1,2,3,4]\n"
+								"shortText": "Adds an item to the end of a list.\nIf item is a list, the entire list will be appended as one item.",
+								"returns": "New list with added item.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.append(list,4)</code><br/><br/>\nExpected value of list is [1,2,3,4].\n"
 							},
 							"parameters": [
 								{
@@ -4119,7 +4113,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to add to"
+										"text": "List to add to."
 									},
 									"type": {
 										"type": "array",
@@ -4136,7 +4130,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Item to add"
+										"text": "Item to add."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4156,7 +4150,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 90,
+							"line": 92,
 							"character": 22
 						}
 					]
@@ -4177,9 +4171,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds an item to the front of a list",
-								"text": "If item is a list, the entire list will be appended as one item<br/>\nAlters original input list",
-								"returns": "List with added item\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.appendFront(list,4)</code><br/><br/>\nExpected value of list is [4,1,2,3]\n"
+								"shortText": "Adds an item to the front of a list.\nIf the item is a list, the entire list will be appended as one item.",
+								"returns": "New list with added item.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nappend = List.appendFront(list,4)</code><br/><br/>\nExpected value of list is [4,1,2,3].\n"
 							},
 							"parameters": [
 								{
@@ -4189,7 +4182,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to add to"
+										"text": "List to add to."
 									},
 									"type": {
 										"type": "array",
@@ -4206,7 +4199,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Item to add"
+										"text": "Item to add."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4226,7 +4219,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 110,
+							"line": 114,
 							"character": 27
 						}
 					]
@@ -4247,9 +4240,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds items (from a list) to the end of an list",
-								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
-								"returns": "List with added items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [1,2,3,9,0]\n"
+								"shortText": "Adds items (from a list) to the end of an list.\nItems are added to list individually as seperate items.",
+								"returns": "List with added items.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [1,2,3,9,0].\n"
 							},
 							"parameters": [
 								{
@@ -4259,7 +4251,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to add to"
+										"text": "List to add to."
 									},
 									"type": {
 										"type": "array",
@@ -4276,7 +4268,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List of items to add"
+										"text": "List of items to add."
 									},
 									"type": {
 										"type": "array",
@@ -4299,7 +4291,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 131,
+							"line": 137,
 							"character": 22
 						}
 					]
@@ -4320,9 +4312,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds items (from a list) to the front of an list",
-								"text": "Items are appended to list individually as seperate items<br/>\nDoes not alter original input list",
-								"returns": "List with added items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [9,0,1,2,3]\n"
+								"shortText": "Adds items (from a list) to the front of an list.\nItems are added to list individually as seperate items.",
+								"returns": "List with added items.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlist2 = [9,0]<br/>\nextend = List.extend(list,list2)</code><br/><br/>\nExpected value of extend is [9,0,1,2,3].\n"
 							},
 							"parameters": [
 								{
@@ -4332,7 +4323,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to add to"
+										"text": "List to add to."
 									},
 									"type": {
 										"type": "array",
@@ -4349,7 +4340,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List of items to add"
+										"text": "List of items to add."
 									},
 									"type": {
 										"type": "array",
@@ -4372,7 +4363,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 151,
+							"line": 158,
 							"character": 27
 						}
 					]
@@ -4393,9 +4384,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Flattens an n-dimensional list into a one-dimensional list",
-								"text": "Alters input list<br/>\nList returned will be in order",
-								"returns": "Flattened list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,[4,5]]<br/>\nflatten = List.flatten(list)</code><br/><br/>\nExpected value of list is [1,2,3,4,5]\n"
+								"shortText": "Flattens an n-dimensional list into a one-dimensional list.",
+								"returns": "Flattened list.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,[4,5]]<br/>\nflatten = List.flatten(list)</code><br/><br/>\nExpected value of list is [1,2,3,4,5].\n"
 							},
 							"parameters": [
 								{
@@ -4405,7 +4395,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to flatten"
+										"text": "List to flatten."
 									},
 									"type": {
 										"type": "array",
@@ -4428,7 +4418,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 169,
+							"line": 176,
 							"character": 23
 						}
 					]
@@ -4449,8 +4439,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of items in an list",
-								"returns": "Length of specified list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlen = List.len(list)</code><br/><br/>\nExpected value of len is 3\n"
+								"shortText": "Returns the number of items in an list.",
+								"returns": "Length of the list.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nlen = List.len(list)</code><br/><br/>\nExpected value of len is 3.\n"
 							},
 							"parameters": [
 								{
@@ -4460,7 +4450,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List"
+										"text": "List."
 									},
 									"type": {
 										"type": "array",
@@ -4480,7 +4470,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 71,
+							"line": 73,
 							"character": 19
 						}
 					]
@@ -4501,9 +4491,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Removes the item with the specified index number from a list",
-								"text": "Alters input list",
-								"returns": "List with item removed\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nremove = List.removeIndex(list,0)</code><br/><br/>\nExpected value of list is [2,3]\n"
+								"shortText": "Removes the item at the specified index from a list.",
+								"returns": "List with item removed.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nremove = List.removeIndex(list,1)</code><br/><br/>\nExpected value of list is [1,3].\n"
 							},
 							"parameters": [
 								{
@@ -4513,7 +4502,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to remove item from"
+										"text": "List to remove item from."
 									},
 									"type": {
 										"type": "array",
@@ -4530,7 +4519,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index number of item to remove"
+										"text": "Zero-based index number of item to remove."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4550,7 +4539,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 187,
+							"line": 194,
 							"character": 27
 						}
 					]
@@ -4571,9 +4560,9 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Removes items that match specified value from a list",
-								"text": "Alters input list<br/>\nItems must match both the value and type of specified value<br/>\nReturns original list if no items in list match specified value",
-								"returns": "List with item removed\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,2,3]<br/>\nremove = List.removeValue(list,2,true)</code><br/><br/>\nExpected value of list is [1,3]\n"
+								"shortText": "Removes items that match specified value from a list.\nItems must match both the value and type of specified value<br/>",
+								"text": "Returns original list if no items in list match specified value.\n",
+								"returns": "List with item removed\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,2,3]<br/>\nremove = List.removeValue(list,2,true)</code><br/><br/>\nExpected value of list is [1,3].\n"
 							},
 							"parameters": [
 								{
@@ -4583,7 +4572,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to remove item from"
+										"text": "List to remove item from."
 									},
 									"type": {
 										"type": "array",
@@ -4600,7 +4589,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Value to search for"
+										"text": "Value to search for."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4614,12 +4603,13 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Removes all instances of specified value if true, removes only the first instance if\n       false"
+										"text": "Removes all instances of specified value if true, removes only the first instance if\n     false."
 									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
-									}
+									},
+									"defaultValue": "true"
 								}
 							],
 							"type": {
@@ -4634,7 +4624,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 210,
+							"line": 220,
 							"character": 27
 						}
 					]
@@ -4655,9 +4645,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Reverses the order of items in an list",
-								"text": "Alters input list",
-								"returns": "New reversed list\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nreverse = List.reverse(list)</code><br/><br/>\nExpected value of list is [3,2,1]\n"
+								"shortText": "Reverses the order of items in an list.",
+								"returns": "New reversed list.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3]<br/>\nresult = List.reverse(list)</code><br/><br/>\nExpected value of result is [3,2,1].\n"
 							},
 							"parameters": [
 								{
@@ -4667,7 +4656,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to reverse"
+										"text": "List to reverse."
 									},
 									"type": {
 										"type": "array",
@@ -4690,7 +4679,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 233,
+							"line": 245,
 							"character": 23
 						}
 					]
@@ -4711,9 +4700,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Removes items with index numbers that fall within a range from a list and return them",
-								"text": "Alters input list<br/>\nBottom bound number of range is inclusive, top bound number is exclusive",
-								"returns": "List of removed items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,4,5]<br/>\nslice = List.slice(list,1,3)</code><br/><br/>\nExpected value of list is [1,4,5]<br/>\nExpected value of slice is [2,3]\n"
+								"shortText": "Creates a copy of a portion of a list, from start index to end index (end not included).",
+								"returns": "A new list.\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,4,5]<br/>\nresult = List.slice(list,1,3)</code><br/><br/>\nExpected value of result is [2,3].\n"
 							},
 							"parameters": [
 								{
@@ -4723,7 +4711,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List slice"
+										"text": "List to slice."
 									},
 									"type": {
 										"type": "array",
@@ -4735,12 +4723,12 @@
 								},
 								{
 									"id": 279,
-									"name": "min",
+									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Bottom bound number of range"
+										"text": "Zero-based index at which to begin slicing.\n     A negative index can be used, indicating an offset from the end of the sequence.\n     If start is undefined, slice begins from index 0."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4749,12 +4737,12 @@
 								},
 								{
 									"id": 280,
-									"name": "max",
+									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Top bound number of range"
+										"text": "Zero-based index before which to end slicing. Slice extracts up to but not including end.\n     A negative index can be used, indicating an offset from the end of the sequence.\n     If end is undefined, slice extracts through the end of the sequence."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4774,7 +4762,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 294,
+							"line": 313,
 							"character": 21
 						}
 					]
@@ -4795,9 +4783,9 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Sorts a list of strings alphabetically",
-								"text": "Alters input list<br/>\nIf items are not strings, they are treated as strings<br/>\nItems are sorted according to string Unicode code points (character by character, numbers before upper case\nalphabets, upper case alphabets before lower case alphabets)",
-								"returns": "New sorted list\n\n<h3>Example: </h3>\n<code>\nlist = [\"1\",\"2\",\"10\",\"Orange\",\"apple\"]<br/>\nsort = List.sortAlpha(list)</code><br/><br/>\nExpected value of list is [\"1\",\"10\",\"2\",\"Orange\",\"apple\"]"
+								"shortText": "Sorts a list of strings alphabetically.\nIf items are not strings, they are treated as strings.<br/>",
+								"text": "Items are sorted according to string Unicode code points (character by character, numbers before upper case\nalphabets, upper case alphabets before lower case alphabets)\n",
+								"returns": "New sorted list.\n\n<h3>Example: </h3>\n<code>\nlist = [\"1\",\"2\",\"10\",\"Orange\",\"apple\"]<br/>\nsort = List.sortAlpha(list)</code><br/><br/>\nExpected value of list is [\"1\",\"10\",\"2\",\"Orange\",\"apple\"].\n"
 							},
 							"parameters": [
 								{
@@ -4807,7 +4795,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to sort"
+										"text": "List to sort."
 									},
 									"type": {
 										"type": "array",
@@ -4830,7 +4818,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 253,
+							"line": 268,
 							"character": 25
 						}
 					]
@@ -4851,9 +4839,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Sorts a list of numbers in ascending order",
-								"text": "Alters input list<br/>\nList must contain numbers",
-								"returns": "New sorted list\n\n<h3>Example: </h3>\n<code>\nlist = [56,6,48]<br/>\nsort = List.sortNum(list)</code><br/><br/>\nExpected value of list is [6,48,56]\n"
+								"shortText": "Sorts a list of numbers in ascending order.\nThe list must contain numbers.",
+								"returns": "New sorted list.\n\n<h3>Example: </h3>\n<code>\nlist = [56,6,48]<br/>\nsort = List.sortNum(list)</code><br/><br/>\nExpected value of list is [6,48,56].\n"
 							},
 							"parameters": [
 								{
@@ -4863,7 +4850,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List to add to"
+										"text": "List to add to."
 									},
 									"type": {
 										"type": "array",
@@ -4886,7 +4873,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 272,
+							"line": 288,
 							"character": 23
 						}
 					]
@@ -4907,9 +4894,9 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds and/or removes items to/from a list at a specific point and returns removed items",
-								"text": "Alters input list<br/>\nIf no items to add are specified, only removes items<br/>\nIf howmany specified as 0, only adds items",
-								"returns": "List of removed items\n\n<h3>Example: </h3>\n<code>\nlist = [1,2,3,4,5]<br/>\nsplice = List.slice(list,1,2,[9,0])</code><br/><br/>\nExpected value of list is [1,2,9,0,5]<br/>\nExpected value of splice is [3,4]\n"
+								"shortText": "Adds and/or removes items to/from a list.",
+								"text": "If no items_to_add are specified, then items are only removed.\nIf num_to_remove is 0, then items are only added.<br/>\n",
+								"returns": "A new list.\n\n<h3>Example: </h3>\n<code>\nlist = [10, 20, 30, 40, 50]<br/>\nresult = List.splice(list, 1, 3, [2.2, 3.3])</code><br/><br/>\nExpected value of result is [10, 2.2, 3.2, 50].\n"
 							},
 							"parameters": [
 								{
@@ -4936,7 +4923,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index number of position to add/remove (items added/removed after specified index)"
+										"text": "Zero-based index at which to add/remove items. (Items are added/removed after specified index)"
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4945,12 +4932,12 @@
 								},
 								{
 									"id": 285,
-									"name": "howmany",
+									"name": "num_to_remove",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Number of items to remove"
+										"text": "Number of items to remove."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -4959,12 +4946,12 @@
 								},
 								{
 									"id": 286,
-									"name": "items",
+									"name": "items_to_add",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Items to add"
+										"text": "List of items to add."
 									},
 									"type": {
 										"type": "array",
@@ -4987,7 +4974,7 @@
 					"sources": [
 						{
 							"fileName": "list.ts",
-							"line": 317,
+							"line": 339,
 							"character": 22
 						}
 					]
@@ -5032,11 +5019,11 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/math.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/math.ts",
 			"children": [
 				{
 					"id": 292,
-					"name": "NEG_INFINITY",
+					"name": "NEG_INF",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -5045,7 +5032,7 @@
 					"signatures": [
 						{
 							"id": 293,
-							"name": "NEG_INFINITY",
+							"name": "NEG_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -5062,8 +5049,8 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 28,
-							"character": 28
+							"line": 29,
+							"character": 23
 						}
 					]
 				},
@@ -5083,7 +5070,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the value of pi",
+								"shortText": "Returns the value of PI.",
 								"returns": "Value of pi\n"
 							},
 							"type": {
@@ -5095,14 +5082,14 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 12,
+							"line": 13,
 							"character": 18
 						}
 					]
 				},
 				{
 					"id": 290,
-					"name": "POS_INFINITY",
+					"name": "POS_INF",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -5111,7 +5098,7 @@
 					"signatures": [
 						{
 							"id": 291,
-							"name": "POS_INFINITY",
+							"name": "POS_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -5128,8 +5115,8 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 20,
-							"character": 28
+							"line": 21,
+							"character": 23
 						}
 					]
 				},
@@ -5149,9 +5136,9 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the absolute value of a number",
-								"text": "Returns num if num is positive, -num if num is negative and 0 if num=0<br/>",
-								"returns": "A number representing the absolute value of the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.abs(-5)</code><br/><br/>\nExpected value of num is 5\n"
+								"shortText": "Returns the absolute value of a number.",
+								"text": "Returns num if num is positive, -num if num is negative and 0 if num=0<br/>\n",
+								"returns": "A number representing the absolute value of the specified number.\n\n<h3>Example:</h3>\n<code>\nnum1 = Math.abs(-1.234)\nnum2 = Math.abs(2.345)<br/>\n</code><br/><br/>\nExpected value of num1 is 1.234, and of num2 is 2.345.\n"
 							},
 							"parameters": [
 								{
@@ -5161,7 +5148,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Number"
+										"text": "Number."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5178,7 +5165,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 125,
+							"line": 142,
 							"character": 19
 						}
 					]
@@ -5199,8 +5186,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Rounds a number up to the nearest integer",
-								"returns": "A number representing the smallest integer more than or equal to the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.ceiling(4.3)</code><br/><br/>\nExpected value of num is 5\n"
+								"shortText": "Rounds a number up to the nearest integer.",
+								"returns": "A number representing the smallest integer more than or equal to the specified number.\n\n<h3>Example:</h3>\n<code>\nnum = Math.ceiling(4.3)</code><br/><br/>\nExpected value of num is 5.\n"
 							},
 							"parameters": [
 								{
@@ -5210,7 +5197,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Number"
+										"text": "Number."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5227,7 +5214,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 93,
+							"line": 104,
 							"character": 23
 						}
 					]
@@ -5248,8 +5235,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the cosine of a specified angle in degrees",
-								"returns": "Cosine of angle\n"
+								"shortText": "Returns the cosine of a specified angle in degrees.",
+								"returns": "Cosine of angle.\n"
 							},
 							"parameters": [
 								{
@@ -5259,7 +5246,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Angle in degrees"
+										"text": "Angle in degrees."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5276,7 +5263,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 42,
+							"line": 44,
 							"character": 19
 						}
 					]
@@ -5297,8 +5284,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Rounds a number down to the nearest integer",
-								"returns": "A number representing the largest integer less than or equal to the specified number\n\n<h3>Example:</h3>\n<code>\nnum = Math.floor(4.3)</code><br/><br/>\nExpected value of num is 4\n"
+								"shortText": "Rounds a number down to the nearest integer.",
+								"returns": "A number representing the largest integer less than or equal to the specified number.\n\n<h3>Example:</h3>\n<code>\nnum = Math.floor(4.3)</code><br/><br/>\nExpected value of num is 4.\n"
 							},
 							"parameters": [
 								{
@@ -5308,7 +5295,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Number"
+										"text": "Number."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5325,7 +5312,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 108,
+							"line": 121,
 							"character": 21
 						}
 					]
@@ -5346,8 +5333,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the largest number in a list of numbers",
-								"returns": "A number representing the largest number in specified list of numbers\n\n<h3>Example:</h3>\n<code>\nlist = [89,6,1]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 89\n"
+								"shortText": "Returns the largest number in a list of numbers.",
+								"returns": "A number representing the largest number in specified list of numbers.\n\n<h3>Example:</h3>\n<code>\nlist = [8,9,6,1,3]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 9.\n"
 							},
 							"parameters": [
 								{
@@ -5357,7 +5344,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List of numbers"
+										"text": "List of numbers."
 									},
 									"type": {
 										"type": "array",
@@ -5377,7 +5364,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 141,
+							"line": 160,
 							"character": 19
 						}
 					]
@@ -5398,8 +5385,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the smallest number in a list of numbers",
-								"returns": "A number representing the smallest number in specified list of numbers\n\n<h3>Example:</h3>\n<code>\nlist = [89,6,1]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 1\n"
+								"shortText": "Returns the smallest number in a list of numbers.",
+								"returns": "A number representing the smallest number in specified list of numbers.\n\n<h3>Example:</h3>\n<code>\nlist = [8,9,6,1,3]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 1.\n"
 							},
 							"parameters": [
 								{
@@ -5426,7 +5413,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 163,
+							"line": 184,
 							"character": 19
 						}
 					]
@@ -5447,8 +5434,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns a number representing the given base taken to the power of the given exponent",
-								"returns": "Number representing the given base taken to the power of the given exponent\n\n<h3>Example:</h3>\n<code>\nnum = Math.pow(2,3)</code><br/><br/>\nExpected value of num is 8\n"
+								"shortText": "Returns a number representing the given base taken to the power of the given exponent.",
+								"returns": "Number representing the given base taken to the power of the given exponent.\n\n<h3>Example:</h3>\n<code>\nnum = Math.pow(2,3)</code><br/><br/>\nExpected value of num is 8.\n"
 							},
 							"parameters": [
 								{
@@ -5458,7 +5445,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Base number"
+										"text": "Base number."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5472,7 +5459,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Power of exponent"
+										"text": "Power of exponent."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5489,7 +5476,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 78,
+							"line": 86,
 							"character": 19
 						}
 					]
@@ -5510,9 +5497,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive)",
-								"text": "Number can be scaled to apply for a larger range",
-								"returns": "A pseudo-random number\n"
+								"shortText": "Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive).",
+								"returns": "A pseudo-random number.\n"
 							},
 							"type": {
 								"type": "intrinsic",
@@ -5523,8 +5509,71 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 180,
+							"line": 201,
 							"character": 20
+						}
+					]
+				},
+				{
+					"id": 328,
+					"name": "randFloat",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 329,
+							"name": "randFloat",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random floating point number between two numbers.",
+								"returns": "A pseudo-random floating point number.\n"
+							},
+							"parameters": [
+								{
+									"id": 330,
+									"name": "min",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Lower bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 331,
+									"name": "max",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Upper bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 229,
+							"character": 25
 						}
 					]
 				},
@@ -5544,19 +5593,19 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns a pseudo-random integer between two numbers",
-								"text": "Bottom bound number is inclusive and top bound number is exclusive",
-								"returns": "A pseudo-random number\n"
+								"shortText": "Returns a pseudo-random integer number between two numbers.",
+								"text": "Lower bound number is inclusive and upper bound number is exclusive.",
+								"returns": "A pseudo-random integer number.\n"
 							},
 							"parameters": [
 								{
 									"id": 326,
-									"name": "bottom_bound",
+									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Bottom bound number of range"
+										"text": "Lower bound of range."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5565,12 +5614,12 @@
 								},
 								{
 									"id": 327,
-									"name": "top_bound",
+									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Top bound number of range"
+										"text": "Upper bound of range."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5587,72 +5636,8 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 193,
+							"line": 214,
 							"character": 23
-						}
-					]
-				},
-				{
-					"id": 328,
-					"name": "randIntInclusive",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 329,
-							"name": "randIntInclusive",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Returns a pseudo-random integer between two numbers",
-								"text": "Bottom and top bound numbers are inclusive",
-								"returns": "A pseudo-random number\n"
-							},
-							"parameters": [
-								{
-									"id": 330,
-									"name": "bottom_bound",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Bottom bound number of range"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 331,
-									"name": "top_bound",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Top bound number of range"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "math.ts",
-							"line": 208,
-							"character": 32
 						}
 					]
 				},
@@ -5672,8 +5657,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the sine of a specified angle in degrees",
-								"returns": "Sine of angle\n"
+								"shortText": "Returns the sine of a specified angle in degrees.",
+								"returns": "Sine of angle.\n"
 							},
 							"parameters": [
 								{
@@ -5683,7 +5668,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Angle in degrees"
+										"text": "Angle in degrees."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5700,7 +5685,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 52,
+							"line": 56,
 							"character": 19
 						}
 					]
@@ -5721,8 +5706,8 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the tangent of a specified angle in degrees",
-								"returns": "Tangent of angle\n"
+								"shortText": "Returns the tangent of a specified angle in degrees.",
+								"returns": "Tangent of angle.\n"
 							},
 							"parameters": [
 								{
@@ -5732,7 +5717,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Angle in degrees"
+										"text": "Angle in degrees."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -5749,7 +5734,7 @@
 					"sources": [
 						{
 							"fileName": "math.ts",
-							"line": 62,
+							"line": 68,
 							"character": 19
 						}
 					]
@@ -5771,8 +5756,8 @@
 						319,
 						303,
 						322,
-						324,
 						328,
+						324,
 						297,
 						300
 					]
@@ -5794,7 +5779,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/model.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/model.ts",
 			"comment": {
 				"shortText": "Models contain geometry that can be viewed on the 3D viewer if output as geometry."
 			},
@@ -5981,7 +5966,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/object.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/object.ts",
 			"children": [
 				{
 					"id": 344,
@@ -6072,7 +6057,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/plane.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/plane.ts",
 			"children": [
 				{
 					"id": 349,
@@ -6241,7 +6226,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/pline.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pline.ts",
 			"children": [
 				{
 					"id": 363,
@@ -7107,7 +7092,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/pmesh.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pmesh.ts",
 			"children": [
 				{
 					"id": 412,
@@ -7198,7 +7183,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/point.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/point.ts",
 			"children": [
 				{
 					"id": 421,
@@ -7520,7 +7505,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/query.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/query.ts",
 			"comment": {
 				"shortText": "Query functions check if an entity fufils certain conditions."
 			},
@@ -7571,7 +7556,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/ray.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ray.ts",
 			"children": [
 				{
 					"id": 442,
@@ -7726,7 +7711,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/split.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/split.ts",
 			"comment": {
 				"shortText": "Split functions find points of intersection and conics, polylines and polymeshes where two objects\noverlap and split the input objects. They return the split segments, arcs or polymeshes in a list of lists.",
 				"text": "<code>[0][i]</code> contains the split parts of the first input, where <code>i</code> is the index number\nof each individual part obtained from the split function.<br/>\n<code>[1][i]</code> contains the split parts of the second input, if available, where <code>i</code> is the\nindex number of each individual part obtained from the split function.\n"
@@ -7778,14 +7763,10 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/string.ts",
-			"comment": {
-				"shortText": "Strings are a type of data that contains text in the form of alphanumeric characters and symbols.<br/>",
-				"text": "They are enclosed in quotation marks.<br/>\nRegular expressions can also be used to search for character matches in strings.\n"
-			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/string.ts",
 			"children": [
 				{
-					"id": 449,
+					"id": 453,
 					"name": "endsWith",
 					"kind": 64,
 					"kindString": "Function",
@@ -7794,87 +7775,24 @@
 					},
 					"signatures": [
 						{
-							"id": 450,
+							"id": 454,
 							"name": "endsWith",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Checks if a string ends with the characters of a specified string",
-								"returns": "True if str_1 ends with str_2, false if str_1 does not end with str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nends = String.endsWith(string,\"e\")<br/></code>\n<br/>Expected value of ends is true\n"
-							},
-							"parameters": [
-								{
-									"id": 451,
-									"name": "str_1",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "String to check"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								},
-								{
-									"id": 452,
-									"name": "str_2",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "String of characters to check for"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "string.ts",
-							"line": 29,
-							"character": 24
-						}
-					]
-				},
-				{
-					"id": 453,
-					"name": "includes",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 454,
-							"name": "includes",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Checks if a string contains a specified string of characters",
-								"returns": "True if str_1 contains str_2, false if str_1 does not contain str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nincl = String.includes(string,\"an\")<br/></code>\n<br/>Expected value of incl is true\n"
+								"shortText": "Checks if a string ends with a specified end string.",
+								"returns": "True if str ends with search_str, false otherwise.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nresult = String.endsWith(string,\"ge\")<br/></code>\n<br/>Expected value of result is true.\n"
 							},
 							"parameters": [
 								{
 									"id": 455,
-									"name": "str_1",
+									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to check"
+										"text": "String to check."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7883,12 +7801,12 @@
 								},
 								{
 									"id": 456,
-									"name": "str_2",
+									"name": "end_str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to search for"
+										"text": "End string."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7905,14 +7823,14 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 44,
+							"line": 48,
 							"character": 24
 						}
 					]
 				},
 				{
 					"id": 457,
-					"name": "len",
+					"name": "includes",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -7921,13 +7839,13 @@
 					"signatures": [
 						{
 							"id": 458,
-							"name": "len",
+							"name": "includes",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of characters in a string",
-								"returns": "Length of string\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nlength = String.len(string)<br/></code>\n<br/>Expected value of length is 6\n"
+								"shortText": "Checks if a string contains a specified search string.",
+								"returns": "True if str contains search_str, false otherwise.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nincl = String.includes(string,\"an\")<br/></code>\n<br/>Expected value of incl is true.\n"
 							},
 							"parameters": [
 								{
@@ -7937,7 +7855,70 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to find length of"
+										"text": "String to search."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 460,
+									"name": "search_str",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Sub-string to search for."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "string.ts",
+							"line": 66,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 461,
+					"name": "len",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 462,
+							"name": "len",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the number of characters in a string.",
+								"returns": "Length of string.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nlength = String.len(string)<br/></code>\n<br/>Expected value of length is 6.\n"
+							},
+							"parameters": [
+								{
+									"id": 463,
+									"name": "str",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "String to find length of."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7954,13 +7935,13 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 58,
+							"line": 83,
 							"character": 19
 						}
 					]
 				},
 				{
-					"id": 460,
+					"id": 464,
 					"name": "replace",
 					"kind": 64,
 					"kindString": "Function",
@@ -7969,25 +7950,24 @@
 					},
 					"signatures": [
 						{
-							"id": 461,
+							"id": 465,
 							"name": "replace",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Searches for a specified string of characters in a string and replaces them with another specified string\nof characters",
-								"text": "To perfrom a case-insensitive search, use <code>/string/i</code> instead of <code>\"string\"</code> in search",
-								"returns": "New string with replaced characters\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nnewString = String.Replace(string,\"O\",\"Ar\")<br/></code>\n<br/>Expected value of newString is \"Arrange\"\n"
+								"shortText": "Searches for and replaces the specified search string in a string.\nThe search string can also be a regular expression.",
+								"returns": "New string with replaced characters.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nnewString = String.Replace(string,\"O\",\"Ar\")<br/></code>\n<br/>Expected value of newString is \"Arrange\".\n"
 							},
 							"parameters": [
 								{
-									"id": 462,
-									"name": "str_1",
+									"id": 466,
+									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String"
+										"text": "String."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7995,13 +7975,13 @@
 									}
 								},
 								{
-									"id": 463,
-									"name": "str_2",
+									"id": 467,
+									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to search for"
+										"text": "Sub-string or regular expression to search for."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8009,13 +7989,13 @@
 									}
 								},
 								{
-									"id": 464,
-									"name": "str_3",
+									"id": 468,
+									"name": "new_str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to replace search value with"
+										"text": "Replacement string."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8032,13 +8012,13 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 77,
+							"line": 102,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 465,
+					"id": 469,
 					"name": "search",
 					"kind": 64,
 					"kindString": "Function",
@@ -8047,25 +8027,24 @@
 					},
 					"signatures": [
 						{
-							"id": 466,
+							"id": 470,
 							"name": "search",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the position index of where a specified string of characters can be found within a string",
-								"text": "If specified string of characters cannot be found, returns -1",
-								"returns": "Number that represents position of str_1 in str_2\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsearch = String.search(string,\"e\")<br/></code>\n<br/>Expected value of search is 5\n"
+								"shortText": "Returns the position index of the first occurance of the specified search string within a string.\nIf the specified sub-string cannot be found, then returns -1.",
+								"returns": "Number that represents position of search_str in str.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsearch = String.search(string,\"e\")<br/></code>\n<br/>Expected value of search is 5.\n"
 							},
 							"parameters": [
 								{
-									"id": 467,
-									"name": "str_1",
+									"id": 471,
+									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String to check"
+										"text": "String to check."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8073,13 +8052,13 @@
 									}
 								},
 								{
-									"id": 468,
-									"name": "str_2",
+									"id": 472,
+									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String of characters to check for"
+										"text": "Sub-string or regular expression to search for."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8096,13 +8075,13 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 94,
+							"line": 122,
 							"character": 22
 						}
 					]
 				},
 				{
-					"id": 469,
+					"id": 473,
 					"name": "split",
 					"kind": 64,
 					"kindString": "Function",
@@ -8111,24 +8090,24 @@
 					},
 					"signatures": [
 						{
-							"id": 470,
+							"id": 474,
 							"name": "split",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Splits a string into a list of substrings using a specified string of characters as a separator",
-								"returns": "List of substrings\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsplit = String.split(string,\"a\")<br/></code>\n<br/>Expected value of split is [\"Or\",\"nge\"]\n"
+								"shortText": "Splits a string into a list of substrings using a specified separator string.",
+								"returns": "List of substrings.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsplit = String.split(string,\"a\")<br/></code>\n<br/>Expected value of split is [\"Or\",\"nge\"].\n"
 							},
 							"parameters": [
 								{
-									"id": 471,
+									"id": 475,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String"
+										"text": "String."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8136,13 +8115,13 @@
 									}
 								},
 								{
-									"id": 472,
+									"id": 476,
 									"name": "separator",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String of characters used to split string"
+										"text": "String of characters used to split string."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8162,13 +8141,76 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 109,
+							"line": 140,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 473,
+					"id": 449,
+					"name": "startsWith",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 450,
+							"name": "startsWith",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Checks if a string starts with the specified start string.",
+								"returns": "True if str starts with search_str, false otherwise.\n\n<h3>Example:</h3>\n<code>\nstring = \"Orange\"<br/>\nresult = String.startsWith(string,\"Or\")<br/>\n</code>\n<br/>Expected value of result is true.\n"
+							},
+							"parameters": [
+								{
+									"id": 451,
+									"name": "str",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "String to check."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 452,
+									"name": "start_str",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Start tring."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "string.ts",
+							"line": 30,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 477,
 					"name": "substring",
 					"kind": 64,
 					"kindString": "Function",
@@ -8177,25 +8219,24 @@
 					},
 					"signatures": [
 						{
-							"id": 474,
+							"id": 478,
 							"name": "substring",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Extracts characters in a string between 2 specified indices and returns it as a new string",
-								"text": "Start index is inclusive and end index is exclusive",
-								"returns": "New string with extracted characters\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsubstring = String.substring(string,1,4)<br/></code>\n<br/>Expected value of ends is \"ran\"\n"
+								"shortText": "Extracts characters in a string between two specified indices and returns it as a new string.\nStart index is inclusive and end index is exclusive.",
+								"returns": "New string with extracted characters.\n\n<h3>Example:</h3>\n<code>string = \"Orange\"<br/>\nsubstring = String.substring(string,1,4)<br/></code>\n<br/>Expected value of ends is \"ran\".\n"
 							},
 							"parameters": [
 								{
-									"id": 475,
+									"id": 479,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "String"
+										"text": "String."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8203,13 +8244,13 @@
 									}
 								},
 								{
-									"id": 476,
+									"id": 480,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index to start extracting characters"
+										"text": "Zero-based index to start extracting characters (inclusive)."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8217,13 +8258,13 @@
 									}
 								},
 								{
-									"id": 477,
+									"id": 481,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index to stop extracting characters"
+										"text": "Zero-based index to stop extracting characters (exclusive)."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8240,7 +8281,7 @@
 					"sources": [
 						{
 							"fileName": "string.ts",
-							"line": 127,
+							"line": 160,
 							"character": 25
 						}
 					]
@@ -8251,13 +8292,14 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						449,
 						453,
 						457,
-						460,
-						465,
+						461,
+						464,
 						469,
-						473
+						473,
+						449,
+						477
 					]
 				}
 			],
@@ -8270,20 +8312,20 @@
 			]
 		},
 		{
-			"id": 478,
+			"id": 482,
 			"name": "\"topo\"",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/Users/a0115775/Desktop/gs-modelling/src/gs-modelling/lib/topo.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/topo.ts",
 			"comment": {
 				"shortText": "Topology are sub-components within each object that are connected together.<br/>\nTopology consists of vertices, edges, wires and faces.<br/>"
 			},
 			"children": [
 				{
-					"id": 479,
+					"id": 483,
 					"name": "x",
 					"kind": 32,
 					"kindString": "Variable",
@@ -8308,7 +8350,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						479
+						483
 					]
 				}
 			],
@@ -8345,7 +8387,7 @@
 				437,
 				446,
 				448,
-				478
+				482
 			]
 		}
 	]
