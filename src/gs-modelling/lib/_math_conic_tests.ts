@@ -136,7 +136,7 @@ export function test_isectCirclePlane3D() {
     const pt: gs.IPoint = m.getGeom().addPoint([0,0,0]);
     const circle: gs.ICircle = m.getGeom().addCircle(pt,[1,0,0],[0,1,0],[0,360]);
     const plane: gs.IPlane = m.getGeom().addPlane(pt,[1,0,0],[0,0,1]);
-    console.log(test._isectCirclePlane3D(circle,plane));
+    // console.log(test._isectCirclePlane3D(circle,plane));
     // _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
     return true;
 }
