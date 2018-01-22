@@ -64,13 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>String functions return properties and perform actions on strings</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -84,6 +77,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#replace" class="tsd-kind-icon">replace</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#search" class="tsd-kind-icon">search</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#split" class="tsd-kind-icon">split</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#startswith" class="tsd-kind-icon">starts<wbr>With</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_string_.html#substring" class="tsd-kind-icon">substring</a></li>
 							</ul>
 						</section>
@@ -96,37 +90,41 @@
 					<a name="endswith" class="tsd-anchor"></a>
 					<h3>ends<wbr>With</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, end_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L21">string.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L48">string.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if a string ends with the characters of a specified string</p>
+									<p>Checks if a string ends with a specified end string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to check</p>
+										<p>String to check.</p>
 									</div>
 								</li>
 								<li>
-									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<h5>end_str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String of characters to check for</p>
+										<p>End string.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if str_1 ends with str_2, false if str_1 does not end with str_2</p>
+							<p>True if str ends with search_str, false otherwise.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+result = String.endsWith(string,&quot;ge&quot;)<br/></code>
+							<br/>Expected value of result is true.</p>
 						</li>
 					</ul>
 				</section>
@@ -134,37 +132,41 @@
 					<a name="includes" class="tsd-anchor"></a>
 					<h3>includes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, search_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L31">string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if a string contains a specified string of characters</p>
+									<p>Checks if a string contains a specified search string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to check</p>
+										<p>String to search.</p>
 									</div>
 								</li>
 								<li>
-									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<h5>search_str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to search for</p>
+										<p>Sub-string to search for.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if str_1 contains str_2, false if str_1 does not contain str_2</p>
+							<p>True if str contains search_str, false otherwise.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+incl = String.includes(string,&quot;an&quot;)<br/></code>
+							<br/>Expected value of incl is true.</p>
 						</li>
 					</ul>
 				</section>
@@ -178,12 +180,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L40">string.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L83">string.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of characters in a string</p>
+									<p>Returns the number of characters in a string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -191,12 +193,16 @@
 								<li>
 									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to find length of</p>
+										<p>String to find length of.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>Length of string</p>
+							<p>Length of string.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+length = String.len(string)<br/></code>
+							<br/>Expected value of length is 6.</p>
 						</li>
 					</ul>
 				</section>
@@ -204,45 +210,48 @@
 					<a name="replace" class="tsd-anchor"></a>
 					<h3>replace</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, search_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, new_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L54">string.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L102">string.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Searches for a specified string of characters in a string and replaces them with another specified string
-									of characters</p>
+									<p>Searches for and replaces the specified search string in a string.
+									The search string can also be a regular expression.</p>
 								</div>
-								<p>To perfrom a case-insensitive search, use <code>/string/i</code> instead of <code>&quot;string&quot;</code> in search</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String</p>
+										<p>String.</p>
 									</div>
 								</li>
 								<li>
-									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<h5>search_str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to search for</p>
+										<p>Sub-string or regular expression to search for.</p>
 									</div>
 								</li>
 								<li>
-									<h5>str_3: <span class="tsd-signature-type">string</span></h5>
+									<h5>new_str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to replace search value with</p>
+										<p>Replacement string.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>New string with replaced characters</p>
+							<p>New string with replaced characters.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+newString = String.Replace(string,&quot;O&quot;,&quot;Ar&quot;)<br/></code>
+							<br/>Expected value of newString is &quot;Arrange&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -250,38 +259,42 @@
 					<a name="search" class="tsd-anchor"></a>
 					<h3>search</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>str_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, str_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, search_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L66">string.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L122">string.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the position index of where a specified string of characters can be found within a string</p>
+									<p>Returns the position index of the first occurance of the specified search string within a string.
+									If the specified sub-string cannot be found, then returns -1.</p>
 								</div>
-								<p>If specified string of characters cannot be found, returns -1</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>str_1: <span class="tsd-signature-type">string</span></h5>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String to check</p>
+										<p>String to check.</p>
 									</div>
 								</li>
 								<li>
-									<h5>str_2: <span class="tsd-signature-type">string</span></h5>
+									<h5>search_str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String of characters to check for</p>
+										<p>Sub-string or regular expression to search for.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>Number that represents position of str_1 in str_2</p>
+							<p>Number that represents position of search_str in str.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+search = String.search(string,&quot;e&quot;)<br/></code>
+							<br/>Expected value of search is 5.</p>
 						</li>
 					</ul>
 				</section>
@@ -295,12 +308,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L76">string.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L140">string.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Splits a string into a list of substrings using a specified string of characters as a separator</p>
+									<p>Splits a string into a list of substrings using a specified separator string.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -308,18 +321,66 @@
 								<li>
 									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String</p>
+										<p>String.</p>
 									</div>
 								</li>
 								<li>
 									<h5>separator: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String of characters used to split string</p>
+										<p>String of characters used to split string.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of substrings</p>
+							<p>List of substrings.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+split = String.split(string,&quot;a&quot;)<br/></code>
+							<br/>Expected value of split is [&quot;Or&quot;,&quot;nge&quot;].</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="startswith" class="tsd-anchor"></a>
+					<h3>starts<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">starts<wbr>With<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, start_str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L30">string.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if a string starts with the specified start string.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String to check.</p>
+									</div>
+								</li>
+								<li>
+									<h5>start_str: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Start tring.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if str starts with search_str, false otherwise.</p>
+							<p><h3>Example:</h3>
+								<code>
+string = &quot;Orange&quot;<br/>
+result = String.startsWith(string,&quot;Or&quot;)<br/>
+</code>
+							<br/>Expected value of result is true.</p>
 						</li>
 					</ul>
 				</section>
@@ -333,38 +394,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/string.ts#L89">string.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/string.ts#L160">string.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extracts characters in a string between 2 specified indices and returns it as a new string</p>
+									<p>Extracts characters in a string between two specified indices and returns it as a new string.
+									Start index is inclusive and end index is exclusive.</p>
 								</div>
-								<p>Start index is inclusive and end index is exclusive</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>str: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>String</p>
+										<p>String.</p>
 									</div>
 								</li>
 								<li>
 									<h5>start: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index to start extracting characters</p>
+										<p>Zero-based index to start extracting characters (inclusive).</p>
 									</div>
 								</li>
 								<li>
 									<h5>end: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index to stop extracting characters</p>
+										<p>Zero-based index to stop extracting characters (exclusive).</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>New string with extracted characters</p>
+							<p>New string with extracted characters.</p>
+							<p><h3>Example:</h3>
+								<code>string = &quot;Orange&quot;<br/>
+substring = String.substring(string,1,4)<br/></code>
+							<br/>Expected value of ends is &quot;ran&quot;.</p>
 						</li>
 					</ul>
 				</section>
@@ -457,6 +522,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_string_.html#split" class="tsd-kind-icon">split</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_string_.html#startswith" class="tsd-kind-icon">starts<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_string_.html#substring" class="tsd-kind-icon">substring</a>

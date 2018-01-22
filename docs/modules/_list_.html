@@ -64,19 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Lists are a tool to manage a collection of data.<br/></p>
-					</div>
-					<p>Any information can be stored in a list (including other lists) and they are refered to as items.<br/>
-						Items in a list are ordered and will be returned in the same order or accessed by the same index unless
-					changes are made to alter it.<br/></p>
-					<p>To create an empty list, use the assignment button and define the value as <code>[]</code><br/>
-						To access an item from a list, use <code>list_name[index_num]</code>. This can also be entered directly
-					into functions.</p>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -116,12 +103,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L29">list.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L33">list.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Duplicates a list</p>
+									<p>Creates a new list by making a copy of an existing list.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -129,12 +116,17 @@
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to duplicate</p>
+										<p>List to copy.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>New duplicated list</p>
+							<p>New duplicated list.</p>
+							<p><h3>Example:</h3>
+								<code>
+list = [1,2,3]<br/>
+copy = List.Copy(list)</code><br/><br/>
+							Expected value of copy is [1,2,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -148,32 +140,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L41">list.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L51">list.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new list of integers between two integers</p>
+									<p>Creates a new list of integer numbers between two bounds.
+									Lower bound is inclusive and upper bound is exclusive.</p>
 								</div>
-								<p>Bottom bound number is inclusive and top bound number is exclusive<br/></p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Bottom bound integer</p>
+										<p>Lower bound integer.</p>
 									</div>
 								</li>
 								<li>
 									<h5>max: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Top bound integer</p>
+										<p>Upper bound integer.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>New list</p>
+							<p>New list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = List.FromRange(0,5)</code><br/><br/>
+							Expected value of list is [0,1,2,3,4].</p>
 						</li>
 					</ul>
 				</section>
@@ -187,33 +183,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L67">list.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L92">list.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds an item to the end of a list</p>
+									<p>Adds an item to the end of a list.
+									If item is a list, the entire list will be appended as one item.</p>
 								</div>
-								<p>If item is a list, the entire list will be appended as one item<br/>
-								Alters original input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to add to</p>
+										<p>List to add to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>item: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Item to add</p>
+										<p>Item to add.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List with added item</p>
+							<p>New list with added item.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+append = List.append(list,4)</code><br/><br/>
+							Expected value of list is [1,2,3,4].</p>
 						</li>
 					</ul>
 				</section>
@@ -227,33 +227,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L81">list.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L114">list.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds an item to the front of a list</p>
+									<p>Adds an item to the front of a list.
+									If the item is a list, the entire list will be appended as one item.</p>
 								</div>
-								<p>If item is a list, the entire list will be appended as one item<br/>
-								Alters original input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to add to</p>
+										<p>List to add to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>item: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Item to add</p>
+										<p>Item to add.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List with added item</p>
+							<p>New list with added item.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+append = List.appendFront(list,4)</code><br/><br/>
+							Expected value of list is [4,1,2,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -267,33 +271,38 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L95">list.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L137">list.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds items (from a list) to the end of an list</p>
+									<p>Adds items (from a list) to the end of an list.
+									Items are added to list individually as seperate items.</p>
 								</div>
-								<p>Items are appended to list individually as seperate items<br/>
-								Does not alter original input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to add to</p>
+										<p>List to add to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>items: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List of items to add</p>
+										<p>List of items to add.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List with added items</p>
+							<p>List with added items.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+list2 = [9,0]<br/>
+extend = List.extend(list,list2)</code><br/><br/>
+							Expected value of extend is [1,2,3,9,0].</p>
 						</li>
 					</ul>
 				</section>
@@ -307,33 +316,38 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L108">list.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L158">list.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds items (from a list) to the front of an list</p>
+									<p>Adds items (from a list) to the front of an list.
+									Items are added to list individually as seperate items.</p>
 								</div>
-								<p>Items are appended to list individually as seperate items<br/>
-								Does not alter original input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to add to</p>
+										<p>List to add to.</p>
 									</div>
 								</li>
 								<li>
 									<h5>items: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List of items to add</p>
+										<p>List of items to add.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List with added items</p>
+							<p>List with added items.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+list2 = [9,0]<br/>
+extend = List.extend(list,list2)</code><br/><br/>
+							Expected value of extend is [9,0,1,2,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -347,27 +361,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L120">list.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L176">list.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Flattens an n-dimensional list into a one-dimensional list</p>
+									<p>Flattens an n-dimensional list into a one-dimensional list.</p>
 								</div>
-								<p>Alters input list<br/>
-								List returned will be in order</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to flatten</p>
+										<p>List to flatten.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>Flattened list</p>
+							<p>Flattened list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3,[4,5]]<br/>
+flatten = List.flatten(list)</code><br/><br/>
+							Expected value of list is [1,2,3,4,5].</p>
 						</li>
 					</ul>
 				</section>
@@ -381,12 +398,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L54">list.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L73">list.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of items in an list</p>
+									<p>Returns the number of items in an list.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -394,12 +411,17 @@
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List</p>
+										<p>List.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>Length of specified list</p>
+							<p>Length of the list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+len = List.len(list)</code><br/><br/>
+							Expected value of len is 3.</p>
 						</li>
 					</ul>
 				</section>
@@ -413,32 +435,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L132">list.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L194">list.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes the item with the specified index number from a list</p>
+									<p>Removes the item at the specified index from a list.</p>
 								</div>
-								<p>Alters input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to remove item from</p>
+										<p>List to remove item from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index number of item to remove</p>
+										<p>Zero-based index number of item to remove.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List with item removed</p>
+							<p>List with item removed.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+remove = List.removeIndex(list,1)</code><br/><br/>
+							Expected value of list is [1,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -446,47 +472,51 @@
 					<a name="removevalue" class="tsd-anchor"></a>
 					<h3>remove<wbr>Value</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>Value<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, remove_all<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Value<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, remove_all<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L149">list.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L220">list.ts:220</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes items that match specified value from a list</p>
+									<p>Removes items that match specified value from a list.
+									Items must match both the value and type of specified value<br/></p>
 								</div>
-								<p>Alters input list<br/>
-									Items must match both the value and type of specified value<br/>
-								Returns original list if no items in list match specified value</p>
+								<p>Returns original list if no items in list match specified value.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to remove item from</p>
+										<p>List to remove item from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Value to search for</p>
+										<p>Value to search for.</p>
 									</div>
 								</li>
 								<li>
-									<h5>remove_all: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> remove_all: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Removes all instances of specified value if true, removes only the first instance if
-										false</p>
+										false.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
 							<p>List with item removed</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,2,3]<br/>
+remove = List.removeValue(list,2,true)</code><br/><br/>
+							Expected value of list is [1,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -500,26 +530,30 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L166">list.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L245">list.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Reverses the order of items in an list</p>
+									<p>Reverses the order of items in an list.</p>
 								</div>
-								<p>Alters input list</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to reverse</p>
+										<p>List to reverse.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>New reversed list</p>
+							<p>New reversed list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3]<br/>
+result = List.reverse(list)</code><br/><br/>
+							Expected value of result is [3,2,1].</p>
 						</li>
 					</ul>
 				</section>
@@ -527,45 +561,52 @@
 					<a name="slice" class="tsd-anchor"></a>
 					<h3>slice</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L209">list.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L313">list.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes items with index numbers that fall within a range from a list and return them</p>
+									<p>Creates a copy of a portion of a list, from start index to end index (end not included).</p>
 								</div>
-								<p>Alters input list<br/>
-								Bottom bound number of range is inclusive, top bound number is exclusive</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List slice</p>
+										<p>List to slice.</p>
 									</div>
 								</li>
 								<li>
-									<h5>min: <span class="tsd-signature-type">number</span></h5>
+									<h5>start: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Bottom bound number of range</p>
+										<p>Zero-based index at which to begin slicing.
+											A negative index can be used, indicating an offset from the end of the sequence.
+										If start is undefined, slice begins from index 0.</p>
 									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">number</span></h5>
+									<h5>end: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Top bound number of range</p>
+										<p>Zero-based index before which to end slicing. Slice extracts up to but not including end.
+											A negative index can be used, indicating an offset from the end of the sequence.
+										If end is undefined, slice extracts through the end of the sequence.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of removed items</p>
+							<p>A new list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [1,2,3,4,5]<br/>
+result = List.slice(list,1,3)</code><br/><br/>
+							Expected value of result is [2,3].</p>
 						</li>
 					</ul>
 				</section>
@@ -579,16 +620,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L181">list.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L268">list.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sorts a list of strings alphabetically</p>
+									<p>Sorts a list of strings alphabetically.
+									If items are not strings, they are treated as strings.<br/></p>
 								</div>
-								<p>Alters input list<br/>
-									If items are not strings, they are treated as strings<br/>
-									Items are sorted according to string Unicode code points (character by character, numbers before upper case
+								<p>Items are sorted according to string Unicode code points (character by character, numbers before upper case
 								alphabets, upper case alphabets before lower case alphabets)</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -596,12 +636,17 @@
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to sort</p>
+										<p>List to sort.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>New sorted list</p>
+							<p>New sorted list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [&quot;1&quot;,&quot;2&quot;,&quot;10&quot;,&quot;Orange&quot;,&quot;apple&quot;]<br/>
+sort = List.sortAlpha(list)</code><br/><br/>
+							Expected value of list is [&quot;1&quot;,&quot;10&quot;,&quot;2&quot;,&quot;Orange&quot;,&quot;apple&quot;].</p>
 						</li>
 					</ul>
 				</section>
@@ -615,27 +660,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L194">list.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L288">list.ts:288</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sorts a list of numbers in ascending order</p>
+									<p>Sorts a list of numbers in ascending order.
+									The list must contain numbers.</p>
 								</div>
-								<p>Alters input list<br/>
-								List must contain numbers</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>list: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List to add to</p>
+										<p>List to add to.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>New sorted list</p>
+							<p>New sorted list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [56,6,48]<br/>
+sort = List.sortNum(list)</code><br/><br/>
+							Expected value of list is [6,48,56].</p>
 						</li>
 					</ul>
 				</section>
@@ -643,22 +692,21 @@
 					<a name="splice" class="tsd-anchor"></a>
 					<h3>splice</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, howmany<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">splice<span class="tsd-signature-symbol">(</span>list<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, num_to_remove<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, items_to_add<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/4610ada/src/gs-modelling/lib/list.ts#L225">list.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/list.ts#L339">list.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds and/or removes items to/from a list at a specific point and returns removed items</p>
+									<p>Adds and/or removes items to/from a list.</p>
 								</div>
-								<p>Alters input list<br/>
-									If no items to add are specified, only removes items<br/>
-								If howmany specified as 0, only adds items</p>
+								<p>If no items_to_add are specified, then items are only removed.
+								If num_to_remove is 0, then items are only added.<br/></p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -671,24 +719,29 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index number of position to add/remove (items added/removed after specified index)</p>
+										<p>Zero-based index at which to add/remove items. (Items are added/removed after specified index)</p>
 									</div>
 								</li>
 								<li>
-									<h5>howmany: <span class="tsd-signature-type">number</span></h5>
+									<h5>num_to_remove: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Number of items to remove</p>
+										<p>Number of items to remove.</p>
 									</div>
 								</li>
 								<li>
-									<h5>items: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>items_to_add: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Items to add</p>
+										<p>List of items to add.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of removed items</p>
+							<p>A new list.</p>
+							<p><h3>Example: </h3>
+								<code>
+list = [10, 20, 30, 40, 50]<br/>
+result = List.splice(list, 1, 3, [2.2, 3.3])</code><br/><br/>
+							Expected value of result is [10, 2.2, 3.2, 50].</p>
 						</li>
 					</ul>
 				</section>
