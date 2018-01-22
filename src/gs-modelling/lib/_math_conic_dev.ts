@@ -5,6 +5,7 @@ import * as quadratic from "solve-quadratic-equation";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as kld from "kld-intersections";
+import * as pl from "./plane_dev";
 
 /**
  * Circle-circle intersection
@@ -146,7 +147,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     for(const point of points) {
     result.push(m1.getGeom().addPoint(point.getPosition()));
     }
-    throw new Error("Method not implemented.");
+    // throw new Error("Method not implemented.");
     return result;
 }
 /**

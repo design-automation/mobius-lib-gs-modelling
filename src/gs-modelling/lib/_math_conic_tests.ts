@@ -131,6 +131,16 @@ export function test_isectCircleCircle2D() {
 
     return true;
 }
+export function test_isectCirclePlane3D() {
+    
+
+
+    // _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
+    return true;
+}
+
+
+
 export function test_isectCircleEllipse2D() {
 // _isectCircleEllipse2D(circle: gs.ICircle, ellipse: gs.IEllipse): gs.IPoint[]
     return true;

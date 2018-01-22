@@ -34,20 +34,20 @@ export function _PointOrthoProjectPlane(point: gs.IPoint, plane: gs.IPlane): gs.
     const m1: gs.IModel = point.getModel();
     const m2: gs.IModel = plane.getModel();
     if(m1 !== m2) { throw new Error("Parameters need to be on the same model");}
-    const vectors: gs.XYZ = plane.getVectors();
+    const vectors: gs.XYZ[] = plane.getVectors();
     const norm: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
-    const U1: three.Vector3 = new three.Vector3(vectors[0]).normalize();
-    const W1: three.Vector3 = new three.Vector3(norm).normalize();
+    const U1: three.Vector3 = new three.Vector3(vectors[0][0],vectors[0][1],vectors[0][2]).normalize();
+    const W1: three.Vector3 = new three.Vector3(norm[0],norm[1],norm[2]).normalize();
     let V1: three.Vector3 = new three.Vector3();
     V1 = V1.crossVectors(W1,U1).normalize();
     const m: gs.IModel = new gs.Model();
     const _point: three.Vector3 = cs.vectorFromPointsAtoB(plane.getOrigin(),point);
     const _origin: three.Vector3 = cs.vectorFromPointsAtoB(m.getGeom().addPoint([0,0,0]),plane.getOrigin());
     let projected: three.Vector3 = new three.Vector3();
-    projected = cs.addVectors(U1.multiplyScalar(U1.dot(U1, _point)),V1.multiplyScalar(V1.dot(V1, _point)),false);
+    projected = cs.addVectors(U1.multiplyScalar(U1.dot(_point)),V1.multiplyScalar(V1.dot(_point)),false);
     const p_xyz: three.Vector3 = cs.addVectors(_origin, projected);
     const xyz: number[] = [p_xyz.x,p_xyz.y,p_xyz.z];
-    return m1.getGeom().addPoint(xyz);
+    return m1.getGeom().addPoint([p_xyz.x,p_xyz.y,p_xyz.z]);
 }
 
 // - WEEK 3 -
