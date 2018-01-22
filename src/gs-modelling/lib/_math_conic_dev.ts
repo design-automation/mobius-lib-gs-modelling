@@ -141,7 +141,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     const m_V1: three.Vector3 = new three.Vector3();
     const projected_circle: gs.ICircle = m.getGeom().addCircle(
     projected_origin,
-    [m_U1.x,m_U1.y,m_U1.z],[m_V1.x,m_V1.y,m_V1.z]);
+    [m_U1.x,m_U1.y,m_U1.z],[m_V1.x,m_V1.y,m_V1.z],[0,360]);
     const points: gs.IPoint[] = _isectCircleCircle2D(m_circle, projected_circle);
     const result: gs.IPoint[] = [];
     for(const point of points) {

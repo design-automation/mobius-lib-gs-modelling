@@ -5,8 +5,8 @@ describe("Tests for Math Conic Dev", () => {
     it("test_isectCircleCircle2D", () => {
         expect(_tests.test_isectCircleCircle2D()).toBe(true);
     });
-    it("test_isectCircleEllipse2D", () => {
-        expect(_tests.test_isectCircleEllipse2D()).toBe(true);
+    it("test_isectCirclePlane3D", () => {
+        expect(_tests.test_isectCirclePlane3D()).toBe(true);
     });
     it("test_isectEllipseEllipse2D", () => {
         expect(_tests.test_isectEllipseEllipse2D()).toBe(true);
