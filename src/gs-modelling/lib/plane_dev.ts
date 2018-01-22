@@ -24,6 +24,18 @@ export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.I
     const vec_y: three.Vector3 = cs.vectorFromPointsAtoB(origin, pt_y);
     return m1.getGeom().addPlane(origin, [vec_x.x,vec_x.y,vec_x.z], [vec_y.x,vec_y.y,vec_y.z]);
 }
+/**
+ * Creates an orthogonal projected point on a plane
+ * @param plane on which the orthogonal projection occurs
+ * @param point to project
+ * @returns New point if successful, null if unsuccessful or an error
+ */
+export function _PointOrthoProjectPlane(point: gs.IPoint, plane: gs.IPlane): gs.IPoint {
+    const m1: gs.IModel = point.getModel();
+    const m2: gs.IModel = plane.getModel();
+    if(m1 !== m2) { throw new Error("Parameters need to be on the same model");}
+    throw new Error("method not implemented");
+}
 
 // - WEEK 3 -
 /**
