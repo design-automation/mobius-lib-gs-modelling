@@ -1,5 +1,6 @@
 import * as gs from "gs-json";
 import * as three from "three";
+import * as cs from "./_three_utils_dev";
 
 //  ===============================================================================================================
 //  Plane Constructors ============================================================================================
@@ -14,7 +15,14 @@ import * as three from "three";
  */
 export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
                                 gs.IPlane {
-    throw new Error("Method not implemented");
+    const m1: gs.IModel = origin.getModel();
+    const m2: gs.IModel = pt_x.getModel();
+    const m3: gs.IModel = pt_y.getModel();
+    if(m1 !== m2) { throw new Error("Points need to be on the same model");}
+    if(m1 !== m3) { throw new Error("Points need to be on the same model");}
+    const vec_x: three.Vector3 = cs.vectorFromPointsAtoB(origin, pt_x);
+    const vec_y: three.Vector3 = cs.vectorFromPointsAtoB(origin, pt_y);
+    return m1.getGeom().addPlane(origin, [vec_x.x,vec_x.y,vec_x.z], [vec_y.x,vec_y.y,vec_y.z]);
 }
 
 // - WEEK 3 -
@@ -26,7 +34,7 @@ export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.I
  * @returns New plane if successful, null if unsuccessful or on error
  */
 export function _FromOriginWCS(origin: gs.IPoint): gs.IPlane {
-    throw new Error("Method not implemented");
+    return origin.getModel().getGeom().addPlane(origin, [1,0,0],[0,1,0]);
 }
 
 //  ===============================================================================================================
