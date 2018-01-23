@@ -3,11 +3,6 @@ import * as three from "three";
 import * as xform from "./_math_xform_dev";
 import * as three_utils from "./_three_utils_dev";
 
-//  ===============================================================================================================
-//  TO BE IMPLEMENTED ============================================================================================
-//  ===============================================================================================================
-
-// - Possibly Assignment 1 (WEEK 2-3) -
 /**
  * Copies polylines from one model to another
  * @param model_1 Model to copy from
@@ -18,7 +13,6 @@ export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPoly
     throw new Error("Method not implemented");
 }
 
-// - WEEK 2 -
 /**
  * Adds a polyline from the model based on a conic curve
  *
@@ -28,7 +22,7 @@ export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPoly
  * @param segments Number of segments in polyline
  * @returns Polyline object if successful
  */
-export function FromConic(curve: gs.ICircle|gs.IEllipse, segments: number): gs.IPolyline {
+export function FromEllipse(curve: gs.ICircle|gs.IEllipse, segments: number): gs.IPolyline {
     // TODO
     throw new Error("Method not implemented");
 }
@@ -100,9 +94,6 @@ export function revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, ang
     throw new Error("Method not implemented");
 }
 
-
-
-// - WEEK 2 -
 /**
  * Weld a list of polylines together
  * @param plines List of polyline to weld

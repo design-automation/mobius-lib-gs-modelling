@@ -5,19 +5,30 @@
 import * as gs from "gs-json";
 
 //  ===============================================================================================================
-//  Point Get =====================================================================================================
+//  Point Get Copy ================================================================================================
 //  ===============================================================================================================
 
 /**
- * Gets a point from the model.
- * @param model Model to get point from
- * @param index Index of point to get
- * @returns Specified point if successful, null if unsuccessful or on error
+ * Gets a point from a model.
+ * @param model Model to get point from.
+ * @param index Index of point to get.
+ * @returns Specified point if successful, null if unsuccessful or on error.
  */
 export function Get(model: gs.IModel, id: number): gs.IPoint {
     const point: gs.IPoint = model.getGeom().getPoint(id);
     if (point === undefined) {return null; }
     return point;
+}
+
+/**
+ * Copy a point wihin a model.
+ *
+ * @param point Point to copy.
+ * @returns New point.
+ */
+export function Copy(point: gs.IPoint): gs.IPoint {
+    const model: gs.IModel = point.getModel();
+    return model.getGeom().addPoint(point.getPosition());
 }
 
 //  ===============================================================================================================
@@ -33,43 +44,29 @@ export function Get(model: gs.IModel, id: number): gs.IPoint {
  * @param point Point to copy in other model
  * @returns Added point in specified model
  */
-export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
+export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
     return model.getGeom().addPoint(point.getPosition());
 }
 
 /**
- * Adds a point to the model
+ * Adds a point or a set of points to the model
  *
  * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
  * Points are returned in order of input
- * @param model Model to add point to
- * @param xyz List of X, Y and Z coordinates of point
+ * @param model Model to add points to.
+ * @param xyz List of XYZ coordinates, or a list of lists of XYZ coordinates.
  * @returns New point or list of points if successful, null if unsuccessful or on error
  */
-export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
-    return model.getGeom().addPoint(xyz);
+export function FromXYZ(model: gs.IModel, xyzs: gs.XYZ| gs.XYZ[]): gs.IPoint|gs.IPoint[] {
+    if (Array.isArray(xyzs)) {
+        const points: gs.IPoint[] = [];
+        for (const xyz of xyzs as gs.XYZ[]) {
+            points.push(model.getGeom().addPoint(xyz));
+        }
+        return points;
+    }
+    return model.getGeom().addPoint(xyzs);
 }
-
-/**
- * Adds a point or list of points to the model
- *
- * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
- * Points are returned in order of input
- * @param model Model to add point to
- * @param xyz List of X, Y and Z coordinates of point
- * @returns New point or list of points if successful, null if unsuccessful or on error
- */
-export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
-    return xyzs.map((xyz) => model.getGeom().addPoint(xyz));
-}
-
-// OR
-// export function FromXYZ(model: gs.IModel, xyz: gs.XYZ| gs.XYZ[]): gs.IPoint|gs.IPoint[] {
-//     if (Array.isArray(xyz)) {
-//         return xyz.map((_xyz) => model.getGeom().addPoint(_xyz));
-//     }
-//     return model.getGeom().addPoint(xyz);
-// }
 
 /**
  * Adds a point that is the center of a list of points

@@ -10,7 +10,7 @@ import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
 import * as three from "three";
 
 //  ===============================================================================================================
-//  Pline Get ============================================================================================
+//  Pline Get and Copy ============================================================================================
 //  ===============================================================================================================
 
 /**
@@ -80,7 +80,7 @@ export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
  * @param end End point of line
  * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
  */
-export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
+export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
     return this.FromPoints([start, end], false);
 }
 
@@ -166,10 +166,10 @@ export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
  * @param segment_index Index numbers of polyline segments to extract
  * @param return_remainder Returns polylines created from the remainder of the polyline if true, returns only
  *                         specified segments if false
- * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns List of new polylines created from extract
  */
-export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean): gs.IPolyline[] {
+export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyline[] {
+    // do the extraction
     const m: gs.IModel = pline.getModel();
     const plines: gs.IPolyline[] = [];
     const points: gs.IPoint[] = pline.getPointsArr();
@@ -178,9 +178,6 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
         if (i < points.length - 1) {
             plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
         }
-    }
-    if (!copy) {
-        m.getGeom().delObj(pline, false);// TODO this should be copied at the start
     }
     return plines;
 }
@@ -194,30 +191,30 @@ export function extract(pline: gs.IPolyline, segment_index: number[], copy: bool
  * @param pline Polyline object
  * @param extrusion_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
- * @param copy Performs transformation on duplicate copy of input polyline if true
- * @returns New polyline object if successful, null if unsuccessful or on error
+ * @returns Polyline object if successful, null if unsuccessful or on error
  */
 export function extend(pline: gs.IPolyline, extrusion_side: number, length: number,
-                       create_points: boolean, copy: boolean): gs.IPolyline {
-    const points: gs.IPoint[] = pline.getPointsArr();
+                       create_points: boolean): gs.IPolyline {
+    // extend? which side?
     switch (extrusion_side) {
         case 0: case 2:
-            const a1: gs.IPoint = points[1];
-            const b1: gs.IPoint = points[0];
-            const c1: gs.IPoint = _pointsExtend(a1, b1, length, create_points);
-            if (create_points) { points.unshift(c1); }
+            const edges1: gs.IEdge[] = pline.getEdges()[0][0];
+            const first_edge = edges1[0];
+            const points1: gs.IPoint[] = first_edge.getVertices().map((v) => v.getPoint());
+            const extended1: gs.IPoint = _pointsExtend(points1[1], points1[0], length, create_points);
+            if (create_points) {
+                pline.insertVertex(first_edge, extended1);
+            }
         case 1: case 2:
-            const a2: gs.IPoint = points[points.length - 2];
-            const b2: gs.IPoint = points[points.length - 1];
-            const c2: gs.IPoint = _pointsExtend(a2, b2, length, create_points);
-            if (create_points) { points.push(c2); }
+            const edges2: gs.IEdge[] = pline.getEdges()[0][0];
+            const last_edge = edges2[edges2.length - 1];
+            const points2: gs.IPoint[] = last_edge.getVertices().map((v) => v.getPoint());
+            const extended2: gs.IPoint = _pointsExtend(points2[0], points2[1], length, create_points);
+            if (create_points) {
+                pline.insertVertex(last_edge, extended2);
+            }
     }
-    const m: gs.IModel = pline.getModel();
-    const new_pline = m.getGeom().addPolyline(points, false);
-    if (!copy) {
-        m.getGeom().delObj(pline, false);
-    }
-    return new_pline;
+    return pline;
 }
 
 /**
@@ -232,13 +229,13 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
  * joined to the polymesh from above.
  * @param pline Polyline to extrude
  * @param vector Vector describing direction and distance of extrusion
- * @param cap Closes polymesh by creating a flat polygon on each end of the extrusion if true
- * @param copy Performs transformation on duplicate copy of input polyline if true
+ * @param cap Closes polymesh by creating a polygon on each end of the extrusion if true
  * @returns Polymesh created from extrusion
  */
-export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean, copy: boolean): gs.IPolymesh {
+export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.IPolymesh {
     const m: gs.IModel = pline.getModel();
     const points: gs.IPoint[] = pline.getPointsArr();
+    const new_points: gs.IPoint[] = [];
     const mesh_points: gs.IPoint[][] = [];
     for (let i = 0; i < points.length; i++) {
         const i2 = i%2;
@@ -246,14 +243,17 @@ export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean, copy:
         const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
         const pos: number[] = points[i].getPosition();
         face[i2] = points[i];
-        face[3 - i2] = m.getGeom().addPoint([pos[0] + vector[0], pos[1] + vector[1], pos[2] + vector[2]]);
+        // create the new point by adding the vector
+        const new_point: gs.IPoint = m.getGeom().addPoint([pos[0] + vector[0], pos[1] + vector[1], pos[2] + vector[2]]);
+        new_points.push(new_point);
+        face[3 - i2] = new_point;
+    }
+    if (cap) {
+        mesh_points.push(points.reverse());
+        mesh_points.push(new_points);
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
-    if (!copy) {
-        m.getGeom().delObj(pline, false);
-    }
     return pmesh;
-    //  TODO deal with cap
 }
 
 /**
@@ -266,10 +266,9 @@ export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean, copy:
  * Returns null if polylines do not have the same number of segments
  * @param plines List of polylines to loft (in order)
  * @param is_closed Closes polymesh by lofting back to first polyline if true
- * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns Polymesh created from loft if successful, null if unsuccessful or on error
  */
-export function loft(plines: gs.IPolyline[], is_closed: boolean=false, copy: boolean): gs.IPolymesh {
+export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
     const m: gs.IModel = plines[0].getModel();
     if (is_closed) {plines.push(plines[0]);}
     if (plines.length < 2) {throw new Error("Too few polylines to loft.");}
@@ -301,11 +300,6 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false, copy: boo
         }
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
-    if (!copy) {
-        for (const pline of plines) {
-            m.getGeom().delObj(pline, false);
-        }
-    }
     return pmesh;
 }
 
@@ -315,10 +309,9 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false, copy: boo
  * Polyline is used as the cross-section of the polymesh to create
  * @param pline Polyline to sweep
  * @param rail Rail polyline to sweep along
- * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns Polymesh created from sweep
  */
-export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=true): gs.IPolymesh {
+export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
     const m: gs.IModel = pline.getModel();
     if (rail.getModel() !== m) {throw new Error("The pline and the rail must be in the same model.");}
     const pline_points: gs.IPoint[] = pline.getPointsArr();
@@ -359,9 +352,5 @@ export function sweep(pline: gs.IPolyline, rail: gs.IPolyline, copy: boolean=tru
         }
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
-    if (!copy) {
-        m.getGeom().delObj(pline, false);
-        m.getGeom().delObj(rail, false);
-    }
     return pmesh;
 }

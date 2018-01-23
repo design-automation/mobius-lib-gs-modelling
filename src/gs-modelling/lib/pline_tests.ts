@@ -12,12 +12,12 @@ export function test_pline_fromPoints(): boolean {
     return true;
 }
 
-export function test_pline_lineFromPoints(): boolean {
+export function test_pline_From2Points(): boolean {
     const m: gs.IModel = new gs.Model();
     const g: gs.IGeom = m.getGeom();
     const p1: gs.IPoint = g.addPoint([0,0,0]);
     const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const pline: gs.IPolyline = gsm.pline.LineFromPoints(p1, p2);
+    const pline: gs.IPolyline = gsm.pline.From2Points(p1, p2);
     if (pline === undefined) {return false;}
     return true;
 }
@@ -37,6 +37,18 @@ export function test_pline_evalParam(): boolean {
     if (pt6 === undefined) {return false;}
     const pt7: gs.IPoint = gsm.pline.evalParam(pline, 1);
     if (pt7 === undefined) {return false;}
+    return true;
+}
+
+export function test_pline_extract(): boolean {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const p1: gs.IPoint = g.addPoint([0,0,0]);
+    const p2: gs.IPoint = g.addPoint([10,0,0]);
+    const p3: gs.IPoint = g.addPoint([0,10,10]);
+    const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], true);
+    const plines: gs.IPolyline[] = gsm.pline.extract(pline, [0,1,2]);
+    if (plines.length !== 3) {return false;}
     return true;
 }
 
@@ -62,8 +74,8 @@ export function test_pline_extend(): boolean {
     const p2: gs.IPoint = g.addPoint([10,0,0]);
     const p3: gs.IPoint = g.addPoint([0,10,10]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-    gsm.pline.extend(pline, 0, 5, true, true); // create points and copy
-    gsm.pline.extend(pline, 1, 7, false, false); // dont create points, dont copy
+    gsm.pline.extend(pline, 0, 5, true); // create points and copy
+    gsm.pline.extend(pline, 1, 7, false); // dont create points, dont copy
     return true;
 }
 
@@ -74,7 +86,7 @@ export function test_pline_extrude(): boolean {
     const p2: gs.IPoint = g.addPoint([10,0,0]);
     const p3: gs.IPoint = g.addPoint([0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-    const mesh: gs.IPolymesh = gsm.pline.extrude(pline, [1,2,3], false, true);
-    const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false, false);
+    const mesh: gs.IPolymesh = gsm.pline.extrude(pline, [1,2,3], false);
+    const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false);
     return true;
 }
