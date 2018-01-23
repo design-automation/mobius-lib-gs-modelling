@@ -65,6 +65,9 @@ export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
 
 // OR
 // export function FromXYZ(model: gs.IModel, xyz: gs.XYZ| gs.XYZ[]): gs.IPoint|gs.IPoint[] {
+//     if (Array.isArray(xyz)) {
+//         return xyz.map((_xyz) => model.getGeom().addPoint(_xyz));
+//     }
 //     return model.getGeom().addPoint(xyz);
 // }
 
