@@ -304,25 +304,25 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPoly
 }
 
 /**
- * Sweeps a polyline along a specified polyline to create a polymesh
+ * Sweeps a cross_section polyline along a rail polyline to create a polymesh.
+ * The cross sesctions remain parallel.
  *
- * Polyline is used as the cross-section of the polymesh to create
- * @param pline Polyline to sweep
+ * @param cross_section Polyline to sweep
  * @param rail Rail polyline to sweep along
  * @returns Polymesh created from sweep
  */
-export function sweep(pline: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
-    const m: gs.IModel = pline.getModel();
-    if (rail.getModel() !== m) {throw new Error("The pline and the rail must be in the same model.");}
-    const pline_points: gs.IPoint[] = pline.getPointsArr();
-    if (pline.isClosed) {pline_points.push(pline_points[0]);}
+export function sweepParallel(cross_section: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
+    const m: gs.IModel = cross_section.getModel();
+    if (rail.getModel() !== m) {throw new Error("The cross_section and the rail must be in the same model.");}
+    const cross_points: gs.IPoint[] = cross_section.getPointsArr();
+    if (cross_section.isClosed) {cross_points.push(cross_points[0]);}
     const rail_points: gs.IPoint[] = rail.getPointsArr();
     if (rail.isClosed) {rail_points.push(rail_points[0]);}
     const mesh_points: gs.IPoint[][] = [];
-    const pline_start_pos: number[] = pline_points[0].getPosition();
-    for (let i = 0; i< pline_points.length - 1; i++) {
-        const pline_pos1: number[] = pline_points[i].getPosition();
-        const pline_pos2: number[] = pline_points[i+1].getPosition();
+    const pline_start_pos: number[] = cross_points[0].getPosition();
+    for (let i = 0; i< cross_points.length - 1; i++) {
+        const pline_pos1: number[] = cross_points[i].getPosition();
+        const pline_pos2: number[] = cross_points[i+1].getPosition();
         const vec1: number[] = [
             pline_pos1[0] - pline_start_pos[0],
             pline_pos1[1] - pline_start_pos[1],
