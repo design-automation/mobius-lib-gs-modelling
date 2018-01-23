@@ -1,7 +1,5 @@
 /**
- * Points are a type of entity.
- *
- * Points are defined by a set of x, y and z coordinates.
+ * Points define an a position in 3D space, as x, y and z coordinates.
  */
 
 import * as gs from "gs-json";
@@ -16,7 +14,7 @@ import * as gs from "gs-json";
  * @param index Index of point to get
  * @returns Specified point if successful, null if unsuccessful or on error
  */
-export function GetByID(model: gs.IModel, id: number): gs.IPoint {
+export function Get(model: gs.IModel, id: number): gs.IPoint {
     const point: gs.IPoint = model.getGeom().getPoint(id);
     if (point === undefined) {return null; }
     return point;
@@ -91,5 +89,5 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
  */
 export function getXYZ(point: gs.IPoint): gs.XYZ {
-    return point.getPosition() as gs.XYZ; //TODO
+    return point.getPosition() as gs.XYZ;
 }

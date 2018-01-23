@@ -1,20 +1,5 @@
 import * as gs from "gs-json";
 
-// - WEEK 2 -
-
-
-// - WEEK 2 -
-/**
- * Copies points from one model to another
- * @param model_1 Model to copy from
- * @param model_2 Model to copy to
- * @returns List of points copied into specified model if successful
- */
-export function _CopyFromModel(model_1: gs.IModel, model_2: gs.Model): gs.IPoint[] {
-    throw new Error("Method not implemented");
-}
-
-// - WEEK 5 -
 /**
  * Finds closest point on an object to a test point.
  * @param point Test point to consider
@@ -34,16 +19,6 @@ export function closestPoint(point: gs.IPoint, obj: gs.IObj): gs.IPoint {
  */
 export function fuse(points: gs.IPoint[], tolerance: number, copy: boolean): gs.IPoint {
     throw new Error("Method not implemented");
-}
-
-/**
- * Obtains x, y and z coordinates of 3D point
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
- * @param point Point
- * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
- */
-export function getXYZ(point: gs.IPoint): number[] {
-    return point.getPosition();
 }
 
 //  ===============================================================================================================

@@ -1,5 +1,5 @@
 /**
- * Entities includes both points and objects.
+ * Functions for manipulating entities. Entities are points and objects.
  */
 
 import * as gs from "gs-json";

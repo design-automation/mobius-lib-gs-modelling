@@ -2,10 +2,6 @@
  * Models contain geometry that can be viewed on the 3D viewer if output as geometry.
  */
 
-/**
- *
- */
-
 import * as gs from "gs-json";
 import {downloadContent} from "./model_dev";
 
@@ -13,22 +9,30 @@ import {downloadContent} from "./model_dev";
 //  Model Constructors ===========================================================================================
 //  ===============================================================================================================
 
-// - WEEK 2 -
 /**
  * Creates a new Model that is empty.
  * @returns New model empty if successful, null if unsuccessful or on error
  */
-export function New(gs_json_data?: gs.IModelData): gs.IModel {
+export function New(): gs.IModel {
     return new gs.Model();
 }
 
 /**
  * Creates a new Model and populates the model with data.
- * @param filedata The file data in gs-json format.
+ * @param model_data The model data in json format.
  * @returns New model if successful, null if unsuccessful or on error.
  */
-export function Load(filedata: string): gs.IModel {
-    return new gs.Model(JSON.parse(filedata));
+export function FromData(model_data: string): gs.IModel {
+    return new gs.Model(JSON.parse(model_data));
+}
+
+/**
+ * Creates a new Model and populates the model with data that is read from a file.
+ * @param filepath The filepath to the file that contains model data in json format.
+ * @returns New model if successful, null if unsuccessful or on error.
+ */
+export function FromFile(filepath: string): gs.IModel {
+    throw new Error("Not implemented.");
 }
 
 //  ===============================================================================================================

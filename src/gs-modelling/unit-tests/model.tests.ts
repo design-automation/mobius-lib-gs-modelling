@@ -6,7 +6,7 @@ describe("Tests for Model Module", () => {
         expect( pline_tests.test_model_New() ).toBe(true);
     });
     it("test_model_Load", () => {
-        expect( pline_tests.test_model_Load() ).toBe(true);
+        expect( pline_tests.test_model_FromData() ).toBe(true);
     });
     it("test_model_Save", () => {
         expect( pline_tests.test_model_Save() ).toBe(true);
