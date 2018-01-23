@@ -6,6 +6,7 @@ import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as kld from "kld-intersections";
 import * as pl from "./plane_dev";
+import * as trigo from "./trigo_dev";
 
 /**
  * Circle-circle intersection
