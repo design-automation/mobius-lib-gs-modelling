@@ -133,10 +133,17 @@ export function test_isectCircleCircle2D() {
 }
 export function test_isectCirclePlane3D() {
     const m: gs.IModel = new gs.Model();
-    const pt: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const circle: gs.ICircle = m.getGeom().addCircle(pt,[1,0,0],[0,0,1],[0,360]);
-    const plane: gs.IPlane = m.getGeom().addPlane(pt,[1,0,0],[0,1,0]);
-    console.log(test._isectCirclePlane3D(circle,plane));
+    const pt_circle: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,0,1],[0,360]);
+    const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
+    const intersects: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
+    console.log("test Circle Plane 3D");
+    if (intersects !== null) {
+        for (const point of intersects) {
+            console.log(point.getPosition());
+        }
+    }
     return true;
 }
 

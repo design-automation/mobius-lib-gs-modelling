@@ -135,6 +135,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     const B: number = n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z;
     const C: number = n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z;
     const _t: number[] = trigo._solve_trigo(A,B,C);
+    if (_t === null) {return null;}
     const result: gs.IPoint[] = [];
     for (const t of _t) {
     result.push(m1.getGeom().addPoint([C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
