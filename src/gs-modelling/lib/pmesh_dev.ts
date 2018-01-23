@@ -26,21 +26,8 @@ export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPol
 }
 
 // - WEEK 5 -
-/**
- * Creates a polymesh from 3 or 4 corner points
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddSrfPt
- *
- * List of points assumed to be in order
- * @param points List of 3 or 4 corner points
- * @returns New polymesh with a single face if successful, null if unsuccessful or on error
- */
-function _FromPoints(points: gs.IPoint[][]): gs.IPolymesh {
-    //if( points.length >= 5) {throw new Error("Select 4 corner points maximum");}
-    //return m.getGeom().addPolymesh(points);
-    throw new Error("Method not implemented");
-    }
 
-// - WEEK 2 -
+
 /**
  * Creates one or more polygons from planar polylines
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#surface-AddPlanarSrf
@@ -55,10 +42,11 @@ function _FromPoints(points: gs.IPoint[][]): gs.IPolymesh {
  * @returns List of polygons created if successful, null if unsuccessful or on error
  */
 
-function _FromPline(plines: gs.IPolyline[] ): gs.IPolymesh[] {
-    //return m.getGeom().addPolyline(polyline.getPointsArr(), false);
-    throw new Error("Method not implemented");
+function FromPlines(pline: gs.IPolyline): gs.IPolymesh {
+    const model: gs.IModel = pline.getModel();
+    return model.getGeom().addPolymesh([pline.getPointsArr()]);
 }
+
 
 /**
  * Creates a closed box polymesh on a plane

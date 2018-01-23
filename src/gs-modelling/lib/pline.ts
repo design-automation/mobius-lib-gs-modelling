@@ -51,6 +51,9 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
         if  (point.getModel() !== model) {
             throw new Error("All points must be in the same model.");
         }
+        if (!point.exists()) {
+            throw new Error("Point has been deleted.");
+        }
     }
     return model.getGeom().addPolyline(points, is_closed);
 }
@@ -65,6 +68,7 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
  * @returns Polyline object if successful.
  */
 export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
+    if (!circle.exists()) {throw new Error("Circle has been deleted.");}
     const m: gs.IModel = circle.getModel();
     const points: gs.IPoint[] = circle.equiPoints(segments + 1);
     return m.getGeom().addPolyline(points, circle.isClosed());
@@ -94,6 +98,7 @@ export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
  * @return True if the polyline is closed
  */
 export function isCLosed(pline: gs.IPolyline): boolean {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     return pline.isClosed();
 }
 
@@ -103,6 +108,7 @@ export function isCLosed(pline: gs.IPolyline): boolean {
  * @param is_closed The value to set
  */
 export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     pline.setIsClosed(is_closed);
 }
 
@@ -112,6 +118,7 @@ export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
  * @return The number of edges.
  */
 export function numEdges(pline: gs.IPolyline): number {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     return pline.numEdges();
 }
 
@@ -121,6 +128,7 @@ export function numEdges(pline: gs.IPolyline): number {
  * @return The number of vertices.
  */
 export function numVertices(pline: gs.IPolyline): number {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     return pline.numVertices();
 }
 
@@ -134,6 +142,7 @@ export function numVertices(pline: gs.IPolyline): number {
  * @returns Point if successful
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     let points: gs.IPoint[] = pline.getPointsArr();
     if (pline.isClosed()) {points.push(points[0]); }
     if (segment_index !== -1) {
@@ -152,6 +161,7 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
  * @returns List of new polylines created from explode
  */
 export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     return this.extract(pline, gs.Arr.makeSeq(pline.numEdges()), copy);
 }
 
@@ -169,6 +179,7 @@ export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
  * @returns List of new polylines created from extract
  */
 export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyline[] {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     // do the extraction
     const m: gs.IModel = pline.getModel();
     const plines: gs.IPolyline[] = [];
@@ -195,6 +206,7 @@ export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyl
  */
 export function extend(pline: gs.IPolyline, extrusion_side: number, length: number,
                        create_points: boolean): gs.IPolyline {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     // extend? which side?
     switch (extrusion_side) {
         case 0: case 2:
@@ -233,6 +245,7 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
  * @returns Polymesh created from extrusion
  */
 export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.IPolymesh {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     const m: gs.IModel = pline.getModel();
     const points: gs.IPoint[] = pline.getPointsArr();
     const new_points: gs.IPoint[] = [];
@@ -269,6 +282,9 @@ export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.I
  * @returns Polymesh created from loft if successful, null if unsuccessful or on error
  */
 export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
+    for (const pline of plines) {
+        if (!pline.exists()) {throw new Error("Pline has been deleted.");}
+    }
     const m: gs.IModel = plines[0].getModel();
     if (is_closed) {plines.push(plines[0]);}
     if (plines.length < 2) {throw new Error("Too few polylines to loft.");}
@@ -312,6 +328,9 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPoly
  * @returns Polymesh created from sweep
  */
 export function sweepParallel(cross_section: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
+    if (!cross_section.exists()) {throw new Error("Cross section has been deleted.");}
+    if (!rail.exists()) {throw new Error("Rail has been deleted.");}
+    if (cross_section.getModel() !== rail.getModel()) {throw new Error("Cross section and rail must be in the same model.");}
     const m: gs.IModel = cross_section.getModel();
     if (rail.getModel() !== m) {throw new Error("The cross_section and the rail must be in the same model.");}
     const cross_points: gs.IPoint[] = cross_section.getPointsArr();

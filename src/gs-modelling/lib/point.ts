@@ -27,6 +27,7 @@ export function Get(model: gs.IModel, id: number): gs.IPoint {
  * @returns New point.
  */
 export function Copy(point: gs.IPoint): gs.IPoint {
+    if (!point.exists()) {throw new Error("Point has been deleted.");}
     const model: gs.IModel = point.getModel();
     return model.getGeom().addPoint(point.getPosition());
 }
@@ -45,6 +46,7 @@ export function Copy(point: gs.IPoint): gs.IPoint {
  * @returns Added point in specified model
  */
 export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
+    if (!point.exists()) {throw new Error("Point has been deleted.");}
     return model.getGeom().addPoint(point.getPosition());
 }
 
@@ -85,6 +87,9 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
         if (point.getModel() !== m) {
             throw new Error("All points must be in the same model.");
         }
+        if (!point.exists()) {
+            throw new Error("Point has been deleted.");
+        }
     }
     const xyz: number[] = [0,0,0];
     for (const point of points) {
@@ -107,5 +112,6 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
  */
 export function getXYZ(point: gs.IPoint): gs.XYZ {
+    if (!point.exists()) {throw new Error("Point has been deleted.");}
     return point.getPosition() as gs.XYZ;
 }
