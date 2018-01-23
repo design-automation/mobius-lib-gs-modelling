@@ -1,7 +1,8 @@
 /**
- * Polylines are a type of object.
+ * Polylines are a type of geometric object.
  *
  * Polylines are formed from straight line segments joined to form a continuous line.
+ * They can be open or closed. A closed polyline has not fill.
  */
 
 import * as gs from "gs-json";
@@ -9,7 +10,7 @@ import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
 import * as three from "three";
 
 //  ===============================================================================================================
-//  Pline Constructors ============================================================================================
+//  Pline Get ============================================================================================
 //  ===============================================================================================================
 
 /**
@@ -31,7 +32,6 @@ export function Get(model: gs.IModel, id: number): gs.IPolyline {
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
-// - WEEK 2 -
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
@@ -55,6 +55,21 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
     return model.getGeom().addPolyline(points, is_closed);
 }
 
+/**
+ * Adds a polyline from the model based on a conic curve.
+ *
+ * Creates equally spaced points along a circle or arc and joins them to create a polyline<br/>
+ * If it is a circle, then a a closed polyline is returned.
+ * @param circle Circle or circular arc to construct polyline from.
+ * @param segments Number of segments in polyline.
+ * @returns Polyline object if successful.
+ */
+export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
+    const m: gs.IModel = circle.getModel();
+    const points: gs.IPoint[] = circle.equiPoints(segments + 1);
+    return m.getGeom().addPolyline(points, circle.isClosed());
+}
+
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
 //  http://verbnurbs.com/docs/geom/Line/
 /**
@@ -72,6 +87,42 @@ export function LineFromPoints(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
 //  ===============================================================================================================
 //  Pline Functions ===============================================================================================
 //  ===============================================================================================================
+
+/**
+ * Checks if the polyline is closed
+ * @param pline Polyline object
+ * @return True if the polyline is closed
+ */
+export function isCLosed(pline: gs.IPolyline): boolean {
+    return pline.isClosed();
+}
+
+/**
+ * Sets the polyline to be open or cosed
+ * @param pline Polyline object
+ * @param is_closed The value to set
+ */
+export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+    pline.setIsClosed(is_closed);
+}
+
+/**
+ * Returns numner of edges in the polyline
+ * @param pline Polyline object.
+ * @return The number of edges.
+ */
+export function numEdges(pline: gs.IPolyline): number {
+    return pline.numEdges();
+}
+
+/**
+ * Returns numner of vertices in the polyline
+ * @param pline Polyline object.
+ * @return The number of vertices.
+ */
+export function numVertices(pline: gs.IPolyline): number {
+    return pline.numVertices();
+}
 
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
 //  http://verbnurbs.com/docs/geom/ICurve/#point
@@ -101,10 +152,39 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
  * @returns List of new polylines created from explode
  */
 export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
-    return this.extract(pline, gs.Arr.makeSeq(pline.getWires()[0].numEdges()), copy);
+    return this.extract(pline, gs.Arr.makeSeq(pline.numEdges()), copy);
 }
 
-// - WEEK 5 -
+/**
+ * Extracts a list of segments from a polyline
+ *
+ * Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>
+ * The remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,
+ * or multiple polylines if they have been broken up<br/>
+ * List returned is in order (from t=0 to t=1 of orginal input pline)
+ * @param pline Polyline to extract segments from
+ * @param segment_index Index numbers of polyline segments to extract
+ * @param return_remainder Returns polylines created from the remainder of the polyline if true, returns only
+ *                         specified segments if false
+ * @param copy Performs transformation on duplicate copy of input polyline if true
+ * @returns List of new polylines created from extract
+ */
+export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean): gs.IPolyline[] {
+    const m: gs.IModel = pline.getModel();
+    const plines: gs.IPolyline[] = [];
+    const points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {points.push(points[0]); }
+    for (const i of  segment_index) {
+        if (i < points.length - 1) {
+            plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
+        }
+    }
+    if (!copy) {
+        m.getGeom().delObj(pline, false);// TODO this should be copied at the start
+    }
+    return plines;
+}
+
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
 /**
  * Extends a non-closed polyline by specified distance
@@ -141,35 +221,6 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
 }
 
 /**
- * Extracts a list of segments from a polyline
- *
- * Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>
- * The remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,
- * or multiple polylines if they have been broken up<br/>
- * List returned is in order (from t=0 to t=1 of orginal input pline)
- * @param pline Polyline to extract segments from
- * @param segment_index Index numbers of polyline segments to extract
- * @param return_remainder Returns polylines created from the remainder of the polyline if true, returns only
- *                         specified segments if false
- * @param copy Performs transformation on duplicate copy of input polyline if true
- * @returns List of new polylines created from extract
- */
-export function extract(pline: gs.IPolyline, segment_index: number[], copy: boolean): gs.IPolyline[] {
-    const m: gs.IModel = pline.getModel();
-    const plines: gs.IPolyline[] = [];
-    const points: gs.IPoint[] = pline.getPointsArr();
-    for (const i of  segment_index) {
-        if (i < points.length - 1) {
-            plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
-        }
-    }
-    if (!copy) {
-        m.getGeom().delObj(pline, false);
-    }
-    return plines;
-}
-
-/**
  * Extrudes a polyline according to a specified vector to create a polymesh
  *
  * Pline is moved by the specified vector and straight line segments are created between the vertices of
@@ -203,15 +254,6 @@ export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean, copy:
     }
     return pmesh;
     //  TODO deal with cap
-}
-
-/**
- * Checks if the polyline is closed
- * @param pline Polyline object
- * @return True if the polyline is closed
- */
-export function isCLosed(pline: gs.IPolyline): boolean {
-    return pline.isClosed();
 }
 
 /**

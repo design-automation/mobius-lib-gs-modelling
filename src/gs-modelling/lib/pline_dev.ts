@@ -100,14 +100,7 @@ export function revolve(pline: gs.IPolyline, axis: gs.IRay, angle_s: number, ang
     throw new Error("Method not implemented");
 }
 
-/**
- * Sets the polyline to be open or cosed
- * @param pline Polyline object
- * @param is_closed The value to set
- */
-export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
-    throw new Error("Method not implemented");
-}
+
 
 // - WEEK 2 -
 /**
