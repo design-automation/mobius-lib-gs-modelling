@@ -1,5 +1,5 @@
 /**
- * Points define an a position in 3D space, as x, y and z coordinates.
+ * Points define a point in a model, as x, y and z coordinates.
  */
 
 import * as gs from "gs-json";
@@ -38,7 +38,7 @@ export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
 }
 
 /**
- * Adds a point or list of points to the model
+ * Adds a point to the model
  *
  * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
  * Points are returned in order of input
@@ -49,6 +49,24 @@ export function Copy(model: gs.IModel, point: gs.IPoint): gs.IPoint {
 export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
     return model.getGeom().addPoint(xyz);
 }
+
+/**
+ * Adds a point or list of points to the model
+ *
+ * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
+ * Points are returned in order of input
+ * @param model Model to add point to
+ * @param xyz List of X, Y and Z coordinates of point
+ * @returns New point or list of points if successful, null if unsuccessful or on error
+ */
+export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
+    return xyzs.map((xyz) => model.getGeom().addPoint(xyz));
+}
+
+// OR
+// export function FromXYZ(model: gs.IModel, xyz: gs.XYZ| gs.XYZ[]): gs.IPoint|gs.IPoint[] {
+//     return model.getGeom().addPoint(xyz);
+// }
 
 /**
  * Adds a point that is the center of a list of points
