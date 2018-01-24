@@ -135,9 +135,11 @@ export function test_isectCirclePlane3D() {
     const m: gs.IModel = new gs.Model();
     const pt_circle: gs.IPoint = m.getGeom().addPoint([0,0,0]);
     const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,0,1],[0,360]);
+    const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,2,3],[4,5,6],[0,360]);
     const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
     const intersects: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
+    console.log("U1,V1, Circle = " + circle.getVectors());
+    console.log("Circle Plane3D");
     if (intersects !== null) {
         for (const point of intersects) {
             console.log(point.getPosition());
@@ -149,14 +151,20 @@ export function test_isectEllipsePlane3D() {
     const m: gs.IModel = new gs.Model();
     const pt_ellipse: gs.IPoint = m.getGeom().addPoint([0,0,0]);
     const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const ellipse: gs.IEllipse = m.getGeom().addEllipse(pt_ellipse,[1,0,0],[0,0,1],[0,360]);
+    const ellipse: gs.IEllipse = m.getGeom().addEllipse(pt_ellipse,[1,2,3],[4,5,6],[0,360]);
     const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
     const intersects: gs.IPoint[] = test._isectEllipsePlane3D(ellipse,plane);
+    console.log("U1,V1, Ellipse = " + ellipse.getVectors());
+    console.log("Ellipse Plane3D");
     if (intersects !== null) {
         for (const point of intersects) {
             console.log(point.getPosition());
         }
     }
+
+// const ell: gs.IEllipse = m.getGeom().addEllipse(pt_ellipse,[1,1,1],[2,3,4]);
+// ell.
+
     return true;
 }
 export function test_isectCircleEllipse2D() {
