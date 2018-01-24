@@ -1,11 +1,14 @@
 import {} from "jasmine";
-import * as _tests from "../lib/plane_tests";
+import * as tests from "../lib/plane_tests";
 
-describe("Tests for Plane Development", () => {
-    it("test_multVectorMatrix", () => {
-        expect(_tests._FromOriginPoints()).toBe(true);
+describe("Tests for Plane Module", () => {
+    it("test_plane_FromOriginVectors", () => {
+        expect(tests.test_plane_FromOriginVectors()).toBe(true);
     });
-    it("test_multVectorMatrix", () => {
-        expect(_tests._FromOriginWCS()).toBe(true);
+    it("test_plane_FromOriginPoints", () => {
+        expect(tests.test_plane_FromOriginPoints()).toBe(true);
+    });
+    it("test_plane_FromOriginWCS", () => {
+        expect(tests.test_plane_FromOriginWCS()).toBe(true);
     });
 });

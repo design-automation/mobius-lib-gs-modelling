@@ -72,9 +72,10 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#copy" class="tsd-kind-icon">Copy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#frommodel" class="tsd-kind-icon">From<wbr>Model</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#frompointsmean" class="tsd-kind-icon">From<wbr>Points<wbr>Mean</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#fromxyz" class="tsd-kind-icon">FromXYZ</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#getbyid" class="tsd-kind-icon">Get<wbr>ByID</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#get" class="tsd-kind-icon">Get</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_point_.html#getxyz" class="tsd-kind-icon">getXYZ</a></li>
 							</ul>
 						</section>
@@ -87,13 +88,45 @@
 					<a name="copy" class="tsd-anchor"></a>
 					<h3>Copy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Copy<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">Copy<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/point.ts#L38">point.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L29">point.ts:29</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copy a point wihin a model.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point to copy.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
+							<p>New point.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="frommodel" class="tsd-anchor"></a>
+					<h3>From<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Model<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L48">point.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -133,7 +166,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/point.ts#L66">point.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L84">point.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,18 +197,18 @@
 					<a name="fromxyz" class="tsd-anchor"></a>
 					<h3>FromXYZ</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">FromXYZ<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, xyz<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">FromXYZ<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, xyzs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/point.ts#L51">point.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L62">point.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a point or list of points to the model</p>
+									<p>Adds a point or a set of points to the model</p>
 								</div>
 								<p>X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
 								Points are returned in order of input</p>
@@ -185,37 +218,37 @@
 								<li>
 									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to add point to</p>
+										<p>Model to add points to.</p>
 									</div>
 								</li>
 								<li>
-									<h5>xyz: <span class="tsd-signature-type">gs.XYZ</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>List of X, Y and Z coordinates of point</p>
-									</div>
+									<h5>xyzs: <span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span>
+							</h4>
 							<p>New point or list of points if successful, null if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getbyid" class="tsd-anchor"></a>
-					<h3>Get<wbr>ByID</h3>
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Get<wbr>ByID<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/point.ts#L19">point.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L17">point.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a point from the model.</p>
+									<p>Gets a point from a model.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -223,7 +256,7 @@
 								<li>
 									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to get point from</p>
+										<p>Model to get point from.</p>
 									</div>
 								</li>
 								<li>
@@ -231,7 +264,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>Specified point if successful, null if unsuccessful or on error</p>
+							<p>Specified point if successful, null if unsuccessful or on error.</p>
 						</li>
 					</ul>
 				</section>
@@ -245,7 +278,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/point.ts#L93">point.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/point.ts#L114">point.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -344,13 +377,16 @@
 						<a href="_point_.html#copy" class="tsd-kind-icon">Copy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_point_.html#frommodel" class="tsd-kind-icon">From<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_point_.html#frompointsmean" class="tsd-kind-icon">From<wbr>Points<wbr>Mean</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_point_.html#fromxyz" class="tsd-kind-icon">FromXYZ</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_point_.html#getbyid" class="tsd-kind-icon">Get<wbr>ByID</a>
+						<a href="_point_.html#get" class="tsd-kind-icon">Get</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_point_.html#getxyz" class="tsd-kind-icon">getXYZ</a>

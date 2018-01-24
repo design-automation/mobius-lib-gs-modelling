@@ -64,13 +64,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Models contain geometry that can be viewed on the 3D viewer if output as geometry.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -78,7 +71,8 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#load" class="tsd-kind-icon">Load</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#fromdata" class="tsd-kind-icon">From<wbr>Data</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#fromfile" class="tsd-kind-icon">From<wbr>File</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#new" class="tsd-kind-icon">New</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#save" class="tsd-kind-icon">save</a></li>
 							</ul>
@@ -89,16 +83,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="load" class="tsd-anchor"></a>
-					<h3>Load</h3>
+					<a name="fromdata" class="tsd-anchor"></a>
+					<h3>From<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Load<span class="tsd-signature-symbol">(</span>filedata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Data<span class="tsd-signature-symbol">(</span>model_data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/model.ts#L30">model.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/model.ts#L25">model.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -109,9 +103,41 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>filedata: <span class="tsd-signature-type">string</span></h5>
+									<h5>model_data: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The file data in gs-json format.</p>
+										<p>The model data in json format.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
+							<p>New model if successful, null if unsuccessful or on error.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromfile" class="tsd-anchor"></a>
+					<h3>From<wbr>File</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>File<span class="tsd-signature-symbol">(</span>filepath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/model.ts#L34">model.ts:34</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new Model and populates the model with data that is read from a file.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>filepath: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filepath to the file that contains model data in json format.</p>
 									</div>
 								</li>
 							</ul>
@@ -124,13 +150,13 @@
 					<a name="new" class="tsd-anchor"></a>
 					<h3>New</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">New<span class="tsd-signature-symbol">(</span>gs_json_data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IModelData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
+						<li class="tsd-signature tsd-kind-icon">New<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/model.ts#L21">model.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/model.ts#L16">model.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -138,12 +164,6 @@
 									<p>Creates a new Model that is empty.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> gs_json_data: <span class="tsd-signature-type">IModelData</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
 							<p>New model empty if successful, null if unsuccessful or on error</p>
 						</li>
@@ -159,7 +179,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/model.ts#L43">model.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/model.ts#L47">model.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,7 +274,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_model_.html#load" class="tsd-kind-icon">Load</a>
+						<a href="_model_.html#fromdata" class="tsd-kind-icon">From<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_model_.html#fromfile" class="tsd-kind-icon">From<wbr>File</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_model_.html#new" class="tsd-kind-icon">New</a>

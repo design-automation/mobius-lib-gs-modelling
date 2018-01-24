@@ -71,7 +71,12 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#frompline" class="tsd-kind-icon">From<wbr>Pline</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#offset" class="tsd-kind-icon">offset</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#thicken" class="tsd-kind-icon">thicken</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#weld" class="tsd-kind-icon">weld</a></li>
 							</ul>
 						</section>
 					</div>
@@ -79,6 +84,71 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="frompline" class="tsd-anchor"></a>
+					<h3>From<wbr>Pline</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Pline<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L66">pmesh.ts:66</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates ...</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A polyline to create a polymesh with a single polygon face.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
+							<p>A polymesh if successful, null if unsuccessful or on error.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="frompoints" class="tsd-anchor"></a>
+					<h3>From<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Points<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L42">pmesh.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a polymesh from face corner points.</p>
+								</div>
+								<p>List of points, assumed to be in order.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>points: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of lists of face corner points.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
+							<p>New polymesh with a single face if successful, null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="get" class="tsd-anchor"></a>
 					<h3>Get</h3>
@@ -89,7 +159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pmesh.ts#L19">pmesh.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L22">pmesh.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -114,6 +184,118 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
 							<p>Polymesh object if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="offset" class="tsd-anchor"></a>
+					<h3>offset</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">offset<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span>, distance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L85">pmesh.ts:85</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Offsets a polymesh along its normal by a specified distance</p>
+								</div>
+								<p>Each face is moved by specified distance in the direction of its normal and rejoined (extended or
+								trimmed to fit) to create a new surface</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh object</p>
+									</div>
+								</li>
+								<li>
+									<h5>distance: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Distance to offset polymesh</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>New offset polymesh if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="thicken" class="tsd-anchor"></a>
+					<h3>thicken</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">thicken<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span>, dist1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, dist2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L164">pmesh.ts:164</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Thicken ...</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A polyline to create a polymesh with a single polygon face.</p>
+									</div>
+								</li>
+								<li>
+									<h5>dist1: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>dist2: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
+							<p>A polymesh if successful, null if unsuccessful or on error.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="weld" class="tsd-anchor"></a>
+					<h3>weld</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">weld<span class="tsd-signature-symbol">(</span>pmeshes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pmesh.ts#L134">pmesh.ts:134</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Weld a list of polymeshes together</p>
+								</div>
+								<p>Joins polymeshes together and returns a single polymesh<br/>
+								Returns null if polymeshes do not intersect or touch</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmeshes: <span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of polymeshes to weld</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>New polymesh created from weld if successful, null if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
@@ -190,7 +372,22 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#frompline" class="tsd-kind-icon">From<wbr>Pline</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pmesh_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#offset" class="tsd-kind-icon">offset</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#thicken" class="tsd-kind-icon">thicken</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#weld" class="tsd-kind-icon">weld</a>
 					</li>
 				</ul>
 			</nav>

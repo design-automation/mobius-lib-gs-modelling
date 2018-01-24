@@ -71,17 +71,21 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#from2points" class="tsd-kind-icon">From2<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#fromcircle" class="tsd-kind-icon">From<wbr>Circle</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#get" class="tsd-kind-icon">Get</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#linefrompoints" class="tsd-kind-icon">Line<wbr>From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#evalparam" class="tsd-kind-icon">eval<wbr>Param</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#explode" class="tsd-kind-icon">explode</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#extend" class="tsd-kind-icon">extend</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#extract" class="tsd-kind-icon">extract</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#extrude" class="tsd-kind-icon">extrude</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#isclosed" class="tsd-kind-icon">isCLosed</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#isclosed" class="tsd-kind-icon">is<wbr>Closed</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#loft" class="tsd-kind-icon">loft</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#sweep" class="tsd-kind-icon">sweep</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#numedges" class="tsd-kind-icon">num<wbr>Edges</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#numvertices" class="tsd-kind-icon">num<wbr>Vertices</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#setisclosed" class="tsd-kind-icon">set<wbr>IsClosed</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#sweepparallel" class="tsd-kind-icon">sweep<wbr>Parallel</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,6 +93,85 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="from2points" class="tsd-anchor"></a>
+					<h3>From2<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From2<wbr>Points<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L87">pline.ts:87</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a straight line to the model from two points</p>
+								</div>
+								<p>Returns null if both points have the same position</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>start: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Start point of line</p>
+									</div>
+								</li>
+								<li>
+									<h5>end: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>End point of line</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
+							<p>New polyline object, consisting of a single segment if successful, null if unsuccesful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromcircle" class="tsd-anchor"></a>
+					<h3>From<wbr>Circle</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Circle<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, segments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L70">pline.ts:70</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a polyline from the model based on a conic curve.</p>
+								</div>
+								<p>Creates equally spaced points along a circle or arc and joins them to create a polyline<br/>
+								If it is a circle, then a a closed polyline is returned.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Circle or circular arc to construct polyline from.</p>
+									</div>
+								</li>
+								<li>
+									<h5>segments: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of segments in polyline.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
+							<p>Polyline object if successful.</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="frompoints" class="tsd-anchor"></a>
 					<h3>From<wbr>Points</h3>
@@ -99,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L45">pline.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L45">pline.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -138,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L21">pline.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L22">pline.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -167,45 +250,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="linefrompoints" class="tsd-anchor"></a>
-					<h3>Line<wbr>From<wbr>Points</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Line<wbr>From<wbr>Points<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L68">pline.ts:68</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds a straight line to the model from two points</p>
-								</div>
-								<p>Returns null if both points have the same position</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>start: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Start point of line</p>
-									</div>
-								</li>
-								<li>
-									<h5>end: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>End point of line</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
-							<p>New polyline object, consisting of a single segment if successful, null if unsuccesful or on error</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="evalparam" class="tsd-anchor"></a>
 					<h3>eval<wbr>Param</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -215,7 +259,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L85">pline.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L144">pline.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L103">pline.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L163">pline.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,13 +336,13 @@
 					<a name="extend" class="tsd-anchor"></a>
 					<h3>extend</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, extrusion_side<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, create_points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
+						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, extrusion_side<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, create_points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L120">pline.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L207">pline.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,15 +375,9 @@
 								<li>
 									<h5>create_points: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
-								<li>
-									<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input polyline if true</p>
-									</div>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
-							<p>New polyline object if successful, null if unsuccessful or on error</p>
+							<p>Polyline object if successful, null if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
@@ -347,13 +385,13 @@
 					<a name="extract" class="tsd-anchor"></a>
 					<h3>extract</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">extract<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, segment_index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">extract<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, segment_index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L157">pline.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L181">pline.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -379,12 +417,6 @@
 										<p>Index numbers of polyline segments to extract</p>
 									</div>
 								</li>
-								<li>
-									<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input polyline if true</p>
-									</div>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></h4>
 							<p>List of new polylines created from extract</p>
@@ -395,13 +427,13 @@
 					<a name="extrude" class="tsd-anchor"></a>
 					<h3>extrude</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">extrude<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, cap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+						<li class="tsd-signature tsd-kind-icon">extrude<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, cap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L188">pline.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L247">pline.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,13 +464,7 @@
 								<li>
 									<h5>cap: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Closes polymesh by creating a flat polygon on each end of the extrusion if true</p>
-									</div>
-								</li>
-								<li>
-									<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input polyline if true</p>
+										<p>Closes polymesh by creating a polygon on each end of the extrusion if true</p>
 									</div>
 								</li>
 							</ul>
@@ -449,15 +475,15 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="isclosed" class="tsd-anchor"></a>
-					<h3>isCLosed</h3>
+					<h3>is<wbr>Closed</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">isCLosed<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Closed<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L213">pline.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L100">pline.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -483,13 +509,13 @@
 					<a name="loft" class="tsd-anchor"></a>
 					<h3>loft</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">loft<span class="tsd-signature-symbol">(</span>plines<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span>, is_closed<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+						<li class="tsd-signature tsd-kind-icon">loft<span class="tsd-signature-symbol">(</span>plines<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span>, is_closed<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L230">pline.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L284">pline.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -515,12 +541,6 @@
 										<p>Closes polymesh by lofting back to first polyline if true</p>
 									</div>
 								</li>
-								<li>
-									<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input polyline if true</p>
-									</div>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
 							<p>Polymesh created from loft if successful, null if unsuccessful or on error</p>
@@ -528,28 +548,129 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="sweep" class="tsd-anchor"></a>
-					<h3>sweep</h3>
+					<a name="numedges" class="tsd-anchor"></a>
+					<h3>num<wbr>Edges</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">sweep<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, rail<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, copy<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+						<li class="tsd-signature tsd-kind-icon">num<wbr>Edges<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/2124ebd/src/gs-modelling/lib/pline.ts#L279">pline.ts:279</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L120">pline.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sweeps a polyline along a specified polyline to create a polymesh</p>
+									<p>Returns numner of edges in the polyline</p>
 								</div>
-								<p>Polyline is used as the cross-section of the polymesh to create</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of edges.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="numvertices" class="tsd-anchor"></a>
+					<h3>num<wbr>Vertices</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">num<wbr>Vertices<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L130">pline.ts:130</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns numner of vertices in the polyline</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of vertices.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="setisclosed" class="tsd-anchor"></a>
+					<h3>set<wbr>IsClosed</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>IsClosed<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, is_closed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L110">pline.ts:110</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the polyline to be open or cosed</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline object</p>
+									</div>
+								</li>
+								<li>
+									<h5>is_closed: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to set</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="sweepparallel" class="tsd-anchor"></a>
+					<h3>sweep<wbr>Parallel</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">sweep<wbr>Parallel<span class="tsd-signature-symbol">(</span>cross_section<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, rail<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/pline.ts#L330">pline.ts:330</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sweeps a cross_section polyline along a rail polyline to create a polymesh.
+									The cross sesctions remain parallel.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cross_section: <span class="tsd-signature-type">IPolyline</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Polyline to sweep</p>
 									</div>
@@ -558,12 +679,6 @@
 									<h5>rail: <span class="tsd-signature-type">IPolyline</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Rail polyline to sweep along</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> copy: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input polyline if true</p>
 									</div>
 								</li>
 							</ul>
@@ -645,13 +760,16 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#from2points" class="tsd-kind-icon">From2<wbr>Points</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#fromcircle" class="tsd-kind-icon">From<wbr>Circle</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#get" class="tsd-kind-icon">Get</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_pline_.html#linefrompoints" class="tsd-kind-icon">Line<wbr>From<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#evalparam" class="tsd-kind-icon">eval<wbr>Param</a>
@@ -669,13 +787,22 @@
 						<a href="_pline_.html#extrude" class="tsd-kind-icon">extrude</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_pline_.html#isclosed" class="tsd-kind-icon">isCLosed</a>
+						<a href="_pline_.html#isclosed" class="tsd-kind-icon">is<wbr>Closed</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#loft" class="tsd-kind-icon">loft</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_pline_.html#sweep" class="tsd-kind-icon">sweep</a>
+						<a href="_pline_.html#numedges" class="tsd-kind-icon">num<wbr>Edges</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#numvertices" class="tsd-kind-icon">num<wbr>Vertices</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#setisclosed" class="tsd-kind-icon">set<wbr>IsClosed</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#sweepparallel" class="tsd-kind-icon">sweep<wbr>Parallel</a>
 					</li>
 				</ul>
 			</nav>

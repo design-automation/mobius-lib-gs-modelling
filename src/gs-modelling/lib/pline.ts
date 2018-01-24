@@ -97,7 +97,7 @@ export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
  * @param pline Polyline object
  * @return True if the polyline is closed
  */
-export function isCLosed(pline: gs.IPolyline): boolean {
+export function isClosed(pline: gs.IPolyline): boolean {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     return pline.isClosed();
 }

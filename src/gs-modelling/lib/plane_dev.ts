@@ -6,24 +6,7 @@ import * as cs from "./_three_utils_dev";
 //  Plane Constructors ============================================================================================
 //  ===============================================================================================================
 
-/**
- * Creates a plane from an origin point and two points describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param pt_x Point that lies on x-axis of plane
- * @param pt_y Point that lies on y-axis of plane
- * @returns New plane if successful, null if unsuccessful or on error
- */
-export function _FromOriginPoints(origin: gs.IPoint, pt_x: gs.IPoint, pt_y: gs.IPoint ):
-                                gs.IPlane {
-    const m1: gs.IModel = origin.getModel();
-    const m2: gs.IModel = pt_x.getModel();
-    const m3: gs.IModel = pt_y.getModel();
-    if(m1 !== m2) { throw new Error("Points need to be on the same model");}
-    if(m1 !== m3) { throw new Error("Points need to be on the same model");}
-    const vec_x: three.Vector3 = cs.vectorFromPointsAtoB(origin, pt_x);
-    const vec_y: three.Vector3 = cs.vectorFromPointsAtoB(origin, pt_y);
-    return m1.getGeom().addPlane(origin, [vec_x.x,vec_x.y,vec_x.z], [vec_y.x,vec_y.y,vec_y.z]);
-}
+
 /**
  * Creates an orthogonal projected point on a plane
  * @param plane on which the orthogonal projection occurs
@@ -51,16 +34,7 @@ export function _PointOrthoProjectPlane(point: gs.IPoint, plane: gs.IPlane): gs.
 }
 
 // - WEEK 3 -
-/**
- * Creates a plane from an origin point and the World x and y axis
- *
- * Creates a plane parallel to the World XY plane
- * @param origin 3D point to use as origin of plane
- * @returns New plane if successful, null if unsuccessful or on error
- */
-export function _FromOriginWCS(origin: gs.IPoint): gs.IPlane {
-    return origin.getModel().getGeom().addPlane(origin, [1,0,0],[0,1,0]);
-}
+
 
 //  ===============================================================================================================
 //  Old Functions No Longer in API ================================================================================

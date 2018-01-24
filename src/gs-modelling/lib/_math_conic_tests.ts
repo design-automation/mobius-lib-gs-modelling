@@ -138,10 +138,10 @@ export function test_isectCirclePlane3D() {
     const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,0,1],[0,360]);
     const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
     const intersects: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
-    console.log("test Circle Plane 3D");
+    //console.log("test Circle Plane 3D");
     if (intersects !== null) {
         for (const point of intersects) {
-            console.log(point.getPosition());
+            //console.log(point.getPosition());
         }
     }
     return true;

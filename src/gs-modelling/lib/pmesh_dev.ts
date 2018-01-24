@@ -1,19 +1,6 @@
 import * as gs from "gs-json";
 
-//  ===============================================================================================================
-//  Pmesh Constructors ============================================================================================
-//  ===============================================================================================================
 
-// - WEEK 2 -
-/**
- * Gets a polymesh from the model based on an index number
- * @param model Model to get polymesh from
- * @param index Index number of polymesh
- * @returns Polymesh object if successful
- */
-export function _GetByIndex(model: gs.IModel, index: number): gs.IPolymesh {
-    throw new Error("Method not implemented");
-}
 
 /**
  * Copies polymeshes from one model to another
@@ -24,9 +11,6 @@ export function _GetByIndex(model: gs.IModel, index: number): gs.IPolymesh {
 export function _CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolymesh[] {
     throw new Error("Method not implemented");
 }
-
-// - WEEK 5 -
-
 
 /**
  * Creates one or more polygons from planar polylines
@@ -46,7 +30,6 @@ function FromPlines(pline: gs.IPolyline): gs.IPolymesh {
     const model: gs.IModel = pline.getModel();
     return model.getGeom().addPolymesh([pline.getPointsArr()]);
 }
-
 
 /**
  * Creates a closed box polymesh on a plane
