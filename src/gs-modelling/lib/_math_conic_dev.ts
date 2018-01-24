@@ -9,6 +9,71 @@ import * as pl from "./plane_dev";
 import * as trigo from "./trigo_dev";
 
 /**
+ * Find the center of a circle that passes through three XYZ positions in 3D space.
+ * @returns An array of intersection points
+ */
+export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_arc: boolean):
+        {origin: gs.XYZ, vec_x: gs.XYZ, vec_y: gs.XYZ, angle: number} {
+    // create vectors
+    const p1: three.Vector3 = new three.Vector3(...xyz1);
+    const p2: three.Vector3 = new three.Vector3(...xyz2);
+    const p3: three.Vector3 = new three.Vector3(...xyz3);
+    const world_x: three.Vector3 = new three.Vector3(1,0,0);
+    const world_y: three.Vector3 = new three.Vector3(0,1,0);
+    const world_z: three.Vector3 = new three.Vector3(0,0,1);
+    // calc vectors for xform matrix
+    const x_axis: three.Vector3 = threex.subVectors(p2, p1); //.normalize();
+    const tmp_vec: three.Vector3 = threex.subVectors(p3, p2);
+    const z_axis: three.Vector3 = threex.crossVectors(x_axis, tmp_vec); //.normalize();
+    const y_axis: three.Vector3 = threex.crossVectors(z_axis, x_axis); //.normalize();
+
+    // console.log("X", x_axis);
+    // console.log("Y", y_axis);
+    // console.log("Z", z_axis);
+
+    // create the xform matrices to map 3d -> 2d
+    const m: three.Matrix4 = threex.xformMatrix(p1, x_axis, y_axis);
+    const m_inv: three.Matrix4 = threex.matrixInverse(m);
+    // calc the circle origin
+    const p2_2d: three.Vector3 = threex.multVectorMatrix(p2, m);
+    const p3_2d: three.Vector3 = threex.multVectorMatrix(p3, m);
+    const tmp_vec_2d: three.Vector3 = threex.subVectors(p3_2d, p2_2d);
+    const tmp_angle: number = (Math.PI - world_x.angleTo(tmp_vec_2d)) / 2;
+    const origin_2d_x: number = p2_2d.x / 2;
+    const origin_2d_y: number = Math.tan(tmp_angle) * origin_2d_x;
+    const origin_2d: three.Vector3 = new three.Vector3(origin_2d_x, origin_2d_y, 0);
+    const circle_origin: three.Vector3 = threex.multVectorMatrix(origin_2d, m_inv);
+    // calc the circle vectors
+    const circle_x_axis_2d: three.Vector3 = threex.vectorNegate(origin_2d);
+    const circle_x_axis: three.Vector3 = threex.multVectorMatrix(circle_x_axis_2d, m_inv);
+    const circle_y_axis_2d: three.Vector3 = threex.crossVectors(circle_x_axis_2d, world_z);
+    const circle_y_axis: three.Vector3 = threex.multVectorMatrix(circle_y_axis_2d, m_inv);
+    // calc the circle radius
+    const radius: number = origin_2d.length();
+    // is not arc?
+    if (!is_arc) {
+        return {
+            origin: circle_origin.toArray() as gs.XYZ,
+            vec_x: circle_x_axis.toArray() as gs.XYZ,
+            vec_y: circle_y_axis.toArray() as gs.XYZ,
+            angle: null};
+    }
+    // calc the circle angles
+    const angle_vec_2d: three.Vector3 = threex.subVectors(p3_2d, origin_2d);
+    let angle: number = circle_x_axis_2d.angleTo(angle_vec_2d);
+    const circle_z_axis_2d: three.Vector3 = threex.crossVectors(circle_x_axis_2d, angle_vec_2d);
+    if (circle_z_axis_2d.z > 0) {
+        angle = angle * -1;
+    }
+    // return the result
+    return {
+        origin: circle_origin.toArray() as gs.XYZ,
+        vec_x: circle_x_axis.toArray() as gs.XYZ,
+        vec_y: circle_y_axis.toArray() as gs.XYZ,
+        angle: angle};
+}
+
+/**
  * Circle-circle intersection
  * @param circle1
  * @param circle2

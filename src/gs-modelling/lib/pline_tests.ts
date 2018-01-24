@@ -2,32 +2,29 @@ import * as gs from "gs-json";
 import * as gsm from "./_export_dev";
 
 export function test_pline_fromPoints(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,0]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     if (pline === undefined) {return false;}
     return true;
 }
 
 export function test_pline_From2Points(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
     const pline: gs.IPolyline = gsm.pline.From2Points(p1, p2);
     if (pline === undefined) {return false;}
     return true;
 }
 
 export function test_pline_evalParam(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,0]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     const pt4: gs.IPoint = gsm.pline.evalParam(pline, 0.5);
     if (pt4 === undefined) {return false;}
@@ -41,11 +38,10 @@ export function test_pline_evalParam(): boolean {
 }
 
 export function test_pline_extract(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,10]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], true);
     const plines: gs.IPolyline[] = gsm.pline.extract(pline, [0,1,2]);
     if (plines.length !== 3) {return false;}
@@ -53,11 +49,10 @@ export function test_pline_extract(): boolean {
 }
 
 export function test_pline_explode(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,10]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     const plines: gs.IPolyline[] = gsm.pline.explode(pline, false);
     if (plines.length !== 2) {return false;}
@@ -68,11 +63,10 @@ export function test_pline_explode(): boolean {
 }
 
 export function test_pline_extend(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,10]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     gsm.pline.extend(pline, 0, 5, true); // create points and copy
     gsm.pline.extend(pline, 1, 7, false); // dont create points, dont copy
@@ -80,11 +74,10 @@ export function test_pline_extend(): boolean {
 }
 
 export function test_pline_extrude(): boolean {
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const p1: gs.IPoint = g.addPoint([0,0,0]);
-    const p2: gs.IPoint = g.addPoint([10,0,0]);
-    const p3: gs.IPoint = g.addPoint([0,10,0]);
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     const mesh: gs.IPolymesh = gsm.pline.extrude(pline, [1,2,3], false);
     const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false);

@@ -7,6 +7,9 @@
 import * as gs from "gs-json";
 import * as util from "./circle_dev";
 import * as three from "three";
+import * as threex from "./_three_utils_dev";
+import * as math_conic from "./_math_conic_dev";
+
 //  ===============================================================================================================
 //  Circle Get =====================================================================================================
 //  ===============================================================================================================
@@ -38,6 +41,7 @@ export function Get(model: gs.IModel, id: number): gs.ICircle {
  * @returns New circle if successful, null if unsuccessful or on error
  */
 export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XYZ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Origin has been deleted.");}
     return origin.getGeom().addCircle(origin, vec_x, vec_y);
 }
 
@@ -51,6 +55,7 @@ export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XY
  * @returns New circle if successful
  */
 export function FromOrigin(origin: gs.IPoint, radius: number ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Origin has been deleted.");}
     return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, radius, 0],[0,360]);
 }
 
@@ -64,10 +69,35 @@ export function FromOrigin(origin: gs.IPoint, radius: number ): gs.ICircle {
  * @returns New circle if successful
  */
 export function FromPlane(plane: gs.IPlane, radius: number ): gs.ICircle {
+    if (!plane.exists()) {throw new Error("Plane has been deleted.");}
     const vecs: gs.XYZ[] = plane.getVectors();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius).toArray() as gs.XYZ;
     const vec_y: gs.XYZ = vecs[1];
     return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec_y);
+}
+
+/**
+ * Adds a circle to the model based on three points
+ *
+ * All points are taken to be points on the circle
+ * @param point1 Start point of arc
+ * @param point2 Second point on arc
+ * @param point3 End point of arc
+ * @returns New arc if successful
+ */
+export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint ): gs.ICircle {
+    if (!point1.exists()) {throw new Error("point1 has been deleted.");}
+    if (!point2.exists()) {throw new Error("point2 has been deleted.");}
+    if (!point3.exists()) {throw new Error("point3 has been deleted.");}
+    // check
+    const model: gs.IModel = point1.getModel();
+    if (point2.getModel() !== model) {throw new Error("Points must all be in same model.");}
+    if (point3.getModel() !== model) {throw new Error("Points must all be in same model.");}
+    // make arc
+    const result = math_conic._circleFrom3Points(
+        point1.getPosition(), point2.getPosition(), point3.getPosition(), false);
+    const origin_point: gs.IPoint = model.getGeom().addPoint(result.origin);
+    return FromOriginVectors(origin_point, result.vec_x, result.vec_y);
 }
 
 //  ===============================================================================================================
@@ -84,6 +114,7 @@ export function FromPlane(plane: gs.IPlane, radius: number ): gs.ICircle {
  */
 export function ArcFromOriginVectors(origin: gs.IPoint,
                                      vec_x: gs.XYZ, vec_y: gs.XYZ, angles: [number, number]): gs.ICircle {
+    if (!origin.exists()) {throw new Error("origin has been deleted.");}
     return origin.getGeom().addCircle(origin, vec_x, vec_y, util._argsCheckAngles(angles));
 }
 
@@ -98,6 +129,7 @@ export function ArcFromOriginVectors(origin: gs.IPoint,
  * @returns New arc (circle) if successful
  */
 export function ArcFromOrigin(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("origin has been deleted.");}
     return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, 1, 0], util._argsCheckAngles(angles));
 }
 
@@ -115,10 +147,36 @@ export function ArcFromOrigin(origin: gs.IPoint, radius: number, angles: [number
  * @returns New arc  (circle) if successful
  */
 export function ArcFromPlane(plane: gs.IPlane, radius: number, angles: [number, number]): gs.ICircle {
+    if (!plane.exists()) {throw new Error("plane has been deleted.");}
     const vecs: gs.XYZ[] = plane.getVectors();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius).toArray() as gs.XYZ;
     const vec_y: gs.XYZ = vecs[1];
     return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec_y, util._argsCheckAngles(angles));
+}
+
+/**
+ * Adds an arc to the model based on three points
+ *
+ * All points are taken to be points along the arc
+ * @param point1 Start point of arc
+ * @param point2 Second point on arc
+ * @param point3 End point of arc
+ * @returns New arc if successful
+ */
+export function ArcFrom3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint ): gs.ICircle {
+    if (!point1.exists()) {throw new Error("point1 has been deleted.");}
+    if (!point2.exists()) {throw new Error("point2 has been deleted.");}
+    if (!point3.exists()) {throw new Error("point3 has been deleted.");}
+    // check
+    const model: gs.IModel = point1.getModel();
+    if (point2.getModel() !== model) {throw new Error("Points must all be in same model.");}
+    if (point3.getModel() !== model) {throw new Error("Points must all be in same model.");}
+    // make arc
+    const result = math_conic._circleFrom3Points(
+        point1.getPosition(), point2.getPosition(), point3.getPosition(), true);
+    console.log(result);
+    const origin_point: gs.IPoint = model.getGeom().addPoint(result.origin);
+    return ArcFromOriginVectors(origin_point, result.vec_x, result.vec_y, [0, result.angle]);
 }
 
 //  ===============================================================================================================
@@ -131,6 +189,7 @@ export function ArcFromPlane(plane: gs.IPlane, radius: number, angles: [number, 
  * @returns Origin point of Circle
  */
 export function getOrigin(circle: gs.ICircle): gs.IPoint {
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
     return circle.getOrigin();
 }
 
@@ -143,6 +202,7 @@ export function getOrigin(circle: gs.ICircle): gs.IPoint {
  * @returns List of x and y vectors of a Circle
  */
 export function getVectors(circle: gs.ICircle): gs.XYZ[] {
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
     return circle.getVectors();
 }
 
@@ -153,6 +213,7 @@ export function getVectors(circle: gs.ICircle): gs.XYZ[] {
  * @returns The angles, or null.
  */
 export function getArcAngles(circle: gs.ICircle): [number, number] {
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
     return circle.getAngles();
 }
 
@@ -164,6 +225,7 @@ export function getArcAngles(circle: gs.ICircle): [number, number] {
  * @returns True if successful, null if unsuccessful or on error
  */
 export function setArcAngles(circle: gs.ICircle, angles: [number, number]): void {
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
     if (angles === null) {
         circle.setAngles(undefined);
     } else {
@@ -177,6 +239,7 @@ export function setArcAngles(circle: gs.ICircle, angles: [number, number]): void
  * @returns True if Circle is closed
  */
 export function isClosed(circle: gs.ICircle): boolean {
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
     return circle.isClosed();
 }
 
@@ -187,6 +250,7 @@ export function isClosed(circle: gs.ICircle): boolean {
  * @returns True if successful, null if unsuccessful or on error
  */
 export function close(arc: gs.ICircle): void {
+    if (!arc.exists()) {throw new Error("circle has been deleted.");}
     arc.setAngles(undefined);
 }
 

@@ -36,7 +36,17 @@ export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3
     return m3;
 }
 
+// get the inverse of a matrix
+export function matrixInverse(m: three.Matrix4): three.Matrix4 {
+    const m_inv: three.Matrix4 = new three.Matrix4();
+    return m_inv.getInverse(m);
+}
+
 //  Vectors =======================================================================================================
+
+export function vectorNegate(vector: three.Vector3): three.Vector3 {
+    return vector.clone().negate();
+}
 
 export function vectorFromVertex(vertex: gs.IVertex): three.Vector3 {
     return new three.Vector3(...vertex.getPoint().getPosition());
