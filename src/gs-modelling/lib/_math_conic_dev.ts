@@ -144,31 +144,52 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     }
     if (result.length === 0) {return null;}
     return result;
-//     const m: gs.IModel = new gs.Model();
-//     const m_origin: gs.IPoint = m.getGeom().addPoint(circle.getOrigin().getPosition());
-//     const plane_origin: gs.IPoint = m.getGeom().addPoint(plane.getOrigin().getPosition());
-//     const plane_vectors: gs.XYZ[] = plane.getVectors();
-//     const m_plane: gs.IPlane = m.getGeom().addPlane(plane_origin, plane_vectors[0], plane_vectors[1]);
-//     const m_circle: gs.ICircle = m.getGeom().addCircle(m_origin, circle.getVectors()[0],circle.getVectors()[1],[0,360]);
-//     const projected_origin: gs.IPoint = m.getGeom().addPoint(
-//     pl._PointOrthoProjectPlane(m_origin,m_plane).getPosition());
-//     const distance_to_plane = threex.vectorFromPointsAtoB(m_origin, projected_origin).length();
-//     const sphere_radius: number = m_circle.getRadius();
-//     // case 3
-
-//     const projected_radius: number = Math.sqrt(sphere_radius*sphere_radius - distance_to_plane*distance_to_plane);
-//     const m_U1: three.Vector3 = new three.Vector3();
-//     const m_V1: three.Vector3 = new three.Vector3();
-//     const projected_circle: gs.ICircle = m.getGeom().addCircle(
-//     projected_origin,
-//     [m_U1.x,m_U1.y,m_U1.z],[m_V1.x,m_V1.y,m_V1.z],[0,360]);
-//     const points: gs.IPoint[] = _isectCircleCircle2D(m_circle, projected_circle);
-//     const result: gs.IPoint[] = [];
-//     for(const point of points) {
-//     result.push(m1.getGeom().addPoint(point.getPosition()));
-//     }
-// //    return result;
-//     throw new Error("Method not implemented.");
+}
+/**
+ * Ellipse-Plane intersection
+ * @param ellipse
+ * @param plane
+ * @returns Adds intersecting points to the geometry if successfull, null if empty or coplanar
+ */
+export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs.IPoint[] {
+    const m1: gs.IModel = ellipse.getModel();
+    const m2: gs.IModel = plane.getModel();
+    if(m1 !== m2) {
+        throw new Error("Identical models are required for the circle and the plane");
+    }
+    const O: number[] = plane.getOrigin().getPosition();
+    const C0: number[] = ellipse.getOrigin().getPosition();
+    const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
+    const U1: three.Vector3 = ellipse.get_U1(); //Interface Export
+    const V1: three.Vector3 = ellipse.get_V1(); //Interface Export
+    let W1: three.Vector3 = new three.Vector3();
+    W1 = W1.crossVectors(U1,V1);
+    const coplanar: number = W1.length();
+    if (coplanar === 0) {return null;}
+    const a: number = U1.length();
+    const b: number = V1.length();
+    if (b>a) {throw new Error("Method not implemented");}
+    const e: number = Math.sqrt(1 - (b/a)*(b/a));
+    const p: number = b*b/a;
+    const CF: number[] = [C0[0] + Math.sqrt(a*a-b*b)*U1.x,
+                          C0[1] + Math.sqrt(a*a-b*b)*U1.y,
+                          C0[2] + Math.sqrt(a*a-b*b)*U1.z];
+    const A_: number = n1[0]*(CF[0] - O[0]) + n1[1]*(CF[1] - O[1]) + n1[2]*(CF[2] - O[2]);
+    const B_: number = (n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z)*p;
+    const C_: number = (n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z)*p;
+    const A: number = A_;
+    const B: number = B_ + A_*e;
+    const C: number = C_;
+    const _t: number[] = trigo._solve_trigo(A,B,C);
+    if (_t === null) {return null;}
+    const result: gs.IPoint[] = [];
+    for (const t of _t) {
+    result.push(m1.getGeom().addPoint([C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
+                          C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
+                          C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
+    }
+    if (result.length === 0) {return null;}
+    return result;
 }
 /**
  * Circle-Line intersection
