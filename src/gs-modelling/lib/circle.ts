@@ -51,7 +51,7 @@ export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XY
  * @returns New circle if successful
  */
 export function FromOrigin(origin: gs.IPoint, radius: number ): gs.ICircle {
-    return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, radius, 0]);
+    return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, radius, 0],[0,360]);
 }
 
 /**
