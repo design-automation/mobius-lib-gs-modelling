@@ -51,23 +51,33 @@ export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
 }
 
 /**
- * Adds a point or a set of points to the model
+ * Adds a point to the model
  *
  * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
  * Points are returned in order of input
  * @param model Model to add points to.
- * @param xyz List of XYZ coordinates, or a list of lists of XYZ coordinates.
- * @returns New point or list of points if successful, null if unsuccessful or on error
+ * @param xyz List of XYZ coordinates.
+ * @returns New point if successful, null if unsuccessful or on error
  */
-export function FromXYZ(model: gs.IModel, xyzs: gs.XYZ| gs.XYZ[]): gs.IPoint|gs.IPoint[] {
-    if (Array.isArray(xyzs)) {
-        const points: gs.IPoint[] = [];
-        for (const xyz of xyzs as gs.XYZ[]) {
-            points.push(model.getGeom().addPoint(xyz));
-        }
-        return points;
+export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
+    return model.getGeom().addPoint(xyz);
+}
+
+/**
+ * Adds a set of points to the model
+ *
+ * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
+ * Points are returned in order of input
+ * @param model Model to add points to.
+ * @param xyz A list of lists of XYZ coordinates.
+ * @returns New list of points if successful, null if unsuccessful or on error
+ */
+export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
+    const points: gs.IPoint[] = [];
+    for (const xyz of xyzs as gs.XYZ[]) {
+        points.push(model.getGeom().addPoint(xyz));
     }
-    return model.getGeom().addPoint(xyzs);
+    return points;
 }
 
 /**

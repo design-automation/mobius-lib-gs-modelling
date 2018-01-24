@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "@types/three": "^0.89.3",
-        "gs-json": "^0.1.29",
+        "gs-json": "^0.1.30",
         "kld-intersections": "^0.4.1",
         "kld-polynomial": "^0.1.3",
         "mathjs": "^3.20.1",
