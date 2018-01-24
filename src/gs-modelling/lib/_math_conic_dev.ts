@@ -160,8 +160,8 @@ export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs
     const O: number[] = plane.getOrigin().getPosition();
     const C0: number[] = ellipse.getOrigin().getPosition();
     const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
-    const U1: three.Vector3 = ellipse.get_U1(); //Interface Export
-    const V1: three.Vector3 = ellipse.get_V1(); //Interface Export
+    const U1: three.Vector3 = ellipse.get_U1(); // Interface Export
+    const V1: three.Vector3 = ellipse.get_V1(); // Interface Export
     let W1: three.Vector3 = new three.Vector3();
     W1 = W1.crossVectors(U1,V1);
     const coplanar: number = W1.length();
