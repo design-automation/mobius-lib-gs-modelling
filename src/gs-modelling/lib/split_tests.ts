@@ -12,12 +12,22 @@ export function test_circleCircle2D(): boolean {
     const arcs: gs.ICircle[] = sl.circleCircle2D(circle1,circle2);
     let k: number = 1;
     for (const arc of arcs) {
-        console.log("circle " + k);
-        console.log("    Radius " + arc.getRadius());
-        console.log("    Angles [" + arc.getAngles()[0] + "  to  " + arc.getAngles()[1] + "]");
-        console.log("    Vectors_x    [" + arc.getVectors()[0][0] + "  ,  "+ arc.getVectors()[0][1] + "  ,  "+ arc.getVectors()[0][2] + "]");
-        console.log("    Vectors_y    [" + arc.getVectors()[1] + "]");
+        // console.log("circle " + k);
+        // console.log("    Radius " + arc.getRadius());
+        // console.log("    Angles [" + arc.getAngles()[0] + "  to  " + arc.getAngles()[1] + "]");
+        // console.log("    Vectors_x    [" + arc.getVectors()[0][0] + "  ,  "+ arc.getVectors()[0][1] + "  ,  "+ arc.getVectors()[0][2] + "]");
+        // console.log("    Vectors_y    [" + arc.getVectors()[1] + "]");
         k++;
     }
+    const m1: gs.IModel = new gs.Model();
+    const g1: gs.IGeom = m1.getGeom();
+    const p1: gs.IPoint = g1.addPoint([0,0,0]);
+    const p2: gs.IPoint = g1.addPoint([4,0,0]);
+    const c1: gs.ICircle = g1.addCircle(p1, [6,0,0],[0,6,0],[0,360]);
+    const c2: gs.ICircle = g1.addCircle(p2, [6,0,0],[0,6,0],[0,360]);
+    const circles: gs.ICircle[] = sl.circleCircle2D(c1,c2);
+    console.log(circles)
+
+
     return true;
 }
