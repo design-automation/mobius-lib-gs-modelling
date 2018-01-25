@@ -39,16 +39,20 @@ export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
 
     let center: gs.IPoint = null;
     if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
-    center = g1.addPoint(c1[0].getPosition());
+    center = g.addPoint(c1[0].getPosition());
+    // center = g1.addPoint(c1[0].getPosition());
     }
     if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
-    center = g1.addPoint(c1[0].getPosition());
+    center = g.addPoint(c1[0].getPosition());
+    // center = g1.addPoint(c1[0].getPosition());
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
-    center = g1.addPoint(c1[1].getPosition());
+    center = g.addPoint(c1[1].getPosition());
+    // center = g1.addPoint(c1[1].getPosition());
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
-    center = g1.addPoint(c1[1].getPosition());
+    center = g.addPoint(c1[1].getPosition());
+    // center = g1.addPoint(c1[1].getPosition());
     }
     if(center === null) {throw new Error ("Review thresholds");}
 
@@ -100,9 +104,10 @@ export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
     const m1: gs.IModel = pt1.getModel();
     const m2: gs.IModel = pt2.getModel();
     const m3: gs.IModel = pt3.getModel();
-    if (m1 !== m2) {throw new Error("Points must be in the same model.");}
-    if (m1 !== m3) {throw new Error("Points must be in the same model.");}
-    const g1: gs.IGeom = m1.getGeom();
+    if (m1 !== m2) {
+        throw new Error("Points must be in the same model.");}
+    if (m1 !== m3) {
+        throw new Error("Points must be in the same model.");}
     if(threex.vectorsAreCodir(threex.subPoints(pt1,pt2),
         threex.subPoints(pt1,pt3))) {throw new Error("Points must be not aligned");}
     const AB: three.Vector3 = threex.vectorFromPointsAtoB(pt1,pt2);
@@ -111,22 +116,23 @@ export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
     const radius: number = BC.length() / (2*threex.crossVectors(AB.normalize(),AC.normalize(),false).length());
     const m: gs.IModel = new gs.Model();
     const g: gs.IGeom = m.getGeom();
-    const circle_1: gs.ICircle = g.addCircle(pt1, [radius,0,0], [0,radius,0]);
-    const circle_2: gs.ICircle = g.addCircle(pt2, [radius,0,0], [0,radius,0]);
-    const circle_3: gs.ICircle = g.addCircle(pt3, [radius,0,0], [0,radius,0]);
+    const circle_1: gs.ICircle = g.addCircle(pt1, [radius,0,0], [0,radius,0],[0,360]);
+    const circle_2: gs.ICircle = g.addCircle(pt2, [radius,0,0], [0,radius,0],[0,360]);
+    const circle_3: gs.ICircle = g.addCircle(pt3, [radius,0,0], [0,radius,0],[0,360]);
     const c1: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_2);
     const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_3);
+    const g1: gs.IGeom = m1.getGeom();
     if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
-     return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0]);
+         return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
     if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
-     return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0]);
+         return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
-     return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0]);
+         return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
-     return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0]);
+         return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
     throw new Error ("Review thresholds");
 }
