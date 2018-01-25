@@ -20,12 +20,27 @@ import * as three from "three";
  * @returns Polyline object if successful
  */
 export function Get(model: gs.IModel, id: number): gs.IPolyline {
+    // check args
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj === undefined) {return null; }
     if (obj.getObjType() !== gs.EObjType.polyline) {
         throw new Error("Object is not a polyline. Object type is: " + obj.getObjType());
     }
+    // return the polyline
     return obj as gs.IPolyline;
+}
+
+/**
+ * Create a copy of a polyline.
+ *
+ * @param polyline The polyline to copy.
+ * @returns A new polyline.
+ */
+export function Copy(polyline: gs.IPolyline, copy_attribs?: boolean): gs.IPolyline {
+    // check args
+    if (!polyline.exists()) {throw new Error("polyline has been deleted.");}
+    // copy and return
+    return polyline.copy(copy_attribs) as gs.IPolyline;
 }
 
 //  ===============================================================================================================

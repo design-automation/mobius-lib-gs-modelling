@@ -75,6 +75,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromorigin" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromoriginvectors" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin<wbr>Vectors</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromplane" class="tsd-kind-icon">Arc<wbr>From<wbr>Plane</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#copy" class="tsd-kind-icon">Copy</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin" class="tsd-kind-icon">From<wbr>Origin</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a></li>
@@ -104,7 +105,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L166">circle.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L181">circle.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -149,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L131">circle.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L146">circle.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L115">circle.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L130">circle.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L149">circle.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L164">circle.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,6 +285,41 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="copy" class="tsd-anchor"></a>
+					<h3>Copy</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Copy<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, copy_attribs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L40">circle.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a copy of a circle.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The circle to copy.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> copy_attribs: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>A new circle.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="from3points" class="tsd-anchor"></a>
 					<h3>From3<wbr>Points</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -293,7 +329,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L88">circle.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L103">circle.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -338,7 +374,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L57">circle.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L72">circle.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L43">circle.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L58">circle.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L71">circle.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L86">circle.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -462,7 +498,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L23">circle.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L23">circle.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +536,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L251">circle.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L266">circle.ts:266</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L214">circle.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L229">circle.ts:229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L190">circle.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L205">circle.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -596,7 +632,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L203">circle.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L218">circle.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -630,7 +666,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L240">circle.ts:240</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L255">circle.ts:255</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -662,7 +698,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L267">circle.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L282">circle.ts:282</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -695,7 +731,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/circle.ts#L226">circle.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L241">circle.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -733,6 +769,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_attrib_.html">"attrib"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_calc_.html">"calc"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_circle_.html">"circle"</a>
@@ -806,6 +845,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#arcfromplane" class="tsd-kind-icon">Arc<wbr>From<wbr>Plane</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#copy" class="tsd-kind-icon">Copy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a>

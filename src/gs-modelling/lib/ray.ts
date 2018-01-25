@@ -17,12 +17,27 @@ import * as gs from "gs-json";
  * @returns Ray object if successful
  */
 export function Get(model: gs.IModel, id: number): gs.IRay {
+    // check args
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj === undefined) {return null;}
     if (obj.getObjType() !== gs.EObjType.ray) {
         throw new Error("Object is not a ray. Object type is: " + obj.getObjType());
     }
+    // return the ray
     return obj as gs.IRay;
+}
+
+/**
+ * Create a copy of a ray.
+ *
+ * @param ray The ray to copy.
+ * @returns A new ray.
+ */
+export function Copy(ray: gs.IRay, copy_attribs?: boolean): gs.IRay {
+    // check args
+    if (!ray.exists()) {throw new Error("ray has been deleted.");}
+    // copy and return
+    return ray.copy(copy_attribs) as gs.IRay;
 }
 
 //  ===============================================================================================================
@@ -36,6 +51,9 @@ export function Get(model: gs.IModel, id: number): gs.IRay {
  * @returns New ray if successful, null if unsuccessful or on error
  */
 export function FromOriginVector(origin: gs.IPoint, vector: gs.XYZ): gs.IRay {
+    // check args
+    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
+    // create the new ray and return
     return origin.getGeom().addRay(origin, vector);
 }
 

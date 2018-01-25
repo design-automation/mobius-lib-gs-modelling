@@ -11,7 +11,7 @@ import * as threex from "./_three_utils_dev";
 import * as math_conic from "./_math_conic_dev";
 
 //  ===============================================================================================================
-//  Circle Get =====================================================================================================
+//  Circle Get and Copy =====================================================================================================
 //  ===============================================================================================================
 
 /**
@@ -21,12 +21,27 @@ import * as math_conic from "./_math_conic_dev";
  * @returns Circle object if successful
  */
 export function Get(model: gs.IModel, id: number): gs.ICircle {
+    // check args
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj === undefined) {return null;}
     if (obj.getObjType() !== gs.EObjType.circle) {
         throw new Error("Object is not a circle. Object type is: " + obj.getObjType());
     }
+    // return the circle
     return obj as gs.ICircle;
+}
+
+/**
+ * Create a copy of a circle.
+ *
+ * @param circle The circle to copy.
+ * @returns A new circle.
+ */
+export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
+    // check args
+    if (!circle.exists()) {throw new Error("circle has been deleted.");}
+    // copy and return
+    return circle.copy(copy_attribs) as gs.ICircle;
 }
 
 //  ===============================================================================================================

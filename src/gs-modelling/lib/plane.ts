@@ -20,7 +20,7 @@ import * as threex from "./_three_utils_dev";
  * @returns Plane object if successful
  */
 export function Get(model: gs.IModel, id: number): gs.IPlane {
-    // check that this is a plane
+    // check args
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj === undefined) {return null;}
     if (obj.getObjType() !== gs.EObjType.plane) {
@@ -28,6 +28,19 @@ export function Get(model: gs.IModel, id: number): gs.IPlane {
     }
     // return the plane
     return obj as gs.IPlane;
+}
+
+/**
+ * Create a copy of a plane.
+ *
+ * @param plane The plane to copy.
+ * @returns A new plane.
+ */
+export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
+    // check args
+    if (!plane.exists()) {throw new Error("plane has been deleted.");}
+    // copy and return
+    return plane.copy(copy_attribs) as gs.IPlane;
 }
 
 //  ===============================================================================================================
@@ -45,9 +58,7 @@ export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XY
     // check args
     if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
     // create the new plane
-    const plane: gs.IPlane = origin.getGeom().addPlane(origin, vec_x, vec_y);
-    // return the new plane
-    return plane;
+    return origin.getGeom().addPlane(origin, vec_x, vec_y);
 }
 
 /**
@@ -61,9 +72,7 @@ export function FromOriginWCS(origin: gs.IPoint): gs.IPlane {
     // check args
     if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
     // create the new plane
-    const plane: gs.IPlane = origin.getModel().getGeom().addPlane(origin, [1,0,0],[0,1,0]);
-    // return the new plane
-    return plane;
+    return origin.getGeom().addPlane(origin, [1,0,0],[0,1,0]);
 }
 
 /**

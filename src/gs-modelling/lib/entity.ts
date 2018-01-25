@@ -16,7 +16,9 @@ import * as three from "three";
  * @returns Copy
  */
 export function Copy(entity: gs.IEnt): gs.IEnt {
+    // check args
     if (!entity.exists()) {throw new Error("entity has been deleted.");}
+    // copy and return
     return entity.copy();
 }
 
@@ -32,7 +34,9 @@ export function Copy(entity: gs.IEnt): gs.IEnt {
  * @returns List of attributes of specified geometry if successful, null if unsuccessful or on error
  */
 export function getAttribs(entity: gs.IPoint | gs.IObj): gs.IAttrib[] {
+    // check args
     if (!entity.exists()) {throw new Error("Entity has been deleted.");}
+    // get attribs for this attrib
     return entity.getAttribs();
 }
 
@@ -44,7 +48,9 @@ export function getAttribs(entity: gs.IPoint | gs.IObj): gs.IAttrib[] {
  * @returns List of groups that contain specified geometry if successful, null if unsuccessful or on error
  */
 export function getGroups(entity: gs.IPoint | gs.IObj): gs.IGroup[] {
+    // check args
     if (!entity.exists()) {throw new Error("Entity has been deleted.");}
+    // get groups for this entity
     return entity.getGroups();
 }
 
@@ -54,6 +60,7 @@ export function getGroups(entity: gs.IPoint | gs.IObj): gs.IGroup[] {
  * @returns True if successful
  */
 export function removeFromAllGroups(entity: gs.IPoint | gs.IObj): boolean {
+    // check args
     throw new Error("method not implemented.");
 }
 
