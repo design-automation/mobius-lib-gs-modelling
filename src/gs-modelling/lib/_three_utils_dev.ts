@@ -44,6 +44,10 @@ export function matrixInverse(m: three.Matrix4): three.Matrix4 {
 
 //  Vectors =======================================================================================================
 
+export function orthoVectors(vector1: three.Vector3, vector2: three.Vector3): three.Vector3 {
+    return crossVectors(vector1, vector2).cross(vector1);
+}
+
 export function vectorNegate(vector: three.Vector3): three.Vector3 {
     return vector.clone().negate();
 }

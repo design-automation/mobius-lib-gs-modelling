@@ -40,9 +40,8 @@ export function test_pmesh_thicken(): boolean {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pmesh: gs.IPolymesh = gsm.pmesh.FromPoints([[p1, p2, p3]]);
-    gsm.pmesh.thicken(pmesh, 0.2, 0.4);
-    if (pmesh === undefined) {return false;}
-    //console.log(pmesh);
-    //if (pmesh.numFaces() !== 5) {return false;}
+    const pmesh_thick: gs.IPolymesh = gsm.pmesh.thicken(pmesh, 0.2, 0.4);
+    if (pmesh_thick === undefined) {return false;}
+    if (pmesh_thick.numFaces() !== 5) {return false;}
     return true;
 }
