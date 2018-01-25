@@ -39,16 +39,20 @@ export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
 
     let center: gs.IPoint = null;
     if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
-    center = g1.addPoint(c1[0].getPosition());
+    center = g.addPoint(c1[0].getPosition());
+    // center = g1.addPoint(c1[0].getPosition());
     }
     if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
-    center = g1.addPoint(c1[0].getPosition());
+    center = g.addPoint(c1[0].getPosition());
+    // center = g1.addPoint(c1[0].getPosition());
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
-    center = g1.addPoint(c1[1].getPosition());
+    center = g.addPoint(c1[1].getPosition());
+    // center = g1.addPoint(c1[1].getPosition());
     }
     if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
-    center = g1.addPoint(c1[1].getPosition());
+    center = g.addPoint(c1[1].getPosition());
+    // center = g1.addPoint(c1[1].getPosition());
     }
     if(center === null) {throw new Error ("Review thresholds");}
 
