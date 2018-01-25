@@ -124,14 +124,13 @@ export function offset(pmesh: gs.IPolymesh, distance: number): void {
 }
 
 /**
- * Weld a list of polymeshes together.
+ * Join s set of polymeshes to form a single polymesh.
  *
- * Joins polymeshes together and returns a single polymesh<br/>
  * Returns null if polymeshes do not intersect or touch
  * @param pmeshes List of polymeshes to weld
  * @returns New polymesh created from weld if successful, null if unsuccessful or on error
  */
-export function weld(pmeshes: gs.IPolymesh[]): gs.IPolymesh[] {
+export function join(pmeshes: gs.IPolymesh[]): gs.IPolymesh[] {
     // get the model
     const model: gs.IModel = pmeshes[0].getModel();
     for (const pmesh of pmeshes) {
@@ -184,5 +183,5 @@ export function thicken(pmesh: gs.IPolymesh, dist1: number, dist2: number): gs.I
         const side_mesh: gs.IPolymesh = model.getGeom().addPolymesh(mesh_points);
         sides.push(side_mesh);
     }
-    return weld([pmesh, pmesh2, ...sides])[0];
+    return join([pmesh, pmesh2, ...sides])[0];
 }

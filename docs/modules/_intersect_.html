@@ -64,38 +64,100 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Intersect functions find points of intersection and conics, polylines and polymeshes where two objects
-						overlap. They return these intersections and overlaps and do not alter the original input objects.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_intersect_.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_intersect_.html#circlecircle2d" class="tsd-kind-icon">circle<wbr>Circle2D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_intersect_.html#circleplane3d" class="tsd-kind-icon">circle<wbr>Plane3D</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"temp"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;temp&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/e5912fb/src/gs-modelling/lib/intersect.ts#L16">intersect.ts:16</a></li>
-						</ul>
-					</aside>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="circlecircle2d" class="tsd-anchor"></a>
+					<h3>circle<wbr>Circle2D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">circle<wbr>Circle2D<span class="tsd-signature-symbol">(</span>circle1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, circle2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/intersect.ts#L27">intersect.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the intersection points and/or overlapping arcs of two intersecting co-planar conic curves</p>
+								</div>
+								<p>List of points returned is in order (starts from t=0 to t=1 of curve_1)<br/>
+									Conic curves must lie on the same plane<br/>
+									Returns null if conic curves are not co-planar<br/>
+								Returns null if conic curves do not intersect</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle1: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Conic curve 1</p>
+									</div>
+								</li>
+								<li>
+									<h5>circle2: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Conic curve 2</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of intersection points and/or overlapping arcs if successful,
+							null if unsuccessful or on error</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="circleplane3d" class="tsd-anchor"></a>
+					<h3>circle<wbr>Plane3D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">circle<wbr>Plane3D<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cc6b0fe/src/gs-modelling/lib/intersect.ts#L40">intersect.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Conic curve 1</p>
+									</div>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Conic curve 2</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of intersection points and/or overlapping arcs if successful,
+							null if unsuccessful or on error</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -169,8 +231,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_intersect_.html#x" class="tsd-kind-icon">x</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_intersect_.html#circlecircle2d" class="tsd-kind-icon">circle<wbr>Circle2D</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_intersect_.html#circleplane3d" class="tsd-kind-icon">circle<wbr>Plane3D</a>
 					</li>
 				</ul>
 			</nav>

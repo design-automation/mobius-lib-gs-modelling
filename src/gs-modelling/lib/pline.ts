@@ -153,6 +153,41 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
 }
 
 /**
+ * Weld a list of polymeshes together.
+ *
+ * Joins polymeshes together and returns a single polymesh<br/>
+ * Returns null if polymeshes do not intersect or touch
+ * @param pmeshes List of polymeshes to weld
+ * @returns New polymesh created from weld if successful, null if unsuccessful or on error
+ */
+export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
+    // get the model
+    const model: gs.IModel = plines[0].getModel();
+    for (const pline of plines) {
+        if (!pline.exists()) {throw new Error("Polyline has been deleted.");}
+        if (pline.getModel() !== model) {throw new Error("Polylines have to be in same model.");}
+    }
+    // collect the faces together in a points array
+    // const disjoint_sets: gs.IPolyline[][] = [[plines[0]]];
+    // const already_used: number[] = [plines[0].getID()];
+    // let counter: number = 1;
+    // while(counter < plines.length) {
+    //     const current_set: gs.IPolyline[] = disjoint_sets[disjoint_sets.length - 1];
+    //     const first_pline_points: gs.IPoint[] = current_set[0].getPointsArr();
+    //     const last_pline_points: gs.IPoint[] = current_set[current_set.length - 1].getPointsArr();
+    //     const start: gs.IPoint = first_pline_points[0];
+    //     const end: gs.IPoint = last_pline_points[last_pline_points.length - 1];
+    //     for (const pline of plines) {
+    //         if (already_used.indexOf(pline.getID()) === -1) {
+
+    //         }
+    //     }
+    // }
+
+    throw new Error("not implemented");
+}
+
+/**
  * Explodes a polyline into individual segments
  *
  * Each straight line segment in the polyline is returned as a separate polyline object
