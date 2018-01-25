@@ -37,6 +37,23 @@ export function test_pline_evalParam(): boolean {
     return true;
 }
 
+export function test_pline_join(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
+    const p4: gs.IPoint = gsm.point.FromXYZ(m, [1,5,9]);
+    const p5: gs.IPoint = gsm.point.FromXYZ(m, [12,5,33]);
+    const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], true);
+    const plines: gs.IPolyline[] = gsm.pline.extract(pline, [0,1,2]);
+    const more: gs.IPolyline = gsm.pline.FromPoints([p2, p5, p4], true);
+    const more2: gs.IPolyline = gsm.pline.FromPoints([p2, p3, p5, p1], true);
+    const more3: gs.IPolyline = gsm.pline.FromPoints([p3, p1], true);
+    const new_plines: gs.IPolyline[] = gsm.pline.join([...plines, more, more2, more3]);
+
+    return true;
+}
+
 export function test_pline_extract(): boolean {
     const m: gs.IModel = gsm.model.New();
     const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);

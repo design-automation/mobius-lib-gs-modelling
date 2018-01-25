@@ -153,7 +153,7 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
 }
 
 /**
- * Weld a list of polymeshes together.
+ * Join a set of polylines. Only polylies that are connected end to end will be joined,
  *
  * Joins polymeshes together and returns a single polymesh<br/>
  * Returns null if polymeshes do not intersect or touch
@@ -163,28 +163,94 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
 export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
     // get the model
     const model: gs.IModel = plines[0].getModel();
+    const geom: gs.IGeom = model.getGeom();
+    // check
     for (const pline of plines) {
         if (!pline.exists()) {throw new Error("Polyline has been deleted.");}
         if (pline.getModel() !== model) {throw new Error("Polylines have to be in same model.");}
     }
-    // collect the faces together in a points array
-    // const disjoint_sets: gs.IPolyline[][] = [[plines[0]]];
-    // const already_used: number[] = [plines[0].getID()];
-    // let counter: number = 1;
-    // while(counter < plines.length) {
-    //     const current_set: gs.IPolyline[] = disjoint_sets[disjoint_sets.length - 1];
-    //     const first_pline_points: gs.IPoint[] = current_set[0].getPointsArr();
-    //     const last_pline_points: gs.IPoint[] = current_set[current_set.length - 1].getPointsArr();
-    //     const start: gs.IPoint = first_pline_points[0];
-    //     const end: gs.IPoint = last_pline_points[last_pline_points.length - 1];
-    //     for (const pline of plines) {
-    //         if (already_used.indexOf(pline.getID()) === -1) {
-
-    //         }
-    //     }
-    // }
-
-    throw new Error("not implemented");
+    // create an array of array of points
+    const point_ids_arrays: number[][] = [];
+    for (const pline of plines) {
+        const points: gs.IPoint[] = pline.getPointsArr();
+        const start_end: [number, number] = [points[0].getID(), points[points.length - 1].getID()];
+        if (start_end[1] < start_end[0]) {
+            points.reverse();
+        }
+        point_ids_arrays.push(points.map((p) => p.getID()));
+    }
+    point_ids_arrays.sort();
+    // create disjoint set
+    const disjoint_sets: number[][][] = [];
+    disjoint_sets.push([point_ids_arrays[0]]);
+    point_ids_arrays.splice(0, 1);
+    let max: number = 0;
+    while (point_ids_arrays.length > 0 && max < 100) {
+        max++;
+        let tried_all: boolean = false;
+        const last_disjoint_set: number[][] = disjoint_sets[disjoint_sets.length - 1];
+        const last_point_ids = last_disjoint_set[last_disjoint_set.length - 1];
+        let current_start: number = last_disjoint_set[0][0];
+        let current_end: number = last_point_ids[last_point_ids.length - 1];
+        tried_all = true;
+        for (let i = 0; i < point_ids_arrays.length; i++) {
+            const point_ids:number[] = point_ids_arrays[i];
+            const point_ids_start: number = point_ids[0];
+            const point_ids_end: number = point_ids[point_ids.length - 1];
+            if (current_end === point_ids_start) {
+                tried_all = false;
+                last_disjoint_set.push(point_ids);
+                current_end = last_point_ids[last_point_ids.length - 1];
+                point_ids_arrays.splice(i, 1);
+                break;
+            } else if (current_start === point_ids_end) {
+                tried_all = false;
+                last_disjoint_set.unshift(point_ids);
+                current_start = last_disjoint_set[0][0];
+                point_ids_arrays.splice(i, 1);
+                break;
+            } else if (current_end === point_ids_end) {
+                tried_all = false;
+                last_disjoint_set.push(point_ids.reverse());
+                current_end = last_point_ids[last_point_ids.length - 1];
+                point_ids_arrays.splice(i, 1);
+                break;
+            } else if (current_start === point_ids_start) {
+                tried_all = false;
+                last_disjoint_set.unshift(point_ids.reverse());
+                current_start = last_disjoint_set[0][0];
+                point_ids_arrays.splice(i, 1);
+                break;
+            }
+        }
+        if (tried_all || (current_start === current_end)) {
+            disjoint_sets.push([point_ids_arrays[0]]);
+            point_ids_arrays.splice(0, 1);
+        }
+    }
+    // create polylines
+    const new_plines: gs.IPolyline[] = [];
+    for (const disjoint_set of disjoint_sets) {
+        const points: gs.IPoint[] = [];
+        for (const point_ids of disjoint_set) {
+            for (let i = 0; i< point_ids.length - 1; i++) {
+                points.push(geom.getPoint(point_ids[i]));
+            }
+        }
+        const start: number = disjoint_set[0][0];
+        const last_array: number[] = disjoint_set[disjoint_set.length - 1];
+        const end: number = last_array[last_array.length - 1];
+        if (start === end) {
+            new_plines.push(geom.addPolyline(points, true));
+        } else {
+            points.push(geom.getPoint(end));
+            new_plines.push(geom.addPolyline(points, false));
+        }
+    }
+    // delete the old polylines
+    geom.delObjs(plines, true);
+    // return the new plines
+    return new_plines;
 }
 
 /**
