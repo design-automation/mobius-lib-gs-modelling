@@ -14,7 +14,7 @@ export function getVertexNormal(vertex: gs.IVertex): three.Vector3 {
     let vector_prev: three.Vector3 = threex.vectorFromVerticesAtoB(vertex, prev);
     let normal: three.Vector3 = threex.crossVectors(vector_next, vector_prev);
     //console.log("normal", normal.lengthSq());
-    if (normal.lengthSq() > EPS) {return normal;}
+    if (normal.lengthSq() > EPS) {return normal;} //TODO normal length looks big
     // this will be executed for degenerate cases, e.g. colinear points
 
     for (let i = 0; i < vertex.getWireOrFace().numVertices() - 2; i++) {

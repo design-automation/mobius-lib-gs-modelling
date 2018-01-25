@@ -87,7 +87,7 @@ export function offset(pmesh: gs.IPolymesh, distance: number): void {
     const model: gs.IModel = pmesh.getModel();
     const geom: gs.IGeom = model.getGeom();
     // create a map of point -> vertices in this pmesh
-    const vertices: gs.IVertex[] = gs.Arr.flatten(pmesh.getVertices());
+    const vertices: gs.IVertex[] = gs.Arr.flatten(pmesh.getVertices(gs.EGeomType.faces));
     const vertices_map: Map<number, gs.IVertex[]> = new Map();
     for (const vertex of vertices) {
         const id: number = vertex.getPoint().getID();
@@ -96,35 +96,33 @@ export function offset(pmesh: gs.IPolymesh, distance: number): void {
     }
     // move each point
     for (const [point_id, vertices] of vertices_map.entries()) {
-        // get the normal mean
-        const normals: three.Vector3[] = [];
-        const normals_mean: three.Vector3 = new three.Vector3();
-        for (const vertex of vertices) {
-            const normal: three.Vector3 = math_poly.getVertexNormal(vertex);
-            normals.push(normal);
-            normals_mean.add(normal);
+        let normal: three.Vector3;
+        if (vertices.length ===1) {
+            normal = math_poly.getVertexNormal(vertices[0]);
+            normal.setLength(distance);
+        } else {
+            // get the normal mean
+            const vertex_normals: three.Vector3[] = [];
+            normal = new three.Vector3();
+            for (const vertex of vertices) {
+                const vertex_normal: three.Vector3 = math_poly.getVertexNormal(vertex);
+                vertex_normals.push(vertex_normal);
+                normal.add(vertex_normal);
+            }
+            const angle = normal.angleTo(vertex_normals[0]);
+            const len: number = distance / Math.cos(angle);
+            normal.setLength(len);
         }
-        // calculate all angles, this is just a temp test TODO
-        let angles_mean: number = 0;
-        for (const normal of normals) {
-            const angle = normal.angleTo(normals_mean);
-            angles_mean = angles_mean + angle;
-        }
-        angles_mean = angles_mean / normals.length;
-        // calculate the length of the normals mean
-        const len: number = distance / Math.cos(angles_mean);
-        normals_mean.setLength(len);
         // set the point position
         const point: gs.IPoint = geom.getPoint(point_id);
         const old_pos: gs.XYZ = point.getPosition();
-        const new_pos: gs.XYZ =
-            [old_pos[0] + normals_mean.x, old_pos[1] + normals_mean.y, old_pos[2] + normals_mean.z];
+        const new_pos: gs.XYZ = [old_pos[0] + normal.x, old_pos[1] + normal.y, old_pos[2] + normal.z];
         point.setPosition(new_pos);
     }
 }
 
 /**
- * Join s set of polymeshes to form a single polymesh.
+ * Join a set of polymeshes to form a single polymesh.
  *
  * Returns null if polymeshes do not intersect or touch
  * @param pmeshes List of polymeshes to weld
@@ -155,6 +153,15 @@ export function join(pmeshes: gs.IPolymesh[]): gs.IPolymesh[] {
 }
 
 /**
+ * Flips all faces
+ * @param pmesh Polymeshes to flipFaces
+ * @returns New polymesh created from weld if successful, null if unsuccessful or on error
+ */
+export function flipFaces(pmesh: gs.IPolymesh): gs.IPolymesh {
+    throw new Error("Not implemented exception");
+}
+
+/**
  * Thicken ...
  *
  * @param pmesh A polyline to create a polymesh with a single polygon face.
@@ -164,8 +171,9 @@ export function thicken(pmesh: gs.IPolymesh, dist1: number, dist2: number): gs.I
     if (!pmesh.exists()) {throw new Error("Polyline has been deleted.");}
     const model: gs.IModel = pmesh.getModel();
     const pmesh2: gs.IPolymesh = pmesh.copy() as gs.Polymesh; //Copies the points as well
+    //flipFaces(pmesh*-1); // TODO
     offset(pmesh, dist1);
-    offset(pmesh2, dist2);
+    offset(pmesh2, dist2 * -1); //TODO
     const wires1: gs.IWire[] = pmesh.getWires();
     const wires2: gs.IWire[] = pmesh2.getWires();
     if (wires1.length !== wires2.length) {throw new Error("Error occured while thickening mesh.");}
@@ -184,4 +192,14 @@ export function thicken(pmesh: gs.IPolymesh, dist1: number, dist2: number): gs.I
         sides.push(side_mesh);
     }
     return join([pmesh, pmesh2, ...sides])[0];
+}
+
+/**
+ * Extrude by vector...
+ *
+ * @param pmesh A polyline to create a polymesh with a single polygon face.
+ * @returns A polymesh if successful, null if unsuccessful or on error.
+ */
+export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
+    throw new Error("not implemented");
 }
