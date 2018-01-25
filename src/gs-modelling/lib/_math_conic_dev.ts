@@ -26,11 +26,6 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     const tmp_vec: three.Vector3 = threex.subVectors(p3, p2);
     const z_axis: three.Vector3 = threex.crossVectors(x_axis, tmp_vec); //.normalize();
     const y_axis: three.Vector3 = threex.crossVectors(z_axis, x_axis); //.normalize();
-
-    // console.log("X", x_axis);
-    // console.log("Y", y_axis);
-    // console.log("Z", z_axis);
-
     // create the xform matrices to map 3d -> 2d
     const m: three.Matrix4 = threex.xformMatrix(p1, x_axis, y_axis);
     const m_inv: three.Matrix4 = threex.matrixInverse(m);
@@ -50,7 +45,7 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     const circle_y_axis: three.Vector3 = threex.multVectorMatrix(circle_y_axis_2d, m_inv);
     // calc the circle radius
     const radius: number = origin_2d.length();
-    // is not arc?
+    // is not arc? then return data for circle
     if (!is_arc) {
         return {
             origin: circle_origin.toArray() as gs.XYZ,
@@ -65,7 +60,7 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     if (circle_z_axis_2d.z > 0) {
         angle = angle * -1;
     }
-    // return the result
+    // return the data for arc
     return {
         origin: circle_origin.toArray() as gs.XYZ,
         vec_x: circle_x_axis.toArray() as gs.XYZ,

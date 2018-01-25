@@ -174,7 +174,6 @@ export function ArcFrom3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.
     // make arc
     const result = math_conic._circleFrom3Points(
         point1.getPosition(), point2.getPosition(), point3.getPosition(), true);
-    console.log(result);
     const origin_point: gs.IPoint = model.getGeom().addPoint(result.origin);
     return ArcFromOriginVectors(origin_point, result.vec_x, result.vec_y, [0, result.angle]);
 }

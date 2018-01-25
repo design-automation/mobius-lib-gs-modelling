@@ -26,6 +26,10 @@ export function test_circle_ArcFrom3Points(): boolean {
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [10,10,0]);
     const arc: gs.ICircle = gsm.circle.ArcFrom3Points(p1, p2, p3);
     if (arc === undefined) {return false;}
-    console.log(arc.length(), arc);
+
+    const p4: gs.IPoint = gsm.point.FromXYZ(m, [10,0,10]);
+    const arc2: gs.ICircle = gsm.circle.ArcFrom3Points(p1, p2, p4);
+    if (arc2 === undefined) {return false;}
+
     return true;
 }

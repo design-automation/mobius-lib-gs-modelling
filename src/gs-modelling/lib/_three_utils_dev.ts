@@ -29,7 +29,7 @@ export function xformMatrix(o: three.Vector3, x: three.Vector3, y: three.Vector3
     m1.setPosition(o_neg);
     const m2: three.Matrix4 = new three.Matrix4();
     m2.makeBasis(x.normalize(), y.normalize(), crossVectors(x,y,true));
-//    m2.makeBasis(x, y, z);
+    //m2.makeBasis(x, y, z);
     m2.getInverse(m2);
     const m3: three.Matrix4 = new three.Matrix4();
     m3.multiplyMatrices(m2, m1);
