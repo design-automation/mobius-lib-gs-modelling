@@ -53,3 +53,12 @@ export function save(model: gs.IModel , filename: string): boolean {
     });
     return true;
 }
+
+/**
+ * Save model as JSON
+ * @param model The model to convert.
+ * @returns New model if successful, null if unsuccessful or on error
+ */
+export function toJSON(model: gs.IModel): string {
+    return model.toJSON();
+}
