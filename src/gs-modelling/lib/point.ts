@@ -150,7 +150,7 @@ export function merge(points: gs.IPoint[]): gs.IPoint {
         if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
         if (!point.exists()) {throw new Error("Point has been deleted.");}
     }
-    return model.getGeom().mergePoints(points)[0];
+    return model.getGeom().mergePoints(points,4)[0];
 }
 
 /**

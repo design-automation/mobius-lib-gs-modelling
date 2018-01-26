@@ -106,3 +106,41 @@ export function test_pline_extrude(): boolean {
     const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false);
     return true;
 }
+export function test_pline_FromCircle(): boolean {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    // London City Hall
+    const pt1: gs.IPoint = g.addPoint([0,0,0]);
+    const pt2: gs.IPoint = g.addPoint([5,0,0]);
+    const circle1: gs.ICircle = g.addCircle(pt1, [6,0,0],[0,6,0],[0,360]);
+    const circle2: gs.ICircle = g.addCircle(pt2, [2,0,0],[0,2,0],[0,360]);
+    const split: gs.ICircle[] = gsm.split.circleCircle2D(circle1,circle2);
+    const pline1: gs.IPoint[] = gsm.pline.FromCircle(split[0],20).getPoints()[0][0];
+    const pline2: gs.IPoint[] = gsm.pline.FromCircle(split[0],10).getPoints()[0][0];
+    console.log("Hello World Pl1");
+    for( const pli1 of pline1) {
+        pli1.getPosition();
+    }
+    console.log("Hello World Pl2");
+    for( const pli2 of pline2) {
+        pli2.getPosition();
+    }
+    // Circle 1, Radius 1
+    const pt3: gs.IPoint = g.addPoint([-0.5,0,0]);
+    const pt4: gs.IPoint = g.addPoint([0.5,0,0]);
+    const circle3: gs.ICircle = g.addCircle(pt3, [1,0,0],[0,1,0],[0,360]);
+    const circle4: gs.ICircle = g.addCircle(pt4, [1,0,0],[0,1,0],[0,360]);
+    const split3: gs.ICircle[] = gsm.split.circleCircle2D(circle3,circle4);
+    const pline3: gs.IPoint[] = gsm.pline.FromCircle(split3[0],20).getPoints()[0][0];
+    const pline4: gs.IPoint[] = gsm.pline.FromCircle(split3[0],10).getPoints()[0][0];
+    console.log("Hello World Pl1");
+    for( const pli1 of pline3) {
+        console.log(pli1.getPosition());
+    }
+    console.log("Hello World Pl2");
+    for( const pli2 of pline4) {
+        console.log(pli2.getPosition());
+    }
+    return true;
+}
+
