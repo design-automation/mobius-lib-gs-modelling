@@ -138,13 +138,35 @@ export function del(points: gs.IPoint | gs.IPoint[]): boolean {
 }
 
 /**
- * Deletes point or a list of points from the model.
+ * Merges point or a list of points in the model.
  *
  * @param points Point or list of points to delete.
  * @returns True if successful
  */
-export function merge(points: gs.IPoint[]): boolean {
-    throw new Error("method not implemented");
+export function merge(points: gs.IPoint[]): gs.IPoint {
+    if (points.length === 0) {return null;}
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
+        if (!point.exists()) {throw new Error("Point has been deleted.");}
+    }
+    return model.getGeom().mergePoints(points)[0];
+}
+
+/**
+ * Merges point or a list of points in the model.
+ *
+ * @param points Point or list of points to delete.
+ * @returns True if successful
+ */
+export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] {
+    if (points.length === 0) {return null;}
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
+        if (!point.exists()) {throw new Error("Point has been deleted.");}
+    }
+    return model.getGeom().mergePoints(points, tolerance);
 }
 
 /**

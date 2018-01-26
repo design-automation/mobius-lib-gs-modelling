@@ -147,6 +147,28 @@ export function numVertices(pline: gs.IPolyline): number {
     return pline.numVertices();
 }
 
+/**
+ * Returns all points
+ * @param pline Polyline object.
+ * @return The number of vertices.
+ */
+export function getPoints(pline: gs.IPolyline): gs.IPoint[] {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
+    return pline.getPointsArr();
+}
+
+/**
+ * Returns the start and end points of this polyline. If it is closed, returns null.
+ * @param pline Polyline object.
+ * @return The number of vertices.
+ */
+export function getEndPoints(pline: gs.IPolyline): gs.IPoint[] {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
+    if (pline.isClosed()) {return null;}
+    const points: gs.IPoint[] = pline.getPointsArr();
+    return [points[0], points[points.length - 1]];
+}
+
 //  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
 //  http://verbnurbs.com/docs/geom/ICurve/#point
 /**
