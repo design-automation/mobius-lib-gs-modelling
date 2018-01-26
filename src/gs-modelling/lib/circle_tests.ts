@@ -22,9 +22,11 @@ export function test_circle_From3Points(): boolean {
 export function test_circle_ArcFrom3Points(): boolean {
     const m: gs.IModel = gsm.model.New();
     const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
-    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
-    const p3: gs.IPoint = gsm.point.FromXYZ(m, [10,10,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0.5,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,1,0]);
+
     const arc: gs.ICircle = gsm.circle.ArcFrom3Points(p1, p2, p3);
+    console.log("ARC", arc);
     if (arc === undefined) {return false;}
 
     const p4: gs.IPoint = gsm.point.FromXYZ(m, [10,0,10]);
