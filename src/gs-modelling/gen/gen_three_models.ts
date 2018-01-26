@@ -6,8 +6,8 @@ import * as gen from "./gen_models";
 /**
  * Write a file.
  */
-function writeToJSONFile(data: any, filename: string): boolean {
-    fs.writeFile("../gs-modelling/src/gs-modelling/assets/" + filename, JSON.stringify(data, null, 4), (err) => {
+function writeToJSONFile(model: gs.IThreeScene, filename: string): boolean {
+    fs.writeFile("../gs-modelling/src/gs-modelling/assets/" + filename, JSON.stringify(model, null, 4), (err) => {
         if (err) {
             console.log("Error writing file: " + filename);
             console.error(err);
