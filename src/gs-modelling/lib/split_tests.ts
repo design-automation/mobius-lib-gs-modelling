@@ -10,7 +10,7 @@ export function test_circleCircle2D(): boolean {
     const circle1: gs.ICircle = g.addCircle(pt1, [1,0,0],[0,0,1], [0,360]);
     const circle2: gs.ICircle = g.addCircle(pt2, [1,0,0],[0,0,1], [0,360]);
     const arcs: gs.ICircle[] = sl.circleCircle2D(circle1,circle2);
-    console.log(arcs);
+    //console.log(arcs);
     let k: number = 1;
     for (const arc of arcs) {
         // console.log("circle " + k);

@@ -57,9 +57,10 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     const angle_vec_2d: three.Vector3 = threex.subVectors(p3_2d, origin_2d);
     let angle: number = circle_x_axis_2d.angleTo(angle_vec_2d);
     const circle_z_axis_2d: three.Vector3 = threex.crossVectors(circle_x_axis_2d, angle_vec_2d);
-    if (circle_z_axis_2d.z > 0) {
+    if (circle_z_axis_2d.z < 0) {
         angle = angle * -1;
     }
+    angle = angle * 180 / Math.PI;
     // return the data for arc
     return {
         origin: circle_origin.toArray() as gs.XYZ,
