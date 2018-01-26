@@ -273,54 +273,55 @@ export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs
     if (result.length === 0) {return null;}
     return result;
 }
-/**
- * Hyperbola-Plane intersection
- * @param Hyperbola
- * @param Plane
- * @returns Adds intersecting points to the geometry if successfull, null if empty or coplanar
- */
-export function _isectHyperbolaPlane3D(hyperbola: gs.IHyperbola, plane: gs.IPlane): gs.IPoint[] {
-    const m1: gs.IModel = hyperbola.getModel();
-    const m2: gs.IModel = plane.getModel();
-    if(m1 !== m2) {
-        throw new Error("Identical models are required for the circle and the plane");
-    }
-    const O: number[] = plane.getOrigin().getPosition();
-    const C0: number[] = hyperbola.getOrigin().getPosition();
-    const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
-    const U1: three.Vector3 = new three.Vector3(
-        hyperbola.getVectors()[0][0],
-        hyperbola.getVectors()[0][1],
-        hyperbola.getVectors()[0][2]);
-    const V1: three.Vector3 = new three.Vector3(
-        hyperbola.getVectors()[1][0],
-        hyperbola.getVectors()[1][1],
-        hyperbola.getVectors()[1][2]);
-    let W1: three.Vector3 = new three.Vector3();
-    W1 = W1.crossVectors(U1,V1);
-    const coplanar: number = W1.length();
-    if (coplanar === 0) {return null;}
-    const a: number = U1.length();
-    const b: number = V1.length();
-    const e: number = Math.sqrt(1 + (b/a)*(b/a));
-    const p: number = b*b/a;
-    const A_: number = n1[0]*(C0[0] - O[0]) + n1[1]*(C0[1] - O[1]) + n1[2]*(C0[2] - O[2]);
-    const B_: number = (n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z)*p;
-    const C_: number = (n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z)*p;
-    const A: number = A_;
-    const B: number = B_ + A_*e;
-    const C: number = C_;
-    const _t: number[] = trigo._solve_trigo(A,B,C);
-    if (_t === null) {return null;}
-    const result: gs.IPoint[] = [];
-    for (const t of _t) {
-    result.push(m1.getGeom().addPoint([C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
-                          C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
-                          C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
-    }
-    if (result.length === 0) {return null;}
-    return result;
-}
+
+// /**
+//  * Hyperbola-Plane intersection
+//  * @param Hyperbola
+//  * @param Plane
+//  * @returns Adds intersecting points to the geometry if successfull, null if empty or coplanar
+//  */
+// export function _isectHyperbolaPlane3D(hyperbola: gs.IHyperbola, plane: gs.IPlane): gs.IPoint[] {
+//     const m1: gs.IModel = hyperbola.getModel();
+//     const m2: gs.IModel = plane.getModel();
+//     if(m1 !== m2) {
+//         throw new Error("Identical models are required for the circle and the plane");
+//     }
+//     const O: number[] = plane.getOrigin().getPosition();
+//     const C0: number[] = hyperbola.getOrigin().getPosition();
+//     const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
+//     const U1: three.Vector3 = new three.Vector3(
+//         hyperbola.getVectors()[0][0],
+//         hyperbola.getVectors()[0][1],
+//         hyperbola.getVectors()[0][2]);
+//     const V1: three.Vector3 = new three.Vector3(
+//         hyperbola.getVectors()[1][0],
+//         hyperbola.getVectors()[1][1],
+//         hyperbola.getVectors()[1][2]);
+//     let W1: three.Vector3 = new three.Vector3();
+//     W1 = W1.crossVectors(U1,V1);
+//     const coplanar: number = W1.length();
+//     if (coplanar === 0) {return null;}
+//     const a: number = U1.length();
+//     const b: number = V1.length();
+//     const e: number = Math.sqrt(1 + (b/a)*(b/a));
+//     const p: number = b*b/a;
+//     const A_: number = n1[0]*(C0[0] - O[0]) + n1[1]*(C0[1] - O[1]) + n1[2]*(C0[2] - O[2]);
+//     const B_: number = (n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z)*p;
+//     const C_: number = (n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z)*p;
+//     const A: number = A_;
+//     const B: number = B_ + A_*e;
+//     const C: number = C_;
+//     const _t: number[] = trigo._solve_trigo(A,B,C);
+//     if (_t === null) {return null;}
+//     const result: gs.IPoint[] = [];
+//     for (const t of _t) {
+//     result.push(m1.getGeom().addPoint([C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
+//                           C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
+//                           C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
+//     }
+//     if (result.length === 0) {return null;}
+//     return result;
+// }
 
 /**
  * Circle-Line intersection
