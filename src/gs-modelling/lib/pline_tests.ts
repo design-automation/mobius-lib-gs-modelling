@@ -106,3 +106,17 @@ export function test_pline_extrude(): boolean {
     const mesh2: gs.IPolymesh = gsm.pline.extrude(pline, [5,0,0], false);
     return true;
 }
+export function test_pline_FromCircle(): boolean {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const pt1: gs.IPoint = g.addPoint([0,0,0]);
+    const pt2: gs.IPoint = g.addPoint([5,0,0]);
+    const circle1: gs.ICircle = g.addCircle(pt1, [6,0,0],[0,6,0],[0,360]);
+    const circle2: gs.ICircle = g.addCircle(pt2, [2,0,0],[0,2,0],[0,360]);
+    const split: gs.ICircle[] = gsm.split.circleCircle2D(circle1,circle2);
+    const pline1: gs.IPolyline = gsm.pline.FromCircle(split[0],20);
+    const pline2: gs.IPolyline = gsm.pline.FromCircle(split[0],10);
+    console.log("pline 1 = " + pline1);
+    console.log("pline 2 = " + pline2);
+    return true;
+}
