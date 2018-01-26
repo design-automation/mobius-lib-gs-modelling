@@ -116,6 +116,38 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
 //  ===============================================================================================================
 
 /**
+ * Deletes point or a list of points from the model.
+ *
+ * @param points Point or list of points to delete.
+ * @returns True if successful
+ */
+export function del(points: gs.IPoint | gs.IPoint[]): boolean {
+    if (Array.isArray(points)) {
+        let result = false;
+        for (const point of points) {
+            if (!point.exists()) {
+                const obj_result: boolean = point.getGeom().delPoint(point);
+                if (obj_result) {result = true;}
+            }
+        }
+        return result;
+    } else { // a single entity
+        if (!points.exists()) {return false;}
+        return points.getGeom().delPoint(points);
+    }
+}
+
+/**
+ * Deletes point or a list of points from the model.
+ *
+ * @param points Point or list of points to delete.
+ * @returns True if successful
+ */
+export function merge(points: gs.IPoint[]): boolean {
+    throw new Error("method not implemented");
+}
+
+/**
  * Obtains x, y and z coordinates of 3D point
  * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
  * @param point Point

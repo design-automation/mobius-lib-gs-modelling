@@ -1,12 +1,13 @@
-import * as gs from "gs-json";
-import * as gen from "./gen_gs_models";
 import * as fs from "fs";
+import * as gs from "gs-json";
+import * as gsm from "./../lib/_export_dev";
+import * as gen from "./gen_models";
 
 /**
  * Write a file.
  */
-export function genModelWriteToJSONFile(model: gs.IThreeScene, filename: string): boolean {
-    fs.writeFile("../assets/" + filename, JSON.stringify(model, null, 4), (err) => {
+function writeToJSONFile(data: any, filename: string): boolean {
+    fs.writeFile("../gs-modelling/src/gs-modelling/assets/" + filename, JSON.stringify(data, null, 4), (err) => {
         if (err) {
             console.log("Error writing file: " + filename);
             console.error(err);
@@ -18,19 +19,11 @@ export function genModelWriteToJSONFile(model: gs.IThreeScene, filename: string)
 }
 
 /**
- * Write all models to disk as json files.
- */
-export function genGsModelsWriteFiles(): void {
-    gen.genModelTest1();
-    //genModelWriteToJSONFile(gs.genThreeOptModel(gen.genModelTest1()), "model_test1.json");
-}
-
-/**
- * If this module is being run directly, then files will be written to disk.
- * This will require the TS code to be transpiled to 2015 JS code, first with TSC and then with babel.
- * There is a script that automates this in package.json.
- * Just type "npm run build_models" in the shell.
+ * Execute using NPM, models get saved in the /src/assets/ folder.
+ * 1) "npm run build_three_models" OR
+ * 2) "npm run build_models" (which builds both three and gs)
  */
 if(require.main === module)  {
-    genGsModelsWriteFiles();
+    console.log("Starting to write three files...");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1()), "test1.json");
 }

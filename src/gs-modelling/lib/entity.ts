@@ -27,63 +27,38 @@ export function Copy(entity: gs.IEnt): gs.IEnt {
 //  ===============================================================================================================
 
 /**
- * Gets attributes of specified geometry
- *
- * Returns null if specified geometry does not have any attributes
- * @param entity Geometry
- * @returns List of attributes of specified geometry if successful, null if unsuccessful or on error
- */
-export function getAttribs(entity: gs.IPoint | gs.IObj): gs.IAttrib[] {
-    // check args
-    if (!entity.exists()) {throw new Error("Entity has been deleted.");}
-    // get attribs for this attrib
-    return entity.getAttribs();
-}
-
-/**
- * Gets groups that contain specified geometry
- *
- * Returns null if specified geometry is not found in any groups
- * @param entity Geometry
- * @returns List of groups that contain specified geometry if successful, null if unsuccessful or on error
- */
-export function getGroups(entity: gs.IPoint | gs.IObj): gs.IGroup[] {
-    // check args
-    if (!entity.exists()) {throw new Error("Entity has been deleted.");}
-    // get groups for this entity
-    return entity.getGroups();
-}
-
-/**
- * Removes geometry from all groups that contain it
- * @param entity Geometry
- * @returns True if successful
- */
-export function removeFromAllGroups(entity: gs.IPoint | gs.IObj): boolean {
-    // check args
-    throw new Error("method not implemented.");
-}
-
-//  ===============================================================================================================
-//  Geom Transformation Functions =================================================================================
-//  ===============================================================================================================
-
-/**
- * Moves geometry or a list of geometry.
+ * Deletes geometry or a list of geometry from the model
  *
  * Affects geometry that contains or is based off specified geometry
- * @param entity Geometry or list of geometry to move
- * @param translation Translation vector
- * @param copy Performs transformation on duplicate copy of input geometry if true
- * @returns Geometry in new location if successful
+ * @param entity Geometry or list of geometry to delete
+ * @returns Number of items deleted if successful
  */
-export function move(entity: gs.IPoint | gs.IObj, translation: number[], copy: boolean): gs.IPoint | gs.IObj {
-    if (!entity.exists()) {throw new Error("Entity has been deleted.");}
-    if (copy) {
-        // TODO
+export function del(entities: gs.IEnt | gs.IEnt[]): number {
+    if (Array.isArray(entities)) {
+        let counter = 0;
+        for (const entity of entities) {
+            if (!entity.exists()) {
+                const geom: gs.IGeom = entity.getGeom();
+                if (entity instanceof gs.Point) {
+                    geom.delPoint(entity as gs.IPoint);
+                    counter++;
+                } else if (entity instanceof gs.Obj) {
+                    geom.delObj(entity as gs.IObj, true);
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    } else { // a single entity
+        if (!entities.exists()) {return 0;}
+        const geom: gs.IGeom = entities.getGeom();
+        if (entities instanceof gs.Point) {
+            geom.delPoint(entities as gs.IPoint);
+            return 1;
+        } else if (entities instanceof gs.Obj) {
+            geom.delObj(entities as gs.IObj, true);
+            return 1;
+        }
     }
-    const matrix: three.Matrix4 = new three.Matrix4();
-    matrix.setPosition(new three.Vector3(...translation));
-    entity.xform(matrix);
-    return entity;
 }
+

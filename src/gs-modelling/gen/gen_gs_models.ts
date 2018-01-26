@@ -1,15 +1,29 @@
+import * as fs from "fs";
 import * as gs from "gs-json";
 import * as gsm from "./../lib/_export_dev";
+import * as gen from "./gen_models";
 
 /**
- * Generates a model with 4 points. Two of the points have the same position.
+ * Write a file.
  */
-export function genModelTest1(): gs.IModel {
-    const m: gs.IModel = gsm.model.New();
-    gsm.point.FromXYZs(m, [
-            [0,0,0],
-            [10,0,0],
-            [10,10,0],
-        ]);
-    return m;
+function writeToJSONFile(data: any, filename: string): boolean {
+    fs.writeFile("../gs-modelling/src/gs-modelling/assets/" + filename, JSON.stringify(data, null, 4), (err) => {
+        if (err) {
+            console.log("Error writing file: " + filename);
+            console.error(err);
+            return false;
+        }
+        console.log("File has been created: " + filename);
+    });
+    return true;
+}
+
+/**
+ * Execute using NPM, models get saved in the /src/assets/ folder.
+ * 1) "npm run build_gs_models" OR
+ * 2) "npm run build_models" (which builds both three and gs)
+ */
+if(require.main === module)  {
+    console.log("Starting to write gs files...");
+    writeToJSONFile(gen.genModelTest1(), "test1.gs");
 }
