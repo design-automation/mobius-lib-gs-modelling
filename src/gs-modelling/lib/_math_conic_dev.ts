@@ -234,7 +234,23 @@ export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs
     if (coplanar === 0) {return null;}
     const a: number = U1.length();
     const b: number = V1.length();
-    if (b>a) {throw new Error("Method not implemented");}
+    if(b>a) {
+        const m: gs.IModel = new gs.Model();
+        const g: gs.IGeom = m.getGeom();
+        const ellipse_or_2nd: gs.IPoint = g.addPoint([C0[0],C0[1],C0[2]]);
+        const u1_2nd: three.Vector3 = (V1.normalize()).multiplyScalar(b);
+        const v1_2nd: three.Vector3 = (U1.normalize()).multiplyScalar(-a);
+        const ellipse2: gs.IEllipse = g.addEllipse(
+        ellipse_or_2nd,[u1_2nd.x,u1_2nd.y,u1_2nd.z],[v1_2nd.x,v1_2nd.y,v1_2nd.z],[0,360]);
+        const O2: gs.IPoint = g.addPoint([O[0],O[1],O[2]]);
+        const plane2: gs.IPlane = g.addPlane(O2, plane.getVectors()[0],plane.getVectors()[1]);
+        const m_results: gs.IPoint[] = _isectEllipsePlane3D(ellipse2, plane2);
+        const resultat: gs.IPoint[] = [];
+        for (const m_r of m_results) {
+            resultat.push(m1.getGeom().addPoint(m_r.getPosition()));
+        }
+        return resultat;
+    }
     const e: number = Math.sqrt(1 - (b/a)*(b/a));
     const p: number = b*b/a;
     const CF: number[] = [C0[0] + Math.sqrt(a*a-b*b)*U1.x,
