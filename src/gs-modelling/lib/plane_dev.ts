@@ -17,7 +17,7 @@ export function _PointOrthoProjectPlane(point: gs.IPoint, plane: gs.IPlane): gs.
     const m1: gs.IModel = point.getModel();
     const m2: gs.IModel = plane.getModel();
     if(m1 !== m2) { throw new Error("Parameters need to be on the same model");}
-    const vectors: gs.XYZ[] = plane.getVectors();
+    const vectors: gs.XYZ[] = plane.getAxes();
     const norm: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
     const U1: three.Vector3 = new three.Vector3(vectors[0][0],vectors[0][1],vectors[0][2]).normalize();
     const W1: three.Vector3 = new three.Vector3(norm[0],norm[1],norm[2]).normalize();

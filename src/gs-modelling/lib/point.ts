@@ -1,7 +1,15 @@
 /**
- * Points define a point in a model, as x, y and z coordinates.
+ * Points define a point in a model, with XYZ coordinates.
  */
 
+/**
+ * Points are the fundamental building blocks of making 3D geometry.
+ * Geometric objects have one or more vertices, and the position of each vertex is defined
+ * by linking to a point.
+ * Each vertex is linked to one point.
+ * Each point can have multiple vertices linking to it.
+ *
+ */
 import * as gs from "gs-json";
 
 //  ===============================================================================================================
@@ -11,8 +19,8 @@ import * as gs from "gs-json";
 /**
  * Gets a point from a model.
  * @param model Model to get point from.
- * @param index Index of point to get.
- * @returns Specified point if successful, null if unsuccessful or on error.
+ * @param id ID of point to get.
+ * @returns Point if successful, null if unsuccessful or on error.
  */
 export function Get(model: gs.IModel, id: number): gs.IPoint {
     const point: gs.IPoint = model.getGeom().getPoint(id);
@@ -37,13 +45,14 @@ export function Copy(point: gs.IPoint): gs.IPoint {
 //  ===============================================================================================================
 
 /**
- * Copy a point from one model to another model
+ * Copy a point from one model to another model.
  *
  * If the specified model is the same as the model the point is located in, the specified point is
- * duplicated
- * @param model Model to add the point to
- * @param point Point to copy in other model
- * @returns Added point in specified model
+ * duplicated.
+ *
+ * @param model Model to add the point to.
+ * @param point Point to copy.
+ * @returns New point if successful, null if unsuccessful or on error.
  */
 export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
     if (!point.exists()) {throw new Error("Point has been deleted.");}
@@ -51,25 +60,22 @@ export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
 }
 
 /**
- * Adds a point to the model
+ * Creates a point from XYZ coordinates.
  *
- * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
- * Points are returned in order of input
  * @param model Model to add points to.
- * @param xyz List of XYZ coordinates.
- * @returns New point if successful, null if unsuccessful or on error
+ * @param xyz XYZ coordinates, as a list of three numbers.
+ * @returns New point if successful, null if unsuccessful or on error.
  */
 export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
     return model.getGeom().addPoint(xyz);
 }
 
 /**
- * Adds a set of points to the model
+ * Creates a list of points from a list of X, Y and Z coordinates.
+ * Points are returned in list order.
  *
- * X, Y and Z coordinates are assumed to follow the world coordinate system<br/>
- * Points are returned in order of input
  * @param model Model to add points to.
- * @param xyz A list of lists of XYZ coordinates.
+ * @param xyzs A list XYZ coordinates, as a list of lists of three numbers.
  * @returns New list of points if successful, null if unsuccessful or on error
  */
 export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
@@ -81,15 +87,10 @@ export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
 }
 
 /**
- * Adds a point that is the center of a list of points
+ * Creates a point that is at the center of a cluster of points.
  *
- * Calculates the mean of the X, Y and Z coordinates of the list of points and returns a point using the
- * results<br/>
- * Point returned is the three dimensional centroid of the specified list of points<br/>
- * If points inputed are co-planar, this returns their area centroid<br/>
- * If two points are inputed, this returns their mid-point
- * @param points List of points
- * @returns New point if successful, null if unsuccessful or on error
+ * @param points List of points.
+ * @returns New point if successful, null if unsuccessful or on error.
  */
 export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
     const m: gs.IModel = points[0].getModel();
@@ -116,66 +117,40 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
 //  ===============================================================================================================
 
 /**
- * Deletes point or a list of points from the model.
+ * Deletes a point or a list of points from the model.
  *
  * @param points Point or list of points to delete.
  * @returns True if successful
  */
 export function del(points: gs.IPoint | gs.IPoint[]): boolean {
     if (Array.isArray(points)) {
-        let result = false;
-        for (const point of points) {
-            if (!point.exists()) {
-                const obj_result: boolean = point.getGeom().delPoint(point);
-                if (obj_result) {result = true;}
-            }
-        }
-        return result;
+        if (!points[0].exists()) {throw new Error("Point has been deleted.");}
+        return points[0].getGeom().delPoints(points);
     } else { // a single entity
-        if (!points.exists()) {return false;}
+        if (!points.exists()) {throw new Error("Point has been deleted.");}
         return points.getGeom().delPoint(points);
     }
 }
 
 /**
- * Merges point or a list of points in the model.
+ * Get the XYZ coordinates of the point.
  *
- * @param points Point or list of points to delete.
- * @returns True if successful
- */
-export function merge(points: gs.IPoint[]): gs.IPoint {
-    if (points.length === 0) {return null;}
-    const model: gs.IModel = points[0].getModel();
-    for (const point of points) {
-        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
-        if (!point.exists()) {throw new Error("Point has been deleted.");}
-    }
-    return model.getGeom().mergePoints(points,4)[0];
-}
-
-/**
- * Merges point or a list of points in the model.
- *
- * @param points Point or list of points to delete.
- * @returns True if successful
- */
-export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] {
-    if (points.length === 0) {return null;}
-    const model: gs.IModel = points[0].getModel();
-    for (const point of points) {
-        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
-        if (!point.exists()) {throw new Error("Point has been deleted.");}
-    }
-    return model.getGeom().mergePoints(points, tolerance);
-}
-
-/**
- * Obtains x, y and z coordinates of 3D point
- * http://developer.rhino3d.com/api/RhinoScriptSyntax/#geometry-PointCoordinates
- * @param point Point
- * @returns List of x, y and z coordinates of point if successful, null if unsuccessful or on error
+ * @param point Point to get coordinates from.
+ * @returns The XYZ coordinates if successful, null if unsuccessful or on error.
  */
 export function getXYZ(point: gs.IPoint): gs.XYZ {
     if (!point.exists()) {throw new Error("Point has been deleted.");}
-    return point.getPosition() as gs.XYZ;
+    return point.getPosition();
+}
+
+/**
+ * Set the XYZ coordinates of the point.
+ *
+ * @param point Point to set coorinates for.
+ * @param xyz The new XYZ coordinates, as a list of three numbers.
+ * @returns The old XYZ coordinates if successful, null if unsuccessful or on error.
+ */
+export function setXYZ(point: gs.IPoint, xyz: gs.XYZ): gs.XYZ {
+    if (!point.exists()) {throw new Error("Point has been deleted.");}
+    return point.setPosition(xyz);
 }

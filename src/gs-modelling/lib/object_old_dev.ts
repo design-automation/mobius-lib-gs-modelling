@@ -85,8 +85,8 @@ export function ScaleObjects(m: gs.IModel, objs: gs.IObj[], origin: number[], sc
 export function RotateObject(m: gs.IModel, obj: gs.IObj, rotation: number, plane: gs.IPlane): gs.IObj {
    if (obj === undefined) {return null;}
    rotation = rotation * 360 / (2 * Math.PI);
-   const x_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[0]).normalize();
-   const y_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[1]).normalize();
+   const x_axis: three.Vector3 =  new three.Vector3(...plane.getAxes()[0]).normalize();
+   const y_axis: three.Vector3 =  new three.Vector3(...plane.getAxes()[1]).normalize();
    const z_axis: three.Vector3 =  (x_axis.cross(y_axis)).normalize();
    const e1: three.Vector3 =  new three.Vector3(1,0,0);
    const e2: three.Vector3 =  new three.Vector3(0,1,0);
@@ -138,8 +138,8 @@ export function MirrorObject(m: gs.IModel, obj: gs.IObj, plane: gs.IPlane): gs.I
    // Case 1: Linear Transforming, meaning that [0,0,0] belongs to the Mirror
    // A general case with two extra transforming needs to be taken into account as well
    // in the case for which the transformation is Affine.
-   const x_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[0]).normalize();
-   const y_axis: three.Vector3 =  new three.Vector3(...plane.getVectors()[1]).normalize();
+   const x_axis: three.Vector3 =  new three.Vector3(...plane.getAxes()[0]).normalize();
+   const y_axis: three.Vector3 =  new three.Vector3(...plane.getAxes()[1]).normalize();
    const z_axis: three.Vector3 =  (x_axis.cross(y_axis)).normalize();
    const e1: three.Vector3 =  new three.Vector3(1,0,0);
    const e2: three.Vector3 =  new three.Vector3(0,1,0);

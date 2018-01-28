@@ -9,6 +9,6 @@ describe("Tests for Plane Module", () => {
         expect(tests.test_plane_FromOriginPoints()).toBe(true);
     });
     it("test_plane_FromOriginWCS", () => {
-        expect(tests.test_plane_FromOriginWCS()).toBe(true);
+        expect(tests.test_plane_FromOriginXY()).toBe(true);
     });
 });

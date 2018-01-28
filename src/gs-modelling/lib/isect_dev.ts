@@ -20,8 +20,8 @@ import * as threex from "./_three_utils_dev";
  */
 export function conicConic2D(curve1: gs.ICircle|gs.IEllipse, curve2: gs.ICircle|gs.IEllipse): gs.IPoint[] {
     // check that the curves have the same plane
-    if (!threex.planesAreCoplanar(curve1.getOrigin(), curve1.getVectors()[2],
-        curve2.getOrigin(), curve2.getVectors()[2])) { return null; }
+    if (!threex.planesAreCoplanar(curve1.getOrigin(), curve1.getAxes()[2],
+        curve2.getOrigin(), curve2.getAxes()[2])) { return null; }
     // calculate the intersection points
     if (curve1.getObjType() === gs.EObjType.circle) {
         if(curve2.getObjType() === gs.EObjType.circle) {

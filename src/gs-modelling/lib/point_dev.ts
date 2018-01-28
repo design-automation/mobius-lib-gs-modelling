@@ -21,6 +21,40 @@ export function fuse(points: gs.IPoint[], tolerance: number, copy: boolean): gs.
     throw new Error("Method not implemented");
 }
 
+/**
+ * Merges point or a list of points in the model.
+ *
+ * @param points Point or list of points to delete.
+ * @returns True if successful, false otherwise.
+ */
+export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] {
+    if (points.length === 0) {return null;}
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
+        if (!point.exists()) {throw new Error("Point has been deleted.");}
+    }
+    return model.getGeom().mergePoints(points, tolerance);
+}
+
+/**
+ * Merges a cluster of points into a single point.
+ * The cluster of points are deletetd and replaced by one new point located at the center of the cluster.
+ * All objects in the model that are using those points will be updated.
+ *
+ * @param points Cluster of points to merge.
+ * @returns New point if successful, null if unsuccessful or on error.
+ */
+export function merge(points: gs.IPoint[]): gs.IPoint {
+    if (points.length === 0) {return null;}
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
+        if (!point.exists()) {throw new Error("Point has been deleted.");}
+    }
+    return model.getGeom().mergePoints(points,4)[0];
+}
+
 //  ===============================================================================================================
 //  Old Functions No Longer in API ================================================================================
 //  ===============================================================================================================

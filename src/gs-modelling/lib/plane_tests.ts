@@ -21,10 +21,10 @@ export function test_plane_FromOriginPoints(): boolean {
     return true;
 }
 
-export function test_plane_FromOriginWCS(): boolean {
+export function test_plane_FromOriginXY(): boolean {
     const m: gs.IModel = new gs.Model();
     const origin: gs.IPoint = m.getGeom().addPoint([1,2,3]);
-    const plane: gs.IPlane = gsm.plane.FromOriginWCS(origin);
+    const plane: gs.IPlane = gsm.plane.FromOriginXY(origin);
     if (plane === undefined) {return false;}
     return true;
 }

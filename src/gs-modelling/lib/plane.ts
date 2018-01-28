@@ -1,8 +1,12 @@
 /**
- * Planes are a type of object.
+ * Planes are geometric objects definded by a single vertex and a set of parameters.
+ * Planes represent an infinite plane in 3D space.
+ */
+
+/**
+ * The parameters defined the orientation of the plane.
+ * The orientation is defined by two vectors, the X and Y vectors of the plane. They must be orthogonal.
  *
- * Planes are imaginary flat surfaces that stretch infinitely along an x and y axis and are defined by two
- * perpendicular vectors.
  */
 
 import * as gs from "gs-json";
@@ -14,10 +18,10 @@ import * as threex from "./_three_utils_dev";
 //  ===============================================================================================================
 
 /**
- * Gets a plane from the model based on an index number
- * @param model Model to get polyline from
- * @param id Index number of polyline
- * @returns Plane object if successful
+ * Gets a plane from the model based on an ID number
+ * @param model Model to get plane from.
+ * @param id ID number of plane.
+ * @returns The plane object.
  */
 export function Get(model: gs.IModel, id: number): gs.IPlane {
     // check args
@@ -31,10 +35,10 @@ export function Get(model: gs.IModel, id: number): gs.IPlane {
 }
 
 /**
- * Create a copy of a plane.
+ * Create a copy of an existing plane.
  *
- * @param plane The plane to copy.
- * @returns A new plane.
+ * @param plane The plane object to copy.
+ * @returns A new plane object.
  */
 export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
     // check args
@@ -43,68 +47,118 @@ export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
     return plane.copy(copy_attribs) as gs.IPlane;
 }
 
+/**
+ * Copies a plane from one model into another model.
+ *
+ * @param plane The plane object to copy.
+ * @returns The plane object in the model.
+ */
+export function CopyToModel(model: gs.IModel, plane: gs.IPlane): gs.IPlane {
+    // check args
+    if (!plane.exists()) {throw new Error("Error: plane has been deleted.");}
+    // check it is not already in the model
+    if (plane.getModel() === model) {throw new Error("Error: plane is already in model.");}
+    // copy circle and return it
+    return model.getGeom().copyPlaneFromModel(plane);
+}
+
 //  ===============================================================================================================
 //  Plane Constructors ============================================================================================
 //  ===============================================================================================================
 
 /**
- * Creates a plane from an origin point and two direction vectors describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param vec_x Direction vector describing x-axis of plane
- * @param vec_y Direction vector describing y-axis of plane
- * @returns New plane if successful, null if unsuccessful or on error
- */
-export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XYZ): gs.IPlane {
-    // check args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    // create the new plane
-    return origin.getGeom().addPlane(origin, vec_x, vec_y);
-}
-
-/**
- * Creates a plane from an origin point and the World x and y axis
+ * Create a plane object from an origin point and two vectors.
  *
- * Creates a plane parallel to the World XY plane
- * @param origin 3D point to use as origin of plane
- * @returns New plane if successful, null if unsuccessful or on error
+ * @param origin Point object, the origin of plane.
+ * @param vec_x XYZ vector, the x-axis of plane.
+ * @param vec XYZ vector, a vector in the plane. (This vector must not be co-dir with vec_x.)
+ * @returns New plane object.
  */
-export function FromOriginWCS(origin: gs.IPoint): gs.IPlane {
+export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ): gs.IPlane {
     // check args
     if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
     // create the new plane
-    return origin.getGeom().addPlane(origin, [1,0,0],[0,1,0]);
+    return origin.getGeom().addPlane(origin, vec_x, vec);
 }
 
 /**
- * Creates a plane from an origin point and two points describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param pt_x Point that lies on x-axis of plane
- * @param pt_y Point that lies on y-axis of plane
- * @returns New plane if successful, null if unsuccessful or on error
+ * Create a plane object from an origin point, parallel to the WCS XY plane .
+ *
+ * @param origin Point object, the origin of plane.
+ * @returns New plane object.
  */
-export function FromOriginPoints(origin: gs.IPoint, point_on_x: gs.IPoint, point_on_y: gs.IPoint ):
+export function FromOriginXY(origin: gs.IPoint): gs.IPlane {
+    // check args
+    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
+    // create the new plane
+    return origin.getGeom().addPlane(origin, [1,0,0], [0,1,0]);
+}
+
+/**
+ * Create a plane object from an origin point, parallel to the WCS YZ plane .
+ *
+ * @param origin Point object, the origin of plane.
+ * @returns New plane object.
+ */
+export function FromOriginYZ(origin: gs.IPoint): gs.IPlane {
+    // check args
+    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
+    // create the new plane
+    return origin.getGeom().addPlane(origin, [0,1,0], [0,0,1]);
+}
+
+/**
+ * Create a plane object from an origin point, parallel to the WCS ZX plane .
+ *
+ * @param origin Point object, the origin of plane.
+ * @returns New plane object.
+ */
+export function FromOriginZX(origin: gs.IPoint): gs.IPlane {
+    // check args
+    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
+    // create the new plane
+    return origin.getGeom().addPlane(origin, [0,0,1], [1,0,0]);
+}
+
+/**
+ * Creates a plane from an origin point and two other points on the plane.
+ *
+ * @param origin Point object, the origin of plane.
+ * @param pt1 Point object, a point on the plane. This will be used to define the plane X axis.
+ * @param pt2 Point object, a point on the plane.
+ * @returns New plane object.
+ */
+export function FromOriginPoints(origin: gs.IPoint, pt1: gs.IPoint, pt2: gs.IPoint ):
                                 gs.IPlane {
     // check the args
     if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    if (!point_on_x.exists()) {throw new Error("Arg point_on_x has been deleted.");}
-    if (!point_on_y.exists()) {throw new Error("Arg point_on_y has been deleted.");}
+    if (!pt1.exists()) {throw new Error("Arg point_on_x has been deleted.");}
+    if (!pt2.exists()) {throw new Error("Arg pt2 has been deleted.");}
     const model: gs.IModel = origin.getModel();
-    if(point_on_x.getModel() !== model) { throw new Error("Points need to be in the same model");}
-    if(point_on_y.getModel() !== model) { throw new Error("Points need to be in the same model");}
+    if(pt1.getModel() !== model) { throw new Error("Points need to be in the same model");}
+    if(pt2.getModel() !== model) { throw new Error("Points need to be in the same model");}
     // create the plane
-    const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, point_on_x).toArray() as gs.XYZ;
-    const vec_y: gs.XYZ = threex.vectorFromPointsAtoB(origin, point_on_y).toArray() as gs.XYZ;
-    const plane: gs.IPlane = model.getGeom().addPlane(origin, vec_x, vec_y);
+    const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, pt1).toArray() as gs.XYZ;
+    const vec: gs.XYZ = threex.vectorFromPointsAtoB(origin, pt2).toArray() as gs.XYZ;
+    const plane: gs.IPlane = model.getGeom().addPlane(origin, vec_x, vec);
     // return the new plane
     return plane;
+}
+
+/**
+ * Creates a plane from a circle. The plane will have the same origin and orientation as the circle.
+ *
+ * @param circle The circle to create a plane from.
+ * @returns New plane object.
+ */
+export function FromCircle(circle: gs.ICircle): gs.IPlane {
+    // check args
+    if (!circle.exists()) {throw new Error("Circle has been deleted.");}
+    // create the new plane
+    const vectors: gs.XYZ[] = circle.getAxes();
+    return circle.getGeom().addPlane(circle.getOrigin(), vectors[0], vectors[1]);
 }
 
 //  ===============================================================================================================
 //  Plane Functions ===============================================================================================
 //  ===============================================================================================================
-
-/**
- *
- */
-
-

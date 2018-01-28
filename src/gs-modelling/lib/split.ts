@@ -1,11 +1,10 @@
 /**
- * Split functions find points of intersection and conics, polylines and polymeshes where two objects
- * overlap and split the input objects. They return the split segments, arcs or polymeshes in a list of lists.
- *
- * <code>[0][i]</code> contains the split parts of the first input, where <code>i</code> is the index number
- * of each individual part obtained from the split function.<br/>
- * <code>[1][i]</code> contains the split parts of the second input, if available, where <code>i</code> is the
- * index number of each individual part obtained from the split function.
+ * Split functions split one geometric object with another geometric object.
+ */
+
+/**
+ * Splitting can be done either in 2D or in 3D, as indicated by the name of the split function.
+ * The result of a cplit function will vary depending on the types of objects being split.
  */
 
 import * as gs from "gs-json";
@@ -23,16 +22,14 @@ import * as math_conic from "./_math_conic_dev";
 //  ===============================================================================================================
 
 /**
- * Returns the intersection points and/or overlapping arcs of two intersecting co-planar conic curves
+ * Splits two co-planar circles.
+ * If an intersection is found, then new arcs will be generated and the old circles will be deleted.
+ * Returns null if circles are not co-planar.
+ * Returns null if circles do not intersect.
  *
- * List of points returned is in order (starts from t=0 to t=1 of curve_1)<br/>
- * Conic curves must lie on the same plane<br/>
- * Returns null if conic curves are not co-planar<br/>
- * Returns null if conic curves do not intersect
- * @param circle1 Conic curve 1
- * @param circle2 Conic curve 2
- * @returns List of intersection points and/or overlapping arcs if successful,
- *          null if unsuccessful or on error
+ * @param circle1 Circle object, the circle to split.
+ * @param circle2 Circle object.
+ * @returns Four circle objects if successful, null if no intersection was found.
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICircle[] {
     if (!circle1.exists()) {throw new Error("circle1 has been deleted.");}
@@ -59,7 +56,6 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICi
         .multiplyScalar(-vec1_2nd_x.length());
     // arc 1 angle
     const angle1: number = vec1_x.angleTo(vec1_2nd_x) * 180/Math.PI;
-    // console.log("ANGLE", angle1);
     // arc 1 a
     const vec1_x_xyz: gs.XYZ = vec1_x.toArray() as gs.XYZ;
     const vec1_y_xyz: gs.XYZ = vec1_y.toArray() as gs.XYZ;

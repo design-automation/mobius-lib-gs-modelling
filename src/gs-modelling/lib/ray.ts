@@ -40,6 +40,21 @@ export function Copy(ray: gs.IRay, copy_attribs?: boolean): gs.IRay {
     return ray.copy(copy_attribs) as gs.IRay;
 }
 
+/**
+ * Copies a ray from one model into another model.
+ *
+ * @param ray The ray object to copy.
+ * @returns The ray object in the model.
+ */
+export function CopyToModel(model: gs.IModel, ray: gs.IRay): gs.IRay {
+    // check args
+    if (!ray.exists()) {throw new Error("Error: ray has been deleted.");}
+    // check it is not already in the model
+    if (ray.getModel() === model) {throw new Error("Error: ray is already in model.");}
+    // copy circle and return it
+    return model.getGeom().copyRayFromModel(ray);
+}
+
 //  ===============================================================================================================
 //  Ray Constructors ==============================================================================================
 //  ===============================================================================================================

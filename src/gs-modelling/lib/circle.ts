@@ -1,7 +1,14 @@
 /**
- * Circles are a type of object.
- *
- * Circles are represented by a point and a set of vectors.
+ * Circles are geometric objects definded by a single vertex and a set of parameters.
+ * The circle object can be either a closed circle or an open arc.
+ */
+
+/**
+ * The parameters defined the orientation, radius, and arc angles of the circle
+ * The orientation is defined by two vectors, the X and Y vectors of the plane.
+ * The radius is defined by the length of the X vector.
+ * The arc angles define are two angles between 0 and 360 that define the start and end of the arc.
+ * If the arc angles are null, then the circle is assumed to be a closed circle.
  */
 
 import * as gs from "gs-json";
@@ -15,257 +22,241 @@ import * as math_conic from "./_math_conic_dev";
 //  ===============================================================================================================
 
 /**
- * Gets a circle from the model based on an index number
- * @param model Model to get circle from
- * @param id Index number of circle
- * @returns Circle object if successful
+ * Gets a circle from the model based on an ID number.
+ *
+ * @param model Model to get circle object from.
+ * @param id ID number of circle object.
+ * @returns Circle object.
  */
 export function Get(model: gs.IModel, id: number): gs.ICircle {
     // check args
     const obj: gs.IObj = model.getGeom().getObj(id);
     if (obj === undefined) {return null;}
     if (obj.getObjType() !== gs.EObjType.circle) {
-        throw new Error("Object is not a circle. Object type is: " + obj.getObjType());
+        throw new Error("Error: Object is not a circle. Object type is: " + obj.getObjType());
     }
     // return the circle
     return obj as gs.ICircle;
 }
 
 /**
- * Create a copy of a circle.
+ * Create a copy of a circle object.
  *
- * @param circle The circle to copy.
- * @returns A new circle.
+ * @param circle The circle object to copy.
+ * @param copy_attribs If ture, attributes are copied to the new circle..
+ * @returns Circle object.
  */
 export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
     // check args
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
     // copy and return
     return circle.copy(copy_attribs) as gs.ICircle;
 }
 
+/**
+ * Copies a circle from one model into another model.
+ *
+ * @param circle The circle object to copy.
+ * @returns The circle object in the model.
+ */
+export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
+    // check args
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    // check it is not already in the model
+    if (circle.getModel() === model) {throw new Error("Error: circle is already in model.");}
+    // copy circle and return it
+    return model.getGeom().copyCircleFromModel(circle);
+}
+
 //  ===============================================================================================================
-//  Circle Constructors ============================================================================================
+//  Constructors ============================================================================================
 //  ===============================================================================================================
 
 /**
- * Creates a circle from an origin point and two direction vectors describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param vec_x Vector describing x-axis of plane, and the radius
- * @param vec_y Direction vector describing y-axis of plane
- * @returns New circle if successful, null if unsuccessful or on error
+ * Creates a circle from an origin point parallel to a plane defined by the two X and Y vectors.
+ * The radius will be equal to the length of the X vector.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at the x-axis in an anti-clockwise direction.
+ *
+ * @param origin Point object, the center of the circle.
+ * @param vec_x X-axis of the circle plane. (The length of the vecor described the radius.)
+ * @param vec Vector on the circle plane.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns Circle object.
  */
-export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec_y: gs.XYZ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Origin has been deleted.");}
-    return origin.getGeom().addCircle(origin, vec_x, vec_y);
+export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ,
+                                  angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    // make the circle
+    return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
 
 /**
- * Adds a closed circle to the model based on an origin point and radius
+ * Create a circle at the origin point parallel to a plane that passes through two other points.
+ * The radius will be equal to the distance from the origin to point1.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at point1 in an anti-clockwise direction.
  *
- * Circle will be constructed parallel to the world XY plane with the specifed origin point as the center
- * point of the circle
- * @param origin Center point of circle
- * @param radius Radius of circle
- * @returns New circle if successful
+ * @param origin Point object, the center of the circle.
+ * @param point1 Point object, on the circle perimeter, and defining teh x-axis of the plane.
+ * @param point2 Point object, on the plane.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns Circle object.
  */
-export function FromOrigin(origin: gs.IPoint, radius: number ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Origin has been deleted.");}
-    return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, radius, 0],[0,360]);
+export function FromOrigin2Points(origin: gs.IPoint, point1: gs.IPoint, point2: gs.IPoint,
+                                  angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    // create the vectors
+    const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, point1).toArray() as gs.XYZ;
+    const vec: gs.XYZ = threex.vectorFromPointsAtoB(origin, point2).toArray() as gs.XYZ;
+    // make the circle
+    return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
 
 /**
- * Adds a closed circle to the model based on a plane and radius
+ * Create a circle at the origin point parallel to the WCS XY plane, with the specified radius.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at point1 in an anti-clockwise direction.
  *
- * Circle will be constructed parallel to the plane with the origin of the plane as the center point of the
- * circle
- * @param plane Plane to construct circle on
- * @param radius Radius of circle
- * @returns New circle if successful
+ * @param origin Point object, the center of the circle.
+ * @param radius Radius of circle.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns Circle object.
  */
-export function FromPlane(plane: gs.IPlane, radius: number ): gs.ICircle {
-    if (!plane.exists()) {throw new Error("Plane has been deleted.");}
-    const vecs: gs.XYZ[] = plane.getVectors();
+export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    // create the vectors
+    const vec_x: gs.XYZ = [radius,0,0];
+    const vec: gs.XYZ = [0,1,0];
+    // make the circle
+    return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
+}
+
+/**
+ * Create a circle at the origin point parallel to the WCS YZ plane, with the specified radius.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at point1 in an anti-clockwise direction.
+ *
+ * @param origin Point object, the center of the circle.
+ * @param radius Radius of circle.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns Circle object.
+ */
+export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    // create the vectors
+    const vec_x: gs.XYZ = [0, radius,0];
+    const vec: gs.XYZ = [0,0,1];
+    // make the circle
+    return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
+}
+
+/**
+ * Create a circle at the origin point parallel to the WCS ZX plane, with the specified radius.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at point1 in an anti-clockwise direction.
+ *
+ * @param origin Point object, the center of the circle.
+ * @param radius Radius of circle.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns New circle (or arc).
+ */
+export function FromOriginZX(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    // create the vectors
+    const vec_x: gs.XYZ = [0,0,radius];
+    const vec: gs.XYZ = [1,0,0];
+    // make the circle
+    return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
+}
+
+/**
+ * Create a circle from a plane, with the specified radius.
+ * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * starting at point1 in an anti-clockwise direction.
+ *
+ * @param plane Plane object to construct circle on.
+ * @param radius Radius of circle.
+ * @param angles Two angles between 0 and 360, or null for a circle.
+ * @returns New circle object.
+ */
+export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, number]): gs.ICircle {
+    if (!plane.exists()) {throw new Error("Error: plane has been deleted.");}
+    // create the vectors
+    const vecs: gs.XYZ[] = plane.getAxes();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius).toArray() as gs.XYZ;
-    const vec_y: gs.XYZ = vecs[1];
-    return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec_y);
+    const vec: gs.XYZ = vecs[1];
+    // make the circle
+    return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec, util._argsCheckAngles(angles));
 }
 
-/**
- * Adds a circle to the model based on three points
- *
- * All points are taken to be points on the circle
- * @param point1 Start point of arc
- * @param point2 Second point on arc
- * @param point3 End point of arc
- * @returns New arc if successful
- */
-export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint ): gs.ICircle {
-    if (!point1.exists()) {throw new Error("point1 has been deleted.");}
-    if (!point2.exists()) {throw new Error("point2 has been deleted.");}
-    if (!point3.exists()) {throw new Error("point3 has been deleted.");}
-    // check
-    const model: gs.IModel = point1.getModel();
-    if (point2.getModel() !== model) {throw new Error("Points must all be in same model.");}
-    if (point3.getModel() !== model) {throw new Error("Points must all be in same model.");}
-    // make arc
-    const result = math_conic._circleFrom3Points(
-        point1.getPosition(), point2.getPosition(), point3.getPosition(), false);
-    const origin_point: gs.IPoint = model.getGeom().addPoint(result.origin);
-    return FromOriginVectors(origin_point, result.vec_x, result.vec_y);
-}
-
-//  ===============================================================================================================
-//  Arc Constructors ============================================================================================
-//  ===============================================================================================================
-
-/**
- * Creates a circle from an origin point and two direction vectors describing the x and y axis
- * @param origin 3D point to use as origin of plane
- * @param vec_x Vector describing x-axis of plane, and the radius
- * @param vec_y Direction vector describing y-axis of plane
- * @param angles Two angles between 0 and 360, for start and end of arc.
- * @returns New circle if successful, null if unsuccessful or on error
- */
-export function ArcFromOriginVectors(origin: gs.IPoint,
-                                     vec_x: gs.XYZ, vec_y: gs.XYZ, angles: [number, number]): gs.ICircle {
-    if (!origin.exists()) {throw new Error("origin has been deleted.");}
-    return origin.getGeom().addCircle(origin, vec_x, vec_y, util._argsCheckAngles(angles));
-}
-
-/**
- * Adds a closed circle to the model based on an origin point and radius
- *
- * Arc will be constructed parallel to the world XY plane with the specifed origin point as the center
- * point of the arc
- * @param origin Center point of arc
- * @param radius Radius of arc
- * @param angles Two angles between 0 and 360, for start and end of arc.
- * @returns New arc (circle) if successful
- */
-export function ArcFromOrigin(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("origin has been deleted.");}
-    return origin.getGeom().addCircle(origin, [radius, 0, 0], [0, 1, 0], util._argsCheckAngles(angles));
-}
-
-/**
- * Adds a circular arc to the model based on a plane and radius
- *
- * Arc will be constructed parallel to the plane with the origin of the plane as the center point of the
- * circle that forms the arc<br/>
- * Arc will be constructed starting from the x-axis of the specified plane and follows the circle in the
- * specified direction until it reaches the angle specified
- * @param plane Plane to construct arc on
- * @param radius Radius of arc
- * @param angles Two angles between 0 and 360, for start and end of arc.
- * @param clockwise Constructs arc in a clockwise direction of true, anticlockwise if false
- * @returns New arc  (circle) if successful
- */
-export function ArcFromPlane(plane: gs.IPlane, radius: number, angles: [number, number]): gs.ICircle {
-    if (!plane.exists()) {throw new Error("plane has been deleted.");}
-    const vecs: gs.XYZ[] = plane.getVectors();
-    const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius).toArray() as gs.XYZ;
-    const vec_y: gs.XYZ = vecs[1];
-    return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec_y, util._argsCheckAngles(angles));
-}
-
-/**
- * Adds an arc to the model based on three points
- *
- * All points are taken to be points along the arc
- * @param point1 Start point of arc
- * @param point2 Second point on arc
- * @param point3 End point of arc
- * @returns New arc if successful
- */
-export function ArcFrom3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint ): gs.ICircle {
-    if (!point1.exists()) {throw new Error("point1 has been deleted.");}
-    if (!point2.exists()) {throw new Error("point2 has been deleted.");}
-    if (!point3.exists()) {throw new Error("point3 has been deleted.");}
-    // check
-    const model: gs.IModel = point1.getModel();
-    if (point2.getModel() !== model) {throw new Error("Points must all be in same model.");}
-    if (point3.getModel() !== model) {throw new Error("Points must all be in same model.");}
-    // make arc
-    const result = math_conic._circleFrom3Points(
-        point1.getPosition(), point2.getPosition(), point3.getPosition(), true);
-    const origin_point: gs.IPoint = model.getGeom().addPoint(result.origin);
-    return ArcFromOriginVectors(origin_point, result.vec_x, result.vec_y, [0, result.angle]);
-}
 
 //  ===============================================================================================================
 //  Get and Set ===================================================================================================
 //  ===============================================================================================================
 
 /**
- * Gets the origin of a Circle
- * @param circle Circle to obtain origin from
- * @returns Origin point of Circle
+ * Gets the origin of the circle.
+ * @param circle Circle objject to obtain origin from.
+ * @returns Point object, the origin of teh circle.
  */
 export function getOrigin(circle: gs.ICircle): gs.IPoint {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
     return circle.getOrigin();
 }
 
 /**
- * Gets the x and y vectors of a Circle
+ * Gets the X and Y vectors of the circle plane. The circle radius is equal to the length of the X vector.
  *
- * Direction of x and y vectors reflect the x and y axis of the underlying circle or ellipse of the circle<br/>
- * Magnitude of x and y vectors reflect the x and y radius of the underlying circle or ellipse of the circle
- * @param circle Circle to obtain vectors from
- * @returns List of x and y vectors of a Circle
+ * @param circle Circle object to get vectors from.
+ * @returns Two vectors, the X and Y vectors of teh circle plane.
  */
-export function getVectors(circle: gs.ICircle): gs.XYZ[] {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
-    return circle.getVectors();
+export function getAxes(circle: gs.ICircle): gs.XYZ[] {
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    return circle.getAxes();
 }
 
 /**
- * Sets the angles for the arc. If this object was previously a closed circle, it will now become an open arc.
+ * Gets the arc angles of the circle.
  *
- * @param circle Circle to get angles from.
- * @returns The angles, or null.
+ * @param circle Circle object to get angles from.
+ * @returns The angles, or null if it is a closed circle.
  */
 export function getArcAngles(circle: gs.ICircle): [number, number] {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
     return circle.getAngles();
 }
 
 /**
- * Sets the angles for the arc. If this object was previously a closed circle, it will now become an open arc.
+ * Sets the angles for the arc.
  *
- * @param circle Circle to set value for
- * @param angles The value to set
- * @returns True if successful, null if unsuccessful or on error
+ * @param circle Circle object to set angles for.
+ * @param angles The angles to set, two numbers between 0 and 360. If null, then the circle is closed.
  */
 export function setArcAngles(circle: gs.ICircle, angles: [number, number]): void {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
-    if (angles === null) {
-        circle.setAngles(undefined);
-    } else {
-        circle.setAngles(util._argsCheckAngles(angles));
-    }
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    circle.setAngles(util._argsCheckAngles(angles));
 }
 
 /**
- * Checks if a Circle is closed. If it is not closed, then it must be an arc.
- * @param circle Circle to test
- * @returns True if Circle is closed
+ * Checks if a circle object is closed. If it is not closed, then it must be an arc.
+ *
+ * @param circle Circle object to test.
+ * @returns True if the circle is closed.
  */
 export function isClosed(circle: gs.ICircle): boolean {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
     return circle.isClosed();
 }
 
 /**
  * Closes the arc, so that it becomes a circle.
  *
- * @param arc Circle to set value for
- * @returns True if successful, null if unsuccessful or on error
+ * @param circle Circle object to close.
  */
-export function close(arc: gs.ICircle): void {
-    if (!arc.exists()) {throw new Error("circle has been deleted.");}
-    arc.setAngles(undefined);
+export function close(circle: gs.ICircle): void {
+    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    circle.setAngles(undefined);
 }
 
 //  ===============================================================================================================
@@ -273,14 +264,14 @@ export function close(arc: gs.ICircle): void {
 //  ===============================================================================================================
 
 /**
- * Returns the length of a Circle
+ * Returns the perimeter length of a circle.
+ * If the circle is an open arc, then the length of the arc is returned.
  *
- * If specified circle is a closed circle or ellipse, returns the circumference of the circle or ellipse
- * @param circle Circle to obtain length from
+ * @param circle Circle object to calculate length from.
  * @returns Length of circle
  */
-export function length(circle: gs.ICircle): number {
-    const circle_length: number = 2 * Math.PI * Math.pow(circle.getRadius(), 2);
+export function calcLength(circle: gs.ICircle): number {
+    const circle_length: number = 2 * Math.PI * circle.getRadius();
     if (circle.isClosed()) {return circle_length;}
     const angles: [number, number] = circle.getAngles();
     return circle_length * ((angles[1] - angles[0]) / 360);

@@ -3,9 +3,56 @@ import * as threex from "./_three_utils_dev";
 import * as three from "three";
 import * as math_conic from "./_math_conic_dev";
 
+//  ==========================================================================================================
+//  Util method
+//  ==========================================================================================================
+export function _argsCheckAngles(angles: [number, number]): [number, number] {
+    if (angles === undefined || angles === null) {return undefined;}
+    if (angles[0] < 0) {angles[0] = Math.abs(angles[0]);} else if (angles[0] > 360) {angles[0] = angles[0]%360;}
+    if (angles[1] < 0) {angles[1] = Math.abs(angles[1]);} else if (angles[1] > 360) {angles[1] = angles[0]%360;}
+    if (angles[0] > angles[1]) {angles.reverse();}
+    return angles;
+}
+
 //  ===============================================================================================================
 //  Circle Constructors ============================================================================================
 //  ===============================================================================================================
+
+// Still not working
+
+/**
+ * Create a circle that passes three points.
+ * If is_arc is false, a circle is created.
+ * Otherwise, an arc is created.
+ *
+ * @param point1 Point object, on the circle.
+ * @param point2 Point object, on the circle.
+ * @param point3 Point object, on the circle.
+ * @param is_arc If true, an arc is generated that starts at point1 and end at point3, passing through point 2.
+ * @returns New circle object.
+ */
+export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint, is_closed: boolean ): gs.ICircle {
+    if (!point1.exists()) {throw new Error("Error: point1 has been deleted.");}
+    if (!point2.exists()) {throw new Error("Error: point2 has been deleted.");}
+    if (!point3.exists()) {throw new Error("Error: point3 has been deleted.");}
+    // check
+    const model: gs.IModel = point1.getModel();
+    if (point2.getModel() !== model) {throw new Error("Error: Points must all be in same model.");}
+    if (point3.getModel() !== model) {throw new Error("Error: Points must all be in same model.");}
+    // do the maths
+    const result = math_conic._circleFrom3Points(
+        point1.getPosition(), point2.getPosition(), point3.getPosition(), is_closed);
+    const origin: gs.IPoint = model.getGeom().addPoint(result.origin);
+    const vec_x: gs.XYZ = result.vec_x;
+    const vec: gs.XYZ = result.vec_y;
+    // make the circle or arc
+    if (is_closed) {
+        return origin.getGeom().addCircle(origin, vec_x, vec);
+    } else {
+        return origin.getGeom().addCircle(origin, vec_x, vec, [0, result.angle]);
+    }
+}
+
 
 /**
  * Adds an arc to the model based on three points
@@ -206,13 +253,4 @@ export function extendEllArc(curve: gs.IEllipse, direction: number, distance: nu
     throw new Error("Method not implemented");
 }
 
-//  ==========================================================================================================
-//  Util method
-//  ==========================================================================================================
 
-export function _argsCheckAngles(angles: [number, number]): [number, number] {
-    if (angles[0] < 0) {angles[0] = Math.abs(angles[0]);} else if (angles[0] > 360) {angles[0] = angles[0]%360;}
-    if (angles[1] < 0) {angles[1] = Math.abs(angles[1]);} else if (angles[1] > 360) {angles[1] = angles[0]%360;}
-    if (angles[0] > angles[1]) {angles.reverse();}
-    return angles;
-}

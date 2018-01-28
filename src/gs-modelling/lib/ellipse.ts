@@ -66,7 +66,7 @@ export function FromOrigin(origin: gs.IPoint, radius_x: number, radius_y: number
  * @returns New ellipse if successful
  */
 export function FromPlane(plane: gs.IPlane, radius_x: number, radius_y: number): gs.IEllipse {
-    const vecs: gs.XYZ[] = plane.getVectors();
+    const vecs: gs.XYZ[] = plane.getAxes();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius_x).toArray() as gs.XYZ;
     const vec_y: gs.XYZ = new three.Vector3(...vecs[1]).setLength(radius_y).toArray() as gs.XYZ;
     return plane.getGeom().addEllipse(plane.getOrigin(), vec_x, vec_y);
@@ -118,7 +118,7 @@ export function ArcFromOrigin(origin: gs.IPoint, radius_x: number, radius_y: num
  * @returns New arc  (ellipse) if successful
  */
 export function ArcFromPlane(plane: gs.IPlane, radius_x: number, radius_y: number, angles: [number, number]): gs.IEllipse {
-    const vecs: gs.XYZ[] = plane.getVectors();
+    const vecs: gs.XYZ[] = plane.getAxes();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius_x).toArray() as gs.XYZ;
     const vec_y: gs.XYZ = new three.Vector3(...vecs[1]).setLength(radius_y).toArray() as gs.XYZ;
     return plane.getGeom().addEllipse(plane.getOrigin(), vec_x, vec_y, util._argsCheckAngles(angles));
@@ -145,8 +145,8 @@ export function getOrigin(ellipse: gs.IEllipse): gs.IPoint {
  * @param ellipse Ellipse to obtain vectors from
  * @returns List of x and y vectors of a Ellipse
  */
-export function getVectors(ellipse: gs.IEllipse): gs.XYZ[] {
-    return ellipse.getVectors();
+export function getAxes(ellipse: gs.IEllipse): gs.XYZ[] {
+    return ellipse.getAxes();
 }
 
 /**

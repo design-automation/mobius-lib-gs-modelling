@@ -8,6 +8,8 @@ import * as kld from "kld-intersections";
 import * as pl from "./plane_dev";
 import * as trigo from "./trigo_dev";
 
+const EPS = 1e-6;
+
 /**
  * Find the center of a circle that passes through three XYZ positions in 3D space.
  * @returns An array of intersection points
@@ -39,7 +41,7 @@ function _circleCenterFrom3Points(a: gs.XYZ, b: gs.XYZ, c: gs.XYZ): gs.XYZ {
     return [dx, dy, dz] as gs.XYZ;
 }
 
-export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_arc: boolean):
+export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_closed: boolean):
         {origin: gs.XYZ, vec_x: gs.XYZ, vec_y: gs.XYZ, angle: number} {
     // create vectors
     const p1: three.Vector3 = new three.Vector3(...xyz1);
@@ -49,10 +51,10 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     const world_y: three.Vector3 = new three.Vector3(0,1,0);
     const world_z: three.Vector3 = new three.Vector3(0,0,1);
     // calc vectors for xform matrix
-    const x_axis: three.Vector3 = threex.subVectors(p2, p1); //.normalize();
+    const x_axis: three.Vector3 = threex.subVectors(p2, p1); // .normalize();
     const tmp_vec: three.Vector3 = threex.subVectors(p3, p2);
-    const z_axis: three.Vector3 = threex.crossVectors(x_axis, tmp_vec); //.normalize();
-    const y_axis: three.Vector3 = threex.crossVectors(z_axis, x_axis); //.normalize();
+    const z_axis: three.Vector3 = threex.crossVectors(x_axis, tmp_vec); // .normalize();
+    const y_axis: three.Vector3 = threex.crossVectors(z_axis, x_axis); // .normalize();
     // create the xform matrices to map 3d -> 2d
     const m: three.Matrix4 = threex.xformMatrix(p1, x_axis, y_axis);
     const m_inv: three.Matrix4 = threex.matrixInverse(m);
@@ -67,7 +69,7 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     // const radius: number = origin_2d.length();
     // is not arc? then return data for circle
     m_inv.setPosition(new three.Vector3());
-    if (!is_arc) {
+    if (is_closed) {
         const circle_x_axis_2d: three.Vector3 = new three.Vector3(origin_2d.length(), 0, 0);
         const circle_x_axis: three.Vector3 = threex.multVectorMatrix(circle_x_axis_2d, m_inv);
         const circle_y_axis_2d: three.Vector3 = new three.Vector3(0, 1, 0);
@@ -110,31 +112,26 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const m1: gs.IModel = circle1.getModel();
     const m2: gs.IModel = circle2.getModel();
     if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
+    const v1: [gs.XYZ, gs.XYZ, gs.XYZ] = circle1.getAxes();
+    const v2: [gs.XYZ, gs.XYZ, gs.XYZ] = circle2.getAxes();
+    if(!threex.planesAreCoplanar(circle1.getOrigin(), v1[2], circle2.getOrigin(), v2[2])) {
+        throw new Error("Entities must be coplanar.");
+    }
     const g1: gs.IGeom = m1.getGeom();
-    const threshold: number = 1e-6;
     const r: number = circle1.getRadius() + circle2.getRadius();
     const O1O2: three.Vector3 = threex.vectorFromPointsAtoB(circle1.getOrigin(),circle2.getOrigin(),false);
     if (O1O2.length() > r ) {return null;}
-    const v1: number[][] = [circle1.getVectors()[0],circle1.getVectors()[1],circle1.getVectors()[2]];
-    const v2: number[][] = [circle2.getVectors()[0],circle2.getVectors()[1],circle1.getVectors()[2]];
-    if(!threex.planesAreCoplanar(circle1.getOrigin(),
-     threex.crossXYZs([v1[0][0],v1[0][1],v1[0][2]],[v1[1][0],v1[1][1],v1[1][2]],false),
-     circle2.getOrigin(),
-     threex.crossXYZs([v2[0][0],v2[0][1],v2[0][2]],[v2[1][0],v2[1][1],v2[1][2]],false))
-        ) {throw new Error("Entities must be coplanar.");}
     // Direct Orthonormal Basis of reference
     const O1: three.Vector3 = new three.Vector3(0,0,0);
     const e1: three.Vector3 = new three.Vector3(1,0,0);
     const e2: three.Vector3 = new three.Vector3(0,1,0);
     const e3: three.Vector3 = new three.Vector3(0,0,1);
     // Circle 1 Direct Orthonormal Basis
-    const C1: three.Vector3 = new three.Vector3(
-        circle1.getOrigin().getPosition()[0],circle1.getOrigin().getPosition()[1],circle1.getOrigin().getPosition()[2]);
-    const U1: three.Vector3 = new three.Vector3(v1[0][0],v1[0][1],v1[0][2]).normalize();
-    const V1: three.Vector3 = new three.Vector3(v1[1][0],v1[1][1],v1[1][2]).normalize();
+    const C1: three.Vector3 = new three.Vector3(...circle1.getOrigin().getPosition());
+    const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
+    const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
-    const C2: three.Vector3 = new three.Vector3(
-        circle2.getOrigin().getPosition()[0],circle2.getOrigin().getPosition()[1],circle2.getOrigin().getPosition()[2]);
+    const C2: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
     const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
@@ -176,12 +173,12 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
     const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
     const circle_1 = {
-    center: new kld.Point2D(a.x,a.y),
-    radius: circle1.getRadius(),
+        center: new kld.Point2D(a.x,a.y),
+        radius: circle1.getRadius(),
     };
     const circle_2 = {
-    center: new kld.Point2D(b.x,b.y),
-    radius: circle2.getRadius(),
+        center: new kld.Point2D(b.x,b.y),
+        radius: circle2.getRadius(),
     };
     const result: kld.Intersection = kld.Intersection.intersectCircleCircle(circle_1.center, circle_1.radius,
         circle_2.center, circle_2.radius);
@@ -200,43 +197,59 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     return points;
 }
+
 /**
  * Circle-Plane intersection
  * @param circle
  * @param plane
- * @returns Adds intersecting points to the geometry if successfull, null if empty or coplanar
+ * @returns Adds intersecting points to the geometry if successfull, [] if empty or coplanar
  */
 export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
-    const m1: gs.IModel = circle.getModel();
-    const m2: gs.IModel = plane.getModel();
-    if(m1 !== m2) {
+    //http://mathforum.org/library/drmath/view/69136.html
+    const m: gs.IModel = circle.getModel();
+    if(plane.getModel() !== m) {
         throw new Error("Identical models are required for the circle and the plane");
     }
-    const O: number[] = plane.getOrigin().getPosition();
-    const C0: number[] = circle.getOrigin().getPosition();
+    // get plane
+    const PO: number[] = plane.getOrigin().getPosition();
     const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
-    const U1: three.Vector3 = new three.Vector3(
-    circle.getVectors()[0][0], circle.getVectors()[0][1], circle.getVectors()[0][2]);
-    const V1: three.Vector3 = new three.Vector3(
-    circle.getVectors()[1][0], circle.getVectors()[1][1], circle.getVectors()[1][2]);
-    let W1: three.Vector3 = new three.Vector3();
-    W1 = W1.crossVectors(U1,V1);
-    const coplanar: number = W1.length();
-    if (coplanar === 0) {return null;}
-    const A: number = n1[0]*(C0[0] - O[0]) + n1[1]*(C0[1] - O[1]) + n1[2]*(C0[2] - O[2]);
+    // get circle
+    const C0: number[] = circle.getOrigin().getPosition();
+    const CA: [gs.XYZ,gs.XYZ,gs.XYZ] = circle.getAxes();
+    const U1: three.Vector3 = new three.Vector3(...CA[0]);
+    const V1: three.Vector3 = new three.Vector3(...CA[1]).setLength(U1.length());
+    // calculate t
+    const A: number = n1[0]*(C0[0] - PO[0]) + n1[1]*(C0[1] - PO[1]) + n1[2]*(C0[2] - PO[2]);
     const B: number = n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z;
     const C: number = n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z;
     const _t: number[] = trigo._solve_trigo(A,B,C);
-    if (_t === null) {return null;}
+    if (_t === null) {return [];}
+    // create points of intersection based on the t values
     const result: gs.IPoint[] = [];
+    console.log("T VALUES", A, B, C, _t);
     for (const t of _t) {
-    result.push(m1.getGeom().addPoint([C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
-                          C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
-                          C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
+        if (t !== null) {
+            let ok: boolean = false;
+            if (circle.isClosed()) {
+                ok = true;
+            } else {
+                let angle: number = t * (180/Math.PI);
+                if (t < 0) {angle = angle + 360;}
+                const circle_angles: [number, number] = circle.getAngles();
+                if (angle >= circle_angles[0] && angle < circle_angles[1]) {ok = true;}
+            }
+            if (ok) {
+                result.push(m.getGeom().addPoint([
+                    C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
+                    C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
+                    C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
+            }
+        }
     }
-    if (result.length === 0) {return null;}
+    // return results
     return result;
 }
+
 /**
  * Ellipse-Plane intersection
  * @param ellipse
@@ -253,13 +266,13 @@ export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs
     const C0: number[] = ellipse.getOrigin().getPosition();
     const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
     const U1: three.Vector3 = new three.Vector3(
-        ellipse.getVectors()[0][0],
-        ellipse.getVectors()[0][1],
-        ellipse.getVectors()[0][2]);
+        ellipse.getAxes()[0][0],
+        ellipse.getAxes()[0][1],
+        ellipse.getAxes()[0][2]);
     const V1: three.Vector3 = new three.Vector3(
-        ellipse.getVectors()[1][0],
-        ellipse.getVectors()[1][1],
-        ellipse.getVectors()[1][2]);
+        ellipse.getAxes()[1][0],
+        ellipse.getAxes()[1][1],
+        ellipse.getAxes()[1][2]);
     let W1: three.Vector3 = new three.Vector3();
     W1 = W1.crossVectors(U1,V1);
     const coplanar: number = W1.length();
@@ -275,7 +288,7 @@ export function _isectEllipsePlane3D(ellipse: gs.IEllipse, plane: gs.IPlane): gs
         const ellipse2: gs.IEllipse = g.addEllipse(
         ellipse_or_2nd,[u1_2nd.x,u1_2nd.y,u1_2nd.z],[v1_2nd.x,v1_2nd.y,v1_2nd.z],[0,360]);
         const O2: gs.IPoint = g.addPoint([O[0],O[1],O[2]]);
-        const plane2: gs.IPlane = g.addPlane(O2, plane.getVectors()[0],plane.getVectors()[1]);
+        const plane2: gs.IPlane = g.addPlane(O2, plane.getAxes()[0],plane.getAxes()[1]);
         const m_results: gs.IPoint[] = _isectEllipsePlane3D(ellipse2, plane2);
         const resultat: gs.IPoint[] = [];
         for (const m_r of m_results) {
@@ -453,14 +466,12 @@ export function identifier(coeff: number[]): number[] {
             root.push(0);
             return root;}
             // Third degree polynomial has at least 1 real root
-            // root: number[] = [];
-            const threshold: number = 1e-10;
             if ( Math.abs(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[1][0])
-                < threshold) {root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][0]);}
+                < EPS) {root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][0]);}
             if ( Math.abs(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[1][1])
-                < threshold) { root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][1]);}
+                < EPS) { root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][1]);}
             if ( Math.abs(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[1][2])
-                < threshold) { root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][2]);}
+                < EPS) { root.push(roots([coeff[0],coeff[1],coeff[2],coeff[3]])[0][2]);}
             if(root.length === 0) {throw new Error("Smaller threshold required in solver");}
             return root;
        }
@@ -592,7 +603,6 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
     let identify_x: number[] = null;
     let identify_y: number[] = null;
     const sol: number[][] = [];
-    const threshold_x_y: number = 1e-4;
     const precision: number = 1000 ;
 
     switch(e) {
@@ -617,7 +627,7 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
                 identify_y = identifier([x11, x12, x13, x14, x15]);
                 for(const y of identify_y) {
                 // is on C2 ?
-                if (Math.abs((x / a) * (x / a) + e * (y / b) * (y / b) * e - 1) < threshold_x_y) {
+                if (Math.abs((x / a) * (x / a) + e * (y / b) * (y / b) * e - 1) < EPS) {
                 sol.push([Math.round(x * precision) / precision, Math.round(y * precision) / precision]);}
                 }
                 }
@@ -643,7 +653,7 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
                 identify_y = identifier([x11, x12, x13, x14, x15]);
                 for(const y of identify_y) {
                 // is on C2 ?
-                if (Math.abs((x / a) * (x / a) + e * (y / b) * (y / b) * e - 1) < threshold_x_y) {
+                if (Math.abs((x / a) * (x / a) + e * (y / b) * (y / b) * e - 1) < EPS) {
                 sol.push([Math.round(x * precision) / precision, Math.round(y * precision) / precision]);}
                 }
                 }
@@ -665,7 +675,7 @@ export function Split(conic1: number[], conic2: number[], origin1: number[], ori
                 identify_y = identifier([x11, x12, x13, x14, x15]);
                 for(const y of identify_y) {
                     // is on C2 ?
-                    if (Math.abs(2*p*y - x*x) < threshold_x_y) {
+                    if (Math.abs(2*p*y - x*x) < EPS) {
                         sol.push([Math.round(x * precision) / precision, Math.round(y * precision) / precision]);}
                         // sol.push([Math.round(x * precision) / precision, y]) }
                 }

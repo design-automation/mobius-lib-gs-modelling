@@ -14,4 +14,4 @@ export function _solve_trigo(A: number, B: number, C: number): number[] {
     const m: number = -C/B;
     const p: number = -A/C;
     return [Math.asin(-p/m), Math.PI - Math.asin(-p/m)];
-    }
+}
