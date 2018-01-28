@@ -64,6 +64,15 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Function for working with planes.
+							Planes are geometric objects definded by a single vertex and a set of parameters.
+						Planes represent an infinite plane in 3D space.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -72,9 +81,13 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#copy" class="tsd-kind-icon">Copy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromcircle" class="tsd-kind-icon">From<wbr>Circle</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginpoints" class="tsd-kind-icon">From<wbr>Origin<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginwcs" class="tsd-kind-icon">From<wbr>OriginWCS</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginxy" class="tsd-kind-icon">From<wbr>OriginXY</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginyz" class="tsd-kind-icon">From<wbr>OriginYZ</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#fromoriginzx" class="tsd-kind-icon">From<wbr>OriginZX</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_plane_.html#get" class="tsd-kind-icon">Get</a></li>
 							</ul>
 						</section>
@@ -93,12 +106,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/plane.ts#L39">plane.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L43">plane.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a copy of a plane.</p>
+									<p>Create a copy of an existing plane.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -106,7 +119,7 @@
 								<li>
 									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The plane to copy.</p>
+										<p>The plane object to copy.</p>
 									</div>
 								</li>
 								<li>
@@ -114,7 +127,77 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
-							<p>A new plane.</p>
+							<p>A new plane object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="copytomodel" class="tsd-anchor"></a>
+					<h3>Copy<wbr>ToModel</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Copy<wbr>ToModel<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L57">plane.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies a plane from one model into another model.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to copy to.</p>
+									</div>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The plane object to copy.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>The copied plane object in the model.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromcircle" class="tsd-anchor"></a>
+					<h3>From<wbr>Circle</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Circle<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L155">plane.ts:155</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a plane from a circle. The plane will have the same origin and orientation as the circle.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The circle to create a plane from.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>New plane object.</p>
 						</li>
 					</ul>
 				</section>
@@ -122,18 +205,18 @@
 					<a name="fromoriginpoints" class="tsd-anchor"></a>
 					<h3>From<wbr>Origin<wbr>Points</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Points<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point_on_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point_on_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Points<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, pt1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, pt2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/plane.ts#L85">plane.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L132">plane.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a plane from an origin point and two points describing the x and y axis</p>
+									<p>Creates a plane from an origin point and two other points on the plane.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,18 +224,24 @@
 								<li>
 									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>3D point to use as origin of plane</p>
+										<p>Point object, the origin of plane.</p>
 									</div>
 								</li>
 								<li>
-									<h5>point_on_x: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>pt1: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, a point on the plane. This will be used to define the plane X axis.</p>
+									</div>
 								</li>
 								<li>
-									<h5>point_on_y: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>pt2: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, a point on the plane.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
-							<p>New plane if successful, null if unsuccessful or on error</p>
+							<p>New plane object.</p>
 						</li>
 					</ul>
 				</section>
@@ -160,18 +249,18 @@
 					<a name="fromoriginvectors" class="tsd-anchor"></a>
 					<h3>From<wbr>Origin<wbr>Vectors</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/plane.ts#L57">plane.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L78">plane.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a plane from an origin point and two direction vectors describing the x and y axis</p>
+									<p>Create a plane object from an origin point and two vectors.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,57 +268,120 @@
 								<li>
 									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>3D point to use as origin of plane</p>
+										<p>Point object, the origin of plane.</p>
 									</div>
 								</li>
 								<li>
 									<h5>vec_x: <span class="tsd-signature-type">gs.XYZ</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Direction vector describing x-axis of plane</p>
+										<p>XYZ vector, the x-axis of plane.</p>
 									</div>
 								</li>
 								<li>
-									<h5>vec_y: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<h5>vec: <span class="tsd-signature-type">gs.XYZ</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Direction vector describing y-axis of plane</p>
+										<p>XYZ vector, a vector in the plane. (This vector must not be co-dir with vec_x.)</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
-							<p>New plane if successful, null if unsuccessful or on error</p>
+							<p>New plane object.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="fromoriginwcs" class="tsd-anchor"></a>
-					<h3>From<wbr>OriginWCS</h3>
+					<a name="fromoriginxy" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginXY</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginWCS<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginXY<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/plane.ts#L71">plane.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L91">plane.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a plane from an origin point and the World x and y axis</p>
+									<p>Create a plane object from an origin point, parallel to the WCS XY plane .</p>
 								</div>
-								<p>Creates a plane parallel to the World XY plane</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>3D point to use as origin of plane</p>
+										<p>Point object, the origin of plane.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
-							<p>New plane if successful, null if unsuccessful or on error</p>
+							<p>New plane object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginyz" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginYZ</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginYZ<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L104">plane.ts:104</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a plane object from an origin point, parallel to the WCS YZ plane .</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the origin of plane.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>New plane object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginzx" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginZX</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginZX<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L117">plane.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a plane object from an origin point, parallel to the WCS ZX plane .</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the origin of plane.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
+							<p>New plane object.</p>
 						</li>
 					</ul>
 				</section>
@@ -243,12 +395,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/plane.ts#L22">plane.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/plane.ts#L26">plane.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a plane from the model based on an index number</p>
+									<p>Gets a plane from the model based on an ID number</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -256,18 +408,18 @@
 								<li>
 									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to get polyline from</p>
+										<p>Model to get plane from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>id: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index number of polyline</p>
+										<p>ID number of plane.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPlane</span></h4>
-							<p>Plane object if successful</p>
+							<p>The plane object.</p>
 						</li>
 					</ul>
 				</section>
@@ -301,7 +453,7 @@
 						<a href="_group_.html">"group"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_intersect_.html">"intersect"</a>
+						<a href="_isect_.html">"isect"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_list_.html">"list"</a>
@@ -350,13 +502,25 @@
 						<a href="_plane_.html#copy" class="tsd-kind-icon">Copy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#fromcircle" class="tsd-kind-icon">From<wbr>Circle</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_plane_.html#fromoriginpoints" class="tsd-kind-icon">From<wbr>Origin<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_plane_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_plane_.html#fromoriginwcs" class="tsd-kind-icon">From<wbr>OriginWCS</a>
+						<a href="_plane_.html#fromoriginxy" class="tsd-kind-icon">From<wbr>OriginXY</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#fromoriginyz" class="tsd-kind-icon">From<wbr>OriginYZ</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_plane_.html#fromoriginzx" class="tsd-kind-icon">From<wbr>OriginZX</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_plane_.html#get" class="tsd-kind-icon">Get</a>

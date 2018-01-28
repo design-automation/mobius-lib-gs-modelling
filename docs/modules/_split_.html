@@ -64,6 +64,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Functions for splitting.
+						Split functions split one geometric object with another geometric object.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -89,36 +97,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/split.ts#L37">split.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/split.ts#L35">split.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the intersection points and/or overlapping arcs of two intersecting co-planar conic curves</p>
+									<p>Splits two co-planar circles.
+										If an intersection is found, then new arcs will be generated and the old circles will be deleted.
+										Returns null if circles are not co-planar.
+									Returns null if circles do not intersect.</p>
 								</div>
-								<p>List of points returned is in order (starts from t=0 to t=1 of curve_1)<br/>
-									Conic curves must lie on the same plane<br/>
-									Returns null if conic curves are not co-planar<br/>
-								Returns null if conic curves do not intersect</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>circle1: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 1</p>
+										<p>Circle object, the circle to split.</p>
 									</div>
 								</li>
 								<li>
 									<h5>circle2: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 2</p>
+										<p>Circle object.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of intersection points and/or overlapping arcs if successful,
-							null if unsuccessful or on error</p>
+							<p>Four circle objects (arcs) if successful, null if no intersection was found.</p>
 						</li>
 					</ul>
 				</section>
@@ -152,7 +158,7 @@
 						<a href="_group_.html">"group"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_intersect_.html">"intersect"</a>
+						<a href="_isect_.html">"isect"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_list_.html">"list"</a>

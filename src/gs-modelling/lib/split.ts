@@ -1,10 +1,11 @@
 /**
+ * Functions for splitting.
  * Split functions split one geometric object with another geometric object.
  */
 
 /**
  * Splitting can be done either in 2D or in 3D, as indicated by the name of the split function.
- * The result of a cplit function will vary depending on the types of objects being split.
+ * The result of a split function will vary depending on the types of objects being split.
  */
 
 import * as gs from "gs-json";
@@ -29,7 +30,7 @@ import * as math_conic from "./_math_conic_dev";
  *
  * @param circle1 Circle object, the circle to split.
  * @param circle2 Circle object.
- * @returns Four circle objects if successful, null if no intersection was found.
+ * @returns Four circle objects (arcs) if successful, null if no intersection was found.
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICircle[] {
     if (!circle1.exists()) {throw new Error("circle1 has been deleted.");}

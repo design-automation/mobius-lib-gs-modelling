@@ -1,5 +1,9 @@
 /**
- * Calcs
+ * Function for doing various geometric calculations.
+ */
+
+/**
+ *
  */
 
 import * as gs from "gs-json";
@@ -11,10 +15,10 @@ import * as threex from "./_three_utils_dev";
 //  ===============================================================================================================
 
 /**
- * Dist
- * @param point1
- * @param point2
- * @returns
+ * Calculate the distance between two points.
+ * @param point1 The first point.
+ * @param point2 The second point.
+ * @returns The distance.
  */
 export function distBetweenPoints(point1: gs.IPoint, point2: gs.IPoint): number {
     if (!point1.exists()) {throw new Error("point1 has been deleted.");}

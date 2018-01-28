@@ -1,4 +1,5 @@
 /**
+ * Function for working with points.
  * Points define a point in a model, with XYZ coordinates.
  */
 
@@ -8,8 +9,8 @@
  * by linking to a point.
  * Each vertex is linked to one point.
  * Each point can have multiple vertices linking to it.
- *
  */
+
 import * as gs from "gs-json";
 
 //  ===============================================================================================================
@@ -29,7 +30,7 @@ export function Get(model: gs.IModel, id: number): gs.IPoint {
 }
 
 /**
- * Copy a point wihin a model.
+ * Copy a point within a model.
  *
  * @param point Point to copy.
  * @returns New point.
@@ -40,24 +41,25 @@ export function Copy(point: gs.IPoint): gs.IPoint {
     return model.getGeom().addPoint(point.getPosition());
 }
 
+/**
+ * Copy a point from one model into another model.
+ *
+ * @param model The model to copy to.
+ * @param plane The plane object to copy.
+ * @returns The copied plane object in the model.
+ */
+export function CopyToModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
+    // check args
+    if (!point.exists()) {throw new Error("Error: point has been deleted.");}
+    // check it is not already in the model
+    if (point.getModel() === model) {throw new Error("Error: point is already in model.");}
+    // copy circle and return it
+    return model.getGeom().addPoint(point.getPosition());
+}
+
 //  ===============================================================================================================
 //  Point Constructors ============================================================================================
 //  ===============================================================================================================
-
-/**
- * Copy a point from one model to another model.
- *
- * If the specified model is the same as the model the point is located in, the specified point is
- * duplicated.
- *
- * @param model Model to add the point to.
- * @param point Point to copy.
- * @returns New point if successful, null if unsuccessful or on error.
- */
-export function FromModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
-    if (!point.exists()) {throw new Error("Point has been deleted.");}
-    return model.getGeom().addPoint(point.getPosition());
-}
 
 /**
  * Creates a point from XYZ coordinates.

@@ -1,4 +1,5 @@
 /**
+ * Function for working with planes.
  * Planes are geometric objects definded by a single vertex and a set of parameters.
  * Planes represent an infinite plane in 3D space.
  */
@@ -6,7 +7,6 @@
 /**
  * The parameters defined the orientation of the plane.
  * The orientation is defined by two vectors, the X and Y vectors of the plane. They must be orthogonal.
- *
  */
 
 import * as gs from "gs-json";
@@ -50,8 +50,9 @@ export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
 /**
  * Copies a plane from one model into another model.
  *
+ * @param model The model to copy to.
  * @param plane The plane object to copy.
- * @returns The plane object in the model.
+ * @returns The copied plane object in the model.
  */
 export function CopyToModel(model: gs.IModel, plane: gs.IPlane): gs.IPlane {
     // check args

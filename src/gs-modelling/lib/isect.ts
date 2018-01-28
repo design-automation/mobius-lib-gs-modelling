@@ -1,6 +1,12 @@
 /**
- * Intersect functions find points of intersection and conics, polylines and polymeshes where two objects
- * overlap. They return these intersections and overlaps and do not alter the original input objects.
+ * Function for intersecting.
+ * Intersect functions find points of intersection where the geometry of two objects intersect.
+ * The functions return the intersections and overlaps and do not alter the original input objects.
+ */
+
+/**
+ * Intersecting can be done either in 2D or in 3D, as indicated by the name of the intersect function.
+ * The result of a intersect function will vary depending on the types of objects being intersected.
  */
 
 import * as gs from "gs-json";

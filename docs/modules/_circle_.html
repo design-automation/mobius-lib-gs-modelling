@@ -64,6 +64,15 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Functions for working with circles.
+							Circles are geometric objects definded by a single vertex and a set of parameters.
+						The circle object can be either a closed circle or an open arc.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -71,22 +80,21 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfrom3points" class="tsd-kind-icon">Arc<wbr>From3<wbr>Points</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromorigin" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromoriginvectors" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin<wbr>Vectors</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#arcfromplane" class="tsd-kind-icon">Arc<wbr>From<wbr>Plane</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#copy" class="tsd-kind-icon">Copy</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin" class="tsd-kind-icon">From<wbr>Origin</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin2points" class="tsd-kind-icon">From<wbr>Origin2<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin2vectors" class="tsd-kind-icon">From<wbr>Origin2<wbr>Vectors</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginxy" class="tsd-kind-icon">From<wbr>OriginXY</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginyz" class="tsd-kind-icon">From<wbr>OriginYZ</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginzx" class="tsd-kind-icon">From<wbr>OriginZX</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromplane" class="tsd-kind-icon">From<wbr>Plane</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#calclength" class="tsd-kind-icon">calc<wbr>Length</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#close" class="tsd-kind-icon">close</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#getarcangles" class="tsd-kind-icon">get<wbr>Arc<wbr>Angles</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#getaxes" class="tsd-kind-icon">get<wbr>Axes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#getorigin" class="tsd-kind-icon">get<wbr>Origin</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#getvectors" class="tsd-kind-icon">get<wbr>Vectors</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#isclosed" class="tsd-kind-icon">is<wbr>Closed</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#length" class="tsd-kind-icon">length</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#setarcangles" class="tsd-kind-icon">set<wbr>Arc<wbr>Angles</a></li>
 							</ul>
 						</section>
@@ -95,195 +103,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="arcfrom3points" class="tsd-anchor"></a>
-					<h3>Arc<wbr>From3<wbr>Points</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Arc<wbr>From3<wbr>Points<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L181">circle.ts:181</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds an arc to the model based on three points</p>
-								</div>
-								<p>All points are taken to be points along the arc</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>point1: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Start point of arc</p>
-									</div>
-								</li>
-								<li>
-									<h5>point2: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Second point on arc</p>
-									</div>
-								</li>
-								<li>
-									<h5>point3: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>End point of arc</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New arc if successful</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="arcfromorigin" class="tsd-anchor"></a>
-					<h3>Arc<wbr>From<wbr>Origin</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Arc<wbr>From<wbr>Origin<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L146">circle.ts:146</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds a closed circle to the model based on an origin point and radius</p>
-								</div>
-								<p>Arc will be constructed parallel to the world XY plane with the specifed origin point as the center
-								point of the arc</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Center point of arc</p>
-									</div>
-								</li>
-								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Radius of arc</p>
-									</div>
-								</li>
-								<li>
-									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Two angles between 0 and 360, for start and end of arc.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New arc (circle) if successful</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="arcfromoriginvectors" class="tsd-anchor"></a>
-					<h3>Arc<wbr>From<wbr>Origin<wbr>Vectors</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Arc<wbr>From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L130">circle.ts:130</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a circle from an origin point and two direction vectors describing the x and y axis</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>3D point to use as origin of plane</p>
-									</div>
-								</li>
-								<li>
-									<h5>vec_x: <span class="tsd-signature-type">gs.XYZ</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Vector describing x-axis of plane, and the radius</p>
-									</div>
-								</li>
-								<li>
-									<h5>vec_y: <span class="tsd-signature-type">gs.XYZ</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Direction vector describing y-axis of plane</p>
-									</div>
-								</li>
-								<li>
-									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Two angles between 0 and 360, for start and end of arc.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New circle if successful, null if unsuccessful or on error</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="arcfromplane" class="tsd-anchor"></a>
-					<h3>Arc<wbr>From<wbr>Plane</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Arc<wbr>From<wbr>Plane<span class="tsd-signature-symbol">(</span>plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L164">circle.ts:164</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Adds a circular arc to the model based on a plane and radius</p>
-								</div>
-								<p>Arc will be constructed parallel to the plane with the origin of the plane as the center point of the
-									circle that forms the arc<br/>
-									Arc will be constructed starting from the x-axis of the specified plane and follows the circle in the
-								specified direction until it reaches the angle specified</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Plane to construct arc on</p>
-									</div>
-								</li>
-								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Radius of arc</p>
-									</div>
-								</li>
-								<li>
-									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Two angles between 0 and 360, for start and end of arc.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New arc  (circle) if successful</p>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="copy" class="tsd-anchor"></a>
 					<h3>Copy</h3>
@@ -294,12 +113,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L40">circle.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L50">circle.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a copy of a circle.</p>
+									<p>Create a copy of a circle object.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -307,119 +126,131 @@
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The circle to copy.</p>
+										<p>The circle object to copy.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> copy_attribs: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If ture, attributes are copied to the new circle..</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>A new circle.</p>
+							<p>Circle object.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="from3points" class="tsd-anchor"></a>
-					<h3>From3<wbr>Points</h3>
+					<a name="copytomodel" class="tsd-anchor"></a>
+					<h3>Copy<wbr>ToModel</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From3<wbr>Points<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+						<li class="tsd-signature tsd-kind-icon">Copy<wbr>ToModel<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L103">circle.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L64">circle.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a circle to the model based on three points</p>
+									<p>Copies a circle from one model into another model.</p>
 								</div>
-								<p>All points are taken to be points on the circle</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to copy to.</p>
+									</div>
+								</li>
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The circle object to copy.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>The copied circle object in the model.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromorigin2points" class="tsd-anchor"></a>
+					<h3>From<wbr>Origin2<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin2<wbr>Points<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L108">circle.ts:108</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a circle at the origin point parallel to a plane that passes through two other points.
+										The radius will be equal to the distance from the origin to point1.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at point1 in an anti-clockwise direction.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the center of the circle.</p>
+									</div>
+								</li>
+								<li>
 									<h5>point1: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Start point of arc</p>
+										<p>Point object, on the circle perimeter, and defining teh x-axis of the plane.</p>
 									</div>
 								</li>
 								<li>
 									<h5>point2: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Second point on arc</p>
+										<p>Point object, on the plane.</p>
 									</div>
 								</li>
 								<li>
-									<h5>point3: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>End point of arc</p>
+										<p>Two angles between 0 and 360, or null for a circle.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New arc if successful</p>
+							<p>Circle object.</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="fromorigin" class="tsd-anchor"></a>
-					<h3>From<wbr>Origin</h3>
+					<a name="fromorigin2vectors" class="tsd-anchor"></a>
+					<h3>From<wbr>Origin2<wbr>Vectors</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin2<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L72">circle.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L89">circle.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a closed circle to the model based on an origin point and radius</p>
-								</div>
-								<p>Circle will be constructed parallel to the world XY plane with the specifed origin point as the center
-								point of the circle</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Center point of circle</p>
-									</div>
-								</li>
-								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Radius of circle</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New circle if successful</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="fromoriginvectors" class="tsd-anchor"></a>
-					<h3>From<wbr>Origin<wbr>Vectors</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Origin<wbr>Vectors<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, vec_x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, vec_y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L58">circle.ts:58</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a circle from an origin point and two direction vectors describing the x and y axis</p>
+									<p>Creates a circle from an origin point parallel to a plane defined by the two X and Y vectors.
+										The radius will be equal to the length of the X vector.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at the x-axis in an anti-clockwise direction.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -427,24 +258,168 @@
 								<li>
 									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>3D point to use as origin of plane</p>
+										<p>Point object, the center of the circle.</p>
 									</div>
 								</li>
 								<li>
 									<h5>vec_x: <span class="tsd-signature-type">gs.XYZ</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Vector describing x-axis of plane, and the radius</p>
+										<p>X-axis of the circle plane. (The length of the vecor described the radius.)</p>
 									</div>
 								</li>
 								<li>
-									<h5>vec_y: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<h5>vec: <span class="tsd-signature-type">gs.XYZ</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Direction vector describing y-axis of plane</p>
+										<p>Vector on the circle plane.</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Two angles between 0 and 360, or null for a circle.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New circle if successful, null if unsuccessful or on error</p>
+							<p>Circle object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginxy" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginXY</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginXY<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L128">circle.ts:128</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a circle at the origin point parallel to the WCS XY plane, with the specified radius.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at point1 in an anti-clockwise direction.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the center of the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>radius: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius of circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Two angles between 0 and 360, or null for a circle.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>Circle object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginyz" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginYZ</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginYZ<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L147">circle.ts:147</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a circle at the origin point parallel to the WCS YZ plane, with the specified radius.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at point1 in an anti-clockwise direction.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the center of the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>radius: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius of circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Two angles between 0 and 360, or null for a circle.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>Circle object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="fromoriginzx" class="tsd-anchor"></a>
+					<h3>From<wbr>OriginZX</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From<wbr>OriginZX<span class="tsd-signature-symbol">(</span>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L166">circle.ts:166</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a circle at the origin point parallel to the WCS ZX plane, with the specified radius.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at point1 in an anti-clockwise direction.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>origin: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, the center of the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>radius: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius of circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Two angles between 0 and 360, or null for a circle.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>New circle (or arc).</p>
 						</li>
 					</ul>
 				</section>
@@ -452,39 +427,45 @@
 					<a name="fromplane" class="tsd-anchor"></a>
 					<h3>From<wbr>Plane</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">From<wbr>Plane<span class="tsd-signature-symbol">(</span>plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+						<li class="tsd-signature tsd-kind-icon">From<wbr>Plane<span class="tsd-signature-symbol">(</span>plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, angles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L86">circle.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L185">circle.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a closed circle to the model based on a plane and radius</p>
+									<p>Create a circle from a plane, with the specified radius.
+										If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+									starting at point1 in an anti-clockwise direction.</p>
 								</div>
-								<p>Circle will be constructed parallel to the plane with the origin of the plane as the center point of the
-								circle</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Plane to construct circle on</p>
+										<p>Plane object to construct circle on.</p>
 									</div>
 								</li>
 								<li>
 									<h5>radius: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Radius of circle</p>
+										<p>Radius of circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Two angles between 0 and 360, or null for a circle.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>New circle if successful</p>
+							<p>New circle object.</p>
 						</li>
 					</ul>
 				</section>
@@ -498,12 +479,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L23">circle.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L32">circle.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a circle from the model based on an index number</p>
+									<p>Gets a circle from the model based on an ID number.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -511,18 +492,51 @@
 								<li>
 									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to get circle from</p>
+										<p>Model to get circle object from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>id: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index number of circle</p>
+										<p>ID number of circle object.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
-							<p>Circle object if successful</p>
+							<p>Circle object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="calclength" class="tsd-anchor"></a>
+					<h3>calc<wbr>Length</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">calc<wbr>Length<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L274">circle.ts:274</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the perimeter length of a circle.
+									If the circle is an open arc, then the length of the arc is returned.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Circle object to calculate length from.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Length of circle</p>
 						</li>
 					</ul>
 				</section>
@@ -530,13 +544,13 @@
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>arc<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L266">circle.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L258">circle.ts:258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -547,14 +561,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>arc: <span class="tsd-signature-type">ICircle</span></h5>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Circle to set value for</p>
+										<p>Circle object to close.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>True if successful, null if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
@@ -568,12 +581,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L229">circle.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L226">circle.ts:226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the angles for the arc. If this object was previously a closed circle, it will now become an open arc.</p>
+									<p>Gets the arc angles of the circle.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -581,12 +594,44 @@
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Circle to get angles from.</p>
+										<p>Circle object to get angles from.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
-							<p>The angles, or null.</p>
+							<p>The angles, or null if it is a closed circle.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getaxes" class="tsd-anchor"></a>
+					<h3>get<wbr>Axes</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Axes<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L215">circle.ts:215</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the X and Y vectors of the circle plane. The circle radius is equal to the length of the X vector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Circle object to get vectors from.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>Two vectors, the X and Y vectors of teh circle plane.</p>
 						</li>
 					</ul>
 				</section>
@@ -600,12 +645,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L205">circle.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L204">circle.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the origin of a Circle</p>
+									<p>Gets the origin of the circle.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -613,46 +658,12 @@
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Circle to obtain origin from</p>
+										<p>Circle objject to obtain origin from.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-							<p>Origin point of Circle</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getvectors" class="tsd-anchor"></a>
-					<h3>get<wbr>Vectors</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Vectors<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L218">circle.ts:218</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets the x and y vectors of a Circle</p>
-								</div>
-								<p>Direction of x and y vectors reflect the x and y axis of the underlying circle or ellipse of the circle<br/>
-								Magnitude of x and y vectors reflect the x and y radius of the underlying circle or ellipse of the circle</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Circle to obtain vectors from</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of x and y vectors of a Circle</p>
+							<p>Point object, the origin of teh circle.</p>
 						</li>
 					</ul>
 				</section>
@@ -666,12 +677,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L255">circle.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L248">circle.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if a Circle is closed. If it is not closed, then it must be an arc.</p>
+									<p>Checks if a circle object is closed. If it is not closed, then it must be an arc.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -679,45 +690,12 @@
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Circle to test</p>
+										<p>Circle object to test.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if Circle is closed</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="length" class="tsd-anchor"></a>
-					<h3>length</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L282">circle.ts:282</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the length of a Circle</p>
-								</div>
-								<p>If specified circle is a closed circle or ellipse, returns the circumference of the circle or ellipse</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Circle to obtain length from</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>Length of circle</p>
+							<p>True if the circle is closed.</p>
 						</li>
 					</ul>
 				</section>
@@ -731,12 +709,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/circle.ts#L241">circle.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/circle.ts#L237">circle.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the angles for the arc. If this object was previously a closed circle, it will now become an open arc.</p>
+									<p>Sets the angles for the arc.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -744,18 +722,17 @@
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Circle to set value for</p>
+										<p>Circle object to set angles for.</p>
 									</div>
 								</li>
 								<li>
 									<h5>angles: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The value to set</p>
+										<p>The angles to set, two numbers between 0 and 360. If null, then the circle is closed.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>True if successful, null if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
@@ -789,7 +766,7 @@
 						<a href="_group_.html">"group"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_intersect_.html">"intersect"</a>
+						<a href="_isect_.html">"isect"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_list_.html">"list"</a>
@@ -835,28 +812,25 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#arcfrom3points" class="tsd-kind-icon">Arc<wbr>From3<wbr>Points</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#arcfromorigin" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#arcfromoriginvectors" class="tsd-kind-icon">Arc<wbr>From<wbr>Origin<wbr>Vectors</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#arcfromplane" class="tsd-kind-icon">Arc<wbr>From<wbr>Plane</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#copy" class="tsd-kind-icon">Copy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a>
+						<a href="_circle_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#fromorigin" class="tsd-kind-icon">From<wbr>Origin</a>
+						<a href="_circle_.html#fromorigin2points" class="tsd-kind-icon">From<wbr>Origin2<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#fromoriginvectors" class="tsd-kind-icon">From<wbr>Origin<wbr>Vectors</a>
+						<a href="_circle_.html#fromorigin2vectors" class="tsd-kind-icon">From<wbr>Origin2<wbr>Vectors</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#fromoriginxy" class="tsd-kind-icon">From<wbr>OriginXY</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#fromoriginyz" class="tsd-kind-icon">From<wbr>OriginYZ</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#fromoriginzx" class="tsd-kind-icon">From<wbr>OriginZX</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#fromplane" class="tsd-kind-icon">From<wbr>Plane</a>
@@ -865,22 +839,22 @@
 						<a href="_circle_.html#get" class="tsd-kind-icon">Get</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#calclength" class="tsd-kind-icon">calc<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#close" class="tsd-kind-icon">close</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#getarcangles" class="tsd-kind-icon">get<wbr>Arc<wbr>Angles</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#getaxes" class="tsd-kind-icon">get<wbr>Axes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#getorigin" class="tsd-kind-icon">get<wbr>Origin</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#getvectors" class="tsd-kind-icon">get<wbr>Vectors</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#isclosed" class="tsd-kind-icon">is<wbr>Closed</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_circle_.html#length" class="tsd-kind-icon">length</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#setarcangles" class="tsd-kind-icon">set<wbr>Arc<wbr>Angles</a>

@@ -72,10 +72,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#copy" class="tsd-kind-icon">Copy</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#getattribs" class="tsd-kind-icon">get<wbr>Attribs</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#getgroups" class="tsd-kind-icon">get<wbr>Groups</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#move" class="tsd-kind-icon">move</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#removefromallgroups" class="tsd-kind-icon">remove<wbr>From<wbr>All<wbr>Groups</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#del" class="tsd-kind-icon">del</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,7 +90,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/entity.ts#L18">entity.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/entity.ts#L18">entity.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -116,148 +113,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getattribs" class="tsd-anchor"></a>
-					<h3>get<wbr>Attribs</h3>
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Attribs<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>entities<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/entity.ts#L36">entity.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1aab694/src/gs-modelling/lib/entity.ts#L36">entity.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets attributes of specified geometry</p>
-								</div>
-								<p>Returns null if specified geometry does not have any attributes</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entity: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Geometry</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IAttrib</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of attributes of specified geometry if successful, null if unsuccessful or on error</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getgroups" class="tsd-anchor"></a>
-					<h3>get<wbr>Groups</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Groups<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/entity.ts#L50">entity.ts:50</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Gets groups that contain specified geometry</p>
-								</div>
-								<p>Returns null if specified geometry is not found in any groups</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entity: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Geometry</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IGroup</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of groups that contain specified geometry if successful, null if unsuccessful or on error</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="move" class="tsd-anchor"></a>
-					<h3>move</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">move<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span>, translation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, copy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/entity.ts#L80">entity.ts:80</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Moves geometry or a list of geometry.</p>
+									<p>Deletes geometry or a list of geometry from the model</p>
 								</div>
 								<p>Affects geometry that contains or is based off specified geometry</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>entity: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Geometry or list of geometry to move</p>
-									</div>
-								</li>
-								<li>
-									<h5>translation: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Translation vector</p>
-									</div>
-								</li>
-								<li>
-									<h5>copy: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Performs transformation on duplicate copy of input geometry if true</p>
-									</div>
+									<h5>entities: <span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">IObj</span>
-							</h4>
-							<p>Geometry in new location if successful</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="removefromallgroups" class="tsd-anchor"></a>
-					<h3>remove<wbr>From<wbr>All<wbr>Groups</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>From<wbr>All<wbr>Groups<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/1df1b4f/src/gs-modelling/lib/entity.ts#L62">entity.ts:62</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Removes geometry from all groups that contain it</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entity: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Geometry</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if successful</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Number of items deleted if successful</p>
 						</li>
 					</ul>
 				</section>
@@ -291,7 +172,7 @@
 						<a href="_group_.html">"group"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_intersect_.html">"intersect"</a>
+						<a href="_isect_.html">"isect"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_list_.html">"list"</a>
@@ -340,16 +221,7 @@
 						<a href="_entity_.html#copy" class="tsd-kind-icon">Copy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#getattribs" class="tsd-kind-icon">get<wbr>Attribs</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#getgroups" class="tsd-kind-icon">get<wbr>Groups</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#move" class="tsd-kind-icon">move</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#removefromallgroups" class="tsd-kind-icon">remove<wbr>From<wbr>All<wbr>Groups</a>
+						<a href="_entity_.html#del" class="tsd-kind-icon">del</a>
 					</li>
 				</ul>
 			</nav>

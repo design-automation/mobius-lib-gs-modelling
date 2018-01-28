@@ -1,4 +1,5 @@
 /**
+ * Functions for working with models.
  * Models are datastructures that contain geometric entities with attributes,
  * possibly organised into groups.
  */

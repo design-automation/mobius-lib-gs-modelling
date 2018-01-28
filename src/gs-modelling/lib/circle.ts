@@ -1,4 +1,5 @@
 /**
+ * Functions for working with circles.
  * Circles are geometric objects definded by a single vertex and a set of parameters.
  * The circle object can be either a closed circle or an open arc.
  */
@@ -56,8 +57,9 @@ export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
 /**
  * Copies a circle from one model into another model.
  *
+ * @param model The model to copy to.
  * @param circle The circle object to copy.
- * @returns The circle object in the model.
+ * @returns The copied circle object in the model.
  */
 export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
     // check args
@@ -189,7 +191,6 @@ export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, num
     // make the circle
     return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec, util._argsCheckAngles(angles));
 }
-
 
 //  ===============================================================================================================
 //  Get and Set ===================================================================================================
