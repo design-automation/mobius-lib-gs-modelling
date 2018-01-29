@@ -4020,13 +4020,13 @@
 		},
 		{
 			"id": 234,
-			"name": "\"isect\"",
+			"name": "\"intersect\"",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/isect.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/intersect.ts",
 			"comment": {
 				"shortText": "Function for intersecting.\nIntersect functions find points of intersection where the geometry of two objects intersect.\nThe functions return the intersections and overlaps and do not alter the original input objects."
 			},
@@ -4092,7 +4092,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "isect.ts",
+							"fileName": "intersect.ts",
 							"line": 33,
 							"character": 30
 						}
@@ -4157,7 +4157,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "isect.ts",
+							"fileName": "intersect.ts",
 							"line": 46,
 							"character": 29
 						}
@@ -4176,7 +4176,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "isect.ts",
+					"fileName": "intersect.ts",
 					"line": 1,
 					"character": 0
 				}
