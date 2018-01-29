@@ -131,7 +131,14 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
     const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
+    const angles_circle_1: number = circle1.getAngles()[1]-circle1.getAngles()[0];
+    // Circle 2 Direct Orthonormal Basis
     const C2: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
+    const U2: three.Vector3 = new three.Vector3(...v2[0]).normalize();
+    const V2: three.Vector3 = new three.Vector3(...v2[1]).normalize();
+    const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
+    const angles_circle_2: number = circle2.getAngles()[1]-circle2.getAngles()[0];
+
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
     const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
@@ -193,7 +200,13 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
+        const C1_to_Point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+        const C2_to_Point: three.Vector3 = new three.Vector3(point.x - C2.x,point.y - C2.y,point.z - C2.z);
+        const angle_1: number = U1.angleTo(C1_to_Point);
+        const angle_2: number = U2.angleTo(C2_to_Point);
+        if(angles_circle_1 - angle_1 >= 0 && angles_circle_2 - angle_2 >= 0) {
         points.push(g1.addPoint([point.x,point.y,point.z]));
+    }
     }
     return points;
 }
@@ -205,7 +218,7 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
  * @returns Adds intersecting points to the geometry if successfull, [] if empty or coplanar
  */
 export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
-    //http://mathforum.org/library/drmath/view/69136.html
+    // http://mathforum.org/library/drmath/view/69136.html
     const m: gs.IModel = circle.getModel();
     if(plane.getModel() !== m) {
         throw new Error("Identical models are required for the circle and the plane");
@@ -226,7 +239,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     if (_t === null) {return [];}
     // create points of intersection based on the t values
     const result: gs.IPoint[] = [];
-    console.log("T VALUES", A, B, C, _t);
+//    console.log("T VALUES", A, B, C, _t);
     for (const t of _t) {
         if (t !== null) {
             let ok: boolean = false;
@@ -246,7 +259,6 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
             }
         }
     }
-    // return results
     return result;
 }
 

@@ -116,31 +116,46 @@ export function test_pline_FromCircle(): boolean {
     const circle2: gs.ICircle = g.addCircle(pt2, [2,0,0],[0,2,0],[0,360]);
     const split: gs.ICircle[] = gsm.split.circleCircle2D(circle1,circle2);
     const pline1: gs.IPoint[] = gsm.pline.FromCircle(split[0],20).getPoints()[0][0];
-    const pline2: gs.IPoint[] = gsm.pline.FromCircle(split[0],10).getPoints()[0][0];
-    console.log("Hello World Pl1");
+    const pline2: gs.IPoint[] = gsm.pline.FromCircle(split[2],10).getPoints()[0][0];
+
+    console.log("Arc 1");
+    console.log("Radius" + split[0].getRadius());
+    console.log("Origin" + split[0].getOrigin());
+    console.log("Vectors" + split[0].getOrigin());
+    console.log("Angles" + split[0].getAngles());
+
+    console.log("Arc 2");
+    console.log("Radius" + split[2].getRadius());
+    console.log("Origin" + split[2].getOrigin());
+    console.log("Vectors" + split[2].getOrigin());
+    console.log("Angles" + split[2].getAngles());
+
+
+
+    console.log("First Polyline");
     for( const pli1 of pline1) {
-        pli1.getPosition();
-    }
-    console.log("Hello World Pl2");
-    for( const pli2 of pline2) {
-        pli2.getPosition();
-    }
-    // Circle 1, Radius 1
-    const pt3: gs.IPoint = g.addPoint([-0.5,0,0]);
-    const pt4: gs.IPoint = g.addPoint([0.5,0,0]);
-    const circle3: gs.ICircle = g.addCircle(pt3, [1,0,0],[0,1,0],[0,360]);
-    const circle4: gs.ICircle = g.addCircle(pt4, [1,0,0],[0,1,0],[0,360]);
-    const split3: gs.ICircle[] = gsm.split.circleCircle2D(circle3,circle4);
-    const pline3: gs.IPoint[] = gsm.pline.FromCircle(split3[0],20).getPoints()[0][0];
-    const pline4: gs.IPoint[] = gsm.pline.FromCircle(split3[0],10).getPoints()[0][0];
-    console.log("Hello World Pl1");
-    for( const pli1 of pline3) {
         console.log(pli1.getPosition());
     }
-    console.log("Hello World Pl2");
-    for( const pli2 of pline4) {
+    console.log("Second Polyline");
+    for( const pli2 of pline2) {
         console.log(pli2.getPosition());
     }
+    // // Circle 1, Radius 1
+    // const pt3: gs.IPoint = g.addPoint([-0.5,0,0]);
+    // const pt4: gs.IPoint = g.addPoint([0.5,0,0]);
+    // const circle3: gs.ICircle = g.addCircle(pt3, [1,0,0],[0,1,0],[0,360]);
+    // const circle4: gs.ICircle = g.addCircle(pt4, [1,0,0],[0,1,0],[0,360]);
+    // const split3: gs.ICircle[] = gsm.split.circleCircle2D(circle3,circle4);
+    // const pline3: gs.IPoint[] = gsm.pline.FromCircle(split3[0],20).getPoints()[0][0];
+    // const pline4: gs.IPoint[] = gsm.pline.FromCircle(split3[0],10).getPoints()[0][0];
+    // console.log("Hello World Pl1");
+    // for( const pli1 of pline3) {
+    //     // console.log(pli1.getPosition());
+    // }
+    // console.log("Hello World Pl2");
+    // for( const pli2 of pline4) {
+    //     // console.log(pli2.getPosition());
+    // }
     return true;
 }
 

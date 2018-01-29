@@ -132,6 +132,7 @@ export function test_isectCircleCircle2D() {
     return true;
 }
 export function test_isectCirclePlane3D() {
+    // test 1
     const m: gs.IModel = new gs.Model();
     const pt_circle: gs.IPoint = m.getGeom().addPoint([0,0,0]);
     const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
@@ -143,6 +144,42 @@ export function test_isectCirclePlane3D() {
             point.getPosition();
         }
     }
+    // test 2
+    const pt_circle2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    const pt_plane2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    const circle2: gs.ICircle = m.getGeom().addCircle(pt_circle2,[0,1,0],[0,0,1],[0,360]);
+    const plane2: gs.IPlane = m.getGeom().addPlane(pt_plane2,[1,0,0],[0,1,0]);
+    const intersects2: gs.IPoint[] = test._isectCirclePlane3D(circle2,plane2);
+    if (intersects !== null) {
+        for (const point of intersects2) {
+            console.log(point.getPosition());
+        }
+    }
+    // test 3
+    const pt_circle3: gs.IPoint = m.getGeom().addPoint([0,0,3]);
+    const pt_plane3: gs.IPoint = m.getGeom().addPoint([0,0.5,0]);
+    const circle3: gs.ICircle = m.getGeom().addCircle(pt_circle3,[1,0,0],[0,1,0],[0,360]);
+    const plane3: gs.IPlane = m.getGeom().addPlane(pt_plane3,[1,0,0],[0,0,1]);
+    const intersects3: gs.IPoint[] = test._isectCirclePlane3D(circle3,plane3);
+    console.log("results1");
+    if (intersects !== null) {
+        for (const point of intersects3) {
+            console.log(point.getPosition());
+        }
+    }
+            console.log("results2");
+    // test 3
+    // const m1: gs.IModel = new gs.Model();
+    // const pt_circle1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const pt_plane1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const circle1: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,1,0],[0,360]);
+    // const plane1: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
+    // const intersects1: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
+    // if (intersects !== null) {
+    //     for (const point of intersects) {
+    //         console.log(point.getPosition());
+    //     }
+    // }
     return true;
 }
 export function test_isectEllipsePlane3D() {
