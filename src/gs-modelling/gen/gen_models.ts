@@ -1,5 +1,6 @@
 import * as gs from "gs-json";
 import * as gsm from "./../lib/_export_dev";
+import * as cir from "./../lib/circle_dev";
 
 export function randXYZ(): gs.XYZ {
     return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
@@ -17,9 +18,9 @@ export function genModelTest1(): gs.IModel {
             randXYZ(),
             randXYZ(),
         ]);
-        //const arc = gsm.circle.From3Points(points[0], points[1], points[2], false);
-        //const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
-        //gsm.isect.circlePlane3D(arc, plane);
+        const arc = cir.From3Points(points[0], points[1], points[2], false);
+        const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
+        gsm.isect.circlePlane3D(arc, plane);
     }
     return m;
 }
@@ -136,14 +137,16 @@ export function genModelTest5(): gs.IModel {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0] as gs.XYZ);
     const cir2 = gsm.circle.FromOriginXY(p2, 10, null);
 
+    // isect
     const points2: gs.IPoint[] = gsm.isect.circleCircle2D(cir1, cir2);
-    m.getGeom().addPolyline(points2, false);
+    //m.getGeom().addPolyline(points2, false);
 
+    //split
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [7,0,0] as gs.XYZ);
     const cir3 = gsm.circle.FromOriginXY(p3, 10, [0,180]);
     const arcs: gs.ICircle[] = gsm.split.circleCircle2D(cir1, cir3);
 
-    m.getGeom().delObjs([arcs[1],arcs[2]], true);
+    //m.getGeom().delObjs([arcs[1]], true); //ERRROR
 
     return m;
 }

@@ -34,5 +34,5 @@ if(require.main === module)  {
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest6()), "test6.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest7()), "test7.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest8()), "test8.json");
-    writeToJSONFile(gs.genThreeOptModel(gen.genModelWeek3()), "week3.json");
+    //writeToJSONFile(gs.genThreeOptModel(gen.genModelWeek3()), "week3.json");
 }

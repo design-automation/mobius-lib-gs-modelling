@@ -131,13 +131,17 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
     const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
-    const angles_circle_1: number = circle1.getAngles()[1]-circle1.getAngles()[0];
+    let angles1: [number, number] = circle1.getAngles();
+    if (angles1 === undefined) {angles1 = [0,360];}
+    const angles_circle_1: number = angles1[1]-angles1[0];
     // Circle 2 Direct Orthonormal Basis
     const C2: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
     const U2: three.Vector3 = new three.Vector3(...v2[0]).normalize();
     const V2: three.Vector3 = new three.Vector3(...v2[1]).normalize();
     const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
-    const angles_circle_2: number = circle2.getAngles()[1]-circle2.getAngles()[0];
+    let angles2: [number, number] = circle2.getAngles();
+    if (angles2 === undefined) {angles2 = [0,360];}
+    const angles_circle_2: number = angles2[1]-angles2[0];
 
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
@@ -207,8 +211,8 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         let angle_2: number = U2.angleTo(c2_to_point) * 180/Math.PI;
         if( threex.crossVectors(U2, c2_to_point).dot(threex.crossVectors(U2,V2)) < 0 ) {angle_2 = 360 -angle_2;}
         if(angles_circle_1 - angle_1 >= 0 && angles_circle_2 - angle_2 >= 0) {
-        points.push(g1.addPoint([point.x,point.y,point.z]));
-    }
+            points.push(g1.addPoint([point.x,point.y,point.z]));
+        }
     }
     return points;
 }
