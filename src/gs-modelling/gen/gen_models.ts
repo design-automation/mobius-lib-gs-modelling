@@ -20,7 +20,7 @@ export function genModelTest1(): gs.IModel {
         ]);
         //const arc = gsm.circle.From3Points(points[0], points[1], points[2], false);
         //const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
-        //gsm.isect.circlePlane3D(arc, plane);
+        //gsm.intersect.circlePlane3D(arc, plane);
     }
     return m;
 }
@@ -37,7 +37,7 @@ export function genModelTest1b(): gs.IModel {
         //const axes: [gs.XYZ,gs.XYZ,gs.XYZ] = arc.getAxes();
         //console.log("Ortho?", threex.dotXYZs(axes[0], axes[1]));
         //console.log("Ortho?", threex.dotXYZs(axes[1], axes[2]));
-        gsm.isect.circlePlane3D(arc, plane);
+        gsm.intersect.circlePlane3D(arc, plane);
     }
     return m;
 }
@@ -78,11 +78,11 @@ export function genModelTest2(): gs.IModel {
     //const arc4 = gsm.circle.From3Points(p100, p200, p300, false);
 
     const plane: gs.IPlane = gsm.plane.FromOriginYZ(gsm.point.FromXYZ(m, [3,0,0]));
-    gsm.isect.circlePlane3D(arc0, plane);
-    gsm.isect.circlePlane3D(arc1, plane);
-    gsm.isect.circlePlane3D(arc2, plane);
-    gsm.isect.circlePlane3D(arc3, plane);
-    //gsm.isect.circlePlane3D(arc4, plane);
+    gsm.intersect.circlePlane3D(arc0, plane);
+    gsm.intersect.circlePlane3D(arc1, plane);
+    gsm.intersect.circlePlane3D(arc2, plane);
+    gsm.intersect.circlePlane3D(arc3, plane);
+    //gsm.intersect.circlePlane3D(arc4, plane);
 
     return m;
 }
@@ -99,12 +99,12 @@ export function genModelTest3(): gs.IModel {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0] as gs.XYZ);
     const cir2 = gsm.circle.FromOriginXY(p2, 10, null);
 
-    const points2: gs.IPoint[] = gsm.isect.circleCircle2D(cir1, cir2);
+    const points2: gs.IPoint[] = gsm.intersect.circleCircle2D(cir1, cir2);
     m.getGeom().addPolyline(points2, false);
 
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [7,0,0] as gs.XYZ);
     const cir3 = gsm.circle.FromOriginXY(p3, 10, [0,180]);
-    const points3: gs.IPoint[] = gsm.isect.circleCircle2D(cir1, cir3);
+    const points3: gs.IPoint[] = gsm.intersect.circleCircle2D(cir1, cir3);
     //console.log(points3);
     m.getGeom().addPolyline([p3, points3[0]], false);
 
@@ -123,7 +123,7 @@ export function genModelTest4(): gs.IModel {
     for (let i = 0; i < 10; i++) {
         const p2: gs.IPoint = gsm.point.FromXYZ(m, [i,0,0] as gs.XYZ);
         const plane: gs.IPlane = gsm.plane.FromOriginYZ(p2);
-        gsm.isect.circlePlane3D(cir1, plane);
+        gsm.intersect.circlePlane3D(cir1, plane);
     }
     return m;
 }
@@ -140,7 +140,7 @@ export function genModelTest5(): gs.IModel {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0] as gs.XYZ);
     const cir2 = gsm.circle.FromOriginXY(p2, 10, null);
 
-    const points2: gs.IPoint[] = gsm.isect.circleCircle2D(cir1, cir2);
+    const points2: gs.IPoint[] = gsm.intersect.circleCircle2D(cir1, cir2);
     m.getGeom().addPolyline(points2, false);
 
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [7,0,0] as gs.XYZ);
@@ -174,9 +174,9 @@ export function genModelTest6(): gs.IModel {
     for (let i = 0; i < 10; i++) {
         const o: gs.IPoint = gsm.point.FromXYZ(m, [0,0,1 + (i*2)] as gs.XYZ);
         const plane: gs.IPlane = gsm.plane.FromOriginXY(o);
-        const i0: gs.IPoint[] = gsm.isect.circlePlane3D(arc0, plane);
-        //const i1: gs.IPoint[] = gsm.isect.circlePlane3D(arc1, plane);
-        const i2: gs.IPoint[] = gsm.isect.circlePlane3D(arc2, plane);
+        const i0: gs.IPoint[] = gsm.intersect.circlePlane3D(arc0, plane);
+        //const i1: gs.IPoint[] = gsm.intersect.circlePlane3D(arc1, plane);
+        const i2: gs.IPoint[] = gsm.intersect.circlePlane3D(arc2, plane);
     }
     return m;
 }
@@ -192,7 +192,7 @@ export function genModelTest7(): gs.IModel {
     for (let i = 0; i < 10; i++) {
         const o: gs.IPoint = gsm.point.FromXYZ(m, [0,0,1 + (i*2)] as gs.XYZ);
         const plane: gs.IPlane = gsm.plane.FromOriginXY(o);
-        //const i1: gs.IPoint[] = gsm.isect.circlePlane3D(arc1, plane);
+        //const i1: gs.IPoint[] = gsm.intersect.circlePlane3D(arc1, plane);
     }
     return m;
 }
@@ -237,10 +237,10 @@ export function genModelWeek3(): gs.IModel {
     for (let i = 0; i < 10; i++) {
         const o: gs.IPoint = gsm.point.FromXYZ(m, [0,0,1 + (i*2)] as gs.XYZ);
         const plane: gs.IPlane = gsm.plane.FromOriginXY(o);
-        const i1: gs.IPoint = gsm.isect.circlePlane3D(arc1, plane)[0];
-        const i2: gs.IPoint = gsm.isect.circlePlane3D(arc2, plane)[0];
-        const i3: gs.IPoint = gsm.isect.circlePlane3D(arc3, plane)[0];
-        const i4: gs.IPoint = gsm.isect.circlePlane3D(arc4, plane)[0];
+        const i1: gs.IPoint = gsm.intersect.circlePlane3D(arc1, plane)[0];
+        const i2: gs.IPoint = gsm.intersect.circlePlane3D(arc2, plane)[0];
+        const i3: gs.IPoint = gsm.intersect.circlePlane3D(arc3, plane)[0];
+        const i4: gs.IPoint = gsm.intersect.circlePlane3D(arc4, plane)[0];
         const c1: gs.IPoint = gsm.point.FromPointsMean([i1, i3]);
         const c2: gs.IPoint = gsm.point.FromPointsMean([i2, i4]);
         const r1: number = gsm.calc.distBetweenPoints(i1, c1);

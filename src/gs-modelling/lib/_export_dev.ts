@@ -13,8 +13,8 @@ export {ellipse};
 import * as examples from "./examples";
 export {examples};
 
-import * as isect from "./isect";
-export {isect};
+import * as intersect from "./intersect";
+export {intersect};
 
 import * as model from "./model";
 export {model};
