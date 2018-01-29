@@ -140,11 +140,11 @@ export function test_isectCircleCircle2D() {
     const circle13: gs.ICircle = g.addCircle(O13, [radius13,0,0], [0,radius13,0], [0,180]);
     const circle14: gs.ICircle = g.addCircle(O14, [radius13,0,0], [0,radius13,0], [0,180]);
     const results1314: gs.IPoint[] = test._isectCircleCircle2D(circle13,circle14);
-    console.log("results 1314");
-    for (const point of results1314) {
-        console.log(point.getPosition());
-    }
-    console.log("results 1314");
+    // console.log("results 1314");
+    // for (const point of results1314) {
+    //     console.log(point.getPosition());
+    // }
+    // console.log("results 1314");
     return true;
 }
 export function test_isectCirclePlane3D() {
@@ -166,24 +166,22 @@ export function test_isectCirclePlane3D() {
     const circle2: gs.ICircle = m.getGeom().addCircle(pt_circle2,[0,1,0],[0,0,1],[0,360]);
     const plane2: gs.IPlane = m.getGeom().addPlane(pt_plane2,[1,0,0],[0,1,0]);
     const intersects2: gs.IPoint[] = test._isectCirclePlane3D(circle2,plane2);
-    if (intersects !== null) {
-        for (const point of intersects2) {
-            console.log(point.getPosition());
-        }
-    }
+    // if (intersects !== null) {
+    //     for (const point of intersects2) {
+    //         console.log(point.getPosition());
+    //     }
+    // }
     // test 3
     const pt_circle3: gs.IPoint = m.getGeom().addPoint([0,0,3]);
     const pt_plane3: gs.IPoint = m.getGeom().addPoint([0,0.5,0]);
     const circle3: gs.ICircle = m.getGeom().addCircle(pt_circle3,[1,0,0],[0,1,0],[0,360]);
     const plane3: gs.IPlane = m.getGeom().addPlane(pt_plane3,[1,0,0],[0,0,1]);
     const intersects3: gs.IPoint[] = test._isectCirclePlane3D(circle3,plane3);
-    console.log("results1");
-    if (intersects !== null) {
-        for (const point of intersects3) {
-            console.log(point.getPosition());
-        }
-    }
-            console.log("results2");
+    // if (intersects !== null) {
+    //     for (const point of intersects3) {
+    //         console.log(point.getPosition());
+    //     }
+    // }
     // test 3
     // const m1: gs.IModel = new gs.Model();
     // const pt_circle1: gs.IPoint = m.getGeom().addPoint([0,0,0]);

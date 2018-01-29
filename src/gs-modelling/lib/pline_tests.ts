@@ -118,28 +118,26 @@ export function test_pline_FromCircle(): boolean {
     const pline1: gs.IPoint[] = gsm.pline.FromCircle(split[0],20).getPoints()[0][0];
     const pline2: gs.IPoint[] = gsm.pline.FromCircle(split[2],10).getPoints()[0][0];
 
-    console.log("Arc 1");
-    console.log("Radius" + split[0].getRadius());
-    console.log("Origin" + split[0].getOrigin());
-    console.log("Vectors" + split[0].getOrigin());
-    console.log("Angles" + split[0].getAngles());
+    // console.log("Arc 1");
+    // console.log("Radius" + split[0].getRadius());
+    // console.log("Origin" + split[0].getOrigin());
+    // console.log("Vectors" + split[0].getOrigin());
+    // console.log("Angles" + split[0].getAngles());
 
-    console.log("Arc 2");
-    console.log("Radius" + split[2].getRadius());
-    console.log("Origin" + split[2].getOrigin());
-    console.log("Vectors" + split[2].getOrigin());
-    console.log("Angles" + split[2].getAngles());
+    // console.log("Arc 2");
+    // console.log("Radius" + split[2].getRadius());
+    // console.log("Origin" + split[2].getOrigin());
+    // console.log("Vectors" + split[2].getOrigin());
+    // console.log("Angles" + split[2].getAngles());
 
-
-
-    console.log("First Polyline");
-    for( const pli1 of pline1) {
-        console.log(pli1.getPosition());
-    }
-    console.log("Second Polyline");
-    for( const pli2 of pline2) {
-        console.log(pli2.getPosition());
-    }
+    // console.log("First Polyline");
+    // for( const pli1 of pline1) {
+    //     console.log(pli1.getPosition());
+    // }
+    // console.log("Second Polyline");
+    // for( const pli2 of pline2) {
+    //     console.log(pli2.getPosition());
+    // }
     // // Circle 1, Radius 1
     // const pt3: gs.IPoint = g.addPoint([-0.5,0,0]);
     // const pt4: gs.IPoint = g.addPoint([0.5,0,0]);
