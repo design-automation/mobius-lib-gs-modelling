@@ -200,10 +200,12 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
-        const C1_to_Point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
-        const C2_to_Point: three.Vector3 = new three.Vector3(point.x - C2.x,point.y - C2.y,point.z - C2.z);
-        const angle_1: number = U1.angleTo(C1_to_Point);
-        const angle_2: number = U2.angleTo(C2_to_Point);
+        const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+        const c2_to_point: three.Vector3 = new three.Vector3(point.x - C2.x,point.y - C2.y,point.z - C2.z);
+        let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
+        if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
+        let angle_2: number = U2.angleTo(c2_to_point) * 180/Math.PI;
+        if( threex.crossVectors(U2, c2_to_point).dot(threex.crossVectors(U2,V2)) < 0 ) {angle_2 = 360 -angle_2;}
         if(angles_circle_1 - angle_1 >= 0 && angles_circle_2 - angle_2 >= 0) {
         points.push(g1.addPoint([point.x,point.y,point.z]));
     }
