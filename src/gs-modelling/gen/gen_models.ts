@@ -1,5 +1,6 @@
 import * as gs from "gs-json";
 import * as gsm from "./../lib/_export_dev";
+import * as threex from "../lib/_three_utils_dev";
 
 export function randXYZ(): gs.XYZ {
     return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
@@ -30,9 +31,12 @@ export function genModelTest1(): gs.IModel {
 export function genModelTest1b(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     const plane: gs.IPlane = gsm.plane.FromOriginYZ(gsm.point.FromXYZ(m, [3,0,0]));
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1; i++) {
         const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
-        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [0, Math.random() * 360]);
+        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), null);
+        //const axes: [gs.XYZ,gs.XYZ,gs.XYZ] = arc.getAxes();
+        //console.log("Ortho?", threex.dotXYZs(axes[0], axes[1]));
+        //console.log("Ortho?", threex.dotXYZs(axes[1], axes[2]));
         gsm.isect.circlePlane3D(arc, plane);
     }
     return m;
