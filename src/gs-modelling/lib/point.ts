@@ -21,12 +21,27 @@ import * as gs from "gs-json";
  * Gets a point from a model.
  * @param model Model to get point from.
  * @param id ID of point to get.
- * @returns Point if successful, null if unsuccessful or on error.
+ * @returns Point if successful. Null if the point does nor exist.
  */
 export function Get(model: gs.IModel, id: number): gs.IPoint {
     const point: gs.IPoint = model.getGeom().getPoint(id);
     if (point === undefined) {return null; }
     return point;
+}
+
+/**
+ * Gets a list of points from the model.
+ * @param model Model to get points from.
+ * @param ids A list of point IDs.
+ * @returns A list of points.
+ */
+export function Gets(model: gs.IModel, ids: number[]): gs.IPoint[] {
+    let points: gs.IPoint[] = [];
+    for (const id of ids) {
+        const point: gs.IPoint = Get(model, id);
+        if (point !== null) {points.push(point);}
+    }
+    return points;
 }
 
 /**

@@ -14,7 +14,7 @@ import * as gs from "gs-json";
  * Gets an object from the model
  * @param model Model to get object from
  * @param id ID of object to get
- * @returns An object if successful, null if unsuccessful or on error
+ * @returns An object. Null if object does not exist.
  */
 export function Get(model: gs.IModel, id: number): gs.IObj {
     const obj: gs.IObj = model.getGeom().getObj(id);
@@ -22,17 +22,34 @@ export function Get(model: gs.IModel, id: number): gs.IObj {
     switch (obj.getObjType()) {
         case gs.EObjType.ray:
             return obj as gs.IRay;
-        case gs.EObjType.ray:
+        case gs.EObjType.plane:
             return obj as gs.IPlane;
-        case gs.EObjType.ray:
+        case gs.EObjType.circle:
             return obj as gs.ICircle;
-        case gs.EObjType.ray:
+        case gs.EObjType.ellipse:
             return obj as gs.IEllipse;
-        case gs.EObjType.ray:
+        case gs.EObjType.polyline:
             return obj as gs.IPolyline;
-        case gs.EObjType.ray:
+        case gs.EObjType.polymesh:
             return obj as gs.IPolymesh;
+        default:
+            throw new Error("Object type not found: " + obj.getObjType());
     }
+}
+
+/**
+ * Gets a list of objects from the model.
+ * @param model Model to get objects from.
+ * @param ids A list of object IDs.
+ * @returns A list of objects.
+ */
+export function Gets(model: gs.IModel, ids: number[]): gs.IObj[] {
+    let objs: gs.IObj[] = [];
+    for (const id of ids) {
+        const obj: gs.IObj = Get(model, id);
+        if (obj !== null) {objs.push(obj);}
+    }
+    return objs;
 }
 
 //  ===============================================================================================================
@@ -67,3 +84,4 @@ export function del(objs: gs.IObj | gs.IObj[], keep_unused_points: boolean): boo
         return geom.delObj(objs, keep_unused_points);
     }
 }
+

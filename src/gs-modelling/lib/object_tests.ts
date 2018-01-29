@@ -1,17 +1,22 @@
 import * as gs from "gs-json";
-import * as test from "./object_old_dev";
+import * as gsm from "./_export_dev";
 
-export function test_MoveObject() {
-    // const m: gs.IModel = new gs.Model();
-    // const g: gs.IGeom = m.getGeom();
-    // const p1: gs.IPoint = g.addPoint([0,0,0]); // TODO addPoints()
-    // const p2: gs.IPoint = g.addPoint([1,1,1]);
-    // const p3: gs.IPoint = g.addPoint([2,2,2]);
-    // const p4: gs.IPoint = g.addPoint([3,3,3]);
-    // const poly: gs.IPolyline = g.addPolyline([p1, p2, p3, p4], false);
-    // test.MoveObject(m, poly, [10,20,30]);
-    // if (poly.getPoints()[0][0][0].getPosition()[0] !== 10) {return false;} // TOFO flatten=true
-    // if (poly.getPoints()[0][0][0].getPosition()[1] !== 20) {return false;} // TOFO flatten=true
-    // if (poly.getPoints()[0][0][0].getPosition()[2] !== 30) {return false;} // TOFO flatten=true
+export function test_obj_Get(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
+    const x = gsm.pline.FromPoints(points, false);
+    const obj: gs.IObj = gsm.object.Get(m, 0);
+    if(obj === undefined) {return false;}
+    return true;
+}
+
+export function test_obj_Gets(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
+    gsm.pline.FromPoints(points, false);
+    gsm.circle.FromOriginXY(points[3], 12, [20,30]);
+    const objs: gs.IObj[] = gsm.object.Gets(m, [0, 1]);
+    if(objs[0] === undefined) {return false;}
+    if(objs[1] === undefined) {return false;}
     return true;
 }

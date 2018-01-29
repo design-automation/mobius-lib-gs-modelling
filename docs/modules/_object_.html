@@ -72,6 +72,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#gets" class="tsd-kind-icon">Gets</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#del" class="tsd-kind-icon">del</a></li>
 							</ul>
 						</section>
@@ -90,7 +91,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/054ec21/src/gs-modelling/lib/object.ts#L19">object.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L19">object.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -114,7 +115,45 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IObj</span></h4>
-							<p>An object if successful, null if unsuccessful or on error</p>
+							<p>An object. Null if object does not exist.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="gets" class="tsd-anchor"></a>
+					<h3>Gets</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Gets<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L46">object.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets a list of objects from the model.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get objects from.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ids: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A list of object IDs.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>A list of objects.</p>
 						</li>
 					</ul>
 				</section>
@@ -128,7 +167,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/054ec21/src/gs-modelling/lib/object.ts#L53">object.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L70">object.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -233,6 +272,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#gets" class="tsd-kind-icon">Gets</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#del" class="tsd-kind-icon">del</a>

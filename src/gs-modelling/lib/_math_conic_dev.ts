@@ -226,7 +226,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     if (_t === null) {return [];}
     // create points of intersection based on the t values
     const result: gs.IPoint[] = [];
-    console.log("T VALUES", A, B, C, _t);
+    // console.log("T VALUES", A, B, C, _t);
     for (const t of _t) {
         if (t !== null) {
             let ok: boolean = false;
