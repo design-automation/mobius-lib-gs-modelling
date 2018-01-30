@@ -3,15 +3,7 @@ import * as three from "three";
 import * as xform from "./_math_xform_dev";
 import * as three_utils from "./_three_utils_dev";
 
-/**
- * Copies polylines from one model to another
- * @param model_1 Model to copy from
- * @param model_2 Model to copy to
- * @returns List of polylines copied into specified model if successful
- */
-export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolyline[] {
-    throw new Error("Method not implemented");
-}
+
 
 /**
  * Adds a polyline from the model based on a conic curve

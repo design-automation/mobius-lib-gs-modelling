@@ -131,7 +131,18 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
     const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
     const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
+    let angles1: [number, number] = circle1.getAngles();
+    if (angles1 === undefined) {angles1 = [0,360];}
+    const angles_circle_1: number = angles1[1]-angles1[0];
+    // Circle 2 Direct Orthonormal Basis
     const C2: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
+    const U2: three.Vector3 = new three.Vector3(...v2[0]).normalize();
+    const V2: three.Vector3 = new three.Vector3(...v2[1]).normalize();
+    const W2: three.Vector3 = threex.crossVectors(U2,V2,true);
+    let angles2: [number, number] = circle2.getAngles();
+    if (angles2 === undefined) {angles2 = [0,360];}
+    const angles_circle_2: number = angles2[1]-angles2[0];
+
     // Rotation Matrix expressed in the reference direct orthonormal basis
         // Circle 1
     const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
@@ -193,7 +204,15 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
-        points.push(g1.addPoint([point.x,point.y,point.z]));
+        const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+        const c2_to_point: three.Vector3 = new three.Vector3(point.x - C2.x,point.y - C2.y,point.z - C2.z);
+        let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
+        if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
+        let angle_2: number = U2.angleTo(c2_to_point) * 180/Math.PI;
+        if( threex.crossVectors(U2, c2_to_point).dot(threex.crossVectors(U2,V2)) < 0 ) {angle_2 = 360 -angle_2;}
+        if(angles_circle_1 - angle_1 >= 0 && angles_circle_2 - angle_2 >= 0) {
+            points.push(g1.addPoint([point.x,point.y,point.z]));
+        }
     }
     return points;
 }
@@ -205,8 +224,9 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
  * @returns Adds intersecting points to the geometry if successfull, [] if empty or coplanar
  */
 export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
-    //http://mathforum.org/library/drmath/view/69136.html
+    // http://mathforum.org/library/drmath/view/69136.html
     const m: gs.IModel = circle.getModel();
+    const eps: number = 1e-7;
     if(plane.getModel() !== m) {
         throw new Error("Identical models are required for the circle and the plane");
     }
@@ -218,15 +238,15 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     const CA: [gs.XYZ,gs.XYZ,gs.XYZ] = circle.getAxes();
     const U1: three.Vector3 = new three.Vector3(...CA[0]);
     const V1: three.Vector3 = new three.Vector3(...CA[1]).setLength(U1.length());
+    const _n1: three.Vector3 = new three.Vector3(n1[0],n1[1],n1[2]);
     // calculate t
     const A: number = n1[0]*(C0[0] - PO[0]) + n1[1]*(C0[1] - PO[1]) + n1[2]*(C0[2] - PO[2]);
     const B: number = n1[0]*U1.x + n1[1]*U1.y + n1[2]*U1.z;
     const C: number = n1[0]*V1.x + n1[1]*V1.y + n1[2]*V1.z;
     const _t: number[] = trigo._solve_trigo(A,B,C);
     if (_t === null) {return [];}
-    // create points of intersection based on the t values
     const result: gs.IPoint[] = [];
-    // console.log("T VALUES", A, B, C, _t);
+
     for (const t of _t) {
         if (t !== null) {
             let ok: boolean = false;
@@ -239,14 +259,35 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
                 if (angle >= circle_angles[0] && angle < circle_angles[1]) {ok = true;}
             }
             if (ok) {
+
+                const point1: three.Vector3 = new three.Vector3(
+                    C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x - PO[0],
+                    C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y - PO[1],
+                    C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z - PO[2],
+                    );
+                if( Math.abs(_n1.dot(point1)) < eps ) {
                 result.push(m.getGeom().addPoint([
                     C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
                     C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
                     C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
+                }
+                const point2: three.Vector3 = new three.Vector3(
+                    C0[0] + Math.cos(t + Math.PI)*U1.x + Math.sin(t + Math.PI)*V1.x - PO[0],
+                    C0[1] + Math.cos(t + Math.PI)*U1.y + Math.sin(t + Math.PI)*V1.y - PO[1],
+                    C0[2] + Math.cos(t + Math.PI)*U1.z + Math.sin(t + Math.PI)*V1.z - PO[2],
+                    );
+                if( Math.abs(_n1.dot(point2)) < eps ) {
+                result.push(m.getGeom().addPoint([
+                    C0[0] + Math.cos(t + Math.PI)*U1.x + Math.sin(t + Math.PI)*V1.x,
+                    C0[1] + Math.cos(t + Math.PI)*U1.y + Math.sin(t + Math.PI)*V1.y,
+                    C0[2] + Math.cos(t + Math.PI)*U1.z + Math.sin(t + Math.PI)*V1.z]));
+                }
+
+
+
             }
         }
     }
-    // return results
     return result;
 }
 

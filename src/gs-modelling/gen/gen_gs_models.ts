@@ -25,6 +25,6 @@ function writeToJSONFile(data: any, filename: string): boolean {
  */
 if(require.main === module)  {
     console.log("Starting to write gs files...");
-    writeToJSONFile(gen.genModelTest1(), "test1.gs");
-    writeToJSONFile(gen.genModelTest2(), "test2.gs");
+    //writeToJSONFile(gen.genModelTest1(), "test1.gs");
+    //writeToJSONFile(gen.genModelTest2(), "test2.gs");
 }

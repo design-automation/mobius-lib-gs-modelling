@@ -25,14 +25,14 @@ function writeToJSONFile(model: gs.IThreeScene, filename: string): boolean {
  */
 if(require.main === module)  {
     console.log("Starting to write three files...");
-    //writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1()), "test1.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1()), "test1.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1b()), "test1b.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest2()), "test2.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest3()), "test3.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest4()), "test4.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest5()), "test5.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest6()), "test6.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest7()), "test7.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelTest8()), "test8.json");
-    // writeToJSONFile(gs.genThreeOptModel(gen.genModelWeek3()), "week3.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest2()), "test2.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest3()), "test3.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest4()), "test4.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest5()), "test5.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest6()), "test6.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest7()), "test7.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest8()), "test8.json");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelWeek3()), "week3.json");
 }

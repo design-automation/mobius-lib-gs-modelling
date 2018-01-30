@@ -43,6 +43,16 @@ export function Copy(polyline: gs.IPolyline, copy_attribs?: boolean): gs.IPolyli
     return polyline.copy(copy_attribs) as gs.IPolyline;
 }
 
+/**
+ * Copies polylines from one model to another
+ * @param model_1 Model to copy from
+ * @param model_2 Model to copy to
+ * @returns List of polylines copied into specified model if successful
+ */
+export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolyline[] {
+    throw new Error("Method not implemented");
+}
+
 //  ===============================================================================================================
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================

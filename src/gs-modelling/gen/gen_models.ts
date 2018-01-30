@@ -1,6 +1,10 @@
 import * as gs from "gs-json";
 import * as gsm from "./../lib/_export_dev";
+
 import * as threex from "../lib/_three_utils_dev";
+
+import * as cir from "./../lib/circle_dev";
+
 
 export function randXYZ(): gs.XYZ {
     return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
@@ -18,9 +22,11 @@ export function genModelTest1(): gs.IModel {
             randXYZ(),
             randXYZ(),
         ]);
-        //const arc = gsm.circle.From3Points(points[0], points[1], points[2], false);
-        //const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
-        //gsm.intersect.circlePlane3D(arc, plane);
+
+        const arc = cir.From3Points(points[0], points[1], points[2], false);
+        const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
+        gsm.intersect.circlePlane3D(arc, plane);
+
     }
     return m;
 }
@@ -31,14 +37,17 @@ export function genModelTest1(): gs.IModel {
 export function genModelTest1b(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     const plane: gs.IPlane = gsm.plane.FromOriginYZ(gsm.point.FromXYZ(m, [3,0,0]));
-    for (let i = 0; i < 1; i++) {
+    const the_points: gs.IPoint[] = [];
+    let points: gs.IPoint[] = null;
+    for (let i = 0; i < 80; i++) {
         const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
-        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), null);
-        //const axes: [gs.XYZ,gs.XYZ,gs.XYZ] = arc.getAxes();
-        //console.log("Ortho?", threex.dotXYZs(axes[0], axes[1]));
-        //console.log("Ortho?", threex.dotXYZs(axes[1], axes[2]));
-        gsm.intersect.circlePlane3D(arc, plane);
+        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [0, 360]);
+        points =gsm.intersect.circlePlane3D(arc, plane);
+        if (points[0] !== undefined) {the_points.push(points[0]);}
+        if (points[1] !== undefined) {the_points.push(points[1]);}
     }
+    if (the_points !== null) {const pline: gs.IPolyline = gsm.pline.FromPoints(the_points, false);}
+
     return m;
 }
 
@@ -140,14 +149,16 @@ export function genModelTest5(): gs.IModel {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0] as gs.XYZ);
     const cir2 = gsm.circle.FromOriginXY(p2, 10, null);
 
+    // isect
     const points2: gs.IPoint[] = gsm.intersect.circleCircle2D(cir1, cir2);
-    m.getGeom().addPolyline(points2, false);
+    //m.getGeom().addPolyline(points2, false);
 
+    //split
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [7,0,0] as gs.XYZ);
     const cir3 = gsm.circle.FromOriginXY(p3, 10, [0,180]);
     const arcs: gs.ICircle[] = gsm.split.circleCircle2D(cir1, cir3);
 
-    m.getGeom().delObjs([arcs[1],arcs[2]], true);
+    //m.getGeom().delObjs([arcs[1]], true); //ERRROR
 
     return m;
 }
