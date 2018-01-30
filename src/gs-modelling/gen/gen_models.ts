@@ -31,25 +31,16 @@ export function genModelTest1(): gs.IModel {
 export function genModelTest1b(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     const plane: gs.IPlane = gsm.plane.FromOriginYZ(gsm.point.FromXYZ(m, [3,0,0]));
-    console.log("hello world");
-    for (let i = 0; i < 1; i++) {
-        const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
-        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [0, Math.random() * 360]);
-        gsm.isect.circlePlane3D(arc, plane);
-        // check calculations
-        console.log("inputs");
-        console.log("Circle    ");
-        console.log("Origin    = " + arc.getOrigin().getPosition());
-        console.log("Angles    = " + arc.getAngles());
-        console.log(" Vec_X   = " + arc.getAxes()[0]);
-        console.log(" Vec_Y   = " + arc.getAxes()[1]);
-        console.log("Arc = ");
-        console.log(arc.getAxes());
-        console.log("outputs");
-        for (const point of gsm.isect.circlePlane3D(arc, plane)) {
-            console.log(point.getPosition());
+    const the_points: gs.IPoint[] = [];
+    let points: gs.IPoint[] = null;
+    for (let i = 0; i < 80; i++) {
+    const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
+    const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [0, 360]);
+    points =gsm.isect.circlePlane3D(arc, plane);
+    if (points[0] !== undefined) {the_points.push(points[0]);}
+    if (points[1] !== undefined) {the_points.push(points[1]);}
         }
-    }
+    if (the_points !== null) {const pline: gs.IPolyline = gsm.pline.FromPoints(the_points, false);}
     return m;
 }
 

@@ -1,10 +1,9 @@
 import * as gs from "gs-json";
 import * as test from "./_math_conic_dev";
 import * as kld from "kld-intersections";
+import * as three from "three";
 
 export function test_isectCircleCircle2D() {
-
-
     // // Test 1
     // ////// Test with 2 Circles on 2 different models ///////////
     // // const m2: gs.IModel = new gs.Model();
@@ -15,9 +14,9 @@ export function test_isectCircleCircle2D() {
 
     // // Test 2
     // ////// Test with moving Origin Points in the [0,x,y] plan ////
-    const m: gs.IModel = new gs.Model();
-    const g: gs.IGeom = m.getGeom();
-    const radius1: number = 1;
+    // const m: gs.IModel = new gs.Model();
+    // const g: gs.IGeom = m.getGeom();
+    // const radius1: number = 1;
     // const radius2: number = 1;
     // for(let ax=0;ax<10;ax++) {
     // for(let ay=0;ay<10;ay++) {
@@ -133,13 +132,13 @@ export function test_isectCircleCircle2D() {
 
     // Test 8
     ////// Test in the [0,x,y] plan ////
-    const radius13: number = 1;
-    const radius14: number = 1;
-    const O13: gs.IPoint = g.addPoint([-0.5,0,0]);
-    const O14: gs.IPoint = g.addPoint([0.5,0,0]);
-    const circle13: gs.ICircle = g.addCircle(O13, [radius13,0,0], [0,radius13,0], [0,180]);
-    const circle14: gs.ICircle = g.addCircle(O14, [radius13,0,0], [0,radius13,0], [0,180]);
-    const results1314: gs.IPoint[] = test._isectCircleCircle2D(circle13,circle14);
+    // const radius13: number = 1;
+    // const radius14: number = 1;
+    // const O13: gs.IPoint = g.addPoint([-0.5,0,0]);
+    // const O14: gs.IPoint = g.addPoint([0.5,0,0]);
+    // const circle13: gs.ICircle = g.addCircle(O13, [radius13,0,0], [0,radius13,0], [0,180]);
+    // const circle14: gs.ICircle = g.addCircle(O14, [radius13,0,0], [0,radius13,0], [0,180]);
+    // const results1314: gs.IPoint[] = test._isectCircleCircle2D(circle13,circle14);
     // console.log("results 1314");
     // for (const point of results1314) {
     //     console.log(point.getPosition());
@@ -148,52 +147,74 @@ export function test_isectCircleCircle2D() {
     return true;
 }
 export function test_isectCirclePlane3D() {
-    // test 1
     const m: gs.IModel = new gs.Model();
-    const pt_circle: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,0,1],[0,360]);
-    const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
-    const intersects: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
-    if (intersects !== null) {
-        for (const point of intersects) {
-            point.getPosition();
-        }
-    }
-    // test 2
-    const pt_circle2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const pt_plane2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    const circle2: gs.ICircle = m.getGeom().addCircle(pt_circle2,[0,1,0],[0,0,1],[0,360]);
-    const plane2: gs.IPlane = m.getGeom().addPlane(pt_plane2,[1,0,0],[0,1,0]);
-    const intersects2: gs.IPoint[] = test._isectCirclePlane3D(circle2,plane2);
-    // if (intersects !== null) {
-    //     for (const point of intersects2) {
-    //         console.log(point.getPosition());
-    //     }
+    const g: gs.IGeom = m.getGeom();
+    const plane_point: gs.IPoint = g.addPoint([3,0,0]);
+    const plane: gs.IPlane = g.addPlane(plane_point, [0,1,0], [0,0,1]);
+    const circle_point: gs.IPoint = g.addPoint([10.2,2.8,-12.7]);
+    const circle: gs.ICircle = g.addCircle(circle_point, [8.376648782031275,-12.411067032321805,0.2706372332304663], [9.437161624911786,6.578546831064237,9.588471007782674], [0,267.88189588962683]);
+    // const results: gs.IPoint[] = test._isectCirclePlane3D(circle, plane);
+    const radius: number = circle.getRadius();
+    const Vect_X: three.Vector3 = new three.Vector3(8.376648782031275,-12.411067032321805,0.2706372332304663).normalize();
+    // for (const point of results) {
+    //     console.log(" [ " + point.getPosition() + " ] ");
     // }
-    // test 3
-    const pt_circle3: gs.IPoint = m.getGeom().addPoint([0,0,3]);
-    const pt_plane3: gs.IPoint = m.getGeom().addPoint([0,0.5,0]);
-    const circle3: gs.ICircle = m.getGeom().addCircle(pt_circle3,[1,0,0],[0,1,0],[0,360]);
-    const plane3: gs.IPlane = m.getGeom().addPlane(pt_plane3,[1,0,0],[0,0,1]);
-    const intersects3: gs.IPoint[] = test._isectCirclePlane3D(circle3,plane3);
-    // if (intersects !== null) {
-    //     for (const point of intersects3) {
-    //         console.log(point.getPosition());
-    //     }
-    // }
-    // test 3
-    // const m1: gs.IModel = new gs.Model();
-    // const pt_circle1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    // const pt_plane1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
-    // const circle1: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,1,0],[0,360]);
-    // const plane1: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
-    // const intersects1: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
+    // console.log(" ///results");
+
+// outputs
+
+    // const circle_point: gs.IPoint = g.addPoint([10.204971386445056,2.866308022408197,-12.681581352450209]);
+    // const circle: gs.ICircle = g.addCircle(circle_point, [8.376648782031275,-12.411067032321805,0.2706372332304663], [9.437161624911786,6.578546831064237,9.588471007782674], [0,267.88189588962683]);
+
+
+
+
+    // // test 1
+    // const m: gs.IModel = new gs.Model();
+    // const pt_circle: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const pt_plane: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const circle: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,0,1],[0,360]);
+    // const plane: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
+    // const intersects: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
     // if (intersects !== null) {
     //     for (const point of intersects) {
-    //         console.log(point.getPosition());
+    //         point.getPosition();
     //     }
     // }
+    // // test 2
+    // const pt_circle2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const pt_plane2: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // const circle2: gs.ICircle = m.getGeom().addCircle(pt_circle2,[0,1,0],[0,0,1],[0,360]);
+    // const plane2: gs.IPlane = m.getGeom().addPlane(pt_plane2,[1,0,0],[0,1,0]);
+    // const intersects2: gs.IPoint[] = test._isectCirclePlane3D(circle2,plane2);
+    // // if (intersects !== null) {
+    // //     for (const point of intersects2) {
+    // //         console.log(point.getPosition());
+    // //     }
+    // // }
+    // // test 3
+    // const pt_circle3: gs.IPoint = m.getGeom().addPoint([0,0,3]);
+    // const pt_plane3: gs.IPoint = m.getGeom().addPoint([0,0.5,0]);
+    // const circle3: gs.ICircle = m.getGeom().addCircle(pt_circle3,[1,0,0],[0,1,0],[0,360]);
+    // const plane3: gs.IPlane = m.getGeom().addPlane(pt_plane3,[1,0,0],[0,0,1]);
+    // const intersects3: gs.IPoint[] = test._isectCirclePlane3D(circle3,plane3);
+    // // if (intersects !== null) {
+    // //     for (const point of intersects3) {
+    // //         console.log(point.getPosition());
+    // //     }
+    // // }
+    // // test 3
+    // // const m1: gs.IModel = new gs.Model();
+    // // const pt_circle1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // // const pt_plane1: gs.IPoint = m.getGeom().addPoint([0,0,0]);
+    // // const circle1: gs.ICircle = m.getGeom().addCircle(pt_circle,[1,0,0],[0,1,0],[0,360]);
+    // // const plane1: gs.IPlane = m.getGeom().addPlane(pt_plane,[1,0,0],[0,1,0]);
+    // // const intersects1: gs.IPoint[] = test._isectCirclePlane3D(circle,plane);
+    // // if (intersects !== null) {
+    // //     for (const point of intersects) {
+    // //         console.log(point.getPosition());
+    // //     }
+    // // }
     return true;
 }
 export function test_isectEllipsePlane3D() {
