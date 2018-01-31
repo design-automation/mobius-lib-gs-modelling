@@ -137,3 +137,22 @@ export function test_pline_FromCircle(): boolean {
 
     return true;
 }
+
+export function test_pline_loft(): boolean {
+
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+
+    // London City Hall
+    const pt1: gs.IPoint = g.addPoint([0,0,0]);
+    const pt2: gs.IPoint = g.addPoint([5,0,0]);
+    const circle1: gs.ICircle = g.addCircle(pt1, [6,0,0],[0,6,0],[0,360]);
+    const circle2: gs.ICircle = g.addCircle(pt2, [2,0,0],[0,2,0],[0,360]);
+    const pline1: gs.IPolyline = gsm.pline.FromCircle(circle1, 10);
+    const pline2: gs.IPolyline = gsm.pline.FromCircle(circle2, 10);
+    const mesh: gs.IPolymesh = gsm.pline.loft([pline1, pline2], false);
+
+    if (mesh.numFaces() !== 10) {return false;}
+
+    return true;
+}

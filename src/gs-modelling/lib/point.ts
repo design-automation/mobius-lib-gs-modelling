@@ -12,6 +12,7 @@
  */
 
 import * as gs from "gs-json";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Point Get Copy ================================================================================================
@@ -23,19 +24,21 @@ import * as gs from "gs-json";
  * @param id ID of point to get.
  * @returns Point if successful. Null if the point does nor exist.
  */
-export function Get(model: gs.IModel, id: number): gs.IPoint {
+export function Get(model: gs.IModel, id?: number): gs.IPoint {
     const point: gs.IPoint = model.getGeom().getPoint(id);
-    if (point === undefined) {return null; }
+    if (point === undefined) {error.pointNotExist();}
     return point;
 }
 
 /**
  * Gets a list of points from the model.
  * @param model Model to get points from.
- * @param ids A list of point IDs.
+ * @param ids A point ID or list of point IDs, integer numbers. If null, then all points are returned.
  * @returns A list of points.
  */
-export function Gets(model: gs.IModel, ids: number[]): gs.IPoint[] {
+export function Gets(model: gs.IModel, ids?: number | number[]): gs.IPoint[] {
+    if (ids === undefined || ids === null) {return model.getGeom().getAllPoints();}
+    if (!Array.isArray(ids)) {ids = [ids];}
     let points: gs.IPoint[] = [];
     for (const id of ids) {
         const point: gs.IPoint = Get(model, id);
@@ -45,12 +48,32 @@ export function Gets(model: gs.IModel, ids: number[]): gs.IPoint[] {
 }
 
 /**
- * Gets all the points from an object.
- * @param obj Object
+ * Gets all the points from a group.
+ * @param model Model to get the points from.
+ * @param group_name The group name.
  * @returns List of points.
  */
-export function GetFromObj(obj: gs.IObj): gs.IPoint[] {
-    return obj.getPointsArr();
+export function GetFromGroup(model: gs.IModel, group_name: string): gs.IPoint[] {
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    return group.getPoints();
+}
+
+/**
+ * Gets a list of unique points for a list of objects.
+ * @param obj A list of object
+ * @returns List of points.
+ */
+export function GetFromObjs(objs: gs.IObj | gs.IObj[]): gs.IPoint[] {
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const points_map: Map<number, gs.IPoint> = new Map();
+    const obj_points: gs.IPoint[] = [];
+    for (const obj of objs) {
+        for (const point of obj.getPointsArr()) {
+            points_map.set(point.getID(), point);
+        }
+    }
+    return Array.from(points_map);
 }
 
 /**
@@ -149,13 +172,17 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  * @returns True if successful
  */
 export function del(points: gs.IPoint | gs.IPoint[]): boolean {
-    if (Array.isArray(points)) {
-        if (!points[0].exists()) {throw new Error("Point has been deleted.");}
-        return points[0].getGeom().delPoints(points);
-    } else { // a single entity
-        if (!points.exists()) {throw new Error("Point has been deleted.");}
-        return points.getGeom().delPoint(points);
+    if (!Array.isArray(points)) {points = [points];}
+    if (points.length === 0) {error.pointListEmpty();}
+    const model: gs.IModel = points[0].getModel();
+    const geom: gs.IGeom = model.getGeom();
+    let ok: boolean = true;
+    for (const point of points) {
+        if (!point.exists()) {error.pointNotExist();}
+        if (point.getModel() !== model) {error.pointInOtherModel();}
+        if (!geom.delPoint(point)) {ok = false;}
     }
+    return ok;
 }
 
 /**
@@ -180,8 +207,6 @@ export function setXYZ(point: gs.IPoint, xyz: gs.XYZ): gs.XYZ {
     if (!point.exists()) {throw new Error("Point has been deleted.");}
     return point.setPosition(xyz);
 }
-
-
 
 /**
  * Merges point or a list of points in the model.
@@ -208,13 +233,61 @@ export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] 
  * @returns New point if successful, null if unsuccessful or on error.
  */
 export function merge(points: gs.IPoint[]): gs.IPoint {
-    if (points.length === 0) {return null;}
+    if (!Array.isArray(points)) {error.mustBePointList();}
+    if (points.length === 0) {error.pointListEmpty();}
     const model: gs.IModel = points[0].getModel();
     for (const point of points) {
-        if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
-        if (!point.exists()) {throw new Error("Point has been deleted.");}
+        if (point.getModel() !== model) {error.pointInOtherModel();}
+        if (!point.exists()) {error.pointNotExist();}
     }
-    return model.getGeom().mergePoints(points,4)[0];
+    return model.getGeom().mergePoints(points)[0];
 }
 
+//  ===============================================================================================================
+//  Groups ==============================================================================================
+//  ===============================================================================================================
+
+/**
+ * Add points to a group.
+ *
+ * @param group Name of group to add to.
+ * @param objs List of points to add.
+ * @returns True if all points we successfully added.
+ */
+export function addToGroup(points: gs.IPoint[] | gs.IPoint, group_name: string): boolean {
+    if (!Array.isArray(points)) {points = [points];}
+    if (points.length === 0) {error.pointListEmpty();}
+    const model: gs.IModel = points[0].getModel();
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    let ok: boolean = true;
+    for (const point of points) {
+        if (!point.exists()) {error.pointNotExist();}
+        if (point.getModel() !== model) {error.pointInOtherModel();}
+        if (!group.addPoint(point as gs.IPoint)) {ok = false;}
+    }
+    return ok;
+}
+
+/**
+ * Remove points from a group.
+ *
+ * @param group Name of group to remove from.
+ * @param objs List of point to remove.
+ * @returns True if all points we successfully removed.
+ */
+export function removeFromGroup(points: gs.IPoint[] | gs.IPoint, group_name: string): boolean {
+    if (!Array.isArray(points)) {points = [points];}
+    if (points.length === 0) {error.pointListEmpty();}
+    const model: gs.IModel = points[0].getModel();
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    let ok: boolean = true;
+    for (const point of points) {
+        if (!point.exists()) {error.pointNotExist();}
+        if (point.getModel() !== model) {error.pointInOtherModel();}
+        if (!group.removePoint(point as gs.IPoint)) {ok = false;}
+    }
+    return ok;
+}
 

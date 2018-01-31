@@ -14,4 +14,7 @@ describe("Tests for Point Module", () => {
     it("test_point_Gets", () => {
         expect( tests.test_point_Gets() ).toBe(true);
     });
+    it("test_point_groups", () => {
+        expect( tests.test_point_groups() ).toBe(true);
+    });
 });

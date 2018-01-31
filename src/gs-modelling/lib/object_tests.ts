@@ -20,3 +20,18 @@ export function test_obj_Gets(): boolean {
     if(objs[1] === undefined) {return false;}
     return true;
 }
+
+export function test_obj_groups(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const group: gs.IGroup = gsm.group.Create(m, "test");
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
+    const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(points[1], 5, null);
+    gsm.object.addToGroup([pline, circle], "test");
+    const objs: gs.IObj[] = gsm.object.GetFromGroup(m, "test");
+    if (objs.length !== 2) {return false;}
+    gsm.object.removeFromGroup(circle, "test");
+    const objs2: gs.IObj[] = gsm.object.GetFromGroup(m, "test");
+    if (objs2.length !== 1) {return false;}
+    return true;
+}

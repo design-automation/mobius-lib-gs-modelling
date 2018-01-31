@@ -4,6 +4,9 @@ export {calc};
 import * as attrib from "./attrib";
 export {attrib};
 
+import * as group from "./group";
+export {group};
+
 import * as circle from "./circle";
 export {circle};
 

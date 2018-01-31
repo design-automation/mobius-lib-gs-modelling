@@ -456,11 +456,8 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPoly
             points1.push(points1[0]);
         }
         for (let j=0; j< num_points-1;j++) {
-            const j2 = j%2;
-            if (j2 === 0) {mesh_points.push([]);}
-            const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
-            face[j2] = points0[j];
-            face[3 - j2] = points1[j];
+            const face: gs.IPoint[] = [points0[j], points0[j+1], points1[j+1], points1[j]];
+            mesh_points.push(face);
         }
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);

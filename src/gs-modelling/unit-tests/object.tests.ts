@@ -8,4 +8,8 @@ describe("Tests for Obj Module", () => {
     it("test_obj_Gets", () => {
         expect( tests.test_obj_Gets() ).toBe(true);
     });
+    it("test_obj_groups", () => {
+        expect( tests.test_obj_groups() ).toBe(true);
+    });
+
 });

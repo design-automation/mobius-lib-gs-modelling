@@ -29,5 +29,8 @@ describe("Tests for Pline Module", () => {
     });
     it("test_pline_FromCircle", () => {
         expect( pline_tests.test_pline_FromCircle() ).toBe(true);
-    });    
+    });
+    it("test_pline_loft", () => {
+        expect( pline_tests.test_pline_loft() ).toBe(true);
+    });
 });

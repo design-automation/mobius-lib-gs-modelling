@@ -5,7 +5,7 @@
  */
 
 import * as gs from "gs-json";
-
+import * as error from "./_error_msgs_dev";
 //  ===============================================================================================================
 //  Object Get ====================================================================================================
 //  ===============================================================================================================
@@ -17,8 +17,9 @@ import * as gs from "gs-json";
  * @returns An object. Null if object does not exist.
  */
 export function Get(model: gs.IModel, id: number): gs.IObj {
+    if(isNaN(id)) {error.invalidID()}
     const obj: gs.IObj = model.getGeom().getObj(id);
-    if (obj === undefined) {return null; }
+    if (obj === undefined) {error.objNotExist();}
     switch (obj.getObjType()) {
         case gs.EObjType.ray:
             return obj as gs.IRay;
@@ -40,16 +41,30 @@ export function Get(model: gs.IModel, id: number): gs.IObj {
 /**
  * Gets a list of objects from the model.
  * @param model Model to get objects from.
- * @param ids A list of object IDs.
+ * @param ids A point ID or list of point IDs, integer numbers. If null, then all objects are returned.
  * @returns A list of objects.
  */
-export function Gets(model: gs.IModel, ids: number[]): gs.IObj[] {
+export function Gets(model: gs.IModel, ids?: number | number[]): gs.IObj[] {
+    if (ids === undefined || ids === null) {return model.getGeom().getAllObjs();}
+    if (!Array.isArray(ids)) {ids = [ids];}
     let objs: gs.IObj[] = [];
     for (const id of ids) {
         const obj: gs.IObj = Get(model, id);
         if (obj !== null) {objs.push(obj);}
     }
     return objs;
+}
+
+/**
+ * Gets all the objects from a group.
+ * @param model Model to get the objects from.
+ * @param group_name The group name.
+ * @returns List of objects.
+ */
+export function GetFromGroup(model: gs.IModel, group_name: string): gs.IObj[] {
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    return group.getObjs();
 }
 
 //  ===============================================================================================================
@@ -64,24 +79,67 @@ export function Gets(model: gs.IModel, ids: number[]): gs.IObj[] {
  * Deletes object or a list of objects from the model.
  *
  * @param objs Object or list of objects to delete.
- * @param keep_points If false, points that are not used in any other obejcts will be deleted.
+ * @param keep_points If false, points that are not used in any other objects will be deleted.
  * @returns True if successful
  */
 export function del(objs: gs.IObj | gs.IObj[], keep_points: boolean): boolean {
-    if (Array.isArray(objs)) {
-        let result = false;
-        for (const obj of objs) {
-            if (obj.exists()) {
-                const geom: gs.IGeom = obj.getGeom();
-                const obj_result: boolean = geom.delObj(obj, keep_points);
-                if (obj_result) {result = true;}
-            }
-        }
-        return result;
-    } else { // a single entity
-        if (!objs.exists()) {return false;}
-        const geom: gs.IGeom = objs.getGeom();
-        return geom.delObj(objs, keep_points);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    if (objs.length === 0) {error.objListEmpty();}
+    const model: gs.IModel = objs[0].getModel();
+    const geom: gs.IGeom = model.getGeom();
+    let ok: boolean = true;
+    for (const obj of objs) {
+        if (!obj.exists()) {error.objNotExist();}
+        if (obj.getModel() !== model) {error.objInOtherModel();}
+        if (!geom.delObj(obj, keep_points)) {ok = false;}
     }
+    return ok;
 }
 
+//  ===============================================================================================================
+//  Groups ==============================================================================================
+//  ===============================================================================================================
+
+/**
+ * Add objects to a group.
+ *
+ * @param group Name of group to add to.
+ * @param objs List of objects to add.
+ * @returns True if all objects we successfully added.
+ */
+export function addToGroup(objs: gs.IObj | gs.IObj[], group_name: string): boolean {
+    if (!Array.isArray(objs)) {objs = [objs];}
+    if (objs.length === 0) {error.objListEmpty();}
+    const model: gs.IModel = objs[0].getModel();
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    let ok: boolean = true;
+    for (const obj of objs) {
+        if (!obj.exists()) {error.objNotExist();}
+        if (obj.getModel() !== model) {error.objInOtherModel();}
+        if (!group.addObj(obj as gs.IObj)) {ok = false;}
+    }
+    return ok;
+}
+
+/**
+ * Remove object from a group.
+ *
+ * @param group Name of group to add to.
+ * @param objs List of object to remove.
+ * @returns True if all objects we successfully removed.
+ */
+export function removeFromGroup(objs: gs.IObj | gs.IObj[], group_name: string): boolean {
+    if (!Array.isArray(objs)) {objs = [objs];}
+    if (objs.length === 0) {error.objListEmpty();}
+    const model: gs.IModel = objs[0].getModel();
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === undefined) {error.groupNotExist();}
+    let ok: boolean = true;
+    for (const obj of objs) {
+        if (!obj.exists()) {error.objNotExist();}
+        if (obj.getModel() !== model) {error.objInOtherModel();}
+        if (!group.removeObj(obj as gs.IObj)) {ok = false;}
+    }
+    return ok;
+}

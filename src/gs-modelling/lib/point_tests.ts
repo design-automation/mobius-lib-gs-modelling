@@ -30,3 +30,16 @@ export function test_point_Gets(): boolean {
     if (result[0].getPosition()[0] !== 2) {return false;}
     return true;
 }
+
+export function test_point_groups(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const group: gs.IGroup = gsm.group.Create(m, "test");
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
+    gsm.point.addToGroup([points[0], points[2]], "test");
+    const points2: gs.IPoint[] = gsm.point.GetFromGroup(m, "test");
+    if (points2.length !== 2) {return false;}
+    gsm.point.removeFromGroup(points[2], "test");
+    const points3: gs.IPoint[] = gsm.point.GetFromGroup(m, "test");
+    if (points3.length !== 1) {return false;}
+    return true;
+}
