@@ -230,6 +230,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     if(plane.getModel() !== m) {
         throw new Error("Identical models are required for the circle and the plane");
     }
+    if(!circle.isClosed()) {throw new Error("CirclePlane3D function currently implemented for closed circles");}
     // get plane
     const PO: number[] = plane.getOrigin().getPosition();
     const n1: number[] = [plane.getCartesians()[0],plane.getCartesians()[1],plane.getCartesians()[2]];
