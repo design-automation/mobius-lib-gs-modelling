@@ -196,7 +196,7 @@ export function thicken(pmesh: gs.IPolymesh, dist1: number, dist2: number): gs.I
     const pmesh2: gs.IPolymesh = pmesh.copy() as gs.Polymesh; //Copies the points as well
     //flipFaces(pmesh*-1); // TODO
     offset(pmesh, dist1);
-    offset(pmesh2, dist2 * -1); //TODO
+    offset(pmesh2, dist2 * -1); // TODO
     const wires1: gs.IWire[] = pmesh.getWires();
     const wires2: gs.IWire[] = pmesh2.getWires();
     if (wires1.length !== wires2.length) {throw new Error("Error occured while thickening mesh.");}

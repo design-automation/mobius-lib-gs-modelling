@@ -7,10 +7,23 @@ import * as math_conic from "./_math_conic_dev";
 //  Util method
 //  ==========================================================================================================
 export function _argsCheckAngles(angles: [number, number]): [number, number] {
+    //export function checkCircleAngles(angles: [number, number]): [number, number] {
     if (angles === undefined || angles === null) {return undefined;}
-    if (angles[0] < 0) {angles[0] = Math.abs(angles[0]);} else if (angles[0] > 360) {angles[0] = angles[0]%360;}
-    if (angles[1] < 0) {angles[1] = Math.abs(angles[1]);} else if (angles[1] > 360) {angles[1] = angles[0]%360;}
-    if (angles[0] > angles[1]) {angles.reverse();}
+    // fix angle 0
+    if (Math.abs(angles[0]) > 360) {
+        angles[0] = angles[0] % 360;
+    }
+    if (angles[0] < 0) {
+        angles[0] = 360  + angles[0];
+    }
+    // fix angle 1
+    if (Math.abs(angles[1]) > 360) {
+        angles[1] = angles[1] % 360;
+    }
+    if (angles[1] < 0) {
+        angles[1] = 360  + angles[1];
+    }
+    // return the fixed angles
     return angles;
 }
 
@@ -52,7 +65,6 @@ export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPo
         return origin.getGeom().addCircle(origin, vec_x, vec, [0, result.angle]);
     }
 }
-
 
 /**
  * Adds an arc to the model based on three points

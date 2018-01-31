@@ -64,16 +64,16 @@ export function Gets(model: gs.IModel, ids: number[]): gs.IObj[] {
  * Deletes object or a list of objects from the model.
  *
  * @param objs Object or list of objects to delete.
- * @param keep_unused_points If true, points that are not used in any other obejcts will be deleted.
+ * @param keep_points If false, points that are not used in any other obejcts will be deleted.
  * @returns True if successful
  */
-export function del(objs: gs.IObj | gs.IObj[], keep_unused_points: boolean): boolean {
+export function del(objs: gs.IObj | gs.IObj[], keep_points: boolean): boolean {
     if (Array.isArray(objs)) {
         let result = false;
         for (const obj of objs) {
             if (obj.exists()) {
                 const geom: gs.IGeom = obj.getGeom();
-                const obj_result: boolean = geom.delObj(obj, keep_unused_points);
+                const obj_result: boolean = geom.delObj(obj, keep_points);
                 if (obj_result) {result = true;}
             }
         }
@@ -81,7 +81,7 @@ export function del(objs: gs.IObj | gs.IObj[], keep_unused_points: boolean): boo
     } else { // a single entity
         if (!objs.exists()) {return false;}
         const geom: gs.IGeom = objs.getGeom();
-        return geom.delObj(objs, keep_unused_points);
+        return geom.delObj(objs, keep_points);
     }
 }
 
