@@ -25,6 +25,7 @@ function writeToJSONFile(model: gs.IThreeScene, filename: string): boolean {
  */
 if(require.main === module)  {
     console.log("Starting to write three files...");
+    writeToJSONFile(gs.genThreeOptModel(gen.genModelTest0()), "test0.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1()), "test1.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest1b()), "test1b.json");
     writeToJSONFile(gs.genThreeOptModel(gen.genModelTest2()), "test2.json");
