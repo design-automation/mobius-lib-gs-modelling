@@ -6,8 +6,10 @@
  */
 
 import * as gs from "gs-json";
-import {_pointsExtend, _pointsEvaluate} from "./pline_dev";
 import * as three from "three";
+import * as threex from "./_three_utils_dev";
+import * as poly from "./_math_poly_dev";
+import * as utils from "./_utils_dev";
 
 //  ===============================================================================================================
 //  Pline Get and Copy ============================================================================================
@@ -57,8 +59,6 @@ export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPoly
 //  Pline Constructors ============================================================================================
 //  ===============================================================================================================
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
-//  http://verbnurbs.com/docs/geom/Line/
 /**
  * Adds a polyline to the model by joining a list of points
  *
@@ -99,8 +99,6 @@ export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
     return m.getGeom().addPolyline(points, circle.isClosed());
 }
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-AddLine
-//  http://verbnurbs.com/docs/geom/Line/
 /**
  * Adds a straight line to the model from two points
  *
@@ -114,7 +112,7 @@ export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
 }
 
 //  ===============================================================================================================
-//  Pline Functions ===============================================================================================
+//  Pline Simple Functions ===============================================================================================
 //  ===============================================================================================================
 
 /**
@@ -131,14 +129,17 @@ export function isClosed(pline: gs.IPolyline): boolean {
  * Sets the polyline to be open or cosed
  * @param pline Polyline object
  * @param is_closed The value to set
+ * @return True if an open polyline was closed, false is the polyline was already closed.
  */
-export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): void {
+export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): boolean {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
+    if (pline.isClosed()) {return false;}
     pline.setIsClosed(is_closed);
+    return true;
 }
 
 /**
- * Returns numner of edges in the polyline
+ * Returns the number of edges in the polyline
  * @param pline Polyline object.
  * @return The number of edges.
  */
@@ -148,7 +149,7 @@ export function numEdges(pline: gs.IPolyline): number {
 }
 
 /**
- * Returns numner of vertices in the polyline
+ * Returns the number of vertices in the polyline
  * @param pline Polyline object.
  * @return The number of vertices.
  */
@@ -179,13 +180,15 @@ export function getEndPoints(pline: gs.IPolyline): gs.IPoint[] {
     return [points[0], points[points.length - 1]];
 }
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-EvaluateCurve
-//  http://verbnurbs.com/docs/geom/ICurve/#point
+//  ===============================================================================================================
+//  Pline Modelling Functions ===============================================================================================
+//  ===============================================================================================================
+
 /**
  * Returns a point on a polyline based on a parameter along the polyline
  * @param pline Polyline to evaluate
  * @param t Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)
- * @param segment_index The segment of the polyline to evaluate.
+ * @param segment_index The segment of the polyline to evaluate. When -1, the whole polyline is evaluated.
  * @returns Point if successful
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
@@ -196,16 +199,14 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
         if (segment_index > points.length - 1) {throw new Error("segments_index is out of range."); }
         points = points.splice(segment_index, 2);
     }
-    return _pointsEvaluate(points, t);
+    return poly.pointsEvaluate(points, t);
 }
 
 /**
- * Join a set of polylines. Only polylies that are connected end to end will be joined,
+ * Join polylines with shared end points. The original polyline is deleted.
  *
- * Joins polymeshes together and returns a single polymesh<br/>
- * Returns null if polymeshes do not intersect or touch
- * @param pmeshes List of polymeshes to weld
- * @returns New polymesh created from weld if successful, null if unsuccessful or on error
+ * @param plines List of polylines to join.
+ * @returns A list of joined polylines.
  */
 export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
     // get the model
@@ -301,16 +302,15 @@ export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
 }
 
 /**
- * Explodes a polyline into individual segments
+ * Explodes a polyline into individual segments. The original polyline is not modified.
  *
  * Each straight line segment in the polyline is returned as a separate polyline object
  * @param pline Polyline to explode
- * @param copy Performs transformation on duplicate copy of input polyline if true
  * @returns List of new polylines created from explode
  */
-export function explode(pline: gs.IPolyline, copy: boolean): gs.IPolyline[] {
+export function explode(pline: gs.IPolyline): gs.IPolyline[] {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
-    return this.extract(pline, gs.Arr.makeSeq(pline.numEdges()), copy);
+    return this.extract(pline, gs.Arr.makeSeq(pline.numEdges()));
 }
 
 /**
@@ -341,27 +341,26 @@ export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyl
     return plines;
 }
 
-//  http://developer.rhino3d.com/api/RhinoScriptSyntax/#curve-ExtendCurveLength
 /**
- * Extends a non-closed polyline by specified distance
+ * Extends a non-closed polyline by specified distance. The original polyline is modified.
  *
- * Extention is straight and continues in the same direction as the extended segment<br/>
- * Returns null if distance is negative
+ * Extension is straight and continues in the same direction as the extended segment<br/>
+ *
  * @param pline Polyline object
- * @param extrusion_side 0 = start, 1 = end, 2 = both
+ * @param extend_side 0 = start, 1 = end, 2 = both
  * @param length Distance to extend
  * @returns Polyline object if successful, null if unsuccessful or on error
  */
-export function extend(pline: gs.IPolyline, extrusion_side: number, length: number,
-                       create_points: boolean): gs.IPolyline {
+export function extend(pline: gs.IPolyline, extend_side: number, length: number,
+                       create_points: boolean = true): gs.IPolyline {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     // extend? which side?
-    switch (extrusion_side) {
+    switch (extend_side) {
         case 0: case 2:
             const edges1: gs.IEdge[] = pline.getEdges()[0][0];
             const first_edge = edges1[0];
             const points1: gs.IPoint[] = first_edge.getVertices().map((v) => v.getPoint());
-            const extended1: gs.IPoint = _pointsExtend(points1[1], points1[0], length, create_points);
+            const extended1: gs.IPoint = poly.pointsExtend(points1[1], points1[0], length, create_points);
             if (create_points) {
                 pline.insertVertex(first_edge, extended1);
             }
@@ -369,7 +368,7 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
             const edges2: gs.IEdge[] = pline.getEdges()[0][0];
             const last_edge = edges2[edges2.length - 1];
             const points2: gs.IPoint[] = last_edge.getVertices().map((v) => v.getPoint());
-            const extended2: gs.IPoint = _pointsExtend(points2[0], points2[1], length, create_points);
+            const extended2: gs.IPoint = poly.pointsExtend(points2[0], points2[1], length, create_points);
             if (create_points) {
                 pline.insertVertex(last_edge, extended2);
             }
@@ -378,7 +377,8 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
 }
 
 /**
- * Extrudes a polyline according to a specified vector to create a polymesh
+ * Extrudes a polyline according to a specified vector to create a polymesh.
+ * The original polyline is not modified.
  *
  * Pline is moved by the specified vector and straight line segments are created between the vertices of
  * the input pline and moved pline. The resulting straight line segments and the straight line segments of the
@@ -387,6 +387,7 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
  *
  * If cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are
  * joined to the polymesh from above.
+ *
  * @param pline Polyline to extrude
  * @param vector Vector describing direction and distance of extrusion
  * @param cap Closes polymesh by creating a polygon on each end of the extrusion if true
@@ -395,126 +396,58 @@ export function extend(pline: gs.IPolyline, extrusion_side: number, length: numb
 export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.IPolymesh {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     const m: gs.IModel = pline.getModel();
-    const points: gs.IPoint[] = pline.getPointsArr();
-    const new_points: gs.IPoint[] = [];
-    const mesh_points: gs.IPoint[][] = [];
-    for (let i = 0; i < points.length; i++) {
-        const i2 = i%2;
-        if (i2 === 0) {mesh_points.push([]);}
-        const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
-        const pos: number[] = points[i].getPosition();
-        face[i2] = points[i];
-        // create the new point by adding the vector
-        const new_point: gs.IPoint = m.getGeom().addPoint([pos[0] + vector[0], pos[1] + vector[1], pos[2] + vector[2]]);
-        new_points.push(new_point);
-        face[3 - i2] = new_point;
-    }
+    const g: gs.IGeom = m.getGeom();
+    const points1: gs.IPoint[] = pline.getPointsArr();
+    const points2: gs.IPoint[] = points1.map((p) => p.copy() as gs.IPoint);
+    threex.movePointsAddXYZ(points2, vector);
+    const mesh_points: gs.IPoint[][] = poly.pointsLoft([points1, points2], pline.isClosed());
     if (cap) {
-        mesh_points.push(points.reverse());
-        mesh_points.push(new_points);
+        mesh_points.push(points1.reverse());
+        mesh_points.push(points2);
     }
     const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
     return pmesh;
 }
 
 /**
- * Lofts a list of polylines with the same number of segments to create a polymesh
+ * Lofts a list of polylines with the same number of segments to create a polymesh.
+ * The original polylines are not modified.
  *
  * Straight line segments are created between the vertices of every two input plines. The resulting
  * straight line segments and the straight line segments of the plines are used to define the edges of
  * four-sided polygons. The polygons created from all the plines are joined to create a polymesh<br/>
  *
  * Returns null if polylines do not have the same number of segments
+ *
  * @param plines List of polylines to loft (in order)
  * @param is_closed Closes polymesh by lofting back to first polyline if true
  * @returns Polymesh created from loft if successful, null if unsuccessful or on error
  */
 export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
+    // check args
     for (const pline of plines) {
         if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     }
-    const m: gs.IModel = plines[0].getModel();
-    if (is_closed) {plines.push(plines[0]);}
     if (plines.length < 2) {throw new Error("Too few polylines to loft.");}
-    const num_points: number = plines[0].getWires()[0].numVertices();
+    // get model and geom
+    const m: gs.IModel = plines[0].getModel();
+    const g: gs.IGeom = m.getGeom();
+    // get data
+    if (is_closed) {plines.push(plines[0]);}
+    const num_points: number = plines[0].numVertices();
     const num_plines: number = plines.length;
     const plines_closed: boolean = plines[0].isClosed();
-    for (let i = 1; i< num_plines; i++) {
-        if (plines[i].getWires()[0].numVertices() !== num_points) {
+    // get points
+    const points: gs.IPoint[][] = [];
+    for (let i = 0; i< num_plines; i++) {
+        if (plines[i].numVertices() !== num_points) {
             throw new Error("Plines do not have equal numbers of points.");
         }
         if (plines[i].isClosed() !== plines_closed) {
             throw new Error("Plines must all be either open or closed.");
         }
+        points.push(plines[i].getPointsArr());
     }
-    const mesh_points: gs.IPoint[][] = [];
-    for (let i=0; i< num_plines-1;i++) {
-        const points0: gs.IPoint[] = plines[i].getPointsArr();
-        const points1: gs.IPoint[] = plines[i+1].getPointsArr();
-        if (plines_closed) {
-            points0.push(points0[0]);
-            points1.push(points1[0]);
-        }
-        for (let j=0; j< num_points-1;j++) {
-            const face: gs.IPoint[] = [points0[j], points0[j+1], points1[j+1], points1[j]];
-            mesh_points.push(face);
-        }
-    }
-    const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
-    return pmesh;
-}
-
-/**
- * Sweeps a cross_section polyline along a rail polyline to create a polymesh.
- * The cross sesctions remain parallel.
- *
- * @param cross_section Polyline to sweep
- * @param rail Rail polyline to sweep along
- * @returns Polymesh created from sweep
- */
-export function sweepParallel(cross_section: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
-    if (!cross_section.exists()) {throw new Error("Cross section has been deleted.");}
-    if (!rail.exists()) {throw new Error("Rail has been deleted.");}
-    if (cross_section.getModel() !== rail.getModel()) {throw new Error("Cross section and rail must be in the same model.");}
-    const m: gs.IModel = cross_section.getModel();
-    if (rail.getModel() !== m) {throw new Error("The cross_section and the rail must be in the same model.");}
-    const cross_points: gs.IPoint[] = cross_section.getPointsArr();
-    if (cross_section.isClosed) {cross_points.push(cross_points[0]);}
-    const rail_points: gs.IPoint[] = rail.getPointsArr();
-    if (rail.isClosed) {rail_points.push(rail_points[0]);}
-    const mesh_points: gs.IPoint[][] = [];
-    const pline_start_pos: number[] = cross_points[0].getPosition();
-    for (let i = 0; i< cross_points.length - 1; i++) {
-        const pline_pos1: number[] = cross_points[i].getPosition();
-        const pline_pos2: number[] = cross_points[i+1].getPosition();
-        const vec1: number[] = [
-            pline_pos1[0] - pline_start_pos[0],
-            pline_pos1[1] - pline_start_pos[1],
-            pline_pos1[2] - pline_start_pos[2],
-        ];
-        const vec2: number[] = [
-            pline_pos2[0] - pline_start_pos[0],
-            pline_pos2[1] - pline_start_pos[1],
-            pline_pos2[2] - pline_start_pos[2],
-        ];
-        for (let j=0; j< rail_points.length-1;j++) {
-            const rail_pos1: gs.XYZ = rail_points[j].getPosition();
-            const rail_pos2: gs.XYZ = rail_points[j+1].getPosition();
-            const j2 = j%2;
-            let vec: number[];
-            if (j2 === 0) {
-                mesh_points.push([]);
-                vec = vec1;
-            } else {
-                vec = vec2;
-            }
-            const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
-            const pos1: gs.XYZ = [rail_pos1[0] + vec[0], rail_pos1[1] + vec[1], rail_pos1[2] + vec[2]];
-            const pos2: gs.XYZ = [rail_pos2[0] + vec[0], rail_pos2[1] + vec[1], rail_pos2[2] + vec[2]];
-            face[j2] = m.getGeom().addPoint(pos1);
-            face[3 - j2] = m.getGeom().addPoint(pos2);
-        }
-    }
-    const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
-    return pmesh;
+    // make polymesh from points and return it
+    return g.addPolymesh(poly.pointsLoft(points, plines_closed));
 }

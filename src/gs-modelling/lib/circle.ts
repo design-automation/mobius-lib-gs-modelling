@@ -87,7 +87,7 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
  * @returns Circle object.
  */
 export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ,
-                                  angles: [number, number] ): gs.ICircle {
+                                   angles: [number, number] ): gs.ICircle {
     if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
@@ -234,9 +234,11 @@ export function getArcAngles(circle: gs.ICircle): [number, number] {
  * @param circle Circle object to set angles for.
  * @param angles The angles to set, two numbers between 0 and 360. If null, then the circle is closed.
  */
-export function setArcAngles(circle: gs.ICircle, angles: [number, number]): void {
+export function setArcAngles(circle: gs.ICircle, angles: [number, number]): [number, number] {
     if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    const old_angles: [number, number] = circle.getAngles();
     circle.setAngles(util._argsCheckAngles(angles));
+    return old_angles;
 }
 
 /**
@@ -254,10 +256,13 @@ export function isClosed(circle: gs.ICircle): boolean {
  * Closes the arc, so that it becomes a circle.
  *
  * @param circle Circle object to close.
+ * @return True if the open circle was closed, false if the circle was already closed.
  */
-export function close(circle: gs.ICircle): void {
+export function close(circle: gs.ICircle): boolean {
     if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    if (circle.isClosed()) {return false;}
     circle.setAngles(undefined);
+    return true;
 }
 
 //  ===============================================================================================================

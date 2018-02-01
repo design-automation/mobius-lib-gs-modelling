@@ -4,6 +4,60 @@ import * as xform from "./_math_xform_dev";
 import * as three_utils from "./_three_utils_dev";
 
 
+/**
+ * Sweeps a cross_section polyline along a rail polyline to create a polymesh.
+ * The cross sesctions remain parallel.
+ *
+ * @param cross_section Polyline to sweep
+ * @param rail Rail polyline to sweep along
+ * @returns Polymesh created from sweep
+ */
+export function sweepParallel(cross_section: gs.IPolyline, rail: gs.IPolyline): gs.IPolymesh {
+    if (!cross_section.exists()) {throw new Error("Cross section has been deleted.");}
+    if (!rail.exists()) {throw new Error("Rail has been deleted.");}
+    if (cross_section.getModel() !== rail.getModel()) {throw new Error("Cross section and rail must be in the same model.");}
+    const m: gs.IModel = cross_section.getModel();
+    if (rail.getModel() !== m) {throw new Error("The cross_section and the rail must be in the same model.");}
+    const cross_points: gs.IPoint[] = cross_section.getPointsArr();
+    if (cross_section.isClosed) {cross_points.push(cross_points[0]);}
+    const rail_points: gs.IPoint[] = rail.getPointsArr();
+    if (rail.isClosed) {rail_points.push(rail_points[0]);}
+    const mesh_points: gs.IPoint[][] = [];
+    const pline_start_pos: number[] = cross_points[0].getPosition();
+    for (let i = 0; i< cross_points.length - 1; i++) {
+        const pline_pos1: number[] = cross_points[i].getPosition();
+        const pline_pos2: number[] = cross_points[i+1].getPosition();
+        const vec1: number[] = [
+            pline_pos1[0] - pline_start_pos[0],
+            pline_pos1[1] - pline_start_pos[1],
+            pline_pos1[2] - pline_start_pos[2],
+        ];
+        const vec2: number[] = [
+            pline_pos2[0] - pline_start_pos[0],
+            pline_pos2[1] - pline_start_pos[1],
+            pline_pos2[2] - pline_start_pos[2],
+        ];
+        for (let j=0; j< rail_points.length-1;j++) {
+            const rail_pos1: gs.XYZ = rail_points[j].getPosition();
+            const rail_pos2: gs.XYZ = rail_points[j+1].getPosition();
+            const j2 = j%2;
+            let vec: number[];
+            if (j2 === 0) {
+                mesh_points.push([]);
+                vec = vec1;
+            } else {
+                vec = vec2;
+            }
+            const face: gs.IPoint[] = mesh_points[mesh_points.length - 1];
+            const pos1: gs.XYZ = [rail_pos1[0] + vec[0], rail_pos1[1] + vec[1], rail_pos1[2] + vec[2]];
+            const pos2: gs.XYZ = [rail_pos2[0] + vec[0], rail_pos2[1] + vec[1], rail_pos2[2] + vec[2]];
+            face[j2] = m.getGeom().addPoint(pos1);
+            face[3 - j2] = m.getGeom().addPoint(pos2);
+        }
+    }
+    const pmesh: gs.IPolymesh = m.getGeom().addPolymesh(mesh_points);
+    return pmesh;
+}
 
 /**
  * Adds a polyline from the model based on a conic curve
@@ -99,54 +153,3 @@ export function weld(plines: gs.IPolyline[], is_closed: boolean): gs.IPolyline {
 //  ===============================================================================================================
 //  PRIVATE ======================================================================================================
 //  ===============================================================================================================
-
-/**
- * Private function that moves the end point away from the start point by distance.
- * If create_point is true, then a new point get created, otherwise the existing point gets moved.
- */
-export function _pointsExtend(start: gs.IPoint, end: gs.IPoint, distance: number, create: boolean = true): gs.IPoint {
-    const start_vec: three.Vector3 = new three.Vector3(...start.getPosition());
-    const end_vec: three.Vector3 = new three.Vector3(...end.getPosition());
-    const dir_vec: three.Vector3 = three_utils.subVectors(end_vec, start_vec);
-    dir_vec.setLength(distance);
-    const new_xyz: gs.XYZ = three_utils.addVectors(end_vec, dir_vec).toArray() as gs.XYZ;
-    if (create) {
-        const geom: gs.IGeom = start.getGeom();
-        return geom.addPoint(new_xyz);
-    } else {
-        end.setPosition(new_xyz);
-        return end;
-    }
-}
-
-/**
- * Private function that evaluates the position between a sequence of points.
- * A new point is always created.
- */
-export function _pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
-    const geom: gs.IGeom = points[0].getGeom();
-    if (t_param === 0) {return geom.addPoint(points[0].getPosition());}
-    if (t_param === 1) {return geom.addPoint(points[points.length - 1].getPosition());}
-    if (t_param < 0 || t_param > 1) {throw new Error("t parameter is out of range");}
-    const vec_points: three.Vector3[] = points.map((point) => new three.Vector3(...point.getPosition()));
-    const num_segs = points.length - 1;
-    const dists_to_segends: number[] = [];
-    let total_length: number = 0;
-    for  (let i = 0; i < num_segs; i++) {
-        const seg_vec: three.Vector3 = three_utils.subVectors(vec_points[i+1], vec_points[i]);
-        total_length += seg_vec.length();
-        dists_to_segends.push(total_length);
-    }
-    const t_mapped = t_param * total_length;
-    for  (let i = 0; i < vec_points.length - 1; i++) {
-        if (t_mapped >= dists_to_segends[i] && t_mapped < dists_to_segends[i + 1]) {
-            const start_seg: three.Vector3 = vec_points[i];
-            const end_seg: three.Vector3 = vec_points[i + 1];
-            const seg_vec: three.Vector3 = three_utils.subVectors(start_seg, end_seg);
-            const start_dist: number = dists_to_segends[i - 1];
-            seg_vec.setLength(t_mapped - start_dist);
-            const xyz: gs.XYZ = three_utils.addVectors(start_seg, seg_vec).toArray() as gs.XYZ;
-            return geom.addPoint(xyz);
-        }
-    }
-}

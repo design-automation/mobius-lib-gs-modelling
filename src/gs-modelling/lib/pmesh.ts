@@ -8,6 +8,8 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as math_poly from "./_math_poly_dev";
+import * as utils from "./_utils_dev";
+import * as poly from "./_math_poly_dev";
 
 //  ===============================================================================================================
 //  Pmesh Get =====================================================================================================
@@ -89,142 +91,94 @@ export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
 }
 
 //  ===============================================================================================================
-//  Pmesh Functions ===============================================================================================
+//  Pmesh Simple Functions ===============================================================================================
 //  ===============================================================================================================
 
 /**
- * Offsets a polymesh along its normal by a specified distance
- *
- * Each face is moved by specified distance in the direction of its normal and rejoined (extended or
- * trimmed to fit) to create a new surface
- * @param pmesh Polymesh object
- * @param distance Distance to offset polymesh
- * @returns New offset polymesh if successful
+ * Checks if the polymesh is closed
+ * @param pmesh Polyline object
+ * @return True if the polyline is closed
  */
-export function offset(pmesh: gs.IPolymesh, distance: number): void {
-    // check args
-    if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-    const model: gs.IModel = pmesh.getModel();
-    const geom: gs.IGeom = model.getGeom();
-    // create a map of point -> vertices in this pmesh
-    const vertices: gs.IVertex[] = gs.Arr.flatten(pmesh.getVertices(gs.EGeomType.faces));
-    const vertices_map: Map<number, gs.IVertex[]> = new Map();
-    for (const vertex of vertices) {
-        const id: number = vertex.getPoint().getID();
-        if (!vertices_map.has(id)) {vertices_map.set(id, []);}
-        vertices_map.get(id).push(vertex);
-    }
-    // move each point
-    for (const [point_id, vertices] of vertices_map.entries()) {
-        let normal: three.Vector3;
-        if (vertices.length ===1) {
-            normal = math_poly.getVertexNormal(vertices[0]);
-            normal.setLength(distance);
-        } else {
-            // get the normal mean
-            const vertex_normals: three.Vector3[] = [];
-            normal = new three.Vector3();
-            for (const vertex of vertices) {
-                const vertex_normal: three.Vector3 = math_poly.getVertexNormal(vertex);
-                vertex_normals.push(vertex_normal);
-                normal.add(vertex_normal);
-            }
-            const angle = normal.angleTo(vertex_normals[0]);
-            const len: number = distance / Math.cos(angle);
-            normal.setLength(len);
-        }
-        // set the point position
-        const point: gs.IPoint = geom.getPoint(point_id);
-        const old_pos: gs.XYZ = point.getPosition();
-        const new_pos: gs.XYZ = [old_pos[0] + normal.x, old_pos[1] + normal.y, old_pos[2] + normal.z];
-        point.setPosition(new_pos);
-    }
+export function isClosed(pmesh: gs.IPolymesh): boolean {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return pmesh.numWires() === 0;
 }
 
 /**
- * Join a set of polymeshes to form a single polymesh.
- *
- * Returns null if polymeshes do not intersect or touch
- * @param pmeshes List of polymeshes to weld
- * @returns New polymesh created from weld if successful, null if unsuccessful or on error
+ * Returns the number of edges in the polyline
+ * @param pmesh Polymesh object.
+ * @return The number of edges.
  */
-export function join(pmeshes: gs.IPolymesh[]): gs.IPolymesh[] {
-    // check args
-    const model: gs.IModel = pmeshes[0].getModel();
-    for (const pmesh of pmeshes) {
-        if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-        if (pmesh.getModel() !== model) {throw new Error("Polymeshes have to be in same model.");}
-    }
-    // collect the faces together in a points arrtest Circle Planeay
-    const mesh_points: gs.IPoint[][] = [];
-    for (const pmesh of pmeshes) {
-        for (const face of pmesh.getFaces()) {
-            const points: gs.IPoint[] = face.getVertices().map((v) => v.getPoint());
-            mesh_points.push(points);
-        }
-    }
-    // create a new pmesh
-    const new_pmesh: gs.IPolymesh = model.getGeom().addPolymesh(mesh_points);
-    // delete old meshes, and keep points
-    model.getGeom().delObjs(pmeshes, true);
-    // return the new mesh
-    // TODO check for disjoint polymeshes
-    return [new_pmesh];
+export function numFaces(pmesh: gs.IPolymesh): number {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return pmesh.numFaces();
 }
 
 /**
- * Flips all faces
- * @param pmesh Polymeshes to flipFaces
- * @returns New polymesh created from weld if successful, null if unsuccessful or on error
+ * Returns the number of vertices in the Polymesh
+ * @param pmesh Polymesh object.
+ * @return The number of vertices.
  */
-export function flipFaces(pmesh: gs.IPolymesh): gs.IPolymesh {
-    // check args
-    if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-    throw new Error("Not implemented exception");
+export function numWires(pmesh: gs.IPolymesh): number {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return pmesh.numWires();
 }
 
 /**
- * Thicken ...
- *
- * @param pmesh A polyline to create a polymesh with a single polygon face.
- * @returns A polymesh if successful, null if unsuccessful or on error.
+ * Returns the number of edges in the Polymesh
+ * @param pmesh Polymesh object.
+ * @return The number of edges.
  */
-export function thicken(pmesh: gs.IPolymesh, dist1: number, dist2: number): gs.IPolymesh {
-    // check args
-    if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-    const model: gs.IModel = pmesh.getModel();
-    const pmesh2: gs.IPolymesh = pmesh.copy() as gs.Polymesh; //Copies the points as well
-    //flipFaces(pmesh*-1); // TODO
-    offset(pmesh, dist1);
-    offset(pmesh2, dist2 * -1); // TODO
-    const wires1: gs.IWire[] = pmesh.getWires();
-    const wires2: gs.IWire[] = pmesh2.getWires();
-    if (wires1.length !== wires2.length) {throw new Error("Error occured while thickening mesh.");}
-    const sides: gs.IPolymesh[] = [];
-    for (let i = 0; i < wires1.length; i++) {
-        const points1 = wires1[i].getVertices().map((v) => v.getPoint());
-        const points2 = wires2[i].getVertices().map((v) => v.getPoint());
-        if (points1.length !== points2.length) {throw new Error("Error occured while thickening mesh.");}
-        points1.push(points1[0]);
-        points2.push(points2[0]);
-        const mesh_points: gs.IPoint[][] = [];
-        for (let j = 0; j < points1.length - 1; j++) {
-            mesh_points.push([points1[j], points1[j+1], points2[j+1], points2[j]])
-        }
-        const side_mesh: gs.IPolymesh = model.getGeom().addPolymesh(mesh_points);
-        sides.push(side_mesh);
-    }
-    return join([pmesh, pmesh2, ...sides])[0];
+export function numEdges(pmesh: gs.IPolymesh): [number, number] {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return [pmesh.numWireEdges(), pmesh.numFaceEdges()];
 }
+
+/**
+ * Returns the number of vertices in the Polymesh
+ * @param pmesh Polymesh object.
+ * @return The number of vertices.
+ */
+export function numVertices(pmesh: gs.IPolymesh): [number, number] {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return [pmesh.numWireVertices(), pmesh.numFaceVertices()];
+}
+
+/**
+ * Returns all points that for this polymesh.
+ *
+ * @param pmesh Polymesh object.
+ * @return The number of vertices.
+ */
+export function getPoints(pmesh: gs.IPolymesh): gs.IPoint[] {
+    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    return pmesh.getPointsArr();
+}
+
+//  ===============================================================================================================
+//  Pmesh Modelling Functions ===============================================================================================
+//  ===============================================================================================================
 
 /**
  * Extrude by vector...
  *
- * @param pmesh A polyline to create a polymesh with a single polygon face.
+ * @param pmesh A polymesh to extrude
+ * @param vector The vector defining the extrusion length and direction.
  * @returns A polymesh if successful, null if unsuccessful or on error.
  */
 export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
     // check args
     if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-    throw new Error("not implemented");
+    const m: gs.IModel = pmesh.getModel();
+    const g: gs.IGeom = m.getGeom();
+    // make a copy
+    const pmesh1_points: gs.IPoint[][][] = pmesh.getPoints();
+    const pmesh2_points: gs.IPoint[][][] = utils.copyObjPoints(pmesh, false);
+    threex.movePointsAddXYZ(gs.Arr.flatten(pmesh2_points), vector);
+    // create the sides
+    const sides: gs.IPoint[][] = poly.pointsLoftLoop([pmesh1_points[0], pmesh2_points[0]], true);
+    // combine everything
+    const pmesh_points = [...pmesh1_points[1], ...pmesh2_points[1], ...sides];
+    // return the new polymesh
+    return g.addPolymesh(pmesh_points);
 }

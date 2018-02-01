@@ -145,6 +145,31 @@ export function addPoints(p1: gs.IPoint, p2: gs.IPoint, norm: boolean = false): 
         new three.Vector3(...p2.getPosition()), norm).toArray() as gs.XYZ;
 }
 
+export function addPointXYZ(p1: gs.IPoint, xyz_vec: gs.XYZ): gs.XYZ {
+    return (new three.Vector3(...p1.getPosition()).add(new three.Vector3(...xyz_vec))).toArray() as gs.XYZ;
+}
+
+export function subPointXYZ(p1: gs.IPoint, xyz_vec: gs.XYZ): gs.XYZ {
+    return (new three.Vector3(...p1.getPosition()).sub(new three.Vector3(...xyz_vec))).toArray() as gs.XYZ;
+}
+
+export function movePointsAddXYZ(points: gs.IPoint[]|gs.IPoint[][], xyz_vec: gs.XYZ): void {
+    const vec: three.Vector3 = new three.Vector3(...xyz_vec);
+    const points_flat: gs.IPoint[] = gs.Arr.flatten(points);
+    const point_ids: number[] = [];
+    const points_no_dups: gs.IPoint[] = [];
+    for (const point of points_flat) {
+        if (point_ids.indexOf(point.getID()) === -1) {
+            points_no_dups.push(point);
+            point_ids.push(point.getID());
+        }
+    }
+    for (const point of points_no_dups) {
+        const xyz_point: gs.XYZ = (new three.Vector3(...point.getPosition()).add(vec)).toArray() as gs.XYZ;
+        point.setPosition(xyz_point);
+    }
+}
+
 //  Vertices ======================================================================================================
 
 export function subVertices(v1: gs.IVertex, v2: gs.IVertex, norm: boolean = false): gs.XYZ  {

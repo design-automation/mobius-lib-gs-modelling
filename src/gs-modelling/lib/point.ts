@@ -39,7 +39,7 @@ export function Get(model: gs.IModel, id?: number): gs.IPoint {
 export function Gets(model: gs.IModel, ids?: number | number[]): gs.IPoint[] {
     if (ids === undefined || ids === null) {return model.getGeom().getAllPoints();}
     if (!Array.isArray(ids)) {ids = [ids];}
-    let points: gs.IPoint[] = [];
+    const points: gs.IPoint[] = [];
     for (const id of ids) {
         const point: gs.IPoint = Get(model, id);
         if (point !== null) {points.push(point);}
@@ -73,7 +73,7 @@ export function GetFromObjs(objs: gs.IObj | gs.IObj[]): gs.IPoint[] {
             points_map.set(point.getID(), point);
         }
     }
-    return Array.from(points_map);
+    return Array.from(points_map.values());
 }
 
 /**

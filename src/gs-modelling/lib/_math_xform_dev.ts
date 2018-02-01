@@ -3,7 +3,7 @@ import * as three from "three";
 
 export function xfromXYZ(xyz_list: gs.XYZ[],
                          from_origin: gs.XYZ, from_vectors: gs.XYZ[],
-                         to_origin: gs.XYZ,   to_vectors: gs.XYZ[]): gs.XYZ[] {
+                         to_origin: gs.XYZ,   to_vectors: gs.XYZ[]): number[][] {
 
     const e1: three.Vector3 = new three.Vector3(from_vectors[0][0]).normalize();
     const e2: three.Vector3 = new three.Vector3(from_vectors[0][1]).normalize();
@@ -35,6 +35,6 @@ export function xfromXYZ(xyz_list: gs.XYZ[],
             [0,0,0,1]];
 }
 
-export function xfromXYZfromGlobal(xyz_list: gs.XYZ[], to_origin: gs.XYZ, to_vectors: gs.XYZ[]): gs.XYZ[] {
+export function xfromXYZfromGlobal(xyz_list: gs.XYZ[], to_origin: gs.XYZ, to_vectors: gs.XYZ[]): number[][] {
     return xfromXYZ(xyz_list, [0,0,0], [[1,0,0], [0,1,0], [0,0,1]], to_origin, to_vectors);
 }

@@ -30,6 +30,94 @@ export function getVertexNormal(vertex: gs.IVertex): three.Vector3 {
     throw new Error("Failed to get normal from face.");
 }
 
+/**
+ *  Loop through a list of list of points, and loft.
+ *  The lists represent rows, each row has sub lists. The sub lists get lofted.
+ */
+export function pointsLoftLoop(points_lists: gs.IPoint[][][], is_closed: boolean): gs.IPoint[][] {
+    const mesh_points: gs.IPoint[][] = [];
+    const num_lists: number = points_lists.length;
+    const list_length: number = points_lists[0].length;
+    for (let list_pos = 0; list_pos < list_length; list_pos++) {
+        const points_list: gs.IPoint[][] = [];
+        for (let list_num = 0; list_num < num_lists; list_num++) {
+            points_list.push(points_lists[list_num][list_pos]);
+        }
+        mesh_points.push(...pointsLoft(points_list, is_closed));
+    }
+    return mesh_points;
+}
+/**
+ *  Generate a nested list of points, ready for creating polymesh faces.
+ */
+export function pointsLoft(points: gs.IPoint[][], is_closed: boolean): gs.IPoint[][] {
+    const mesh_points: gs.IPoint[][] = [];
+    for (let i = 0; i < points.length - 1; i++) {
+        for (let j = 0; j < points[i].length; j++) {
+            if (j < points[i].length - 1) {
+                mesh_points.push([points[i][j], points[i][j + 1], points[i + 1][j + 1], points[i + 1][j]]);
+            } else {
+                if (is_closed) {
+                    mesh_points.push([points[i][j], points[i][0], points[i + 1][0], points[i + 1][j]]);
+                }
+            }
+        }
+    }
+    return mesh_points;
+}
+
+/**
+ * Moves the end point away from the start point by distance.
+ * If create_point is true, then a new point get created, otherwise the existing point gets moved.
+ */
+export function pointsExtend(start: gs.IPoint, end: gs.IPoint, distance: number, create: boolean = true): gs.IPoint {
+    const start_vec: three.Vector3 = new three.Vector3(...start.getPosition());
+    const end_vec: three.Vector3 = new three.Vector3(...end.getPosition());
+    const dir_vec: three.Vector3 = threex.subVectors(end_vec, start_vec);
+    dir_vec.setLength(distance);
+    const new_xyz: gs.XYZ = threex.addVectors(end_vec, dir_vec).toArray() as gs.XYZ;
+    if (create) {
+        const geom: gs.IGeom = start.getGeom();
+        return geom.addPoint(new_xyz);
+    } else {
+        end.setPosition(new_xyz);
+        return end;
+    }
+}
+
+/**
+ * Evaluates the position between a sequence of points.
+ * A new point is always created.
+ */
+export function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint {
+    const geom: gs.IGeom = points[0].getGeom();
+    if (t_param === 0) {return geom.addPoint(points[0].getPosition());}
+    if (t_param === 1) {return geom.addPoint(points[points.length - 1].getPosition());}
+    if (t_param < 0 || t_param > 1) {throw new Error("t parameter is out of range");}
+    const vec_points: three.Vector3[] = points.map((point) => new three.Vector3(...point.getPosition()));
+    const num_segs = points.length - 1;
+    const dists_to_segends: number[] = [0];
+    let total_length: number = 0;
+    for  (let i = 0; i < num_segs; i++) {
+        const seg_vec: three.Vector3 = threex.subVectors(vec_points[i+1], vec_points[i]);
+        total_length += seg_vec.length();
+        dists_to_segends.push(total_length);
+    }
+    const t_mapped = t_param * total_length;
+    for  (let i = 0; i < vec_points.length - 1; i++) {
+        if (t_mapped >= dists_to_segends[i] && t_mapped < dists_to_segends[i + 1]) {
+            const start_seg: three.Vector3 = vec_points[i];
+            const end_seg: three.Vector3 = vec_points[i + 1];
+            const seg_vec: three.Vector3 = threex.subVectors(end_seg, start_seg);
+            const start_dist: number = dists_to_segends[i];
+            seg_vec.setLength(t_mapped - start_dist);
+            const xyz: gs.XYZ = threex.addVectors(start_seg, seg_vec).toArray() as gs.XYZ;
+            return geom.addPoint(xyz);
+        }
+    }
+    throw new Error("Something went wrong evaluating the t parameter.");
+}
+
 // /**
 //  * Get center as avg of points
 //  */

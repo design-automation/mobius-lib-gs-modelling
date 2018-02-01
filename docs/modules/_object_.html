@@ -72,8 +72,11 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#getfromgroup" class="tsd-kind-icon">Get<wbr>From<wbr>Group</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#gets" class="tsd-kind-icon">Gets</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#addtogroup" class="tsd-kind-icon">add<wbr>ToGroup</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#removefromgroup" class="tsd-kind-icon">remove<wbr>From<wbr>Group</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,7 +94,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L19">object.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L19">object.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -120,16 +123,54 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="gets" class="tsd-anchor"></a>
-					<h3>Gets</h3>
+					<a name="getfromgroup" class="tsd-anchor"></a>
+					<h3>Get<wbr>From<wbr>Group</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Gets<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>From<wbr>Group<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, group_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L46">object.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L64">object.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets all the objects from a group.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model to get the objects from.</p>
+									</div>
+								</li>
+								<li>
+									<h5>group_name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The group name.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of objects.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="gets" class="tsd-anchor"></a>
+					<h3>Gets</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Gets<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, ids<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L47">object.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -146,9 +187,9 @@
 									</div>
 								</li>
 								<li>
-									<h5>ids: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> ids: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A list of object IDs.</p>
+										<p>A point ID or list of point IDs, integer numbers. If null, then all objects are returned.</p>
 									</div>
 								</li>
 							</ul>
@@ -158,16 +199,51 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="del" class="tsd-anchor"></a>
-					<h3>del</h3>
+					<a name="addtogroup" class="tsd-anchor"></a>
+					<h3>add<wbr>ToGroup</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, keep_unused_points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>ToGroup<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, group_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/0052a4c/src/gs-modelling/lib/object.ts#L70">object.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L110">object.ts:110</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add objects to a group.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>objs: <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of objects to add.</p>
+									</div>
+								</li>
+								<li>
+									<h5>group_name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if all objects we successfully added.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="del" class="tsd-anchor"></a>
+					<h3>del</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, keep_points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L85">object.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,14 +260,49 @@
 									</div>
 								</li>
 								<li>
-									<h5>keep_unused_points: <span class="tsd-signature-type">boolean</span></h5>
+									<h5>keep_points: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If true, points that are not used in any other obejcts will be deleted.</p>
+										<p>If false, points that are not used in any other objects will be deleted.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<p>True if successful</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="removefromgroup" class="tsd-anchor"></a>
+					<h3>remove<wbr>From<wbr>Group</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>From<wbr>Group<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, group_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/object.ts#L132">object.ts:132</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove object from a group.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>objs: <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of object to remove.</p>
+									</div>
+								</li>
+								<li>
+									<h5>group_name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if all objects we successfully removed.</p>
 						</li>
 					</ul>
 				</section>
@@ -274,10 +385,19 @@
 						<a href="_object_.html#get" class="tsd-kind-icon">Get</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#getfromgroup" class="tsd-kind-icon">Get<wbr>From<wbr>Group</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#gets" class="tsd-kind-icon">Gets</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#addtogroup" class="tsd-kind-icon">add<wbr>ToGroup</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#del" class="tsd-kind-icon">del</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#removefromgroup" class="tsd-kind-icon">remove<wbr>From<wbr>Group</a>
 					</li>
 				</ul>
 			</nav>
