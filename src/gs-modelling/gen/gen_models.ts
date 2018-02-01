@@ -20,7 +20,7 @@ export function genModelTest0(): gs.IModel {
    const pline_2: gs.IPolyline =gsm.pline.FromPoints(points_2,false);
    const pline_3: gs.IPolyline =gsm.pline.FromPoints(points_3,false);
    const pline_4: gs.IPolyline =gsm.pline.FromPoints(points_4,false);
-   // const _pline: gs.IPolyline = gsm.pline.merge([pline_1,pline_2]);
+   // const _pline: gs.IPolyline = gsm.pline.blend([pline_1,pline_2]);
    return m;
 }
 

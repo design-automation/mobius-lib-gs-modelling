@@ -193,40 +193,41 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
  * @param Polyline list
  * @returns Merged Polyline
  */
-export function merge(plines: gs.IPolyline[]): gs.IPolyline {
+export function blend(plines: gs.IPolyline[]): gs.IPolyline {
     // model check
     // exist check
     // check length of plines
-    // const g: gs.IGeom = plines[0].getGeom();
-    // const points: gs.IPoint[] = [];
-    // for (const i of gs.Arr.makeSeq(plines[0].getPointsArr().length) ) {
-    //     let x: number = 0;
-    //     let y: number = 0;
-    //     let z: number = 0;
-    //     for (const pline of plines) {
-    //         x = x + pline.getPointsArr()[i].getPosition()[0];
-    //         y = y + pline.getPointsArr()[i].getPosition()[1];
-    //         z = z + pline.getPointsArr()[i].getPosition()[2];
-    //     }
-    //     x = x/plines.length;
-    //     y = y/plines.length;
-    //     z = z/plines.length;
-    //     for (const pline of plines) {
-    //         pline.getPointsArr()[i].setPosition([x,y,z]);
-    //     }
-    // }
-    // const _point_IDs: number[] = [];
-    // for (const i of gs.Arr.makeSeq(plines[0].getPointsArr().length) ) {
-    //     for (const pline of plines) {
-    //         _point_IDs.push(pline.getPointsArr()[i].getID());
-    //     }
-    // }
+    const g: gs.IGeom = plines[0].getGeom();
+    const points: gs.IPoint[] = [];
+    for (const i of gs.Arr.makeSeq(plines[0].getPointsArr().length) ) {
+        let x: number = 0;
+        let y: number = 0;
+        let z: number = 0;
+        for (const pline of plines) {
+            x = x + pline.getPointsArr()[i].getPosition()[0];
+            y = y + pline.getPointsArr()[i].getPosition()[1];
+            z = z + pline.getPointsArr()[i].getPosition()[2];
+        }
+        x = x/plines.length;
+        y = y/plines.length;
+        z = z/plines.length;
+        for (const pline of plines) {
+            pline.getPointsArr()[i].setPosition([x,y,z]);
+        }
+    }
+    const _point_IDs: number[] = [];
+    for (const i of gs.Arr.makeSeq(plines[0].getPointsArr().length) ) {
+        for (const pline of plines) {
+            _point_IDs.push(pline.getPointsArr()[i].getID());
+        }
+    }
     // Change IDs in object
     // Change ID Points of objects
-    // Delete points
-    // Delete Plines
-    throw new Error("Method not implemented");
-    // return plines[0];
+    // Merge Points
+    // Delete Extra Plines
+    const blend: boolean = true;
+    if (blend) {throw new Error("Method not implemented");}
+    return plines[0];
 }
 
 /**
