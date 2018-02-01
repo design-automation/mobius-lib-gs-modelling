@@ -87,7 +87,7 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
  * @returns Circle object.
  */
 export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ,
-                                  angles: [number, number] ): gs.ICircle {
+                                   angles: [number, number] ): gs.ICircle {
     if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
