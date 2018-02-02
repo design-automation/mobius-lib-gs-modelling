@@ -23,7 +23,7 @@ export function test_obj_Gets(): boolean {
 
 export function test_obj_groups(): boolean {
     const m: gs.IModel = gsm.model.New();
-    const group: gs.IGroup = gsm.group.Create(m, "test");
+    const ok: boolean = gsm.group.Create(m, "test");
     const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
     const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
     const circle: gs.ICircle = gsm.circle.FromOriginXY(points[1], 5, null);

@@ -1,8 +1,13 @@
 /**
- * Polylines are a type of geometric object.
- *
- * Polylines are formed from straight line segments joined to form a continuous line.
- * They can be open or closed. A closed polyline has not fill.
+ * Functions for working with polylines.
+ */
+
+/**
+ * Polylines are geometric objects that have no faces and a single wire.
+ * The wire has one or more edges and two or more vertices.
+ * The edges are straight line segments joining two vertices.
+ * The polyline can be either a closed or an open.
+ * A closed polyline has not fill. For that, you need to create a polymesh.
  */
 
 import * as gs from "gs-json";
@@ -16,10 +21,13 @@ import * as utils from "./_utils_dev";
 //  ===============================================================================================================
 
 /**
- * Gets a polyline from the model based on an index number
- * @param model Model to get polyline from
- * @param id Index number of polyline
- * @returns Polyline object if successful
+ * Gets a polyline from the model based on an ID number.
+ * In the viewer, the object label can display (it starts with 'o'), which contains the ID.
+ * For example, if the label is "o123", then the ID is the number 123.
+ *
+ * @param model Model to get polyline object from.
+ * @param id ID number of polyline object.
+ * @returns Polyline object.
  */
 export function Get(model: gs.IModel, id: number): gs.IPolyline {
     // check args
@@ -36,9 +44,10 @@ export function Get(model: gs.IModel, id: number): gs.IPolyline {
  * Create a copy of a polyline.
  *
  * @param polyline The polyline to copy.
- * @returns A new polyline.
+ * @param copy_attribs If true, attributes are copied to the new circle.
+ * @returns Polyline object.
  */
-export function Copy(polyline: gs.IPolyline, copy_attribs?: boolean): gs.IPolyline {
+export function Copy(polyline: gs.IPolyline, copy_attribs: boolean = true): gs.IPolyline {
     // check args
     if (!polyline.exists()) {throw new Error("polyline has been deleted.");}
     // copy and return
@@ -46,13 +55,20 @@ export function Copy(polyline: gs.IPolyline, copy_attribs?: boolean): gs.IPolyli
 }
 
 /**
- * Copies polylines from one model to another
- * @param model_1 Model to copy from
- * @param model_2 Model to copy to
- * @returns List of polylines copied into specified model if successful
+ * Copies a circle from one model into another model.
+ *
+ * @param model The model to copy to.
+ * @param polyline The polyline object to copy.
+ * @returns The copied polyline object in the model.
  */
-export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPolyline[] {
-    throw new Error("Method not implemented");
+export function CopyToModel(model: gs.IModel, polyline: gs.IPolyline): gs.IPolyline {
+    // check args
+    if (!polyline.exists()) {throw new Error("Error: polyline has been deleted.");}
+    // check it is not already in the model
+    if (polyline.getModel() === model) {throw new Error("Error: polyline is already in model.");}
+    // copy circle and return it
+    //return model.getGeom().copyPolylineFromModel(polyline);
+    throw new Error("Function not implemented yet.")
 }
 
 //  ===============================================================================================================
@@ -60,14 +76,16 @@ export function CopyFromModel(model_1: gs.IModel, model_2: gs.IModel ): gs.IPoly
 //  ===============================================================================================================
 
 /**
- * Adds a polyline to the model by joining a list of points
+ * Creates a polyline by joining a list of points
  *
- * Creates a straight line segment between every two points and joins them to create a polyline
- * @param points A list of points (in order)
- * @param is_closed Creates a closed polyline object by joining the last point to the first point if true
- * @returns New polyline object if successful
+ * Straight line segments are cerated between every two points.
+ *
+ * @param points A list of points.
+ * @param is_closed if true,
+ *      creates a closed polyline object by joining the last point to the first point.
+ * @returns Polyline object.
  */
-export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolyline {
+export function FromPoints(points: gs.IPoint[], is_closed: boolean = false): gs.IPolyline {
     if (points.length < 2) {
         throw new Error("A minimum of two points are required.");
     }
@@ -84,13 +102,13 @@ export function FromPoints(points: gs.IPoint[], is_closed: boolean): gs.IPolylin
 }
 
 /**
- * Adds a polyline from the model based on a conic curve.
+ * Create a polyline by dividing a circle or arc into straight line segments.
  *
- * Creates equally spaced points along a circle or arc and joins them to create a polyline<br/>
  * If it is a circle, then a a closed polyline is returned.
+ *
  * @param circle Circle or circular arc to construct polyline from.
- * @param segments Number of segments in polyline.
- * @returns Polyline object if successful.
+ * @param segments Number of segments in resulting polyline.
+ * @returns Polyline object.
  */
 export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
     if (!circle.exists()) {throw new Error("Circle has been deleted.");}
@@ -100,12 +118,11 @@ export function FromCircle(circle: gs.ICircle, segments: number): gs.IPolyline {
 }
 
 /**
- * Adds a straight line to the model from two points
+ * Create a polyline with a single straight line segment, connecting two points.
  *
- * Returns null if both points have the same position
  * @param start Start point of line
- * @param end End point of line
- * @returns New polyline object, consisting of a single segment if successful, null if unsuccesful or on error
+ * @param end End point of line.
+ * @returns Polyline object.
  */
 export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
     return this.FromPoints([start, end], false);
@@ -116,9 +133,10 @@ export function From2Points(start: gs.IPoint, end: gs.IPoint): gs.IPolyline {
 //  ===============================================================================================================
 
 /**
- * Checks if the polyline is closed
- * @param pline Polyline object
- * @return True if the polyline is closed
+ * Checks if the polyline is closed.
+ *
+ * @param pline Polyline object.
+ * @return True if the polyline is closed.
  */
 export function isClosed(pline: gs.IPolyline): boolean {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
@@ -126,20 +144,22 @@ export function isClosed(pline: gs.IPolyline): boolean {
 }
 
 /**
- * Sets the polyline to be open or cosed
- * @param pline Polyline object
- * @param is_closed The value to set
- * @return True if an open polyline was closed, false is the polyline was already closed.
+ * Sets the polyline to be open or closed.
+ *
+ * @param pline Polyline object.
+ * @param is_closed True for closed, false for open.
+ * @return True if the value was changed, false otherwise.
  */
 export function setIsClosed(pline: gs.IPolyline, is_closed: boolean): boolean {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
-    if (pline.isClosed()) {return false;}
+    if (pline.isClosed() === is_closed) {return false;}
     pline.setIsClosed(is_closed);
     return true;
 }
 
 /**
- * Returns the number of edges in the polyline
+ * Get the number of edges in the polyline.
+ *
  * @param pline Polyline object.
  * @return The number of edges.
  */
@@ -149,7 +169,8 @@ export function numEdges(pline: gs.IPolyline): number {
 }
 
 /**
- * Returns the number of vertices in the polyline
+ * Get the number of vertices in the polyline.
+ *
  * @param pline Polyline object.
  * @return The number of vertices.
  */
@@ -159,9 +180,10 @@ export function numVertices(pline: gs.IPolyline): number {
 }
 
 /**
- * Returns all points
+ * Get all points in a polyline in sequence order.
+ *
  * @param pline Polyline object.
- * @return The number of vertices.
+ * @return A list of points.
  */
 export function getPoints(pline: gs.IPolyline): gs.IPoint[] {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
@@ -169,9 +191,10 @@ export function getPoints(pline: gs.IPolyline): gs.IPoint[] {
 }
 
 /**
- * Returns the start and end points of this polyline. If it is closed, returns null.
+ * Get the start and end points of a polyline.
+ *
  * @param pline Polyline object.
- * @return The number of vertices.
+ * @return A list with two points, or null if the polyline is closed.
  */
 export function getEndPoints(pline: gs.IPolyline): gs.IPoint[] {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
@@ -185,11 +208,15 @@ export function getEndPoints(pline: gs.IPolyline): gs.IPoint[] {
 //  ===============================================================================================================
 
 /**
- * Returns a point on a polyline based on a parameter along the polyline
- * @param pline Polyline to evaluate
+ * Returns a point by evaluating the position along a polyline or segment in the polyline.
+ * The position is specified by a t parameter that starts at 0 and ends at 1.
+ * The segment index is not -1, then it specified teh segment to evaluate.
+ * If the polyline is closed and the segment index is -1, 0 and 1 will have the same position.
+ *
+ * @param pline Polyline to evaluate.
  * @param t Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)
  * @param segment_index The segment of the polyline to evaluate. When -1, the whole polyline is evaluated.
- * @returns Point if successful
+ * @returns Point.
  */
 export function evalParam(pline: gs.IPolyline, t: number, segment_index: number = -1): gs.IPoint {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
@@ -203,10 +230,10 @@ export function evalParam(pline: gs.IPolyline, t: number, segment_index: number 
 }
 
 /**
- * Join polylines with shared end points. The original polyline is deleted.
+ * Joins polylines with shared end points. The original polylines are deleted.
  *
  * @param plines List of polylines to join.
- * @returns A list of joined polylines.
+ * @returns List of polyline objects.
  */
 export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
     // get the model
@@ -302,11 +329,11 @@ export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
 }
 
 /**
- * Explodes a polyline into individual segments. The original polyline is not modified.
+ * Explodes a polyline into smaller polylines, each with only one segment.
+ * The original polyline is not modified.
  *
- * Each straight line segment in the polyline is returned as a separate polyline object
- * @param pline Polyline to explode
- * @returns List of new polylines created from explode
+ * @param pline Polyline to explode.
+ * @returns List of polylines objects.
  */
 export function explode(pline: gs.IPolyline): gs.IPolyline[] {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
@@ -314,16 +341,13 @@ export function explode(pline: gs.IPolyline): gs.IPolyline[] {
 }
 
 /**
- * Extracts a list of segments from a polyline
+ * Creates new polyline by extracting line segments from an existing polyline.
+ * The original polyline is not modified.
  *
- * Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>
- * The remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,
- * or multiple polylines if they have been broken up<br/>
- * List returned is in order (from t=0 to t=1 of orginal input pline)
+ * The individual segments are no joined.
+ *
  * @param pline Polyline to extract segments from
  * @param segment_index Index numbers of polyline segments to extract
- * @param return_remainder Returns polylines created from the remainder of the polyline if true, returns only
- *                         specified segments if false
  * @returns List of new polylines created from extract
  */
 export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyline[] {
@@ -334,66 +358,29 @@ export function extract(pline: gs.IPolyline, segment_index: number[]): gs.IPolyl
     const points: gs.IPoint[] = pline.getPointsArr();
     if (pline.isClosed()) {points.push(points[0]); }
     for (const i of  segment_index) {
-        if (i < points.length - 1) {
-            plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
-        }
+        if (i >= points.length - 1) {throw new Error("Segment index exceeds polyline length.");}
+        plines.push(m.getGeom().addPolyline([points[i], points[i+1]], false));
     }
     return plines;
 }
 
 /**
- * Extends a non-closed polyline by specified distance. The original polyline is modified.
- *
- * Extension is straight and continues in the same direction as the extended segment<br/>
- *
- * @param pline Polyline object
- * @param extend_side 0 = start, 1 = end, 2 = both
- * @param length Distance to extend
- * @returns Polyline object if successful, null if unsuccessful or on error
- */
-export function extend(pline: gs.IPolyline, extend_side: number, length: number,
-                       create_points: boolean = true): gs.IPolyline {
-    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
-    // extend? which side?
-    switch (extend_side) {
-        case 0: case 2:
-            const edges1: gs.IEdge[] = pline.getEdges()[0][0];
-            const first_edge = edges1[0];
-            const points1: gs.IPoint[] = first_edge.getVertices().map((v) => v.getPoint());
-            const extended1: gs.IPoint = poly.pointsExtend(points1[1], points1[0], length, create_points);
-            if (create_points) {
-                pline.insertVertex(first_edge, extended1);
-            }
-        case 1: case 2:
-            const edges2: gs.IEdge[] = pline.getEdges()[0][0];
-            const last_edge = edges2[edges2.length - 1];
-            const points2: gs.IPoint[] = last_edge.getVertices().map((v) => v.getPoint());
-            const extended2: gs.IPoint = poly.pointsExtend(points2[0], points2[1], length, create_points);
-            if (create_points) {
-                pline.insertVertex(last_edge, extended2);
-            }
-    }
-    return pline;
-}
-
-/**
- * Extrudes a polyline according to a specified vector to create a polymesh.
+ * Create a new polymesh by extruding a polyline by a specified vector.
  * The original polyline is not modified.
  *
- * Pline is moved by the specified vector and straight line segments are created between the vertices of
- * the input pline and moved pline. The resulting straight line segments and the straight line segments of the
- * input and moved plines are used to define the edges of four-sided polygons. The polygons are joined to
- * create a polymesh<br/>
+ * New points are created by translating the existing points by the specified vector.
+ * Four-sided faces are the created between the original and new points.
+ * The faces are joined to create a polymesh.
  *
  * If cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are
- * joined to the polymesh from above.
+ * joined to the polymesh.
  *
- * @param pline Polyline to extrude
- * @param vector Vector describing direction and distance of extrusion
- * @param cap Closes polymesh by creating a polygon on each end of the extrusion if true
- * @returns Polymesh created from extrusion
+ * @param pline Polyline to extrude.
+ * @param vector Vector describing direction and distance of extrusion.
+ * @param cap Closes polymesh by creating a polygon on each end of the extrusion if true.
+ * @returns Polymesh object.
  */
-export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.IPolymesh {
+export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean = false): gs.IPolymesh {
     if (!pline.exists()) {throw new Error("Pline has been deleted.");}
     const m: gs.IModel = pline.getModel();
     const g: gs.IGeom = m.getGeom();
@@ -410,18 +397,17 @@ export function extrude(pline: gs.IPolyline, vector: gs.XYZ, cap: boolean): gs.I
 }
 
 /**
- * Lofts a list of polylines with the same number of segments to create a polymesh.
+ * Create a new polymesh by lofting a list of polylines with equal numbers of segments.
  * The original polylines are not modified.
  *
- * Straight line segments are created between the vertices of every two input plines. The resulting
- * straight line segments and the straight line segments of the plines are used to define the edges of
- * four-sided polygons. The polygons created from all the plines are joined to create a polymesh<br/>
+ * Four-sided faces are the created between the points of consecutive polylines.
+ * The faces are joined to create a polymesh.
  *
- * Returns null if polylines do not have the same number of segments
+ * Throws an error if polylines do not have the same number of segments
  *
- * @param plines List of polylines to loft (in order)
- * @param is_closed Closes polymesh by lofting back to first polyline if true
- * @returns Polymesh created from loft if successful, null if unsuccessful or on error
+ * @param plines List of polylines to loft (in order).
+ * @param is_closed Closes polymesh by lofting back to first polyline if true.
+ * @returns Polymesh object.
  */
 export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPolymesh {
     // check args

@@ -5,7 +5,7 @@
  */
 
 /**
- * The parameters defined the orientation, radius, and arc angles of the circle
+ * The parameters defined the orientation, radius, and arc angles of the circle.
  * The orientation is defined by two vectors, the X and Y vectors of the plane.
  * The radius is defined by the length of the X vector.
  * The arc angles define are two angles between 0 and 360 that define the start and end of the arc.
@@ -24,6 +24,8 @@ import * as math_conic from "./_math_conic_dev";
 
 /**
  * Gets a circle from the model based on an ID number.
+ * In the viewer, the object label can display (it starts with 'o'), which contains the ID.
+ * For example, if the label is "o123", then the ID is the number 123.
  *
  * @param model Model to get circle object from.
  * @param id ID number of circle object.
@@ -44,7 +46,7 @@ export function Get(model: gs.IModel, id: number): gs.ICircle {
  * Create a copy of a circle object.
  *
  * @param circle The circle object to copy.
- * @param copy_attribs If ture, attributes are copied to the new circle..
+ * @param copy_attribs If true, attributes are copied to the new circle.
  * @returns Circle object.
  */
 export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {

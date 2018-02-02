@@ -91,8 +91,8 @@ export function test_pline_extend(): boolean {
     const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
     const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-    gsm.pline.extend(pline, 0, 5, true); // create points and copy
-    gsm.pline.extend(pline, 1, 7, false); // dont create points, dont copy
+    //gsm.pline.extend(pline, 0, 5, true); // create points and copy
+    //gsm.pline.extend(pline, 1, 7, false); // dont create points, dont copy
     return true;
 }
 

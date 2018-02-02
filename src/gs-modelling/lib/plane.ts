@@ -1,10 +1,10 @@
 /**
  * Function for working with planes.
- * Planes are geometric objects definded by a single vertex and a set of parameters.
- * Planes represent an infinite plane in 3D space.
  */
 
 /**
+ * Planes are geometric objects definded by a single vertex and a set of parameters.
+ * Planes represent an infinite plane in 3D space.
  * The parameters defined the orientation of the plane.
  * The orientation is defined by two vectors, the X and Y vectors of the plane. They must be orthogonal.
  */
@@ -18,7 +18,10 @@ import * as threex from "./_three_utils_dev";
 //  ===============================================================================================================
 
 /**
- * Gets a plane from the model based on an ID number
+ * Gets a plane from the model based on an ID number.
+ * In the viewer, the object label can display (it starts with 'o'), which contains the ID.
+ * For example, if the label is "o123", then the ID is the number 123.
+ *
  * @param model Model to get plane from.
  * @param id ID number of plane.
  * @returns The plane object.

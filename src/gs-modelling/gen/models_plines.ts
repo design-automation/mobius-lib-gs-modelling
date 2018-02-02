@@ -77,7 +77,7 @@ export function genModelTest6(): gs.IModel {
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [3,3,3]);
     const pl: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
     for (let i = 0; i < 10; i++) {
-        gsm.pline.extend(pl, 2, 2.2);
+        //gsm.pline.extend(pl, 2, 2.2);
     }
     return m;
 }

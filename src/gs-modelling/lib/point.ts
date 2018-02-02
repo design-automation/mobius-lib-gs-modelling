@@ -1,14 +1,14 @@
 /**
  * Function for working with points.
- * Points define a point in a model, with XYZ coordinates.
  */
 
 /**
+ * Points define a point in a model, with XYZ coordinates.
  * Points are the fundamental building blocks of making 3D geometry.
- * Geometric objects have one or more vertices, and the position of each vertex is defined
- * by linking to a point.
- * Each vertex is linked to one point.
- * Each point can have multiple vertices linking to it.
+ * Geometric objects have one or more vertices, and the position of each vertex is defined by linking to a point.
+ * Each vertex most be linked to exactly one point.
+ * Each point can have zero or more vertices linking to it.
+ * If a point is moved, all vertcies linked to that point will move with it.
  */
 
 import * as gs from "gs-json";

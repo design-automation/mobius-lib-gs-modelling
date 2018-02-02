@@ -2,6 +2,42 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as xform from "./_math_xform_dev";
 import * as three_utils from "./_three_utils_dev";
+import * as poly from "./_math_poly_dev";
+
+/**
+ * Extends a non-closed polyline by specified distance. The original polyline is modified.
+ *
+ * Extension is straight and continues in the same direction as the extended segment<br/>
+ *
+ * @param pline Polyline object
+ * @param extend_side 0 = start, 1 = end, 2 = both
+ * @param length Distance to extend
+ * @returns Polyline object if successful, null if unsuccessful or on error
+ */
+export function extend(pline: gs.IPolyline, extend_side: number, length: number,
+                       create_points: boolean = true): gs.IPolyline {
+    if (!pline.exists()) {throw new Error("Pline has been deleted.");}
+    // extend? which side?
+    switch (extend_side) {
+        case 0: case 2:
+            const edges1: gs.IEdge[] = pline.getEdges()[0][0];
+            const first_edge = edges1[0];
+            const points1: gs.IPoint[] = first_edge.getVertices().map((v) => v.getPoint());
+            const extended1: gs.IPoint = poly.pointsExtend(points1[1], points1[0], length, create_points);
+            if (create_points) {
+                pline.insertVertex(first_edge, extended1);
+            }
+        case 1: case 2:
+            const edges2: gs.IEdge[] = pline.getEdges()[0][0];
+            const last_edge = edges2[edges2.length - 1];
+            const points2: gs.IPoint[] = last_edge.getVertices().map((v) => v.getPoint());
+            const extended2: gs.IPoint = poly.pointsExtend(points2[0], points2[1], length, create_points);
+            if (create_points) {
+                pline.insertVertex(last_edge, extended2);
+            }
+    }
+    return pline;
+}
 
 
 /**

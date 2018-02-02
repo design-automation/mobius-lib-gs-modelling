@@ -1,9 +1,9 @@
 /**
- * Functions for splitting.
- * Split functions split one geometric object with another geometric object.
+ * Functions for splitting geometric objects that insersect with one another.
  */
 
 /**
+ * Split functions split one geometric object with another geometric object.
  * Splitting can be done either in 2D or in 3D, as indicated by the name of the split function.
  * The result of a split function will vary depending on the types of objects being split.
  */

@@ -33,7 +33,7 @@ export function test_point_Gets(): boolean {
 
 export function test_point_groups(): boolean {
     const m: gs.IModel = gsm.model.New();
-    const group: gs.IGroup = gsm.group.Create(m, "test");
+    const ok: boolean = gsm.group.Create(m, "test");
     const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[1,2,3],[2,2,2],[-1,-2,-33],[1.1,2.2,3.3]]);
     gsm.point.addToGroup([points[0], points[2]], "test");
     const points2: gs.IPoint[] = gsm.point.GetFromGroup(m, "test");
