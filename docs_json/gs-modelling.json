@@ -973,7 +973,7 @@
 										"isOptional": true
 									},
 									"comment": {
-										"text": "If ture, attributes are copied to the new circle.."
+										"text": "If true, attributes are copied to the new circle."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -990,7 +990,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 50,
+							"line": 52,
 							"character": 20
 						}
 					]
@@ -1053,7 +1053,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 64,
+							"line": 66,
 							"character": 27
 						}
 					]
@@ -1153,7 +1153,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 108,
+							"line": 110,
 							"character": 33
 						}
 					]
@@ -1253,7 +1253,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 89,
+							"line": 91,
 							"character": 34
 						}
 					]
@@ -1339,7 +1339,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 128,
+							"line": 130,
 							"character": 28
 						}
 					]
@@ -1425,7 +1425,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 147,
+							"line": 149,
 							"character": 28
 						}
 					]
@@ -1511,7 +1511,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 166,
+							"line": 168,
 							"character": 28
 						}
 					]
@@ -1597,7 +1597,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 185,
+							"line": 187,
 							"character": 25
 						}
 					]
@@ -1618,7 +1618,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Gets a circle from the model based on an ID number.",
+								"shortText": "Gets a circle from the model based on an ID number.\nIn the viewer, the object label can display (it starts with 'o'), which contains the ID.\nFor example, if the label is \"o123\", then the ID is the number 123.",
 								"returns": "Circle object.\n"
 							},
 							"parameters": [
@@ -1660,7 +1660,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 32,
+							"line": 34,
 							"character": 19
 						}
 					]
@@ -1709,7 +1709,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 279,
+							"line": 281,
 							"character": 26
 						}
 					]
@@ -1758,7 +1758,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 261,
+							"line": 263,
 							"character": 21
 						}
 					]
@@ -1816,7 +1816,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 226,
+							"line": 228,
 							"character": 28
 						}
 					]
@@ -1868,7 +1868,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 215,
+							"line": 217,
 							"character": 23
 						}
 					]
@@ -1917,7 +1917,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 204,
+							"line": 206,
 							"character": 25
 						}
 					]
@@ -1966,7 +1966,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 250,
+							"line": 252,
 							"character": 24
 						}
 					]
@@ -2046,7 +2046,7 @@
 					"sources": [
 						{
 							"fileName": "circle.ts",
-							"line": 237,
+							"line": 239,
 							"character": 28
 						}
 					]
@@ -3310,9 +3310,12 @@
 				"isExported": true
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/group.ts",
+			"comment": {
+				"shortText": "Functions for working with groups."
+			},
 			"children": [
 				{
-					"id": 200,
+					"id": 196,
 					"name": "Create",
 					"kind": 64,
 					"kindString": "Function",
@@ -3321,226 +3324,42 @@
 					},
 					"signatures": [
 						{
-							"id": 201,
+							"id": 197,
 							"name": "Create",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds a group to a model",
-								"returns": "New group\n"
+								"shortText": "Creates a new group.",
+								"returns": "Ture if the group was successfully created.\n"
 							},
 							"parameters": [
 								{
-									"id": 202,
+									"id": 198,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Model to add to"
+										"text": "Model to create group in."
 									},
 									"type": {
 										"type": "reference",
 										"name": "IModel"
 									}
 								},
-								{
-									"id": 203,
-									"name": "name",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Name of new group"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "IGroup"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "group.ts",
-							"line": 39,
-							"character": 22
-						}
-					]
-				},
-				{
-					"id": 193,
-					"name": "Get",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 194,
-							"name": "Get",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Gets groups from a model",
-								"returns": "List of groups\n"
-							},
-							"parameters": [
-								{
-									"id": 195,
-									"name": "model",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Model to get group from"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								},
-								{
-									"id": 196,
-									"name": "name",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "IGroup"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "group.ts",
-							"line": 16,
-							"character": 19
-						}
-					]
-				},
-				{
-					"id": 197,
-					"name": "GetAll",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 198,
-							"name": "GetAll",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Gets groups from a model",
-								"returns": "List of groups\n"
-							},
-							"parameters": [
 								{
 									"id": 199,
-									"name": "model",
+									"name": "name",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Model to get group from"
+										"text": "Group name."
 									},
 									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								}
-							],
-							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "reference",
-									"name": "IGroup"
-								}
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "group.ts",
-							"line": 25,
-							"character": 22
-						}
-					]
-				},
-				{
-					"id": 204,
-					"name": "contains",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 205,
-							"name": "contains",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Checks if a group contains a specified geometry",
-								"returns": "True if group contains geometry, false if group does not contain geometry\n"
-							},
-							"parameters": [
-								{
-									"id": 206,
-									"name": "group",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Group to check"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IGroup"
-									}
-								},
-								{
-									"id": 207,
-									"name": "geom",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Geometry to check"
-									},
-									"type": {
-										"type": "union",
-										"types": [
-											{
-												"type": "reference",
-												"name": "IEnt"
-											},
-											{
-												"type": "reference",
-												"name": "ITopo"
-											}
-										]
+										"type": "intrinsic",
+										"name": "string"
 									}
 								}
 							],
@@ -3553,13 +3372,128 @@
 					"sources": [
 						{
 							"fileName": "group.ts",
-							"line": 53,
+							"line": 41,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 200,
+					"name": "Creates",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 201,
+							"name": "Creates",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a set of new groups.",
+								"returns": "Ture if all groups were successfully created.\n"
+							},
+							"parameters": [
+								{
+									"id": 202,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Model to create groups in."
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 203,
+									"name": "names",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "group.ts",
+							"line": 55,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 193,
+					"name": "GetNames",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 194,
+							"name": "GetNames",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Gets the names of all the groups in the model.",
+								"returns": "List of group names\n"
+							},
+							"parameters": [
+								{
+									"id": 195,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Model to get group names from."
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "group.ts",
+							"line": 26,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 208,
+					"id": 204,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -3568,38 +3502,52 @@
 					},
 					"signatures": [
 						{
-							"id": 209,
+							"id": 205,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Deletes a group",
-								"returns": "True if successful\n"
+								"shortText": "Deletes a group from the model.",
+								"returns": "True if the group was successfully deleted.\n"
 							},
 							"parameters": [
 								{
-									"id": 210,
-									"name": "group",
+									"id": 206,
+									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Group to delete"
+										"text": "Model containing the groups."
 									},
 									"type": {
 										"type": "reference",
-										"name": "IGroup"
+										"name": "IModel"
 									}
 								},
 								{
-									"id": 211,
-									"name": "deleteGeom",
+									"id": 207,
+									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Deletes geometry contained in group if true"
+										"text": "Group name to delete."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 208,
+									"name": "delete_geom",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "If true, the objects and points in teh group will be deleted."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -3616,62 +3564,13 @@
 					"sources": [
 						{
 							"fileName": "group.ts",
-							"line": 70,
+							"line": 77,
 							"character": 19
 						}
 					]
 				},
 				{
-					"id": 212,
-					"name": "getName",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 213,
-							"name": "getName",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Gets the name of a group",
-								"returns": "Name of specified group\n"
-							},
-							"parameters": [
-								{
-									"id": 214,
-									"name": "group",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Group"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IGroup"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "group.ts",
-							"line": 82,
-							"character": 23
-						}
-					]
-				},
-				{
-					"id": 215,
+					"id": 209,
 					"name": "getParent",
 					"kind": 64,
 					"kindString": "Function",
@@ -3680,88 +3579,38 @@
 					},
 					"signatures": [
 						{
-							"id": 216,
+							"id": 210,
 							"name": "getParent",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Gets the parent group of a group",
-								"text": "Returns null if specified group does not have a parent group",
+								"shortText": "Gets the parent of a group.\nReturns null if specified group does not have a parent group.",
 								"returns": "Parent group of specified group if successful, null if unsuccessful or on error\n"
 							},
 							"parameters": [
 								{
-									"id": 217,
-									"name": "group",
+									"id": 211,
+									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Group"
+										"text": "Model containing the groups."
 									},
 									"type": {
 										"type": "reference",
-										"name": "IGroup"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "IGroup"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "group.ts",
-							"line": 93,
-							"character": 25
-						}
-					]
-				},
-				{
-					"id": 218,
-					"name": "setName",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 219,
-							"name": "setName",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Sets the name of a group",
-								"returns": "Old name of specified group\n"
-							},
-							"parameters": [
-								{
-									"id": 220,
-									"name": "group",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Group"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IGroup"
+										"name": "IModel"
 									}
 								},
 								{
-									"id": 221,
-									"name": "name",
+									"id": 212,
+									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "New name of group"
+										"text": "Group name to get parent for."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -3778,13 +3627,13 @@
 					"sources": [
 						{
 							"fileName": "group.ts",
-							"line": 103,
-							"character": 23
+							"line": 95,
+							"character": 25
 						}
 					]
 				},
 				{
-					"id": 222,
+					"id": 213,
 					"name": "setParent",
 					"kind": 64,
 					"kindString": "Function",
@@ -3793,55 +3642,69 @@
 					},
 					"signatures": [
 						{
-							"id": 223,
+							"id": 214,
 							"name": "setParent",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Sets the parent group of a group",
+								"shortText": "Sets the parent of a group.",
 								"returns": "The old parent.\n"
 							},
 							"parameters": [
 								{
-									"id": 224,
-									"name": "group",
+									"id": 215,
+									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Group"
+										"text": "Model containing the groups."
 									},
 									"type": {
 										"type": "reference",
-										"name": "IGroup"
+										"name": "IModel"
 									}
 								},
 								{
-									"id": 225,
-									"name": "parent",
+									"id": 216,
+									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "New parent group"
+										"text": "Group name to set parent for."
 									},
 									"type": {
-										"type": "reference",
-										"name": "IGroup"
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 217,
+									"name": "parent_name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Group name of parent."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
 									}
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "IGroup"
+								"type": "intrinsic",
+								"name": "string"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "group.ts",
-							"line": 113,
+							"line": 109,
 							"character": 25
 						}
 					]
@@ -3852,15 +3715,12 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
+						196,
 						200,
 						193,
-						197,
 						204,
-						208,
-						212,
-						215,
-						218,
-						222
+						209,
+						213
 					]
 				}
 			],
@@ -3873,7 +3733,7 @@
 			]
 		},
 		{
-			"id": 226,
+			"id": 218,
 			"name": "\"intersect\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3882,11 +3742,11 @@
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/intersect.ts",
 			"comment": {
-				"shortText": "Function for intersecting.\nIntersect functions find points of intersection where the geometry of two objects intersect.\nThe functions return the intersections and overlaps and do not alter the original input objects."
+				"shortText": "Function for intersecting geometric objects."
 			},
 			"children": [
 				{
-					"id": 227,
+					"id": 219,
 					"name": "circleCircle2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -3895,7 +3755,7 @@
 					},
 					"signatures": [
 						{
-							"id": 228,
+							"id": 220,
 							"name": "circleCircle2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3907,7 +3767,7 @@
 							},
 							"parameters": [
 								{
-									"id": 229,
+									"id": 221,
 									"name": "circle1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3921,7 +3781,7 @@
 									}
 								},
 								{
-									"id": 230,
+									"id": 222,
 									"name": "circle2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3953,7 +3813,7 @@
 					]
 				},
 				{
-					"id": 231,
+					"id": 223,
 					"name": "circlePlane3D",
 					"kind": 64,
 					"kindString": "Function",
@@ -3962,7 +3822,7 @@
 					},
 					"signatures": [
 						{
-							"id": 232,
+							"id": 224,
 							"name": "circlePlane3D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3972,7 +3832,7 @@
 							},
 							"parameters": [
 								{
-									"id": 233,
+									"id": 225,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3986,7 +3846,7 @@
 									}
 								},
 								{
-									"id": 234,
+									"id": 226,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4023,8 +3883,8 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						227,
-						231
+						219,
+						223
 					]
 				}
 			],
@@ -4037,7 +3897,7 @@
 			]
 		},
 		{
-			"id": 235,
+			"id": 227,
 			"name": "\"list\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4047,7 +3907,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/list.ts",
 			"children": [
 				{
-					"id": 236,
+					"id": 228,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -4056,7 +3916,7 @@
 					},
 					"signatures": [
 						{
-							"id": 237,
+							"id": 229,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4067,7 +3927,7 @@
 							},
 							"parameters": [
 								{
-									"id": 238,
+									"id": 230,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4102,7 +3962,7 @@
 					]
 				},
 				{
-					"id": 239,
+					"id": 231,
 					"name": "FromRange",
 					"kind": 64,
 					"kindString": "Function",
@@ -4111,7 +3971,7 @@
 					},
 					"signatures": [
 						{
-							"id": 240,
+							"id": 232,
 							"name": "FromRange",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4122,7 +3982,7 @@
 							},
 							"parameters": [
 								{
-									"id": 241,
+									"id": 233,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4136,7 +3996,7 @@
 									}
 								},
 								{
-									"id": 242,
+									"id": 234,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4168,7 +4028,7 @@
 					]
 				},
 				{
-					"id": 246,
+					"id": 238,
 					"name": "append",
 					"kind": 64,
 					"kindString": "Function",
@@ -4177,7 +4037,7 @@
 					},
 					"signatures": [
 						{
-							"id": 247,
+							"id": 239,
 							"name": "append",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4188,7 +4048,7 @@
 							},
 							"parameters": [
 								{
-									"id": 248,
+									"id": 240,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4205,7 +4065,7 @@
 									}
 								},
 								{
-									"id": 249,
+									"id": 241,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4237,7 +4097,7 @@
 					]
 				},
 				{
-					"id": 250,
+					"id": 242,
 					"name": "appendFront",
 					"kind": 64,
 					"kindString": "Function",
@@ -4246,7 +4106,7 @@
 					},
 					"signatures": [
 						{
-							"id": 251,
+							"id": 243,
 							"name": "appendFront",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4257,7 +4117,7 @@
 							},
 							"parameters": [
 								{
-									"id": 252,
+									"id": 244,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4274,7 +4134,7 @@
 									}
 								},
 								{
-									"id": 253,
+									"id": 245,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4306,7 +4166,7 @@
 					]
 				},
 				{
-					"id": 254,
+					"id": 246,
 					"name": "extend",
 					"kind": 64,
 					"kindString": "Function",
@@ -4315,7 +4175,7 @@
 					},
 					"signatures": [
 						{
-							"id": 255,
+							"id": 247,
 							"name": "extend",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4326,7 +4186,7 @@
 							},
 							"parameters": [
 								{
-									"id": 256,
+									"id": 248,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4343,7 +4203,7 @@
 									}
 								},
 								{
-									"id": 257,
+									"id": 249,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4378,7 +4238,7 @@
 					]
 				},
 				{
-					"id": 258,
+					"id": 250,
 					"name": "extendFront",
 					"kind": 64,
 					"kindString": "Function",
@@ -4387,7 +4247,7 @@
 					},
 					"signatures": [
 						{
-							"id": 259,
+							"id": 251,
 							"name": "extendFront",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4398,7 +4258,7 @@
 							},
 							"parameters": [
 								{
-									"id": 260,
+									"id": 252,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4415,7 +4275,7 @@
 									}
 								},
 								{
-									"id": 261,
+									"id": 253,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4450,7 +4310,7 @@
 					]
 				},
 				{
-					"id": 262,
+					"id": 254,
 					"name": "flatten",
 					"kind": 64,
 					"kindString": "Function",
@@ -4459,7 +4319,7 @@
 					},
 					"signatures": [
 						{
-							"id": 263,
+							"id": 255,
 							"name": "flatten",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4470,7 +4330,7 @@
 							},
 							"parameters": [
 								{
-									"id": 264,
+									"id": 256,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4505,7 +4365,7 @@
 					]
 				},
 				{
-					"id": 243,
+					"id": 235,
 					"name": "len",
 					"kind": 64,
 					"kindString": "Function",
@@ -4514,7 +4374,7 @@
 					},
 					"signatures": [
 						{
-							"id": 244,
+							"id": 236,
 							"name": "len",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4525,7 +4385,7 @@
 							},
 							"parameters": [
 								{
-									"id": 245,
+									"id": 237,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4557,7 +4417,7 @@
 					]
 				},
 				{
-					"id": 265,
+					"id": 257,
 					"name": "removeIndex",
 					"kind": 64,
 					"kindString": "Function",
@@ -4566,7 +4426,7 @@
 					},
 					"signatures": [
 						{
-							"id": 266,
+							"id": 258,
 							"name": "removeIndex",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4577,7 +4437,7 @@
 							},
 							"parameters": [
 								{
-									"id": 267,
+									"id": 259,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4594,7 +4454,7 @@
 									}
 								},
 								{
-									"id": 268,
+									"id": 260,
 									"name": "index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4626,7 +4486,7 @@
 					]
 				},
 				{
-					"id": 269,
+					"id": 261,
 					"name": "removeValue",
 					"kind": 64,
 					"kindString": "Function",
@@ -4635,7 +4495,7 @@
 					},
 					"signatures": [
 						{
-							"id": 270,
+							"id": 262,
 							"name": "removeValue",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4647,7 +4507,7 @@
 							},
 							"parameters": [
 								{
-									"id": 271,
+									"id": 263,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4664,7 +4524,7 @@
 									}
 								},
 								{
-									"id": 272,
+									"id": 264,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4678,7 +4538,7 @@
 									}
 								},
 								{
-									"id": 273,
+									"id": 265,
 									"name": "remove_all",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4711,7 +4571,7 @@
 					]
 				},
 				{
-					"id": 274,
+					"id": 266,
 					"name": "reverse",
 					"kind": 64,
 					"kindString": "Function",
@@ -4720,7 +4580,7 @@
 					},
 					"signatures": [
 						{
-							"id": 275,
+							"id": 267,
 							"name": "reverse",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4731,7 +4591,7 @@
 							},
 							"parameters": [
 								{
-									"id": 276,
+									"id": 268,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4766,7 +4626,7 @@
 					]
 				},
 				{
-					"id": 283,
+					"id": 275,
 					"name": "slice",
 					"kind": 64,
 					"kindString": "Function",
@@ -4775,7 +4635,7 @@
 					},
 					"signatures": [
 						{
-							"id": 284,
+							"id": 276,
 							"name": "slice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4786,7 +4646,7 @@
 							},
 							"parameters": [
 								{
-									"id": 285,
+									"id": 277,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4803,7 +4663,7 @@
 									}
 								},
 								{
-									"id": 286,
+									"id": 278,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4817,7 +4677,7 @@
 									}
 								},
 								{
-									"id": 287,
+									"id": 279,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4849,7 +4709,7 @@
 					]
 				},
 				{
-					"id": 277,
+					"id": 269,
 					"name": "sortAlpha",
 					"kind": 64,
 					"kindString": "Function",
@@ -4858,7 +4718,7 @@
 					},
 					"signatures": [
 						{
-							"id": 278,
+							"id": 270,
 							"name": "sortAlpha",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4870,7 +4730,7 @@
 							},
 							"parameters": [
 								{
-									"id": 279,
+									"id": 271,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4905,7 +4765,7 @@
 					]
 				},
 				{
-					"id": 280,
+					"id": 272,
 					"name": "sortNum",
 					"kind": 64,
 					"kindString": "Function",
@@ -4914,7 +4774,7 @@
 					},
 					"signatures": [
 						{
-							"id": 281,
+							"id": 273,
 							"name": "sortNum",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4925,7 +4785,7 @@
 							},
 							"parameters": [
 								{
-									"id": 282,
+									"id": 274,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4960,7 +4820,7 @@
 					]
 				},
 				{
-					"id": 288,
+					"id": 280,
 					"name": "splice",
 					"kind": 64,
 					"kindString": "Function",
@@ -4969,7 +4829,7 @@
 					},
 					"signatures": [
 						{
-							"id": 289,
+							"id": 281,
 							"name": "splice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4981,7 +4841,7 @@
 							},
 							"parameters": [
 								{
-									"id": 290,
+									"id": 282,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4998,7 +4858,7 @@
 									}
 								},
 								{
-									"id": 291,
+									"id": 283,
 									"name": "index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5012,7 +4872,7 @@
 									}
 								},
 								{
-									"id": 292,
+									"id": 284,
 									"name": "num_to_remove",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5026,7 +4886,7 @@
 									}
 								},
 								{
-									"id": 293,
+									"id": 285,
 									"name": "items_to_add",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5066,21 +4926,21 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						236,
-						239,
+						228,
+						231,
+						238,
+						242,
 						246,
 						250,
 						254,
-						258,
-						262,
-						243,
-						265,
+						235,
+						257,
+						261,
+						266,
+						275,
 						269,
-						274,
-						283,
-						277,
-						280,
-						288
+						272,
+						280
 					]
 				}
 			],
@@ -5093,7 +4953,7 @@
 			]
 		},
 		{
-			"id": 294,
+			"id": 286,
 			"name": "\"math\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -5103,7 +4963,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/math.ts",
 			"children": [
 				{
-					"id": 299,
+					"id": 291,
 					"name": "NEG_INF",
 					"kind": 64,
 					"kindString": "Function",
@@ -5112,7 +4972,7 @@
 					},
 					"signatures": [
 						{
-							"id": 300,
+							"id": 292,
 							"name": "NEG_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5136,7 +4996,7 @@
 					]
 				},
 				{
-					"id": 295,
+					"id": 287,
 					"name": "PI",
 					"kind": 64,
 					"kindString": "Function",
@@ -5145,7 +5005,7 @@
 					},
 					"signatures": [
 						{
-							"id": 296,
+							"id": 288,
 							"name": "PI",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5169,7 +5029,7 @@
 					]
 				},
 				{
-					"id": 297,
+					"id": 289,
 					"name": "POS_INF",
 					"kind": 64,
 					"kindString": "Function",
@@ -5178,7 +5038,7 @@
 					},
 					"signatures": [
 						{
-							"id": 298,
+							"id": 290,
 							"name": "POS_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5202,7 +5062,7 @@
 					]
 				},
 				{
-					"id": 320,
+					"id": 312,
 					"name": "abs",
 					"kind": 64,
 					"kindString": "Function",
@@ -5211,7 +5071,7 @@
 					},
 					"signatures": [
 						{
-							"id": 321,
+							"id": 313,
 							"name": "abs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5223,7 +5083,7 @@
 							},
 							"parameters": [
 								{
-									"id": 322,
+									"id": 314,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5252,7 +5112,7 @@
 					]
 				},
 				{
-					"id": 314,
+					"id": 306,
 					"name": "ceiling",
 					"kind": 64,
 					"kindString": "Function",
@@ -5261,7 +5121,7 @@
 					},
 					"signatures": [
 						{
-							"id": 315,
+							"id": 307,
 							"name": "ceiling",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5272,7 +5132,7 @@
 							},
 							"parameters": [
 								{
-									"id": 316,
+									"id": 308,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5301,7 +5161,7 @@
 					]
 				},
 				{
-					"id": 301,
+					"id": 293,
 					"name": "cos",
 					"kind": 64,
 					"kindString": "Function",
@@ -5310,7 +5170,7 @@
 					},
 					"signatures": [
 						{
-							"id": 302,
+							"id": 294,
 							"name": "cos",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5321,7 +5181,7 @@
 							},
 							"parameters": [
 								{
-									"id": 303,
+									"id": 295,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5350,7 +5210,7 @@
 					]
 				},
 				{
-					"id": 317,
+					"id": 309,
 					"name": "floor",
 					"kind": 64,
 					"kindString": "Function",
@@ -5359,7 +5219,7 @@
 					},
 					"signatures": [
 						{
-							"id": 318,
+							"id": 310,
 							"name": "floor",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5370,7 +5230,7 @@
 							},
 							"parameters": [
 								{
-									"id": 319,
+									"id": 311,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5399,7 +5259,7 @@
 					]
 				},
 				{
-					"id": 323,
+					"id": 315,
 					"name": "max",
 					"kind": 64,
 					"kindString": "Function",
@@ -5408,7 +5268,7 @@
 					},
 					"signatures": [
 						{
-							"id": 324,
+							"id": 316,
 							"name": "max",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5419,7 +5279,7 @@
 							},
 							"parameters": [
 								{
-									"id": 325,
+									"id": 317,
 									"name": "nums",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5451,7 +5311,7 @@
 					]
 				},
 				{
-					"id": 326,
+					"id": 318,
 					"name": "min",
 					"kind": 64,
 					"kindString": "Function",
@@ -5460,7 +5320,7 @@
 					},
 					"signatures": [
 						{
-							"id": 327,
+							"id": 319,
 							"name": "min",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5471,7 +5331,7 @@
 							},
 							"parameters": [
 								{
-									"id": 328,
+									"id": 320,
 									"name": "nums",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5500,7 +5360,7 @@
 					]
 				},
 				{
-					"id": 310,
+					"id": 302,
 					"name": "pow",
 					"kind": 64,
 					"kindString": "Function",
@@ -5509,7 +5369,7 @@
 					},
 					"signatures": [
 						{
-							"id": 311,
+							"id": 303,
 							"name": "pow",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5520,7 +5380,7 @@
 							},
 							"parameters": [
 								{
-									"id": 312,
+									"id": 304,
 									"name": "base",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5534,7 +5394,7 @@
 									}
 								},
 								{
-									"id": 313,
+									"id": 305,
 									"name": "exponent",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5563,7 +5423,7 @@
 					]
 				},
 				{
-					"id": 329,
+					"id": 321,
 					"name": "rand",
 					"kind": 64,
 					"kindString": "Function",
@@ -5572,7 +5432,7 @@
 					},
 					"signatures": [
 						{
-							"id": 330,
+							"id": 322,
 							"name": "rand",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5596,7 +5456,7 @@
 					]
 				},
 				{
-					"id": 335,
+					"id": 327,
 					"name": "randFloat",
 					"kind": 64,
 					"kindString": "Function",
@@ -5605,7 +5465,7 @@
 					},
 					"signatures": [
 						{
-							"id": 336,
+							"id": 328,
 							"name": "randFloat",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5616,7 +5476,7 @@
 							},
 							"parameters": [
 								{
-									"id": 337,
+									"id": 329,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5630,7 +5490,7 @@
 									}
 								},
 								{
-									"id": 338,
+									"id": 330,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5659,7 +5519,7 @@
 					]
 				},
 				{
-					"id": 331,
+					"id": 323,
 					"name": "randInt",
 					"kind": 64,
 					"kindString": "Function",
@@ -5668,7 +5528,7 @@
 					},
 					"signatures": [
 						{
-							"id": 332,
+							"id": 324,
 							"name": "randInt",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5680,7 +5540,7 @@
 							},
 							"parameters": [
 								{
-									"id": 333,
+									"id": 325,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5694,7 +5554,7 @@
 									}
 								},
 								{
-									"id": 334,
+									"id": 326,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5723,7 +5583,7 @@
 					]
 				},
 				{
-					"id": 304,
+					"id": 296,
 					"name": "sin",
 					"kind": 64,
 					"kindString": "Function",
@@ -5732,7 +5592,7 @@
 					},
 					"signatures": [
 						{
-							"id": 305,
+							"id": 297,
 							"name": "sin",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5743,7 +5603,7 @@
 							},
 							"parameters": [
 								{
-									"id": 306,
+									"id": 298,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5772,7 +5632,7 @@
 					]
 				},
 				{
-					"id": 307,
+					"id": 299,
 					"name": "tan",
 					"kind": 64,
 					"kindString": "Function",
@@ -5781,7 +5641,7 @@
 					},
 					"signatures": [
 						{
-							"id": 308,
+							"id": 300,
 							"name": "tan",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5792,7 +5652,7 @@
 							},
 							"parameters": [
 								{
-									"id": 309,
+									"id": 301,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5826,21 +5686,21 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						299,
-						295,
-						297,
-						320,
-						314,
-						301,
-						317,
+						291,
+						287,
+						289,
+						312,
+						306,
+						293,
+						309,
+						315,
+						318,
+						302,
+						321,
+						327,
 						323,
-						326,
-						310,
-						329,
-						335,
-						331,
-						304,
-						307
+						296,
+						299
 					]
 				}
 			],
@@ -5853,7 +5713,7 @@
 			]
 		},
 		{
-			"id": 339,
+			"id": 331,
 			"name": "\"model\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -5866,7 +5726,7 @@
 			},
 			"children": [
 				{
-					"id": 340,
+					"id": 332,
 					"name": "New",
 					"kind": 64,
 					"kindString": "Function",
@@ -5875,7 +5735,7 @@
 					},
 					"signatures": [
 						{
-							"id": 341,
+							"id": 333,
 							"name": "New",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5904,7 +5764,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						340
+						332
 					]
 				}
 			],
@@ -5917,7 +5777,7 @@
 			]
 		},
 		{
-			"id": 342,
+			"id": 334,
 			"name": "\"object\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -5927,7 +5787,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/object.ts",
 			"children": [
 				{
-					"id": 343,
+					"id": 335,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -5936,7 +5796,7 @@
 					},
 					"signatures": [
 						{
-							"id": 344,
+							"id": 336,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5947,7 +5807,7 @@
 							},
 							"parameters": [
 								{
-									"id": 345,
+									"id": 337,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5961,7 +5821,7 @@
 									}
 								},
 								{
-									"id": 346,
+									"id": 338,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5990,7 +5850,7 @@
 					]
 				},
 				{
-					"id": 351,
+					"id": 343,
 					"name": "GetFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -5999,7 +5859,7 @@
 					},
 					"signatures": [
 						{
-							"id": 352,
+							"id": 344,
 							"name": "GetFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6010,7 +5870,7 @@
 							},
 							"parameters": [
 								{
-									"id": 353,
+									"id": 345,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6024,7 +5884,7 @@
 									}
 								},
 								{
-									"id": 354,
+									"id": 346,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6056,7 +5916,7 @@
 					]
 				},
 				{
-					"id": 347,
+					"id": 339,
 					"name": "Gets",
 					"kind": 64,
 					"kindString": "Function",
@@ -6065,7 +5925,7 @@
 					},
 					"signatures": [
 						{
-							"id": 348,
+							"id": 340,
 							"name": "Gets",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6076,7 +5936,7 @@
 							},
 							"parameters": [
 								{
-									"id": 349,
+									"id": 341,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6090,7 +5950,7 @@
 									}
 								},
 								{
-									"id": 350,
+									"id": 342,
 									"name": "ids",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6136,7 +5996,7 @@
 					]
 				},
 				{
-					"id": 359,
+					"id": 351,
 					"name": "addToGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -6145,7 +6005,7 @@
 					},
 					"signatures": [
 						{
-							"id": 360,
+							"id": 352,
 							"name": "addToGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6156,7 +6016,7 @@
 							},
 							"parameters": [
 								{
-									"id": 361,
+									"id": 353,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6182,7 +6042,7 @@
 									}
 								},
 								{
-									"id": 362,
+									"id": 354,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6208,7 +6068,7 @@
 					]
 				},
 				{
-					"id": 355,
+					"id": 347,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -6217,7 +6077,7 @@
 					},
 					"signatures": [
 						{
-							"id": 356,
+							"id": 348,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6228,7 +6088,7 @@
 							},
 							"parameters": [
 								{
-									"id": 357,
+									"id": 349,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6254,7 +6114,7 @@
 									}
 								},
 								{
-									"id": 358,
+									"id": 350,
 									"name": "keep_points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6283,7 +6143,7 @@
 					]
 				},
 				{
-					"id": 363,
+					"id": 355,
 					"name": "removeFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -6292,7 +6152,7 @@
 					},
 					"signatures": [
 						{
-							"id": 364,
+							"id": 356,
 							"name": "removeFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6303,7 +6163,7 @@
 							},
 							"parameters": [
 								{
-									"id": 365,
+									"id": 357,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6329,7 +6189,7 @@
 									}
 								},
 								{
-									"id": 366,
+									"id": 358,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6360,12 +6220,12 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
+						335,
 						343,
+						339,
 						351,
 						347,
-						359,
-						355,
-						363
+						355
 					]
 				}
 			],
@@ -6378,7 +6238,7 @@
 			]
 		},
 		{
-			"id": 367,
+			"id": 359,
 			"name": "\"plane\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6387,11 +6247,11 @@
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/plane.ts",
 			"comment": {
-				"shortText": "Function for working with planes.\nPlanes are geometric objects definded by a single vertex and a set of parameters.\nPlanes represent an infinite plane in 3D space."
+				"shortText": "Function for working with planes."
 			},
 			"children": [
 				{
-					"id": 372,
+					"id": 364,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -6400,7 +6260,7 @@
 					},
 					"signatures": [
 						{
-							"id": 373,
+							"id": 365,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6411,7 +6271,7 @@
 							},
 							"parameters": [
 								{
-									"id": 374,
+									"id": 366,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6425,7 +6285,7 @@
 									}
 								},
 								{
-									"id": 375,
+									"id": 367,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6447,13 +6307,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 43,
+							"line": 46,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 376,
+					"id": 368,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -6462,7 +6322,7 @@
 					},
 					"signatures": [
 						{
-							"id": 377,
+							"id": 369,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6473,7 +6333,7 @@
 							},
 							"parameters": [
 								{
-									"id": 378,
+									"id": 370,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6487,7 +6347,7 @@
 									}
 								},
 								{
-									"id": 379,
+									"id": 371,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6510,13 +6370,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 57,
+							"line": 60,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 399,
+					"id": 391,
 					"name": "FromCircle",
 					"kind": 64,
 					"kindString": "Function",
@@ -6525,7 +6385,7 @@
 					},
 					"signatures": [
 						{
-							"id": 400,
+							"id": 392,
 							"name": "FromCircle",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6536,7 +6396,7 @@
 							},
 							"parameters": [
 								{
-									"id": 401,
+									"id": 393,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6559,13 +6419,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 155,
+							"line": 158,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 394,
+					"id": 386,
 					"name": "FromOriginPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -6574,7 +6434,7 @@
 					},
 					"signatures": [
 						{
-							"id": 395,
+							"id": 387,
 							"name": "FromOriginPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6585,7 +6445,7 @@
 							},
 							"parameters": [
 								{
-									"id": 396,
+									"id": 388,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6599,7 +6459,7 @@
 									}
 								},
 								{
-									"id": 397,
+									"id": 389,
 									"name": "pt1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6613,7 +6473,7 @@
 									}
 								},
 								{
-									"id": 398,
+									"id": 390,
 									"name": "pt2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6636,13 +6496,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 132,
+							"line": 135,
 							"character": 32
 						}
 					]
 				},
 				{
-					"id": 380,
+					"id": 372,
 					"name": "FromOriginVectors",
 					"kind": 64,
 					"kindString": "Function",
@@ -6651,7 +6511,7 @@
 					},
 					"signatures": [
 						{
-							"id": 381,
+							"id": 373,
 							"name": "FromOriginVectors",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6662,7 +6522,7 @@
 							},
 							"parameters": [
 								{
-									"id": 382,
+									"id": 374,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6676,7 +6536,7 @@
 									}
 								},
 								{
-									"id": 383,
+									"id": 375,
 									"name": "vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6690,7 +6550,7 @@
 									}
 								},
 								{
-									"id": 384,
+									"id": 376,
 									"name": "vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6713,13 +6573,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 78,
+							"line": 81,
 							"character": 33
 						}
 					]
 				},
 				{
-					"id": 385,
+					"id": 377,
 					"name": "FromOriginXY",
 					"kind": 64,
 					"kindString": "Function",
@@ -6728,7 +6588,7 @@
 					},
 					"signatures": [
 						{
-							"id": 386,
+							"id": 378,
 							"name": "FromOriginXY",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6739,7 +6599,7 @@
 							},
 							"parameters": [
 								{
-									"id": 387,
+									"id": 379,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6762,13 +6622,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 91,
+							"line": 94,
 							"character": 28
 						}
 					]
 				},
 				{
-					"id": 388,
+					"id": 380,
 					"name": "FromOriginYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -6777,7 +6637,7 @@
 					},
 					"signatures": [
 						{
-							"id": 389,
+							"id": 381,
 							"name": "FromOriginYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6788,7 +6648,7 @@
 							},
 							"parameters": [
 								{
-									"id": 390,
+									"id": 382,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6811,13 +6671,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 104,
+							"line": 107,
 							"character": 28
 						}
 					]
 				},
 				{
-					"id": 391,
+					"id": 383,
 					"name": "FromOriginZX",
 					"kind": 64,
 					"kindString": "Function",
@@ -6826,7 +6686,7 @@
 					},
 					"signatures": [
 						{
-							"id": 392,
+							"id": 384,
 							"name": "FromOriginZX",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6837,7 +6697,7 @@
 							},
 							"parameters": [
 								{
-									"id": 393,
+									"id": 385,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6860,13 +6720,13 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 117,
+							"line": 120,
 							"character": 28
 						}
 					]
 				},
 				{
-					"id": 368,
+					"id": 360,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -6875,18 +6735,18 @@
 					},
 					"signatures": [
 						{
-							"id": 369,
+							"id": 361,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Gets a plane from the model based on an ID number",
+								"shortText": "Gets a plane from the model based on an ID number.\nIn the viewer, the object label can display (it starts with 'o'), which contains the ID.\nFor example, if the label is \"o123\", then the ID is the number 123.",
 								"returns": "The plane object.\n"
 							},
 							"parameters": [
 								{
-									"id": 370,
+									"id": 362,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6900,7 +6760,7 @@
 									}
 								},
 								{
-									"id": 371,
+									"id": 363,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6923,7 +6783,7 @@
 					"sources": [
 						{
 							"fileName": "plane.ts",
-							"line": 26,
+							"line": 29,
 							"character": 19
 						}
 					]
@@ -6934,15 +6794,15 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						372,
-						376,
-						399,
-						394,
-						380,
-						385,
-						388,
+						364,
+						368,
 						391,
-						368
+						386,
+						372,
+						377,
+						380,
+						383,
+						360
 					]
 				}
 			],
@@ -6955,7 +6815,7 @@
 			]
 		},
 		{
-			"id": 402,
+			"id": 394,
 			"name": "\"pline\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6963,9 +6823,12 @@
 				"isExported": true
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pline.ts",
+			"comment": {
+				"shortText": "Functions for working with polylines."
+			},
 			"children": [
 				{
-					"id": 407,
+					"id": 399,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -6974,18 +6837,18 @@
 					},
 					"signatures": [
 						{
-							"id": 408,
+							"id": 400,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
 								"shortText": "Create a copy of a polyline.",
-								"returns": "A new polyline.\n"
+								"returns": "Polyline object.\n"
 							},
 							"parameters": [
 								{
-									"id": 409,
+									"id": 401,
 									"name": "polyline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6999,16 +6862,81 @@
 									}
 								},
 								{
-									"id": 410,
+									"id": 402,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {
-										"isOptional": true
+									"flags": {},
+									"comment": {
+										"text": "If true, attributes are copied to the new circle."
 									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
+									},
+									"defaultValue": "true"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolyline"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pline.ts",
+							"line": 50,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 403,
+					"name": "CopyToModel",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 404,
+							"name": "CopyToModel",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Copies a circle from one model into another model.",
+								"returns": "The copied polyline object in the model.\n"
+							},
+							"parameters": [
+								{
+									"id": 405,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model to copy to."
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 406,
+									"name": "polyline",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The polyline object to copy."
+									},
+									"type": {
+										"type": "reference",
+										"name": "IPolyline"
 									}
 								}
 							],
@@ -7021,79 +6949,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 41,
-							"character": 20
+							"line": 64,
+							"character": 27
 						}
 					]
 				},
 				{
-					"id": 411,
-					"name": "CopyFromModel",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 412,
-							"name": "CopyFromModel",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Copies polylines from one model to another",
-								"returns": "List of polylines copied into specified model if successful\n"
-							},
-							"parameters": [
-								{
-									"id": 413,
-									"name": "model_1",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Model to copy from"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								},
-								{
-									"id": 414,
-									"name": "model_2",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Model to copy to"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								}
-							],
-							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "reference",
-									"name": "IPolyline"
-								}
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "pline.ts",
-							"line": 54,
-							"character": 29
-						}
-					]
-				},
-				{
-					"id": 423,
+					"id": 415,
 					"name": "From2Points",
 					"kind": 64,
 					"kindString": "Function",
@@ -7102,19 +6964,18 @@
 					},
 					"signatures": [
 						{
-							"id": 424,
+							"id": 416,
 							"name": "From2Points",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds a straight line to the model from two points",
-								"text": "Returns null if both points have the same position",
-								"returns": "New polyline object, consisting of a single segment if successful, null if unsuccesful or on error\n"
+								"shortText": "Create a polyline with a single straight line segment, connecting two points.",
+								"returns": "Polyline object.\n"
 							},
 							"parameters": [
 								{
-									"id": 425,
+									"id": 417,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7128,13 +6989,13 @@
 									}
 								},
 								{
-									"id": 426,
+									"id": 418,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "End point of line"
+										"text": "End point of line."
 									},
 									"type": {
 										"type": "reference",
@@ -7151,13 +7012,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 110,
+							"line": 127,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 419,
+					"id": 411,
 					"name": "FromCircle",
 					"kind": 64,
 					"kindString": "Function",
@@ -7166,19 +7027,19 @@
 					},
 					"signatures": [
 						{
-							"id": 420,
+							"id": 412,
 							"name": "FromCircle",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds a polyline from the model based on a conic curve.",
-								"text": "Creates equally spaced points along a circle or arc and joins them to create a polyline<br/>\nIf it is a circle, then a a closed polyline is returned.",
-								"returns": "Polyline object if successful.\n"
+								"shortText": "Create a polyline by dividing a circle or arc into straight line segments.",
+								"text": "If it is a circle, then a a closed polyline is returned.\n",
+								"returns": "Polyline object.\n"
 							},
 							"parameters": [
 								{
-									"id": 421,
+									"id": 413,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7192,13 +7053,13 @@
 									}
 								},
 								{
-									"id": 422,
+									"id": 414,
 									"name": "segments",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Number of segments in polyline."
+										"text": "Number of segments in resulting polyline."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7215,13 +7076,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 95,
+							"line": 113,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 415,
+					"id": 407,
 					"name": "FromPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -7230,25 +7091,25 @@
 					},
 					"signatures": [
 						{
-							"id": 416,
+							"id": 408,
 							"name": "FromPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds a polyline to the model by joining a list of points",
-								"text": "Creates a straight line segment between every two points and joins them to create a polyline",
-								"returns": "New polyline object if successful\n"
+								"shortText": "Creates a polyline by joining a list of points",
+								"text": "Straight line segments are cerated between every two points.\n",
+								"returns": "Polyline object.\n"
 							},
 							"parameters": [
 								{
-									"id": 417,
+									"id": 409,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "A list of points (in order)"
+										"text": "A list of points."
 									},
 									"type": {
 										"type": "array",
@@ -7259,18 +7120,19 @@
 									}
 								},
 								{
-									"id": 418,
+									"id": 410,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Creates a closed polyline object by joining the last point to the first point if true"
+										"text": "if true,\n     creates a closed polyline object by joining the last point to the first point."
 									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
-									}
+									},
+									"defaultValue": "false"
 								}
 							],
 							"type": {
@@ -7282,13 +7144,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 70,
+							"line": 88,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 403,
+					"id": 395,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -7297,24 +7159,24 @@
 					},
 					"signatures": [
 						{
-							"id": 404,
+							"id": 396,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Gets a polyline from the model based on an index number",
-								"returns": "Polyline object if successful\n"
+								"shortText": "Gets a polyline from the model based on an ID number.\nIn the viewer, the object label can display (it starts with 'o'), which contains the ID.\nFor example, if the label is \"o123\", then the ID is the number 123.",
+								"returns": "Polyline object.\n"
 							},
 							"parameters": [
 								{
-									"id": 405,
+									"id": 397,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Model to get polyline from"
+										"text": "Model to get polyline object from."
 									},
 									"type": {
 										"type": "reference",
@@ -7322,13 +7184,13 @@
 									}
 								},
 								{
-									"id": 406,
+									"id": 398,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index number of polyline"
+										"text": "ID number of polyline object."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7345,13 +7207,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 24,
+							"line": 32,
 							"character": 19
 						}
 					]
 				},
 				{
-					"id": 446,
+					"id": 438,
 					"name": "evalParam",
 					"kind": 64,
 					"kindString": "Function",
@@ -7360,24 +7222,24 @@
 					},
 					"signatures": [
 						{
-							"id": 447,
+							"id": 439,
 							"name": "evalParam",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns a point on a polyline based on a parameter along the polyline",
-								"returns": "Point if successful\n"
+								"shortText": "Returns a point by evaluating the position along a polyline or segment in the polyline.\nThe position is specified by a t parameter that starts at 0 and ends at 1.\nThe segment index is not -1, then it specified teh segment to evaluate.\nIf the polyline is closed and the segment index is -1, 0 and 1 will have the same position.",
+								"returns": "Point.\n"
 							},
 							"parameters": [
 								{
-									"id": 448,
+									"id": 440,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline to evaluate"
+										"text": "Polyline to evaluate."
 									},
 									"type": {
 										"type": "reference",
@@ -7385,7 +7247,7 @@
 									}
 								},
 								{
-									"id": 449,
+									"id": 441,
 									"name": "t",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7399,7 +7261,7 @@
 									}
 								},
 								{
-									"id": 450,
+									"id": 442,
 									"name": "segment_index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7423,13 +7285,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 194,
+							"line": 221,
 							"character": 25
 						}
 					]
 				},
 				{
-					"id": 454,
+					"id": 446,
 					"name": "explode",
 					"kind": 64,
 					"kindString": "Function",
@@ -7438,25 +7300,24 @@
 					},
 					"signatures": [
 						{
-							"id": 455,
+							"id": 447,
 							"name": "explode",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Explodes a polyline into individual segments. The original polyline is not modified.",
-								"text": "Each straight line segment in the polyline is returned as a separate polyline object",
-								"returns": "List of new polylines created from explode\n"
+								"shortText": "Explodes a polyline into smaller polylines, each with only one segment.\nThe original polyline is not modified.",
+								"returns": "List of polylines objects.\n"
 							},
 							"parameters": [
 								{
-									"id": 456,
+									"id": 448,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline to explode"
+										"text": "Polyline to explode."
 									},
 									"type": {
 										"type": "reference",
@@ -7476,103 +7337,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 311,
+							"line": 338,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 461,
-					"name": "extend",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 462,
-							"name": "extend",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Extends a non-closed polyline by specified distance. The original polyline is modified.",
-								"text": "Extension is straight and continues in the same direction as the extended segment<br/>\n",
-								"returns": "Polyline object if successful, null if unsuccessful or on error\n"
-							},
-							"parameters": [
-								{
-									"id": 463,
-									"name": "pline",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Polyline object"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IPolyline"
-									}
-								},
-								{
-									"id": 464,
-									"name": "extend_side",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "0 = start, 1 = end, 2 = both"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 465,
-									"name": "length",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "Distance to extend"
-									},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								},
-								{
-									"id": 466,
-									"name": "create_points",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "boolean"
-									},
-									"defaultValue": "true"
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "IPolyline"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "pline.ts",
-							"line": 354,
-							"character": 22
-						}
-					]
-				},
-				{
-					"id": 457,
+					"id": 449,
 					"name": "extract",
 					"kind": 64,
 					"kindString": "Function",
@@ -7581,19 +7352,19 @@
 					},
 					"signatures": [
 						{
-							"id": 458,
+							"id": 450,
 							"name": "extract",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Extracts a list of segments from a polyline",
-								"text": "Specified straight line segments are removed from the polyline and returned as individual polyline objects<br/>\nThe remainder of the polyline is rejoined as much as possible and returned as one polyline if still intact,\nor multiple polylines if they have been broken up<br/>\nList returned is in order (from t=0 to t=1 of orginal input pline)",
+								"shortText": "Creates new polyline by extracting line segments from an existing polyline.\nThe original polyline is not modified.",
+								"text": "The individual segments are no joined.\n",
 								"returns": "List of new polylines created from extract\n"
 							},
 							"parameters": [
 								{
-									"id": 459,
+									"id": 451,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7607,7 +7378,7 @@
 									}
 								},
 								{
-									"id": 460,
+									"id": 452,
 									"name": "segment_index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7636,13 +7407,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 329,
+							"line": 353,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 467,
+					"id": 453,
 					"name": "extrude",
 					"kind": 64,
 					"kindString": "Function",
@@ -7651,25 +7422,25 @@
 					},
 					"signatures": [
 						{
-							"id": 468,
+							"id": 454,
 							"name": "extrude",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Extrudes a polyline according to a specified vector to create a polymesh.\nThe original polyline is not modified.",
-								"text": "Pline is moved by the specified vector and straight line segments are created between the vertices of\nthe input pline and moved pline. The resulting straight line segments and the straight line segments of the\ninput and moved plines are used to define the edges of four-sided polygons. The polygons are joined to\ncreate a polymesh<br/>\n\nIf cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are\njoined to the polymesh from above.\n",
-								"returns": "Polymesh created from extrusion\n"
+								"shortText": "Create a new polymesh by extruding a polyline by a specified vector.\nThe original polyline is not modified.",
+								"text": "New points are created by translating the existing points by the specified vector.\nFour-sided faces are the created between the original and new points.\nThe faces are joined to create a polymesh.\n\nIf cap is true, input pline and moved pline are used as edges to create two polygons. The polygones are\njoined to the polymesh.\n",
+								"returns": "Polymesh object.\n"
 							},
 							"parameters": [
 								{
-									"id": 469,
+									"id": 455,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline to extrude"
+										"text": "Polyline to extrude."
 									},
 									"type": {
 										"type": "reference",
@@ -7677,13 +7448,13 @@
 									}
 								},
 								{
-									"id": 470,
+									"id": 456,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Vector describing direction and distance of extrusion"
+										"text": "Vector describing direction and distance of extrusion."
 									},
 									"type": {
 										"type": "reference",
@@ -7691,18 +7462,19 @@
 									}
 								},
 								{
-									"id": 471,
+									"id": 457,
 									"name": "cap",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Closes polymesh by creating a polygon on each end of the extrusion if true"
+										"text": "Closes polymesh by creating a polygon on each end of the extrusion if true."
 									},
 									"type": {
 										"type": "intrinsic",
 										"name": "boolean"
-									}
+									},
+									"defaultValue": "false"
 								}
 							],
 							"type": {
@@ -7714,13 +7486,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 396,
+							"line": 383,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 443,
+					"id": 435,
 					"name": "getEndPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -7729,18 +7501,18 @@
 					},
 					"signatures": [
 						{
-							"id": 444,
+							"id": 436,
 							"name": "getEndPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the start and end points of this polyline. If it is closed, returns null.",
-								"returns": "The number of vertices.\n"
+								"shortText": "Get the start and end points of a polyline.",
+								"returns": "A list with two points, or null if the polyline is closed.\n"
 							},
 							"parameters": [
 								{
-									"id": 445,
+									"id": 437,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7766,13 +7538,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 176,
+							"line": 199,
 							"character": 28
 						}
 					]
 				},
 				{
-					"id": 440,
+					"id": 432,
 					"name": "getPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -7781,18 +7553,18 @@
 					},
 					"signatures": [
 						{
-							"id": 441,
+							"id": 433,
 							"name": "getPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns all points",
-								"returns": "The number of vertices.\n"
+								"shortText": "Get all points in a polyline in sequence order.",
+								"returns": "A list of points.\n"
 							},
 							"parameters": [
 								{
-									"id": 442,
+									"id": 434,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7818,13 +7590,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 166,
+							"line": 188,
 							"character": 25
 						}
 					]
 				},
 				{
-					"id": 427,
+					"id": 419,
 					"name": "isClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -7833,24 +7605,24 @@
 					},
 					"signatures": [
 						{
-							"id": 428,
+							"id": 420,
 							"name": "isClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Checks if the polyline is closed",
-								"returns": "True if the polyline is closed\n"
+								"shortText": "Checks if the polyline is closed.",
+								"returns": "True if the polyline is closed.\n"
 							},
 							"parameters": [
 								{
-									"id": 429,
+									"id": 421,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline object"
+										"text": "Polyline object."
 									},
 									"type": {
 										"type": "reference",
@@ -7867,13 +7639,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 123,
+							"line": 141,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 451,
+					"id": 443,
 					"name": "join",
 					"kind": 64,
 					"kindString": "Function",
@@ -7882,18 +7654,18 @@
 					},
 					"signatures": [
 						{
-							"id": 452,
+							"id": 444,
 							"name": "join",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Join polylines with shared end points. The original polyline is deleted.",
-								"returns": "A list of joined polylines.\n"
+								"shortText": "Joins polylines with shared end points. The original polylines are deleted.",
+								"returns": "List of polyline objects.\n"
 							},
 							"parameters": [
 								{
-									"id": 453,
+									"id": 445,
 									"name": "plines",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7922,13 +7694,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 211,
+							"line": 238,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 472,
+					"id": 458,
 					"name": "loft",
 					"kind": 64,
 					"kindString": "Function",
@@ -7937,25 +7709,25 @@
 					},
 					"signatures": [
 						{
-							"id": 473,
+							"id": 459,
 							"name": "loft",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Lofts a list of polylines with the same number of segments to create a polymesh.\nThe original polylines are not modified.",
-								"text": "Straight line segments are created between the vertices of every two input plines. The resulting\nstraight line segments and the straight line segments of the plines are used to define the edges of\nfour-sided polygons. The polygons created from all the plines are joined to create a polymesh<br/>\n\nReturns null if polylines do not have the same number of segments\n",
-								"returns": "Polymesh created from loft if successful, null if unsuccessful or on error\n"
+								"shortText": "Create a new polymesh by lofting a list of polylines with equal numbers of segments.\nThe original polylines are not modified.",
+								"text": "Four-sided faces are the created between the points of consecutive polylines.\nThe faces are joined to create a polymesh.\n\nThrows an error if polylines do not have the same number of segments\n",
+								"returns": "Polymesh object.\n"
 							},
 							"parameters": [
 								{
-									"id": 474,
+									"id": 460,
 									"name": "plines",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "List of polylines to loft (in order)"
+										"text": "List of polylines to loft (in order)."
 									},
 									"type": {
 										"type": "array",
@@ -7966,13 +7738,13 @@
 									}
 								},
 								{
-									"id": 475,
+									"id": 461,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Closes polymesh by lofting back to first polyline if true"
+										"text": "Closes polymesh by lofting back to first polyline if true."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -7990,13 +7762,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 426,
+							"line": 412,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 434,
+					"id": 426,
 					"name": "numEdges",
 					"kind": 64,
 					"kindString": "Function",
@@ -8005,18 +7777,18 @@
 					},
 					"signatures": [
 						{
-							"id": 435,
+							"id": 427,
 							"name": "numEdges",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of edges in the polyline",
+								"shortText": "Get the number of edges in the polyline.",
 								"returns": "The number of edges.\n"
 							},
 							"parameters": [
 								{
-									"id": 436,
+									"id": 428,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8039,13 +7811,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 146,
+							"line": 166,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 437,
+					"id": 429,
 					"name": "numVertices",
 					"kind": 64,
 					"kindString": "Function",
@@ -8054,18 +7826,18 @@
 					},
 					"signatures": [
 						{
-							"id": 438,
+							"id": 430,
 							"name": "numVertices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of vertices in the polyline",
+								"shortText": "Get the number of vertices in the polyline.",
 								"returns": "The number of vertices.\n"
 							},
 							"parameters": [
 								{
-									"id": 439,
+									"id": 431,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8088,13 +7860,13 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 156,
+							"line": 177,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 430,
+					"id": 422,
 					"name": "setIsClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -8103,24 +7875,24 @@
 					},
 					"signatures": [
 						{
-							"id": 431,
+							"id": 423,
 							"name": "setIsClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Sets the polyline to be open or cosed",
-								"returns": "True if an open polyline was closed, false is the polyline was already closed.\n"
+								"shortText": "Sets the polyline to be open or closed.",
+								"returns": "True if the value was changed, false otherwise.\n"
 							},
 							"parameters": [
 								{
-									"id": 432,
+									"id": 424,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline object"
+										"text": "Polyline object."
 									},
 									"type": {
 										"type": "reference",
@@ -8128,13 +7900,13 @@
 									}
 								},
 								{
-									"id": 433,
+									"id": 425,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "The value to set"
+										"text": "True for closed, false for open."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8151,7 +7923,7 @@
 					"sources": [
 						{
 							"fileName": "pline.ts",
-							"line": 134,
+							"line": 153,
 							"character": 27
 						}
 					]
@@ -8162,25 +7934,24 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						407,
-						411,
-						423,
-						419,
-						415,
+						399,
 						403,
+						415,
+						411,
+						407,
+						395,
+						438,
 						446,
-						454,
-						461,
-						457,
-						467,
+						449,
+						453,
+						435,
+						432,
+						419,
 						443,
-						440,
-						427,
-						451,
-						472,
-						434,
-						437,
-						430
+						458,
+						426,
+						429,
+						422
 					]
 				}
 			],
@@ -8193,7 +7964,7 @@
 			]
 		},
 		{
-			"id": 476,
+			"id": 462,
 			"name": "\"pmesh\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -8201,9 +7972,12 @@
 				"isExported": true
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/pmesh.ts",
+			"comment": {
+				"shortText": "Functions for working with polymehes."
+			},
 			"children": [
 				{
-					"id": 481,
+					"id": 467,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -8212,18 +7986,18 @@
 					},
 					"signatures": [
 						{
-							"id": 482,
+							"id": 468,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
 								"shortText": "Create a copy of a polymesh.",
-								"returns": "A new polymesh.\n"
+								"returns": "Polymesh object.\n"
 							},
 							"parameters": [
 								{
-									"id": 483,
+									"id": 469,
 									"name": "polymesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8237,12 +8011,15 @@
 									}
 								},
 								{
-									"id": 484,
+									"id": 470,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
 										"isOptional": true
+									},
+									"comment": {
+										"text": "If true, attributes are copied to the new circle."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8259,13 +8036,73 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 41,
+							"line": 53,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 488,
+					"id": 471,
+					"name": "CopyToModel",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 472,
+							"name": "CopyToModel",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Copies a polymesh from one model into another model.",
+								"returns": "The copied polymesh object in the model.\n"
+							},
+							"parameters": [
+								{
+									"id": 473,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model to copy to."
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 474,
+									"name": "polymesh",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "IPolymesh"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IPolymesh"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "pmesh.ts",
+							"line": 67,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 478,
 					"name": "FromPline",
 					"kind": 64,
 					"kindString": "Function",
@@ -8274,24 +8111,24 @@
 					},
 					"signatures": [
 						{
-							"id": 489,
+							"id": 479,
 							"name": "FromPline",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Creates ...",
-								"returns": "A polymesh if successful, null if unsuccessful or on error.\n"
+								"shortText": "Creates a polymesh from a polyline. The polymesh will have a single face.",
+								"returns": "Polymesh object with single face.\n"
 							},
 							"parameters": [
 								{
-									"id": 490,
+									"id": 480,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "A polyline to create a polymesh with a single polygon face."
+										"text": "Polyline object to create the polymesh from."
 									},
 									"type": {
 										"type": "reference",
@@ -8308,13 +8145,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 85,
+							"line": 115,
 							"character": 25
 						}
 					]
 				},
 				{
-					"id": 485,
+					"id": 475,
 					"name": "FromPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -8323,19 +8160,18 @@
 					},
 					"signatures": [
 						{
-							"id": 486,
+							"id": 476,
 							"name": "FromPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Creates a polymesh from face corner points.",
-								"text": "List of points, assumed to be in order.",
-								"returns": "New polymesh with a single face if successful, null if unsuccessful or on error\n"
+								"shortText": "Creates a polymesh from a list of lists of face corner points.\nFor example [[p1, p2, p3], [p3, p2, p4]] would create a polymesh with two triangular faces.\nIn this example, the two faces share points p2 and p3.",
+								"returns": "Polymesh object.\n"
 							},
 							"parameters": [
 								{
-									"id": 487,
+									"id": 477,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8364,13 +8200,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 59,
+							"line": 89,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 477,
+					"id": 463,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -8379,24 +8215,24 @@
 					},
 					"signatures": [
 						{
-							"id": 478,
+							"id": 464,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Gets a polymesh from the model based on an index number",
-								"returns": "Polymesh object if successful\n"
+								"shortText": "Gets a polymesh from the model based on an ID number.\nIn the viewer, the object label can display (it starts with 'o'), which contains the ID.\nFor example, if the label is \"o123\", then the ID is the number 123.",
+								"returns": "Polymesh object.\n"
 							},
 							"parameters": [
 								{
-									"id": 479,
+									"id": 465,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Model to get polymesh from"
+										"text": "Model to get polymesh from."
 									},
 									"type": {
 										"type": "reference",
@@ -8404,13 +8240,13 @@
 									}
 								},
 								{
-									"id": 480,
+									"id": 466,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Index number of polymesh"
+										"text": "ID number of polymesh."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -8427,13 +8263,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 24,
+							"line": 35,
 							"character": 19
 						}
 					]
 				},
 				{
-					"id": 509,
+					"id": 499,
 					"name": "extrude",
 					"kind": 64,
 					"kindString": "Function",
@@ -8442,24 +8278,25 @@
 					},
 					"signatures": [
 						{
-							"id": 510,
+							"id": 500,
 							"name": "extrude",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Extrude by vector...",
+								"shortText": "Create a new polymesh by extruding an existing polymesh by a specified vector.\nThe original polymesh is not modified.",
+								"text": "New points are created by translating the existing points by the specified vector.\nFour-sided faces are the created between the original and new points.\nThe faces are joined to create a polymesh.\n",
 								"returns": "A polymesh if successful, null if unsuccessful or on error.\n"
 							},
 							"parameters": [
 								{
-									"id": 511,
+									"id": 501,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "A polymesh to extrude"
+										"text": "Polymesh to extrude."
 									},
 									"type": {
 										"type": "reference",
@@ -8467,7 +8304,7 @@
 									}
 								},
 								{
-									"id": 512,
+									"id": 502,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8490,13 +8327,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 171,
+							"line": 209,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 506,
+					"id": 496,
 					"name": "getPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -8505,18 +8342,18 @@
 					},
 					"signatures": [
 						{
-							"id": 507,
+							"id": 497,
 							"name": "getPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns all points that for this polymesh.",
-								"returns": "The number of vertices.\n"
+								"shortText": "Get all points in a polymesh. The sequence of points is in face order.",
+								"returns": "List of points.\n"
 							},
 							"parameters": [
 								{
-									"id": 508,
+									"id": 498,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8542,13 +8379,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 155,
+							"line": 188,
 							"character": 25
 						}
 					]
 				},
 				{
-					"id": 491,
+					"id": 481,
 					"name": "isClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -8557,24 +8394,24 @@
 					},
 					"signatures": [
 						{
-							"id": 492,
+							"id": 482,
 							"name": "isClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Checks if the polymesh is closed",
-								"returns": "True if the polyline is closed\n"
+								"shortText": "Checks if the polymesh is closed.",
+								"returns": "True if the polymesh is closed.\n"
 							},
 							"parameters": [
 								{
-									"id": 493,
+									"id": 483,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Polyline object"
+										"text": "Polymesh object."
 									},
 									"type": {
 										"type": "reference",
@@ -8591,13 +8428,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 102,
+							"line": 133,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 500,
+					"id": 490,
 					"name": "numEdges",
 					"kind": 64,
 					"kindString": "Function",
@@ -8606,18 +8443,18 @@
 					},
 					"signatures": [
 						{
-							"id": 501,
+							"id": 491,
 							"name": "numEdges",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of edges in the Polymesh",
-								"returns": "The number of edges.\n"
+								"shortText": "Get the number of edges in a polymesh, for both the wires and the faces.",
+								"returns": "List of two numbers, number of wire edges and number of face edges.\n"
 							},
 							"parameters": [
 								{
-									"id": 502,
+									"id": 492,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8632,21 +8469,30 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 132,
+							"line": 166,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 494,
+					"id": 484,
 					"name": "numFaces",
 					"kind": 64,
 					"kindString": "Function",
@@ -8655,18 +8501,18 @@
 					},
 					"signatures": [
 						{
-							"id": 495,
+							"id": 485,
 							"name": "numFaces",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of edges in the polyline",
-								"returns": "The number of edges.\n"
+								"shortText": "Get the number of faces in a polymesh.",
+								"returns": "The number of faces.\n"
 							},
 							"parameters": [
 								{
-									"id": 496,
+									"id": 486,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8689,13 +8535,13 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 112,
+							"line": 144,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 503,
+					"id": 493,
 					"name": "numVertices",
 					"kind": 64,
 					"kindString": "Function",
@@ -8704,18 +8550,18 @@
 					},
 					"signatures": [
 						{
-							"id": 504,
+							"id": 494,
 							"name": "numVertices",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of vertices in the Polymesh",
-								"returns": "The number of vertices.\n"
+								"shortText": "Get the number of vertices in the polymesh, for both the wires and the faces.",
+								"returns": "List of two numbers, number of wire vertices and number of face vertices.\n"
 							},
 							"parameters": [
 								{
-									"id": 505,
+									"id": 495,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8730,21 +8576,30 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "number"
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 143,
+							"line": 177,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 497,
+					"id": 487,
 					"name": "numWires",
 					"kind": 64,
 					"kindString": "Function",
@@ -8753,18 +8608,18 @@
 					},
 					"signatures": [
 						{
-							"id": 498,
+							"id": 488,
 							"name": "numWires",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Returns the number of vertices in the Polymesh",
-								"returns": "The number of vertices.\n"
+								"shortText": "Get the number of wires in a polymesh.",
+								"returns": "The number of wires.\n"
 							},
 							"parameters": [
 								{
-									"id": 499,
+									"id": 489,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8787,7 +8642,7 @@
 					"sources": [
 						{
 							"fileName": "pmesh.ts",
-							"line": 122,
+							"line": 155,
 							"character": 24
 						}
 					]
@@ -8798,17 +8653,18 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
+						467,
+						471,
+						478,
+						475,
+						463,
+						499,
+						496,
 						481,
-						488,
-						485,
-						477,
-						509,
-						506,
-						491,
-						500,
-						494,
-						503,
-						497
+						490,
+						484,
+						493,
+						487
 					]
 				}
 			],
@@ -8821,7 +8677,7 @@
 			]
 		},
 		{
-			"id": 513,
+			"id": 503,
 			"name": "\"point\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -8830,11 +8686,11 @@
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/point.ts",
 			"comment": {
-				"shortText": "Function for working with points.\nPoints define a point in a model, with XYZ coordinates."
+				"shortText": "Function for working with points."
 			},
 			"children": [
 				{
-					"id": 529,
+					"id": 519,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -8843,7 +8699,7 @@
 					},
 					"signatures": [
 						{
-							"id": 530,
+							"id": 520,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8854,7 +8710,7 @@
 							},
 							"parameters": [
 								{
-									"id": 531,
+									"id": 521,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8883,7 +8739,7 @@
 					]
 				},
 				{
-					"id": 532,
+					"id": 522,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -8892,7 +8748,7 @@
 					},
 					"signatures": [
 						{
-							"id": 533,
+							"id": 523,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8903,7 +8759,7 @@
 							},
 							"parameters": [
 								{
-									"id": 534,
+									"id": 524,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8917,7 +8773,7 @@
 									}
 								},
 								{
-									"id": 535,
+									"id": 525,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8943,7 +8799,7 @@
 					]
 				},
 				{
-					"id": 544,
+					"id": 534,
 					"name": "FromPointsMean",
 					"kind": 64,
 					"kindString": "Function",
@@ -8952,7 +8808,7 @@
 					},
 					"signatures": [
 						{
-							"id": 545,
+							"id": 535,
 							"name": "FromPointsMean",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8963,7 +8819,7 @@
 							},
 							"parameters": [
 								{
-									"id": 546,
+									"id": 536,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8995,7 +8851,7 @@
 					]
 				},
 				{
-					"id": 536,
+					"id": 526,
 					"name": "FromXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -9004,7 +8860,7 @@
 					},
 					"signatures": [
 						{
-							"id": 537,
+							"id": 527,
 							"name": "FromXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9015,7 +8871,7 @@
 							},
 							"parameters": [
 								{
-									"id": 538,
+									"id": 528,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9029,7 +8885,7 @@
 									}
 								},
 								{
-									"id": 539,
+									"id": 529,
 									"name": "xyz",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9058,7 +8914,7 @@
 					]
 				},
 				{
-					"id": 540,
+					"id": 530,
 					"name": "FromXYZs",
 					"kind": 64,
 					"kindString": "Function",
@@ -9067,7 +8923,7 @@
 					},
 					"signatures": [
 						{
-							"id": 541,
+							"id": 531,
 							"name": "FromXYZs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9078,7 +8934,7 @@
 							},
 							"parameters": [
 								{
-									"id": 542,
+									"id": 532,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9092,7 +8948,7 @@
 									}
 								},
 								{
-									"id": 543,
+									"id": 533,
 									"name": "xyzs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9127,7 +8983,7 @@
 					]
 				},
 				{
-					"id": 514,
+					"id": 504,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -9136,7 +8992,7 @@
 					},
 					"signatures": [
 						{
-							"id": 515,
+							"id": 505,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9147,7 +9003,7 @@
 							},
 							"parameters": [
 								{
-									"id": 516,
+									"id": 506,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9161,7 +9017,7 @@
 									}
 								},
 								{
-									"id": 517,
+									"id": 507,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9192,7 +9048,7 @@
 					]
 				},
 				{
-					"id": 522,
+					"id": 512,
 					"name": "GetFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -9201,7 +9057,7 @@
 					},
 					"signatures": [
 						{
-							"id": 523,
+							"id": 513,
 							"name": "GetFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9212,7 +9068,7 @@
 							},
 							"parameters": [
 								{
-									"id": 524,
+									"id": 514,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9226,7 +9082,7 @@
 									}
 								},
 								{
-									"id": 525,
+									"id": 515,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9258,7 +9114,7 @@
 					]
 				},
 				{
-					"id": 526,
+					"id": 516,
 					"name": "GetFromObjs",
 					"kind": 64,
 					"kindString": "Function",
@@ -9267,7 +9123,7 @@
 					},
 					"signatures": [
 						{
-							"id": 527,
+							"id": 517,
 							"name": "GetFromObjs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9278,7 +9134,7 @@
 							},
 							"parameters": [
 								{
-									"id": 528,
+									"id": 518,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9319,7 +9175,7 @@
 					]
 				},
 				{
-					"id": 518,
+					"id": 508,
 					"name": "Gets",
 					"kind": 64,
 					"kindString": "Function",
@@ -9328,7 +9184,7 @@
 					},
 					"signatures": [
 						{
-							"id": 519,
+							"id": 509,
 							"name": "Gets",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9339,7 +9195,7 @@
 							},
 							"parameters": [
 								{
-									"id": 520,
+									"id": 510,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9353,7 +9209,7 @@
 									}
 								},
 								{
-									"id": 521,
+									"id": 511,
 									"name": "ids",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9399,7 +9255,7 @@
 					]
 				},
 				{
-					"id": 564,
+					"id": 554,
 					"name": "addToGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -9408,7 +9264,7 @@
 					},
 					"signatures": [
 						{
-							"id": 565,
+							"id": 555,
 							"name": "addToGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9419,7 +9275,7 @@
 							},
 							"parameters": [
 								{
-									"id": 566,
+									"id": 556,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9442,7 +9298,7 @@
 									}
 								},
 								{
-									"id": 567,
+									"id": 557,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9468,7 +9324,7 @@
 					]
 				},
 				{
-					"id": 547,
+					"id": 537,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -9477,7 +9333,7 @@
 					},
 					"signatures": [
 						{
-							"id": 548,
+							"id": 538,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9488,7 +9344,7 @@
 							},
 							"parameters": [
 								{
-									"id": 549,
+									"id": 539,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9529,7 +9385,7 @@
 					]
 				},
 				{
-					"id": 550,
+					"id": 540,
 					"name": "getXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -9538,7 +9394,7 @@
 					},
 					"signatures": [
 						{
-							"id": 551,
+							"id": 541,
 							"name": "getXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9549,7 +9405,7 @@
 							},
 							"parameters": [
 								{
-									"id": 552,
+									"id": 542,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9578,7 +9434,7 @@
 					]
 				},
 				{
-					"id": 561,
+					"id": 551,
 					"name": "merge",
 					"kind": 64,
 					"kindString": "Function",
@@ -9587,7 +9443,7 @@
 					},
 					"signatures": [
 						{
-							"id": 562,
+							"id": 552,
 							"name": "merge",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9598,7 +9454,7 @@
 							},
 							"parameters": [
 								{
-									"id": 563,
+									"id": 553,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9630,7 +9486,7 @@
 					]
 				},
 				{
-					"id": 557,
+					"id": 547,
 					"name": "mergeByTol",
 					"kind": 64,
 					"kindString": "Function",
@@ -9639,7 +9495,7 @@
 					},
 					"signatures": [
 						{
-							"id": 558,
+							"id": 548,
 							"name": "mergeByTol",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9650,7 +9506,7 @@
 							},
 							"parameters": [
 								{
-									"id": 559,
+									"id": 549,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9667,7 +9523,7 @@
 									}
 								},
 								{
-									"id": 560,
+									"id": 550,
 									"name": "tolerance",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9696,7 +9552,7 @@
 					]
 				},
 				{
-					"id": 568,
+					"id": 558,
 					"name": "removeFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -9705,7 +9561,7 @@
 					},
 					"signatures": [
 						{
-							"id": 569,
+							"id": 559,
 							"name": "removeFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9716,7 +9572,7 @@
 							},
 							"parameters": [
 								{
-									"id": 570,
+									"id": 560,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9739,7 +9595,7 @@
 									}
 								},
 								{
-									"id": 571,
+									"id": 561,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9765,7 +9621,7 @@
 					]
 				},
 				{
-					"id": 553,
+					"id": 543,
 					"name": "setXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -9774,7 +9630,7 @@
 					},
 					"signatures": [
 						{
-							"id": 554,
+							"id": 544,
 							"name": "setXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9785,7 +9641,7 @@
 							},
 							"parameters": [
 								{
-									"id": 555,
+									"id": 545,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9799,7 +9655,7 @@
 									}
 								},
 								{
-									"id": 556,
+									"id": 546,
 									"name": "xyz",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9833,22 +9689,22 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						529,
-						532,
-						544,
-						536,
-						540,
-						514,
+						519,
 						522,
+						534,
 						526,
-						518,
-						564,
+						530,
+						504,
+						512,
+						516,
+						508,
+						554,
+						537,
+						540,
+						551,
 						547,
-						550,
-						561,
-						557,
-						568,
-						553
+						558,
+						543
 					]
 				}
 			],
@@ -9861,7 +9717,7 @@
 			]
 		},
 		{
-			"id": 572,
+			"id": 562,
 			"name": "\"query\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9874,7 +9730,7 @@
 			},
 			"children": [
 				{
-					"id": 573,
+					"id": 563,
 					"name": "x",
 					"kind": 32,
 					"kindString": "Variable",
@@ -9899,7 +9755,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						573
+						563
 					]
 				}
 			],
@@ -9912,7 +9768,7 @@
 			]
 		},
 		{
-			"id": 574,
+			"id": 564,
 			"name": "\"ray\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9922,7 +9778,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/ray.ts",
 			"children": [
 				{
-					"id": 579,
+					"id": 569,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -9931,7 +9787,7 @@
 					},
 					"signatures": [
 						{
-							"id": 580,
+							"id": 570,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -9942,7 +9798,7 @@
 							},
 							"parameters": [
 								{
-									"id": 581,
+									"id": 571,
 									"name": "ray",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9956,7 +9812,7 @@
 									}
 								},
 								{
-									"id": 582,
+									"id": 572,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9984,7 +9840,7 @@
 					]
 				},
 				{
-					"id": 583,
+					"id": 573,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -9993,7 +9849,7 @@
 					},
 					"signatures": [
 						{
-							"id": 584,
+							"id": 574,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10004,7 +9860,7 @@
 							},
 							"parameters": [
 								{
-									"id": 585,
+									"id": 575,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10015,7 +9871,7 @@
 									}
 								},
 								{
-									"id": 586,
+									"id": 576,
 									"name": "ray",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10044,7 +9900,7 @@
 					]
 				},
 				{
-					"id": 587,
+					"id": 577,
 					"name": "FromOriginVector",
 					"kind": 64,
 					"kindString": "Function",
@@ -10053,7 +9909,7 @@
 					},
 					"signatures": [
 						{
-							"id": 588,
+							"id": 578,
 							"name": "FromOriginVector",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10064,7 +9920,7 @@
 							},
 							"parameters": [
 								{
-									"id": 589,
+									"id": 579,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10078,7 +9934,7 @@
 									}
 								},
 								{
-									"id": 590,
+									"id": 580,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10107,7 +9963,7 @@
 					]
 				},
 				{
-					"id": 575,
+					"id": 565,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -10116,7 +9972,7 @@
 					},
 					"signatures": [
 						{
-							"id": 576,
+							"id": 566,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10127,7 +9983,7 @@
 							},
 							"parameters": [
 								{
-									"id": 577,
+									"id": 567,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10141,7 +9997,7 @@
 									}
 								},
 								{
-									"id": 578,
+									"id": 568,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10175,10 +10031,10 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						579,
-						583,
-						587,
-						575
+						569,
+						573,
+						577,
+						565
 					]
 				}
 			],
@@ -10191,7 +10047,7 @@
 			]
 		},
 		{
-			"id": 627,
+			"id": 617,
 			"name": "\"split\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10200,11 +10056,11 @@
 			},
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/split.ts",
 			"comment": {
-				"shortText": "Functions for splitting.\nSplit functions split one geometric object with another geometric object."
+				"shortText": "Functions for splitting geometric objects that insersect with one another."
 			},
 			"children": [
 				{
-					"id": 628,
+					"id": 618,
 					"name": "circleCircle2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -10213,7 +10069,7 @@
 					},
 					"signatures": [
 						{
-							"id": 629,
+							"id": 619,
 							"name": "circleCircle2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10224,7 +10080,7 @@
 							},
 							"parameters": [
 								{
-									"id": 630,
+									"id": 620,
 									"name": "circle1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10238,7 +10094,7 @@
 									}
 								},
 								{
-									"id": 631,
+									"id": 621,
 									"name": "circle2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10275,7 +10131,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						628
+						618
 					]
 				}
 			],
@@ -10288,7 +10144,7 @@
 			]
 		},
 		{
-			"id": 593,
+			"id": 583,
 			"name": "\"string\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10298,7 +10154,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/gs-modelling/lib/string.ts",
 			"children": [
 				{
-					"id": 598,
+					"id": 588,
 					"name": "endsWith",
 					"kind": 64,
 					"kindString": "Function",
@@ -10307,7 +10163,7 @@
 					},
 					"signatures": [
 						{
-							"id": 599,
+							"id": 589,
 							"name": "endsWith",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10318,7 +10174,7 @@
 							},
 							"parameters": [
 								{
-									"id": 600,
+									"id": 590,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10332,7 +10188,7 @@
 									}
 								},
 								{
-									"id": 601,
+									"id": 591,
 									"name": "end_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10361,7 +10217,7 @@
 					]
 				},
 				{
-					"id": 602,
+					"id": 592,
 					"name": "includes",
 					"kind": 64,
 					"kindString": "Function",
@@ -10370,7 +10226,7 @@
 					},
 					"signatures": [
 						{
-							"id": 603,
+							"id": 593,
 							"name": "includes",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10381,7 +10237,7 @@
 							},
 							"parameters": [
 								{
-									"id": 604,
+									"id": 594,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10395,7 +10251,7 @@
 									}
 								},
 								{
-									"id": 605,
+									"id": 595,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10424,7 +10280,7 @@
 					]
 				},
 				{
-					"id": 606,
+					"id": 596,
 					"name": "len",
 					"kind": 64,
 					"kindString": "Function",
@@ -10433,7 +10289,7 @@
 					},
 					"signatures": [
 						{
-							"id": 607,
+							"id": 597,
 							"name": "len",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10444,7 +10300,7 @@
 							},
 							"parameters": [
 								{
-									"id": 608,
+									"id": 598,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10473,7 +10329,7 @@
 					]
 				},
 				{
-					"id": 609,
+					"id": 599,
 					"name": "replace",
 					"kind": 64,
 					"kindString": "Function",
@@ -10482,7 +10338,7 @@
 					},
 					"signatures": [
 						{
-							"id": 610,
+							"id": 600,
 							"name": "replace",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10493,7 +10349,7 @@
 							},
 							"parameters": [
 								{
-									"id": 611,
+									"id": 601,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10507,7 +10363,7 @@
 									}
 								},
 								{
-									"id": 612,
+									"id": 602,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10521,7 +10377,7 @@
 									}
 								},
 								{
-									"id": 613,
+									"id": 603,
 									"name": "new_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10550,7 +10406,7 @@
 					]
 				},
 				{
-					"id": 614,
+					"id": 604,
 					"name": "search",
 					"kind": 64,
 					"kindString": "Function",
@@ -10559,7 +10415,7 @@
 					},
 					"signatures": [
 						{
-							"id": 615,
+							"id": 605,
 							"name": "search",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10570,7 +10426,7 @@
 							},
 							"parameters": [
 								{
-									"id": 616,
+									"id": 606,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10584,7 +10440,7 @@
 									}
 								},
 								{
-									"id": 617,
+									"id": 607,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10613,7 +10469,7 @@
 					]
 				},
 				{
-					"id": 618,
+					"id": 608,
 					"name": "split",
 					"kind": 64,
 					"kindString": "Function",
@@ -10622,7 +10478,7 @@
 					},
 					"signatures": [
 						{
-							"id": 619,
+							"id": 609,
 							"name": "split",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10633,7 +10489,7 @@
 							},
 							"parameters": [
 								{
-									"id": 620,
+									"id": 610,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10647,7 +10503,7 @@
 									}
 								},
 								{
-									"id": 621,
+									"id": 611,
 									"name": "separator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10679,7 +10535,7 @@
 					]
 				},
 				{
-					"id": 594,
+					"id": 584,
 					"name": "startsWith",
 					"kind": 64,
 					"kindString": "Function",
@@ -10688,7 +10544,7 @@
 					},
 					"signatures": [
 						{
-							"id": 595,
+							"id": 585,
 							"name": "startsWith",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10699,7 +10555,7 @@
 							},
 							"parameters": [
 								{
-									"id": 596,
+									"id": 586,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10713,7 +10569,7 @@
 									}
 								},
 								{
-									"id": 597,
+									"id": 587,
 									"name": "start_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10742,7 +10598,7 @@
 					]
 				},
 				{
-					"id": 622,
+					"id": 612,
 					"name": "substring",
 					"kind": 64,
 					"kindString": "Function",
@@ -10751,7 +10607,7 @@
 					},
 					"signatures": [
 						{
-							"id": 623,
+							"id": 613,
 							"name": "substring",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10762,7 +10618,7 @@
 							},
 							"parameters": [
 								{
-									"id": 624,
+									"id": 614,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10776,7 +10632,7 @@
 									}
 								},
 								{
-									"id": 625,
+									"id": 615,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10790,7 +10646,7 @@
 									}
 								},
 								{
-									"id": 626,
+									"id": 616,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10824,14 +10680,14 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						598,
-						602,
-						606,
-						609,
-						614,
-						618,
-						594,
-						622
+						588,
+						592,
+						596,
+						599,
+						604,
+						608,
+						584,
+						612
 					]
 				}
 			],
@@ -10844,7 +10700,7 @@
 			]
 		},
 		{
-			"id": 591,
+			"id": 581,
 			"name": "\"topo\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10857,7 +10713,7 @@
 			},
 			"children": [
 				{
-					"id": 592,
+					"id": 582,
 					"name": "x",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10882,7 +10738,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						592
+						582
 					]
 				}
 			],
@@ -10907,20 +10763,20 @@
 				182,
 				189,
 				192,
-				226,
-				235,
-				294,
-				339,
-				342,
-				367,
-				402,
-				476,
-				513,
-				572,
-				574,
-				627,
-				593,
-				591
+				218,
+				227,
+				286,
+				331,
+				334,
+				359,
+				394,
+				462,
+				503,
+				562,
+				564,
+				617,
+				583,
+				581
 			]
 		}
 	]

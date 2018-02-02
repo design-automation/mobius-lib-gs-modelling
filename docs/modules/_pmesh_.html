@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Functions for working with polymehes.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -72,6 +79,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#copy" class="tsd-kind-icon">Copy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#frompline" class="tsd-kind-icon">From<wbr>Pline</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#get" class="tsd-kind-icon">Get</a></li>
@@ -99,7 +107,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L41">pmesh.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L53">pmesh.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -117,10 +125,48 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> copy_attribs: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, attributes are copied to the new circle.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
-							<p>A new polymesh.</p>
+							<p>Polymesh object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="copytomodel" class="tsd-anchor"></a>
+					<h3>Copy<wbr>ToModel</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Copy<wbr>ToModel<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, polymesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L67">pmesh.ts:67</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies a polymesh from one model into another model.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to copy to.</p>
+									</div>
+								</li>
+								<li>
+									<h5>polymesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
+							<p>The copied polymesh object in the model.</p>
 						</li>
 					</ul>
 				</section>
@@ -134,12 +180,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L85">pmesh.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L115">pmesh.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates ...</p>
+									<p>Creates a polymesh from a polyline. The polymesh will have a single face.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,12 +193,12 @@
 								<li>
 									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A polyline to create a polymesh with a single polygon face.</p>
+										<p>Polyline object to create the polymesh from.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
-							<p>A polymesh if successful, null if unsuccessful or on error.</p>
+							<p>Polymesh object with single face.</p>
 						</li>
 					</ul>
 				</section>
@@ -166,14 +212,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L59">pmesh.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L89">pmesh.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a polymesh from face corner points.</p>
+									<p>Creates a polymesh from a list of lists of face corner points.
+										For example [[p1, p2, p3], [p3, p2, p4]] would create a polymesh with two triangular faces.
+									In this example, the two faces share points p2 and p3.</p>
 								</div>
-								<p>List of points, assumed to be in order.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -185,7 +232,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
-							<p>New polymesh with a single face if successful, null if unsuccessful or on error</p>
+							<p>Polymesh object.</p>
 						</li>
 					</ul>
 				</section>
@@ -199,12 +246,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L24">pmesh.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L35">pmesh.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets a polymesh from the model based on an index number</p>
+									<p>Gets a polymesh from the model based on an ID number.
+										In the viewer, the object label can display (it starts with &#39;o&#39;), which contains the ID.
+									For example, if the label is &quot;o123&quot;, then the ID is the number 123.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,18 +261,18 @@
 								<li>
 									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Model to get polymesh from</p>
+										<p>Model to get polymesh from.</p>
 									</div>
 								</li>
 								<li>
 									<h5>id: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Index number of polymesh</p>
+										<p>ID number of polymesh.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span></h4>
-							<p>Polymesh object if successful</p>
+							<p>Polymesh object.</p>
 						</li>
 					</ul>
 				</section>
@@ -237,20 +286,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L171">pmesh.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L209">pmesh.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extrude by vector...</p>
+									<p>Create a new polymesh by extruding an existing polymesh by a specified vector.
+									The original polymesh is not modified.</p>
 								</div>
+								<p>New points are created by translating the existing points by the specified vector.
+									Four-sided faces are the created between the original and new points.
+								The faces are joined to create a polymesh.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A polymesh to extrude</p>
+										<p>Polymesh to extrude.</p>
 									</div>
 								</li>
 								<li>
@@ -275,12 +328,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L155">pmesh.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L188">pmesh.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns all points that for this polymesh.</p>
+									<p>Get all points in a polymesh. The sequence of points is in face order.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -293,7 +346,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>The number of vertices.</p>
+							<p>List of points.</p>
 						</li>
 					</ul>
 				</section>
@@ -307,44 +360,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L102">pmesh.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L133">pmesh.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if the polymesh is closed</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Polyline object</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if the polyline is closed</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="numedges" class="tsd-anchor"></a>
-					<h3>num<wbr>Edges</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">num<wbr>Edges<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L132">pmesh.ts:132</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the number of edges in the Polymesh</p>
+									<p>Checks if the polymesh is closed.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -356,8 +377,40 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The number of edges.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the polymesh is closed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="numedges" class="tsd-anchor"></a>
+					<h3>num<wbr>Edges</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">num<wbr>Edges<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L166">pmesh.ts:166</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the number of edges in a polymesh, for both the wires and the faces.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh object.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>List of two numbers, number of wire edges and number of face edges.</p>
 						</li>
 					</ul>
 				</section>
@@ -371,12 +424,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L112">pmesh.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L144">pmesh.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of edges in the polyline</p>
+									<p>Get the number of faces in a polymesh.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -389,7 +442,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The number of edges.</p>
+							<p>The number of faces.</p>
 						</li>
 					</ul>
 				</section>
@@ -397,18 +450,18 @@
 					<a name="numvertices" class="tsd-anchor"></a>
 					<h3>num<wbr>Vertices</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">num<wbr>Vertices<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">num<wbr>Vertices<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L143">pmesh.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L177">pmesh.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of vertices in the Polymesh</p>
+									<p>Get the number of vertices in the polymesh, for both the wires and the faces.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -420,8 +473,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The number of vertices.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
+							<p>List of two numbers, number of wire vertices and number of face vertices.</p>
 						</li>
 					</ul>
 				</section>
@@ -435,12 +488,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/38b50d0/src/gs-modelling/lib/pmesh.ts#L122">pmesh.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pmesh.ts#L155">pmesh.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the number of vertices in the Polymesh</p>
+									<p>Get the number of wires in a polymesh.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -453,7 +506,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The number of vertices.</p>
+							<p>The number of wires.</p>
 						</li>
 					</ul>
 				</section>
@@ -534,6 +587,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pmesh_.html#copy" class="tsd-kind-icon">Copy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pmesh_.html#frompline" class="tsd-kind-icon">From<wbr>Pline</a>
