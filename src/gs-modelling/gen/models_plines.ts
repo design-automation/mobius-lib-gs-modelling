@@ -2,8 +2,11 @@ import * as gs from "gs-json";
 import * as gsm from "./../lib/_export_dev";
 import * as threex from "../lib/_three_utils_dev";
 
-export function randXYZ(): gs.XYZ {
-    return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
+export function randXYZ(scale: number): gs.XYZ {
+    return [
+        (Math.random() - 0.5) * scale,
+        (Math.random() - 0.5) * scale,
+        (Math.random() - 0.5) * scale];
 }
 
 export function genModelTest1(): gs.IModel {
@@ -59,10 +62,11 @@ export function genModelTest5(): gs.IModel {
     const p3: gs.IPoint = gsm.point.FromXYZ(m, [3,3,3]);
     const c: gs.ICircle = gsm.circle.FromOriginXY(p1, 8, [300,45]);
     const pl: gs.IPolyline = gsm.pline.FromCircle(c, 100);
-    const exploded: gs.IPolyline[] = gsm.pline.explode(pl);
-    for (const pline of exploded) {
-        gsm.pline.extrude(pline, [Math.random(),Math.random(),Math.random()], false);
-    }
+    gsm.pline.extrude(pl, randXYZ(1), false);
+    // const exploded: gs.IPolyline[] = gsm.pline.explode(pl);
+    // for (const pline of exploded) {
+    //     gsm.pline.extrude(pline, randXYZ(2), false);
+    // }
     return m;
 }
 

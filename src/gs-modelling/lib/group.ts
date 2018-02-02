@@ -32,12 +32,22 @@ export function GetAll(model: gs.IModel): gs.IGroup[] {
 
 /**
  * Adds a group to a model
- * @param model Model to add to
+ * @param model Model to add.
  * @param name Name of new group
  * @returns New group
  */
-export function Create(model: gs.IModel, name: string ): gs.IGroup {
+export function Create(model: gs.IModel, name: string): gs.IGroup {
     return model.addGroup(name);
+}
+
+/**
+ * Adds groups to a model.
+ * @param model Models to add.
+ * @param name Name of new group
+ * @returns New group
+ */
+export function Creates(model: gs.IModel, names: string[]): gs.IGroup[] {
+    return names.map((name) => model.addGroup(name));
 }
 
 //  ===============================================================================================================
@@ -45,42 +55,18 @@ export function Create(model: gs.IModel, name: string ): gs.IGroup {
 //  ===============================================================================================================
 
 /**
- * Checks if a group contains a specified geometry
- * @param group Group to check
- * @param geom Geometry to check
- * @returns True if group contains geometry, false if group does not contain geometry
- */
-export function contains(group: gs.IGroup, geom: gs.IEnt | gs.ITopo): boolean {
-    switch (geom.getGeomType()) {
-        case gs.EGeomType.points:
-            return group.hasPoint(geom as gs.IPoint);
-        case gs.EGeomType.objs:
-            return group.hasObj(geom as gs.IObj);
-        default:
-            return group.hasTopo(geom as gs.ITopo);
-    }
-}
-
-/**
  * Deletes a group
  * @param group Group to delete
- * @param deleteGeom Deletes geometry contained in group if true
+ * @param delete_geom Deletes geometry contained in group if true
  * @returns True if successful
  */
-export function del(group: gs.IGroup, deleteGeom: boolean): boolean {
-    if (deleteGeom) {
-        throw new Error("Method not implemented");
+export function del(model: gs.IModel, group_name: string, delete_geom: boolean): boolean {
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (delete_geom) {
+        model.getGeom().delObjs(group.getObjs(), false);
+        model.getGeom().delPoints(group.getPoints());
     }
     return group.getModel().delGroup(group);
-}
-
-/**
- * Gets the name of a group
- * @param group Group
- * @returns Name of specified group
- */
-export function getName(group: gs.IGroup): string {
-    return group.getName();
 }
 
 /**
@@ -90,18 +76,9 @@ export function getName(group: gs.IGroup): string {
  * @param group Group
  * @returns Parent group of specified group if successful, null if unsuccessful or on error
  */
-export function getParent(group: gs.IGroup): gs.IGroup {
-    return group.getParentGroup();
-}
-
-/**
- * Sets the name of a group
- * @param group Group
- * @param name New name of group
- * @returns Old name of specified group
- */
-export function setName(group: gs.IGroup, name: string ): string {
-    return group.setName(name);
+export function getParent(model: gs.IModel, group_name: string): string {
+    const group: gs.IGroup = model.getGroup(group_name);
+    return group.getParentGroup().getName();
 }
 
 /**
@@ -110,7 +87,9 @@ export function setName(group: gs.IGroup, name: string ): string {
  * @param parent New parent group
  * @returns The old parent.
  */
-export function setParent(group: gs.IGroup, parent: gs.IGroup): gs.IGroup {
-    return group.setParentGroup(group);
+export function setParent(model: gs.IModel, group_name: string, parent_name: string): string {
+    const group: gs.IGroup = model.getGroup(group_name);
+    const parent: gs.IGroup = model.getGroup(parent_name);
+    return group.setParentGroup(group).getName();
 }
 
