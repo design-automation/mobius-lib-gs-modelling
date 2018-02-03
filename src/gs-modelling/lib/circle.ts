@@ -17,6 +17,7 @@ import * as util from "./circle_dev";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as math_conic from "./_math_conic_dev";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Circle Get and Copy =====================================================================================================
@@ -33,11 +34,7 @@ import * as math_conic from "./_math_conic_dev";
  */
 export function Get(model: gs.IModel, id: number): gs.ICircle {
     // check args
-    const obj: gs.IObj = model.getGeom().getObj(id);
-    if (obj === undefined) {return null;}
-    if (obj.getObjType() !== gs.EObjType.circle) {
-        throw new Error("Error: Object is not a circle. Object type is: " + obj.getObjType());
-    }
+    const obj: gs.IObj = error.checkObjID(model, id, gs.EObjType.circle);
     // return the circle
     return obj as gs.ICircle;
 }
@@ -51,7 +48,7 @@ export function Get(model: gs.IModel, id: number): gs.ICircle {
  */
 export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
     // check args
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     // copy and return
     return circle.copy(copy_attribs) as gs.ICircle;
 }
@@ -65,7 +62,7 @@ export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
  */
 export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
     // check args
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     // check it is not already in the model
     if (circle.getModel() === model) {throw new Error("Error: circle is already in model.");}
     // copy circle and return it
@@ -90,7 +87,9 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
  */
 export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ,
                                    angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    error.checkPoint(origin);
+    error.checkXYZ(vec_x);
+    error.checkXYZ(vec);
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
@@ -109,7 +108,9 @@ export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ
  */
 export function FromOrigin2Points(origin: gs.IPoint, point1: gs.IPoint, point2: gs.IPoint,
                                   angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    error.checkPoint(origin);
+    error.checkPoint(point1);
+    error.checkPoint(point2);
     // create the vectors
     const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, point1).toArray() as gs.XYZ;
     const vec: gs.XYZ = threex.vectorFromPointsAtoB(origin, point2).toArray() as gs.XYZ;
@@ -128,7 +129,8 @@ export function FromOrigin2Points(origin: gs.IPoint, point1: gs.IPoint, point2: 
  * @returns Circle object.
  */
 export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    error.checkPoint(origin);
+    error.checkPosNum(radius);
     // create the vectors
     const vec_x: gs.XYZ = [radius,0,0];
     const vec: gs.XYZ = [0,1,0];
@@ -147,7 +149,8 @@ export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number,
  * @returns Circle object.
  */
 export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    error.checkPoint(origin);
+    error.checkPosNum(radius);
     // create the vectors
     const vec_x: gs.XYZ = [0, radius,0];
     const vec: gs.XYZ = [0,0,1];
@@ -166,7 +169,8 @@ export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number,
  * @returns New circle (or arc).
  */
 export function FromOriginZX(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
-    if (!origin.exists()) {throw new Error("Error: origin has been deleted.");}
+    error.checkPoint(origin);
+    error.checkPosNum(radius);
     // create the vectors
     const vec_x: gs.XYZ = [0,0,radius];
     const vec: gs.XYZ = [1,0,0];
@@ -185,7 +189,8 @@ export function FromOriginZX(origin: gs.IPoint, radius: number, angles: [number,
  * @returns New circle object.
  */
 export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, number]): gs.ICircle {
-    if (!plane.exists()) {throw new Error("Error: plane has been deleted.");}
+    error.checkObj(plane, gs.EObjType.plane);
+    error.checkPosNum(radius);
     // create the vectors
     const vecs: gs.XYZ[] = plane.getAxes();
     const vec_x: gs.XYZ = new three.Vector3(...vecs[0]).setLength(radius).toArray() as gs.XYZ;
@@ -204,7 +209,7 @@ export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, num
  * @returns Point object, the origin of teh circle.
  */
 export function getOrigin(circle: gs.ICircle): gs.IPoint {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     return circle.getOrigin();
 }
 
@@ -215,7 +220,7 @@ export function getOrigin(circle: gs.ICircle): gs.IPoint {
  * @returns Two vectors, the X and Y vectors of teh circle plane.
  */
 export function getAxes(circle: gs.ICircle): gs.XYZ[] {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     return circle.getAxes();
 }
 
@@ -226,7 +231,7 @@ export function getAxes(circle: gs.ICircle): gs.XYZ[] {
  * @returns The angles, or null if it is a closed circle.
  */
 export function getArcAngles(circle: gs.ICircle): [number, number] {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     return circle.getAngles();
 }
 
@@ -237,7 +242,7 @@ export function getArcAngles(circle: gs.ICircle): [number, number] {
  * @param angles The angles to set, two numbers between 0 and 360. If null, then the circle is closed.
  */
 export function setArcAngles(circle: gs.ICircle, angles: [number, number]): [number, number] {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     const old_angles: [number, number] = circle.getAngles();
     circle.setAngles(util._argsCheckAngles(angles));
     return old_angles;
@@ -250,7 +255,7 @@ export function setArcAngles(circle: gs.ICircle, angles: [number, number]): [num
  * @returns True if the circle is closed.
  */
 export function isClosed(circle: gs.ICircle): boolean {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     return circle.isClosed();
 }
 
@@ -261,7 +266,7 @@ export function isClosed(circle: gs.ICircle): boolean {
  * @return True if the open circle was closed, false if the circle was already closed.
  */
 export function close(circle: gs.ICircle): boolean {
-    if (!circle.exists()) {throw new Error("Error: circle has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
     if (circle.isClosed()) {return false;}
     circle.setAngles(undefined);
     return true;
@@ -279,6 +284,7 @@ export function close(circle: gs.ICircle): boolean {
  * @returns Length of circle
  */
 export function calcLength(circle: gs.ICircle): number {
+    error.checkObj(circle, gs.EObjType.circle);
     const circle_length: number = 2 * Math.PI * circle.getRadius();
     if (circle.isClosed()) {return circle_length;}
     const angles: [number, number] = circle.getAngles();

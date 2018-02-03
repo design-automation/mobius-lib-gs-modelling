@@ -12,6 +12,7 @@
 import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Plane Get =====================================================================================================
@@ -27,13 +28,7 @@ import * as threex from "./_three_utils_dev";
  * @returns The plane object.
  */
 export function Get(model: gs.IModel, id: number): gs.IPlane {
-    // check args
-    const obj: gs.IObj = model.getGeom().getObj(id);
-    if (obj === undefined) {return null;}
-    if (obj.getObjType() !== gs.EObjType.plane) {
-        throw new Error("Object is not a plane. Object type is: " + obj.getObjType());
-    }
-    // return the plane
+    const obj: gs.IObj = error.checkObjID(model, id, gs.EObjType.plane);
     return obj as gs.IPlane;
 }
 
@@ -44,9 +39,7 @@ export function Get(model: gs.IModel, id: number): gs.IPlane {
  * @returns A new plane object.
  */
 export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
-    // check args
-    if (!plane.exists()) {throw new Error("plane has been deleted.");}
-    // copy and return
+    error.checkObj(plane, gs.EObjType.plane);
     return plane.copy(copy_attribs) as gs.IPlane;
 }
 
@@ -58,11 +51,8 @@ export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
  * @returns The copied plane object in the model.
  */
 export function CopyToModel(model: gs.IModel, plane: gs.IPlane): gs.IPlane {
-    // check args
-    if (!plane.exists()) {throw new Error("Error: plane has been deleted.");}
-    // check it is not already in the model
+    error.checkObj(plane, gs.EObjType.plane);
     if (plane.getModel() === model) {throw new Error("Error: plane is already in model.");}
-    // copy circle and return it
     return model.getGeom().copyPlaneFromModel(plane);
 }
 
@@ -71,7 +61,7 @@ export function CopyToModel(model: gs.IModel, plane: gs.IPlane): gs.IPlane {
 //  ===============================================================================================================
 
 /**
- * Create a plane object from an origin point and two vectors.
+ * Creates a plane object from an origin point and two vectors.
  *
  * @param origin Point object, the origin of plane.
  * @param vec_x XYZ vector, the x-axis of plane.
@@ -79,49 +69,43 @@ export function CopyToModel(model: gs.IModel, plane: gs.IPlane): gs.IPlane {
  * @returns New plane object.
  */
 export function FromOriginVectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ): gs.IPlane {
-    // check args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    // create the new plane
-    return origin.getGeom().addPlane(origin, vec_x, vec);
+    const model: gs.IModel = error.checkPoint(origin);
+    error.checkXYZ(vec_x);
+    error.checkXYZ(vec);
+    return model.getGeom().addPlane(origin, vec_x, vec);
 }
 
 /**
- * Create a plane object from an origin point, parallel to the WCS XY plane .
+ * Creates a plane object from an origin point, parallel to the WCS XY plane .
  *
  * @param origin Point object, the origin of plane.
  * @returns New plane object.
  */
 export function FromOriginXY(origin: gs.IPoint): gs.IPlane {
-    // check args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    // create the new plane
-    return origin.getGeom().addPlane(origin, [1,0,0], [0,1,0]);
+    const model: gs.IModel = error.checkPoint(origin);
+    return model.getGeom().addPlane(origin, [1,0,0], [0,1,0]);
 }
 
 /**
- * Create a plane object from an origin point, parallel to the WCS YZ plane .
+ * Creates a plane object from an origin point, parallel to the WCS YZ plane .
  *
  * @param origin Point object, the origin of plane.
  * @returns New plane object.
  */
 export function FromOriginYZ(origin: gs.IPoint): gs.IPlane {
-    // check args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    // create the new plane
-    return origin.getGeom().addPlane(origin, [0,1,0], [0,0,1]);
+    const model: gs.IModel = error.checkPoint(origin);
+    return model.getGeom().addPlane(origin, [0,1,0], [0,0,1]);
 }
 
 /**
- * Create a plane object from an origin point, parallel to the WCS ZX plane .
+ * Creates a plane object from an origin point, parallel to the WCS ZX plane .
  *
  * @param origin Point object, the origin of plane.
  * @returns New plane object.
  */
 export function FromOriginZX(origin: gs.IPoint): gs.IPlane {
-    // check args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    // create the new plane
-    return origin.getGeom().addPlane(origin, [0,0,1], [1,0,0]);
+    const model: gs.IModel = error.checkPoint(origin);
+    return model.getGeom().addPlane(origin, [0,0,1], [1,0,0]);
 }
 
 /**
@@ -132,13 +116,10 @@ export function FromOriginZX(origin: gs.IPoint): gs.IPlane {
  * @param pt2 Point object, a point on the plane.
  * @returns New plane object.
  */
-export function FromOriginPoints(origin: gs.IPoint, pt1: gs.IPoint, pt2: gs.IPoint ):
-                                gs.IPlane {
-    // check the args
-    if (!origin.exists()) {throw new Error("Arg origin has been deleted.");}
-    if (!pt1.exists()) {throw new Error("Arg point_on_x has been deleted.");}
-    if (!pt2.exists()) {throw new Error("Arg pt2 has been deleted.");}
-    const model: gs.IModel = origin.getModel();
+export function FromOriginPoints(origin: gs.IPoint, pt1: gs.IPoint, pt2: gs.IPoint ):gs.IPlane {
+    const model: gs.IModel = error.checkPoint(origin);
+    error.checkPoint(pt1);
+    error.checkPoint(pt2);
     if(pt1.getModel() !== model) { throw new Error("Points need to be in the same model");}
     if(pt2.getModel() !== model) { throw new Error("Points need to be in the same model");}
     // create the plane
@@ -156,11 +137,9 @@ export function FromOriginPoints(origin: gs.IPoint, pt1: gs.IPoint, pt2: gs.IPoi
  * @returns New plane object.
  */
 export function FromCircle(circle: gs.ICircle): gs.IPlane {
-    // check args
-    if (!circle.exists()) {throw new Error("Circle has been deleted.");}
-    // create the new plane
+    const model: gs.IModel = error.checkObj(circle, gs.EObjType.circle);
     const vectors: gs.XYZ[] = circle.getAxes();
-    return circle.getGeom().addPlane(circle.getOrigin(), vectors[0], vectors[1]);
+    return model.getGeom().addPlane(circle.getOrigin(), vectors[0], vectors[1]);
 }
 
 //  ===============================================================================================================

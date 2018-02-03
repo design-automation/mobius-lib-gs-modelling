@@ -259,25 +259,17 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
                 if (angle >= circle_angles[0] && angle < circle_angles[1]) {ok = true;}
             }
             if (ok) {
+
                 const point1: three.Vector3 = new three.Vector3(
                     C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x - PO[0],
                     C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y - PO[1],
                     C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z - PO[2],
                     );
-
                 if( Math.abs(_n1.dot(point1)) < eps ) {
-                const vec_point1: three.Vector3 = new three.Vector3(
-                    Math.cos(t)*U1.x + Math.sin(t)*V1.x,
-                    Math.cos(t)*U1.y + Math.sin(t)*V1.y,
-                    Math.cos(t)*U1.z + Math.sin(t)*V1.z);
-                let angle_point1: number = Math.sign(
-                        threex.crossVectors(U1,V1).dot(threex.crossVectors(U1,vec_point1))) * vec_point1.angleTo(U1) * 180 / Math.PI;
-                angle_point1 = (angle_point1 + 10*360) %360;
-                if (angle_point1 >= circle.getAngles()[0] && angle_point1 <= circle.getAngles()[1]) {
                 result.push(m.getGeom().addPoint([
                     C0[0] + Math.cos(t)*U1.x + Math.sin(t)*V1.x,
                     C0[1] + Math.cos(t)*U1.y + Math.sin(t)*V1.y,
-                    C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));}
+                    C0[2] + Math.cos(t)*U1.z + Math.sin(t)*V1.z]));
                 }
                 const point2: three.Vector3 = new three.Vector3(
                     C0[0] + Math.cos(t + Math.PI)*U1.x + Math.sin(t + Math.PI)*V1.x - PO[0],
@@ -285,19 +277,14 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
                     C0[2] + Math.cos(t + Math.PI)*U1.z + Math.sin(t + Math.PI)*V1.z - PO[2],
                     );
                 if( Math.abs(_n1.dot(point2)) < eps ) {
-                const vec_point2: three.Vector3 = new three.Vector3(
-                    Math.cos(t + Math.PI)*U1.x + Math.sin(t + Math.PI)*V1.x,
-                    Math.cos(t + Math.PI)*U1.y + Math.sin(t + Math.PI)*V1.y,
-                    Math.cos(t + Math.PI)*U1.z + Math.sin(t + Math.PI)*V1.z);
-                let angle_point2: number = Math.sign(threex.crossVectors(U1,V1).dot(threex.crossVectors(U1,vec_point2))) * vec_point2.angleTo(U1) * 180 / Math.PI;
-                angle_point2 = (angle_point2 + 10*360) %360;
-                if (angle_point2 >= circle.getAngles()[0] && angle_point2 <= circle.getAngles()[1]) {
-                    result.push(m.getGeom().addPoint([
+                result.push(m.getGeom().addPoint([
                     C0[0] + Math.cos(t + Math.PI)*U1.x + Math.sin(t + Math.PI)*V1.x,
                     C0[1] + Math.cos(t + Math.PI)*U1.y + Math.sin(t + Math.PI)*V1.y,
                     C0[2] + Math.cos(t + Math.PI)*U1.z + Math.sin(t + Math.PI)*V1.z]));
                 }
-                }
+
+
+
             }
         }
     }

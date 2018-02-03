@@ -22,11 +22,10 @@ import * as error from "./_error_msgs_dev";
  * Gets a point from a model.
  * @param model Model to get point from.
  * @param id ID of point to get.
- * @returns Point if successful. Null if the point does nor exist.
+ * @returns Point.
  */
-export function Get(model: gs.IModel, id?: number): gs.IPoint {
-    const point: gs.IPoint = model.getGeom().getPoint(id);
-    if (point === undefined) {error.pointNotExist();}
+export function Get(model: gs.IModel, id: number): gs.IPoint {
+    const point: gs.IPoint = error.checkPointID(model, id);
     return point;
 }
 
@@ -54,8 +53,7 @@ export function Gets(model: gs.IModel, ids?: number | number[]): gs.IPoint[] {
  * @returns List of points.
  */
 export function GetFromGroup(model: gs.IModel, group_name: string): gs.IPoint[] {
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     return group.getPoints();
 }
 
@@ -65,6 +63,7 @@ export function GetFromGroup(model: gs.IModel, group_name: string): gs.IPoint[] 
  * @returns List of points.
  */
 export function GetFromObjs(objs: gs.IObj | gs.IObj[]): gs.IPoint[] {
+    // TODO error checking of args
     if (!Array.isArray(objs)) {objs = [objs];}
     const points_map: Map<number, gs.IPoint> = new Map();
     const obj_points: gs.IPoint[] = [];
@@ -83,8 +82,7 @@ export function GetFromObjs(objs: gs.IObj | gs.IObj[]): gs.IPoint[] {
  * @returns New point.
  */
 export function Copy(point: gs.IPoint): gs.IPoint {
-    if (!point.exists()) {throw new Error("Point has been deleted.");}
-    const model: gs.IModel = point.getModel();
+    const model: gs.IModel = error.checkPoint(point);
     return model.getGeom().addPoint(point.getPosition());
 }
 
@@ -96,8 +94,7 @@ export function Copy(point: gs.IPoint): gs.IPoint {
  * @returns The copied plane object in the model.
  */
 export function CopyToModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
-    // check args
-    if (!point.exists()) {throw new Error("Error: point has been deleted.");}
+    error.checkPoint(point);
     // check it is not already in the model
     if (point.getModel() === model) {throw new Error("Error: point is already in model.");}
     // copy circle and return it
@@ -116,6 +113,7 @@ export function CopyToModel(model: gs.IModel, point: gs.IPoint): gs.IPoint {
  * @returns New point if successful, null if unsuccessful or on error.
  */
 export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
+    error.checkXYZ(xyz);
     return model.getGeom().addPoint(xyz);
 }
 
@@ -130,6 +128,7 @@ export function FromXYZ(model: gs.IModel, xyz: gs.XYZ): gs.IPoint {
 export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
     const points: gs.IPoint[] = [];
     for (const xyz of xyzs as gs.XYZ[]) {
+        error.checkXYZ(xyz);
         points.push(model.getGeom().addPoint(xyz));
     }
     return points;
@@ -142,15 +141,7 @@ export function FromXYZs(model: gs.IModel, xyzs: gs.XYZ[]): gs.IPoint[] {
  * @returns New point if successful, null if unsuccessful or on error.
  */
 export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
-    const m: gs.IModel = points[0].getModel();
-    for (const point of points) {
-        if (point.getModel() !== m) {
-            throw new Error("All points must be in the same model.");
-        }
-        if (!point.exists()) {
-            throw new Error("Point has been deleted.");
-        }
-    }
+    const model: gs.IModel = error.checkPointList(points, 2);
     const xyz: number[] = [0,0,0];
     for (const point of points) {
         const pos: number[] = point.getPosition();
@@ -158,7 +149,7 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
         xyz[1] += pos[1];
         xyz[2] += pos[2];
     }
-    return m.getGeom().addPoint([xyz[0]/points.length, xyz[1]/points.length, xyz[2]/points.length]);
+    return model.getGeom().addPoint([xyz[0]/points.length, xyz[1]/points.length, xyz[2]/points.length]);
 }
 
 //  ===============================================================================================================
@@ -173,14 +164,12 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
  */
 export function del(points: gs.IPoint | gs.IPoint[]): boolean {
     if (!Array.isArray(points)) {points = [points];}
-    if (points.length === 0) {error.pointListEmpty();}
-    const model: gs.IModel = points[0].getModel();
-    const geom: gs.IGeom = model.getGeom();
+    const model: gs.IModel = error.checkPointList(points, 1);
     let ok: boolean = true;
     for (const point of points) {
         if (!point.exists()) {error.pointNotExist();}
         if (point.getModel() !== model) {error.pointInOtherModel();}
-        if (!geom.delPoint(point)) {ok = false;}
+        if (!model.getGeom().delPoint(point)) {ok = false;}
     }
     return ok;
 }
@@ -192,7 +181,7 @@ export function del(points: gs.IPoint | gs.IPoint[]): boolean {
  * @returns The XYZ coordinates if successful, null if unsuccessful or on error.
  */
 export function getXYZ(point: gs.IPoint): gs.XYZ {
-    if (!point.exists()) {throw new Error("Point has been deleted.");}
+    error.checkPoint(point);
     return point.getPosition();
 }
 
@@ -204,7 +193,8 @@ export function getXYZ(point: gs.IPoint): gs.XYZ {
  * @returns The old XYZ coordinates if successful, null if unsuccessful or on error.
  */
 export function setXYZ(point: gs.IPoint, xyz: gs.XYZ): gs.XYZ {
-    if (!point.exists()) {throw new Error("Point has been deleted.");}
+    error.checkPoint(point);
+    error.checkXYZ(xyz);
     return point.setPosition(xyz);
 }
 
@@ -215,8 +205,8 @@ export function setXYZ(point: gs.IPoint, xyz: gs.XYZ): gs.XYZ {
  * @returns True if successful, false otherwise.
  */
 export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] {
-    if (points.length === 0) {return null;}
-    const model: gs.IModel = points[0].getModel();
+    const model: gs.IModel = error.checkPointList(points, 2);
+    error.checkPosNum(tolerance);
     for (const point of points) {
         if (point.getModel() !== model) {throw new Error("Points must all be in same model.");}
         if (!point.exists()) {throw new Error("Point has been deleted.");}
@@ -233,9 +223,7 @@ export function mergeByTol(points: gs.IPoint[], tolerance: number): gs.IPoint[] 
  * @returns New point if successful, null if unsuccessful or on error.
  */
 export function merge(points: gs.IPoint[]): gs.IPoint {
-    if (!Array.isArray(points)) {error.mustBePointList();}
-    if (points.length === 0) {error.pointListEmpty();}
-    const model: gs.IModel = points[0].getModel();
+    const model: gs.IModel = error.checkPointList(points, 2);
     for (const point of points) {
         if (point.getModel() !== model) {error.pointInOtherModel();}
         if (!point.exists()) {error.pointNotExist();}
@@ -256,10 +244,8 @@ export function merge(points: gs.IPoint[]): gs.IPoint {
  */
 export function addToGroup(points: gs.IPoint[] | gs.IPoint, group_name: string): boolean {
     if (!Array.isArray(points)) {points = [points];}
-    if (points.length === 0) {error.pointListEmpty();}
-    const model: gs.IModel = points[0].getModel();
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const model: gs.IModel = error.checkPointList(points, 1);
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     let ok: boolean = true;
     for (const point of points) {
         if (!point.exists()) {error.pointNotExist();}
@@ -278,10 +264,8 @@ export function addToGroup(points: gs.IPoint[] | gs.IPoint, group_name: string):
  */
 export function removeFromGroup(points: gs.IPoint[] | gs.IPoint, group_name: string): boolean {
     if (!Array.isArray(points)) {points = [points];}
-    if (points.length === 0) {error.pointListEmpty();}
-    const model: gs.IModel = points[0].getModel();
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const model: gs.IModel = error.checkPointList(points, 1);
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     let ok: boolean = true;
     for (const point of points) {
         if (!point.exists()) {error.pointNotExist();}

@@ -113,4 +113,3 @@ export function setParent(model: gs.IModel, group_name: string, parent_name: str
     if (parent === null) {throw new Error("Group does not exist.");}
     return group.setParentGroup(group).getName();
 }
-

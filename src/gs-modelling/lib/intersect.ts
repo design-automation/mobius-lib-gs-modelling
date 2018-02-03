@@ -13,6 +13,7 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as math_conic from "./_math_conic_dev";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Intersect Functions ===========================================================================================
@@ -31,8 +32,7 @@ import * as math_conic from "./_math_conic_dev";
  *          null if unsuccessful or on error
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
-    if (!circle1.exists()) {throw new Error("circle1 has been deleted.");}
-    if (!circle2.exists()) {throw new Error("circle2 has been deleted.");}
+    error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
     return math_conic._isectCircleCircle2D(circle1, circle2);
 }
 
@@ -44,8 +44,9 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPo
  *          null if unsuccessful or on error
  */
 export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
-    if (!circle.exists()) {throw new Error("circle has been deleted.");}
-    if (!plane.exists()) {throw new Error("plane has been deleted.");}
+    error.checkObj(circle, gs.EObjType.circle);
+    error.checkObj(plane, gs.EObjType.plane);
+    error.checkObjsSameModel([circle, plane]);
     return math_conic._isectCirclePlane3D(circle, plane);
 }
 

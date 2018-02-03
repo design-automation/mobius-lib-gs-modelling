@@ -18,6 +18,7 @@ import * as threex from "./_three_utils_dev";
 import * as math_poly from "./_math_poly_dev";
 import * as utils from "./_utils_dev";
 import * as poly from "./_math_poly_dev";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Pmesh Get =====================================================================================================
@@ -33,13 +34,7 @@ import * as poly from "./_math_poly_dev";
  * @returns Polymesh object.
  */
 export function Get(model: gs.IModel, id: number): gs.IPolymesh {
-    // check args
-    const obj: gs.IObj = model.getGeom().getObj(id);
-    if (obj === undefined) {return null; }
-    if (obj.getObjType() !== gs.EObjType.polymesh) {
-        throw new Error("Object is not a polymesh. Object type is: " + obj.getObjType());
-    }
-    // return the polymesh
+    const obj: gs.IObj = error.checkObjID(model, id, gs.EObjType.polymesh);
     return obj as gs.IPolymesh;
 }
 
@@ -51,9 +46,7 @@ export function Get(model: gs.IModel, id: number): gs.IPolymesh {
  * @returns Polymesh object.
  */
 export function Copy(polymesh: gs.IPolymesh, copy_attribs?: boolean): gs.IPolymesh {
-    // check args
-    if (!polymesh.exists()) {throw new Error("polymesh has been deleted.");}
-    // copy and return
+    error.checkObj(polymesh, gs.EObjType.polymesh);
     return polymesh.copy(copy_attribs) as gs.IPolymesh;
 }
 
@@ -61,15 +54,12 @@ export function Copy(polymesh: gs.IPolymesh, copy_attribs?: boolean): gs.IPolyme
  * Copies a polymesh from one model into another model.
  *
  * @param model The model to copy to.
- * @param polyline The polymesh object to copy.
+ * @param polymesh The polymesh object to copy.
  * @returns The copied polymesh object in the model.
  */
 export function CopyToModel(model: gs.IModel, polymesh: gs.IPolymesh): gs.IPolymesh {
-    // check args
-    if (!polymesh.exists()) {throw new Error("Error: polymesh has been deleted.");}
-    // check it is not already in the model
+    error.checkObj(polymesh, gs.EObjType.polymesh);
     if (polymesh.getModel() === model) {throw new Error("Error: polymesh is already in model.");}
-    // copy circle and return it
     //return model.getGeom().copyPolymeshFromModel(polymesh);
     throw new Error("Function not implemented yet.")
 }
@@ -87,21 +77,7 @@ export function CopyToModel(model: gs.IModel, polymesh: gs.IPolymesh): gs.IPolym
  * @returns Polymesh object.
  */
 export function FromPoints(points: gs.IPoint[][]): gs.IPolymesh {
-    // check args
-    if (points.length === 0 || points[0].length === 0)  {throw new Error("Not enough points specified.");}
-    const model: gs.IModel = points[0][0].getModel();
-    for (const face_points of points) {
-        if (face_points.length < 3) {throw new Error("Each face must have at least three points.");}
-        for (const point of face_points) {
-            if  (point.getModel() !== model) {
-                throw new Error("All points must be in the same model.");
-            }
-            if (!point.exists()) {
-                throw new Error("Point has been deleted.");
-            }
-        }
-    }
-    // create the pmesh and return
+    const model: gs.IModel = error.checkPointNestedList(points, 1, 3);
     return model.getGeom().addPolymesh(points);
 }
 
@@ -113,10 +89,7 @@ export function FromPoints(points: gs.IPoint[][]): gs.IPolymesh {
  */
 
 export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
-    // check args
-    if (!pline.exists()) {throw new Error("polymesh has been deleted.");}
-    const model: gs.IModel = pline.getModel();
-    // create the pmesh and return
+    const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
     return model.getGeom().addPolymesh([pline.getPointsArr()]);
 }
 
@@ -131,7 +104,7 @@ export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
  * @return True if the polymesh is closed.
  */
 export function isClosed(pmesh: gs.IPolymesh): boolean {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return pmesh.numWires() === 0;
 }
 
@@ -142,7 +115,7 @@ export function isClosed(pmesh: gs.IPolymesh): boolean {
  * @return The number of faces.
  */
 export function numFaces(pmesh: gs.IPolymesh): number {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return pmesh.numFaces();
 }
 
@@ -153,7 +126,7 @@ export function numFaces(pmesh: gs.IPolymesh): number {
  * @return The number of wires.
  */
 export function numWires(pmesh: gs.IPolymesh): number {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return pmesh.numWires();
 }
 
@@ -164,7 +137,7 @@ export function numWires(pmesh: gs.IPolymesh): number {
  * @return List of two numbers, number of wire edges and number of face edges.
  */
 export function numEdges(pmesh: gs.IPolymesh): [number, number] {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return [pmesh.numWireEdges(), pmesh.numFaceEdges()];
 }
 
@@ -175,7 +148,7 @@ export function numEdges(pmesh: gs.IPolymesh): [number, number] {
  * @return List of two numbers, number of wire vertices and number of face vertices.
  */
 export function numVertices(pmesh: gs.IPolymesh): [number, number] {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return [pmesh.numWireVertices(), pmesh.numFaceVertices()];
 }
 
@@ -186,7 +159,7 @@ export function numVertices(pmesh: gs.IPolymesh): [number, number] {
  * @return List of points.
  */
 export function getPoints(pmesh: gs.IPolymesh): gs.IPoint[] {
-    if (!pmesh.exists()) {throw new Error("pmesh has been deleted.");}
+    error.checkObj(pmesh, gs.EObjType.polymesh);
     return pmesh.getPointsArr();
 }
 
@@ -208,9 +181,8 @@ export function getPoints(pmesh: gs.IPolymesh): gs.IPoint[] {
  */
 export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
     // check args
-    if (!pmesh.exists()) {throw new Error("polymesh has been deleted.");}
-    const m: gs.IModel = pmesh.getModel();
-    const g: gs.IGeom = m.getGeom();
+    const model: gs.IModel = error.checkObj(pmesh, gs.EObjType.polymesh);
+    error.checkXYZ(vector);
     // make a copy
     const pmesh1_points: gs.IPoint[][][] = pmesh.getPoints();
     const pmesh2_points: gs.IPoint[][][] = utils.copyObjPoints(pmesh, false);
@@ -220,5 +192,5 @@ export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
     // combine everything
     const pmesh_points = [...pmesh1_points[1], ...pmesh2_points[1], ...sides];
     // return the new polymesh
-    return g.addPolymesh(pmesh_points);
+    return model.getGeom().addPolymesh(pmesh_points);
 }

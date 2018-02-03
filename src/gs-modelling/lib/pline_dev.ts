@@ -3,6 +3,31 @@ import * as three from "three";
 import * as xform from "./_math_xform_dev";
 import * as three_utils from "./_three_utils_dev";
 import * as poly from "./_math_poly_dev";
+import * as error from "./_error_msgs_dev";
+
+/**
+ * Returns a point by evaluating the position along a polyline or segment in the polyline.
+ * The position is specified by a t parameter that starts at 0 and ends at 1.
+ * The segment index is not -1, then it specified teh segment to evaluate.
+ * If the polyline is closed and the segment index is -1, 0 and 1 will have the same position.
+ *
+ * @param pline Polyline to evaluate.
+ * @param t Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)
+ * @param segment_index The segment of the polyline to evaluate. When -1, the whole polyline is evaluated.
+ * @returns Point.
+ */
+export function evalSegParam(pline: gs.IPolyline, t: number, segment_index: number): gs.IPoint {
+    error.checkObj(pline, gs.EObjType.polyline);
+    error.checkPosNum(t);
+    error.checkPosNum(segment_index);
+    let points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {points.push(points[0]); }
+    if (segment_index !== -1) {
+        if (segment_index > points.length - 1) {throw new Error("segments_index is out of range."); }
+        points = points.splice(segment_index, 2);
+    }
+    return poly.pointsEvaluate(points, t);
+}
 
 /**
  * Extends a non-closed polyline by specified distance. The original polyline is modified.

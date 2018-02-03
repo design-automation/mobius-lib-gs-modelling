@@ -6,6 +6,7 @@
 
 import * as gs from "gs-json";
 import * as error from "./_error_msgs_dev";
+
 //  ===============================================================================================================
 //  Object Get ====================================================================================================
 //  ===============================================================================================================
@@ -17,9 +18,7 @@ import * as error from "./_error_msgs_dev";
  * @returns An object. Null if object does not exist.
  */
 export function Get(model: gs.IModel, id: number): gs.IObj {
-    if(isNaN(id)) {error.invalidID()}
-    const obj: gs.IObj = model.getGeom().getObj(id);
-    if (obj === undefined) {error.objNotExist();}
+    const obj: gs.IObj = error.checkObjID(model, id);
     switch (obj.getObjType()) {
         case gs.EObjType.ray:
             return obj as gs.IRay;
@@ -62,8 +61,7 @@ export function Gets(model: gs.IModel, ids?: number | number[]): gs.IObj[] {
  * @returns List of objects.
  */
 export function GetFromGroup(model: gs.IModel, group_name: string): gs.IObj[] {
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     return group.getObjs();
 }
 
@@ -82,16 +80,12 @@ export function GetFromGroup(model: gs.IModel, group_name: string): gs.IObj[] {
  * @param keep_points If false, points that are not used in any other objects will be deleted.
  * @returns True if successful
  */
-export function del(objs: gs.IObj | gs.IObj[], keep_points: boolean): boolean {
+export function del(objs: gs.IObj | gs.IObj[], keep_points: boolean = false): boolean {
     if (!Array.isArray(objs)) {objs = [objs];}
-    if (objs.length === 0) {error.objListEmpty();}
-    const model: gs.IModel = objs[0].getModel();
-    const geom: gs.IGeom = model.getGeom();
+    const model: gs.IModel = error.checkObjList(objs, 1);
     let ok: boolean = true;
     for (const obj of objs) {
-        if (!obj.exists()) {error.objNotExist();}
-        if (obj.getModel() !== model) {error.objInOtherModel();}
-        if (!geom.delObj(obj, keep_points)) {ok = false;}
+        if (!model.getGeom().delObj(obj, keep_points)) {ok = false;}
     }
     return ok;
 }
@@ -109,14 +103,10 @@ export function del(objs: gs.IObj | gs.IObj[], keep_points: boolean): boolean {
  */
 export function addToGroup(objs: gs.IObj | gs.IObj[], group_name: string): boolean {
     if (!Array.isArray(objs)) {objs = [objs];}
-    if (objs.length === 0) {error.objListEmpty();}
-    const model: gs.IModel = objs[0].getModel();
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     let ok: boolean = true;
     for (const obj of objs) {
-        if (!obj.exists()) {error.objNotExist();}
-        if (obj.getModel() !== model) {error.objInOtherModel();}
         if (!group.addObj(obj as gs.IObj)) {ok = false;}
     }
     return ok;
@@ -131,14 +121,10 @@ export function addToGroup(objs: gs.IObj | gs.IObj[], group_name: string): boole
  */
 export function removeFromGroup(objs: gs.IObj | gs.IObj[], group_name: string): boolean {
     if (!Array.isArray(objs)) {objs = [objs];}
-    if (objs.length === 0) {error.objListEmpty();}
-    const model: gs.IModel = objs[0].getModel();
-    const group: gs.IGroup = model.getGroup(group_name);
-    if (group === undefined) {error.groupNotExist();}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    const group: gs.IGroup = error.checkGroup(model, group_name);
     let ok: boolean = true;
     for (const obj of objs) {
-        if (!obj.exists()) {error.objNotExist();}
-        if (obj.getModel() !== model) {error.objInOtherModel();}
         if (!group.removeObj(obj as gs.IObj)) {ok = false;}
     }
     return ok;

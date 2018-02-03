@@ -13,6 +13,7 @@ import * as gsm from "./_export_dev";
 import * as three from "three";
 import * as threex from "./_three_utils_dev";
 import * as math_conic from "./_math_conic_dev";
+import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
 //  Split Constructors ============================================================================================
@@ -33,10 +34,9 @@ import * as math_conic from "./_math_conic_dev";
  * @returns Four circle objects (arcs) if successful, null if no intersection was found.
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICircle[] {
-    if (!circle1.exists()) {throw new Error("circle1 has been deleted.");}
-    if (!circle2.exists()) {throw new Error("circle2 has been deleted.");}
-    const model: gs.IModel = circle1.getModel();
+    const model: gs.IModel = error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
     const geom: gs.IGeom = model.getGeom();
+    // do intersection
     let points: gs.IPoint[] = math_conic._isectCircleCircle2D(circle1, circle2);
     if (points === null) {return null;}
     if (points.length !== 2) {return null;}

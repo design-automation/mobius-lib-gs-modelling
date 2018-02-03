@@ -113,7 +113,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L50">pline.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L45">pline.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,12 +151,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L64">pline.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L57">pline.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Copies a circle from one model into another model.</p>
+									<p>Copies a polyline from one model into another model.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L127">pline.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L107">pline.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L113">pline.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L92">pline.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L88">pline.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L78">pline.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -306,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L32">pline.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L33">pline.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -340,21 +340,20 @@
 					<a name="evalparam" class="tsd-anchor"></a>
 					<h3>eval<wbr>Param</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">eval<wbr>Param<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, segment_index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">eval<wbr>Param<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L221">pline.ts:221</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L201">pline.ts:201</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a point by evaluating the position along a polyline or segment in the polyline.
+									<p>Returns a point by evaluating the position along a polyline.
 										The position is specified by a t parameter that starts at 0 and ends at 1.
-										The segment index is not -1, then it specified teh segment to evaluate.
-									If the polyline is closed and the segment index is -1, 0 and 1 will have the same position.</p>
+									If the polyline is closed, 0 and 1 will have the same position.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,12 +368,6 @@
 									<h5>t: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Parameter to evaluate (0 is the start of the polyline, 1 is the end of the polyline)</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> segment_index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The segment of the polyline to evaluate. When -1, the whole polyline is evaluated.</p>
 									</div>
 								</li>
 							</ul>
@@ -393,7 +386,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L338">pline.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L309">pline.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L353">pline.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L324">pline.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -466,7 +459,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L383">pline.ts:383</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L355">pline.ts:355</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -516,7 +509,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L199">pline.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L181">pline.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -548,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L188">pline.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L170">pline.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -580,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L141">pline.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L123">pline.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -612,7 +605,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L238">pline.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L215">pline.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +637,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L412">pline.ts:412</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L386">pline.ts:386</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -686,7 +679,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L166">pline.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L148">pline.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -718,7 +711,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L177">pline.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L159">pline.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -750,7 +743,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/42b86b0/src/gs-modelling/lib/pline.ts#L153">pline.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ed85010/src/gs-modelling/lib/pline.ts#L135">pline.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
