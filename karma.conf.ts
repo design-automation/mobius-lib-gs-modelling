@@ -13,8 +13,7 @@ module.exports = (config) => {
             reports: [ "html", "lcovonly" ],
         },
         files: [
-            {pattern: "src/gs-modelling/**/*.ts",
-             watched: true, included: true, served: true, nocache: false},
+            {pattern: "src/**/*.ts", watched: true, included: true, served: true, nocache: false},
         ],
         frameworks: ["jasmine", "karma-typescript"],
         karmaTypescriptConfig: {
