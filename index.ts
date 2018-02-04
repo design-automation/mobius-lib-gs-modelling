@@ -1,1 +1,1 @@
-export * from "./src/_export_dev";
+export * from "./src/typescript/_export_dev";

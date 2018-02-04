@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/attrib.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/attrib.ts",
 			"children": [
 				{
 					"id": 16,
@@ -831,7 +831,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/calc.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/calc.ts",
 			"comment": {
 				"shortText": "Function for doing various geometric calculations."
 			},
@@ -925,7 +925,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/circle.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/circle.ts",
 			"comment": {
 				"shortText": "Functions for working with circles.\nCircles are geometric objects definded by a single vertex and a set of parameters.\nThe circle object can be either a closed circle or an open arc."
 			},
@@ -2092,7 +2092,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/ellipse.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/ellipse.ts",
 			"children": [
 				{
 					"id": 380,
@@ -3108,7 +3108,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/entity.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/entity.ts",
 			"children": [
 				{
 					"id": 415,
@@ -3245,7 +3245,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/gen_gs_test_models.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_gs_test_models.ts",
 			"children": [
 				{
 					"id": 932,
@@ -3295,7 +3295,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/gen_three_test_models.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_three_test_models.ts",
 			"children": [
 				{
 					"id": 934,
@@ -3345,7 +3345,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/models_circles.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_circles.ts",
 			"children": [
 				{
 					"id": 888,
@@ -3681,7 +3681,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/models_plines.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_plines.ts",
 			"children": [
 				{
 					"id": 910,
@@ -3961,7 +3961,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/models_pmeshes.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_pmeshes.ts",
 			"children": [
 				{
 					"id": 927,
@@ -4078,7 +4078,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/generate/models_weeks.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_weeks.ts",
 			"children": [
 				{
 					"id": 883,
@@ -4136,7 +4136,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/group.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/group.ts",
 			"comment": {
 				"shortText": "Functions for working with groups."
 			},
@@ -4567,7 +4567,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/intersect.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/intersect.ts",
 			"comment": {
 				"shortText": "Function for intersecting geometric objects."
 			},
@@ -4731,7 +4731,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/arr/arr.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/arr/arr.ts",
 			"children": [
 				{
 					"id": 936,
@@ -5378,7 +5378,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/conics/conics.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/conics/conics.ts",
 			"children": [
 				{
 					"id": 203,
@@ -6685,7 +6685,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/conics/trigo.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/conics/trigo.ts",
 			"children": [
 				{
 					"id": 197,
@@ -6784,7 +6784,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/filesys/filesys.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/filesys/filesys.ts",
 			"children": [
 				{
 					"id": 426,
@@ -6925,7 +6925,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/poly/poly.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/poly/poly.ts",
 			"children": [
 				{
 					"id": 529,
@@ -7305,7 +7305,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/threex/threex.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/threex/threex.ts",
 			"children": [
 				{
 					"id": 51,
@@ -9283,7 +9283,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/libs/xform/xform.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/xform/xform.ts",
 			"children": [
 				{
 					"id": 972,
@@ -9489,7 +9489,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/list.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/list.ts",
 			"children": [
 				{
 					"id": 745,
@@ -10545,7 +10545,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/math.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/math.ts",
 			"children": [
 				{
 					"id": 808,
@@ -11305,7 +11305,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/model.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/model.ts",
 			"comment": {
 				"shortText": "Functions for working with models.\nModels are datastructures that contain geometric entities with attributes,\npossibly organised into groups."
 			},
@@ -11369,7 +11369,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/object.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/object.ts",
 			"children": [
 				{
 					"id": 469,
@@ -11831,7 +11831,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/plane.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/plane.ts",
 			"comment": {
 				"shortText": "Function for working with planes."
 			},
@@ -12408,7 +12408,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/pline.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/pline.ts",
 			"comment": {
 				"shortText": "Functions for working with polylines."
 			},
@@ -13542,7 +13542,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/pmesh.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/pmesh.ts",
 			"comment": {
 				"shortText": "Functions for working with polymehes."
 			},
@@ -14258,7 +14258,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/point.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/point.ts",
 			"comment": {
 				"shortText": "Function for working with points."
 			},
@@ -15296,7 +15296,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/query.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/query.ts",
 			"comment": {
 				"shortText": "Query functions check if an entity fufils certain conditions."
 			},
@@ -15347,7 +15347,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/ray.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/ray.ts",
 			"children": [
 				{
 					"id": 725,
@@ -15626,7 +15626,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/split.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/split.ts",
 			"comment": {
 				"shortText": "Functions for splitting geometric objects that insersect with one another."
 			},
@@ -15723,7 +15723,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/string.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/string.ts",
 			"children": [
 				{
 					"id": 853,
@@ -16279,7 +16279,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/topo.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/topo.ts",
 			"comment": {
 				"shortText": "Topology are sub-components within each object that are connected together.<br/>\nTopology consists of vertices, edges, wires and faces.<br/>"
 			},

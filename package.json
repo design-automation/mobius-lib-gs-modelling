@@ -14,13 +14,13 @@
         "build_three_models": "npm run build2015 && npm run gen_three_models",
         "build_gs_models": "npm run build2015 && npm run gen_gs_models",
         "build_models": "npm run build2015 && npm run gen_gs_models && npm run gen_three_models",
-        "gen_three_models": "node ./dist2015/src/generate/gen_three_test_models.js",
-        "gen_gs_models": "node ./dist2015/src/generate/gen_gs_test_models.js",
+        "gen_three_models": "node ./dist2015/src/typescript/generate/gen_three_test_models.js",
+        "gen_gs_models": "node ./dist2015/src/typescript/generate/gen_gs_test_models.js",
         "build2015": "tsc && babel --presets es2015 ./dist --out-dir ./dist2015",
         "prepare": "npm run build",
         "build": "tsc",
         "test": "karma start ./karma.conf.ts",
-        "docs": "typedoc --out ./docs --json ./docs_json/gs-modelling.json ./src --module commonjs --exclude \"**/*+(dev|tests).ts\" --mode modules  --excludeExternals"
+        "docs": "typedoc --out ./docs --json ./docs_json/gs-modelling.json ./src/typescript --module commonjs --exclude \"**/*+(dev|tests).ts\" --mode modules  --excludeExternals"
     },
     "repository": {
         "type": "git",
