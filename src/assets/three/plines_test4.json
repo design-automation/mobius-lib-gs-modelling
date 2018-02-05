@@ -1,0 +1,370 @@
+{
+    "metadata": {
+        "version": 4.5,
+        "type": "Object",
+        "generator": "gs-json"
+    },
+    "geometries": [
+        {
+            "uuid": "378f167f-dece-4de0-aa66-72ef6bf6952b",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3
+                        ],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": [
+                        0,
+                        1,
+                        2
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "d5bee202-8d6d-41e9-a9b4-f2873a179270",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3,
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3
+                        ],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": [
+                        3,
+                        4,
+                        4,
+                        5,
+                        5,
+                        3,
+                        3,
+                        4,
+                        4,
+                        5,
+                        5,
+                        3
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "591715fe-da79-41ca-8251-38258a85c6c0",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3,
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3
+                        ],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": [
+                        3,
+                        4,
+                        4,
+                        5,
+                        5,
+                        3,
+                        3,
+                        4,
+                        4,
+                        5,
+                        5,
+                        3,
+                        3,
+                        4,
+                        4,
+                        5,
+                        5,
+                        3
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "d19cc085-43cc-4dbb-a6b5-530434ac6f8b",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3,
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3
+                        ],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": [
+                        3,
+                        4,
+                        5,
+                        3,
+                        4,
+                        5,
+                        3,
+                        4,
+                        5
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "4a85ac21-b371-4d87-b6b0-bd66f9e975b5",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [
+                            0,
+                            0,
+                            0,
+                            12,
+                            5,
+                            12,
+                            3,
+                            3,
+                            3
+                        ],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": [
+                        0,
+                        1,
+                        2
+                    ]
+                }
+            }
+        },
+        {
+            "uuid": "5c5f1505-d437-48f0-a649-dbfa9fd3b39f",
+            "type": "BufferGeometry",
+            "data": {
+                "attributes": {
+                    "position": {
+                        "itemSize": 3,
+                        "type": "Float32Array",
+                        "array": [],
+                        "normalized": false
+                    }
+                },
+                "index": {
+                    "type": "Uint16Array",
+                    "array": []
+                }
+            }
+        }
+    ],
+    "materials": [
+        {
+            "uuid": "f72e42ae-7d06-4f24-b927-000a06ce6c6a",
+            "type": "LineBasicMaterial",
+            "color": 0,
+            "vertexColors": 0,
+            "side": 2,
+            "blending": 0,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true
+        },
+        {
+            "uuid": "4ab863fd-44be-49ed-a2c8-f7159621ec8b",
+            "type": "LineBasicMaterial",
+            "color": 255,
+            "vertexColors": 0,
+            "side": 2,
+            "blending": 0,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true
+        },
+        {
+            "uuid": "f83479c4-eea5-47ea-9cf3-a1ad06e49981",
+            "type": "MeshPhongMaterial",
+            "color": 16777215,
+            "emissive": 0,
+            "specular": 16777215,
+            "shininess": 10,
+            "vertexColors": 0,
+            "side": 2,
+            "blending": 0,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "transparent": false,
+            "wireframe": false,
+            "flatShading": true
+        },
+        {
+            "uuid": "dd8c416b-d04b-4d8f-ae72-33183050ed69",
+            "type": "MeshPhongMaterial",
+            "color": 0,
+            "emissive": 0,
+            "specular": 16777215,
+            "shininess": 40,
+            "vertexColors": 0,
+            "side": 1,
+            "blending": 0,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "transparent": true,
+            "opacity": 0.5,
+            "wireframe": false,
+            "flatShading": true
+        },
+        {
+            "uuid": "6f5a9142-5c9d-4187-a076-2f3b347d9ee9",
+            "type": "PointsMaterial",
+            "color": 16777215,
+            "size": 2,
+            "sizeAttenuation": false
+        }
+    ],
+    "object": {
+        "type": "Scene",
+        "name": "Scene",
+        "children": [
+            {
+                "uuid": "d725f5b9-e9b9-48c5-a2d4-405d0b83274b",
+                "type": "Mesh",
+                "name": "All faces",
+                "geometry": "378f167f-dece-4de0-aa66-72ef6bf6952b",
+                "material": "f83479c4-eea5-47ea-9cf3-a1ad06e49981",
+                "castShadow": true,
+                "receiveShadow": true
+            },
+            {
+                "uuid": "1c39a488-8954-44a8-b20f-0ea695cbcec2",
+                "type": "LineSegments",
+                "name": "All wires",
+                "geometry": "d5bee202-8d6d-41e9-a9b4-f2873a179270",
+                "material": "4ab863fd-44be-49ed-a2c8-f7159621ec8b",
+                "castShadow": false,
+                "receiveShadow": false
+            },
+            {
+                "uuid": "eb3faefa-12b4-49a8-90dd-2d7137acee6a",
+                "type": "LineSegments",
+                "name": "All edges",
+                "geometry": "591715fe-da79-41ca-8251-38258a85c6c0",
+                "material": "f72e42ae-7d06-4f24-b927-000a06ce6c6a",
+                "castShadow": false,
+                "receiveShadow": false
+            },
+            {
+                "uuid": "c333ae33-2bff-459e-be68-8829d2182111",
+                "type": "Points",
+                "name": "All vertices",
+                "geometry": "d19cc085-43cc-4dbb-a6b5-530434ac6f8b",
+                "material": "6f5a9142-5c9d-4187-a076-2f3b347d9ee9",
+                "castShadow": false,
+                "receiveShadow": false
+            },
+            {
+                "uuid": "7724c910-351d-4223-973f-d397c2c1b4d3",
+                "type": "Points",
+                "name": "All points",
+                "geometry": "4a85ac21-b371-4d87-b6b0-bd66f9e975b5",
+                "material": "6f5a9142-5c9d-4187-a076-2f3b347d9ee9",
+                "castShadow": false,
+                "receiveShadow": false
+            },
+            {
+                "uuid": "3e16bc56-6b2d-42b8-b2b7-e9c586a4899b",
+                "type": "LineSegments",
+                "name": "Other lines",
+                "geometry": "5c5f1505-d437-48f0-a649-dbfa9fd3b39f",
+                "material": "f72e42ae-7d06-4f24-b927-000a06ce6c6a",
+                "castShadow": false,
+                "receiveShadow": false
+            }
+        ]
+    }
+}

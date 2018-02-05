@@ -13,7 +13,7 @@
     },
     "include": [
         "index.ts",
-        "./src/**/*.ts"
+        "./src/typescript/**/*.ts"
     ],
     "exclude": [
         "./node_modules"
