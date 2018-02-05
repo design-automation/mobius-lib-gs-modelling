@@ -199,6 +199,30 @@ export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, num
     return plane.getGeom().addCircle(plane.getOrigin(), vec_x, vec, util._argsCheckAngles(angles));
 }
 
+/**
+ * Create a circle that passes through three points.
+ * If is_closed is false, an arc is created. Otherwise, an arc is created.
+ *
+ * @param point1 Point object, on the circle.
+ * @param point2 Point object, on the circle.
+ * @param point3 Point object, on the circle.
+ * @param is_closed If false, an arc is generated that starts at point1 and end at point3, passing through point 2.
+ * @returns New circle object.
+ */
+export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint, is_closed: boolean ): gs.ICircle {
+    const model: gs.IModel = error.checkPointList([point1, point2, point3], 3);
+    // do the maths
+    const result = math_conic._circleFrom3Points(
+        point1.getPosition(), point2.getPosition(), point3.getPosition(), is_closed);
+    const origin: gs.IPoint = model.getGeom().addPoint(result.origin);
+    // make the circle or arc
+    if (is_closed) {
+        return origin.getGeom().addCircle(origin, result.vec_x, result.vec_y);
+    } else {
+        return origin.getGeom().addCircle(origin, result.vec_x, result.vec_y, [0, result.angle]);
+    }
+}
+
 //  ===============================================================================================================
 //  Get and Set ===================================================================================================
 //  ===============================================================================================================

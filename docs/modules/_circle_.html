@@ -82,6 +82,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#copy" class="tsd-kind-icon">Copy</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin2points" class="tsd-kind-icon">From<wbr>Origin2<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromorigin2vectors" class="tsd-kind-icon">From<wbr>Origin2<wbr>Vectors</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_circle_.html#fromoriginxy" class="tsd-kind-icon">From<wbr>OriginXY</a></li>
@@ -113,7 +114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:49</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L49">circle.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:63</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L63">circle.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -180,6 +181,57 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="from3points" class="tsd-anchor"></a>
+					<h3>From3<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">From3<wbr>Points<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, is_closed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L212">circle.ts:212</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a circle that passes through three points.
+									If is_closed is false, an arc is created. Otherwise, an arc is created.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point1: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, on the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>point2: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, on the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>point3: <span class="tsd-signature-type">IPoint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Point object, on the circle.</p>
+									</div>
+								</li>
+								<li>
+									<h5>is_closed: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If false, an arc is generated that starts at point1 and end at point3, passing through point 2.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ICircle</span></h4>
+							<p>New circle object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="fromorigin2points" class="tsd-anchor"></a>
 					<h3>From<wbr>Origin2<wbr>Points</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -189,7 +241,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:109</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L109">circle.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:88</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L88">circle.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,7 +347,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:131</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L131">circle.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:151</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L151">circle.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,7 +439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:171</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L171">circle.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +485,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:191</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L191">circle.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -479,7 +531,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:35</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L35">circle.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -519,7 +571,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:286</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L310">circle.ts:310</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +604,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:268</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L292">circle.ts:292</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +636,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:233</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L257">circle.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -616,7 +668,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:222</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L246">circle.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -648,7 +700,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:211</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L235">circle.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -680,7 +732,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:257</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L281">circle.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -712,7 +764,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in circle.ts:244</li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/54d1af6/src/typescript/circle.ts#L268">circle.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -759,6 +811,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#copytomodel" class="tsd-kind-icon">Copy<wbr>ToModel</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_circle_.html#from3points" class="tsd-kind-icon">From3<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_circle_.html#fromorigin2points" class="tsd-kind-icon">From<wbr>Origin2<wbr>Points</a>

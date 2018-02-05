@@ -30,3 +30,19 @@ export function writeGsToJSONFile(model: gs.IModel, filename: string): boolean {
     });
     return true;
 }
+
+/**
+ * Read a file.
+ */
+export function readToJSONFile(filename: string): boolean {
+    // fs.readFile(filename, (err) => {
+    //     if (err) {
+    //         console.log("Error reading file: " + filename);
+    //         console.error(err);
+    //         return false;
+    //     }
+    //     console.log("File has been created: " + filename);
+    // });
+    var contents = fs.readFileSync(filename);
+    return true;
+}
