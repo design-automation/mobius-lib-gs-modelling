@@ -36,14 +36,30 @@ export function genModelTest1b(): gs.IModel {
     const plane: gs.IPlane = gsm.plane.FromOriginYZ(gsm.point.FromXYZ(m, [3,0,0]));
     const the_points: gs.IPoint[] = [];
     let points: gs.IPoint[] = null;
-    for (let i = 0; i < 80; i++) {
-        const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
-        const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [0, 360]);
+    for (let i = 0; i < 20; i++) {
+        // const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
+        const origin: gs.IPoint = gsm.point.FromXYZ(m, [0,5,10]);
+        const r1: number = Math.random()*360;
+        const r2: number = Math.random()*360;
+        const angle1: number = Math.min(r1,r2);
+        const angle2: number = Math.max(r1,r2);
+    // const arc = gsm.circle.FromOrigin2Vectors(origin, [10/4,40/4,50/4], [-43/4,-22/4,-68/4], [140, 280]);
+    // const pt_U1: gs.IPoint = gsm.point.FromXYZ(m, [10/4,40/4,50/4]);
+    // const pt_V1: gs.IPoint = gsm.point.FromXYZ(m, [-43/4,-22/4,-68/4]);
+
+    const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [80, 280]);
+    const pt_U1: gs.IPoint = gsm.point.FromXYZ(m, [origin.getPosition()[0] + arc.getAxes()[0][0],origin.getPosition()[1] + + arc.getAxes()[0][1],origin.getPosition()[2] + + arc.getAxes()[0][2]]);
+    const pt_V1: gs.IPoint = gsm.point.FromXYZ(m, [origin.getPosition()[0] + + arc.getAxes()[1][0],origin.getPosition()[1] + + arc.getAxes()[1][1],origin.getPosition()[2] + + arc.getAxes()[1][2]]);
+
         points =gsm.intersect.circlePlane3D(arc, plane);
         if (points[0] !== undefined) {the_points.push(points[0]);}
         if (points[1] !== undefined) {the_points.push(points[1]);}
+    // const pline1: gs.IPolyline = gsm.pline.FromPoints([origin, pt_U1],false);
+    // const pline2: gs.IPolyline = gsm.pline.FromPoints([origin, pt_V1],false);
     }
-    if (the_points !== null) {const pline: gs.IPolyline = gsm.pline.FromPoints(the_points, false);}
+    // the_points.push(gsm.point.FromXYZ(m, [0,0,0]));
+    // the_points.push(gsm.point.FromXYZ(m, [0,0,0]));
+    const pline: gs.IPolyline = gsm.pline.FromPoints(the_points, false);
 
     return m;
 }
