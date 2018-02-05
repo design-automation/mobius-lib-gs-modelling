@@ -2,6 +2,7 @@ import * as gs from "gs-json";
 import * as gsm from "../_export_dev";
 import * as threex from "../libs/threex/threex";
 import * as cir from "../circle_dev"; //TODO
+import * as three from "three";
 
 export function randXYZ(): gs.XYZ {
     return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
@@ -19,15 +20,28 @@ export function genModelTest1(): gs.IModel {
             randXYZ(),
             randXYZ(),
         ]);
-
         const arc = cir.From3Points(points[0], points[1], points[2], false);
         const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
         gsm.intersect.circlePlane3D(arc, plane);
-
     }
     return m;
 }
 
+/**
+ *
+ */
+export function genModelTest1a(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    for (let i = 0; i < 10; i++) {
+        const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
+        const v1: gs.XYZ = new three.Vector3(origin[0],origin[1],origin[2]).normalize().toArray() as gs.XYZ;
+        const arc = gsm.circle.FromOrigin2Vectors(origin, v1, randXYZ(), [0, 360]);
+        const ray: gs.IRay = m.getGeom().addRay(arc.getOrigin(),v1);
+        const points: gs.IPoint[] = gsm.intersect.circleLine3D(arc, ray);
+        const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
+    }
+    return m;
+}
 /**
  *
  */
@@ -46,7 +60,6 @@ export function genModelTest1b(): gs.IModel {
     // const arc = gsm.circle.FromOrigin2Vectors(origin, [10/4,40/4,50/4], [-43/4,-22/4,-68/4], [140, 280]);
     // const pt_U1: gs.IPoint = gsm.point.FromXYZ(m, [10/4,40/4,50/4]);
     // const pt_V1: gs.IPoint = gsm.point.FromXYZ(m, [-43/4,-22/4,-68/4]);
-
     const arc = gsm.circle.FromOrigin2Vectors(origin, randXYZ(), randXYZ(), [80, 280]);
     const pt_U1: gs.IPoint = gsm.point.FromXYZ(m, [origin.getPosition()[0] + arc.getAxes()[0][0],origin.getPosition()[1] + + arc.getAxes()[0][1],origin.getPosition()[2] + + arc.getAxes()[0][2]]);
     const pt_V1: gs.IPoint = gsm.point.FromXYZ(m, [origin.getPosition()[0] + + arc.getAxes()[1][0],origin.getPosition()[1] + + arc.getAxes()[1][1],origin.getPosition()[2] + + arc.getAxes()[1][2]]);
@@ -60,7 +73,6 @@ export function genModelTest1b(): gs.IModel {
     // the_points.push(gsm.point.FromXYZ(m, [0,0,0]));
     // the_points.push(gsm.point.FromXYZ(m, [0,0,0]));
     const pline: gs.IPolyline = gsm.pline.FromPoints(the_points, false);
-
     return m;
 }
 

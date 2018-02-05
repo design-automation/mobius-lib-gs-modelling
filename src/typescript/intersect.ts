@@ -50,3 +50,16 @@ export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[]
     return conics._isectCirclePlane3D(circle, plane);
 }
 
+/**
+ *
+ * @param circle Conic curve 1
+ * @param line Conic curve 2
+ * @returns List of intersection points and/or overlapping arcs if successful,
+ *          null if unsuccessful or on error
+ */
+export function circleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[] {
+    error.checkObj(circle, gs.EObjType.circle);
+    error.checkObj(ray, gs.EObjType.plane);
+    error.checkObjsSameModel([circle, ray]);
+    return conics._isectCircleLine3D(circle,ray);
+ }

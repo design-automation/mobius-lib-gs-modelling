@@ -220,6 +220,118 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
 }
 
 /**
+ * Circle-Line intersection
+ * @param circle
+ * @param line
+ * @return Adds intersecting points to the geometry if successfull
+ */
+export function _isectCircleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[] {
+    // gs.IRay type in parameter to be replaced by gs.ILine after the conics to master merge is completed
+    const m1: gs.IModel = circle.getModel();
+    const m2: gs.IModel = ray.getModel();
+    if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
+    const v1: [gs.XYZ, gs.XYZ, gs.XYZ] = circle.getAxes();
+    const v2: gs.XYZ = ray.getVector();
+    // if(!threex.planesAreCoplanar(circle.getOrigin(), v1[2], ray.getOrigin(), v2)) {
+    //     throw new Error("Entities must be coplanar.");
+    // }
+    const g1: gs.IGeom = m1.getGeom();
+    // Direct Orthonormal Basis of reference
+    const O1: three.Vector3 = new three.Vector3(0,0,0);
+    const e1: three.Vector3 = new three.Vector3(1,0,0);
+    const e2: three.Vector3 = new three.Vector3(0,1,0);
+    const e3: three.Vector3 = new three.Vector3(0,0,1);
+    // Circle Direct Orthonormal Basis
+    const C1: three.Vector3 = new three.Vector3(...circle.getOrigin().getPosition());
+    const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
+    const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
+    const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
+    let angles1: [number, number] = circle.getAngles();
+    if (angles1 === undefined) {angles1 = [0,360];}
+    const angles_circle_1: number = angles1[1]-angles1[0];
+    // Line
+    const C0: three.Vector3 = new three.Vector3(...ray.getOrigin().getPosition());
+    const C2: three.Vector3 = new three.Vector3(C0.x - 100000*v2[0],C0.y - 100000*v2[1],C0.z - 100000*v2[2]);
+    const C3: three.Vector3 = new three.Vector3(C0.x + 100000*v2[0],C0.y + 100000*v2[1],C0.z + 100000*v2[2]);
+
+    // Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 1
+    const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
+    const vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(C1O1,U1),
+        threex.dotVectors(C1O1,V1),
+        threex.dotVectors(C1O1,W1),
+        );
+    const x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e1,U1),
+        threex.dotVectors(e1,V1),
+        threex.dotVectors(e1,W1),
+        );
+    const y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e2,U1),
+        threex.dotVectors(e2,V1),
+        threex.dotVectors(e2,W1),
+        );
+    const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
+    // Initial Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 1
+    const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
+    const init_vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(O1C1,e1),
+        threex.dotVectors(O1C1,e2),
+        threex.dotVectors(O1C1,e3),
+        );
+    const init_x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(U1,e1),
+        threex.dotVectors(U1,e2),
+        threex.dotVectors(U1,e3),
+        );
+    const init_y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(V1,e1),
+        threex.dotVectors(V1,e2),
+        threex.dotVectors(V1,e3),
+        );
+    const init_rotation1: three.Matrix4 = threex.xformMatrix(init_vec_O_1,init_x1,init_y1);
+    const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
+    const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
+    const c: three.Vector3 = threex.multVectorMatrix(C3,init_rotation1);
+    const circle_1 = {
+        center: new kld.Point2D(a.x,a.y),
+        radius: circle.getRadius(),
+    };
+    const line = {
+        point1: new kld.Point2D(b.x,b.y),
+        point2: new kld.Point2D(c.x,c.y),
+    };
+    // console.log("circle_1.center    = " + circle_1.center);
+    // console.log("circle_1.radius    = " + circle_1.radius);
+    // console.log("line.point1    = " + line.point1);
+    // console.log("line.point2    = " + line.point2);
+    const result: kld.Intersection = kld.Intersection.intersectCircleLine(circle_1.center, circle_1.radius,
+        line.point1, line.point2);
+
+    // Retransforming into original coordinates system
+    const results: three.Vector3[] = [];
+    for (const point of result.points) {
+        results.push(new three.Vector3(point.x,point.y,0));
+    }
+    const results_c1: three.Vector3[] = [];
+    for (const point of results) {
+        results_c1.push(threex.multVectorMatrix(point,rotation1));
+    }
+    const points: gs.IPoint[] = [];
+    for(const point of results_c1) {
+        const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+        let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
+        if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
+        if(angles_circle_1 - angle_1 >= 0 ) {
+            points.push(g1.addPoint([point.x,point.y,point.z]));
+        }
+    }
+    return points;
+}
+
+/**
  * Circle-Plane intersection
  * @param circle
  * @param plane

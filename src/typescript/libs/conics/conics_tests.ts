@@ -146,6 +146,21 @@ export function test_isectCircleCircle2D() {
     // console.log("results 1314");
     return true;
 }
+
+export function test_isectCircleLine3D() {
+    const m: gs.IModel = new gs.Model();
+    const g: gs.IGeom = m.getGeom();
+    const radius: number = 4;
+    const O1: gs.IPoint = g.addPoint([2,2,2]);
+    const O: gs.IPoint = g.addPoint([0,0,0]);
+    const circle: gs.ICircle = g.addCircle(O1, [radius,0,0], [0,radius,0], [0,360]);
+    const ray: gs.IRay = g.addRay(O, [O.getPosition()[0]+O1.getPosition()[0],O.getPosition()[1]+O1.getPosition()[1],O.getPosition()[2]+O1.getPosition()[2]]);
+    const results: gs.IPoint[] = test._isectCircleLine3D(circle,ray);
+    // const pline: gs.IPolyline = g.addPolyline([results[0],results[1]],false);
+    console.log("results = " + results);
+    return true;
+}
+
 export function test_isectCirclePlane3D() {
     const m: gs.IModel = new gs.Model();
     const g: gs.IGeom = m.getGeom();

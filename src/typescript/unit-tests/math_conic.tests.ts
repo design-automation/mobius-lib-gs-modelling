@@ -41,4 +41,7 @@ describe("Tests for Math Conic Dev", () => {
     it("test_plineLength", () => {
         expect(_tests.test_plineLength()).toBe(true);
     });
+    it("test_isectCircleLine3D()", () => {
+        expect(_tests.test_isectCircleLine3D()).toBe(true);
+    });
 });
