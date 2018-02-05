@@ -11,6 +11,7 @@
         "doc": "docs"
     },
     "scripts": {
+        "geojson": "npm run build2015 && node ./dist2015/src/typescript/import/geojson/geojson.js",
         "build_three_models": "npm run build2015 && npm run gen_three_models",
         "build_gs_models": "npm run build2015 && npm run gen_gs_models",
         "models": "npm run build2015 && npm run gen_gs_models && npm run gen_three_models",
