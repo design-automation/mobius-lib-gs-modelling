@@ -1,9 +1,5 @@
 import {Arr} from "./arr";
 
-/**
- * Series of tests to verify Array user implemented static methods
- */
-
 export function test_make(): boolean {
     const a: number[] = Arr.make(10, 5);
     if (a[0] !== 5) {return false; }
