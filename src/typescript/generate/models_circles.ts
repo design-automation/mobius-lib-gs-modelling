@@ -32,11 +32,14 @@ export function genModelTest1(): gs.IModel {
  */
 export function genModelTest1a(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 40; i++) {
         const origin: gs.IPoint = gsm.point.FromXYZ(m, randXYZ());
-        const v1: gs.XYZ = new three.Vector3(origin[0],origin[1],origin[2]).normalize().toArray() as gs.XYZ;
-        const arc = gsm.circle.FromOrigin2Vectors(origin, v1, randXYZ(), [0, 360]);
-        const ray: gs.IRay = m.getGeom().addRay(arc.getOrigin(),v1);
+        const v1: gs.XYZ = new three.Vector3(
+        origin.getPosition()[0],origin.getPosition()[1],
+        origin.getPosition()[2]).setLength(Math.random()*10).toArray() as gs.XYZ;
+        const v2: gs.XYZ = new three.Vector3(Math.random(),Math.random(),Math.random()).normalize().toArray() as gs.XYZ;
+        const arc = gsm.circle.FromOrigin2Vectors(origin, v1, v2, [0, 360]);
+        const ray: gs.IRay = m.getGeom().addRay(gsm.point.FromXYZ(m, [-2*v1[0],-2*v1[1],-2*v1[2]]),v1);
         const points: gs.IPoint[] = gsm.intersect.circleLine3D(arc, ray);
         const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
     }

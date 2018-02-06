@@ -59,7 +59,7 @@ export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[]
  */
 export function circleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[] {
     error.checkObj(circle, gs.EObjType.circle);
-    error.checkObj(ray, gs.EObjType.plane);
+    error.checkObj(ray, gs.EObjType.ray);
     error.checkObjsSameModel([circle, ray]);
     return conics._isectCircleLine3D(circle,ray);
  }
