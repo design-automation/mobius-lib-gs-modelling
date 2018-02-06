@@ -1,10 +1,11 @@
-import {writeGsToJSONFile} from "../libs/filesys/filesys";
+import { writeGsToJSONFile } from "../libs/filesys/filesys";
 import * as gs from "gs-json";
 import * as gsm from "../_export_dev";
 import * as weeks from "./models_weeks";
 import * as circles from "./models_circles";
 import * as plines from "./models_plines";
 import * as pmeshes from "./models_pmeshes";
+import * as xform from "./models_xform";
 
 /**
  * Execute using NPM, models get saved in the /src/assets/ folder.
@@ -14,7 +15,7 @@ import * as pmeshes from "./models_pmeshes";
 
 const path: string = "../gs-modelling/src/assets/gs-json/";
 
-if(require.main === module)  {
+if (require.main === module) {
     console.log("Three files: circles...");
     writeGsToJSONFile(circles.genModelTest1(), path + "circles_test1.gs");
     writeGsToJSONFile(circles.genModelTest1b(), path + "circles_test1b.gs");
@@ -27,7 +28,7 @@ if(require.main === module)  {
     writeGsToJSONFile(circles.genModelTest8(), path + "circles_test8.gs");
 }
 
-if(require.main === module)  {
+if (require.main === module) {
     console.log("Three files: plines...");
     writeGsToJSONFile(plines.genModelTest1(), path + "plines_test1.gs");
     writeGsToJSONFile(plines.genModelTest2(), path + "plines_test2.gs");
@@ -38,8 +39,13 @@ if(require.main === module)  {
     writeGsToJSONFile(plines.genModelTest7(), path + "plines_test7.gs");
 }
 
-if(require.main === module)  {
+if (require.main === module) {
     console.log("Three files: pmeshes...");
     writeGsToJSONFile(pmeshes.genModelTest1(), path + "pmeshes_test1.gs");
     writeGsToJSONFile(pmeshes.genModelTest2(), path + "pmeshes_test2.gs");
+}
+
+if (require.main === module) {
+    console.log("Three files: xform...");
+    writeGsToJSONFile(xform.genModelTest1(), path + "xform_test1.gs");
 }

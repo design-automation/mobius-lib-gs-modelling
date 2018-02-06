@@ -46,7 +46,7 @@ export function Get(model: gs.IModel, id: number): gs.ICircle {
  * @param copy_attribs If true, attributes are copied to the new circle.
  * @returns Circle object.
  */
-export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
+export function Copy(circle: gs.ICircle, copy_attribs ? : boolean): gs.ICircle {
     // check args
     error.checkObj(circle, gs.EObjType.circle);
     // copy and return
@@ -64,7 +64,7 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
     // check args
     error.checkObj(circle, gs.EObjType.circle);
     // check it is not already in the model
-    if (circle.getModel() === model) {throw new Error("Error: circle is already in model.");}
+    if (circle.getModel() === model) { throw new Error("Error: circle is already in model."); }
     // copy circle and return it
     return model.getGeom().copyCircleFromModel(circle);
 }
@@ -86,7 +86,7 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
  * @returns Circle object.
  */
 export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ,
-                                   angles: [number, number] ): gs.ICircle {
+    angles: [number, number]): gs.ICircle {
     error.checkPoint(origin);
     error.checkXYZ(vec_x);
     error.checkXYZ(vec);
@@ -107,7 +107,7 @@ export function FromOrigin2Vectors(origin: gs.IPoint, vec_x: gs.XYZ, vec: gs.XYZ
  * @returns Circle object.
  */
 export function FromOrigin2Points(origin: gs.IPoint, point1: gs.IPoint, point2: gs.IPoint,
-                                  angles: [number, number] ): gs.ICircle {
+    angles: [number, number]): gs.ICircle {
     error.checkPoint(origin);
     error.checkPoint(point1);
     error.checkPoint(point2);
@@ -128,12 +128,12 @@ export function FromOrigin2Points(origin: gs.IPoint, point1: gs.IPoint, point2: 
  * @param angles Two angles between 0 and 360, or null for a circle.
  * @returns Circle object.
  */
-export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number, number]): gs.ICircle {
     error.checkPoint(origin);
     error.checkPosNum(radius);
     // create the vectors
-    const vec_x: gs.XYZ = [radius,0,0];
-    const vec: gs.XYZ = [0,1,0];
+    const vec_x: gs.XYZ = [radius, 0, 0];
+    const vec: gs.XYZ = [0, 1, 0];
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
@@ -148,12 +148,12 @@ export function FromOriginXY(origin: gs.IPoint, radius: number, angles: [number,
  * @param angles Two angles between 0 and 360, or null for a circle.
  * @returns Circle object.
  */
-export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number, number]): gs.ICircle {
     error.checkPoint(origin);
     error.checkPosNum(radius);
     // create the vectors
-    const vec_x: gs.XYZ = [0, radius,0];
-    const vec: gs.XYZ = [0,0,1];
+    const vec_x: gs.XYZ = [0, radius, 0];
+    const vec: gs.XYZ = [0, 0, 1];
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
@@ -168,12 +168,12 @@ export function FromOriginYZ(origin: gs.IPoint, radius: number, angles: [number,
  * @param angles Two angles between 0 and 360, or null for a circle.
  * @returns New circle (or arc).
  */
-export function FromOriginZX(origin: gs.IPoint, radius: number, angles: [number, number] ): gs.ICircle {
+export function FromOriginZX(origin: gs.IPoint, radius: number, angles: [number, number]): gs.ICircle {
     error.checkPoint(origin);
     error.checkPosNum(radius);
     // create the vectors
-    const vec_x: gs.XYZ = [0,0,radius];
-    const vec: gs.XYZ = [1,0,0];
+    const vec_x: gs.XYZ = [0, 0, radius];
+    const vec: gs.XYZ = [1, 0, 0];
     // make the circle
     return origin.getGeom().addCircle(origin, vec_x, vec, util._argsCheckAngles(angles));
 }
@@ -209,7 +209,7 @@ export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, num
  * @param is_closed If false, an arc is generated that starts at point1 and end at point3, passing through point 2.
  * @returns New circle object.
  */
-export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint, is_closed: boolean ): gs.ICircle {
+export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint, is_closed: boolean): gs.ICircle {
     const model: gs.IModel = error.checkPointList([point1, point2, point3], 3);
     // do the maths
     const result = math_conic._circleFrom3Points(
@@ -291,7 +291,7 @@ export function isClosed(circle: gs.ICircle): boolean {
  */
 export function close(circle: gs.ICircle): boolean {
     error.checkObj(circle, gs.EObjType.circle);
-    if (circle.isClosed()) {return false;}
+    if (circle.isClosed()) { return false; }
     circle.setAngles(undefined);
     return true;
 }
@@ -310,7 +310,7 @@ export function close(circle: gs.ICircle): boolean {
 export function calcLength(circle: gs.ICircle): number {
     error.checkObj(circle, gs.EObjType.circle);
     const circle_length: number = 2 * Math.PI * circle.getRadius();
-    if (circle.isClosed()) {return circle_length;}
+    if (circle.isClosed()) { return circle_length; }
     const angles: [number, number] = circle.getAngles();
     return circle_length * ((angles[1] - angles[0]) / 360);
 }

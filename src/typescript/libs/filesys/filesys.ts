@@ -43,6 +43,7 @@ export function readToJSONFile(filename: string): string {
     //     }
     //     console.log("File has been created: " + filename);
     // });
+
     const contents: string = fs.readFileSync(filename).toString();
     return contents;
 }

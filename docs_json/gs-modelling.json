@@ -3330,7 +3330,7 @@
 			]
 		},
 		{
-			"id": 940,
+			"id": 952,
 			"name": "\"generate/gen_gs_test_models\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3340,7 +3340,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_gs_test_models.ts",
 			"children": [
 				{
-					"id": 941,
+					"id": 953,
 					"name": "path",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3351,7 +3351,7 @@
 					"sources": [
 						{
 							"fileName": "generate/gen_gs_test_models.ts",
-							"line": 15,
+							"line": 16,
 							"character": 10
 						}
 					],
@@ -3367,7 +3367,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						941
+						953
 					]
 				}
 			],
@@ -3380,7 +3380,7 @@
 			]
 		},
 		{
-			"id": 942,
+			"id": 954,
 			"name": "\"generate/gen_three_test_models\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3390,7 +3390,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_three_test_models.ts",
 			"children": [
 				{
-					"id": 943,
+					"id": 955,
 					"name": "path",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3401,7 +3401,7 @@
 					"sources": [
 						{
 							"fileName": "generate/gen_three_test_models.ts",
-							"line": 15,
+							"line": 16,
 							"character": 10
 						}
 					],
@@ -3417,7 +3417,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						943
+						955
 					]
 				}
 			],
@@ -3430,7 +3430,7 @@
 			]
 		},
 		{
-			"id": 894,
+			"id": 900,
 			"name": "\"generate/models_circles\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3440,7 +3440,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_circles.ts",
 			"children": [
 				{
-					"id": 897,
+					"id": 903,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -3449,7 +3449,7 @@
 					},
 					"signatures": [
 						{
-							"id": 898,
+							"id": 904,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3470,7 +3470,7 @@
 					]
 				},
 				{
-					"id": 899,
+					"id": 905,
 					"name": "genModelTest1b",
 					"kind": 64,
 					"kindString": "Function",
@@ -3479,7 +3479,7 @@
 					},
 					"signatures": [
 						{
-							"id": 900,
+							"id": 906,
 							"name": "genModelTest1b",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3500,7 +3500,7 @@
 					]
 				},
 				{
-					"id": 901,
+					"id": 907,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -3509,7 +3509,7 @@
 					},
 					"signatures": [
 						{
-							"id": 902,
+							"id": 908,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3530,7 +3530,7 @@
 					]
 				},
 				{
-					"id": 903,
+					"id": 909,
 					"name": "genModelTest3",
 					"kind": 64,
 					"kindString": "Function",
@@ -3539,7 +3539,7 @@
 					},
 					"signatures": [
 						{
-							"id": 904,
+							"id": 910,
 							"name": "genModelTest3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3560,7 +3560,7 @@
 					]
 				},
 				{
-					"id": 905,
+					"id": 911,
 					"name": "genModelTest4",
 					"kind": 64,
 					"kindString": "Function",
@@ -3569,7 +3569,7 @@
 					},
 					"signatures": [
 						{
-							"id": 906,
+							"id": 912,
 							"name": "genModelTest4",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3590,7 +3590,7 @@
 					]
 				},
 				{
-					"id": 907,
+					"id": 913,
 					"name": "genModelTest5",
 					"kind": 64,
 					"kindString": "Function",
@@ -3599,7 +3599,7 @@
 					},
 					"signatures": [
 						{
-							"id": 908,
+							"id": 914,
 							"name": "genModelTest5",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3620,7 +3620,7 @@
 					]
 				},
 				{
-					"id": 909,
+					"id": 915,
 					"name": "genModelTest6",
 					"kind": 64,
 					"kindString": "Function",
@@ -3629,7 +3629,7 @@
 					},
 					"signatures": [
 						{
-							"id": 910,
+							"id": 916,
 							"name": "genModelTest6",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3650,7 +3650,7 @@
 					]
 				},
 				{
-					"id": 911,
+					"id": 917,
 					"name": "genModelTest7",
 					"kind": 64,
 					"kindString": "Function",
@@ -3659,7 +3659,7 @@
 					},
 					"signatures": [
 						{
-							"id": 912,
+							"id": 918,
 							"name": "genModelTest7",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3680,7 +3680,7 @@
 					]
 				},
 				{
-					"id": 913,
+					"id": 919,
 					"name": "genModelTest8",
 					"kind": 64,
 					"kindString": "Function",
@@ -3689,7 +3689,7 @@
 					},
 					"signatures": [
 						{
-							"id": 914,
+							"id": 920,
 							"name": "genModelTest8",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3710,7 +3710,7 @@
 					]
 				},
 				{
-					"id": 895,
+					"id": 901,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -3719,7 +3719,7 @@
 					},
 					"signatures": [
 						{
-							"id": 896,
+							"id": 902,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3744,16 +3744,16 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						897,
-						899,
-						901,
 						903,
 						905,
 						907,
 						909,
 						911,
 						913,
-						895
+						915,
+						917,
+						919,
+						901
 					]
 				}
 			],
@@ -3766,7 +3766,7 @@
 			]
 		},
 		{
-			"id": 915,
+			"id": 921,
 			"name": "\"generate/models_plines\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3776,7 +3776,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_plines.ts",
 			"children": [
 				{
-					"id": 919,
+					"id": 925,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -3785,7 +3785,7 @@
 					},
 					"signatures": [
 						{
-							"id": 920,
+							"id": 926,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3805,7 +3805,7 @@
 					]
 				},
 				{
-					"id": 921,
+					"id": 927,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -3814,7 +3814,7 @@
 					},
 					"signatures": [
 						{
-							"id": 922,
+							"id": 928,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3834,7 +3834,7 @@
 					]
 				},
 				{
-					"id": 923,
+					"id": 929,
 					"name": "genModelTest3",
 					"kind": 64,
 					"kindString": "Function",
@@ -3843,7 +3843,7 @@
 					},
 					"signatures": [
 						{
-							"id": 924,
+							"id": 930,
 							"name": "genModelTest3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3863,7 +3863,7 @@
 					]
 				},
 				{
-					"id": 925,
+					"id": 931,
 					"name": "genModelTest4",
 					"kind": 64,
 					"kindString": "Function",
@@ -3872,7 +3872,7 @@
 					},
 					"signatures": [
 						{
-							"id": 926,
+							"id": 932,
 							"name": "genModelTest4",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3892,7 +3892,7 @@
 					]
 				},
 				{
-					"id": 927,
+					"id": 933,
 					"name": "genModelTest5",
 					"kind": 64,
 					"kindString": "Function",
@@ -3901,7 +3901,7 @@
 					},
 					"signatures": [
 						{
-							"id": 928,
+							"id": 934,
 							"name": "genModelTest5",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3921,7 +3921,7 @@
 					]
 				},
 				{
-					"id": 929,
+					"id": 935,
 					"name": "genModelTest6",
 					"kind": 64,
 					"kindString": "Function",
@@ -3930,7 +3930,7 @@
 					},
 					"signatures": [
 						{
-							"id": 930,
+							"id": 936,
 							"name": "genModelTest6",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3950,7 +3950,7 @@
 					]
 				},
 				{
-					"id": 931,
+					"id": 937,
 					"name": "genModelTest7",
 					"kind": 64,
 					"kindString": "Function",
@@ -3959,7 +3959,7 @@
 					},
 					"signatures": [
 						{
-							"id": 932,
+							"id": 938,
 							"name": "genModelTest7",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3979,7 +3979,7 @@
 					]
 				},
 				{
-					"id": 916,
+					"id": 922,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -3988,14 +3988,14 @@
 					},
 					"signatures": [
 						{
-							"id": 917,
+							"id": 923,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 918,
+									"id": 924,
 									"name": "scale",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4026,14 +4026,14 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						919,
-						921,
-						923,
 						925,
 						927,
 						929,
 						931,
-						916
+						933,
+						935,
+						937,
+						922
 					]
 				}
 			],
@@ -4046,7 +4046,7 @@
 			]
 		},
 		{
-			"id": 933,
+			"id": 939,
 			"name": "\"generate/models_pmeshes\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4056,7 +4056,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_pmeshes.ts",
 			"children": [
 				{
-					"id": 936,
+					"id": 942,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -4065,7 +4065,7 @@
 					},
 					"signatures": [
 						{
-							"id": 937,
+							"id": 943,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4085,7 +4085,7 @@
 					]
 				},
 				{
-					"id": 938,
+					"id": 944,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -4094,7 +4094,7 @@
 					},
 					"signatures": [
 						{
-							"id": 939,
+							"id": 945,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4114,7 +4114,7 @@
 					]
 				},
 				{
-					"id": 934,
+					"id": 940,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -4123,7 +4123,7 @@
 					},
 					"signatures": [
 						{
-							"id": 935,
+							"id": 941,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4148,9 +4148,9 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						936,
-						938,
-						934
+						942,
+						944,
+						940
 					]
 				}
 			],
@@ -4163,7 +4163,7 @@
 			]
 		},
 		{
-			"id": 891,
+			"id": 897,
 			"name": "\"generate/models_weeks\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4173,7 +4173,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_weeks.ts",
 			"children": [
 				{
-					"id": 892,
+					"id": 898,
 					"name": "genModelWeek3",
 					"kind": 64,
 					"kindString": "Function",
@@ -4182,7 +4182,7 @@
 					},
 					"signatures": [
 						{
-							"id": 893,
+							"id": 899,
 							"name": "genModelWeek3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4208,13 +4208,111 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						892
+						898
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "generate/models_weeks.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 946,
+			"name": "\"generate/models_xform\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_xform.ts",
+			"children": [
+				{
+					"id": 950,
+					"name": "genModelTest1",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 951,
+							"name": "genModelTest1",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "generate/models_xform.ts",
+							"line": 12,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 947,
+					"name": "randXYZ",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 948,
+							"name": "randXYZ",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 949,
+									"name": "scale",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "gs.XYZ"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "generate/models_xform.ts",
+							"line": 5,
+							"character": 16
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						950,
+						947
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "generate/models_xform.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -4652,7 +4750,7 @@
 			]
 		},
 		{
-			"id": 944,
+			"id": 956,
 			"name": "\"import/geojson/geojson\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4662,7 +4760,487 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/import/geojson/geojson.ts",
 			"children": [
 				{
-					"id": 945,
+					"id": 957,
+					"name": "path",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 9,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"defaultValue": "\"../gs-modelling/src/assets/geojson/\""
+				},
+				{
+					"id": 969,
+					"name": "add_attribs",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 970,
+							"name": "add_attribs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds attributs to the geojson model.",
+								"returns": "A Map containing the attrib name and the attrib object.\n"
+							},
+							"parameters": [
+								{
+									"id": 971,
+									"name": "attrib_data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Attrinute data (name, and data type)"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "EDataType"
+											}
+										]
+									}
+								},
+								{
+									"id": 972,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Map",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "IEntAttrib"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 135,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 973,
+					"name": "add_linestrings",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 974,
+							"name": "add_linestrings",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds linestrings to the model"
+							},
+							"parameters": [
+								{
+									"id": 975,
+									"name": "linestrings",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 976,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 977,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 978,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 158,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 985,
+					"name": "add_multilinestrings",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 986,
+							"name": "add_multilinestrings",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds multilinestrings to the model"
+							},
+							"parameters": [
+								{
+									"id": 987,
+									"name": "multilinestrings",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 988,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 989,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 990,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 220,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 991,
+					"name": "add_multipolygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 992,
+							"name": "add_multipolygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds multipolygons to the model"
+							},
+							"parameters": [
+								{
+									"id": 993,
+									"name": "multipolygons",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 994,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 995,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 996,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 258,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 979,
+					"name": "add_polygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 980,
+							"name": "add_polygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds polygons to the model"
+							},
+							"parameters": [
+								{
+									"id": 981,
+									"name": "polygons",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 982,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 983,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 984,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 189,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 961,
 					"name": "geojson",
 					"kind": 64,
 					"kindString": "Function",
@@ -4671,21 +5249,25 @@
 					},
 					"signatures": [
 						{
-							"id": 946,
+							"id": 962,
 							"name": "geojson",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Execute using NPM, models get saved in the /src/assets/ folder.\n1) \"npm run geojson\""
+								"shortText": "Converts geojson to a gs model.",
+								"returns": "Model\n"
 							},
 							"parameters": [
 								{
-									"id": 947,
+									"id": 963,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "The path to the file that cntains the geojson data."
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -4701,7 +5283,130 @@
 					"sources": [
 						{
 							"fileName": "import/geojson/geojson.ts",
-							"line": 15,
+							"line": 33,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 958,
+					"name": "geojsons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 959,
+							"name": "geojsons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Converts multiple geojson files to one gs model.",
+								"returns": "Model\n"
+							},
+							"parameters": [
+								{
+									"id": 960,
+									"name": "filenames",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The paths to the file that cntains the geojson data."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 16,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 964,
+					"name": "process",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 965,
+							"name": "process",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Converts geojson to a gs model.",
+								"returns": "Model\n"
+							},
+							"parameters": [
+								{
+									"id": 966,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 967,
+									"name": "obj_data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 968,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 46,
 							"character": 23
 						}
 					]
@@ -4709,10 +5414,24 @@
 			],
 			"groups": [
 				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						957
+					]
+				},
+				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						945
+						969,
+						973,
+						985,
+						991,
+						979,
+						961,
+						958,
+						964
 					]
 				}
 			],
@@ -4889,7 +5608,7 @@
 			]
 		},
 		{
-			"id": 948,
+			"id": 997,
 			"name": "\"libs/arr/arr\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4899,7 +5618,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/arr/arr.ts",
 			"children": [
 				{
-					"id": 949,
+					"id": 998,
 					"name": "Arr",
 					"kind": 128,
 					"kindString": "Class",
@@ -4911,7 +5630,7 @@
 					},
 					"children": [
 						{
-							"id": 974,
+							"id": 1023,
 							"name": "deepCopy",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4922,7 +5641,7 @@
 							},
 							"signatures": [
 								{
-									"id": 975,
+									"id": 1024,
 									"name": "deepCopy",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4933,7 +5652,7 @@
 									},
 									"parameters": [
 										{
-											"id": 976,
+											"id": 1025,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4968,7 +5687,7 @@
 							]
 						},
 						{
-							"id": 981,
+							"id": 1030,
 							"name": "deepCount",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4979,7 +5698,7 @@
 							},
 							"signatures": [
 								{
-									"id": 982,
+									"id": 1031,
 									"name": "deepCount",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4990,7 +5709,7 @@
 									},
 									"parameters": [
 										{
-											"id": 983,
+											"id": 1032,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5022,7 +5741,7 @@
 							]
 						},
 						{
-							"id": 977,
+							"id": 1026,
 							"name": "deepFill",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5033,7 +5752,7 @@
 							},
 							"signatures": [
 								{
-									"id": 978,
+									"id": 1027,
 									"name": "deepFill",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5043,7 +5762,7 @@
 									},
 									"parameters": [
 										{
-											"id": 979,
+											"id": 1028,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5060,7 +5779,7 @@
 											}
 										},
 										{
-											"id": 980,
+											"id": 1029,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5089,7 +5808,7 @@
 							]
 						},
 						{
-							"id": 957,
+							"id": 1006,
 							"name": "equal",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5100,7 +5819,7 @@
 							},
 							"signatures": [
 								{
-									"id": 958,
+									"id": 1007,
 									"name": "equal",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5111,7 +5830,7 @@
 									},
 									"parameters": [
 										{
-											"id": 959,
+											"id": 1008,
 											"name": "arr1",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5125,7 +5844,7 @@
 											}
 										},
 										{
-											"id": 960,
+											"id": 1009,
 											"name": "arr2",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5154,7 +5873,7 @@
 							]
 						},
 						{
-							"id": 970,
+							"id": 1019,
 							"name": "flatten",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5165,7 +5884,7 @@
 							},
 							"signatures": [
 								{
-									"id": 971,
+									"id": 1020,
 									"name": "flatten",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5176,7 +5895,7 @@
 									},
 									"parameters": [
 										{
-											"id": 972,
+											"id": 1021,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5193,7 +5912,7 @@
 											}
 										},
 										{
-											"id": 973,
+											"id": 1022,
 											"name": "depth",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5224,7 +5943,7 @@
 							]
 						},
 						{
-							"id": 961,
+							"id": 1010,
 							"name": "indexOf",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5235,7 +5954,7 @@
 							},
 							"signatures": [
 								{
-									"id": 962,
+									"id": 1011,
 									"name": "indexOf",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5246,7 +5965,7 @@
 									},
 									"parameters": [
 										{
-											"id": 963,
+											"id": 1012,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5260,7 +5979,7 @@
 											}
 										},
 										{
-											"id": 964,
+											"id": 1013,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5289,7 +6008,7 @@
 							]
 						},
 						{
-							"id": 950,
+							"id": 999,
 							"name": "make",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5300,7 +6019,7 @@
 							},
 							"signatures": [
 								{
-									"id": 951,
+									"id": 1000,
 									"name": "make",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5311,7 +6030,7 @@
 									},
 									"parameters": [
 										{
-											"id": 952,
+											"id": 1001,
 											"name": "length",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5325,7 +6044,7 @@
 											}
 										},
 										{
-											"id": 953,
+											"id": 1002,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5357,7 +6076,7 @@
 							]
 						},
 						{
-							"id": 954,
+							"id": 1003,
 							"name": "makeSeq",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5368,7 +6087,7 @@
 							},
 							"signatures": [
 								{
-									"id": 955,
+									"id": 1004,
 									"name": "makeSeq",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5379,7 +6098,7 @@
 									},
 									"parameters": [
 										{
-											"id": 956,
+											"id": 1005,
 											"name": "length",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5411,7 +6130,7 @@
 							]
 						},
 						{
-							"id": 965,
+							"id": 1014,
 							"name": "replace",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5422,7 +6141,7 @@
 							},
 							"signatures": [
 								{
-									"id": 966,
+									"id": 1015,
 									"name": "replace",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5432,7 +6151,7 @@
 									},
 									"parameters": [
 										{
-											"id": 967,
+											"id": 1016,
 											"name": "arr",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5449,7 +6168,7 @@
 											}
 										},
 										{
-											"id": 968,
+											"id": 1017,
 											"name": "old_value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5463,7 +6182,7 @@
 											}
 										},
 										{
-											"id": 969,
+											"id": 1018,
 											"name": "new_value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5497,15 +6216,15 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								974,
-								981,
-								977,
-								957,
-								970,
-								961,
-								950,
-								954,
-								965
+								1023,
+								1030,
+								1026,
+								1006,
+								1019,
+								1010,
+								999,
+								1003,
+								1014
 							]
 						}
 					],
@@ -5523,7 +6242,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						949
+						998
 					]
 				}
 			],
@@ -9487,7 +10206,7 @@
 			]
 		},
 		{
-			"id": 984,
+			"id": 1033,
 			"name": "\"libs/xform/xform\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9497,7 +10216,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/xform/xform.ts",
 			"children": [
 				{
-					"id": 985,
+					"id": 1034,
 					"name": "xfromXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -9506,14 +10225,14 @@
 					},
 					"signatures": [
 						{
-							"id": 986,
+							"id": 1035,
 							"name": "xfromXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 987,
+									"id": 1036,
 									"name": "xyz_list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9527,7 +10246,7 @@
 									}
 								},
 								{
-									"id": 988,
+									"id": 1037,
 									"name": "from_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9538,7 +10257,7 @@
 									}
 								},
 								{
-									"id": 989,
+									"id": 1038,
 									"name": "from_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9552,7 +10271,7 @@
 									}
 								},
 								{
-									"id": 990,
+									"id": 1039,
 									"name": "to_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9563,7 +10282,7 @@
 									}
 								},
 								{
-									"id": 991,
+									"id": 1040,
 									"name": "to_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9598,7 +10317,7 @@
 					]
 				},
 				{
-					"id": 992,
+					"id": 1041,
 					"name": "xfromXYZfromGlobal",
 					"kind": 64,
 					"kindString": "Function",
@@ -9607,14 +10326,14 @@
 					},
 					"signatures": [
 						{
-							"id": 993,
+							"id": 1042,
 							"name": "xfromXYZfromGlobal",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 994,
+									"id": 1043,
 									"name": "xyz_list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9628,7 +10347,7 @@
 									}
 								},
 								{
-									"id": 995,
+									"id": 1044,
 									"name": "to_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9639,7 +10358,7 @@
 									}
 								},
 								{
-									"id": 996,
+									"id": 1045,
 									"name": "to_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9679,8 +10398,8 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						985,
-						992
+						1034,
+						1041
 					]
 				}
 			],
@@ -16532,6 +17251,139 @@
 					"character": 0
 				}
 			]
+		},
+		{
+			"id": 891,
+			"name": "\"xform\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/xform.ts",
+			"comment": {
+				"shortText": "Functions for transforming points and objects."
+			},
+			"children": [
+				{
+					"id": 892,
+					"name": "move",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 893,
+							"name": "move",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Moves points and/or objects.",
+								"returns": "True if all geometry was successfully moved.\n"
+							},
+							"parameters": [
+								{
+									"id": 894,
+									"name": "entities",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "A single point or object, or a list of points and/or objects."
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "IEnt"
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "reference",
+													"name": "IEnt"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 895,
+									"name": "vector",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Translation vector."
+									},
+									"type": {
+										"type": "reference",
+										"name": "gs.XYZ"
+									}
+								},
+								{
+									"id": 896,
+									"name": "copy",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "If true, entities are copied before being moved."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "false"
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"name": "IEnt"
+									},
+									{
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "IEnt"
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "xform.ts",
+							"line": 25,
+							"character": 20
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						892
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "xform.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
 		}
 	],
 	"groups": [
@@ -16544,22 +17396,23 @@
 				287,
 				360,
 				420,
-				940,
-				942,
-				894,
-				915,
-				933,
-				891,
+				952,
+				954,
+				900,
+				921,
+				939,
+				897,
+				946,
 				439,
-				944,
+				956,
 				465,
-				948,
+				997,
 				202,
 				196,
 				427,
 				537,
 				50,
-				984,
+				1033,
 				753,
 				812,
 				474,
@@ -16572,7 +17425,8 @@
 				729,
 				746,
 				857,
-				751
+				751,
+				891
 			]
 		}
 	]

@@ -10,6 +10,51 @@ import * as gs from "gs-json";
 //  Error messages for end users ====================================================================================================
 //  ===============================================================================================================
 
+// Entities ====================================================================================================
+
+export function checkEnt(ent: gs.IEnt): gs.IModel {
+    if (!(ent instanceof gs.Ent)) {notEnt();}
+    if (!ent.exists()) {entNotExist();}
+    return ent.getModel();
+}
+
+export function checkEntList(ents: gs.IEnt[], min_len: number): gs.IModel {
+    if (!Array.isArray(ents)) {mustBeEntList();}
+    if (ents.length < min_len) {objListTooFew();}
+    if (!(ents[0] instanceof gs.Ent)) {notEntInList();}
+    const model: gs.IModel = ents[0].getModel();
+    for (const ent of ents) {
+        if (!(ent instanceof gs.Ent)) {notEntInList();}
+        if (!ent.exists()) {entNotExist();}
+        if (ent.getModel() !== model) {entInOtherModel();}
+    }
+    return model;
+}
+
+export function notEnt():void {
+    throw new Error("The argument must be a point or object.");
+}
+
+export function notEntInList():void {
+    throw new Error("One of the items in the list was neither a point nor an object.");
+}
+
+export function entNotExist():void {
+    throw new Error("Point or object does not exist. It was probably deleted.");
+}
+
+export function mustBeEntList():void {
+    throw new Error("A list of objects and/or points must be given.");
+}
+
+export function entListTooFew():void {
+    throw new Error("The list conatins too few objects and/or points.");
+}
+
+export function entInOtherModel():void {
+    throw new Error("Entity is in a different model.");
+}
+
 // Objects ====================================================================================================
 
 export function checkObjID(model: gs.IModel, obj_id: number, obj_tye?: gs.EObjType):gs.IObj {
