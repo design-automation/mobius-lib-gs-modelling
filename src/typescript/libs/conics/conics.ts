@@ -296,38 +296,69 @@ export function _isectCircleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[
     const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
     const c: three.Vector3 = threex.multVectorMatrix(C3,init_rotation1);
     const circle_1 = {
-        center: new kld.Point2D(a.x,a.y),
-        radius: circle.getRadius(),
-    };
+    center: new kld.Point2D(a.x,a.y),
+    radius: circle.getRadius()};
     const line = {
-        point1: new kld.Point2D(b.x,b.y),
-        point2: new kld.Point2D(c.x,c.y),
-    };
-    // console.log("circle_1.center    = " + circle_1.center);
-    // console.log("circle_1.radius    = " + circle_1.radius);
-    // console.log("line.point1    = " + line.point1);
-    // console.log("line.point2    = " + line.point2);
+    point1: new kld.Point2D(b.x,b.y),
+    point2: new kld.Point2D(c.x,c.y)};
     const result: kld.Intersection = kld.Intersection.intersectCircleLine(circle_1.center, circle_1.radius,
-        line.point1, line.point2);
-
-    // Retransforming into original coordinates system
+    line.point1, line.point2);
     const results: three.Vector3[] = [];
-    for (const point of result.points) {
-        results.push(new three.Vector3(point.x,point.y,0));
-    }
+    for (const point of result.points) {results.push(new three.Vector3(point.x,point.y,0));}
     const results_c1: three.Vector3[] = [];
-    for (const point of results) {
-        results_c1.push(threex.multVectorMatrix(point,rotation1));
-    }
+    for (const point of results) {results_c1.push(threex.multVectorMatrix(point,rotation1));}
+    if (results_c1 === []) {return null;}
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
-        const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
-        let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
-        if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
-        if(angles_circle_1 - angle_1 >= 0 ) {
-            points.push(g1.addPoint([point.x,point.y,point.z]));
-        }
-    }
+
+    // let ok: boolean = true;
+    // const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+    // let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
+    // if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
+    // if(angles1[0] > angle_1 ) {ok = false;}
+    // ok = true;
+
+    // const results1: gs.IPoint[] = [];
+    // for (const point of points) {
+    // const vec_point1: three.Vector3 = new three.Vector3(
+    //     point[0] - C1[0], point[1] - C1[1], point[2] - C1[2],
+    // );
+    // let angle_point1: number = Math.sign(
+    // threex.crossVectors(U1,V1).dot(
+    // threex.crossVectors(U1,vec_point1))) * vec_point1.angleTo(U1) * 180 / Math.PI;
+    // angle_point1 = (angle_point1 + 10*360) %360;
+
+    const vec_point1: three.Vector3 = new three.Vector3(point.x - C1.x, point.y - C1.y, point.z - C1.z);
+    let angle_point1: number = vec_point1.angleTo(U1) * 180 / Math.PI;
+    if( threex.crossVectors(U1, vec_point1).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_point1 = 360 - angle_point1;}
+    angle_point1 = (angle_point1 + 10*360) %360;
+    // console.log(" [vec_point1] = " + [vec_point1.x,vec_point1.y,vec_point1.z]);
+    // console.log(" [U1] = " + [U1.x,U1.y,U1.z]);
+    // console.log("circle.getAngles()[0] = " + circle.getAngles()[0]);
+    // console.log("angle_point1 = " + angle_point1);
+    // console.log("circle.getAngles()[1] = " + circle.getAngles()[1]);
+    if (angle_point1 >= circle.getAngles()[0] && angle_point1 <= circle.getAngles()[1]) {
+    points.push(g1.addPoint([point.x,point.y,point.z]));}
+}
+
+    // const ok: boolean = true;
+    // const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
+    // const angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
+    // if(angles_circle_1 - angle_1 >= 0 ) {
+
+    // const results1: gs.IPoint[] = [];
+    // for (const point of points) {
+    // const vec_point1: three.Vector3 = new three.Vector3(
+    //     point[0] - C1[0], point[1] - C1[1], point[2] - C1[2],
+    // );
+    // let angle_point1: number = Math.sign(
+    // threex.crossVectors(U1,V1).dot(
+    // threex.crossVectors(U1,vec_point1))) * vec_point1.angleTo(U1) * 180 / Math.PI;
+    // angle_point1 = (angle_point1 + 10*360) %360;
+
+    // results1.push(m1.getGeom().addPoint(point.getPosition()));}
+    // }
+
     return points;
 }
 
