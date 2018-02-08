@@ -1,8 +1,9 @@
 import * as gs from "gs-json";
 import * as gsm from "../_export_dev";
 import * as threex from "../libs/threex/threex";
-import * as cir from "../circle_dev"; //TODO
+import * as cir from "../circle_dev"; // TODO
 import * as three from "three";
+import {ellipseGetRenderXYZs} from "../ellipse_dev";
 
 export function randXYZ(): gs.XYZ {
     return [(Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30, (Math.random() - 0.5) * 30];
@@ -24,6 +25,21 @@ export function genModelTest1(): gs.IModel {
         const pline: gs.IPolyline = gsm.pline.FromPoints(points, false);
         gsm.intersect.circlePlane3D(arc, plane);
     }
+    return m;
+}
+
+/**
+ *
+ */
+export function genModelTest1a_ellipse(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const origin: gs.IPoint = gsm.point.FromXYZ(m,[0,0,0]);
+    const ellipse: gs.IEllipse = gsm.ellipse.ArcFromOriginVectors(origin, [7,0,0],[0,3,0],[40, 280]);
+    console.log("[radii]" + ellipse.getRadii());
+    const points_XYZ: gs.XYZ[] = ellipseGetRenderXYZs(ellipse, 0.1);
+    const points: gs.IPoint[] = [];
+    for (const xyz of points_XYZ) {points.push(gsm.point.FromXYZ(m,xyz));}
+    const pline: gs.IPolyline = gsm.pline.FromPoints(points, true);
     return m;
 }
 

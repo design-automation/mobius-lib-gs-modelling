@@ -22,7 +22,8 @@ if(require.main === module)  {
 if(require.main === module)  {
     // console.log("Three files: circles...");
     // writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest1()), path + "circles_test1.json");
-    writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest1a()), path + "circles_test1a.json");
+    writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest1a_ellipse()), path + "circles_test1a_ellipse.json");
+    // writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest1a()), path + "circles_test1a.json");
     // writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest1b()), path + "circles_test1b.json");
     // writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest2()), path + "circles_test2.json");
     // writeThreeToJSONFile(gs.genThreeOptModel(circles.genModelTest3()), path + "circles_test3.json");
