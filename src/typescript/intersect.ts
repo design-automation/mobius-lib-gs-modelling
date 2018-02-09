@@ -63,3 +63,17 @@ export function circleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[] {
     error.checkObjsSameModel([circle, ray]);
     return conics._isectCircleLine3D(circle,ray);
  }
+
+/**
+ *
+ * @param circle Conic curve 1
+ * @param line Conic curve 2
+ * @returns List of intersection points and/or overlapping arcs if successful,
+ *          null if unsuccessful or on error
+ */
+export function ellipseEllipse2D(ellipse1: gs.IEllipse, ellipse2: gs.IEllipse): gs.IPoint[] {
+    error.checkObj(ellipse1, gs.EObjType.ellipse);
+    error.checkObj(ellipse2, gs.EObjType.ellipse);
+    error.checkObjsSameModel([ellipse1, ellipse2]);
+    return conics._isectEllipseEllipse2D(ellipse1,ellipse2);
+ }
