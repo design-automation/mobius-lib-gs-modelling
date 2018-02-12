@@ -218,7 +218,6 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
     }
     return points;
 }
-
 /**
  * Circle-Line intersection
  * @param circle
@@ -389,7 +388,107 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     }
     return result;
 }
+/**
+ * Ellipse-Line intersection
+ * @param Ellipse
+ * @param line
+ * @return Adds intersecting points to the geometry if successfull
+ */
+export function _isectEllipseLine2D(ellipse: gs.IEllipse, ray: gs.IRay): gs.IPoint[] {
+    // gs.IRay type in parameter to be replaced by gs.ILine after the conics to master merge is completed
+    const m1: gs.IModel = ellipse.getModel();
+    const m2: gs.IModel = ray.getModel();
+    if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
+    const v1: [gs.XYZ, gs.XYZ, gs.XYZ] = ellipse.getAxes();
+    const v2: gs.XYZ = ray.getVector();
+    const g1: gs.IGeom = m1.getGeom();
+    const ellipse_rx: number = new three.Vector3(v1[0][0],v1[0][1],v1[0][2]).length();
+    const ellipse_ry: number = new three.Vector3(v1[1][0],v1[1][1],v1[1][2]).length();
+    // Direct Orthonormal Basis of reference
+    const O1: three.Vector3 = new three.Vector3(0,0,0);
+    const e1: three.Vector3 = new three.Vector3(1,0,0);
+    const e2: three.Vector3 = new three.Vector3(0,1,0);
+    const e3: three.Vector3 = new three.Vector3(0,0,1);
+    // Ellipse Direct Orthonormal Basis
+    const C1: three.Vector3 = new three.Vector3(...ellipse.getOrigin().getPosition());
+    const U1: three.Vector3 = new three.Vector3(...v1[0]).normalize();
+    const V1: three.Vector3 = new three.Vector3(...v1[1]).normalize();
+    const W1: three.Vector3 = threex.crossVectors(U1,V1,true);
+    let angles1: [number, number] = ellipse.getAngles();
+    if (angles1 === undefined) {angles1 = [0,360];}
+    const angles_circle_1: number = angles1[1]-angles1[0];
+    // Line
+    const C0: three.Vector3 = new three.Vector3(...ray.getOrigin().getPosition());
+    const C2: three.Vector3 = new three.Vector3(C0.x - 100000*v2[0],C0.y - 100000*v2[1],C0.z - 100000*v2[2]);
+    const C3: three.Vector3 = new three.Vector3(C0.x + 100000*v2[0],C0.y + 100000*v2[1],C0.z + 100000*v2[2]);
 
+    // Rotation Matrix expressed in the reference direct orthonormal basis
+        // Circle 1
+    const C1O1: three.Vector3 = threex.subVectors(O1,C1,false);
+    const vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(C1O1,U1),
+        threex.dotVectors(C1O1,V1),
+        threex.dotVectors(C1O1,W1),
+        );
+    const x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e1,U1),
+        threex.dotVectors(e1,V1),
+        threex.dotVectors(e1,W1),
+        );
+    const y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(e2,U1),
+        threex.dotVectors(e2,V1),
+        threex.dotVectors(e2,W1),
+        );
+    const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1,x1,y1);
+    // Initial Rotation Matrix expressed in the reference direct orthonormal basis
+        // Ellipse 1
+    const O1C1: three.Vector3 = threex.subVectors(C1,O1,false);
+    const init_vec_O_1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(O1C1,e1),
+        threex.dotVectors(O1C1,e2),
+        threex.dotVectors(O1C1,e3),
+        );
+    const init_x1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(U1,e1),
+        threex.dotVectors(U1,e2),
+        threex.dotVectors(U1,e3),
+        );
+    const init_y1: three.Vector3 = new three.Vector3(
+        threex.dotVectors(V1,e1),
+        threex.dotVectors(V1,e2),
+        threex.dotVectors(V1,e3),
+        );
+    const init_rotation1: three.Matrix4 = threex.xformMatrix(init_vec_O_1,init_x1,init_y1);
+    const a: three.Vector3 = threex.multVectorMatrix(C1,init_rotation1);
+    const b: three.Vector3 = threex.multVectorMatrix(C2,init_rotation1);
+    const c: three.Vector3 = threex.multVectorMatrix(C3,init_rotation1);
+    const ellipse_1 = {
+    center: new kld.Point2D(a.x,a.y),
+    rx: ellipse_rx,
+    ry: ellipse_ry,
+    };
+    const line = {
+    point1: new kld.Point2D(b.x,b.y),
+    point2: new kld.Point2D(c.x,c.y)};
+    const result: kld.Intersection = kld.Intersection.intersectEllipseLine(ellipse_1.center, ellipse_1.rx, ellipse_1.ry,
+    line.point1, line.point2);
+    const results: three.Vector3[] = [];
+    for (const point of result.points) {results.push(new three.Vector3(point.x,point.y,0));}
+    const results_c1: three.Vector3[] = [];
+    for (const point of results) {results_c1.push(threex.multVectorMatrix(point,rotation1));}
+    if (results_c1 === []) {return null;}
+    const points: gs.IPoint[] = [];
+    for(const point of results_c1) {
+        const vec_point1: three.Vector3 = new three.Vector3(point.x - C1.x, point.y - C1.y, point.z - C1.z);
+        let angle_point1: number = vec_point1.angleTo(U1) * 180 / Math.PI;
+    if( threex.crossVectors(U1, vec_point1).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_point1 = 360 - angle_point1;}
+        angle_point1 = (angle_point1 + 10*360) %360;
+    if (angle_point1 >= ellipse.getAngles()[0] && angle_point1 <= ellipse.getAngles()[1]) {
+        points.push(g1.addPoint([point.x,point.y,point.z]));}
+    }
+    return points;
+}
 /**
  * Ellipse-Plane intersection
  * @param ellipse
@@ -1035,3 +1134,8 @@ export function hyperbola_length(conic: number[], theta_1: number, theta_2: numb
 export function plineLength(m: gs.IModel, pline: gs.IPolyline, segment_index: number, sub_domain: [number,number] ) {
     throw new Error("Method not implemented");
 }
+
+
+
+
+
