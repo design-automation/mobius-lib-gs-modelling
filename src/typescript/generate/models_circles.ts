@@ -35,7 +35,8 @@ export function genModelTest1a_ellipse(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     const origin: gs.IPoint = gsm.point.FromXYZ(m,[0,0,0]);
     const ellipse: gs.IEllipse = gsm.ellipse.ArcFromOriginVectors(origin, [7,0,0],[0,3,0],[40, 280]);
-    console.log("[radii]" + ellipse.getRadii());
+    console.log("[Axe_x]" + ellipse.getAxes()[0]);
+    console.log("[Axe_y]" + ellipse.getAxes()[1]);
     const points_XYZ: gs.XYZ[] = ellipseGetRenderXYZs(ellipse, 0.1);
     const points: gs.IPoint[] = [];
     for (const xyz of points_XYZ) {points.push(gsm.point.FromXYZ(m,xyz));}

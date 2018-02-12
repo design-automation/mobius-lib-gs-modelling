@@ -40,10 +40,10 @@
     },
     "devDependencies": {
         "@types/jasmine": "^2.8.6",
-        "@types/node": "^9.4.2",
+        "@types/node": "^9.4.5",
         "babel-cli": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
-        "gs-json": "^0.1.51",
+        "gs-json": "^0.1.54",
         "jasmine": "^2.99.0",
         "jasmine-core": "^2.99.1",
         "karma": "^2.0.0",

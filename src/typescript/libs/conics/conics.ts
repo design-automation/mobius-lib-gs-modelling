@@ -232,9 +232,6 @@ export function _isectCircleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[
     if (m1 !== m2) {throw new Error("Entities must be in the same model.");}
     const v1: [gs.XYZ, gs.XYZ, gs.XYZ] = circle.getAxes();
     const v2: gs.XYZ = ray.getVector();
-    // if(!threex.planesAreCoplanar(circle.getOrigin(), v1[2], ray.getOrigin(), v2)) {
-    //     throw new Error("Entities must be coplanar.");
-    // }
     const g1: gs.IGeom = m1.getGeom();
     // Direct Orthonormal Basis of reference
     const O1: three.Vector3 = new three.Vector3(0,0,0);
@@ -310,58 +307,15 @@ export function _isectCircleLine3D(circle: gs.ICircle, ray: gs.IRay): gs.IPoint[
     if (results_c1 === []) {return null;}
     const points: gs.IPoint[] = [];
     for(const point of results_c1) {
-
-    // let ok: boolean = true;
-    // const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
-    // let angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
-    // if( threex.crossVectors(U1, c1_to_point).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_1 = 360 -angle_1;}
-    // if(angles1[0] > angle_1 ) {ok = false;}
-    // ok = true;
-
-    // const results1: gs.IPoint[] = [];
-    // for (const point of points) {
-    // const vec_point1: three.Vector3 = new three.Vector3(
-    //     point[0] - C1[0], point[1] - C1[1], point[2] - C1[2],
-    // );
-    // let angle_point1: number = Math.sign(
-    // threex.crossVectors(U1,V1).dot(
-    // threex.crossVectors(U1,vec_point1))) * vec_point1.angleTo(U1) * 180 / Math.PI;
-    // angle_point1 = (angle_point1 + 10*360) %360;
-
-    const vec_point1: three.Vector3 = new three.Vector3(point.x - C1.x, point.y - C1.y, point.z - C1.z);
-    let angle_point1: number = vec_point1.angleTo(U1) * 180 / Math.PI;
+        const vec_point1: three.Vector3 = new three.Vector3(point.x - C1.x, point.y - C1.y, point.z - C1.z);
+        let angle_point1: number = vec_point1.angleTo(U1) * 180 / Math.PI;
     if( threex.crossVectors(U1, vec_point1).dot(threex.crossVectors(U1,V1)) < 0 ) {angle_point1 = 360 - angle_point1;}
-    angle_point1 = (angle_point1 + 10*360) %360;
-    // console.log(" [vec_point1] = " + [vec_point1.x,vec_point1.y,vec_point1.z]);
-    // console.log(" [U1] = " + [U1.x,U1.y,U1.z]);
-    // console.log("circle.getAngles()[0] = " + circle.getAngles()[0]);
-    // console.log("angle_point1 = " + angle_point1);
-    // console.log("circle.getAngles()[1] = " + circle.getAngles()[1]);
+        angle_point1 = (angle_point1 + 10*360) %360;
     if (angle_point1 >= circle.getAngles()[0] && angle_point1 <= circle.getAngles()[1]) {
-    points.push(g1.addPoint([point.x,point.y,point.z]));}
-}
-
-    // const ok: boolean = true;
-    // const c1_to_point: three.Vector3 = new three.Vector3(point.x - C1.x,point.y - C1.y,point.z - C1.z);
-    // const angle_1: number = U1.angleTo(c1_to_point) * 180/Math.PI;
-    // if(angles_circle_1 - angle_1 >= 0 ) {
-
-    // const results1: gs.IPoint[] = [];
-    // for (const point of points) {
-    // const vec_point1: three.Vector3 = new three.Vector3(
-    //     point[0] - C1[0], point[1] - C1[1], point[2] - C1[2],
-    // );
-    // let angle_point1: number = Math.sign(
-    // threex.crossVectors(U1,V1).dot(
-    // threex.crossVectors(U1,vec_point1))) * vec_point1.angleTo(U1) * 180 / Math.PI;
-    // angle_point1 = (angle_point1 + 10*360) %360;
-
-    // results1.push(m1.getGeom().addPoint(point.getPosition()));}
-    // }
-
+        points.push(g1.addPoint([point.x,point.y,point.z]));}
+    }
     return points;
 }
-
 /**
  * Circle-Plane intersection
  * @param circle
