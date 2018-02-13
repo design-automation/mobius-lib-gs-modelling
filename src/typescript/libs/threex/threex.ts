@@ -1,5 +1,6 @@
 import * as gs from "gs-json";
 import * as three from "three";
+import {Arr} from "../arr/arr";
 
 /**
  * Utility functions for threejs.
@@ -155,7 +156,7 @@ export function subPointXYZ(p1: gs.IPoint, xyz_vec: gs.XYZ): gs.XYZ {
 
 export function movePointsAddXYZ(points: gs.IPoint[]|gs.IPoint[][], xyz_vec: gs.XYZ): void {
     const vec: three.Vector3 = new three.Vector3(...xyz_vec);
-    const points_flat: gs.IPoint[] = gs.Arr.flatten(points);
+    const points_flat: gs.IPoint[] = Arr.flatten(points);
     const point_ids: number[] = [];
     const points_no_dups: gs.IPoint[] = [];
     for (const point of points_flat) {

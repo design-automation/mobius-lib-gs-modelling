@@ -134,8 +134,6 @@ export function test_pline_FromCircle(): boolean {
     const split3: gs.ICircle[] = gsm.split.circleCircle2D(circle3,circle4);
     const pline3: gs.IPoint[] = gsm.pline.FromCircle(split3[0],20).getPoints()[0][0];
     const pline4: gs.IPolyline = gsm.pline.FromCircle(split3[0],10);
-    console.log(pline4.getPointsArr().map((p) => p.getPosition()));
-
     return true;
 }
 

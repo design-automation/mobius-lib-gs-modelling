@@ -15,7 +15,7 @@ export function genModelTest1(): gs.IModel {
     const c: gs.ICircle = gsm.circle.FromOriginZX(p1, 8, [30,300]);
     const pl: gs.IPolyline = gsm.pline.FromCircle(c, 10);
     for (let i = 0; i < 2; i++) {
-        gsm.xform.move(pl, randXYZ(10), true);
+        gsm.object.move(pl, randXYZ(10), true);
     }
     return m;
 }

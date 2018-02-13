@@ -35,3 +35,14 @@ export function test_obj_groups(): boolean {
     if (objs2.length !== 1) {return false;}
     return true;
 }
+
+export function test_obj_move(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [1,1,1]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [2,2,2]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [3,3,3]);
+    const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [0, 1, 0], [0, 0, 1], null);
+    gsm.object.move(circle, [1,2,3]);
+    if (circle.getOrigin().getPosition()[1] !== 3) { return false; }
+    return true;
+}

@@ -5,6 +5,7 @@
  */
 
 import * as gs from "gs-json";
+import * as three from "three";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -72,6 +73,27 @@ export function GetFromGroup(model: gs.IModel, group_name: string): gs.IObj[] {
 //  ===============================================================================================================
 //  Object Functions ==============================================================================================
 //  ===============================================================================================================
+
+/**
+ * Moves objects.
+ *
+ * @param entities A single point or object, or a list of points and/or objects.
+ * @param vector Translation vector.
+ * @param copy If true, entities are copied before being moved.
+ * @returns The moved netities.
+ */
+export function move(objs: gs.IObj | gs.IObj[], vector: gs.XYZ, copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = !Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    error.checkXYZ(vector);
+    const matrix: three.Matrix4 = new three.Matrix4();
+    matrix.setPosition(new three.Vector3(...vector));
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    model.getGeom().xformObjs(objs, matrix);
+    if (is_array) {return objs;}
+    return objs[0];
+}
 
 /**
  * Deletes object or a list of objects from the model.

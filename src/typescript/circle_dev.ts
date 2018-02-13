@@ -2,6 +2,7 @@ import * as gs from "gs-json";
 import * as threex from "./libs/threex/threex";
 import * as three from "three";
 import * as math_conic from "./libs/conics/conics";
+import {Arr} from "./libs/arr/arr";
 
 //  ==========================================================================================================
 //  Util method
@@ -97,19 +98,19 @@ export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint ):
     const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_3);
 
     let center: gs.IPoint = null;
-    if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
+    if(Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
     center = g.addPoint(c1[0].getPosition());
     // center = g1.addPoint(c1[0].getPosition());
     }
-    if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
+    if(Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
     center = g.addPoint(c1[0].getPosition());
     // center = g1.addPoint(c1[0].getPosition());
     }
-    if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
+    if(Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
     center = g.addPoint(c1[1].getPosition());
     // center = g1.addPoint(c1[1].getPosition());
     }
-    if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
+    if(Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
     center = g.addPoint(c1[1].getPosition());
     // center = g1.addPoint(c1[1].getPosition());
     }
@@ -181,16 +182,16 @@ export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
     const c1: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_2);
     const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1,circle_3);
     const g1: gs.IGeom = m1.getGeom();
-    if(gs.Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
+    if(Arr.equal(c1[0].getPosition(),c2[0].getPosition())) {
          return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
-    if(gs.Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
+    if(Arr.equal(c1[0].getPosition(),c2[1].getPosition())) {
          return g1.addCircle(g1.addPoint(c1[0].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
-    if(gs.Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
+    if(Arr.equal(c1[1].getPosition(),c2[0].getPosition())) {
          return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
-    if(gs.Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
+    if(Arr.equal(c1[1].getPosition(),c2[1].getPosition())) {
          return g1.addCircle(g1.addPoint(c1[1].getPosition()),[radius,0,0],[0,radius,0],[0,360]);
     }
     throw new Error ("Review thresholds");

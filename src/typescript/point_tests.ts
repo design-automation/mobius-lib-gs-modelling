@@ -43,3 +43,14 @@ export function test_point_groups(): boolean {
     if (points3.length !== 1) {return false;}
     return true;
 }
+
+export function test_point_move(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [1,1,1]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [2,2,2]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [3,3,3]);
+    gsm.point.move([p2,p3], [1,2,3], false);
+    if (m.getGeom().numPoints() !== 3) {return false;}
+    if (gsm.point.getXYZ(p2)[2] !== 5) {return false;}
+    return true;
+}

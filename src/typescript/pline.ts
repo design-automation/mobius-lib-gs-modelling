@@ -16,6 +16,7 @@ import * as threex from "./libs/threex/threex";
 import * as poly from "./libs/poly/poly";
 import * as utils from "./_utils_dev";
 import * as error from "./_error_msgs_dev";
+import {Arr} from "./libs/arr/arr";
 
 //  ===============================================================================================================
 //  Pline Get and Copy ============================================================================================
@@ -308,7 +309,7 @@ export function join(plines: gs.IPolyline[]): gs.IPolyline[] {
  */
 export function explode(pline: gs.IPolyline): gs.IPolyline[] {
     error.checkObj(pline, gs.EObjType.polyline);
-    return this.extract(pline, gs.Arr.makeSeq(pline.numEdges()));
+    return this.extract(pline, Arr.makeSeq(pline.numEdges()));
 }
 
 /**

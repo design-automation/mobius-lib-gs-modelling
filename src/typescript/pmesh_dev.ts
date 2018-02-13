@@ -3,6 +3,7 @@ import * as three from "three";
 import * as threex from "./libs/threex/threex";
 import * as poly from "./libs/poly/poly";
 import * as utils from "./_utils_dev";
+import {Arr} from "./libs/arr/arr";
 
 /**
  * Offsets a polymesh along its normal by a specified distance
@@ -21,7 +22,7 @@ export function offset(pmesh: gs.IPolymesh, distance: number): gs.IPolymesh {
     // make a copy
     pmesh = pmesh.copy(true) as gs.IPolymesh;
     // create a map of point -> vertices in this pmesh
-    const vertices: gs.IVertex[] = gs.Arr.flatten(pmesh.getVertices(gs.EGeomType.faces));
+    const vertices: gs.IVertex[] = Arr.flatten(pmesh.getVertices(gs.EGeomType.faces));
     const vertices_map: Map<number, gs.IVertex[]> = new Map();
     for (const vertex of vertices) {
         const id: number = vertex.getPoint().getID();

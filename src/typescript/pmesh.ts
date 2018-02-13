@@ -18,6 +18,7 @@ import * as threex from "./libs/threex/threex";
 import * as poly from "./libs/poly/poly";
 import * as utils from "./_utils_dev";
 import * as error from "./_error_msgs_dev";
+import {Arr} from "./libs/arr/arr";
 
 //  ===============================================================================================================
 //  Pmesh Get =====================================================================================================
@@ -185,7 +186,7 @@ export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
     // make a copy
     const pmesh1_points: gs.IPoint[][][] = pmesh.getPoints();
     const pmesh2_points: gs.IPoint[][][] = utils.copyObjPoints(pmesh, false);
-    threex.movePointsAddXYZ(gs.Arr.flatten(pmesh2_points), vector);
+    threex.movePointsAddXYZ(Arr.flatten(pmesh2_points), vector);
     // create the sides
     const sides: gs.IPoint[][] = poly.pointsLoftLoop([pmesh1_points[0], pmesh2_points[0]], true);
     // combine everything

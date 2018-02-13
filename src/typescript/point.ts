@@ -12,6 +12,7 @@
  */
 
 import * as gs from "gs-json";
+import * as three from "three";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -155,6 +156,27 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
 //  ===============================================================================================================
 //  Point Functions ============================================================================================
 //  ===============================================================================================================
+
+/**
+ * Moves points by a translation vector.
+ *
+ * @param entities A single point, or a list of points.
+ * @param vector Translation vector.
+ * @param copy If true, points are copied before being moved.
+ * @returns The moved points.
+ */
+export function move(points: gs.IPoint | gs.IPoint[], vector: gs.XYZ, copy: boolean = false): gs.IPoint | gs.IPoint[] {
+    const is_array: boolean = !Array.isArray(points);
+    if (!Array.isArray(points)) {points = [points];}
+    const model: gs.IModel = error.checkPointList(points, 1);
+    error.checkXYZ(vector);
+    const matrix: three.Matrix4 = new three.Matrix4();
+    matrix.setPosition(new three.Vector3(...vector));
+    if (copy) {points = model.getGeom().copyPoints(points, true); }
+    model.getGeom().xformPoints(points, matrix);
+    if (is_array) {return points;}
+    return points[0];
+}
 
 /**
  * Deletes a point or a list of points from the model.

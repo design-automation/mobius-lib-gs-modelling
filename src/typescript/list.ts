@@ -13,6 +13,7 @@
  */
 
 import * as gs from "gs-json";
+import {Arr} from "./libs/arr/arr";
 
 //  ===============================================================================================================
 //  List Constructors =============================================================================================
@@ -51,7 +52,7 @@ export function Copy(list: any[]): any[] {
 export function FromRange(min: number, max: number): number[] {
     if (min === undefined) {throw new Error("Invalid arg: min must be defined.");}
     if (max === undefined) {throw new Error("Invalid arg: max must be defined.");}
-    return gs.Arr.makeSeq(max - min).map((v) => v + min);
+    return Arr.makeSeq(max - min).map((v) => v + min);
 }
 
 //  ===============================================================================================================
@@ -175,7 +176,7 @@ export function extendFront(list: any[], items: any[]): any[] {
  */
 export function flatten(list: any[]): any[] {
     if (list === undefined) {throw new Error("Invalid arg: list must be defined.");}
-    return gs.Arr.flatten(list);
+    return Arr.flatten(list);
 }
 
 /**

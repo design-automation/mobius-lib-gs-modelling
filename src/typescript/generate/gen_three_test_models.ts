@@ -5,7 +5,7 @@ import * as weeks from "./models_weeks";
 import * as circles from "./models_circles";
 import * as plines from "./models_plines";
 import * as pmeshes from "./models_pmeshes";
-import * as xform from "./models_xform";
+import * as object from "./models_object";
 
 /**
  * Execute using NPM, models get saved in the /src/assets/ folder.
@@ -52,6 +52,6 @@ if(require.main === module)  {
 
 if(require.main === module)  {
     console.log("Three files: xform...");
-    writeThreeToJSONFile(gs.genThreeOptModel(xform.genModelTest1()), path + "xform_test1.json");
+    writeThreeToJSONFile(gs.genThreeOptModel(object.genModelTest1()), path + "xform_test1.json");
 }
 

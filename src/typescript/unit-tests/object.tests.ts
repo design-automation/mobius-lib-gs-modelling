@@ -11,5 +11,7 @@ describe("Tests for Obj Module", () => {
     it("test_obj_groups", () => {
         expect( tests.test_obj_groups() ).toBe(true);
     });
-
+    it("test_obj_move", () => {
+        expect( tests.test_obj_move() ).toBe(true);
+    });
 });

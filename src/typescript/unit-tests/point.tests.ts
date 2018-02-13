@@ -17,4 +17,7 @@ describe("Tests for Point Module", () => {
     it("test_point_groups", () => {
         expect( tests.test_point_groups() ).toBe(true);
     });
+    it("test_point_move", () => {
+        expect( tests.test_point_move() ).toBe(true);
+    });
 });

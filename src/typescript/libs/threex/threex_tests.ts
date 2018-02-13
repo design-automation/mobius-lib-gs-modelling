@@ -1,6 +1,7 @@
 import * as gs from "gs-json";
 import * as test from "./threex";
 import * as three from "three";
+import {Arr} from "../arr/arr";
 
  // Matrices ======================================================================================================
 export function test_multVectorMatrix() {
@@ -10,7 +11,7 @@ export function test_multVectorMatrix() {
     const m1: three.Matrix4 = test.xformMatrix(O,v11,v12);
     const vector1: three.Vector3 = new three.Vector3(1,1,1);
     const vector2: three.Vector3 = test.multVectorMatrix(vector1,m1);
-    if(!gs.Arr.equal([vector2.x,vector2.y,vector2.z],[3,2,4])) {return false;}
+    if(!Arr.equal([vector2.x,vector2.y,vector2.z],[3,2,4])) {return false;}
 
     const O2: three.Vector3 = new three.Vector3(10,-5,-2);
     const v21: three.Vector3 = new three.Vector3(0,1,0);
@@ -18,7 +19,7 @@ export function test_multVectorMatrix() {
     const m2: three.Matrix4 = test.xformMatrix(O2,v21,v22);
     const vector21: three.Vector3 = new three.Vector3(2,4,4);
     const vector22: three.Vector3 = test.multVectorMatrix(vector21,m2);
-    if(!gs.Arr.equal([vector22.x,vector22.y,vector22.z],[9,8,6])) {return false;}
+    if(!Arr.equal([vector22.x,vector22.y,vector22.z],[9,8,6])) {return false;}
     return true;
 }
 
@@ -42,7 +43,7 @@ export function test_subVectors() {
     const A: three.Vector3 = new three.Vector3(0,1,4);
     const B: three.Vector3 = new three.Vector3(2,8,6);
     const BA: three.Vector3 = test.subVectors(A,B,false);
-    if(!gs.Arr.equal([BA.x,BA.y,BA.z],[-2,-7,-2])) {return false;}
+    if(!Arr.equal([BA.x,BA.y,BA.z],[-2,-7,-2])) {return false;}
     return true;
 }
 

@@ -54,6 +54,3 @@ export {math};
 
 import * as string from "./string";
 export {string};
-
-import * as xform from "./xform";
-export {xform};
