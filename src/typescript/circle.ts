@@ -304,13 +304,44 @@ export function close(circle: gs.ICircle): boolean {
  * Returns the perimeter length of a circle.
  * If the circle is an open arc, then the length of the arc is returned.
  *
- * @param circle Circle object to calculate length from.
- * @returns Length of circle
+ * @param circle Circle object to calculate length for.
+ * @returns Length of circle or arc.
  */
 export function calcLength(circle: gs.ICircle): number {
     error.checkObj(circle, gs.EObjType.circle);
-    const circle_length: number = 2 * Math.PI * circle.getRadius();
-    if (circle.isClosed()) { return circle_length; }
-    const angles: [number, number] = circle.getAngles();
-    return circle_length * ((angles[1] - angles[0]) / 360);
+    return circle.length();
+}
+
+/**
+ * Returns a point by evaluating the position along a circle.
+ * The position is specified by a t parameter that starts at 0 and ends at 1.
+ * If the circle object is closed, 0 and 1 will have the same position.
+ * If the circle object is an open arc, the 0 will be the start of the arc, and 1 will be the end of the arc.
+ *
+ * @param circle Cricle object to evaluate.
+ * @param t Parameter to evaluate (0 is the start of the circular arc, 1 is the end of the circular arc)
+ * @returns Point.
+ */
+export function evalParam(circle: gs.ICircle, t: number): gs.IPoint {
+    error.checkObj(circle, gs.EObjType.circle);
+    error.checkPosNum(t);
+    return circle.evalParam(t);
+}
+
+/**
+ * Returns a t parameter by projecting a point onto a circle.
+ * The t parameter represents a position on the circle.
+ * The parameter starts at 0 and ends at 1.
+ * If the circle object is closed, 0 and 1 will have the same position.
+ * If the circle object is an open arc, the 0 will be the start of the arc, and 1 will be the end of the arc.
+ * The point is projected onto the closest point on the circle, and t is then caclulated for that point.
+ *
+ * @param circle Cricle object to evaluate.
+ * @param point The point to be projected onto the circle or arc.
+ * @returns t parameter.
+ */
+export function evalPoint(circle: gs.ICircle, point: gs.IPoint): number {
+    error.checkObj(circle, gs.EObjType.circle);
+    error.checkPoint(point);
+    return circle.evalPoint(point);
 }
