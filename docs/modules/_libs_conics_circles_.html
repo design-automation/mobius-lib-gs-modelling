@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;libs/poly/poly&quot; | gs-modelling</title>
+	<title>&quot;libs/conics/circles&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_libs_poly_poly_.html">&quot;libs/poly/poly&quot;</a>
+					<a href="_libs_conics_circles_.html">&quot;libs/conics/circles&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;libs/poly/poly&quot;</h1>
+			<h1>External module &quot;libs/conics/circles&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -71,17 +71,18 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_poly_poly_.html#eps" class="tsd-kind-icon">EPS</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_conics_circles_.html#eps" class="tsd-kind-icon">EPS</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#getvertexnormal" class="tsd-kind-icon">get<wbr>Vertex<wbr>Normal</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsevaluate" class="tsd-kind-icon">points<wbr>Evaluate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsextend" class="tsd-kind-icon">points<wbr>Extend</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsloft" class="tsd-kind-icon">points<wbr>Loft</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsloftloop" class="tsd-kind-icon">points<wbr>Loft<wbr>Loop</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_conics_circles_.html#_circlecenterfrom3points" class="tsd-kind-icon">_circle<wbr>Center<wbr>From3<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_conics_circles_.html#_circlefrom3points" class="tsd-kind-icon">_circle<wbr>From3<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_conics_circles_.html#_isectcirclecircle2d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Circle2D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_conics_circles_.html#_isectcircleline2d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Line2D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_conics_circles_.html#_isectcircleplane3d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Plane3D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_conics_circles_.html#distbetweenpoints" class="tsd-kind-icon">dist<wbr>Between<wbr>Points</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,174 +93,216 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 					<a name="eps" class="tsd-anchor"></a>
 					<h3>EPS</h3>
-					<div class="tsd-signature tsd-kind-icon">EPS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.000001</span></div>
+					<div class="tsd-signature tsd-kind-icon">EPS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0.000001</span><span class="tsd-signature-symbol"> =&nbsp;0.000001</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L5">libs/poly/poly.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L13">libs/conics/circles.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="getvertexnormal" class="tsd-anchor"></a>
-					<h3>get<wbr>Vertex<wbr>Normal</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Vertex<wbr>Normal<span class="tsd-signature-symbol">(</span>vertex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IVertex</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="_circlecenterfrom3points" class="tsd-anchor"></a>
+					<h3>_circle<wbr>Center<wbr>From3<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_circle<wbr>Center<wbr>From3<wbr>Points<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L10">libs/poly/poly.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L19">libs/conics/circles.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get a normal from a face vertex</p>
+									<p>Find the center of a circle that passes through three XYZ positions in 3D space.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>vertex: <span class="tsd-signature-type">IVertex</span></h5>
+									<h5>a: <span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li>
+									<h5>b: <span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li>
+									<h5>c: <span class="tsd-signature-type">gs.XYZ</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Vector3</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">gs.XYZ</span></h4>
+							<p>An array of intersection points</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="pointsevaluate" class="tsd-anchor"></a>
-					<h3>points<wbr>Evaluate</h3>
+					<a name="_circlefrom3points" class="tsd-anchor"></a>
+					<h3>_circle<wbr>From3<wbr>Points</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">points<wbr>Evaluate<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span>, t_param<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
+						<li class="tsd-signature tsd-kind-icon">_circle<wbr>From3<wbr>Points<span class="tsd-signature-symbol">(</span>xyz1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, xyz2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, xyz3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, is_closed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L92">libs/poly/poly.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L52">libs/conics/circles.ts:52</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Evaluates the position between a sequence of points.
-									A new point is always created.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>xyz1: <span class="tsd-signature-type">gs.XYZ</span></h5>
 								</li>
 								<li>
-									<h5>t_param: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="pointsextend" class="tsd-anchor"></a>
-					<h3>points<wbr>Extend</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">points<wbr>Extend<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, distance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, create<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L73">libs/poly/poly.ts:73</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Moves the end point away from the start point by distance.
-									If create_point is true, then a new point get created, otherwise the existing point gets moved.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>start: <span class="tsd-signature-type">IPoint</span></h5>
+									<h5>xyz2: <span class="tsd-signature-type">gs.XYZ</span></h5>
 								</li>
 								<li>
-									<h5>end: <span class="tsd-signature-type">IPoint</span></h5>
-								</li>
-								<li>
-									<h5>distance: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> create: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="pointsloft" class="tsd-anchor"></a>
-					<h3>points<wbr>Loft</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">points<wbr>Loft<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span>, is_closed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L53">libs/poly/poly.ts:53</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p> Generate a nested list of points, ready for creating polymesh faces.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>points: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>xyz3: <span class="tsd-signature-type">gs.XYZ</span></h5>
 								</li>
 								<li>
 									<h5>is_closed: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>vec_<wbr>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>vec_<wbr>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="pointsloftloop" class="tsd-anchor"></a>
-					<h3>points<wbr>Loft<wbr>Loop</h3>
+					<a name="_isectcirclecircle2d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>Circle<wbr>Circle2D</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">points<wbr>Loft<wbr>Loop<span class="tsd-signature-symbol">(</span>points_lists<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span>, is_closed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>Circle<wbr>Circle2D<span class="tsd-signature-symbol">(</span>circle1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, circle2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/poly/poly.ts#L37">libs/poly/poly.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L121">libs/conics/circles.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p> Loop through a list of list of points, and loft.
-									The lists represent rows, each row has sub lists. The sub lists get lofted.</p>
+									<p>Circle-circle intersection</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points_lists: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>circle1: <span class="tsd-signature-type">ICircle</span></h5>
 								</li>
 								<li>
-									<h5>is_closed: <span class="tsd-signature-type">boolean</span></h5>
+									<h5>circle2: <span class="tsd-signature-type">ICircle</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An array of intersection points</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="_isectcircleline2d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>Circle<wbr>Line2D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>Circle<wbr>Line2D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L309">libs/conics/circles.ts:309</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Circle-Line intersection</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>An array of intersection points</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="_isectcircleplane3d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>Circle<wbr>Plane3D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>Circle<wbr>Plane3D<span class="tsd-signature-symbol">(</span>circle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ICircle</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L236">libs/conics/circles.ts:236</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Circle-Plane intersection</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>Adds intersecting points to the geometry if successfull, [] if empty or coplanar</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="distbetweenpoints" class="tsd-anchor"></a>
+					<h3>dist<wbr>Between<wbr>Points</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">dist<wbr>Between<wbr>Points<span class="tsd-signature-symbol">(</span>point_1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span>, point_2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span>, minimum<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/libs/conics/circles.ts#L320">libs/conics/circles.ts:320</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calculates distance between two points or two clusters of points</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point_1: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>point_2: <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> minimum: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Dist0ance between points if successful, none if unsuccessful or on error</p>
 						</li>
 					</ul>
 				</section>
@@ -272,29 +315,32 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_libs_poly_poly_.html">"libs/poly/poly"</a>
+						<a href="_libs_conics_circles_.html">"libs/conics/circles"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_libs_poly_poly_.html#eps" class="tsd-kind-icon">EPS</a>
+						<a href="_libs_conics_circles_.html#eps" class="tsd-kind-icon">EPS</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_libs_conics_circles_.html#_circlecenterfrom3points" class="tsd-kind-icon">_circle<wbr>Center<wbr>From3<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_libs_poly_poly_.html#getvertexnormal" class="tsd-kind-icon">get<wbr>Vertex<wbr>Normal</a>
+						<a href="_libs_conics_circles_.html#_circlefrom3points" class="tsd-kind-icon">_circle<wbr>From3<wbr>Points</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_libs_poly_poly_.html#pointsevaluate" class="tsd-kind-icon">points<wbr>Evaluate</a>
+						<a href="_libs_conics_circles_.html#_isectcirclecircle2d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Circle2D</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_libs_poly_poly_.html#pointsextend" class="tsd-kind-icon">points<wbr>Extend</a>
+						<a href="_libs_conics_circles_.html#_isectcircleline2d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Line2D</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_libs_poly_poly_.html#pointsloft" class="tsd-kind-icon">points<wbr>Loft</a>
+						<a href="_libs_conics_circles_.html#_isectcircleplane3d" class="tsd-kind-icon">_isect<wbr>Circle<wbr>Plane3D</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_libs_poly_poly_.html#pointsloftloop" class="tsd-kind-icon">points<wbr>Loft<wbr>Loop</a>
+						<a href="_libs_conics_circles_.html#distbetweenpoints" class="tsd-kind-icon">dist<wbr>Between<wbr>Points</a>
 					</li>
 				</ul>
 			</nav>
