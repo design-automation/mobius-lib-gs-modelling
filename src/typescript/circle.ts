@@ -324,7 +324,9 @@ export function calcLength(circle: gs.ICircle): number {
  */
 export function evalParam(circle: gs.ICircle, t: number): gs.IPoint {
     error.checkObj(circle, gs.EObjType.circle);
-    error.checkPosNum(t);
+    error.checkNum(t);
+    if (t < 0) {t = 0;}
+    if (t > 1) {t = 1;}
     return circle.evalParam(t);
 }
 

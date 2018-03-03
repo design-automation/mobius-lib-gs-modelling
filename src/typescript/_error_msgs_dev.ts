@@ -255,6 +255,10 @@ export function xyzInvalidData():void {
 
 // Numbers ====================================================================================================
 
+export function checkNum(x: number):void {
+    if (x === undefined) {argUndefined();}
+}
+
 export function checkPosNum(x: number):void {
     if (x === undefined) {argUndefined();}
     if (x < 0 ) {numMustBePos();}
