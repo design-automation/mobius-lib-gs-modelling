@@ -1,7 +1,7 @@
 import * as gs from "gs-json";
 import * as threex from "./libs/threex/threex";
 import * as three from "three";
-import * as math_conic from "./libs/conics/conics";
+import * as math_conic from "./libs/conics/circles";
 import { Arr } from "./libs/arr/arr";
 
 //  ==========================================================================================================
@@ -9,7 +9,7 @@ import { Arr } from "./libs/arr/arr";
 //  ==========================================================================================================
 export function _argsCheckAngles(angles: [number, number]): [number, number] {
     //export function checkCircleAngles(angles: [number, number]): [number, number] {
-    if (angles === undefined || angles === null) { return undefined; }
+    if (angles === undefined || angles === null) { return null; }
     // fix angle 0
     if (Math.abs(angles[0]) > 360) {
         angles[0] = angles[0] % 360;

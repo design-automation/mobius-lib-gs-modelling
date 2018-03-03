@@ -31,3 +31,19 @@ export function test_circle_ArcFrom3Points(): boolean {
     if (arc2 === undefined) { return false; }
     return true;
 }
+
+export function test_circle_testToJson(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [1, 0, 0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [2, 0, 0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [3, 0, 0]);
+    gsm.point.del([p2, p3]);
+    const p4: gs.IPoint = gsm.point.FromXYZ(m, [4, 0, 0]);
+    const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [0, 1, 0], [0, 0, 1], null);
+    const result: string = m.toJSON();
+    if (!circle.isClosed() ) { return false;}
+    //console.log(result);
+
+    return true;
+}
+

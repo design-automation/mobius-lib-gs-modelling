@@ -12,7 +12,7 @@ import * as gs from "gs-json";
 import * as gsm from "./_export_dev";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
-import * as conics from "./libs/conics/conics";
+import * as conics from "./libs/conics/circles";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================

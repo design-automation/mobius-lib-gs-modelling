@@ -10,9 +10,6 @@ export {group};
 import * as circle from "./circle";
 export {circle};
 
-import * as ellipse from "./ellipse";
-export {ellipse};
-
 import * as intersect from "./intersect";
 export {intersect};
 

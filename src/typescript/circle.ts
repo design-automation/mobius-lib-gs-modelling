@@ -16,7 +16,7 @@ import * as gs from "gs-json";
 import * as util from "./circle_dev";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
-import * as math_conic from "./libs/conics/conics";
+import * as math_conic from "./libs/conics/circles";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -76,7 +76,7 @@ export function CopyToModel(model: gs.IModel, circle: gs.ICircle): gs.ICircle {
 /**
  * Creates a circle from an origin point parallel to a plane defined by the two X and Y vectors.
  * The radius will be equal to the length of the X vector.
- * If angle is undefined, a circle is created. Otherwise, an arc is created, with the specified angles
+ * If no angle is defined, a circle is created. Otherwise, an arc is created, with the specified angles
  * starting at the x-axis in an anti-clockwise direction.
  *
  * @param origin Point object, the center of the circle.

@@ -1,6 +1,6 @@
 import * as gs from "gs-json";
 import * as threex from "./libs/threex/threex";
-import * as conic from "./libs/conics/conics";
+import * as conic from "./libs/conics/circles";
 
 //  ===============================================================================================================
 //  Intersect Functions ===========================================================================================
@@ -18,25 +18,25 @@ import * as conic from "./libs/conics/conics";
  * @returns List of intersection points and/or overlapping arcs if successful,
  *          null if unsuccessful or on error
  */
-export function conicConic2D(curve1: gs.ICircle|gs.IEllipse, curve2: gs.ICircle|gs.IEllipse): gs.IPoint[] {
-    // check that the curves have the same plane
-    if (!threex.planesAreCoplanar(curve1.getOrigin(), curve1.getAxes()[2],
-        curve2.getOrigin(), curve2.getAxes()[2])) { return null; }
-    // calculate the intersection points
-    if (curve1.getObjType() === gs.EObjType.circle) {
-        if(curve2.getObjType() === gs.EObjType.circle) {
-            return conic._isectCircleCircle2D(curve1 as gs.ICircle, curve2  as gs.ICircle);
-        } else {
-            return conic._isectCircleEllipse2D(curve1 as gs.ICircle, curve2  as gs.IEllipse);
-        }
-    } else  {
-        if(curve2.getObjType() === gs.EObjType.circle) {
-            return conic._isectCircleEllipse2D(curve2 as gs.ICircle, curve1 as gs.IEllipse);
-        } else {
-            return conic._isectEllipseEllipse2D(curve1 as gs.IEllipse, curve2  as gs.IEllipse);
-        }
-    }
-}
+// export function conicConic2D(curve1: gs.ICircle|gs.IEllipse, curve2: gs.ICircle|gs.IEllipse): gs.IPoint[] {
+//     // check that the curves have the same plane
+//     if (!threex.planesAreCoplanar(curve1.getOrigin(), curve1.getAxes()[2],
+//         curve2.getOrigin(), curve2.getAxes()[2])) { return null; }
+//     // calculate the intersection points
+//     if (curve1.getObjType() === gs.EObjType.circle) {
+//         if(curve2.getObjType() === gs.EObjType.circle) {
+//             return conic._isectCircleCircle2D(curve1 as gs.ICircle, curve2  as gs.ICircle);
+//         } else {
+//             return conic._isectCircleEllipse2D(curve1 as gs.ICircle, curve2  as gs.IEllipse);
+//         }
+//     } else  {
+//         if(curve2.getObjType() === gs.EObjType.circle) {
+//             return conic._isectCircleEllipse2D(curve2 as gs.ICircle, curve1 as gs.IEllipse);
+//         } else {
+//             return conic._isectEllipseEllipse2D(curve1 as gs.IEllipse, curve2  as gs.IEllipse);
+//         }
+//     }
+// }
 
 /**
  * Returns the intersection points and/or overlapping arcs of a conic curve and an intersecting plane
