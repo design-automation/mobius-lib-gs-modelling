@@ -1,5 +1,12 @@
 import * as gs from "gs-json";
-import * as sl from "./split";
+import * as sl from "../split";
+import {} from "jasmine";
+
+describe("Tests for Split", () => {
+    it("test_circleCircle2D", () => {
+        expect( test_circleCircle2D() ).toBe(true);
+    });
+});
 
 export function test_circleCircle2D(): boolean {
     const m: gs.IModel = new gs.Model();

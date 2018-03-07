@@ -1,5 +1,19 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for Plane Module", () => {
+    it("test_plane_FromOriginVectors", () => {
+        expect(test_plane_FromOriginVectors()).toBe(true);
+    });
+    it("test_plane_FromOriginPoints", () => {
+        expect(test_plane_FromOriginPoints()).toBe(true);
+    });
+    it("test_plane_FromOriginWCS", () => {
+        expect(test_plane_FromOriginXY()).toBe(true);
+    });
+});
+
 
 export function test_plane_FromOriginVectors(): boolean {
     const m: gs.IModel = new gs.Model();

@@ -1,5 +1,40 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for Pline Module", () => {
+    it("test_pline_fromPoints", () => {
+        expect( test_pline_fromPoints() ).toBe(true);
+    });
+    it("test_pline_From2Points", () => {
+        expect( test_pline_From2Points() ).toBe(true);
+    });
+    it("test_pline_evalParam", () => {
+        expect( test_pline_evalParam() ).toBe(true);
+    });
+    it("test_pline_join", () => {
+        expect( test_pline_join() ).toBe(true);
+    });
+
+    it("test_pline_extract", () => {
+        expect( test_pline_extract() ).toBe(true);
+    });
+    it("test_pline_explode", () => {
+        expect( test_pline_explode() ).toBe(true);
+    });
+    it("test_pline_extend", () => {
+        expect( test_pline_extend() ).toBe(true);
+    });
+    it("test_pline_extrude", () => {
+        expect( test_pline_extrude() ).toBe(true);
+    });
+    it("test_pline_FromCircle", () => {
+        expect( test_pline_FromCircle() ).toBe(true);
+    });
+    it("test_pline_loft", () => {
+        expect( test_pline_loft() ).toBe(true);
+    });
+});
 
 export function test_pline_fromPoints(): boolean {
     const m: gs.IModel = gsm.model.New();

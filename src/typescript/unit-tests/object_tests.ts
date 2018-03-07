@@ -1,5 +1,21 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for Obj Module", () => {
+    it("test_obj_Get", () => {
+        expect( test_obj_Get() ).toBe(true);
+    });
+    it("test_obj_Gets", () => {
+        expect( test_obj_Gets() ).toBe(true);
+    });
+    it("test_obj_groups", () => {
+        expect( test_obj_groups() ).toBe(true);
+    });
+    it("test_obj_move", () => {
+        expect( test_obj_move() ).toBe(true);
+    });
+});
 
 export function test_obj_Get(): boolean {
     const m: gs.IModel = gsm.model.New();

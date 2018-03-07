@@ -1,5 +1,27 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for Point Module", () => {
+    it("test_point_FromXYZ", () => {
+        expect( test_point_FromXYZ() ).toBe(true);
+    });
+    it("test_point_FromXYZs", () => {
+        expect( test_point_FromXYZs() ).toBe(true);
+    });
+    it("test_point_Get", () => {
+        expect( test_point_Get() ).toBe(true);
+    });
+    it("test_point_Gets", () => {
+        expect( test_point_Gets() ).toBe(true);
+    });
+    it("test_point_groups", () => {
+        expect( test_point_groups() ).toBe(true);
+    });
+    it("test_point_move", () => {
+        expect( test_point_move() ).toBe(true);
+    });
+});
 
 export function test_point_FromXYZ(): boolean {
     const m: gs.IModel = gsm.model.New();

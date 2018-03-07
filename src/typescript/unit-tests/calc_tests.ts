@@ -1,5 +1,12 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for calc Module", () => {
+    it("test_calc_distBetweenPoints", () => {
+        expect( test_calc_distBetweenPoints() ).toBe(true);
+    });
+});
 
 export function test_calc_distBetweenPoints(): boolean {
     const m: gs.IModel = gsm.model.New();

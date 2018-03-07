@@ -1,5 +1,21 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
+import {} from "jasmine";
+
+describe("Tests for Pline Module", () => {
+    it("test_circle_FromOriginVectors", () => {
+        expect( test_circle_FromOriginVectors() ).toBe(true);
+    });
+    it("test_circle_From3Points", () => {
+        expect( test_circle_From3Points() ).toBe(true);
+    });
+    it("test_circle_ArcFrom3Points", () => {
+        expect( test_circle_ArcFrom3Points() ).toBe(true);
+    });
+    it("test_circle_testToJson", () => {
+        expect( test_circle_testToJson() ).toBe(true);
+    });
+});
 
 export function test_circle_FromOriginVectors(): boolean {
     const m: gs.IModel = gsm.model.New();

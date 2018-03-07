@@ -3,6 +3,17 @@ import * as test from "./circles";
 import * as kld from "kld-intersections";
 import * as three from "three";
 
+import {} from "jasmine";
+
+describe("Tests for Math Conic Dev", () => {
+    it("test_isectCircleCircle2D", () => {
+        expect(test_isectCircleCircle2D()).toBe(true);
+    });
+    it("test_isectCirclePlane3D", () => {
+        expect(test_isectCirclePlane3D()).toBe(true);
+    });
+});
+
 export function test_isectCircleCircle2D() {
     // TOOO
     return true;

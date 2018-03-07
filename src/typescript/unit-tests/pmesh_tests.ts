@@ -1,6 +1,25 @@
 import * as gs from "gs-json";
-import * as gsm from "./_export_dev";
+import * as gsm from "../_export_dev";
 import * as fs from "fs";
+import {} from "jasmine";
+
+describe("Tests for PMesh Module", () => {
+    it("test_pmesh_fromPoints", () => {
+        expect( test_pmesh_fromPoints() ).toBe(true);
+    });
+    it("test_pmesh_fromPline", () => {
+        expect( test_pmesh_fromPline() ).toBe(true);
+    });
+    it("test_pmesh_offset", () => {
+        expect( test_pmesh_offset() ).toBe(true);
+    });
+    it("test_pmesh_thicken", () => {
+        expect( test_pmesh_thicken() ).toBe(true);
+    });
+    it("test_pmesh_TriStripFromPoints", () => {
+        expect( test_pmesh_TriStripFromPoints() ).toBe(true);
+    });
+});
 
 export function test_pmesh_fromPoints(): boolean {
     const m: gs.IModel = gsm.model.New();
@@ -44,5 +63,25 @@ export function test_pmesh_thicken(): boolean {
     //const pmesh_thick: gs.IPolymesh = gsm.pmesh.thicken(pmesh, 0.2, 0.4);
     //if (pmesh_thick === undefined) {return false;}
     //if (pmesh_thick.numFaces() !== 5) {return false;}
+    return true;
+}
+
+export function test_pmesh_TriStripFromPoints(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const list1: gs.IPoint[] = [
+        gsm.point.FromXYZ(m, [2,0,0]),
+        gsm.point.FromXYZ(m, [5,0,0]),
+        gsm.point.FromXYZ(m, [9,0,0])
+    ];
+    const list2: gs.IPoint[] = [
+        gsm.point.FromXYZ(m, [3,3,0]),
+        gsm.point.FromXYZ(m, [6,3,0]),
+        gsm.point.FromXYZ(m, [8,4,0]),
+        gsm.point.FromXYZ(m, [10,4,0]),
+        gsm.point.FromXYZ(m, [12,4,0])
+    ];
+    const pmesh: gs.IPolymesh = gsm.pmesh.TriStripFromPoints(list1, list2);
+    if (pmesh === undefined) {return false;}
+    if (pmesh.numFaces() !== 6) {return false;}
     return true;
 }

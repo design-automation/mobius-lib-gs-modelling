@@ -82,6 +82,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#creates" class="tsd-kind-icon">Creates</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getnames" class="tsd-kind-icon">Get<wbr>Names</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_group_.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a></li>
 							</ul>
@@ -101,7 +102,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L41">group.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L41">group.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -139,7 +140,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L55">group.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L55">group.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L26">group.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L26">group.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,7 +207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L77">group.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L77">group.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,6 +242,45 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="getchildren" class="tsd-anchor"></a>
+					<h3>get<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Children<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, group_name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L125">group.ts:125</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the list of names of groups that are children of this group.
+									Returns empty list if specified group does not have any children.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Model containing the groups.</p>
+									</div>
+								</li>
+								<li>
+									<h5>group_name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Group name to get children from.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>A list of group names.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="getparent" class="tsd-anchor"></a>
 					<h3>get<wbr>Parent</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -250,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L95">group.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L95">group.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +310,7 @@
 								<li>
 									<h5>group_name: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Group name to get parent for.</p>
+										<p>Group name to get parent from.</p>
 									</div>
 								</li>
 							</ul>
@@ -289,7 +329,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a6d1769/src/typescript/group.ts#L109">group.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/group.ts#L109">group.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -349,6 +389,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_group_.html#del" class="tsd-kind-icon">del</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_group_.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_group_.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a>

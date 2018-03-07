@@ -1,4 +1,54 @@
-import * as test from "./list";
+import * as test from "../list";
+import {} from "jasmine";
+
+describe("Tests for List Module", () => {
+    it("test_Copy", () => {
+        expect( test_Copy() ).toBe(true);
+    });
+    it("test_FromRange", () => {
+        expect( test_FromRange() ).toBe(true);
+    });
+    it("test_len", () => {
+        expect( test_len() ).toBe(true);
+    });
+    it("test_append", () => {
+        expect( test_append() ).toBe(true);
+    });
+    it("test_appendFront", () => {
+        expect( test_appendFront() ).toBe(true);
+    });
+    it("test_extend", () => {
+        expect( test_extend() ).toBe(true);
+    });
+    it("test_extendFront", () => {
+        expect( test_extendFront() ).toBe(true);
+    });
+    it("test_flatten", () => {
+        expect( test_flatten() ).toBe(true);
+    });
+    it("test_removeIndex", () => {
+        expect( test_removeIndex() ).toBe(true);
+    });
+    it("test_removeValue", () => {
+        expect( test_removeValue() ).toBe(true);
+    });
+    it("test_reverse", () => {
+        expect( test_reverse() ).toBe(true);
+    });
+    it("test_sortAlpha", () => {
+        expect( test_sortAlpha() ).toBe(true);
+    });
+    it("test_sortNum", () => {
+        expect( test_sortNum() ).toBe(true);
+    });
+    it("test_slice", () => {
+        expect( test_slice() ).toBe(true);
+    });
+    it("test_splice", () => {
+        expect( test_splice() ).toBe(true);
+    });
+});
+
 
 export function test_Copy() {
     const x: any[] = [1,2,"abc", 1.23];

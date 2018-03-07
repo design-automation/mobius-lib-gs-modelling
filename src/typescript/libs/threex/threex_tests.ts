@@ -3,6 +3,32 @@ import * as test from "./threex";
 import * as three from "three";
 import {Arr} from "../arr/arr";
 
+import {} from "jasmine";
+
+describe("Tests for Three Utils Dev", () => {
+    it("test_multVectorMatrix", () => {
+        expect(test_multVectorMatrix()).toBe(true);
+    });
+    it("test_xformMatrixPointXYZs", () => {
+        expect(test_xformMatrixPointXYZs()).toBe(true);
+    });
+    it("test_xformMatrix", () => {
+        expect(test_xformMatrix()).toBe(true);
+    });
+    it("test_subVectors", () => {
+        expect(test_subVectors()).toBe(true);
+    });
+    it("test_planesAreCoplanar", () => {
+        expect(test_planesAreCoplanar()).toBe(true);
+    });
+    it("test_pointIsOnPlane", () => {
+        expect( test_pointIsOnPlane() ).toBe(true);
+    });
+    it("test_vectorsAreCodir", () => {
+        expect( test_vectorsAreCodir()).toBe(true);
+    });
+});
+
  // Matrices ======================================================================================================
 export function test_multVectorMatrix() {
     const O: three.Vector3 = new three.Vector3(-2,-1,-3);

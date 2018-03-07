@@ -93,6 +93,43 @@ export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
     return model.getGeom().addPolymesh([pline.getPointsArr()]);
 }
 
+/**
+ * Creates a triangulated mesh from two lists of points.
+ * For example [[p1, p2, p3], [p4, p5, p6]] would create a polymesh with four triangular faces.
+ * The triangles would be as follows: [p1, p2, p4], [p5, p4, p1], [p2, p3, p5], [p6, p5, p3].
+ * In this example, the two faces share points p2 and p3.
+ *
+ * @param points List of lists of face corner points.
+ * @returns Polymesh object.
+ */
+export function TriStripFromPoints(points1: gs.IPoint[], points2: gs.IPoint[]): gs.IPolymesh {
+    const model: gs.IModel = error.checkPointList(points1, 2);
+    error.checkPointList(points2, 2);
+    // create the triangle arrays
+    const tri_points: gs.IPoint[][] = [];
+    for (let i = 0; i < points1.length - 1; i++) {
+        let thrid_point: gs.IPoint;
+        if (i < points2.length) {
+            thrid_point = points2[i];
+        } else {
+            thrid_point = points2[points2.length - 1];
+        }
+        tri_points.push([points1[i], points1[i+1], thrid_point]);
+    }
+    for (let i = 0; i < points2.length - 1; i++) {
+        let thrid_point: gs.IPoint;
+        if (i < points1.length - 1) {
+            thrid_point = points1[i+1];
+        } else {
+            thrid_point = points1[points1.length - 1];
+        }
+        tri_points.push([points2[i+1], points2[i], thrid_point]);
+    }
+    // generate mesh and return
+    return model.getGeom().addPolymesh(tri_points);
+}
+
+
 //  ===============================================================================================================
 //  Pmesh Simple Functions ===============================================================================================
 //  ===============================================================================================================

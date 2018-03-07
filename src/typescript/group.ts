@@ -89,7 +89,7 @@ export function del(model: gs.IModel, group_name: string, delete_geom: boolean):
  * Returns null if specified group does not have a parent group.
  *
  * @param model Model containing the groups.
- * @param group_name Group name to get parent for.
+ * @param group_name Group name to get parent from.
  * @returns Parent group of specified group if successful, null if unsuccessful or on error
  */
 export function getParent(model: gs.IModel, group_name: string): string {
@@ -111,5 +111,19 @@ export function setParent(model: gs.IModel, group_name: string, parent_name: str
     const parent: gs.IGroup = model.getGroup(parent_name);
     if (group === null) {throw new Error("Group does not exist.");}
     if (parent === null) {throw new Error("Group does not exist.");}
-    return group.setParentGroup(group).getName();
+    return group.setParentGroup(parent).getName();
+}
+
+/**
+ * Gets the list of names of groups that are children of this group.
+ * Returns empty list if specified group does not have any children.
+ *
+ * @param model Model containing the groups.
+ * @param group_name Group name to get children from.
+ * @returns A list of group names.
+ */
+export function getChildren(model: gs.IModel, group_name: string): string[] {
+    const group: gs.IGroup = model.getGroup(group_name);
+    if (group === null) {throw new Error("Group does not exist.");}
+    return group.getChildGroups().map((group) => group.getName());
 }

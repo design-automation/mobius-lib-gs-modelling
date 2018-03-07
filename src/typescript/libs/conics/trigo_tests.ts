@@ -1,5 +1,11 @@
-
 import * as tr from "./trigo";
+import {} from "jasmine";
+
+describe("Tests for Trigonometric Solving", () => {
+    it("test_Trigo", () => {
+        expect( solve_trigo() ).toBe(true);
+    });
+});
 
 export function solve_trigo(): boolean {
     let A: number = 0;
