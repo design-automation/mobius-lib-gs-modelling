@@ -105,25 +105,36 @@ export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
 export function TriStripFromPoints(points1: gs.IPoint[], points2: gs.IPoint[]): gs.IPolymesh {
     const model: gs.IModel = error.checkPointList(points1, 2);
     error.checkPointList(points2, 2);
-    // create the triangle arrays
-    const tri_points: gs.IPoint[][] = [];
-    for (let i = 0; i < points1.length - 1; i++) {
-        let thrid_point: gs.IPoint;
-        if (i < points2.length) {
-            thrid_point = points2[i];
-        } else {
-            thrid_point = points2[points2.length - 1];
-        }
-        tri_points.push([points1[i], points1[i+1], thrid_point]);
+    // sort, shortest list first
+    const points: gs.IPoint[][] = [];
+    if (points1.length < points2.length) {
+        points[0] = points1;
+        points[1] = points2;
+    } else {
+        points[0] = points2;
+        points[1] = points1;
     }
-    for (let i = 0; i < points2.length - 1; i++) {
-        let thrid_point: gs.IPoint;
-        if (i < points1.length - 1) {
-            thrid_point = points1[i+1];
+    // create quads, the split into two triangles along shortest diagonal
+    const tri_points: gs.IPoint[][] = [];
+    for (let i = 0; i < points[0].length - 1; i++) {
+        const p0: gs.IPoint = points[0][i];
+        const p1: gs.IPoint = points[0][i + 1];
+        const p2: gs.IPoint = points[1][i + 1];
+        const p3: gs.IPoint = points[1][i];
+        if (threex.distSquPointToPoint(p1, p3) < threex.distSquPointToPoint(p0, p2)) {
+            tri_points.push([p0, p1, p3]);
+            tri_points.push([p1, p2, p3]);
         } else {
-            thrid_point = points1[points1.length - 1];
+            tri_points.push([p0, p1, p2]);
+            tri_points.push([p0, p2, p3]);
         }
-        tri_points.push([points2[i+1], points2[i], thrid_point]);
+    }
+    // add triangles for the remainder
+    for (let i = points[0].length - 1; i < points[1].length - 1; i++) {
+        const p0: gs.IPoint = points[1][i + 1];
+        const p1: gs.IPoint = points[1][i];
+        const p2: gs.IPoint = points[0][points[0].length - 1];
+        tri_points.push([p0, p1    , p2]);
     }
     // generate mesh and return
     return model.getGeom().addPolymesh(tri_points);

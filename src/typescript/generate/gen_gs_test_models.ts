@@ -19,6 +19,7 @@ if (require.main === module) {
     console.log("Three files: circles...");
     writeGsToJSONFile(circles.genModelTest1(), path + "circles_test1.gs");
     writeGsToJSONFile(circles.genModelTest1b(), path + "circles_test1b.gs");
+    writeGsToJSONFile(circles.genModelTest1c(), path + "circles_test1c.gs");
     writeGsToJSONFile(circles.genModelTest2(), path + "circles_test2.gs");
     writeGsToJSONFile(circles.genModelTest3(), path + "circles_test3.gs");
     writeGsToJSONFile(circles.genModelTest4(), path + "circles_circles_test4.gs");
@@ -43,6 +44,7 @@ if (require.main === module) {
     console.log("Three files: pmeshes...");
     writeGsToJSONFile(pmeshes.genModelTest1(), path + "pmeshes_test1.gs");
     writeGsToJSONFile(pmeshes.genModelTest2(), path + "pmeshes_test2.gs");
+    writeGsToJSONFile(pmeshes.genTriStrip(), path +   "pmeshes_genTriStrip.gs");
 }
 
 if (require.main === module) {

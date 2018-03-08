@@ -51,6 +51,22 @@ export function genModelTest1b(): gs.IModel {
 /**
  *
  */
+export function genModelTest1c(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    // test1
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    gsm.circle.FromOrigin2Vectors(p1, [1,0,0], [0,1,0], [270, 0]);
+    // test2
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [3,0,0]);
+    gsm.circle.FromOriginXY(p2, 1, [270, 0]);
+
+    return m;
+}
+
+
+/**
+ *
+ */
 export function genModelTest2(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     // for (let i = 0; i < 5; i++) {

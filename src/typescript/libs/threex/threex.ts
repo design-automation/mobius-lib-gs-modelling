@@ -171,6 +171,18 @@ export function movePointsAddXYZ(points: gs.IPoint[]|gs.IPoint[][], xyz_vec: gs.
     }
 }
 
+export function distPointToPoint(p1: gs.IPoint, p2: gs.IPoint): number {
+    return (new three.Vector3(...p1.getPosition())).distanceTo(new three.Vector3(...p2.getPosition()));
+}
+
+export function distSquPointToPoint(p1: gs.IPoint, p2: gs.IPoint): number {
+    return (new three.Vector3(...p1.getPosition())).distanceToSquared(new three.Vector3(...p2.getPosition()));
+}
+
+export function distManPointToPoint(p1: gs.IPoint, p2: gs.IPoint): number {
+    return (new three.Vector3(...p1.getPosition())).distanceToManhattan(new three.Vector3(...p2.getPosition()));
+}
+
 //  Vertices ======================================================================================================
 
 export function subVertices(v1: gs.IVertex, v2: gs.IVertex, norm: boolean = false): gs.XYZ  {
