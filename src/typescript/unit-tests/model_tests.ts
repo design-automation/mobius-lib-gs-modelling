@@ -12,6 +12,9 @@ describe("Tests for Model Module", () => {
     it("test_model_Save", () => {
         expect( test_model_Save() ).toBe(true);
     });
+    it("test_model_merge", () => {
+        expect( test_model_merge() ).toBe(true);
+    });
 });
 
 
@@ -40,3 +43,18 @@ export function test_model_Save(): boolean {
     return true;
 }
 
+export function test_model_merge(): boolean {
+    const m1: gs.IModel = gsm.model.New();
+    gsm.point.FromXYZs(m1, [[1,2,3],[2,3,4],[3,4,5]]);
+    gsm.circle.FromOriginXY(gsm.point.FromXYZ(m1, [0,0,0]), 8, [300,100]);
+
+    const m2: gs.IModel = gsm.model.New();
+    gsm.point.FromXYZs(m2, [[1,2,3],[2,3,5],[3,4,6]]);
+    gsm.circle.FromOriginXY(gsm.point.FromXYZ(m1, [0,0,7]), 8, [300,100]);
+
+    gsm.model.merge(m1, m2);
+    if (m1.getGeom().numPoints() !== 8) {return false;}
+    if (m1.getGeom().numObjs() !== 2) {return false;}
+
+    return true;
+}

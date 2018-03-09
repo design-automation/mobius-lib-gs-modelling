@@ -81,6 +81,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#new" class="tsd-kind-icon">New</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#merge" class="tsd-kind-icon">merge</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,7 +99,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/859a89f/src/typescript/model.ts#L24">model.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/model.ts#L24">model.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -107,7 +108,46 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
-							<p>New model empty if successful, null if unsuccessful or on error</p>
+							<p>New model empty.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="merge" class="tsd-anchor"></a>
+					<h3>merge</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>model1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, model2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/model.ts#L40">model.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Merges the second model into the first model. The geometry, attribues, and groups are all merged.
+									If the models contain contain groups with the same names, then the groups will be merged.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model1: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to merge into.</p>
+									</div>
+								</li>
+								<li>
+									<h5>model2: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to merge.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
+							<p>The</p>
 						</li>
 					</ul>
 				</section>
@@ -128,6 +168,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_model_.html#new" class="tsd-kind-icon">New</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_model_.html#merge" class="tsd-kind-icon">merge</a>
 					</li>
 				</ul>
 			</nav>
