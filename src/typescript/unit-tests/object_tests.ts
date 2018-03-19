@@ -62,3 +62,16 @@ export function test_obj_move(): boolean {
     if (circle.getOrigin().getPosition()[1] !== 3) { return false; }
     return true;
 }
+
+export function test_obj_rotate(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [1,0,1]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [2,2,6]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [4,1,3]);
+    const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
+    const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [0, 1, 0], [0, 0, 1], null);
+    gsm.object.rotate(circle, [0,0,0], [0,0,1], 30, true);
+    gsm.object.rotate(pline, [0,0,0], [0,0,1], 60, true);
+    if (m.getGeom().numPoints() !== 9) {return false; }
+    return true;
+}

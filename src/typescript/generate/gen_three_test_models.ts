@@ -6,6 +6,7 @@ import * as circles from "./models_circles";
 import * as plines from "./models_plines";
 import * as pmeshes from "./models_pmeshes";
 import * as object from "./models_object";
+import * as points from "./models_points";
 
 /**
  * Execute using NPM, models get saved in the /src/assets/ folder.
@@ -53,7 +54,12 @@ if(require.main === module)  {
 }
 
 if(require.main === module)  {
-    console.log("Three files: xform...");
-    writeThreeToJSONFile(gs.genThreeOptModel(object.genModelTest1()), path + "xform_test1.json");
+    console.log("Three files: objs...");
+    writeThreeToJSONFile(gs.genThreeOptModel(object.genModelTest1()), path + "obj_test1.json");
+    writeThreeToJSONFile(gs.genThreeOptModel(object.genModelTest2()), path + "obj_test2.json");
 }
 
+if(require.main === module)  {
+    console.log("Three files: points...");
+    writeThreeToJSONFile(gs.genThreeOptModel(points.genModelTest1()), path + "point_test1.json");
+}

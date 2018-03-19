@@ -71,7 +71,7 @@ export function Creates(model: gs.IModel, names: string[]): boolean {
  *
  * @param model Model containing the groups.
  * @param group_name Group name to delete.
- * @param delete_geom If true, the objects and points in teh group will be deleted.
+ * @param delete_geom If true, the objects and points in the group will be deleted.
  * @returns True if the group was successfully deleted.
  */
 export function del(model: gs.IModel, group_name: string, delete_geom: boolean): boolean {

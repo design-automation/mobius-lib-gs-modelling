@@ -158,22 +158,97 @@ export function FromPointsMean(points: gs.IPoint[]): gs.IPoint {
 //  ===============================================================================================================
 
 /**
- * Moves points by a translation vector.
+ * Moves a point or a list of points by a translation vector.
  *
- * @param entities A single point, or a list of points.
+ * @param points A point or a list of points.
  * @param vector Translation vector.
  * @param copy If true, points are copied before being moved.
  * @returns The moved points.
  */
-export function move(points: gs.IPoint | gs.IPoint[], vector: gs.XYZ, copy: boolean = false): gs.IPoint | gs.IPoint[] {
-    const is_array: boolean = !Array.isArray(points);
+export function move(points: gs.IPoint | gs.IPoint[], vector: gs.XYZ,
+                     copy: boolean = false): gs.IPoint | gs.IPoint[] {
+    const is_array: boolean = Array.isArray(points);
     if (!Array.isArray(points)) {points = [points];}
     const model: gs.IModel = error.checkPointList(points, 1);
     error.checkXYZ(vector);
-    const matrix: three.Matrix4 = new three.Matrix4();
-    matrix.setPosition(new three.Vector3(...vector));
+    // translation matrix
+    const matrix_trn: three.Matrix4 = new three.Matrix4();
+    matrix_trn.makeTranslation(vector[0], vector[1], vector[2]);
+    // copy points
     if (copy) {points = model.getGeom().copyPoints(points, true); }
-    model.getGeom().xformPoints(points, matrix);
+    // do the xform
+    model.getGeom().xformPoints(points, matrix_trn);
+    // return either a single point or array of points
+    if (is_array) {return points;}
+    return points[0];
+}
+
+/**
+ * Rotates a point or a list of points around an axis.
+ *
+ * @param points A point or a list of points.
+ * @param origin An xyz point on the axis.
+ * @param axis An xyz vector along the axis.
+ * @param angle The angle, in degrees, between 0 and 360.
+ * @param copy If true, points are copied before being rotated.
+ * @returns The rotated points.
+ */
+export function rotate(points: gs.IPoint | gs.IPoint[], origin: gs.XYZ, axis: gs.XYZ,
+                       angle: number, copy: boolean = false): gs.IPoint | gs.IPoint[] {
+    // check args
+    const is_array: boolean = Array.isArray(points);
+    if (!Array.isArray(points)) {points = [points];}
+    const model: gs.IModel = error.checkPointList(points, 1);
+    error.checkXYZ(origin);
+    error.checkXYZ(axis);
+    const angle_rad: number = (angle / 180) * Math.PI;
+    // rotation matrix
+    const matrix_rot: three.Matrix4 = new three.Matrix4();
+    matrix_rot.makeRotationAxis(new three.Vector3(...axis), angle_rad);
+    // translation matrix
+    const matrix_trn1: three.Matrix4 = new three.Matrix4();
+    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    const matrix_trn2: three.Matrix4 = new three.Matrix4();
+    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    // copy points
+    if (copy) {points = model.getGeom().copyPoints(points, true); }
+    // do the xform
+    model.getGeom().xformPoints(points, matrix_trn2.multiply(matrix_rot.multiply(matrix_trn1)));
+    // return either a single point or array of points
+    if (is_array) {return points;}
+    return points[0];
+}
+
+/**
+ * Scales a point or a list of points around an origin.
+ *
+ * @param points A point or a list of points.
+ * @param origin An xyz origin point of the scale.
+ * @param factor The scale factor, along the x, y and z axes.
+ * @param copy If true, points are copied before being scaled.
+ * @returns The scaled points.
+ */
+export function scale(points: gs.IPoint | gs.IPoint[], origin: gs.XYZ,
+                      factor: gs.XYZ, copy: boolean = false): gs.IPoint | gs.IPoint[] {
+    // check args
+    const is_array: boolean = Array.isArray(points);
+    if (!Array.isArray(points)) {points = [points];}
+    const model: gs.IModel = error.checkPointList(points, 1);
+    error.checkXYZ(origin);
+    error.checkXYZ(factor);
+    // scale matrix
+    const matrix_scale: three.Matrix4 = new three.Matrix4();
+    matrix_scale.makeScale(factor[0], factor[1], factor[2]);
+    // translation matrix
+    const matrix_trn1: three.Matrix4 = new three.Matrix4();
+    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    const matrix_trn2: three.Matrix4 = new three.Matrix4();
+    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    // copy points
+    if (copy) {points = model.getGeom().copyPoints(points, true); }
+    // do the xform
+    model.getGeom().xformPoints(points, matrix_trn2.multiply(matrix_scale.multiply(matrix_trn1)));
+    // return either a single point or array of points
     if (is_array) {return points;}
     return points[0];
 }
@@ -260,11 +335,11 @@ export function merge(points: gs.IPoint[]): gs.IPoint {
 /**
  * Add points to a group.
  *
- * @param group Name of group to add to.
- * @param objs List of points to add.
- * @returns True if all points we successfully added.
+ * @param points List of points to add.
+ * @param group_name Name of group to add to.
+ * @returns True if all points were successfully added.
  */
-export function addToGroup(points: gs.IPoint[] | gs.IPoint, group_name: string): boolean {
+export function addToGroup(points: gs.IPoint | gs.IPoint[], group_name: string): boolean {
     if (!Array.isArray(points)) {points = [points];}
     const model: gs.IModel = error.checkPointList(points, 1);
     const group: gs.IGroup = error.checkGroup(model, group_name);

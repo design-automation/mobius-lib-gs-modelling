@@ -75,22 +75,94 @@ export function GetFromGroup(model: gs.IModel, group_name: string): gs.IObj[] {
 //  ===============================================================================================================
 
 /**
- * Moves objects.
+ * Moves objects by a translation vector.
  *
- * @param entities A single point or object, or a list of points and/or objects.
+ * @param objs An object or a list of objects.
  * @param vector Translation vector.
- * @param copy If true, entities are copied before being moved.
- * @returns The moved netities.
+ * @param copy If true, objects are copied before being moved.
+ * @returns The moved objects.
  */
 export function move(objs: gs.IObj | gs.IObj[], vector: gs.XYZ, copy: boolean = false): gs.IObj | gs.IObj[] {
-    const is_array: boolean = !Array.isArray(objs);
+    const is_array: boolean = Array.isArray(objs);
     if (!Array.isArray(objs)) {objs = [objs];}
     const model: gs.IModel = error.checkObjList(objs, 1);
     error.checkXYZ(vector);
-    const matrix: three.Matrix4 = new three.Matrix4();
-    matrix.setPosition(new three.Vector3(...vector));
+    // translation matrix
+    const matrix_trn: three.Matrix4 = new three.Matrix4();
+    matrix_trn.makeTranslation(vector[0], vector[1], vector[2]);
+    // copy the objs
     if (copy) {objs = model.getGeom().copyObjs(objs, true); }
-    model.getGeom().xformObjs(objs, matrix);
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_trn);
+    // return either a single obj or array of objs
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Rotates object or a list of objects around an axis.
+ *
+ * @param objs An object or a list of objects.
+ * @param axis_origin An xyz point on the axis.
+ * @param axis_vector An xyz vector along the axis.
+ * @param angle The angle, in degrees, between 0 and 360.
+ * @param copy If true, objects are copied before being rotated.
+ * @returns The rotated objects.
+ */
+export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ, axis: gs.XYZ,
+                       angle: number, copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    error.checkXYZ(origin);
+    error.checkXYZ(axis);
+    const angle_rad: number = (angle / 180) * Math.PI;
+    // rotation matrix
+    const matrix_rot: three.Matrix4 = new three.Matrix4();
+    matrix_rot.makeRotationAxis(new three.Vector3(...axis), angle_rad);
+    // translation matrix
+    const matrix_trn1: three.Matrix4 = new three.Matrix4();
+    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    const matrix_trn2: three.Matrix4 = new three.Matrix4();
+    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_trn2.multiply(matrix_rot.multiply(matrix_trn1)));
+    // return the result, either single obj or array
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Scales an object or a list of objects around an origin point.
+ *
+ * @param objs An object or a list of objects.
+ * @param origin An xyz origin point of the scale.
+ * @param factor The scale factor, along the x, y and z axes.
+ * @param copy If true, objects are copied before being scaled.
+ * @returns The scaled objects.
+ */
+export function scale(objs: gs.IObj | gs.IObj[], origin: gs.XYZ,
+                      factor: gs.XYZ, copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    error.checkXYZ(origin);
+    error.checkXYZ(factor);
+    // scale matrix
+    const matrix_scale: three.Matrix4 = new three.Matrix4();
+    matrix_scale.makeScale(factor[0], factor[1], factor[2]);
+    // translation matrix
+    const matrix_trn1: three.Matrix4 = new three.Matrix4();
+    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    const matrix_trn2: three.Matrix4 = new three.Matrix4();
+    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_trn2.multiply(matrix_scale.multiply(matrix_trn1)));
+    // return the result, either single obj or array
     if (is_array) {return objs;}
     return objs[0];
 }

@@ -19,3 +19,16 @@ export function genModelTest1(): gs.IModel {
     }
     return m;
 }
+
+export function genModelTest2(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [10,10,0]);
+    const c: gs.ICircle = gsm.circle.FromOriginXY(p1, 8, [0,180]);
+    let pl: gs.IPolyline = gsm.pline.FromCircle(c, 4);
+    for (let i = 0; i < 30; i++) {
+        pl = gsm.object.move(pl, [0,0,1], true) as gs.IPolyline;
+        pl = gsm.object.rotate(pl, [10,10,0], [0,0,1], 5, false) as gs.IPolyline;
+        pl = gsm.object.scale(pl, [10,10,0], [0.9,0.9,1], false) as gs.IPolyline;
+    }
+    return m;
+}

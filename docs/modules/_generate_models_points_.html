@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;entity&quot; | gs-modelling</title>
+	<title>&quot;generate/models_points&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_entity_.html">&quot;entity&quot;</a>
+					<a href="_generate_models_points_.html">&quot;generate/models_points&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;entity&quot;</h1>
+			<h1>External module &quot;generate/models_points&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#copy" class="tsd-kind-icon">Copy</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_entity_.html#del" class="tsd-kind-icon">del</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_generate_models_points_.html#genmodeltest1" class="tsd-kind-icon">gen<wbr>Model<wbr>Test1</a></li>
 							</ul>
 						</section>
 					</div>
@@ -81,64 +80,19 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="copy" class="tsd-anchor"></a>
-					<h3>Copy</h3>
+					<a name="genmodeltest1" class="tsd-anchor"></a>
+					<h3>gen<wbr>Model<wbr>Test1</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Copy<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnt</span></li>
+						<li class="tsd-signature tsd-kind-icon">gen<wbr>Model<wbr>Test1<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/entity.ts#L18">entity.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/generate/models_points.ts#L5">generate/models_points.ts:5</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create a copy of an entity.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entity: <span class="tsd-signature-type">IEnt</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Geometry</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IEnt</span></h4>
-							<p>Copy</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="del" class="tsd-anchor"></a>
-					<h3>del</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">del<span class="tsd-signature-symbol">(</span>entities<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/entity.ts#L36">entity.ts:36</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deletes geometry or a list of geometry from the model</p>
-								</div>
-								<p>Affects geometry that contains or is based off specified geometry</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entities: <span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IEnt</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>Number of items deleted if successful</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -151,17 +105,14 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_entity_.html">"entity"</a>
+						<a href="_generate_models_points_.html">"generate/models_<wbr>points"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#copy" class="tsd-kind-icon">Copy</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_entity_.html#del" class="tsd-kind-icon">del</a>
+						<a href="_generate_models_points_.html#genmodeltest1" class="tsd-kind-icon">gen<wbr>Model<wbr>Test1</a>
 					</li>
 				</ul>
 			</nav>

@@ -78,6 +78,8 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#del" class="tsd-kind-icon">del</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#move" class="tsd-kind-icon">move</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#removefromgroup" class="tsd-kind-icon">remove<wbr>From<wbr>Group</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#rotate" class="tsd-kind-icon">rotate</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_object_.html#scale" class="tsd-kind-icon">scale</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,7 +97,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L21">object.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L21">object.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -133,7 +135,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L64">object.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L64">object.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -171,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L47">object.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L47">object.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L126">object.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L198">object.ts:198</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L105">object.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L177">object.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,18 +284,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L85">object.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L85">object.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Moves objects.</p>
+									<p>Moves objects by a translation vector.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>objs: <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object or a list of objects.</p>
+									</div>
 								</li>
 								<li>
 									<h5>vector: <span class="tsd-signature-type">gs.XYZ</span></h5>
@@ -304,7 +309,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> copy: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If true, entities are copied before being moved.</p>
+										<p>If true, objects are copied before being moved.</p>
 									</div>
 								</li>
 							</ul>
@@ -312,7 +317,7 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>
 							</h4>
-							<p>The moved netities.</p>
+							<p>The moved objects.</p>
 						</li>
 					</ul>
 				</section>
@@ -326,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/d3b44f6/src/typescript/object.ts#L144">object.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L216">object.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -348,6 +353,112 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 							<p>True if all objects we successfully removed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="rotate" class="tsd-anchor"></a>
+					<h3>rotate</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, copy<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L112">object.ts:112</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Rotates object or a list of objects around an axis.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>objs: <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object or a list of objects.</p>
+									</div>
+								</li>
+								<li>
+									<h5>origin: <span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li>
+									<h5>axis: <span class="tsd-signature-type">gs.XYZ</span></h5>
+								</li>
+								<li>
+									<h5>angle: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The angle, in degrees, between 0 and 360.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> copy: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, objects are copied before being rotated.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IObj</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>
+							</h4>
+							<p>The rotated objects.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="scale" class="tsd-anchor"></a>
+					<h3>scale</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>objs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>, origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, factor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span>, copy<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/object.ts#L146">object.ts:146</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scales an object or a list of objects around an origin point.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>objs: <span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object or a list of objects.</p>
+									</div>
+								</li>
+								<li>
+									<h5>origin: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An xyz origin point of the scale.</p>
+									</div>
+								</li>
+								<li>
+									<h5>factor: <span class="tsd-signature-type">gs.XYZ</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scale factor, along the x, y and z axes.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> copy: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, objects are copied before being scaled.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IObj</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">IObj</span><span class="tsd-signature-symbol">[]</span>
+							</h4>
+							<p>The scaled objects.</p>
 						</li>
 					</ul>
 				</section>
@@ -386,6 +497,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_object_.html#removefromgroup" class="tsd-kind-icon">remove<wbr>From<wbr>Group</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#rotate" class="tsd-kind-icon">rotate</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_object_.html#scale" class="tsd-kind-icon">scale</a>
 					</li>
 				</ul>
 			</nav>
