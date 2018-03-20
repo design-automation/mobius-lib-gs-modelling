@@ -99,7 +99,8 @@ export function FromPline(pline: gs.IPolyline): gs.IPolymesh {
  * The triangles would be as follows: [p1, p2, p4], [p5, p4, p1], [p2, p3, p5], [p6, p5, p3].
  * In this example, the two faces share points p2 and p3.
  *
- * @param points List of lists of face corner points.
+ * @param points1 The first list of points.
+ * @param points2 The second list of points.
  * @returns Polymesh object.
  */
 export function TriStripFromPoints(points1: gs.IPoint[], points2: gs.IPoint[]): gs.IPolymesh {

@@ -80,6 +80,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_intersect_.html#circlecircle2d" class="tsd-kind-icon">circle<wbr>Circle2D</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_intersect_.html#circleplane3d" class="tsd-kind-icon">circle<wbr>Plane3D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_intersect_.html#polylineplane3d" class="tsd-kind-icon">polyline<wbr>Plane3D</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,36 +98,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/intersect.ts#L34">intersect.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/babbb99/src/typescript/intersect.ts#L29">intersect.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the intersection points and/or overlapping arcs of two intersecting co-planar conic curves</p>
+									<p>Finds the intersection points between two intersecting co-planar circles.</p>
 								</div>
-								<p>List of points returned is in order (starts from t=0 to t=1 of curve_1)<br/>
-									Conic curves must lie on the same plane<br/>
-									Returns null if conic curves are not co-planar<br/>
-								Returns null if conic curves do not intersect</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>circle1: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 1</p>
+										<p>Circle 1</p>
 									</div>
 								</li>
 								<li>
 									<h5>circle2: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 2</p>
+										<p>Circle 2</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of intersection points and/or overlapping arcs if successful,
-							null if unsuccessful or on error</p>
+							<p>List of intersection points.</p>
 						</li>
 					</ul>
 				</section>
@@ -140,29 +136,72 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cd015c3/src/typescript/intersect.ts#L46">intersect.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/babbb99/src/typescript/intersect.ts#L43">intersect.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Finds the intersection points between a circle and a plane.
+										If no intersection points are found, or if the circle and plane are co-planar,
+									an empty list is returned.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>circle: <span class="tsd-signature-type">ICircle</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 1</p>
+										<p>Circle</p>
 									</div>
 								</li>
 								<li>
 									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Conic curve 2</p>
+										<p>Plane</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
-							<p>List of intersection points and/or overlapping arcs if successful,
-							null if unsuccessful or on error</p>
+							<p>List of intersection points (0, 1 or 2).</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="polylineplane3d" class="tsd-anchor"></a>
+					<h3>polyline<wbr>Plane3D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">polyline<wbr>Plane3D<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/babbb99/src/typescript/intersect.ts#L58">intersect.ts:58</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Finds the intersection points between a polyine and a plane.
+									If no intersection points are found, an empty list is returned.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polyline</p>
+									</div>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Plane</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of intersection points.</p>
 						</li>
 					</ul>
 				</section>
@@ -186,6 +225,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_intersect_.html#circleplane3d" class="tsd-kind-icon">circle<wbr>Plane3D</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_intersect_.html#polylineplane3d" class="tsd-kind-icon">polyline<wbr>Plane3D</a>
 					</li>
 				</ul>
 			</nav>

@@ -46,7 +46,7 @@ export function Get(model: gs.IModel, id: number): gs.ICircle {
  * @param copy_attribs If true, attributes are copied to the new circle.
  * @returns Circle object.
  */
-export function Copy(circle: gs.ICircle, copy_attribs ? : boolean): gs.ICircle {
+export function Copy(circle: gs.ICircle, copy_attribs?: boolean): gs.ICircle {
     // check args
     error.checkObj(circle, gs.EObjType.circle);
     // copy and return

@@ -36,6 +36,7 @@ export function Get(model: gs.IModel, id: number): gs.IPlane {
  * Create a copy of an existing plane.
  *
  * @param plane The plane object to copy.
+ * @param copy_attribs If true, attributes are copied to the new plane.
  * @returns A new plane object.
  */
 export function Copy(plane: gs.IPlane, copy_attribs?: boolean): gs.IPlane {
@@ -112,19 +113,19 @@ export function FromOriginZX(origin: gs.IPoint): gs.IPlane {
  * Creates a plane from an origin point and two other points on the plane.
  *
  * @param origin Point object, the origin of plane.
- * @param pt1 Point object, a point on the plane. This will be used to define the plane X axis.
- * @param pt2 Point object, a point on the plane.
+ * @param point1 Point object, a point on the plane. This will be used to define the plane X axis.
+ * @param point2 Point object, a point on the plane.
  * @returns New plane object.
  */
-export function FromOriginPoints(origin: gs.IPoint, pt1: gs.IPoint, pt2: gs.IPoint ):gs.IPlane {
+export function FromOriginPoints(origin: gs.IPoint, point1: gs.IPoint, point2: gs.IPoint ):gs.IPlane {
     const model: gs.IModel = error.checkPoint(origin);
-    error.checkPoint(pt1);
-    error.checkPoint(pt2);
-    if(pt1.getModel() !== model) { throw new Error("Points need to be in the same model");}
-    if(pt2.getModel() !== model) { throw new Error("Points need to be in the same model");}
+    error.checkPoint(point1);
+    error.checkPoint(point2);
+    if(point1.getModel() !== model) { throw new Error("Points need to be in the same model");}
+    if(point2.getModel() !== model) { throw new Error("Points need to be in the same model");}
     // create the plane
-    const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, pt1).toArray() as gs.XYZ;
-    const vec: gs.XYZ = threex.vectorFromPointsAtoB(origin, pt2).toArray() as gs.XYZ;
+    const vec_x: gs.XYZ = threex.vectorFromPointsAtoB(origin, point1).toArray() as gs.XYZ;
+    const vec: gs.XYZ = threex.vectorFromPointsAtoB(origin, point2).toArray() as gs.XYZ;
     const plane: gs.IPlane = model.getGeom().addPlane(origin, vec_x, vec);
     // return the new plane
     return plane;

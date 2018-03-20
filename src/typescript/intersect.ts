@@ -20,16 +20,11 @@ import * as error from "./_error_msgs_dev";
 //  ===============================================================================================================
 
 /**
- * Returns the intersection points and/or overlapping arcs of two intersecting co-planar conic curves
+ * Finds the intersection points between two intersecting co-planar circles.
  *
- * List of points returned is in order (starts from t=0 to t=1 of curve_1)<br/>
- * Conic curves must lie on the same plane<br/>
- * Returns null if conic curves are not co-planar<br/>
- * Returns null if conic curves do not intersect
- * @param circle1 Conic curve 1
- * @param circle2 Conic curve 2
- * @returns List of intersection points and/or overlapping arcs if successful,
- *          null if unsuccessful or on error
+ * @param circle1 Circle 1
+ * @param circle2 Circle 2
+ * @returns List of intersection points.
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
     error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
@@ -37,11 +32,13 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPo
 }
 
 /**
+ * Finds the intersection points between a circle and a plane.
+ * If no intersection points are found, or if the circle and plane are co-planar,
+ * an empty list is returned.
  *
- * @param circle Conic curve 1
- * @param plane Conic curve 2
- * @returns List of intersection points and/or overlapping arcs if successful,
- *          null if unsuccessful or on error
+ * @param circle Circle
+ * @param plane Plane
+ * @returns List of intersection points (0, 1 or 2).
  */
 export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[] {
     error.checkObj(circle, gs.EObjType.circle);
@@ -50,3 +47,40 @@ export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[]
     return conics._isectCirclePlane3D(circle, plane);
 }
 
+/**
+ * Finds the intersection points between a polyine and a plane.
+ * If no intersection points are found, an empty list is returned.
+ *
+ * @param pline Polyline
+ * @param plane Plane
+ * @returns List of intersection points.
+ */
+export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoint[] {
+    const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    error.checkObj(plane, gs.EObjType.plane);
+    error.checkObjsSameModel([pline, plane]);
+    // get the points on the polyline
+    let pline_xyz: gs.XYZ[] = pline.getPointsArr().map((p) => p.getPosition());
+    if (pline.isClosed()) {pline_xyz.push(pline_xyz[0]);}
+    // make array to store isect points
+    const isect_points: gs.IPoint[] = [];
+    // convert plane into three plane
+    const three_plane: three.Plane = new three.Plane(
+        new three.Vector3(...plane.getNormal()),
+        new three.Vector3(...plane.getOrigin().getPosition()).length()
+    );
+    // loop through each edge, and check for intersections
+    for (let i=0; i<pline_xyz.length - 1; i++) {
+        const three_line: three.Line3 = new three.Line3(
+            new three.Vector3(...pline_xyz[i]),
+            new three.Vector3(...pline_xyz[i + 1])
+        );
+        const result: three.Vector3 = three_plane.intersectLine(three_line);
+        if (result !== undefined) {
+            const isect_point: gs.IPoint = model.getGeom().addPoint([result.x, result.y, result.z]);
+            isect_points.push(isect_point);
+        }
+    }
+    // return an array of intersection points
+    return isect_points;
+}

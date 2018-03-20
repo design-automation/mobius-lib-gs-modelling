@@ -21,6 +21,7 @@ import * as error from "./_error_msgs_dev";
 
 /**
  * Gets a point from a model.
+ *
  * @param model Model to get point from.
  * @param id ID of point to get.
  * @returns Point.
@@ -32,6 +33,7 @@ export function Get(model: gs.IModel, id: number): gs.IPoint {
 
 /**
  * Gets a list of points from the model.
+ *
  * @param model Model to get points from.
  * @param ids A point ID or list of point IDs, integer numbers. If null, then all points are returned.
  * @returns A list of points.
@@ -49,6 +51,7 @@ export function Gets(model: gs.IModel, ids?: number | number[]): gs.IPoint[] {
 
 /**
  * Gets all the points from a group.
+ *
  * @param model Model to get the points from.
  * @param group_name The group name.
  * @returns List of points.
@@ -60,7 +63,8 @@ export function GetFromGroup(model: gs.IModel, group_name: string): gs.IPoint[] 
 
 /**
  * Gets a list of unique points for a list of objects.
- * @param obj A list of object
+ *
+ * @param objs An object or list of objects.
  * @returns List of points.
  */
 export function GetFromObjs(objs: gs.IObj | gs.IObj[]): gs.IPoint[] {
