@@ -87,12 +87,66 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICi
     const vec2_2nd_y_xyz: gs.XYZ = vec2_2nd_y.toArray() as gs.XYZ;
     const arc2_b: gs.ICircle = geom.addCircle(
         circle2_origin, vec2_2nd_x_xyz, vec2_2nd_y_xyz, [0, (360 - angle2)]);
-
     // delete the old circles
     geom.delObj(circle1, false);
     geom.delObj(circle2, false);
-
     // return arcs
     return [arc1_b, arc1_a, arc2_a, arc2_b];
 
+}
+
+/**
+ * Splits a polyine by a plane.
+ * If intersection are found, then new polylines will be generated and the old polyline will be deleted.
+ * If no intersections are found, then null is return and the old polyline remains unchanged.
+ *
+ * @param pline Polyline
+ * @param plane Plane
+ * @returns List of polylines.
+ */
+export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPolyline[] {
+    const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    error.checkObj(plane, gs.EObjType.plane);
+    error.checkObjsSameModel([pline, plane]);
+    // get the points on the polyline
+    const points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {points.push(points[0]);}
+    let pline_xyz: gs.XYZ[] = points.map((p) => p.getPosition());
+    // convert plane into three plane
+    const three_plane: three.Plane = new three.Plane(
+        new three.Vector3(...plane.getNormal()),
+        new three.Vector3(...plane.getOrigin().getPosition()).length()
+    );
+    // make array to store new polylines
+    const new_plines: gs.IPolyline[] = [];
+    // loop through each edge, and check for intersections
+    let new_pline_points: gs.IPoint[] = [];
+    for (let i=0; i<points.length - 1; i++) {
+        new_pline_points.push(points[i]);
+        const three_line: three.Line3 = new three.Line3(
+            new three.Vector3(...pline_xyz[i]),
+            new three.Vector3(...pline_xyz[i + 1])
+        );
+        const result: three.Vector3 = three_plane.intersectLine(three_line);
+        if (result !== undefined) {
+            const isect_point: gs.IPoint = model.getGeom().addPoint([result.x, result.y, result.z]);
+            new_pline_points.push(isect_point);
+            const new_pline: gs.IPolyline = model.getGeom().addPolyline(new_pline_points, false);
+            new_plines.push(new_pline);
+            new_pline_points = [isect_point];
+        }
+        if ((i === points.length - 2) && (new_plines.length > 0)) {
+            new_pline_points.push(points[i + 1]);
+            const new_pline: gs.IPolyline = model.getGeom().addPolyline(new_pline_points, false);
+            new_plines.push(new_pline);
+        }
+    }
+    // if no intersections, return null
+    if (new_plines.length === 0) {
+        return null;
+    }
+    // delete the old pline
+    model.getGeom().delObj(pline, false);
+    // return an array of intersection points
+    return new_plines;
 }

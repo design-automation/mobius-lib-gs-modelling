@@ -34,7 +34,6 @@ export function NEG_INF(): number {
 //  Math Methods ==================================================================================================
 //  ===============================================================================================================
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/cos
 /**
  * Returns the cosine of a specified angle in degrees.
  *
@@ -46,7 +45,17 @@ export function cos(angle: number): number {
     return Math.cos(angle*(Math.PI/180));
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sin
+/**
+ * Returns the arc cosine (or inverse cosine) of a specified angle in degrees.
+ *
+ * @param angle Angle in degrees.
+ * @returns Arc cosine of angle.
+ */
+export function acos(angle: number): number {
+    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
+    return Math.acos(angle*(Math.PI/180));
+}
+
 /**
  * Returns the sine of a specified angle in degrees.
  *
@@ -58,7 +67,17 @@ export function sin(angle: number): number {
     return Math.sin(angle*(Math.PI/180));
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/tan
+/**
+ * Returns the arc sine (or inverse sine) of a specified angle in degrees.
+ *
+ * @param angle Angle in degrees.
+ * @returns Arc sine of angle.
+ */
+export function asin(angle: number): number {
+    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
+    return Math.asin(angle*(Math.PI/180));
+}
+
 /**
  * Returns the tangent of a specified angle in degrees.
  *
@@ -68,6 +87,17 @@ export function sin(angle: number): number {
 export function tan(angle: number): number {
     if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
     return Math.tan(angle*(Math.PI/180));
+}
+
+/**
+ * Returns the arc tangent (or inverse tangent) of a specified angle in degrees.
+ *
+ * @param angle Angle in degrees.
+ * @returns Arc tangent of angle.
+ */
+export function atan(angle: number): number {
+    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
+    return Math.atan(angle*(Math.PI/180));
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow

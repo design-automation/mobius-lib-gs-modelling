@@ -81,6 +81,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#new" class="tsd-kind-icon">New</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#exportobj" class="tsd-kind-icon">export<wbr>Obj</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_model_.html#merge" class="tsd-kind-icon">merge</a></li>
 							</ul>
 						</section>
@@ -99,7 +100,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/babbb99/src/typescript/model.ts#L24">model.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a802794/src/typescript/model.ts#L25">model.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -113,6 +114,41 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="exportobj" class="tsd-anchor"></a>
+					<h3>export<wbr>Obj</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">export<wbr>Obj<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IModel</span>, filename<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a802794/src/typescript/model.ts#L53">model.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Export model as obj file. Only pline and pmeshes will be exported.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">IModel</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model to export.</p>
+									</div>
+								</li>
+								<li>
+									<h5>filename: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if successful.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="merge" class="tsd-anchor"></a>
 					<h3>merge</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -122,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/babbb99/src/typescript/model.ts#L40">model.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/a802794/src/typescript/model.ts#L41">model.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -147,7 +183,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IModel</span></h4>
-							<p>The</p>
+							<p>The merged model.</p>
 						</li>
 					</ul>
 				</section>
@@ -168,6 +204,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_model_.html#new" class="tsd-kind-icon">New</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_model_.html#exportobj" class="tsd-kind-icon">export<wbr>Obj</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_model_.html#merge" class="tsd-kind-icon">merge</a>
