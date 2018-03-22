@@ -7,6 +7,7 @@
 import * as gs from "gs-json";
 import * as three from "three";
 import * as error from "./_error_msgs_dev";
+import * as threex from "./libs/threex/threex"
 
 //  ===============================================================================================================
 //  Object Get ====================================================================================================
@@ -103,18 +104,24 @@ export function move(objs: gs.IObj | gs.IObj[], vector: gs.XYZ, copy: boolean = 
  * Rotates object or a list of objects around an axis.
  *
  * @param objs An object or a list of objects.
- * @param axis_origin An xyz point on the axis.
- * @param axis_vector An xyz vector along the axis.
+ * @param origin An point on the axis, can be either a list of three numbers or a point.
+ * @param axis An xyz vector along the axis.
  * @param angle The angle, in degrees, between 0 and 360.
  * @param copy If true, objects are copied before being rotated.
  * @returns The rotated objects.
  */
-export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ, axis: gs.XYZ,
+export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint, axis: gs.XYZ,
                        angle: number, copy: boolean = false): gs.IObj | gs.IObj[] {
     const is_array: boolean = Array.isArray(objs);
     if (!Array.isArray(objs)) {objs = [objs];}
     const model: gs.IModel = error.checkObjList(objs, 1);
-    error.checkXYZ(origin);
+    let origin_xyz: gs.XYZ;
+    if (origin instanceof gs.Point) {
+        origin_xyz = origin.getPosition();
+    } else {
+        origin_xyz = origin as gs.XYZ;
+        error.checkXYZ(origin_xyz);
+    }
     error.checkXYZ(axis);
     const angle_rad: number = (angle / 180) * Math.PI;
     // rotation matrix
@@ -122,9 +129,9 @@ export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ, axis: gs.XYZ,
     matrix_rot.makeRotationAxis(new three.Vector3(...axis), angle_rad);
     // translation matrix
     const matrix_trn1: three.Matrix4 = new three.Matrix4();
-    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    matrix_trn1.makeTranslation(-origin_xyz[0], -origin_xyz[1], -origin_xyz[2]);
     const matrix_trn2: three.Matrix4 = new three.Matrix4();
-    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    matrix_trn2.makeTranslation(origin_xyz[0], origin_xyz[1], origin_xyz[2]);
     // copy objects
     if (copy) {objs = model.getGeom().copyObjs(objs, true); }
     // do the xform
@@ -138,30 +145,137 @@ export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ, axis: gs.XYZ,
  * Scales an object or a list of objects around an origin point.
  *
  * @param objs An object or a list of objects.
- * @param origin An xyz origin point of the scale.
+ * @param origin An origin point of the scale, can be either a list of three numbers or a point.
  * @param factor The scale factor, along the x, y and z axes.
  * @param copy If true, objects are copied before being scaled.
  * @returns The scaled objects.
  */
-export function scale(objs: gs.IObj | gs.IObj[], origin: gs.XYZ,
+export function scale(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint,
                       factor: gs.XYZ, copy: boolean = false): gs.IObj | gs.IObj[] {
     const is_array: boolean = Array.isArray(objs);
     if (!Array.isArray(objs)) {objs = [objs];}
     const model: gs.IModel = error.checkObjList(objs, 1);
-    error.checkXYZ(origin);
+    let origin_xyz: gs.XYZ;
+    if (origin instanceof gs.Point) {
+        origin_xyz = origin.getPosition();
+    } else {
+        origin_xyz = origin as gs.XYZ;
+        error.checkXYZ(origin_xyz);
+    }
     error.checkXYZ(factor);
     // scale matrix
     const matrix_scale: three.Matrix4 = new three.Matrix4();
     matrix_scale.makeScale(factor[0], factor[1], factor[2]);
     // translation matrix
     const matrix_trn1: three.Matrix4 = new three.Matrix4();
-    matrix_trn1.makeTranslation(-origin[0], -origin[1], -origin[2]);
+    matrix_trn1.makeTranslation(-origin_xyz[0], -origin_xyz[1], -origin_xyz[2]);
     const matrix_trn2: three.Matrix4 = new three.Matrix4();
-    matrix_trn2.makeTranslation(origin[0], origin[1], origin[2]);
+    matrix_trn2.makeTranslation(origin_xyz[0], origin_xyz[1], origin_xyz[2]);
     // copy objects
     if (copy) {objs = model.getGeom().copyObjs(objs, true); }
     // do the xform
     model.getGeom().xformObjs(objs, matrix_trn2.multiply(matrix_scale.multiply(matrix_trn1)));
+    // return the result, either single obj or array
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Transforms an object or list of objects from a source to a target coordinate system (CS).
+ * Each coordinate system is specified by an origin,
+ * a vector parallel to the x axis, and a vector in the xy plane (not parallel to the x axis).
+ *
+ * @param objs An object or a list of objects.
+ * @param source_origin The origin point of the source coordinate system, can be either a list of three numbers or a point.
+ * @param source_vec_x A vector parallel to the source x axis.
+ * @param source_vec A vector in the source xy plane (not paralle to the x axis).
+ * @param target_origin The origin point of the target coordinate system, can be either a list of three numbers or a point.
+ * @param target_vec_x A vector parallel to the target x axis.
+ * @param target_vec A vector in the target xy plane (not paralle to the x axis).
+ * @param copy If true, objects are copied before being scaled.
+ * @returns The transformed objects.
+ */
+export function xform(objs: gs.IObj | gs.IObj[],
+                      source_origin: gs.XYZ|gs.IPoint, source_vec_x: gs.XYZ, source_vec: gs.XYZ,
+                      target_origin: gs.XYZ|gs.IPoint, target_vec_x: gs.XYZ, target_vec: gs.XYZ,
+                      copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    let source_origin_xyz: gs.XYZ;
+    if (source_origin instanceof gs.Point) {
+        source_origin_xyz = source_origin.getPosition();
+    } else {
+        source_origin_xyz = source_origin as gs.XYZ;
+        error.checkXYZ(source_origin_xyz);
+    }
+    error.checkXYZ(source_vec_x);
+    error.checkXYZ(source_vec);
+    let target_origin_xyz: gs.XYZ;
+    if (target_origin instanceof gs.Point) {
+        target_origin_xyz = target_origin.getPosition();
+    } else {
+        target_origin_xyz = target_origin as gs.XYZ;
+        error.checkXYZ(target_origin_xyz);
+    }
+    error.checkXYZ(target_vec_x);
+    error.checkXYZ(target_vec);
+    // matrix to xform from source to gcs, then from gcs to target
+    const matrix_source_to_gcs: three.Matrix4 = threex.xformMatrixFromXYZVectors(
+        source_origin_xyz, source_vec_x, source_vec, true);
+    const matrix_gcs_to_target: three.Matrix4 = threex.xformMatrixFromXYZVectors(
+        target_origin_xyz, target_vec_x, target_vec, false);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_gcs_to_target.multiply(matrix_source_to_gcs));
+    // return the result, either single obj or array
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Mirrors an object or a list of objects in a mirror plane.
+ * The plane is defined by a point and a normal vector.
+ *
+ * @param objs An object or a list of objects.
+ * @param origin An origin point on the mirror plane, can be either a list of three numbers or a point.
+ * @param normal The normal vector of the mirror plane, a list of three numbers.
+ * @param copy If true, objects are copied before being scaled.
+ * @returns The scaled objects.
+ */
+export function mirror(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint,
+                      normal: gs.XYZ, copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    let origin_xyz: gs.XYZ;
+    if (origin instanceof gs.Point) {
+        origin_xyz = origin.getPosition();
+    } else {
+        origin_xyz = origin as gs.XYZ;
+        error.checkXYZ(origin_xyz);
+    }
+    error.checkXYZ(normal);
+    // plane normal
+    const [a,b,c]: number[] = new three.Vector3(...normal).normalize().toArray();
+    // mirror matrix
+    const matrix_mirror: three.Matrix4 = new three.Matrix4();
+    matrix_mirror.set(
+        1 - (2 * a * a), -2 * a * b, -2 * a * c, 0,
+        -2 * a * b, 1 - (2 * b * b), -2 * b * c, 0,
+        -2 * a * c, -2 * b * c, 1 - (2 * c * c), 0,
+        0, 0, 0, 1
+    );
+    // translation matrix
+    const matrix_trn1: three.Matrix4 = new three.Matrix4();
+    matrix_trn1.makeTranslation(-origin_xyz[0], -origin_xyz[1], -origin_xyz[2]);
+    const matrix_trn2: three.Matrix4 = new three.Matrix4();
+    matrix_trn2.makeTranslation(origin_xyz[0], origin_xyz[1], origin_xyz[2]);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_trn2.multiply(matrix_mirror.multiply(matrix_trn1)));
     // return the result, either single obj or array
     if (is_array) {return objs;}
     return objs[0];

@@ -46,14 +46,14 @@ export function cos(angle: number): number {
 }
 
 /**
- * Returns the arc cosine (or inverse cosine) of a specified angle in degrees.
+ * Returns the arc cosine (or inverse cosine) of a specified number, converted to degrees.
  *
- * @param angle Angle in degrees.
- * @returns Arc cosine of angle.
+ * @param num Number.
+ * @returns Angle, the arc cosine of num converted to degrees.
  */
-export function acos(angle: number): number {
-    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
-    return Math.acos(angle*(Math.PI/180));
+export function acos(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return Math.acos(num)*(180/Math.PI);
 }
 
 /**
@@ -68,14 +68,14 @@ export function sin(angle: number): number {
 }
 
 /**
- * Returns the arc sine (or inverse sine) of a specified angle in degrees.
+ * Returns the arc sine (or inverse sine) of a specified number, converted to degrees.
  *
- * @param angle Angle in degrees.
- * @returns Arc sine of angle.
+ * @param num Number.
+ * @returns Angle, the arc cosine of num converted to degrees.
  */
-export function asin(angle: number): number {
-    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
-    return Math.asin(angle*(Math.PI/180));
+export function asin(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return Math.asin(num)*(180/Math.PI);
 }
 
 /**
@@ -90,17 +90,16 @@ export function tan(angle: number): number {
 }
 
 /**
- * Returns the arc tangent (or inverse tangent) of a specified angle in degrees.
+ * Returns the arc tangent (or inverse tangent) of a specified number, converted to degrees.
  *
- * @param angle Angle in degrees.
- * @returns Arc tangent of angle.
+ * @param num Number.
+ * @returns Angle, the arc tangent of num converted to degrees.
  */
-export function atan(angle: number): number {
-    if (angle === undefined) {throw new Error("Invalid arg: angle must be defined.");}
-    return Math.atan(angle*(Math.PI/180));
+export function atan(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return Math.atan(num)*(180/Math.PI);
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
 /**
  * Returns a number representing the given base taken to the power of the given exponent.
  *

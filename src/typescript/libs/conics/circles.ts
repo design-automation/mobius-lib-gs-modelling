@@ -64,7 +64,7 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
     const z_axis: three.Vector3 = threex.crossVectors(x_axis, tmp_vec); // .normalize();
     const y_axis: three.Vector3 = threex.crossVectors(z_axis, x_axis); // .normalize();
     // create the xform matrices to map 3d -> 2d
-    const m: three.Matrix4 = threex.xformMatrix(p1, x_axis, y_axis);
+    const m: three.Matrix4 = threex.xformMatrixNeg(p1, x_axis, y_axis);
     const m_inv: three.Matrix4 = threex.matrixInverse(m);
     // calc the circle origin
     const p2_2d: three.Vector3 = threex.multVectorMatrix(p2, m);
@@ -171,7 +171,7 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         threex.dotVectors(e2, V1),
         threex.dotVectors(e2, W1),
     );
-    const rotation1: three.Matrix4 = threex.xformMatrix(vec_O_1, x1, y1);
+    const rotation1: three.Matrix4 = threex.xformMatrixNeg(vec_O_1, x1, y1);
     // Initial Rotation Matrix expressed in the reference direct orthonormal basis
     // Circle 1
     const O1C1: three.Vector3 = threex.subVectors(C1, O1, false);
@@ -190,7 +190,7 @@ export function _isectCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): 
         threex.dotVectors(V1, e2),
         threex.dotVectors(V1, e3),
     );
-    const init_rotation1: three.Matrix4 = threex.xformMatrix(init_vec_O_1, init_x1, init_y1);
+    const init_rotation1: three.Matrix4 = threex.xformMatrixNeg(init_vec_O_1, init_x1, init_y1);
     const a: three.Vector3 = threex.multVectorMatrix(C1, init_rotation1);
     const b: three.Vector3 = threex.multVectorMatrix(C2, init_rotation1);
     const circle_1 = {
