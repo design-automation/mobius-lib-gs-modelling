@@ -253,9 +253,8 @@ export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
  */
 export function explode(pmesh: gs.IPolymesh): gs.IPolymesh[] {
     error.checkObj(pmesh, gs.EObjType.polymesh);
-    return this.extract(pmesh, Arr.makeSeq(pmesh.numFaces()));
+    return this.extractFaces(pmesh, Arr.makeSeq(pmesh.numFaces()));
 }
-
 
 /**
  * Creates new set of polymeshes by extracting faces from an existing polymesh.
@@ -267,7 +266,7 @@ export function explode(pmesh: gs.IPolymesh): gs.IPolymesh[] {
  * @param face_index Index numbers of polymesh faces to extract.
  * @returns List of new polymeshes.
  */
-export function extractFace(pmesh: gs.IPolymesh, face_index: number[]): gs.IPolymesh[] {
+export function extractFaces(pmesh: gs.IPolymesh, face_index: number[]): gs.IPolymesh[] {
     const m: gs.IModel = error.checkObj(pmesh, gs.EObjType.polymesh);
     error.checkPosNums(face_index);
     // do the extraction
@@ -291,7 +290,7 @@ export function extractFace(pmesh: gs.IPolymesh, face_index: number[]): gs.IPoly
  * @param wire_index Index numbers of polymesh wires to extract.
  * @returns List of new polylines.
  */
-export function extractWire(pmesh: gs.IPolymesh, wire_index: number[]): gs.IPolyline[] {
+export function extractWires(pmesh: gs.IPolymesh, wire_index: number[]): gs.IPolyline[] {
     const m: gs.IModel = error.checkObj(pmesh, gs.EObjType.polymesh);
     error.checkPosNums(wire_index);
     // do the extraction
