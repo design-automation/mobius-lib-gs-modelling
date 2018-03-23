@@ -13,6 +13,7 @@ import * as gsm from "./_export_dev";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
 import * as conics from "./libs/conics/circles";
+import * as poly from "./libs/poly/poly";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -149,4 +150,19 @@ export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoly
     model.getGeom().delObj(pline, false);
     // return an array of intersection points
     return new_plines;
+}
+
+/**
+ * Finds the intersection points between two coplanar polylines, and splits the polylines at those points.
+ * If intersections are found, then new polylines will be generated and the old polyline will be deleted.
+ * If no intersections are found, then null is return and the old polyline remains unchanged.
+ *
+ * @param pline1 The first polyline.
+ * @param pline2 The second polylne.
+ * @returns List of list of polylines. The first list containts the pieces from the first polyline.
+ * The secbd list, the pieces from the second polyline.
+ */
+export function polylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyline): gs.IPolyline[][] {
+    error.checkObjList([pline1, pline2], 2, gs.EObjType.polyline);
+    return poly._splitPolylinePolyline2D(pline1, pline2);
 }

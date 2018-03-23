@@ -13,6 +13,7 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
 import * as conics from "./libs/conics/circles";
+import * as poly from "./libs/poly/poly";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -29,6 +30,18 @@ import * as error from "./_error_msgs_dev";
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
     error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
     return conics._isectCircleCircle2D(circle1, circle2);
+}
+
+/**
+ * Finds the intersection points between two coplanar polylines.
+ *
+ * @param pline1 Polyline 1
+ * @param pline2 Polyline 2
+ * @returns List of intersection points.
+ */
+export function polylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyline): gs.IPoint[] {
+    error.checkObjList([pline1, pline2], 2, gs.EObjType.polyline);
+    return poly._isectPolylinePolyline2D(pline1, pline1);
 }
 
 /**

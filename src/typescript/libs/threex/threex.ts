@@ -16,6 +16,12 @@ export function multVectorMatrix(v: three.Vector3, m: three.Matrix4): three.Vect
     return v2;
 }
 
+export function multXYZMatrix(xyz: gs.XYZ, m: three.Matrix4): three.Vector3 {
+    const v2: three.Vector3 = new three.Vector3(...xyz);
+    v2.applyMatrix4(m);
+    return v2;
+}
+
 /*
  * Transforms from LCS to GCS. The LCS is defined by origin, x axis, y axis.
  */
@@ -72,8 +78,11 @@ export function xformMatrixFromXYZVectors(o: gs.XYZ, xaxis: gs.XYZ, xyplane: gs.
 
 //  Vectors =======================================================================================================
 
-export function orthoVectors(vector1: three.Vector3, vector2: three.Vector3): three.Vector3 {
-    return crossVectors(vector1, vector2).cross(vector1);
+/*
+ * returns the y vector
+ */
+export function orthoVectors(vec_x: three.Vector3, vec: three.Vector3): three.Vector3 {
+    return crossVectors(vec_x, vec).cross(vec_x);
 }
 
 export function vectorNegate(vector: three.Vector3): three.Vector3 {
@@ -133,6 +142,103 @@ export function vectorFromVerticesAtoB(a: gs.IVertex, b: gs.IVertex, norm: boole
         new three.Vector3(...a.getPoint().getPosition()));
     if (norm) {v.normalize();}
     return v;
+}
+
+// /*
+//  * Finds the two orthogonal vectors in a plane defined by a set of co-planar points.
+//  */
+// export function orthoVectorsFromXYZs(points: three.Vector3[]): [three.Vector3, three.Vector3] {
+//     if (points.length < 3) {return null;}
+//     if (points.length == 3) {
+//         const vec_x: three.Vector3 = new three.Vector3().subVectors(points[1], points[0]).normalize();
+//         const vec: three.Vector3 = new three.Vector3().subVectors(points[2], points[0]).normalize();
+//         const vec_y: three.Vector3 = orthoVectors(vec_x, vec);
+//         if (vec_y.length() < EPS) {return null;}
+//         return [vec_x, vec_y];
+//     }
+//     const x_bbox: {min:three.Vector3, max:three.Vector3, dim:number} = {min:null, max:null, dim:null};
+//     const y_bbox: {min:three.Vector3, max:three.Vector3, dim:number} = {min:null, max:null, dim:null};
+//     const z_bbox: {min:three.Vector3, max:three.Vector3, dim:number} = {min:null, max:null, dim:null};
+//     for (const point of points) {
+//         // find min max of x
+//         if ((x_bbox.min === null) || (point.x < x_bbox.min.x)) {
+//             x_bbox.min = point;
+//         }
+//         if ((x_bbox.max === null) || (point.x > x_bbox.max.x)) {
+//             x_bbox.max = point;
+//         }
+//         // find min max of y
+//         if ((y_bbox.min === null) || (point.y < y_bbox.min.y)) {
+//             y_bbox.min = point;
+//         }
+//         if ((y_bbox.max === null) || (point.y > y_bbox.max.y)) {
+//             y_bbox.max = point;
+//         }
+//         // find min max of z
+//         if ((z_bbox.min === null) || (point.z < z_bbox.min.z)) {
+//             z_bbox.min = point;
+//         }
+//         if ((z_bbox.max === null) || (point.z > z_bbox.max.z)) {
+//             z_bbox.max = point;
+//         }
+//     }
+//     x_bbox.dim = Math.abs(x_bbox.max[0] - x_bbox.min[0]);
+//     y_bbox.dim = Math.abs(y_bbox.max[1] - y_bbox.min[1]);
+//     z_bbox.dim = Math.abs(z_bbox.max[2] - z_bbox.min[2]);
+//     const sorted_bbox = [x_bbox, y_bbox, z_bbox].sort((n1,n2) => {
+//         if (n1.dim > n2.dim) {return -1;}
+//         return 1;
+//     });
+//     if (sorted_bbox[0].dim < EPS) {return null;}
+//     if (sorted_bbox[1].dim < EPS) {return null;}
+//     const p1: three.Vector3 = sorted_bbox[0].min;
+//     const p2: three.Vector3 = sorted_bbox[0].max;
+//     const p3: three.Vector3 = sorted_bbox[1].min;
+//     const p4: three.Vector3 = sorted_bbox[1].max;
+//     const vec_x: three.Vector3 = p2.sub(p1).normalize();
+//     const vec: three.Vector3 = p4.sub(p3).normalize();
+//     const vec_y: three.Vector3 = orthoVectors(vec_x, vec);
+//     if (vec_y.length() < EPS) {return null;}
+//     return [vec_x, vec_y];
+// }
+
+/*
+ * Finds the normal using Newell's method
+ */
+export function normalVectorFromPlanarVPoints(points: three.Vector3[]): three.Vector3 {
+
+    const normal: three.Vector3 = new three.Vector3();
+    for (let i = 0;i < points.length - 1; i++) {
+        const point0: three.Vector3 = points[i];
+        const point1: three.Vector3 = points[i + 1];
+        normal.x += (point0.y - point1.y) * (point0.z + point1.z);
+        normal.y += (point0.z - point1.z) * (point0.x + point1.x);
+        normal.z += (point0.x - point1.x) * (point0.y + point1.y);
+    }
+    return normal.normalize();
+}
+
+/*
+ * Finds the ortho vectors using Newell's method
+ */
+export function orthoVectorsFromPlanarVPoints(points: three.Vector3[]): [three.Vector3, three.Vector3] {
+    const normal: three.Vector3 = new three.Vector3();
+    let max_vec_len: number = 0;
+    let vec_x: three.Vector3 = null;
+    for (let i = 0;i < points.length - 1; i++) {
+        const point0: three.Vector3 = points[i];
+        const point1: three.Vector3 = points[i + 1];
+        const test_vec: three.Vector3 = new three.Vector3().subVectors(point1, point0);
+        if (test_vec.lengthSq() > max_vec_len) {vec_x = test_vec;}
+        normal.x += (point0.y - point1.y) * (point0.z + point1.z);
+        normal.y += (point0.z - point1.z) * (point0.x + point1.x);
+        normal.z += (point0.x - point1.x) * (point0.y + point1.y);
+    }
+    normal.normalize();
+    vec_x.normalize();
+    const vec_y: three.Vector3 = new three.Vector3().crossVectors(vec_x, normal);
+    if (vec_y.length() < EPS) {return null;}
+    return [vec_x, vec_y];
 }
 
 //  XYZ ===========================================================================================================

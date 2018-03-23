@@ -77,6 +77,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_poly_poly_.html#_isectlineline2d" class="tsd-kind-icon">_isect<wbr>Line<wbr>Line2D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#_isectpolylinepolyline2d" class="tsd-kind-icon">_isect<wbr>Polyline<wbr>Polyline2D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#_splitpolylinepolyline2d" class="tsd-kind-icon">_split<wbr>Polyline<wbr>Polyline2D</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#getvertexnormal" class="tsd-kind-icon">get<wbr>Vertex<wbr>Normal</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsevaluate" class="tsd-kind-icon">points<wbr>Evaluate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_poly_.html#pointsextend" class="tsd-kind-icon">points<wbr>Extend</a></li>
@@ -95,13 +98,113 @@
 					<div class="tsd-signature tsd-kind-icon">EPS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.000001</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L5">libs/poly/poly.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L5">libs/poly/poly.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="_isectlineline2d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>Line<wbr>Line2D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>Line<wbr>Line2D<span class="tsd-signature-symbol">(</span>line1_start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span>, line1_end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span>, line2_start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span>, line2_end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L245">libs/poly/poly.ts:245</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Intersect lines.
+									<a href="http://jsfiddle.net/justin_c_rounds/Gd2S2/light/">http://jsfiddle.net/justin_c_rounds/Gd2S2/light/</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>line1_start: <span class="tsd-signature-type">Vector3</span></h5>
+								</li>
+								<li>
+									<h5>line1_end: <span class="tsd-signature-type">Vector3</span></h5>
+								</li>
+								<li>
+									<h5>line2_start: <span class="tsd-signature-type">Vector3</span></h5>
+								</li>
+								<li>
+									<h5>line2_end: <span class="tsd-signature-type">Vector3</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Vector3</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="_isectpolylinepolyline2d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>Polyline<wbr>Polyline2D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>Polyline<wbr>Polyline2D<span class="tsd-signature-symbol">(</span>pline1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, pline2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L124">libs/poly/poly.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Intersect polylines.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline1: <span class="tsd-signature-type">IPolyline</span></h5>
+								</li>
+								<li>
+									<h5>pline2: <span class="tsd-signature-type">IPolyline</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="_splitpolylinepolyline2d" class="tsd-anchor"></a>
+					<h3>_split<wbr>Polyline<wbr>Polyline2D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">_split<wbr>Polyline<wbr>Polyline2D<span class="tsd-signature-symbol">(</span>pline1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, pline2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L178">libs/poly/poly.ts:178</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Split polylines.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline1: <span class="tsd-signature-type">IPolyline</span></h5>
+								</li>
+								<li>
+									<h5>pline2: <span class="tsd-signature-type">IPolyline</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="getvertexnormal" class="tsd-anchor"></a>
 					<h3>get<wbr>Vertex<wbr>Normal</h3>
@@ -112,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L10">libs/poly/poly.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L10">libs/poly/poly.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -140,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L92">libs/poly/poly.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L92">libs/poly/poly.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -172,7 +275,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L73">libs/poly/poly.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L73">libs/poly/poly.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,7 +313,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L53">libs/poly/poly.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L53">libs/poly/poly.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/48a959b/src/typescript/libs/poly/poly.ts#L37">libs/poly/poly.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/libs/poly/poly.ts#L37">libs/poly/poly.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,6 +383,15 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_libs_poly_poly_.html#eps" class="tsd-kind-icon">EPS</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_libs_poly_poly_.html#_isectlineline2d" class="tsd-kind-icon">_isect<wbr>Line<wbr>Line2D</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_libs_poly_poly_.html#_isectpolylinepolyline2d" class="tsd-kind-icon">_isect<wbr>Polyline<wbr>Polyline2D</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_libs_poly_poly_.html#_splitpolylinepolyline2d" class="tsd-kind-icon">_split<wbr>Polyline<wbr>Polyline2D</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_libs_poly_poly_.html#getvertexnormal" class="tsd-kind-icon">get<wbr>Vertex<wbr>Normal</a>

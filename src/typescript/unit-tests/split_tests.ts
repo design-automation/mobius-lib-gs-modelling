@@ -1,10 +1,14 @@
 import * as gs from "gs-json";
+import * as gsm from "../_export_dev";
 import * as sl from "../split";
 import {} from "jasmine";
 
 describe("Tests for Split", () => {
     it("test_circleCircle2D", () => {
         expect( test_circleCircle2D() ).toBe(true);
+    });
+    it("test_polylinePolyline2D", () => {
+        expect( test_polylinePolyline2D() ).toBe(true);
     });
 });
 
@@ -47,5 +51,17 @@ export function test_circleCircle2D(): boolean {
         k++;
     }
 
+    return true;
+}
+
+export function test_polylinePolyline2D(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[0,4,0]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[5,1,0]]);
+    const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
+    const result: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pline1, pline2);
+    if(result[0].length !== 3) {return false;}
+    if(m.getGeom().numObjs() !== 6) {return false;}
     return true;
 }

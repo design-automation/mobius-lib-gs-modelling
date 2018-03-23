@@ -142,7 +142,9 @@ export function rotate(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint, axis
 }
 
 /**
- * Scales an object or a list of objects around an origin point.
+ * Scales an object or a list of objects relative to an origin point.
+ * The scale factor is specified by three vales, for scaling in x, y, and z.
+ * Primitive objects, such as circles and arcs, can only be scaled uniformly.
  *
  * @param objs An object or a list of objects.
  * @param origin An origin point of the scale, can be either a list of three numbers or a point.

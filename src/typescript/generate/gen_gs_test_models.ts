@@ -39,6 +39,8 @@ if (require.main === module) {
     writeGsToJSONFile(plines.genModelTest5(), path + "plines_test5.gs");
     writeGsToJSONFile(plines.genModelTest6(), path + "plines_test6.gs");
     writeGsToJSONFile(plines.genModelTest7(), path + "plines_test7.gs");
+    writeGsToJSONFile(plines.genModelTest8(), path + "plines_test8.gs");
+    writeGsToJSONFile(plines.genModelTest9(), path + "plines_test9.gs");
 }
 
 if (require.main === module) {
@@ -51,7 +53,8 @@ if (require.main === module) {
 if (require.main === module) {
     console.log("Three files: objs...");
     writeGsToJSONFile(object.genModelTest1(), path + "obj_test1.gs");
-    writeGsToJSONFile(object.genModelTest2(), path + "obj_test1.gs");
+    writeGsToJSONFile(object.genModelTest2(), path + "obj_test2.gs");
+    writeGsToJSONFile(object.genModelTest3(), path + "obj_test3.gs");
 }
 
 if (require.main === module) {

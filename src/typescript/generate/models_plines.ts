@@ -99,3 +99,23 @@ export function genModelTest7(): gs.IModel {
     gsm.pline.loft([pl1, pl2, pl3, pl4], false);
     return m;
 }
+
+export function genModelTest8(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[-1,-2,0],[1.1,2.2,0]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points, false);
+    const pline2: gs.IPolyline = gsm.object.move(pline1, [1,0,0], true) as gs.IPolyline;
+    gsm.object.rotate([pline1, pline2], [5,2,0], [1,1,0], 30, false);
+    const isect_points: gs.IPoint[] = gsm.intersect.polylinePolyline2D(pline1, pline2);
+    return m;
+}
+
+export function genModelTest9(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[-1,-2,0],[1.1,2.2,0]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[5,5,0]]);
+    const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
+    const result: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pline1, pline2);
+    return m;
+}

@@ -32,3 +32,11 @@ export function genModelTest2(): gs.IModel {
     }
     return m;
 }
+
+export function genModelTest3(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [10,10,0]);
+    const c1: gs.ICircle = gsm.circle.FromOriginXY(p1, 5, null);
+    const c2: gs.ICircle = gsm.object.mirror(c1, [0,0,0], [1,0,0], true) as gs.Circle;
+    return m;
+}

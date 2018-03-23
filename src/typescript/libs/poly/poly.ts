@@ -118,6 +118,154 @@ export function pointsEvaluate(points: gs.IPoint[], t_param: number): gs.IPoint 
     throw new Error("Something went wrong evaluating the t parameter.");
 }
 
+/**
+ * Intersect polylines.
+ */
+export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyline): gs.IPoint[] {
+    const model: gs.IModel = pline1.getModel();
+    const points1: gs.IPoint[] = pline1.getPointsArr();
+    const points2: gs.IPoint[] = pline2.getPointsArr();
+    const points1_vec: three.Vector3[] = points1.map((p) => new three.Vector3(...p.getPosition()));
+    const points2_vec: three.Vector3[] = points2.map((p) => new three.Vector3(...p.getPosition()));
+    const ortho_vecs: [three.Vector3, three.Vector3] = threex.orthoVectorsFromPlanarVPoints(
+            [...points1_vec, ...points2_vec]);
+    // Create the matrixes to transform between 3d and 2d
+    if (ortho_vecs === null) {
+        throw new Error("Entities must be coplanar.");
+    }
+    const matrix_neg: three.Matrix4 = threex.xformMatrixNeg(
+        points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
+    const matrix_pos: three.Matrix4 = threex.xformMatrixPos(
+        points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
+    // Add points for closed polylines
+    if (pline1.isClosed()) {points1_vec.push(points1_vec[0]);}
+    if (pline2.isClosed()) {points2_vec.push(points2_vec[0]);}
+    // Make the polyline points 2D, and also check that they really are 2d
+    for (const point of points1_vec) {
+        point.applyMatrix4(matrix_neg);
+        if (Math.abs(point.z) > EPS) {return null;}
+    }
+    for (const point of points2_vec) {
+        point.applyMatrix4(matrix_neg);
+        if (Math.abs(point.z) > EPS) {return null;}
+    }
+    // Loop through each edge and check for intersections
+    const isect_points: gs.IPoint[] = [];
+    if (Math.abs(points1_vec[0].z) > EPS) {return null;}
+    if (Math.abs(points2_vec[0].z) > EPS) {return null;}
+    for (let i = 0; i < points1_vec.length - 1; i++) {
+        const line1_start: three.Vector3 = points1_vec[i];
+        const line1_end: three.Vector3 = points1_vec[i+1];
+        if (Math.abs(line1_end.z) > EPS) {return null;}
+        for (let j = 0; j < points2_vec.length - 1; j++) {
+            const line2_start: three.Vector3 = points2_vec[j];
+            const line2_end: three.Vector3 = points2_vec[j+1];
+            if (Math.abs(line2_end.z) > EPS) {return null;}
+            const result: three.Vector3 = _isectLineLine2D(line1_start, line1_end, line2_start, line2_end);
+            if (result !== null) {
+                const xyz: gs.XYZ = result.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
+                const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
+                isect_points.push(isect_point);
+            }
+        }
+    }
+    return isect_points;
+}
+
+/**
+ * Split polylines.
+ */
+export function _splitPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyline): gs.IPolyline[][] {
+    const model: gs.IModel = pline1.getModel();
+    const points1: gs.IPoint[] = pline1.getPointsArr();
+    const points2: gs.IPoint[] = pline2.getPointsArr();
+    // Add points for closed polylines
+    if (pline1.isClosed()) {points1.push(points1[0]);}
+    if (pline2.isClosed()) {points2.push(points2[0]);}
+    // Create vpoints
+    const points1_vec: three.Vector3[] = points1.map((p) => new three.Vector3(...p.getPosition()));
+    const points2_vec: three.Vector3[] = points2.map((p) => new three.Vector3(...p.getPosition()));
+    const ortho_vecs: [three.Vector3, three.Vector3] = threex.orthoVectorsFromPlanarVPoints(
+            [...points1_vec, ...points2_vec]);
+    // Create the matrixes to transform between 3d and 2d
+    if (ortho_vecs === null) {
+        throw new Error("Entities must be coplanar.");
+    }
+    const matrix_neg: three.Matrix4 = threex.xformMatrixNeg(
+        points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
+    const matrix_pos: three.Matrix4 = threex.xformMatrixPos(
+        points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
+    // Make the polyline points 2D, and also check that they really are 2d
+    for (const point of points1_vec) {
+        point.applyMatrix4(matrix_neg);
+        if (Math.abs(point.z) > EPS) {return null;}
+    }
+    for (const point of points2_vec) {
+        point.applyMatrix4(matrix_neg);
+        if (Math.abs(point.z) > EPS) {return null;}
+    }
+    // Loop through each edge and check for intersections
+    const new_points1: gs.IPoint[][] = [[points1[0]]];
+    const new_points2: gs.IPoint[][] = [[points2[0]]];
+    for (let i = 0; i < points1_vec.length - 1; i++) {
+        const line1_start: three.Vector3 = points1_vec[i];
+        const line1_end: three.Vector3 = points1_vec[i+1];
+        for (let j = 0; j < points2_vec.length - 1; j++) {
+            const line2_start: three.Vector3 = points2_vec[j];
+            const line2_end: three.Vector3 = points2_vec[j+1];
+            const result: three.Vector3 = _isectLineLine2D(line1_start, line1_end,
+                                                           line2_start, line2_end);
+            if (result !== null) {
+                const xyz: gs.XYZ = result.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
+                const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
+                // pline 1
+                new_points1[new_points1.length - 1].push(isect_point);
+                new_points1.push([isect_point]);
+                // pline 2
+                new_points2[new_points2.length - 1].push(isect_point);
+                new_points2.push([isect_point]);
+            }
+            new_points2[new_points2.length - 1].push(points2[j + 1]);
+        }
+        new_points1[new_points1.length - 1].push(points1[i + 1]);
+    }
+    if (new_points1.length === 1) {return null;}
+    // delete the old plines
+    model.getGeom().delObjs([pline1, pline2], false);
+    // return an array of new plines
+    const new_plines1: gs.IPolyline[] = new_points1.map((pts) => model.getGeom().addPolyline(pts, false));
+    const new_plines2: gs.IPolyline[] = new_points2.map((pts) => model.getGeom().addPolyline(pts, false));
+    return [new_plines1, new_plines2];
+}
+
+/**
+ * Intersect lines.
+ * http://jsfiddle.net/justin_c_rounds/Gd2S2/light/
+ */
+function _isectLineLine2D(line1_start: three.Vector3, line1_end: three.Vector3,
+                          line2_start: three.Vector3, line2_end: three.Vector3): three.Vector3 {
+    const denominator: number =
+        ((line2_end.y - line2_start.y) * (line1_end.x - line1_start.x)) -
+        ((line2_end.x - line2_start.x) * (line1_end.y - line1_start.y));
+    // lines are parallel
+    if (denominator === 0) {return null;}
+    // calc intersection
+    let a: number = line1_start.y - line2_start.y;
+    let b: number = line1_start.x - line2_start.x;
+    const numerator1: number = ((line2_end.x - line2_start.x) * a) - ((line2_end.y - line2_start.y) * b);
+    const numerator2: number = ((line1_end.x - line1_start.x) * a) - ((line1_end.y - line1_start.y) * b);
+    a = numerator1 / denominator;
+    b = numerator2 / denominator;
+    // check intersection point is on both line segments
+    if (a < 0 && a >= 1) {return null;}
+    if (b < 0 && b >= 1) {return null;}
+    // if we cast these lines infinitely in both directions, they intersect here:
+    const result_x: number = line1_start.x + (a * (line1_end.x - line1_start.x));
+    const result_y: number = line1_start.y + (a * (line1_end.y - line1_start.y));
+    // return the result
+    return new three.Vector3(result_x, result_y, 0);
+}
+
 // /**
 //  * Get center as avg of points
 //  */

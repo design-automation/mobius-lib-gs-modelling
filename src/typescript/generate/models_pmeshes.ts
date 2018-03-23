@@ -38,7 +38,6 @@ export function genModelTest2(): gs.IModel {
     return m;
 }
 
-
 export function genTriStrip(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
     const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
