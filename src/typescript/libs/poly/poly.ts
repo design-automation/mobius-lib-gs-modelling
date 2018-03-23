@@ -151,19 +151,16 @@ export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
     }
     // Loop through each edge and check for intersections
     const isect_points: gs.IPoint[] = [];
-    if (Math.abs(points1_vec[0].z) > EPS) {return null;}
-    if (Math.abs(points2_vec[0].z) > EPS) {return null;}
     for (let i = 0; i < points1_vec.length - 1; i++) {
         const line1_start: three.Vector3 = points1_vec[i];
         const line1_end: three.Vector3 = points1_vec[i+1];
-        if (Math.abs(line1_end.z) > EPS) {return null;}
         for (let j = 0; j < points2_vec.length - 1; j++) {
             const line2_start: three.Vector3 = points2_vec[j];
             const line2_end: three.Vector3 = points2_vec[j+1];
-            if (Math.abs(line2_end.z) > EPS) {return null;}
-            const result: three.Vector3 = _isectLineLine2D(line1_start, line1_end, line2_start, line2_end);
+            const result: {isect_point: three.Vector3, t1: number, t2: number} =
+                _isectLineLine2D(line1_start, line1_end, line2_start, line2_end);
             if (result !== null) {
-                const xyz: gs.XYZ = result.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
+                const xyz: gs.XYZ = result.isect_point.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
                 const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
                 isect_points.push(isect_point);
             }
@@ -205,33 +202,63 @@ export function _splitPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
         if (Math.abs(point.z) > EPS) {return null;}
     }
     // Loop through each edge and check for intersections
-    const new_points1: gs.IPoint[][] = [[points1[0]]];
-    const new_points2: gs.IPoint[][] = [[points2[0]]];
+    const isect1_map: Map<number, {t:number, isect_point:gs.IPoint}[]> = new Map();
+    const isect2_map: Map<number, {t:number, isect_point:gs.IPoint}[]> = new Map();
     for (let i = 0; i < points1_vec.length - 1; i++) {
         const line1_start: three.Vector3 = points1_vec[i];
         const line1_end: three.Vector3 = points1_vec[i+1];
         for (let j = 0; j < points2_vec.length - 1; j++) {
             const line2_start: three.Vector3 = points2_vec[j];
             const line2_end: three.Vector3 = points2_vec[j+1];
-            const result: three.Vector3 = _isectLineLine2D(line1_start, line1_end,
-                                                           line2_start, line2_end);
+            const result: {isect_point: three.Vector3, t1: number, t2: number} =
+                _isectLineLine2D(line1_start, line1_end, line2_start, line2_end);
             if (result !== null) {
-                const xyz: gs.XYZ = result.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
+                const xyz: gs.XYZ = result.isect_point.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
                 const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
-                // pline 1
-                new_points1[new_points1.length - 1].push(isect_point);
-                new_points1.push([isect_point]);
-                // pline 2
-                new_points2[new_points2.length - 1].push(isect_point);
-                new_points2.push([isect_point]);
+                // add the point for pline1
+                if (!isect1_map.has(i)) {isect1_map.set(i, []);}
+                isect1_map.get(i).push({t:result.t1, isect_point:isect_point});
+                // add the point for pline2
+                if (!isect2_map.has(j)) {isect2_map.set(j, []);}
+                isect2_map.get(j).push({t:result.t2, isect_point:isect_point});
             }
-            new_points2[new_points2.length - 1].push(points2[j + 1]);
         }
+    }
+    // make the list of points for pline 1
+    const new_points1: gs.IPoint[][] = [[points1[0]]];
+    for (let i = 0; i < points1.length - 1; i++) {
+        if (isect1_map.has(i)) {
+            // sort the points in the list by t value
+            const isects: {t:number, isect_point:gs.IPoint}[] = isect1_map.get(i);
+            isects.sort((a, b) => a.t - b.t);
+            // for each isect, start a new array of points
+            for (const isect of isects) {
+                new_points1[new_points1.length - 1].push(isect.isect_point);
+                new_points1.push([isect.isect_point]);
+            }
+        }
+        // add the next point
         new_points1[new_points1.length - 1].push(points1[i + 1]);
     }
-    if (new_points1.length === 1) {return null;}
+
+    // make the list of points for pline 2
+    const new_points2: gs.IPoint[][] = [[points2[0]]];
+    for (let i = 0; i < points2.length - 1; i++) {
+        if (isect2_map.has(i)) {
+            // sort the points in the list by t value
+            const isects: {t:number, isect_point:gs.IPoint}[] = isect2_map.get(i);
+            isects.sort((a, b) => a.t - b.t);
+            // for each isect, start a new array of points
+            for (const isect of isects) {
+                new_points2[new_points2.length - 1].push(isect.isect_point);
+                new_points2.push([isect.isect_point]);
+            }
+        }
+        // add the next point
+        new_points2[new_points2.length - 1].push(points2[i + 1]);
+    }
     // delete the old plines
-    model.getGeom().delObjs([pline1, pline2], false);
+    model.getGeom().delObjs([pline1, pline2], true);
     // return an array of new plines
     const new_plines1: gs.IPolyline[] = new_points1.map((pts) => model.getGeom().addPolyline(pts, false));
     const new_plines2: gs.IPolyline[] = new_points2.map((pts) => model.getGeom().addPolyline(pts, false));
@@ -243,27 +270,28 @@ export function _splitPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
  * http://jsfiddle.net/justin_c_rounds/Gd2S2/light/
  */
 function _isectLineLine2D(line1_start: three.Vector3, line1_end: three.Vector3,
-                          line2_start: three.Vector3, line2_end: three.Vector3): three.Vector3 {
+                          line2_start: three.Vector3, line2_end: three.Vector3):
+    {isect_point: three.Vector3, t1: number, t2: number} {
     const denominator: number =
         ((line2_end.y - line2_start.y) * (line1_end.x - line1_start.x)) -
         ((line2_end.x - line2_start.x) * (line1_end.y - line1_start.y));
     // lines are parallel
     if (denominator === 0) {return null;}
     // calc intersection
-    let a: number = line1_start.y - line2_start.y;
-    let b: number = line1_start.x - line2_start.x;
-    const numerator1: number = ((line2_end.x - line2_start.x) * a) - ((line2_end.y - line2_start.y) * b);
-    const numerator2: number = ((line1_end.x - line1_start.x) * a) - ((line1_end.y - line1_start.y) * b);
-    a = numerator1 / denominator;
-    b = numerator2 / denominator;
+    let t1: number = line1_start.y - line2_start.y;
+    let t2: number = line1_start.x - line2_start.x;
+    const numerator1: number = ((line2_end.x - line2_start.x) * t1) - ((line2_end.y - line2_start.y) * t2);
+    const numerator2: number = ((line1_end.x - line1_start.x) * t1) - ((line1_end.y - line1_start.y) * t2);
+    t1 = numerator1 / denominator;
+    t2 = numerator2 / denominator;
     // check intersection point is on both line segments
-    if (a < 0 && a >= 1) {return null;}
-    if (b < 0 && b >= 1) {return null;}
-    // if we cast these lines infinitely in both directions, they intersect here:
-    const result_x: number = line1_start.x + (a * (line1_end.x - line1_start.x));
-    const result_y: number = line1_start.y + (a * (line1_end.y - line1_start.y));
+    if (t1 < 0 && t1 >= 1) {return null;}
+    if (t2 < 0 && t2 >= 1) {return null;}
+    // intersection point
+    const result_x: number = line1_start.x + (t1 * (line1_end.x - line1_start.x));
+    const result_y: number = line1_start.y + (t1 * (line1_end.y - line1_start.y));
     // return the result
-    return new three.Vector3(result_x, result_y, 0);
+    return {isect_point: new three.Vector3(result_x, result_y, 0), t1: t1, t2: t2} ;
 }
 
 // /**

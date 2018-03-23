@@ -6,7 +6,7 @@
     },
     "geometries": [
         {
-            "uuid": "8cb6ec86-5c06-4478-a34d-a35d2f9de794",
+            "uuid": "55c4aab5-7cd2-40a6-b5fd-a12d2b7409cc",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -24,7 +24,7 @@
             }
         },
         {
-            "uuid": "bc7fff57-9a29-491c-a245-cec76e75b3ae",
+            "uuid": "06f21f8d-7f86-45f8-a594-0358e2510bc2",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -139,7 +139,7 @@
             }
         },
         {
-            "uuid": "65eefc2e-d4fd-4977-9c18-6d2cc5873ffc",
+            "uuid": "48b981d2-c46c-4813-8cf9-dc6bab26bc2e",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -254,7 +254,7 @@
             }
         },
         {
-            "uuid": "dd41280d-e315-4235-9cc7-f95181a649b0",
+            "uuid": "c2ae88a6-472f-4ce8-b607-9a24946946a7",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -366,7 +366,7 @@
             }
         },
         {
-            "uuid": "7fb19328-5bc7-4d94-923d-2e1c1eac532b",
+            "uuid": "8bac3327-47d4-4463-8c4d-d5458cd5901c",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -478,7 +478,7 @@
             }
         },
         {
-            "uuid": "ee2a8a91-f994-4ae1-bea0-6e23f95cf96c",
+            "uuid": "807c1bd9-2d06-4fff-83c9-b3b5165063be",
             "type": "BufferGeometry",
             "data": {
                 "attributes": {
@@ -498,7 +498,7 @@
     ],
     "materials": [
         {
-            "uuid": "98cba2d1-0bed-48ad-bde1-22836cb28161",
+            "uuid": "673402df-593e-4078-a088-ad6308a26b5b",
             "type": "LineBasicMaterial",
             "color": 0,
             "vertexColors": 0,
@@ -509,7 +509,7 @@
             "depthWrite": true
         },
         {
-            "uuid": "1e8e39cc-4c99-4432-b456-6983455d3466",
+            "uuid": "b8dddae8-3659-436c-9f71-31adcdb032ad",
             "type": "LineBasicMaterial",
             "color": 255,
             "vertexColors": 0,
@@ -520,7 +520,7 @@
             "depthWrite": true
         },
         {
-            "uuid": "d645a8c1-e9c4-41dc-aa9b-0661f59eef1e",
+            "uuid": "a1f647dd-1849-4c9d-9f96-a8c5192bc2bd",
             "type": "MeshPhongMaterial",
             "color": 16777215,
             "emissive": 0,
@@ -537,7 +537,7 @@
             "flatShading": true
         },
         {
-            "uuid": "03458963-feb8-4aa8-a82d-7d1063434c5f",
+            "uuid": "d2cc1d33-f767-452e-a99c-dcbc9d8817d7",
             "type": "MeshPhongMaterial",
             "color": 0,
             "emissive": 0,
@@ -555,7 +555,7 @@
             "flatShading": true
         },
         {
-            "uuid": "aece466d-23e7-4efb-b328-aec973840817",
+            "uuid": "d3571294-fe69-40a2-8b4a-956f09b3b686",
             "type": "PointsMaterial",
             "color": 16777215,
             "size": 2,
@@ -567,56 +567,56 @@
         "name": "Scene",
         "children": [
             {
-                "uuid": "ce434cd0-b0c0-4107-b3c2-8aea62e4894a",
+                "uuid": "b7f3d483-d40b-40e3-a223-963bf8058d2f",
                 "type": "Mesh",
                 "name": "All faces",
-                "geometry": "8cb6ec86-5c06-4478-a34d-a35d2f9de794",
-                "material": "d645a8c1-e9c4-41dc-aa9b-0661f59eef1e",
+                "geometry": "55c4aab5-7cd2-40a6-b5fd-a12d2b7409cc",
+                "material": "a1f647dd-1849-4c9d-9f96-a8c5192bc2bd",
                 "castShadow": true,
                 "receiveShadow": true
             },
             {
-                "uuid": "1061f72f-9c37-450d-8e7c-3b387cffc81c",
+                "uuid": "65e0b4e2-1508-419f-9eab-1060e9e71ffe",
                 "type": "LineSegments",
                 "name": "All wires",
-                "geometry": "bc7fff57-9a29-491c-a245-cec76e75b3ae",
-                "material": "1e8e39cc-4c99-4432-b456-6983455d3466",
+                "geometry": "06f21f8d-7f86-45f8-a594-0358e2510bc2",
+                "material": "b8dddae8-3659-436c-9f71-31adcdb032ad",
                 "castShadow": false,
                 "receiveShadow": false
             },
             {
-                "uuid": "f0b29b03-948f-4338-be06-2b49b0a853bb",
+                "uuid": "382be149-5383-4462-92f4-dfd17de4dbac",
                 "type": "LineSegments",
                 "name": "All edges",
-                "geometry": "65eefc2e-d4fd-4977-9c18-6d2cc5873ffc",
-                "material": "98cba2d1-0bed-48ad-bde1-22836cb28161",
+                "geometry": "48b981d2-c46c-4813-8cf9-dc6bab26bc2e",
+                "material": "673402df-593e-4078-a088-ad6308a26b5b",
                 "castShadow": false,
                 "receiveShadow": false
             },
             {
-                "uuid": "9626e81f-66ae-4a40-a06e-9e23253ffa57",
+                "uuid": "f34bc97e-4052-44d6-9eef-b1637ae57ba5",
                 "type": "Points",
                 "name": "All vertices",
-                "geometry": "dd41280d-e315-4235-9cc7-f95181a649b0",
-                "material": "aece466d-23e7-4efb-b328-aec973840817",
+                "geometry": "c2ae88a6-472f-4ce8-b607-9a24946946a7",
+                "material": "d3571294-fe69-40a2-8b4a-956f09b3b686",
                 "castShadow": false,
                 "receiveShadow": false
             },
             {
-                "uuid": "cf207c24-b120-4eaa-a9df-f4b08c6af696",
+                "uuid": "97fea135-7287-4d60-b4cf-5a2995e01ca3",
                 "type": "Points",
                 "name": "All points",
-                "geometry": "7fb19328-5bc7-4d94-923d-2e1c1eac532b",
-                "material": "aece466d-23e7-4efb-b328-aec973840817",
+                "geometry": "8bac3327-47d4-4463-8c4d-d5458cd5901c",
+                "material": "d3571294-fe69-40a2-8b4a-956f09b3b686",
                 "castShadow": false,
                 "receiveShadow": false
             },
             {
-                "uuid": "35a4cdfa-b865-45ca-b345-67d3b74f5b06",
+                "uuid": "9a0423d7-b688-4b54-b2b4-fb8ed412e5c8",
                 "type": "LineSegments",
                 "name": "Other lines",
-                "geometry": "ee2a8a91-f994-4ae1-bea0-6e23f95cf96c",
-                "material": "98cba2d1-0bed-48ad-bde1-22836cb28161",
+                "geometry": "807c1bd9-2d06-4fff-83c9-b3b5165063be",
+                "material": "673402df-593e-4078-a088-ad6308a26b5b",
                 "castShadow": false,
                 "receiveShadow": false
             }

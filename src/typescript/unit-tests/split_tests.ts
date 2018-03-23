@@ -56,12 +56,13 @@ export function test_circleCircle2D(): boolean {
 
 export function test_polylinePolyline2D(): boolean {
     const m: gs.IModel = gsm.model.New();
-    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[0,4,0]]);
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[4,0,0]]);
     const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
-    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[5,1,0]]);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[4,1,0]]);
     const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
     const result: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pline1, pline2);
     if(result[0].length !== 3) {return false;}
     if(m.getGeom().numObjs() !== 6) {return false;}
+    console.log(m);
     return true;
 }

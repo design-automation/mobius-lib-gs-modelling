@@ -17,7 +17,7 @@ import * as points from "./models_points";
 const path: string = "../gs-modelling/src/assets/gs-json/";
 
 if (require.main === module) {
-    console.log("Three files: circles...");
+    console.log("GS files: circles...");
     writeGsToJSONFile(circles.genModelTest1(), path + "circles_test1.gs");
     writeGsToJSONFile(circles.genModelTest1b(), path + "circles_test1b.gs");
     writeGsToJSONFile(circles.genModelTest1c(), path + "circles_test1c.gs");
@@ -31,7 +31,7 @@ if (require.main === module) {
 }
 
 if (require.main === module) {
-    console.log("Three files: plines...");
+    console.log("GS files: plines...");
     writeGsToJSONFile(plines.genModelTest1(), path + "plines_test1.gs");
     writeGsToJSONFile(plines.genModelTest2(), path + "plines_test2.gs");
     writeGsToJSONFile(plines.genModelTest3(), path + "plines_test3.gs");
@@ -44,20 +44,20 @@ if (require.main === module) {
 }
 
 if (require.main === module) {
-    console.log("Three files: pmeshes...");
+    console.log("GS files: pmeshes...");
     writeGsToJSONFile(pmeshes.genModelTest1(), path + "pmeshes_test1.gs");
     writeGsToJSONFile(pmeshes.genModelTest2(), path + "pmeshes_test2.gs");
     writeGsToJSONFile(pmeshes.genTriStrip(), path +   "pmeshes_genTriStrip.gs");
 }
 
 if (require.main === module) {
-    console.log("Three files: objs...");
+    console.log("GS files: objs...");
     writeGsToJSONFile(object.genModelTest1(), path + "obj_test1.gs");
     writeGsToJSONFile(object.genModelTest2(), path + "obj_test2.gs");
     writeGsToJSONFile(object.genModelTest3(), path + "obj_test3.gs");
 }
 
 if (require.main === module) {
-    console.log("Three files: points...");
+    console.log("GS files: points...");
     writeGsToJSONFile(points.genModelTest1(), path + "point_test1.gs");
 }

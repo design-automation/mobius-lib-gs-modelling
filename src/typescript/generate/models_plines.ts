@@ -112,9 +112,9 @@ export function genModelTest8(): gs.IModel {
 
 export function genModelTest9(): gs.IModel {
     const m: gs.IModel = gsm.model.New();
-    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[-1,-2,0],[1.1,2.2,0]]);
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[4,0,0]]);
     const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
-    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[5,5,0]]);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[4,1,0]]);
     const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
     const result: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pline1, pline2);
     return m;
