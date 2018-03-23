@@ -84,6 +84,9 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#get" class="tsd-kind-icon">Get</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#tristripfrompoints" class="tsd-kind-icon">Tri<wbr>Strip<wbr>From<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#explode" class="tsd-kind-icon">explode</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#extractface" class="tsd-kind-icon">extract<wbr>Face</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#extractwire" class="tsd-kind-icon">extract<wbr>Wire</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#extrude" class="tsd-kind-icon">extrude</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#getpoints" class="tsd-kind-icon">get<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pmesh_.html#isclosed" class="tsd-kind-icon">is<wbr>Closed</a></li>
@@ -108,7 +111,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L48">pmesh.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L48">pmesh.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -146,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L60">pmesh.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L60">pmesh.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,7 +187,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L91">pmesh.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L91">pmesh.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -216,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L79">pmesh.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L79">pmesh.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L36">pmesh.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L36">pmesh.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -290,7 +293,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L106">pmesh.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L106">pmesh.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -322,6 +325,119 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="explode" class="tsd-anchor"></a>
+					<h3>explode</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">explode<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L254">pmesh.ts:254</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Explodes a polymesh into smaller polymeshes, each with only one face.
+									The original polymesh is not modified.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh to explode.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of polymeshes.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="extractface" class="tsd-anchor"></a>
+					<h3>extract<wbr>Face</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">extract<wbr>Face<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span>, face_index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L270">pmesh.ts:270</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates new set of polymeshes by extracting faces from an existing polymesh.
+									The original polymesh is not modified.</p>
+								</div>
+								<p>The individual polymeshes are not joined.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh to extract faces from</p>
+									</div>
+								</li>
+								<li>
+									<h5>face_index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index numbers of polymesh faces to extract.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolymesh</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of new polymeshes.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="extractwire" class="tsd-anchor"></a>
+					<h3>extract<wbr>Wire</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">extract<wbr>Wire<span class="tsd-signature-symbol">(</span>pmesh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolymesh</span>, wire_index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L294">pmesh.ts:294</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates new set of polylines by extracting wires from an existing polymesh.
+									The original polymesh is not modified.</p>
+								</div>
+								<p>Wires are the naked edges of a polymesh. They are always closed loops.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pmesh: <span class="tsd-signature-type">IPolymesh</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Polymesh to extract wires from.</p>
+									</div>
+								</li>
+								<li>
+									<h5>wire_index: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index numbers of polymesh wires to extract.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>List of new polylines.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="extrude" class="tsd-anchor"></a>
 					<h3>extrude</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -331,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L231">pmesh.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L231">pmesh.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +489,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L210">pmesh.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L210">pmesh.ts:210</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -405,7 +521,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L155">pmesh.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L155">pmesh.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,7 +553,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L188">pmesh.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L188">pmesh.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,7 +585,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L166">pmesh.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L166">pmesh.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,7 +617,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L199">pmesh.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L199">pmesh.ts:199</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -533,7 +649,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/ef917d3/src/typescript/pmesh.ts#L177">pmesh.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/7736d6f/src/typescript/pmesh.ts#L177">pmesh.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -587,6 +703,15 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pmesh_.html#tristripfrompoints" class="tsd-kind-icon">Tri<wbr>Strip<wbr>From<wbr>Points</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#explode" class="tsd-kind-icon">explode</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#extractface" class="tsd-kind-icon">extract<wbr>Face</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pmesh_.html#extractwire" class="tsd-kind-icon">extract<wbr>Wire</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pmesh_.html#extrude" class="tsd-kind-icon">extrude</a>

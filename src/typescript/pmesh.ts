@@ -243,3 +243,64 @@ export function extrude(pmesh: gs.IPolymesh, vector: gs.XYZ): gs.IPolymesh {
     // return the new polymesh
     return model.getGeom().addPolymesh(pmesh_points);
 }
+
+/**
+ * Explodes a polymesh into smaller polymeshes, each with only one face.
+ * The original polymesh is not modified.
+ *
+ * @param pmesh Polymesh to explode.
+ * @returns List of polymeshes.
+ */
+export function explode(pmesh: gs.IPolymesh): gs.IPolymesh[] {
+    error.checkObj(pmesh, gs.EObjType.polymesh);
+    return this.extract(pmesh, Arr.makeSeq(pmesh.numFaces()));
+}
+
+
+/**
+ * Creates new set of polymeshes by extracting faces from an existing polymesh.
+ * The original polymesh is not modified.
+ *
+ * The individual polymeshes are not joined.
+ *
+ * @param pmesh Polymesh to extract faces from
+ * @param face_index Index numbers of polymesh faces to extract.
+ * @returns List of new polymeshes.
+ */
+export function extractFace(pmesh: gs.IPolymesh, face_index: number[]): gs.IPolymesh[] {
+    const m: gs.IModel = error.checkObj(pmesh, gs.EObjType.polymesh);
+    error.checkPosNums(face_index);
+    // do the extraction
+    const new_pmeshes: gs.IPolymesh[] = [];
+    const faces: gs.IFace[] = pmesh.getFaces();
+    for (const i of face_index) {
+        if (i >= faces.length - 1) {throw new Error("Face index exceeds the number of faces.");}
+        const points: gs.IPoint[] = faces[i].getVertices().map((v) => v.getPoint());
+        new_pmeshes.push(m.getGeom().addPolymesh([points]));
+    }
+    return new_pmeshes;
+}
+
+/**
+ * Creates new set of polylines by extracting wires from an existing polymesh.
+ * The original polymesh is not modified.
+ *
+ * Wires are the naked edges of a polymesh. They are always closed loops.
+ *
+ * @param pmesh Polymesh to extract wires from.
+ * @param wire_index Index numbers of polymesh wires to extract.
+ * @returns List of new polylines.
+ */
+export function extractWire(pmesh: gs.IPolymesh, wire_index: number[]): gs.IPolyline[] {
+    const m: gs.IModel = error.checkObj(pmesh, gs.EObjType.polymesh);
+    error.checkPosNums(wire_index);
+    // do the extraction
+    const new_plines: gs.IPolyline[] = [];
+    const wires: gs.IWire[] = pmesh.getWires();
+    for (const i of wire_index) {
+        if (i >= wires.length - 1) {throw new Error("Face index exceeds the number of faces.");}
+        const points: gs.IPoint[] = wires[i].getVertices().map((v) => v.getPoint());
+        new_plines.push(m.getGeom().addPolyline(points, true));
+    }
+    return new_plines;
+}
