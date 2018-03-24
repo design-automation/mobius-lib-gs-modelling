@@ -55,6 +55,7 @@ if (require.main === module) {
     writeGsToJSONFile(object.genModelTest1(), path + "obj_test1.gs");
     writeGsToJSONFile(object.genModelTest2(), path + "obj_test2.gs");
     writeGsToJSONFile(object.genModelTest3(), path + "obj_test3.gs");
+    writeGsToJSONFile(object.genModelTest4(), path + "obj_test4.gs");
 }
 
 if (require.main === module) {

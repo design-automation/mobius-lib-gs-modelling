@@ -169,6 +169,14 @@ export function checkPointNestedList(points: gs.IPoint[][], min_len1: number, mi
     return model;
 }
 
+export function checkPointsSameModel(points: gs.IPoint[]): void {
+    if (!Array.isArray(points)) {mustBePointList();}
+    const model: gs.IModel = points[0].getModel();
+    for (const point of points) {
+        if (point.getModel() !== model) {pointInOtherModel();}
+    }
+}
+
 export function pointInOtherModel():void {
     throw new Error("Point is in a different model.");
 }

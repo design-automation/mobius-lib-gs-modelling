@@ -183,7 +183,89 @@ export function scale(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint,
 }
 
 /**
- * Transforms an object or list of objects from a source to a target coordinate system (CS).
+ * Transforms an object or list of objects to a target coordinate system (CS).
+ * The source CS is assumed to be the Global Coordinate System (GCS).
+ * The target coordinate system is specified by an origin,
+ * a vector parallel to the x axis, and a vector in the xy plane (not parallel to the x axis).
+ *
+ * @param objs An object or a list of objects.
+ * @param target_origin The origin point of the target coordinate system, can be either a list of three numbers or a point.
+ * @param target_vec_x A vector parallel to the target x axis.
+ * @param target_vec A vector in the target xy plane (not paralle to the x axis).
+ * @param copy If true, objects are copied before being scaled.
+ * @returns The transformed objects.
+ */
+export function xformGcs2Lcs(objs: gs.IObj | gs.IObj[],
+                             target_origin: gs.XYZ|gs.IPoint,
+                             target_vec_x: gs.XYZ, target_vec: gs.XYZ,
+                             copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    let target_origin_xyz: gs.XYZ;
+    if (target_origin instanceof gs.Point) {
+        target_origin_xyz = target_origin.getPosition();
+    } else {
+        target_origin_xyz = target_origin as gs.XYZ;
+        error.checkXYZ(target_origin_xyz);
+    }
+    error.checkXYZ(target_vec_x);
+    error.checkXYZ(target_vec);
+    // matrix to xform from source to gcs, then from gcs to target
+    const matrix_gcs_to_target: three.Matrix4 = threex.xformMatrixFromXYZVectors(
+        target_origin_xyz, target_vec_x, target_vec, false);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_gcs_to_target);
+    // return the result, either single obj or array
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Transforms an object or list of objects from a source local coordinate system (LCS)
+ * to the global coordinate system (GCS).
+ * The source coordinate system is specified by an origin,
+ * a vector parallel to the x axis, and a vector in the xy plane (not parallel to the x axis).
+ *
+ * @param objs An object or a list of objects.
+ * @param source_origin The origin point of the source coordinate system, can be either a list of three numbers or a point.
+ * @param source_vec_x A vector parallel to the source x axis.
+ * @param source_vec A vector in the source xy plane (not paralle to the x axis).
+ * @param copy If true, objects are copied before being scaled.
+ * @returns The transformed objects.
+ */
+export function xformLcs2Gcs(objs: gs.IObj | gs.IObj[],
+                             source_origin: gs.XYZ|gs.IPoint,
+                             source_vec_x: gs.XYZ, source_vec: gs.XYZ,
+                             copy: boolean = false): gs.IObj | gs.IObj[] {
+    const is_array: boolean = Array.isArray(objs);
+    if (!Array.isArray(objs)) {objs = [objs];}
+    const model: gs.IModel = error.checkObjList(objs, 1);
+    let source_origin_xyz: gs.XYZ;
+    if (source_origin instanceof gs.Point) {
+        source_origin_xyz = source_origin.getPosition();
+    } else {
+        source_origin_xyz = source_origin as gs.XYZ;
+        error.checkXYZ(source_origin_xyz);
+    }
+    error.checkXYZ(source_vec_x);
+    error.checkXYZ(source_vec);
+    // matrix to xform from source to gcs, then from gcs to target
+    const matrix_source_to_gcs: three.Matrix4 = threex.xformMatrixFromXYZVectors(
+        source_origin_xyz, source_vec_x, source_vec, true);
+    // copy objects
+    if (copy) {objs = model.getGeom().copyObjs(objs, true); }
+    // do the xform
+    model.getGeom().xformObjs(objs, matrix_source_to_gcs);
+    // return the result, either single obj or array
+    if (is_array) {return objs;}
+    return objs[0];
+}
+
+/**
+ * Transforms an object or list of objects from a source to a target local coordinate system (LCS).
  * Each coordinate system is specified by an origin,
  * a vector parallel to the x axis, and a vector in the xy plane (not parallel to the x axis).
  *
@@ -197,10 +279,12 @@ export function scale(objs: gs.IObj | gs.IObj[], origin: gs.XYZ|gs.IPoint,
  * @param copy If true, objects are copied before being scaled.
  * @returns The transformed objects.
  */
-export function xform(objs: gs.IObj | gs.IObj[],
-                      source_origin: gs.XYZ|gs.IPoint, source_vec_x: gs.XYZ, source_vec: gs.XYZ,
-                      target_origin: gs.XYZ|gs.IPoint, target_vec_x: gs.XYZ, target_vec: gs.XYZ,
-                      copy: boolean = false): gs.IObj | gs.IObj[] {
+export function xformLcs2Lcs(objs: gs.IObj | gs.IObj[],
+                             source_origin: gs.XYZ|gs.IPoint,
+                             source_vec_x: gs.XYZ, source_vec: gs.XYZ,
+                             target_origin: gs.XYZ|gs.IPoint,
+                             target_vec_x: gs.XYZ, target_vec: gs.XYZ,
+                             copy: boolean = false): gs.IObj | gs.IObj[] {
     const is_array: boolean = Array.isArray(objs);
     if (!Array.isArray(objs)) {objs = [objs];}
     const model: gs.IModel = error.checkObjList(objs, 1);

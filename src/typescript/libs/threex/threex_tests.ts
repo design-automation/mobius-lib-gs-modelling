@@ -27,6 +27,13 @@ describe("Tests for Three Utils Dev", () => {
     it("test_vectorsAreCodir", () => {
         expect( test_vectorsAreCodir()).toBe(true);
     });
+    it("test_xformMatrixFromXYZVectors", () => {
+        expect( test_xformMatrixFromXYZVectors()).toBe(true);
+    });
+    it("test_xformMatrixPos", () => {
+        expect( test_xformMatrixPos()).toBe(true);
+    });
+
 });
 
  // Matrices ======================================================================================================
@@ -111,5 +118,28 @@ export function test_vectorsAreCodir() {
     if(!test.vectorsAreCodir(xyz1,xyz4)) {return false;}
     if(test.vectorsAreCodir(xyz1,xyz5)) {return false;}
 
+    return true;
+}
+
+export function test_xformMatrixFromXYZVectors() {
+    const xyz1: gs.XYZ = [5,6,7];
+    const xyz2: gs.XYZ = [1,1,0];
+    const xyz3: gs.XYZ = [0,1,0];
+    const xyz4: gs.XYZ = [0,0,0];
+    const matrix = test.xformMatrixFromXYZVectors(xyz1, xyz2, xyz3, false);
+    const point: three.Vector3 = new three.Vector3(...xyz4);
+    point.applyMatrix4(matrix);
+    if(point.z !== 7) {return false;}
+    return true;
+}
+
+export function test_xformMatrixPos() {
+    const v1: three.Vector3 = new three.Vector3(5,6,7);
+    const v2: three.Vector3 = new three.Vector3(1,0,0);
+    const v3: three.Vector3 = new three.Vector3(0,1,0);
+    const v4: three.Vector3 = new three.Vector3(0,0,0);
+    const matrix = test.xformMatrixPos(v1, v2, v3);
+    v4.applyMatrix4(matrix);
+    if(v4.z !== 7) {return false;}
     return true;
 }

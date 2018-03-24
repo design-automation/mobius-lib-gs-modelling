@@ -209,7 +209,7 @@ export function numVertices(pmesh: gs.IPolymesh): [number, number] {
  */
 export function getPoints(pmesh: gs.IPolymesh): gs.IPoint[] {
     error.checkObj(pmesh, gs.EObjType.polymesh);
-    return pmesh.getPointsArr();
+    return Arr.flatten(pmesh.getPoints(gs.EGeomType.faces));
 }
 
 //  ===============================================================================================================

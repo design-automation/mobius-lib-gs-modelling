@@ -1,4 +1,5 @@
 import * as gs from "gs-json";
+import * as threex from "../libs/threex/threex";
 import * as gsm from "../_export_dev";
 import {} from "jasmine";
 
@@ -23,6 +24,9 @@ describe("Tests for Obj Module", () => {
     });
     it("test_obj_mirror", () => {
         expect( test_obj_mirror() ).toBe(true);
+    });
+    it("test_obj_xformGCS", () => {
+        expect( test_obj_xformGCS() ).toBe(true);
     });
 });
 
@@ -87,13 +91,14 @@ export function test_obj_rotate(): boolean {
 
 export function test_obj_xform(): boolean {
     const m: gs.IModel = gsm.model.New();
-    const p1: gs.IPoint = gsm.point.FromXYZ(m, [1,0,1]);
-    const p2: gs.IPoint = gsm.point.FromXYZ(m, [2,2,6]);
-    const p3: gs.IPoint = gsm.point.FromXYZ(m, [4,1,3]);
-    const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-    const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [0, 1, 0], [0, 0, 1], null);
-    gsm.object.xform(pline, p1, [1,0,0], [0,0,1], [10,0,0], [1,0,0], [0,0,1], true);
-    if (m.getGeom().numPoints() !== 6) {return false; }
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [1,0,0], [0,1,0], null);
+    gsm.object.xformGcs2Lcs(circle, [7,8,9], [1,0,0], [0,1,0], true);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [1,1,1]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [2,2,2]);
+    const pline: gs.IPolyline = gsm.pline.FromPoints([p2, p3], false);
+    gsm.object.xformGcs2Lcs(pline, [5,6,7], [1,0,0], [0,1,0], false);
+    //if (m.getGeom().numPoints() !== 2) {return false; }
     return true;
 }
 
@@ -106,5 +111,21 @@ export function test_obj_mirror(): boolean {
     const circle: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [0, 1, 0], [0, 0, 1], null);
     gsm.object.mirror([pline, circle], p1, [1,2,3], true);
     if (m.getGeom().numPoints() !== 6) {return false; }
+    return true;
+}
+
+export function test_obj_xformGCS(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const pts: gs.IPoint[] = gsm.point.FromXYZs(m, [[-5,-5,0],[5,-5,0],[5,5,0],[-5,5,0]]);
+    const mesh: gs.IPolymesh = gsm.pmesh.FromPoints([pts]);
+    gsm.object.rotate(mesh, [0,0,0], [1,1,0], 30, false);
+    gsm.object.move(mesh, [10, 10, 10], false);
+    const origin1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(origin1, 8, null);
+    const points: gs.IPoint[] = gsm.pmesh.getPoints(mesh);
+    const origin2: gs.IPoint = gsm.point.FromPointsMean(points);
+    const vec1 = threex.vectorFromPointsAtoB(points[0], points[1]);
+    const vec2 = threex.vectorFromPointsAtoB(points[0], points[3]);
+    gsm.object.xformGcs2Lcs(circle, origin2, vec1.toArray() as gs.XYZ, vec2.toArray() as gs.XYZ, true);
     return true;
 }

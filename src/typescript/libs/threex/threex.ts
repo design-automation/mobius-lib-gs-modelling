@@ -33,6 +33,7 @@ export function xformMatrixNeg(o: three.Vector3, x: three.Vector3, y: three.Vect
     m2.makeBasis(x.normalize(), y.normalize(), crossVectors(x,y,true));
     m2.getInverse(m2);
     const m3: three.Matrix4 = new three.Matrix4();
+    // first translate to (0,0,0), then xform, so m1 x m2
     m3.multiplyMatrices(m2, m1);
     return m3;
 }
@@ -46,7 +47,8 @@ export function xformMatrixPos(o: three.Vector3, x: three.Vector3, y: three.Vect
     const m2: three.Matrix4 = new three.Matrix4();
     m2.makeBasis(x.normalize(), y.normalize(), crossVectors(x,y,true));
     const m3: three.Matrix4 = new three.Matrix4();
-    m3.multiplyMatrices(m2, m1);
+    // first xform, then translate to origin, so m1 x m2
+    m3.multiplyMatrices(m1, m2);
     return m3;
 }
 
@@ -69,7 +71,7 @@ export function xformMatrixFromXYZVectors(o: gs.XYZ, xaxis: gs.XYZ, xyplane: gs.
     const x_vec: three.Vector3 = new three.Vector3(...xaxis).normalize();
     const xyplane_vec: three.Vector3 = new three.Vector3(...xyplane).normalize();
     const z_vec: three.Vector3 = crossVectors(x_vec, xyplane_vec);
-    const y_vec: three.Vector3 = crossVectors(x_vec, z_vec);
+    const y_vec: three.Vector3 = crossVectors(z_vec, x_vec);
     if (neg) {
         return xformMatrixNeg(new three.Vector3(...o), x_vec, y_vec);
     }
