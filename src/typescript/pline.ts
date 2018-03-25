@@ -186,10 +186,6 @@ export function getEndPoints(pline: gs.IPolyline): gs.IPoint[] {
     return [points[0], points[points.length - 1]];
 }
 
-//  ===============================================================================================================
-//  Pline Modelling Functions ===============================================================================================
-//  ===============================================================================================================
-
 /**
  * Returns a point by evaluating the position along a polyline.
  * The position is specified by a t parameter that starts at 0 and ends at 1.
@@ -205,6 +201,64 @@ export function evalParam(pline: gs.IPolyline, t: number): gs.IPoint {
     const points: gs.IPoint[] = pline.getPointsArr();
     if (pline.isClosed()) {points.push(points[0]); }
     return poly.pointsEvaluate(points, t);
+}
+
+//  ===============================================================================================================
+//  Pline Modelling Functions ===============================================================================================
+//  ===============================================================================================================
+
+
+/**
+ * Divides a polyline. Each edge of the polyline is divided into different numbers of segments.
+ * The number of segments for each edge is calculated by deviding the edge length by the mac_lenth,
+ * and then rounding up to the nearest integer.
+ *
+ * The original polyline is not modified.
+ *
+ * @param pline The polyline to divide.
+ * @param max_length The target maximum length of the segment.
+ * @returns List of polyline objects.
+ */
+export function divideMaxLength(pline: gs.IPolyline, max_length: number): gs.IPolyline {
+    const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    const old_points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {old_points.push(old_points[0]);}
+    const new_points: gs.IPoint[] = [];
+    for (let i = 0; i < old_points.length - 1; i++) {
+        const vp1: three.Vector3 = new three.Vector3(...old_points[i].getPosition());
+        const vp2: three.Vector3 = new three.Vector3(...old_points[i + 1].getPosition());
+        const vpoints: three.Vector3[] = threex.divideVectorLength(vp1, vp2, max_length);
+        for (const vpoint of vpoints) {
+            const new_point: gs.IPoint = model.getGeom().addPoint(vpoint.toArray() as gs.XYZ);
+            new_points.push(new_point);
+        }
+    }
+    return model.getGeom().addPolyline(new_points, pline.isClosed());
+}
+
+/**
+ * Divides a polyline. Each edge of the polyline is divided into the same number of segments.
+ * The original polyline is not modified.
+ *
+ * @param pline The polyline to divide.
+ * @param num_segements The number of segments to create.
+ * @returns List of polyline objects.
+ */
+export function divide(pline: gs.IPolyline, num_segments: number): gs.IPolyline {
+    const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    const old_points: gs.IPoint[] = pline.getPointsArr();
+    if (pline.isClosed()) {old_points.push(old_points[0]);}
+    const new_points: gs.IPoint[] = [];
+    for (let i = 0; i < old_points.length - 1; i++) {
+        const vp1: three.Vector3 = new three.Vector3(...old_points[i].getPosition());
+        const vp2: three.Vector3 = new three.Vector3(...old_points[i + 1].getPosition());
+        const vpoints: three.Vector3[] = threex.divideVector(vp1, vp2, num_segments - 1);
+        for (const vpoint of vpoints) {
+            const new_point: gs.IPoint = model.getGeom().addPoint(vpoint.toArray() as gs.XYZ);
+            new_points.push(new_point);
+        }
+    }
+    return model.getGeom().addPolyline(new_points, pline.isClosed());
 }
 
 /**

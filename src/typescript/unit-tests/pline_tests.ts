@@ -34,6 +34,9 @@ describe("Tests for Pline Module", () => {
     it("test_pline_loft", () => {
         expect( test_pline_loft() ).toBe(true);
     });
+    it("test_pline_divideMaxLength", () => {
+        expect( test_pline_divideMaxLength() ).toBe(true);
+    });
 });
 
 export function test_pline_fromPoints(): boolean {
@@ -186,5 +189,26 @@ export function test_pline_loft(): boolean {
     const mesh: gs.IPolymesh = gsm.pline.loft([pline1, pline2], false);
     if (mesh.numFaces() !== 10) {return false;}
 
+    return true;
+}
+
+export function test_pline_divideMaxLength(): boolean {
+    const m: gs.IModel = new gs.Model();
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+        const pt2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0]);
+        const pline: gs.IPolyline = gsm.pline.FromPoints([pt1, pt2]);
+        gsm.pline.divide(pline, 10);
+        //console.log(m.getGeom().numPoints());
+        if (m.getGeom().numPoints() !== 11) {return false;}
+    }
+    {
+        const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+        const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+        const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
+        const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
+        gsm.pline.divideMaxLength(pline, 1.234);
+        //console.log(m.getGeom().numPoints());
+    }
     return true;
 }

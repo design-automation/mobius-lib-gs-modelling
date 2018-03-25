@@ -243,6 +243,31 @@ export function orthoVectorsFromPlanarVPoints(points: three.Vector3[]): [three.V
     return [vec_x, vec_y];
 }
 
+/**
+ * Create new vpoints between two existing vpoints.
+ */
+export function divideVectorLength(pt1: three.Vector3, pt2: three.Vector3, max_length: number): three.Vector3[] {
+    return divideVector(pt1, pt2, Math.ceil(pt1.distanceTo(pt2) / max_length));
+}
+
+/**
+ * Create new vpoints between two existing vpoints.
+ */
+export function divideVector(pt1: three.Vector3, pt2: three.Vector3, num_points: number): three.Vector3[] {
+    if (num_points === 2) {return [pt1, pt2];}
+    const vec: three.Vector3 = new three.Vector3().subVectors(pt2, pt1);
+    vec.divideScalar(num_points + 1);
+    let next: three.Vector3 = pt1.clone();
+    const points: three.Vector3[] = [next];
+    for (let i = 0; i < num_points - 1; i++) {
+        next.add(vec);
+        points.push(next);
+    }
+    return points;
+}
+
+
+
 //  XYZ ===========================================================================================================
 
 export function subXYZs(xyz1: gs.XYZ, xyz2: gs.XYZ, norm: boolean = false): gs.XYZ {

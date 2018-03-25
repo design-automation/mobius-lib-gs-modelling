@@ -4,6 +4,7 @@ import * as threex from "../threex/threex";
 
 const EPS: number = 1e-6;
 
+
 /**
  * Get a normal from a face vertex
  */
