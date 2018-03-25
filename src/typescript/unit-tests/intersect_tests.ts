@@ -24,11 +24,12 @@ export function test_intersect_polylinePlane3D(): boolean {
 
 export function test_intersect_polylinePolyline2D(): boolean {
     const m: gs.IModel = gsm.model.New();
-    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[-1,-2,0],[1.1,2.2,0]]);
-    const pline1: gs.IPolyline = gsm.pline.FromPoints(points, false);
-    const pline2: gs.IPolyline = gsm.object.move(pline1, [1,0,0], true) as gs.IPolyline;
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[3,4,0]]);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[4,0,0],[0,5,0]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
+    const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
     const isect_points: gs.IPoint[] = gsm.intersect.polylinePolyline2D(pline1, pline2);
-    //console.log(isect_points.length);
-    if(isect_points.length !== 6) {return false;}
+    //console.log(isect_points[0].getPosition());
+    if(isect_points.length !== 1) {return false;}
     return true;
 }

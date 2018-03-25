@@ -41,7 +41,7 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPo
  */
 export function polylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyline): gs.IPoint[] {
     error.checkObjList([pline1, pline2], 2, gs.EObjType.polyline);
-    return poly._isectPolylinePolyline2D(pline1, pline1);
+    return poly._isectPolylinePolyline2D(pline1, pline2);
 }
 
 /**
