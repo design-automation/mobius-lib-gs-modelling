@@ -210,29 +210,42 @@ export function evalParam(pline: gs.IPolyline, t: number): gs.IPoint {
 
 /**
  * Divides a polyline. Each edge of the polyline is divided into different numbers of segments.
- * The number of segments for each edge is calculated by deviding the edge length by the mac_lenth,
+ * The number of segments for each edge is calculated by dividing the edge length by max_lenth,
  * and then rounding up to the nearest integer.
  *
  * The original polyline is not modified.
  *
  * @param pline The polyline to divide.
- * @param max_length The target maximum length of the segment.
- * @returns List of polyline objects.
+ * @param max_length The target maximum length of the segment,
+ * may either be a single number or an list of numbers. If it is an list, then
+ * the list length must be equal to the number of edges.
+ * @returns A new polyline with subdivided edges.
  */
-export function divideMaxLength(pline: gs.IPolyline, max_length: number): gs.IPolyline {
+export function divideMaxLength(pline: gs.IPolyline, max_length: number|number[]): gs.IPolyline {
     const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    const num_edges: number = pline.numEdges();
+    if (!Array.isArray(max_length)) {max_length = Arr.make(num_edges, max_length);}
+    error.checkNumListLength(max_length, num_edges);
+    // get points
     const old_points: gs.IPoint[] = pline.getPointsArr();
     if (pline.isClosed()) {old_points.push(old_points[0]);}
+    // create array to store new points
     const new_points: gs.IPoint[] = [];
+    // loop through and add points
     for (let i = 0; i < old_points.length - 1; i++) {
+        new_points.push(old_points[i]);
         const vp1: three.Vector3 = new three.Vector3(...old_points[i].getPosition());
         const vp2: three.Vector3 = new three.Vector3(...old_points[i + 1].getPosition());
-        const vpoints: three.Vector3[] = threex.divideVectorLength(vp1, vp2, max_length);
+        const num_segments: number = Math.ceil(vp1.distanceTo(vp2) / max_length[i]);
+        const vpoints: three.Vector3[] = threex.interpVPoints(vp1, vp2, num_segments - 1);
         for (const vpoint of vpoints) {
             const new_point: gs.IPoint = model.getGeom().addPoint(vpoint.toArray() as gs.XYZ);
             new_points.push(new_point);
         }
     }
+    // add last point if pline is open
+    if (!pline.isClosed()) {new_points.push(old_points[old_points.length - 1]);}
+    // create the new polyline and return it
     return model.getGeom().addPolyline(new_points, pline.isClosed());
 }
 
@@ -242,22 +255,35 @@ export function divideMaxLength(pline: gs.IPolyline, max_length: number): gs.IPo
  *
  * @param pline The polyline to divide.
  * @param num_segements The number of segments to create.
- * @returns List of polyline objects.
+ * This may either be a single number or an list of numbers.
+ * If it is an list, then the list length must be equal to the number of edges.
+ * @returns A new polyline with subdivided edges.
  */
-export function divide(pline: gs.IPolyline, num_segments: number): gs.IPolyline {
+export function divide(pline: gs.IPolyline, num_segments: number|number[]): gs.IPolyline {
     const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    if (!Array.isArray(num_segments)) {num_segments = Arr.make(pline.numEdges(), num_segments);}
+    const num_edges: number = pline.numEdges();
+    error.checkPosNums(num_segments);
+    error.checkNumListLength(num_segments, num_edges);
+    // get points
     const old_points: gs.IPoint[] = pline.getPointsArr();
     if (pline.isClosed()) {old_points.push(old_points[0]);}
+    // create array to store new points
     const new_points: gs.IPoint[] = [];
+    // loop through and add points
     for (let i = 0; i < old_points.length - 1; i++) {
+        new_points.push(old_points[i]);
         const vp1: three.Vector3 = new three.Vector3(...old_points[i].getPosition());
         const vp2: three.Vector3 = new three.Vector3(...old_points[i + 1].getPosition());
-        const vpoints: three.Vector3[] = threex.divideVector(vp1, vp2, num_segments - 1);
+        const vpoints: three.Vector3[] = threex.interpVPoints(vp1, vp2, num_segments[i] - 1);
         for (const vpoint of vpoints) {
             const new_point: gs.IPoint = model.getGeom().addPoint(vpoint.toArray() as gs.XYZ);
             new_points.push(new_point);
         }
     }
+    // add last point if pline is open
+    if (!pline.isClosed()) {new_points.push(old_points[old_points.length - 1]);}
+    // create the new polyline and return it
     return model.getGeom().addPolyline(new_points, pline.isClosed());
 }
 

@@ -231,6 +231,7 @@ export function groupNotExist():void {
 
 export function checkXYZ(xyz: gs.XYZ):void {
     if (xyz === undefined) {argUndefined();}
+    if (!Array.isArray(xyz)) {xyzNotList()}
     if (xyz.length !== 3 ) {xyzWrongLength();}
     if (isNaN(xyz[0]) || isNaN(xyz[1]) || isNaN(xyz[2])) {xyzInvalidData();}
 }
@@ -241,6 +242,10 @@ export function xyzWrongLength():void {
 
 export function xyzInvalidData():void {
     throw new Error("XYZ list contains invalid data. It should consist of three numbers.");
+}
+
+export function xyzNotList():void {
+    throw new Error("XYZ list must be a list of three numbers.");
 }
 
 // Angles ====================================================================================================
@@ -279,8 +284,22 @@ export function checkPosNums(nums: number[]):void {
     }
 }
 
+export function checkNumListLength(list: any[], length:number):void {
+    if (list === undefined) {argUndefined();}
+    if (!Array.isArray(list)) {argMustBeNumList(length);}
+    if (list.length !== length) {argNumListWrongLength(length);}
+}
+
+export function argMustBeNumList(length: number):void {
+    throw new Error("Argument must be a list of " + length + "numbers.");
+}
+
+export function argNumListWrongLength(length: number):void {
+    throw new Error("Argument must be a list of " + length + " numbers.");
+}
+
 export function numMustBePos():void {
-    throw new Error("The argument must be a positive number.");
+    throw new Error("Argument must be a positive number.");
 }
 
 // GENERAL ====================================================================================================
@@ -288,4 +307,5 @@ export function numMustBePos():void {
 export function argUndefined():void {
     throw new Error("Argument is undefined.");
 }
+
 

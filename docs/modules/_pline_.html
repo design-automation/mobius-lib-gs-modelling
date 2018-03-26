@@ -84,6 +84,8 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#fromcircle" class="tsd-kind-icon">From<wbr>Circle</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#frompoints" class="tsd-kind-icon">From<wbr>Points</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#get" class="tsd-kind-icon">Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#divide" class="tsd-kind-icon">divide</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#dividemaxlength" class="tsd-kind-icon">divide<wbr>Max<wbr>Length</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#evalparam" class="tsd-kind-icon">eval<wbr>Param</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#explode" class="tsd-kind-icon">explode</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_pline_.html#extract" class="tsd-kind-icon">extract</a></li>
@@ -113,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L46">pline.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L46">pline.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L58">pline.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L58">pline.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -189,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L108">pline.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L108">pline.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L93">pline.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L93">pline.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L79">pline.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L79">pline.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -306,7 +308,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L34">pline.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L34">pline.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,6 +339,85 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="divide" class="tsd-anchor"></a>
+					<h3>divide</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, num_segments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L262">pline.ts:262</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Divides a polyline. Each edge of the polyline is divided into the same number of segments.
+									The original polyline is not modified.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The polyline to divide.</p>
+									</div>
+								</li>
+								<li>
+									<h5>num_segments: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
+							<p>A new polyline with subdivided edges.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="dividemaxlength" class="tsd-anchor"></a>
+					<h3>divide<wbr>Max<wbr>Length</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">divide<wbr>Max<wbr>Length<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, max_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L224">pline.ts:224</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Divides a polyline. Each edge of the polyline is divided into different numbers of segments.
+										The number of segments for each edge is calculated by dividing the edge length by max_lenth,
+									and then rounding up to the nearest integer.</p>
+								</div>
+								<p>The original polyline is not modified.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The polyline to divide.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_length: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target maximum length of the segment,
+											may either be a single number or an list of numbers. If it is an list, then
+										the list length must be equal to the number of edges.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span></h4>
+							<p>A new polyline with subdivided edges.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="evalparam" class="tsd-anchor"></a>
 					<h3>eval<wbr>Param</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -346,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L202">pline.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L198">pline.ts:198</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L310">pline.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L390">pline.ts:390</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L325">pline.ts:325</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L405">pline.ts:405</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -459,7 +540,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L356">pline.ts:356</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L436">pline.ts:436</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -509,7 +590,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L182">pline.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L182">pline.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L171">pline.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L171">pline.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -573,7 +654,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L124">pline.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L124">pline.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -605,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L216">pline.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L296">pline.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -637,7 +718,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L387">pline.ts:387</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L467">pline.ts:467</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,7 +760,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L149">pline.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L149">pline.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -711,7 +792,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L160">pline.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L160">pline.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -743,7 +824,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/cacbac8/src/typescript/pline.ts#L136">pline.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/85317e0/src/typescript/pline.ts#L136">pline.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -803,6 +884,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#get" class="tsd-kind-icon">Get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#divide" class="tsd-kind-icon">divide</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_pline_.html#dividemaxlength" class="tsd-kind-icon">divide<wbr>Max<wbr>Length</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_pline_.html#evalparam" class="tsd-kind-icon">eval<wbr>Param</a>

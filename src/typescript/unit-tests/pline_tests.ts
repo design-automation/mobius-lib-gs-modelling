@@ -205,10 +205,23 @@ export function test_pline_divideMaxLength(): boolean {
     {
         const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
         const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
-        const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
-        const pline: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
-        gsm.pline.divideMaxLength(pline, 1.234);
-        //console.log(m.getGeom().numPoints());
+        const p3: gs.IPoint = gsm.point.FromXYZ(m, [10,10,0]);
+        // divide uneven
+        let pline0: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
+        pline0 = gsm.pline.divide(pline0, [2,3]);
+        if (pline0.numVertices() !== 6) {return false;}
+        // two edges
+        let pline1: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], false);
+        pline1 = gsm.pline.divideMaxLength(pline1, 2.1);
+        if (pline1.numVertices() !== 11) {return false;}
+        // three edges
+        let pline2: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], true);
+        pline2 = gsm.pline.divideMaxLength(pline2, 2.1);
+        if (pline2.numVertices() !== 17) {return false;}
+        // three edges
+        let pline3: gs.IPolyline = gsm.pline.FromPoints([p1, p2, p3], true);
+        pline3 = gsm.pline.divideMaxLength(pline3, [2.1, 2.1, 8]);
+        if (pline3.numVertices() !== 12) {return false;}
     }
     return true;
 }
