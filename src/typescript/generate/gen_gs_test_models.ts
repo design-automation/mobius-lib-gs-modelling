@@ -41,6 +41,7 @@ if (require.main === module) {
     writeGsToJSONFile(plines.genModelTest7(), path + "plines_test7.gs");
     writeGsToJSONFile(plines.genModelTest8(), path + "plines_test8.gs");
     writeGsToJSONFile(plines.genModelTest9(), path + "plines_test9.gs");
+    writeGsToJSONFile(plines.genModelTest10(), path + "plines_test10.gs");
 }
 
 if (require.main === module) {

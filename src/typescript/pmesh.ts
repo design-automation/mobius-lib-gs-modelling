@@ -273,7 +273,7 @@ export function extractFaces(pmesh: gs.IPolymesh, face_index: number[]): gs.IPol
     const new_pmeshes: gs.IPolymesh[] = [];
     const faces: gs.IFace[] = pmesh.getFaces();
     for (const i of face_index) {
-        if (i >= faces.length - 1) {throw new Error("Face index exceeds the number of faces.");}
+        if (i >= faces.length) {throw new Error("Face index exceeds the number of faces.");}
         const points: gs.IPoint[] = faces[i].getVertices().map((v) => v.getPoint());
         new_pmeshes.push(m.getGeom().addPolymesh([points]));
     }
@@ -297,7 +297,7 @@ export function extractWires(pmesh: gs.IPolymesh, wire_index: number[]): gs.IPol
     const new_plines: gs.IPolyline[] = [];
     const wires: gs.IWire[] = pmesh.getWires();
     for (const i of wire_index) {
-        if (i >= wires.length - 1) {throw new Error("Face index exceeds the number of faces.");}
+        if (i >= wires.length) {throw new Error("Face index exceeds the number of faces.");}
         const points: gs.IPoint[] = wires[i].getVertices().map((v) => v.getPoint());
         new_plines.push(m.getGeom().addPolyline(points, true));
     }

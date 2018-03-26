@@ -119,3 +119,14 @@ export function genModelTest9(): gs.IModel {
     const result: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pline1, pline2);
     return m;
 }
+
+export function genModelTest10(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const points1: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,0],[4,0,0]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points1, false);
+    gsm.pline.divide(pline1, [6,2]);
+    const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[4,1,0]]);
+    const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
+    gsm.pline.divideMaxLength(pline2, 0.234);
+    return m;
+}
