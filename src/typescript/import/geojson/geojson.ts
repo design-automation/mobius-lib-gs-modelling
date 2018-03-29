@@ -10,7 +10,7 @@ const path: string = "../gs-modelling/src/assets/geojson/";
 
 /**
  * Converts multiple geojson files to one gs model.
- * @param filenames The paths to the file that cntains the geojson data.
+ * @param filenames The paths to the file that contains the geojson data.
  * @returns Model
  */
 export function geojsons(filenames: string[]): gs.IModel {

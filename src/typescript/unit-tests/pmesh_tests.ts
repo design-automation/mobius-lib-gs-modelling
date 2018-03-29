@@ -19,6 +19,9 @@ describe("Tests for PMesh Module", () => {
     it("test_pmesh_TriStripFromPoints", () => {
         expect( test_pmesh_TriStripFromPoints() ).toBe(true);
     });
+    it("test_pmesh_explode", () => {
+        expect( test_pmesh_explode() ).toBe(true);
+    });
 });
 
 export function test_pmesh_fromPoints(): boolean {
@@ -83,5 +86,18 @@ export function test_pmesh_TriStripFromPoints(): boolean {
     const pmesh: gs.IPolymesh = gsm.pmesh.TriStripFromPoints(list1, list2);
     if (pmesh === undefined) {return false;}
     if (pmesh.numFaces() !== 6) {return false;}
+    return true;
+}
+
+export function test_pmesh_explode(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+    const p3: gs.IPoint = gsm.point.FromXYZ(m, [0,10,0]);
+    const pmesh: gs.IPolymesh = gsm.pmesh.FromPoints([[p1, p2, p3]]);
+    const pmesh2: gs.IPolymesh = gsm.pmesh.extrude(pmesh, [0,0,5]);
+    const result: gs.IPolymesh[] = gsm.pmesh.explode(pmesh2);
+    // console.log(result);
+    if (result.length !== 5) {return false;}
     return true;
 }

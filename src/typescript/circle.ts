@@ -338,6 +338,31 @@ export function evalParam(circle: gs.ICircle, t: number): gs.IPoint {
 }
 
 /**
+ * Returns a tangent unit vector by evaluating the position along a circle.
+ * The position is specified by a t parameter that starts at 0 and ends at 1.
+ * If the circle object is closed, 0 and 1 will have the same position.
+ * Values for of t<0 and t>1 are valid, they will loop around.
+ * If the circle object is an open arc, the 0 will be the start of the arc, and 1 will be the end of the arc.
+ * Values for of t<0 and t>1 are automatically converted to 0 and 1 respectively.
+ *
+ * @param circle Cricle object to evaluate.
+ * @param t Parameter to evaluate (0 is the start of the circular arc, 1 is the end of the circular arc)
+ * @returns Tangent unit vector (a list of three numbers).
+ */
+export function evalParamTangent(circle: gs.ICircle, t: number): gs.XYZ {
+    error.checkObj(circle, gs.EObjType.circle);
+    error.checkNum(t);
+    if (circle.isClosed()) {
+        if (t < 0) {t = (t % 1) + 1;}
+        if (t > 1) {t = (t % 1) - 1;}
+    } else {
+        if (t < 0) {t = 0;}
+        if (t > 1) {t = 1;}
+    }
+    return circle.evalParamTangent(t);
+}
+
+/**
  * Returns a t parameter by projecting a point onto a circle.
  * The t parameter represents a position on the circle.
  * The parameter starts at 0 and ends at 1.

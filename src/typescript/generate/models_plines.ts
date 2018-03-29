@@ -128,5 +128,6 @@ export function genModelTest10(): gs.IModel {
     const points2: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,1,0],[4,1,0]]);
     const pline2: gs.IPolyline = gsm.pline.FromPoints(points2, false);
     gsm.pline.divideMaxLength(pline2, 0.234);
+    gsm.object.del([pline1, pline2]);
     return m;
 }

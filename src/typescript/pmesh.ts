@@ -221,6 +221,7 @@ export function getPoints(pmesh: gs.IPolymesh): gs.IPoint[] {
  * The original polymesh is not modified.
  *
  * New points are created by translating the existing points by the specified vector.
+ * Top and bottom faces are created.
  * Four-sided faces are the created between the original and new points.
  * The faces are joined to create a polymesh.
  *
