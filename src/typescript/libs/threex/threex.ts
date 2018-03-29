@@ -389,13 +389,36 @@ export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
  * Check a point is on a plane.
  * The plane is represented by an origin and a normal.
  */
-export function planesAreCoplanar(origin1: gs.IPoint, normal1: gs.XYZ,
-                                  origin2: gs.IPoint, normal2: gs.XYZ): boolean {
+export function planesAreCoplanar(origin1: three.Vector3|gs.IPoint, normal1: three.Vector3|gs.XYZ,
+                                  origin2: three.Vector3|gs.IPoint, normal2: three.Vector3|gs.XYZ): boolean {
+    // args
+    let origin1_v: three.Vector3;
+    if (origin1 instanceof gs.Point) {
+        origin1_v = new three.Vector3(...origin1.getPosition());
+    } else {
+        origin1_v = origin1 as three.Vector3;
+    }
+    let normal1_v: three.Vector3;
+    if (Array.isArray(normal1)) {
+        normal1_v = new three.Vector3(...normal1);
+    } else {
+        normal1_v = normal1;
+    }
+    normal1_v.normalize();
+    let origin2_v: three.Vector3;
+    if (origin2 instanceof gs.Point) {
+        origin2_v = new three.Vector3(...origin2.getPosition());
+    } else {
+        origin2_v = origin2 as three.Vector3;
+    }
+    let normal2_v: three.Vector3;
+    if (Array.isArray(normal2)) {
+        normal2_v = new three.Vector3(...normal2);
+    } else {
+        normal2_v = normal2;
+    }
+    normal2_v.normalize();
     // Check if point is on plane
-    const origin1_v  = new three.Vector3(...origin1.getPosition());
-    const normal1_v  = new three.Vector3(...normal1).normalize();
-    const origin2_v  = new three.Vector3(...origin2.getPosition());
-    const normal2_v  = new three.Vector3(...normal2).normalize();
     if (Math.abs(dotVectors(subVectors(origin1_v, origin2_v), normal2_v)) > EPS) {return false;}
     // check is vectors are same
     if (Math.abs(1- normal1_v.dot(normal2_v)) > EPS) {return false; }

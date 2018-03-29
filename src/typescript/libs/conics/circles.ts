@@ -334,3 +334,124 @@ export function distBetweenPoints(point_1: gs.IPoint[], point_2: gs.IPoint[], mi
     if (minimum === true) { return min; }
     return max;
 }
+
+/**
+ * Find the inner tangents of two coplanar circles.
+ * @param circle1
+ * @param circle2
+ * @returns An array of start and end points of the two tangent lines
+ */
+export function innerTangentsCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): [gs.IPolyline, gs.IPolyline] {
+    const c1_origin: three.Vector3 = new three.Vector3(...circle1.getOrigin().getPosition());
+    const c1_axes: three.Vector3[] = circle1.getAxes().map((v) => new three.Vector3(...v));
+    const c2_origin: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
+    const c2_axes: three.Vector3[] = circle2.getAxes().map((v) => new three.Vector3(...v));
+    if (!threex.planesAreCoplanar(c1_origin, c1_axes[2], c2_origin, c2_axes[2])) {
+        throw new Error("Circles must be coplanar.");
+    }
+    // set the x axis to be from o1 to o2
+    const x_vec: three.Vector3 = new three.Vector3().subVectors(c2_origin, c1_origin).normalize();
+    const y_vec: three.Vector3 = new three.Vector3().crossVectors(x_vec, c1_axes[2]);
+    // make matrixes
+    const matrix_pos: three.Matrix4 = threex.xformMatrixPos(c1_origin, x_vec, y_vec);
+    const matrix_neg: three.Matrix4 = threex.xformMatrixNeg(c1_origin, x_vec, y_vec);
+    // transform origins from 3d to 2d
+    c1_origin.applyMatrix4(matrix_neg);
+    c2_origin.applyMatrix4(matrix_neg);
+    // get the radii
+    const r1: number = circle1.getRadius();
+    const r2: number = circle2.getRadius();
+    // check that circles do not overlap
+    if ((r1 + r2) >= c2_origin.x) {return null;}
+    // calc mid point
+    const dist: number = c2_origin.x;
+    const dist1: number = dist * ( r1 / (r1 + r2));
+    const dist2: number = dist - dist1;
+    // calc angles, a1 is the angle to the start point
+    const a1: number = Math.acos(r1 / dist1);
+    // calc start and end of each inner tangent line
+    const t1_start: three.Vector3 = new three.Vector3(
+        r1 * Math.cos(a1), r1 * Math.sin(a1), 0);
+    const t2_start: three.Vector3 = new three.Vector3(t1_start.x, -t1_start.y, 0);
+    const t1_end: three.Vector3 = new three.Vector3(
+        dist - (r2 * Math.cos(a1)), -r2 * Math.sin(a1), 0);
+    const t2_end: three.Vector3 = new three.Vector3(t1_end.x, -t1_end.y, 0);
+    // tranform points from 2d to 3d
+    t1_start.applyMatrix4(matrix_pos);
+    t2_start.applyMatrix4(matrix_pos);
+    t1_end.applyMatrix4(matrix_pos);
+    t2_end.applyMatrix4(matrix_pos);
+    // create points in the model
+    const g: gs.IGeom = circle1.getModel().getGeom();
+    const t1_start_point: gs.IPoint = g.addPoint(t1_start.toArray() as gs.XYZ);
+    const t2_start_point: gs.IPoint = g.addPoint(t2_start.toArray() as gs.XYZ);
+    const t1_end_point: gs.IPoint = g.addPoint(t1_end.toArray() as gs.XYZ);
+    const t2_end_point: gs.IPoint = g.addPoint(t2_end.toArray() as gs.XYZ);
+    // return the two polylines
+    return [
+        g.addPolyline([t1_start_point, t1_end_point], false),
+        g.addPolyline([t2_start_point, t2_end_point], false)
+    ];
+}
+
+/**
+ * Find the outer tangents of two coplanar circles.
+ * @param circle1
+ * @param circle2
+ * @returns An array of two tangent lines
+ */
+export function outerTangentsCircleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): [gs.IPolyline, gs.IPolyline] {
+    const c1_origin: three.Vector3 = new three.Vector3(...circle1.getOrigin().getPosition());
+    const c1_axes: three.Vector3[] = circle1.getAxes().map((v) => new three.Vector3(...v));
+    const c2_origin: three.Vector3 = new three.Vector3(...circle2.getOrigin().getPosition());
+    const c2_axes: three.Vector3[] = circle2.getAxes().map((v) => new three.Vector3(...v));
+    if (!threex.planesAreCoplanar(c1_origin, c1_axes[2], c2_origin, c2_axes[2])) {
+        throw new Error("Circles must be coplanar.");
+    }
+    // set the x axis to be from o1 to o2
+    const x_vec: three.Vector3 = new three.Vector3().subVectors(c2_origin, c1_origin).normalize();
+    const y_vec: three.Vector3 = new three.Vector3().crossVectors(x_vec, c1_axes[2]);
+    // make matrixes
+    const matrix_pos: three.Matrix4 = threex.xformMatrixPos(c1_origin, x_vec, y_vec);
+    const matrix_neg: three.Matrix4 = threex.xformMatrixNeg(c1_origin, x_vec, y_vec);
+    // transform origins from 3d to 2d
+    c1_origin.applyMatrix4(matrix_neg);
+    c2_origin.applyMatrix4(matrix_neg);
+    // get the radii
+    const r1: number = circle1.getRadius();
+    const r2: number = circle2.getRadius();
+    // check that circles do not overlap
+    if ((r1 + r2) >= c2_origin.x) {return null;}
+    // dist between origins
+    const dist: number = c2_origin.x;
+    // calc angles, a1 is the angle to the start point
+    let a1: number;
+    if (r1 > r1) {
+        a1 = Math.acos((r2 - r1) / dist);
+    } else {
+        a1 = -Math.acos((r1 - r2) / dist);
+    }
+    // calc start and end of each inner tangent line
+    const t1_start: three.Vector3 = new three.Vector3(
+        r1 * Math.cos(a1), r1 * Math.sin(a1), 0);
+    const t1_end: three.Vector3 = new three.Vector3(
+        dist + (r2 * Math.cos(a1)), r2 * Math.sin(a1), 0);
+    const t2_start: three.Vector3 = new three.Vector3(t1_start.x, -t1_start.y, 0);
+    const t2_end: three.Vector3 = new three.Vector3(t1_end.x, -t1_end.y, 0);
+    // tranform points from 2d to 3d
+    t1_start.applyMatrix4(matrix_pos);
+    t2_start.applyMatrix4(matrix_pos);
+    t1_end.applyMatrix4(matrix_pos);
+    t2_end.applyMatrix4(matrix_pos);
+    // create points in the model
+    const g: gs.IGeom = circle1.getModel().getGeom();
+    const t1_start_point: gs.IPoint = g.addPoint(t1_start.toArray() as gs.XYZ);
+    const t2_start_point: gs.IPoint = g.addPoint(t2_start.toArray() as gs.XYZ);
+    const t1_end_point: gs.IPoint = g.addPoint(t1_end.toArray() as gs.XYZ);
+    const t2_end_point: gs.IPoint = g.addPoint(t2_end.toArray() as gs.XYZ);
+    // return the two polylines
+    return [
+        g.addPolyline([t1_start_point, t1_end_point], false),
+        g.addPolyline([t2_start_point, t2_end_point], false)
+    ];
+}

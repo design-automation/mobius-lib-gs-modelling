@@ -982,7 +982,7 @@
 			]
 		},
 		{
-			"id": 314,
+			"id": 322,
 			"name": "\"circle\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -995,7 +995,7 @@
 			},
 			"children": [
 				{
-					"id": 319,
+					"id": 327,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -1004,7 +1004,7 @@
 					},
 					"signatures": [
 						{
-							"id": 320,
+							"id": 328,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1015,7 +1015,7 @@
 							},
 							"parameters": [
 								{
-									"id": 321,
+									"id": 329,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1029,7 +1029,7 @@
 									}
 								},
 								{
-									"id": 322,
+									"id": 330,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1060,7 +1060,7 @@
 					]
 				},
 				{
-					"id": 323,
+					"id": 331,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -1069,7 +1069,7 @@
 					},
 					"signatures": [
 						{
-							"id": 324,
+							"id": 332,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1080,7 +1080,7 @@
 							},
 							"parameters": [
 								{
-									"id": 325,
+									"id": 333,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1094,7 +1094,7 @@
 									}
 								},
 								{
-									"id": 326,
+									"id": 334,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1123,7 +1123,7 @@
 					]
 				},
 				{
-					"id": 359,
+					"id": 367,
 					"name": "From3Points",
 					"kind": 64,
 					"kindString": "Function",
@@ -1132,7 +1132,7 @@
 					},
 					"signatures": [
 						{
-							"id": 360,
+							"id": 368,
 							"name": "From3Points",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1143,7 +1143,7 @@
 							},
 							"parameters": [
 								{
-									"id": 361,
+									"id": 369,
 									"name": "point1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1157,7 +1157,7 @@
 									}
 								},
 								{
-									"id": 362,
+									"id": 370,
 									"name": "point2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1171,7 +1171,7 @@
 									}
 								},
 								{
-									"id": 363,
+									"id": 371,
 									"name": "point3",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1185,7 +1185,7 @@
 									}
 								},
 								{
-									"id": 364,
+									"id": 372,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1214,7 +1214,7 @@
 					]
 				},
 				{
-					"id": 333,
+					"id": 341,
 					"name": "FromOrigin2Points",
 					"kind": 64,
 					"kindString": "Function",
@@ -1223,7 +1223,7 @@
 					},
 					"signatures": [
 						{
-							"id": 334,
+							"id": 342,
 							"name": "FromOrigin2Points",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1234,7 +1234,7 @@
 							},
 							"parameters": [
 								{
-									"id": 335,
+									"id": 343,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1248,7 +1248,7 @@
 									}
 								},
 								{
-									"id": 336,
+									"id": 344,
 									"name": "point1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1262,7 +1262,7 @@
 									}
 								},
 								{
-									"id": 337,
+									"id": 345,
 									"name": "point2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1276,7 +1276,7 @@
 									}
 								},
 								{
-									"id": 338,
+									"id": 346,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1314,7 +1314,7 @@
 					]
 				},
 				{
-					"id": 327,
+					"id": 335,
 					"name": "FromOrigin2Vectors",
 					"kind": 64,
 					"kindString": "Function",
@@ -1323,7 +1323,7 @@
 					},
 					"signatures": [
 						{
-							"id": 328,
+							"id": 336,
 							"name": "FromOrigin2Vectors",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1334,7 +1334,7 @@
 							},
 							"parameters": [
 								{
-									"id": 329,
+									"id": 337,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1348,7 +1348,7 @@
 									}
 								},
 								{
-									"id": 330,
+									"id": 338,
 									"name": "vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1362,7 +1362,7 @@
 									}
 								},
 								{
-									"id": 331,
+									"id": 339,
 									"name": "vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1376,7 +1376,7 @@
 									}
 								},
 								{
-									"id": 332,
+									"id": 340,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1414,7 +1414,7 @@
 					]
 				},
 				{
-					"id": 339,
+					"id": 347,
 					"name": "FromOriginXY",
 					"kind": 64,
 					"kindString": "Function",
@@ -1423,7 +1423,7 @@
 					},
 					"signatures": [
 						{
-							"id": 340,
+							"id": 348,
 							"name": "FromOriginXY",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1434,7 +1434,7 @@
 							},
 							"parameters": [
 								{
-									"id": 341,
+									"id": 349,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1448,7 +1448,7 @@
 									}
 								},
 								{
-									"id": 342,
+									"id": 350,
 									"name": "radius",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1462,7 +1462,7 @@
 									}
 								},
 								{
-									"id": 343,
+									"id": 351,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1500,7 +1500,7 @@
 					]
 				},
 				{
-					"id": 344,
+					"id": 352,
 					"name": "FromOriginYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -1509,7 +1509,7 @@
 					},
 					"signatures": [
 						{
-							"id": 345,
+							"id": 353,
 							"name": "FromOriginYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1520,7 +1520,7 @@
 							},
 							"parameters": [
 								{
-									"id": 346,
+									"id": 354,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1534,7 +1534,7 @@
 									}
 								},
 								{
-									"id": 347,
+									"id": 355,
 									"name": "radius",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1548,7 +1548,7 @@
 									}
 								},
 								{
-									"id": 348,
+									"id": 356,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1586,7 +1586,7 @@
 					]
 				},
 				{
-					"id": 349,
+					"id": 357,
 					"name": "FromOriginZX",
 					"kind": 64,
 					"kindString": "Function",
@@ -1595,7 +1595,7 @@
 					},
 					"signatures": [
 						{
-							"id": 350,
+							"id": 358,
 							"name": "FromOriginZX",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1606,7 +1606,7 @@
 							},
 							"parameters": [
 								{
-									"id": 351,
+									"id": 359,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1620,7 +1620,7 @@
 									}
 								},
 								{
-									"id": 352,
+									"id": 360,
 									"name": "radius",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1634,7 +1634,7 @@
 									}
 								},
 								{
-									"id": 353,
+									"id": 361,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1672,7 +1672,7 @@
 					]
 				},
 				{
-					"id": 354,
+					"id": 362,
 					"name": "FromPlane",
 					"kind": 64,
 					"kindString": "Function",
@@ -1681,7 +1681,7 @@
 					},
 					"signatures": [
 						{
-							"id": 355,
+							"id": 363,
 							"name": "FromPlane",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1692,7 +1692,7 @@
 							},
 							"parameters": [
 								{
-									"id": 356,
+									"id": 364,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1706,7 +1706,7 @@
 									}
 								},
 								{
-									"id": 357,
+									"id": 365,
 									"name": "radius",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1720,7 +1720,7 @@
 									}
 								},
 								{
-									"id": 358,
+									"id": 366,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1758,7 +1758,7 @@
 					]
 				},
 				{
-					"id": 315,
+					"id": 323,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -1767,7 +1767,7 @@
 					},
 					"signatures": [
 						{
-							"id": 316,
+							"id": 324,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1778,7 +1778,7 @@
 							},
 							"parameters": [
 								{
-									"id": 317,
+									"id": 325,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1792,7 +1792,7 @@
 									}
 								},
 								{
-									"id": 318,
+									"id": 326,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1821,7 +1821,7 @@
 					]
 				},
 				{
-					"id": 384,
+					"id": 392,
 					"name": "calcLength",
 					"kind": 64,
 					"kindString": "Function",
@@ -1830,7 +1830,7 @@
 					},
 					"signatures": [
 						{
-							"id": 385,
+							"id": 393,
 							"name": "calcLength",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1841,7 +1841,7 @@
 							},
 							"parameters": [
 								{
-									"id": 386,
+									"id": 394,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1870,7 +1870,7 @@
 					]
 				},
 				{
-					"id": 381,
+					"id": 389,
 					"name": "close",
 					"kind": 64,
 					"kindString": "Function",
@@ -1879,7 +1879,7 @@
 					},
 					"signatures": [
 						{
-							"id": 382,
+							"id": 390,
 							"name": "close",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1890,7 +1890,7 @@
 							},
 							"parameters": [
 								{
-									"id": 383,
+									"id": 391,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1919,7 +1919,7 @@
 					]
 				},
 				{
-					"id": 387,
+					"id": 395,
 					"name": "evalParam",
 					"kind": 64,
 					"kindString": "Function",
@@ -1928,7 +1928,7 @@
 					},
 					"signatures": [
 						{
-							"id": 388,
+							"id": 396,
 							"name": "evalParam",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1939,7 +1939,7 @@
 							},
 							"parameters": [
 								{
-									"id": 389,
+									"id": 397,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1953,7 +1953,7 @@
 									}
 								},
 								{
-									"id": 390,
+									"id": 398,
 									"name": "t",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1982,7 +1982,7 @@
 					]
 				},
 				{
-					"id": 391,
+					"id": 399,
 					"name": "evalParamTangent",
 					"kind": 64,
 					"kindString": "Function",
@@ -1991,7 +1991,7 @@
 					},
 					"signatures": [
 						{
-							"id": 392,
+							"id": 400,
 							"name": "evalParamTangent",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2002,7 +2002,7 @@
 							},
 							"parameters": [
 								{
-									"id": 393,
+									"id": 401,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2016,7 +2016,7 @@
 									}
 								},
 								{
-									"id": 394,
+									"id": 402,
 									"name": "t",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2045,7 +2045,7 @@
 					]
 				},
 				{
-					"id": 395,
+					"id": 403,
 					"name": "evalPoint",
 					"kind": 64,
 					"kindString": "Function",
@@ -2054,7 +2054,7 @@
 					},
 					"signatures": [
 						{
-							"id": 396,
+							"id": 404,
 							"name": "evalPoint",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2065,7 +2065,7 @@
 							},
 							"parameters": [
 								{
-									"id": 397,
+									"id": 405,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2079,7 +2079,7 @@
 									}
 								},
 								{
-									"id": 398,
+									"id": 406,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2108,7 +2108,7 @@
 					]
 				},
 				{
-					"id": 371,
+					"id": 379,
 					"name": "getArcAngles",
 					"kind": 64,
 					"kindString": "Function",
@@ -2117,7 +2117,7 @@
 					},
 					"signatures": [
 						{
-							"id": 372,
+							"id": 380,
 							"name": "getArcAngles",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2128,7 +2128,7 @@
 							},
 							"parameters": [
 								{
-									"id": 373,
+									"id": 381,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2166,7 +2166,7 @@
 					]
 				},
 				{
-					"id": 368,
+					"id": 376,
 					"name": "getAxes",
 					"kind": 64,
 					"kindString": "Function",
@@ -2175,7 +2175,7 @@
 					},
 					"signatures": [
 						{
-							"id": 369,
+							"id": 377,
 							"name": "getAxes",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2186,7 +2186,7 @@
 							},
 							"parameters": [
 								{
-									"id": 370,
+									"id": 378,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2218,7 +2218,7 @@
 					]
 				},
 				{
-					"id": 365,
+					"id": 373,
 					"name": "getOrigin",
 					"kind": 64,
 					"kindString": "Function",
@@ -2227,7 +2227,7 @@
 					},
 					"signatures": [
 						{
-							"id": 366,
+							"id": 374,
 							"name": "getOrigin",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2238,7 +2238,7 @@
 							},
 							"parameters": [
 								{
-									"id": 367,
+									"id": 375,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2267,7 +2267,7 @@
 					]
 				},
 				{
-					"id": 378,
+					"id": 386,
 					"name": "isClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -2276,7 +2276,7 @@
 					},
 					"signatures": [
 						{
-							"id": 379,
+							"id": 387,
 							"name": "isClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2287,7 +2287,7 @@
 							},
 							"parameters": [
 								{
-									"id": 380,
+									"id": 388,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2316,7 +2316,7 @@
 					]
 				},
 				{
-					"id": 374,
+					"id": 382,
 					"name": "setArcAngles",
 					"kind": 64,
 					"kindString": "Function",
@@ -2325,7 +2325,7 @@
 					},
 					"signatures": [
 						{
-							"id": 375,
+							"id": 383,
 							"name": "setArcAngles",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2335,7 +2335,7 @@
 							},
 							"parameters": [
 								{
-									"id": 376,
+									"id": 384,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2349,7 +2349,7 @@
 									}
 								},
 								{
-									"id": 377,
+									"id": 385,
 									"name": "angles",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2394,6 +2394,150 @@
 							"character": 28
 						}
 					]
+				},
+				{
+					"id": 407,
+					"name": "tangentPlinesInner2D",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 408,
+							"name": "tangentPlinesInner2D",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns two polylines that are tangential (inner tangents) to two coplanar circles.",
+								"returns": "Two polylines, or null if inner tangents cannot be calculated.\n"
+							},
+							"parameters": [
+								{
+									"id": 409,
+									"name": "circle1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The first circle."
+									},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								},
+								{
+									"id": 410,
+									"name": "circle2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The second circle."
+									},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								}
+							],
+							"type": {
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									},
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "circle.ts",
+							"line": 390,
+							"character": 36
+						}
+					]
+				},
+				{
+					"id": 411,
+					"name": "tangentPlinesOuter2D",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 412,
+							"name": "tangentPlinesOuter2D",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns two polylines that are tangential (outer tangents) to two coplanar circles.",
+								"returns": "Two polylines, or null if outer tangents cannot be calculated.\n"
+							},
+							"parameters": [
+								{
+									"id": 413,
+									"name": "circle1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The first circle."
+									},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								},
+								{
+									"id": 414,
+									"name": "circle2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The second circle."
+									},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								}
+							],
+							"type": {
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									},
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "circle.ts",
+							"line": 404,
+							"character": 36
+						}
+					]
 				}
 			],
 			"groups": [
@@ -2401,26 +2545,28 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						319,
-						323,
-						359,
-						333,
 						327,
-						339,
-						344,
-						349,
-						354,
-						315,
-						384,
-						381,
-						387,
-						391,
+						331,
+						367,
+						341,
+						335,
+						347,
+						352,
+						357,
+						362,
+						323,
+						392,
+						389,
 						395,
-						371,
-						368,
-						365,
-						378,
-						374
+						399,
+						403,
+						379,
+						376,
+						373,
+						386,
+						382,
+						407,
+						411
 					]
 				}
 			],
@@ -2433,7 +2579,7 @@
 			]
 		},
 		{
-			"id": 1089,
+			"id": 1107,
 			"name": "\"generate/gen_gs_test_models\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2443,7 +2589,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_gs_test_models.ts",
 			"children": [
 				{
-					"id": 1090,
+					"id": 1108,
 					"name": "path",
 					"kind": 32,
 					"kindString": "Variable",
@@ -2470,7 +2616,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1090
+						1108
 					]
 				}
 			],
@@ -2483,7 +2629,7 @@
 			]
 		},
 		{
-			"id": 1091,
+			"id": 1109,
 			"name": "\"generate/gen_three_test_models\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2493,7 +2639,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/gen_three_test_models.ts",
 			"children": [
 				{
-					"id": 1092,
+					"id": 1110,
 					"name": "path",
 					"kind": 32,
 					"kindString": "Variable",
@@ -2520,7 +2666,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1092
+						1110
 					]
 				}
 			],
@@ -2533,7 +2679,7 @@
 			]
 		},
 		{
-			"id": 1018,
+			"id": 1034,
 			"name": "\"generate/models_circles\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2543,7 +2689,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_circles.ts",
 			"children": [
 				{
-					"id": 1021,
+					"id": 1037,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -2552,7 +2698,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1022,
+							"id": 1038,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2573,7 +2719,7 @@
 					]
 				},
 				{
-					"id": 1023,
+					"id": 1039,
 					"name": "genModelTest1b",
 					"kind": 64,
 					"kindString": "Function",
@@ -2582,7 +2728,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1024,
+							"id": 1040,
 							"name": "genModelTest1b",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2603,7 +2749,7 @@
 					]
 				},
 				{
-					"id": 1025,
+					"id": 1041,
 					"name": "genModelTest1c",
 					"kind": 64,
 					"kindString": "Function",
@@ -2612,7 +2758,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1026,
+							"id": 1042,
 							"name": "genModelTest1c",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2633,7 +2779,7 @@
 					]
 				},
 				{
-					"id": 1027,
+					"id": 1043,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -2642,7 +2788,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1028,
+							"id": 1044,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2663,7 +2809,7 @@
 					]
 				},
 				{
-					"id": 1029,
+					"id": 1045,
 					"name": "genModelTest3",
 					"kind": 64,
 					"kindString": "Function",
@@ -2672,7 +2818,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1030,
+							"id": 1046,
 							"name": "genModelTest3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2693,7 +2839,7 @@
 					]
 				},
 				{
-					"id": 1031,
+					"id": 1047,
 					"name": "genModelTest4",
 					"kind": 64,
 					"kindString": "Function",
@@ -2702,7 +2848,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1032,
+							"id": 1048,
 							"name": "genModelTest4",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2723,7 +2869,7 @@
 					]
 				},
 				{
-					"id": 1033,
+					"id": 1049,
 					"name": "genModelTest5",
 					"kind": 64,
 					"kindString": "Function",
@@ -2732,7 +2878,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1034,
+							"id": 1050,
 							"name": "genModelTest5",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2753,7 +2899,7 @@
 					]
 				},
 				{
-					"id": 1035,
+					"id": 1051,
 					"name": "genModelTest6",
 					"kind": 64,
 					"kindString": "Function",
@@ -2762,7 +2908,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1036,
+							"id": 1052,
 							"name": "genModelTest6",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2783,7 +2929,7 @@
 					]
 				},
 				{
-					"id": 1037,
+					"id": 1053,
 					"name": "genModelTest7",
 					"kind": 64,
 					"kindString": "Function",
@@ -2792,7 +2938,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1038,
+							"id": 1054,
 							"name": "genModelTest7",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2813,7 +2959,7 @@
 					]
 				},
 				{
-					"id": 1039,
+					"id": 1055,
 					"name": "genModelTest8",
 					"kind": 64,
 					"kindString": "Function",
@@ -2822,7 +2968,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1040,
+							"id": 1056,
 							"name": "genModelTest8",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2843,7 +2989,36 @@
 					]
 				},
 				{
-					"id": 1019,
+					"id": 1057,
+					"name": "genModelTest9",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 1058,
+							"name": "genModelTest9",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "IModel"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "generate/models_circles.ts",
+							"line": 244,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 1035,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -2852,7 +3027,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1020,
+							"id": 1036,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2877,17 +3052,18 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1021,
-						1023,
-						1025,
-						1027,
-						1029,
-						1031,
-						1033,
-						1035,
 						1037,
 						1039,
-						1019
+						1041,
+						1043,
+						1045,
+						1047,
+						1049,
+						1051,
+						1053,
+						1055,
+						1057,
+						1035
 					]
 				}
 			],
@@ -2900,7 +3076,7 @@
 			]
 		},
 		{
-			"id": 1074,
+			"id": 1092,
 			"name": "\"generate/models_object\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2910,7 +3086,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_object.ts",
 			"children": [
 				{
-					"id": 1078,
+					"id": 1096,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -2919,7 +3095,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1079,
+							"id": 1097,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2939,7 +3115,7 @@
 					]
 				},
 				{
-					"id": 1080,
+					"id": 1098,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -2948,7 +3124,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1081,
+							"id": 1099,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2968,7 +3144,7 @@
 					]
 				},
 				{
-					"id": 1082,
+					"id": 1100,
 					"name": "genModelTest3",
 					"kind": 64,
 					"kindString": "Function",
@@ -2977,7 +3153,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1083,
+							"id": 1101,
 							"name": "genModelTest3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2997,7 +3173,7 @@
 					]
 				},
 				{
-					"id": 1084,
+					"id": 1102,
 					"name": "genModelTest4",
 					"kind": 64,
 					"kindString": "Function",
@@ -3006,7 +3182,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1085,
+							"id": 1103,
 							"name": "genModelTest4",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3026,21 +3202,21 @@
 					]
 				},
 				{
-					"id": 1075,
+					"id": 1093,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1076,
+							"id": 1094,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1077,
+									"id": 1095,
 									"name": "scale",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3071,11 +3247,11 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1078,
-						1080,
-						1082,
-						1084,
-						1075
+						1096,
+						1098,
+						1100,
+						1102,
+						1093
 					]
 				}
 			],
@@ -3088,7 +3264,7 @@
 			]
 		},
 		{
-			"id": 1041,
+			"id": 1059,
 			"name": "\"generate/models_plines\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3098,7 +3274,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_plines.ts",
 			"children": [
 				{
-					"id": 1045,
+					"id": 1063,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -3107,7 +3283,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1046,
+							"id": 1064,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3127,7 +3303,7 @@
 					]
 				},
 				{
-					"id": 1063,
+					"id": 1081,
 					"name": "genModelTest10",
 					"kind": 64,
 					"kindString": "Function",
@@ -3136,7 +3312,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1064,
+							"id": 1082,
 							"name": "genModelTest10",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3156,7 +3332,7 @@
 					]
 				},
 				{
-					"id": 1047,
+					"id": 1065,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -3165,7 +3341,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1048,
+							"id": 1066,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3185,7 +3361,7 @@
 					]
 				},
 				{
-					"id": 1049,
+					"id": 1067,
 					"name": "genModelTest3",
 					"kind": 64,
 					"kindString": "Function",
@@ -3194,7 +3370,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1050,
+							"id": 1068,
 							"name": "genModelTest3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3214,7 +3390,7 @@
 					]
 				},
 				{
-					"id": 1051,
+					"id": 1069,
 					"name": "genModelTest4",
 					"kind": 64,
 					"kindString": "Function",
@@ -3223,7 +3399,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1052,
+							"id": 1070,
 							"name": "genModelTest4",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3243,7 +3419,7 @@
 					]
 				},
 				{
-					"id": 1053,
+					"id": 1071,
 					"name": "genModelTest5",
 					"kind": 64,
 					"kindString": "Function",
@@ -3252,7 +3428,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1054,
+							"id": 1072,
 							"name": "genModelTest5",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3272,7 +3448,7 @@
 					]
 				},
 				{
-					"id": 1055,
+					"id": 1073,
 					"name": "genModelTest6",
 					"kind": 64,
 					"kindString": "Function",
@@ -3281,7 +3457,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1056,
+							"id": 1074,
 							"name": "genModelTest6",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3301,7 +3477,7 @@
 					]
 				},
 				{
-					"id": 1057,
+					"id": 1075,
 					"name": "genModelTest7",
 					"kind": 64,
 					"kindString": "Function",
@@ -3310,7 +3486,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1058,
+							"id": 1076,
 							"name": "genModelTest7",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3330,7 +3506,7 @@
 					]
 				},
 				{
-					"id": 1059,
+					"id": 1077,
 					"name": "genModelTest8",
 					"kind": 64,
 					"kindString": "Function",
@@ -3339,7 +3515,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1060,
+							"id": 1078,
 							"name": "genModelTest8",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3359,7 +3535,7 @@
 					]
 				},
 				{
-					"id": 1061,
+					"id": 1079,
 					"name": "genModelTest9",
 					"kind": 64,
 					"kindString": "Function",
@@ -3368,7 +3544,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1062,
+							"id": 1080,
 							"name": "genModelTest9",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3388,7 +3564,7 @@
 					]
 				},
 				{
-					"id": 1042,
+					"id": 1060,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -3397,14 +3573,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1043,
+							"id": 1061,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1044,
+									"id": 1062,
 									"name": "scale",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3435,17 +3611,17 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1045,
 						1063,
-						1047,
-						1049,
-						1051,
-						1053,
-						1055,
-						1057,
-						1059,
-						1061,
-						1042
+						1081,
+						1065,
+						1067,
+						1069,
+						1071,
+						1073,
+						1075,
+						1077,
+						1079,
+						1060
 					]
 				}
 			],
@@ -3458,7 +3634,7 @@
 			]
 		},
 		{
-			"id": 1065,
+			"id": 1083,
 			"name": "\"generate/models_pmeshes\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3468,7 +3644,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_pmeshes.ts",
 			"children": [
 				{
-					"id": 1068,
+					"id": 1086,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -3477,7 +3653,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1069,
+							"id": 1087,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3497,7 +3673,7 @@
 					]
 				},
 				{
-					"id": 1070,
+					"id": 1088,
 					"name": "genModelTest2",
 					"kind": 64,
 					"kindString": "Function",
@@ -3506,7 +3682,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1071,
+							"id": 1089,
 							"name": "genModelTest2",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3526,7 +3702,7 @@
 					]
 				},
 				{
-					"id": 1072,
+					"id": 1090,
 					"name": "genTriStrip",
 					"kind": 64,
 					"kindString": "Function",
@@ -3535,7 +3711,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1073,
+							"id": 1091,
 							"name": "genTriStrip",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3555,7 +3731,7 @@
 					]
 				},
 				{
-					"id": 1066,
+					"id": 1084,
 					"name": "randXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -3564,7 +3740,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1067,
+							"id": 1085,
 							"name": "randXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3589,10 +3765,10 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1068,
-						1070,
-						1072,
-						1066
+						1086,
+						1088,
+						1090,
+						1084
 					]
 				}
 			],
@@ -3605,7 +3781,7 @@
 			]
 		},
 		{
-			"id": 1086,
+			"id": 1104,
 			"name": "\"generate/models_points\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3615,7 +3791,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_points.ts",
 			"children": [
 				{
-					"id": 1087,
+					"id": 1105,
 					"name": "genModelTest1",
 					"kind": 64,
 					"kindString": "Function",
@@ -3624,7 +3800,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1088,
+							"id": 1106,
 							"name": "genModelTest1",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3649,7 +3825,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1087
+						1105
 					]
 				}
 			],
@@ -3662,7 +3838,7 @@
 			]
 		},
 		{
-			"id": 1015,
+			"id": 1031,
 			"name": "\"generate/models_weeks\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3672,7 +3848,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/generate/models_weeks.ts",
 			"children": [
 				{
-					"id": 1016,
+					"id": 1032,
 					"name": "genModelWeek3",
 					"kind": 64,
 					"kindString": "Function",
@@ -3681,7 +3857,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1017,
+							"id": 1033,
 							"name": "genModelWeek3",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3707,7 +3883,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1016
+						1032
 					]
 				}
 			],
@@ -3720,7 +3896,7 @@
 			]
 		},
 		{
-			"id": 411,
+			"id": 427,
 			"name": "\"group\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3733,7 +3909,7 @@
 			},
 			"children": [
 				{
-					"id": 415,
+					"id": 431,
 					"name": "Create",
 					"kind": 64,
 					"kindString": "Function",
@@ -3742,7 +3918,7 @@
 					},
 					"signatures": [
 						{
-							"id": 416,
+							"id": 432,
 							"name": "Create",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3753,7 +3929,7 @@
 							},
 							"parameters": [
 								{
-									"id": 417,
+									"id": 433,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3767,7 +3943,7 @@
 									}
 								},
 								{
-									"id": 418,
+									"id": 434,
 									"name": "name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3796,7 +3972,7 @@
 					]
 				},
 				{
-					"id": 419,
+					"id": 435,
 					"name": "Creates",
 					"kind": 64,
 					"kindString": "Function",
@@ -3805,7 +3981,7 @@
 					},
 					"signatures": [
 						{
-							"id": 420,
+							"id": 436,
 							"name": "Creates",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3816,7 +3992,7 @@
 							},
 							"parameters": [
 								{
-									"id": 421,
+									"id": 437,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3830,7 +4006,7 @@
 									}
 								},
 								{
-									"id": 422,
+									"id": 438,
 									"name": "names",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3859,7 +4035,7 @@
 					]
 				},
 				{
-					"id": 412,
+					"id": 428,
 					"name": "GetNames",
 					"kind": 64,
 					"kindString": "Function",
@@ -3868,7 +4044,7 @@
 					},
 					"signatures": [
 						{
-							"id": 413,
+							"id": 429,
 							"name": "GetNames",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3879,7 +4055,7 @@
 							},
 							"parameters": [
 								{
-									"id": 414,
+									"id": 430,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3911,7 +4087,7 @@
 					]
 				},
 				{
-					"id": 423,
+					"id": 439,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -3920,7 +4096,7 @@
 					},
 					"signatures": [
 						{
-							"id": 424,
+							"id": 440,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3931,7 +4107,7 @@
 							},
 							"parameters": [
 								{
-									"id": 425,
+									"id": 441,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3945,7 +4121,7 @@
 									}
 								},
 								{
-									"id": 426,
+									"id": 442,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3959,7 +4135,7 @@
 									}
 								},
 								{
-									"id": 427,
+									"id": 443,
 									"name": "delete_geom",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3988,7 +4164,7 @@
 					]
 				},
 				{
-					"id": 437,
+					"id": 453,
 					"name": "getChildren",
 					"kind": 64,
 					"kindString": "Function",
@@ -3997,7 +4173,7 @@
 					},
 					"signatures": [
 						{
-							"id": 438,
+							"id": 454,
 							"name": "getChildren",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4008,7 +4184,7 @@
 							},
 							"parameters": [
 								{
-									"id": 439,
+									"id": 455,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4022,7 +4198,7 @@
 									}
 								},
 								{
-									"id": 440,
+									"id": 456,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4054,7 +4230,7 @@
 					]
 				},
 				{
-					"id": 428,
+					"id": 444,
 					"name": "getParent",
 					"kind": 64,
 					"kindString": "Function",
@@ -4063,7 +4239,7 @@
 					},
 					"signatures": [
 						{
-							"id": 429,
+							"id": 445,
 							"name": "getParent",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4074,7 +4250,7 @@
 							},
 							"parameters": [
 								{
-									"id": 430,
+									"id": 446,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4088,7 +4264,7 @@
 									}
 								},
 								{
-									"id": 431,
+									"id": 447,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4117,7 +4293,7 @@
 					]
 				},
 				{
-					"id": 432,
+					"id": 448,
 					"name": "setParent",
 					"kind": 64,
 					"kindString": "Function",
@@ -4126,7 +4302,7 @@
 					},
 					"signatures": [
 						{
-							"id": 433,
+							"id": 449,
 							"name": "setParent",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4137,7 +4313,7 @@
 							},
 							"parameters": [
 								{
-									"id": 434,
+									"id": 450,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4151,7 +4327,7 @@
 									}
 								},
 								{
-									"id": 435,
+									"id": 451,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4165,7 +4341,7 @@
 									}
 								},
 								{
-									"id": 436,
+									"id": 452,
 									"name": "parent_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4199,13 +4375,13 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						415,
-						419,
-						412,
-						423,
-						437,
+						431,
+						435,
 						428,
-						432
+						439,
+						453,
+						444,
+						448
 					]
 				}
 			],
@@ -4218,7 +4394,7 @@
 			]
 		},
 		{
-			"id": 1093,
+			"id": 1111,
 			"name": "\"import/geojson/geojson\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4228,7 +4404,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/import/geojson/geojson.ts",
 			"children": [
 				{
-					"id": 1094,
+					"id": 1112,
 					"name": "path",
 					"kind": 32,
 					"kindString": "Variable",
@@ -4247,14 +4423,14 @@
 					"defaultValue": "\"../gs-modelling/src/assets/geojson/\""
 				},
 				{
-					"id": 1106,
+					"id": 1124,
 					"name": "add_attribs",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1107,
+							"id": 1125,
 							"name": "add_attribs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4265,7 +4441,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1108,
+									"id": 1126,
 									"name": "attrib_data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4289,7 +4465,7 @@
 									}
 								},
 								{
-									"id": 1109,
+									"id": 1127,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4328,14 +4504,14 @@
 					]
 				},
 				{
-					"id": 1110,
+					"id": 1128,
 					"name": "add_linestrings",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1111,
+							"id": 1129,
 							"name": "add_linestrings",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4345,198 +4521,8 @@
 							},
 							"parameters": [
 								{
-									"id": 1112,
-									"name": "linestrings",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "The features to add."
-									},
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "any"
-										}
-									}
-								},
-								{
-									"id": 1113,
-									"name": "attribs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "reference",
-										"name": "Map",
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "string"
-											},
-											{
-												"type": "reference",
-												"name": "IEntAttrib"
-											}
-										]
-									}
-								},
-								{
-									"id": 1114,
-									"name": "model",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "The model\n"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								},
-								{
-									"id": 1115,
-									"name": "elevation",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "import/geojson/geojson.ts",
-							"line": 158,
-							"character": 24
-						}
-					]
-				},
-				{
-					"id": 1122,
-					"name": "add_multilinestrings",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {},
-					"signatures": [
-						{
-							"id": 1123,
-							"name": "add_multilinestrings",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Adds multilinestrings to the model"
-							},
-							"parameters": [
-								{
-									"id": 1124,
-									"name": "multilinestrings",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "The features to add."
-									},
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "any"
-										}
-									}
-								},
-								{
-									"id": 1125,
-									"name": "attribs",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "reference",
-										"name": "Map",
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "string"
-											},
-											{
-												"type": "reference",
-												"name": "IEntAttrib"
-											}
-										]
-									}
-								},
-								{
-									"id": 1126,
-									"name": "model",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "The model\n"
-									},
-									"type": {
-										"type": "reference",
-										"name": "IModel"
-									}
-								},
-								{
-									"id": 1127,
-									"name": "elevation",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "number"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "import/geojson/geojson.ts",
-							"line": 220,
-							"character": 29
-						}
-					]
-				},
-				{
-					"id": 1128,
-					"name": "add_multipolygons",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {},
-					"signatures": [
-						{
-							"id": 1129,
-							"name": "add_multipolygons",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Adds multipolygons to the model"
-							},
-							"parameters": [
-								{
 									"id": 1130,
-									"name": "multipolygons",
+									"name": "linestrings",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
@@ -4607,31 +4593,31 @@
 					"sources": [
 						{
 							"fileName": "import/geojson/geojson.ts",
-							"line": 258,
-							"character": 26
+							"line": 158,
+							"character": 24
 						}
 					]
 				},
 				{
-					"id": 1116,
-					"name": "add_polygons",
+					"id": 1140,
+					"name": "add_multilinestrings",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1117,
-							"name": "add_polygons",
+							"id": 1141,
+							"name": "add_multilinestrings",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Adds polygons to the model"
+								"shortText": "Adds multilinestrings to the model"
 							},
 							"parameters": [
 								{
-									"id": 1118,
-									"name": "polygons",
+									"id": 1142,
+									"name": "multilinestrings",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
@@ -4647,7 +4633,7 @@
 									}
 								},
 								{
-									"id": 1119,
+									"id": 1143,
 									"name": "attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4668,7 +4654,7 @@
 									}
 								},
 								{
-									"id": 1120,
+									"id": 1144,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4682,7 +4668,197 @@
 									}
 								},
 								{
-									"id": 1121,
+									"id": 1145,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 220,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 1146,
+					"name": "add_multipolygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 1147,
+							"name": "add_multipolygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds multipolygons to the model"
+							},
+							"parameters": [
+								{
+									"id": 1148,
+									"name": "multipolygons",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 1149,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 1150,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 1151,
+									"name": "elevation",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "import/geojson/geojson.ts",
+							"line": 258,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 1134,
+					"name": "add_polygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 1135,
+							"name": "add_polygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Adds polygons to the model"
+							},
+							"parameters": [
+								{
+									"id": 1136,
+									"name": "polygons",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The features to add."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "any"
+										}
+									}
+								},
+								{
+									"id": 1137,
+									"name": "attribs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Map",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"name": "IEntAttrib"
+											}
+										]
+									}
+								},
+								{
+									"id": 1138,
+									"name": "model",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The model\n"
+									},
+									"type": {
+										"type": "reference",
+										"name": "IModel"
+									}
+								},
+								{
+									"id": 1139,
 									"name": "elevation",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4708,7 +4884,7 @@
 					]
 				},
 				{
-					"id": 1098,
+					"id": 1116,
 					"name": "geojson",
 					"kind": 64,
 					"kindString": "Function",
@@ -4717,7 +4893,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1099,
+							"id": 1117,
 							"name": "geojson",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4728,7 +4904,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1100,
+									"id": 1118,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4757,7 +4933,7 @@
 					]
 				},
 				{
-					"id": 1095,
+					"id": 1113,
 					"name": "geojsons",
 					"kind": 64,
 					"kindString": "Function",
@@ -4766,7 +4942,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1096,
+							"id": 1114,
 							"name": "geojsons",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4777,7 +4953,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1097,
+									"id": 1115,
 									"name": "filenames",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4809,7 +4985,7 @@
 					]
 				},
 				{
-					"id": 1101,
+					"id": 1119,
 					"name": "process",
 					"kind": 64,
 					"kindString": "Function",
@@ -4818,7 +4994,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1102,
+							"id": 1120,
 							"name": "process",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4829,7 +5005,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1103,
+									"id": 1121,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4840,7 +5016,7 @@
 									}
 								},
 								{
-									"id": 1104,
+									"id": 1122,
 									"name": "obj_data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4854,7 +5030,7 @@
 									}
 								},
 								{
-									"id": 1105,
+									"id": 1123,
 									"name": "elevation",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4885,21 +5061,21 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1094
+						1112
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1106,
-						1110,
-						1122,
+						1124,
 						1128,
+						1140,
+						1146,
+						1134,
 						1116,
-						1098,
-						1095,
-						1101
+						1113,
+						1119
 					]
 				}
 			],
@@ -4912,7 +5088,7 @@
 			]
 		},
 		{
-			"id": 482,
+			"id": 498,
 			"name": "\"intersect\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4925,7 +5101,7 @@
 			},
 			"children": [
 				{
-					"id": 483,
+					"id": 499,
 					"name": "circleCircle2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -4934,7 +5110,7 @@
 					},
 					"signatures": [
 						{
-							"id": 484,
+							"id": 500,
 							"name": "circleCircle2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4945,7 +5121,7 @@
 							},
 							"parameters": [
 								{
-									"id": 485,
+									"id": 501,
 									"name": "circle1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4959,7 +5135,7 @@
 									}
 								},
 								{
-									"id": 486,
+									"id": 502,
 									"name": "circle2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4991,7 +5167,7 @@
 					]
 				},
 				{
-					"id": 491,
+					"id": 507,
 					"name": "circlePlane3D",
 					"kind": 64,
 					"kindString": "Function",
@@ -5000,7 +5176,7 @@
 					},
 					"signatures": [
 						{
-							"id": 492,
+							"id": 508,
 							"name": "circlePlane3D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5011,7 +5187,7 @@
 							},
 							"parameters": [
 								{
-									"id": 493,
+									"id": 509,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5025,7 +5201,7 @@
 									}
 								},
 								{
-									"id": 494,
+									"id": 510,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5057,7 +5233,7 @@
 					]
 				},
 				{
-					"id": 495,
+					"id": 511,
 					"name": "polylinePlane3D",
 					"kind": 64,
 					"kindString": "Function",
@@ -5066,7 +5242,7 @@
 					},
 					"signatures": [
 						{
-							"id": 496,
+							"id": 512,
 							"name": "polylinePlane3D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5077,7 +5253,7 @@
 							},
 							"parameters": [
 								{
-									"id": 497,
+									"id": 513,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5091,7 +5267,7 @@
 									}
 								},
 								{
-									"id": 498,
+									"id": 514,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5123,7 +5299,7 @@
 					]
 				},
 				{
-					"id": 487,
+					"id": 503,
 					"name": "polylinePolyline2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -5132,7 +5308,7 @@
 					},
 					"signatures": [
 						{
-							"id": 488,
+							"id": 504,
 							"name": "polylinePolyline2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -5143,7 +5319,7 @@
 							},
 							"parameters": [
 								{
-									"id": 489,
+									"id": 505,
 									"name": "pline1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5157,7 +5333,7 @@
 									}
 								},
 								{
-									"id": 490,
+									"id": 506,
 									"name": "pline2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -5194,10 +5370,10 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						483,
-						491,
-						495,
-						487
+						499,
+						507,
+						511,
+						503
 					]
 				}
 			],
@@ -6356,6 +6532,142 @@
 							"character": 33
 						}
 					]
+				},
+				{
+					"id": 314,
+					"name": "innerTangentsCircleCircle2D",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 315,
+							"name": "innerTangentsCircleCircle2D",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Find the inner tangents of two coplanar circles.",
+								"returns": "An array of start and end points of the two tangent lines\n"
+							},
+							"parameters": [
+								{
+									"id": 316,
+									"name": "circle1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								},
+								{
+									"id": 317,
+									"name": "circle2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								}
+							],
+							"type": {
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									},
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "libs/conics/circles.ts",
+							"line": 344,
+							"character": 43
+						}
+					]
+				},
+				{
+					"id": 318,
+					"name": "outerTangentsCircleCircle2D",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 319,
+							"name": "outerTangentsCircleCircle2D",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Find the outer tangents of two coplanar circles.",
+								"returns": "An array of two tangent lines\n"
+							},
+							"parameters": [
+								{
+									"id": 320,
+									"name": "circle1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								},
+								{
+									"id": 321,
+									"name": "circle2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "ICircle"
+									}
+								}
+							],
+							"type": {
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									},
+									{
+										"type": "reference",
+										"name": "IPolyline"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "libs/conics/circles.ts",
+							"line": 403,
+							"character": 43
+						}
+					]
 				}
 			],
 			"groups": [
@@ -6375,7 +6687,9 @@
 						299,
 						307,
 						303,
-						309
+						309,
+						314,
+						318
 					]
 				}
 			],
@@ -6487,7 +6801,7 @@
 			]
 		},
 		{
-			"id": 499,
+			"id": 515,
 			"name": "\"libs/filesys/download\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6497,7 +6811,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/filesys/download.ts",
 			"children": [
 				{
-					"id": 500,
+					"id": 516,
 					"name": "save",
 					"kind": 64,
 					"kindString": "Function",
@@ -6506,14 +6820,14 @@
 					},
 					"signatures": [
 						{
-							"id": 501,
+							"id": 517,
 							"name": "save",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 502,
+									"id": 518,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6524,7 +6838,7 @@
 									}
 								},
 								{
-									"id": 503,
+									"id": 519,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6555,7 +6869,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						500
+						516
 					]
 				}
 			],
@@ -6568,7 +6882,7 @@
 			]
 		},
 		{
-			"id": 399,
+			"id": 415,
 			"name": "\"libs/filesys/filesys\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6578,7 +6892,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/filesys/filesys.ts",
 			"children": [
 				{
-					"id": 408,
+					"id": 424,
 					"name": "readToJSONFile",
 					"kind": 64,
 					"kindString": "Function",
@@ -6587,7 +6901,7 @@
 					},
 					"signatures": [
 						{
-							"id": 409,
+							"id": 425,
 							"name": "readToJSONFile",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6597,7 +6911,7 @@
 							},
 							"parameters": [
 								{
-									"id": 410,
+									"id": 426,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6623,7 +6937,7 @@
 					]
 				},
 				{
-					"id": 404,
+					"id": 420,
 					"name": "writeGsToJSONFile",
 					"kind": 64,
 					"kindString": "Function",
@@ -6632,7 +6946,7 @@
 					},
 					"signatures": [
 						{
-							"id": 405,
+							"id": 421,
 							"name": "writeGsToJSONFile",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6642,7 +6956,7 @@
 							},
 							"parameters": [
 								{
-									"id": 406,
+									"id": 422,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6653,7 +6967,7 @@
 									}
 								},
 								{
-									"id": 407,
+									"id": 423,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6679,7 +6993,7 @@
 					]
 				},
 				{
-					"id": 400,
+					"id": 416,
 					"name": "writeThreeToJSONFile",
 					"kind": 64,
 					"kindString": "Function",
@@ -6688,7 +7002,7 @@
 					},
 					"signatures": [
 						{
-							"id": 401,
+							"id": 417,
 							"name": "writeThreeToJSONFile",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6698,7 +7012,7 @@
 							},
 							"parameters": [
 								{
-									"id": 402,
+									"id": 418,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6709,7 +7023,7 @@
 									}
 								},
 								{
-									"id": 403,
+									"id": 419,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6740,9 +7054,9 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						408,
-						404,
-						400
+						424,
+						420,
+						416
 					]
 				}
 			],
@@ -6755,7 +7069,7 @@
 			]
 		},
 		{
-			"id": 441,
+			"id": 457,
 			"name": "\"libs/poly/poly\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6765,7 +7079,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/poly/poly.ts",
 			"children": [
 				{
-					"id": 442,
+					"id": 458,
 					"name": "EPS",
 					"kind": 32,
 					"kindString": "Variable",
@@ -6784,14 +7098,14 @@
 					"defaultValue": "0.000001"
 				},
 				{
-					"id": 472,
+					"id": 488,
 					"name": "_isectLineLine2D",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 473,
+							"id": 489,
 							"name": "_isectLineLine2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6801,7 +7115,7 @@
 							},
 							"parameters": [
 								{
-									"id": 474,
+									"id": 490,
 									"name": "line1_start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6812,7 +7126,7 @@
 									}
 								},
 								{
-									"id": 475,
+									"id": 491,
 									"name": "line1_end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6823,7 +7137,7 @@
 									}
 								},
 								{
-									"id": 476,
+									"id": 492,
 									"name": "line2_start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6834,7 +7148,7 @@
 									}
 								},
 								{
-									"id": 477,
+									"id": 493,
 									"name": "line2_end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6848,14 +7162,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 478,
+									"id": 494,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 479,
+											"id": 495,
 											"name": "isect_point",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6873,7 +7187,7 @@
 											}
 										},
 										{
-											"id": 480,
+											"id": 496,
 											"name": "t1",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6891,7 +7205,7 @@
 											}
 										},
 										{
-											"id": 481,
+											"id": 497,
 											"name": "t2",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6914,9 +7228,9 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												479,
-												480,
-												481
+												495,
+												496,
+												497
 											]
 										}
 									],
@@ -6940,7 +7254,7 @@
 					]
 				},
 				{
-					"id": 464,
+					"id": 480,
 					"name": "_isectPolylinePolyline2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -6949,7 +7263,7 @@
 					},
 					"signatures": [
 						{
-							"id": 465,
+							"id": 481,
 							"name": "_isectPolylinePolyline2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6959,7 +7273,7 @@
 							},
 							"parameters": [
 								{
-									"id": 466,
+									"id": 482,
 									"name": "pline1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6970,7 +7284,7 @@
 									}
 								},
 								{
-									"id": 467,
+									"id": 483,
 									"name": "pline2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6999,7 +7313,7 @@
 					]
 				},
 				{
-					"id": 468,
+					"id": 484,
 					"name": "_splitPolylinePolyline2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -7008,7 +7322,7 @@
 					},
 					"signatures": [
 						{
-							"id": 469,
+							"id": 485,
 							"name": "_splitPolylinePolyline2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7018,7 +7332,7 @@
 							},
 							"parameters": [
 								{
-									"id": 470,
+									"id": 486,
 									"name": "pline1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7029,7 +7343,7 @@
 									}
 								},
 								{
-									"id": 471,
+									"id": 487,
 									"name": "pline2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7061,7 +7375,7 @@
 					]
 				},
 				{
-					"id": 443,
+					"id": 459,
 					"name": "getVertexNormal",
 					"kind": 64,
 					"kindString": "Function",
@@ -7070,7 +7384,7 @@
 					},
 					"signatures": [
 						{
-							"id": 444,
+							"id": 460,
 							"name": "getVertexNormal",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7080,7 +7394,7 @@
 							},
 							"parameters": [
 								{
-									"id": 445,
+									"id": 461,
 									"name": "vertex",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7106,7 +7420,7 @@
 					]
 				},
 				{
-					"id": 460,
+					"id": 476,
 					"name": "pointsEvaluate",
 					"kind": 64,
 					"kindString": "Function",
@@ -7115,7 +7429,7 @@
 					},
 					"signatures": [
 						{
-							"id": 461,
+							"id": 477,
 							"name": "pointsEvaluate",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7125,7 +7439,7 @@
 							},
 							"parameters": [
 								{
-									"id": 462,
+									"id": 478,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7139,7 +7453,7 @@
 									}
 								},
 								{
-									"id": 463,
+									"id": 479,
 									"name": "t_param",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7165,7 +7479,7 @@
 					]
 				},
 				{
-					"id": 454,
+					"id": 470,
 					"name": "pointsExtend",
 					"kind": 64,
 					"kindString": "Function",
@@ -7174,7 +7488,7 @@
 					},
 					"signatures": [
 						{
-							"id": 455,
+							"id": 471,
 							"name": "pointsExtend",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7184,7 +7498,7 @@
 							},
 							"parameters": [
 								{
-									"id": 456,
+									"id": 472,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7195,7 +7509,7 @@
 									}
 								},
 								{
-									"id": 457,
+									"id": 473,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7206,7 +7520,7 @@
 									}
 								},
 								{
-									"id": 458,
+									"id": 474,
 									"name": "distance",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7217,7 +7531,7 @@
 									}
 								},
 								{
-									"id": 459,
+									"id": 475,
 									"name": "create",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7244,7 +7558,7 @@
 					]
 				},
 				{
-					"id": 450,
+					"id": 466,
 					"name": "pointsLoft",
 					"kind": 64,
 					"kindString": "Function",
@@ -7253,7 +7567,7 @@
 					},
 					"signatures": [
 						{
-							"id": 451,
+							"id": 467,
 							"name": "pointsLoft",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7263,7 +7577,7 @@
 							},
 							"parameters": [
 								{
-									"id": 452,
+									"id": 468,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7280,7 +7594,7 @@
 									}
 								},
 								{
-									"id": 453,
+									"id": 469,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7312,7 +7626,7 @@
 					]
 				},
 				{
-					"id": 446,
+					"id": 462,
 					"name": "pointsLoftLoop",
 					"kind": 64,
 					"kindString": "Function",
@@ -7321,7 +7635,7 @@
 					},
 					"signatures": [
 						{
-							"id": 447,
+							"id": 463,
 							"name": "pointsLoftLoop",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7331,7 +7645,7 @@
 							},
 							"parameters": [
 								{
-									"id": 448,
+									"id": 464,
 									"name": "points_lists",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7351,7 +7665,7 @@
 									}
 								},
 								{
-									"id": 449,
+									"id": 465,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7388,21 +7702,21 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						442
+						458
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						472,
-						464,
-						468,
-						443,
-						460,
-						454,
-						450,
-						446
+						488,
+						480,
+						484,
+						459,
+						476,
+						470,
+						466,
+						462
 					]
 				}
 			],
@@ -8756,8 +9070,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reference",
-										"name": "IPoint"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Vector3"
+											},
+											{
+												"type": "reference",
+												"name": "IPoint"
+											}
+										]
 									}
 								},
 								{
@@ -8767,8 +9090,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reference",
-										"name": "gs.XYZ"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Vector3"
+											},
+											{
+												"type": "reference",
+												"name": "gs.XYZ"
+											}
+										]
 									}
 								},
 								{
@@ -8778,8 +9110,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reference",
-										"name": "IPoint"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Vector3"
+											},
+											{
+												"type": "reference",
+												"name": "IPoint"
+											}
+										]
 									}
 								},
 								{
@@ -8789,8 +9130,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reference",
-										"name": "gs.XYZ"
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Vector3"
+											},
+											{
+												"type": "reference",
+												"name": "gs.XYZ"
+											}
+										]
 									}
 								}
 							],
@@ -8870,7 +9220,7 @@
 					"sources": [
 						{
 							"fileName": "libs/threex/threex.ts",
-							"line": 409,
+							"line": 432,
 							"character": 30
 						}
 					]
@@ -9495,7 +9845,7 @@
 					"sources": [
 						{
 							"fileName": "libs/threex/threex.ts",
-							"line": 420,
+							"line": 443,
 							"character": 31
 						}
 					]
@@ -9943,7 +10293,7 @@
 			]
 		},
 		{
-			"id": 1134,
+			"id": 1152,
 			"name": "\"libs/xform/xform\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9953,7 +10303,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/libs/xform/xform.ts",
 			"children": [
 				{
-					"id": 1135,
+					"id": 1153,
 					"name": "xfromXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -9962,14 +10312,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1136,
+							"id": 1154,
 							"name": "xfromXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1137,
+									"id": 1155,
 									"name": "xyz_list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9983,7 +10333,7 @@
 									}
 								},
 								{
-									"id": 1138,
+									"id": 1156,
 									"name": "from_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9994,7 +10344,7 @@
 									}
 								},
 								{
-									"id": 1139,
+									"id": 1157,
 									"name": "from_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10008,7 +10358,7 @@
 									}
 								},
 								{
-									"id": 1140,
+									"id": 1158,
 									"name": "to_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10019,7 +10369,7 @@
 									}
 								},
 								{
-									"id": 1141,
+									"id": 1159,
 									"name": "to_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10054,7 +10404,7 @@
 					]
 				},
 				{
-					"id": 1142,
+					"id": 1160,
 					"name": "xfromXYZfromGlobal",
 					"kind": 64,
 					"kindString": "Function",
@@ -10063,14 +10413,14 @@
 					},
 					"signatures": [
 						{
-							"id": 1143,
+							"id": 1161,
 							"name": "xfromXYZfromGlobal",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1144,
+									"id": 1162,
 									"name": "xyz_list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10084,7 +10434,7 @@
 									}
 								},
 								{
-									"id": 1145,
+									"id": 1163,
 									"name": "to_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10095,7 +10445,7 @@
 									}
 								},
 								{
-									"id": 1146,
+									"id": 1164,
 									"name": "to_vectors",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10135,8 +10485,8 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1135,
-						1142
+						1153,
+						1160
 					]
 				}
 			],
@@ -10149,7 +10499,7 @@
 			]
 		},
 		{
-			"id": 868,
+			"id": 884,
 			"name": "\"list\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10159,7 +10509,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/list.ts",
 			"children": [
 				{
-					"id": 869,
+					"id": 885,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -10168,7 +10518,7 @@
 					},
 					"signatures": [
 						{
-							"id": 870,
+							"id": 886,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10179,7 +10529,7 @@
 							},
 							"parameters": [
 								{
-									"id": 871,
+									"id": 887,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10214,7 +10564,7 @@
 					]
 				},
 				{
-					"id": 872,
+					"id": 888,
 					"name": "FromRange",
 					"kind": 64,
 					"kindString": "Function",
@@ -10223,7 +10573,7 @@
 					},
 					"signatures": [
 						{
-							"id": 873,
+							"id": 889,
 							"name": "FromRange",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10234,7 +10584,7 @@
 							},
 							"parameters": [
 								{
-									"id": 874,
+									"id": 890,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10248,7 +10598,7 @@
 									}
 								},
 								{
-									"id": 875,
+									"id": 891,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10280,7 +10630,7 @@
 					]
 				},
 				{
-					"id": 879,
+					"id": 895,
 					"name": "append",
 					"kind": 64,
 					"kindString": "Function",
@@ -10289,7 +10639,7 @@
 					},
 					"signatures": [
 						{
-							"id": 880,
+							"id": 896,
 							"name": "append",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10300,7 +10650,7 @@
 							},
 							"parameters": [
 								{
-									"id": 881,
+									"id": 897,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10317,7 +10667,7 @@
 									}
 								},
 								{
-									"id": 882,
+									"id": 898,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10349,7 +10699,7 @@
 					]
 				},
 				{
-					"id": 883,
+					"id": 899,
 					"name": "appendFront",
 					"kind": 64,
 					"kindString": "Function",
@@ -10358,7 +10708,7 @@
 					},
 					"signatures": [
 						{
-							"id": 884,
+							"id": 900,
 							"name": "appendFront",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10369,7 +10719,7 @@
 							},
 							"parameters": [
 								{
-									"id": 885,
+									"id": 901,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10386,7 +10736,7 @@
 									}
 								},
 								{
-									"id": 886,
+									"id": 902,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10418,7 +10768,7 @@
 					]
 				},
 				{
-					"id": 887,
+					"id": 903,
 					"name": "extend",
 					"kind": 64,
 					"kindString": "Function",
@@ -10427,7 +10777,7 @@
 					},
 					"signatures": [
 						{
-							"id": 888,
+							"id": 904,
 							"name": "extend",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10438,7 +10788,7 @@
 							},
 							"parameters": [
 								{
-									"id": 889,
+									"id": 905,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10455,7 +10805,7 @@
 									}
 								},
 								{
-									"id": 890,
+									"id": 906,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10490,7 +10840,7 @@
 					]
 				},
 				{
-					"id": 891,
+					"id": 907,
 					"name": "extendFront",
 					"kind": 64,
 					"kindString": "Function",
@@ -10499,7 +10849,7 @@
 					},
 					"signatures": [
 						{
-							"id": 892,
+							"id": 908,
 							"name": "extendFront",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10510,7 +10860,7 @@
 							},
 							"parameters": [
 								{
-									"id": 893,
+									"id": 909,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10527,7 +10877,7 @@
 									}
 								},
 								{
-									"id": 894,
+									"id": 910,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10562,7 +10912,7 @@
 					]
 				},
 				{
-					"id": 895,
+					"id": 911,
 					"name": "flatten",
 					"kind": 64,
 					"kindString": "Function",
@@ -10571,7 +10921,7 @@
 					},
 					"signatures": [
 						{
-							"id": 896,
+							"id": 912,
 							"name": "flatten",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10582,7 +10932,7 @@
 							},
 							"parameters": [
 								{
-									"id": 897,
+									"id": 913,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10617,7 +10967,7 @@
 					]
 				},
 				{
-					"id": 876,
+					"id": 892,
 					"name": "len",
 					"kind": 64,
 					"kindString": "Function",
@@ -10626,7 +10976,7 @@
 					},
 					"signatures": [
 						{
-							"id": 877,
+							"id": 893,
 							"name": "len",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10637,7 +10987,7 @@
 							},
 							"parameters": [
 								{
-									"id": 878,
+									"id": 894,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10669,7 +11019,7 @@
 					]
 				},
 				{
-					"id": 898,
+					"id": 914,
 					"name": "removeIndex",
 					"kind": 64,
 					"kindString": "Function",
@@ -10678,7 +11028,7 @@
 					},
 					"signatures": [
 						{
-							"id": 899,
+							"id": 915,
 							"name": "removeIndex",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10689,7 +11039,7 @@
 							},
 							"parameters": [
 								{
-									"id": 900,
+									"id": 916,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10706,7 +11056,7 @@
 									}
 								},
 								{
-									"id": 901,
+									"id": 917,
 									"name": "index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10738,7 +11088,7 @@
 					]
 				},
 				{
-					"id": 902,
+					"id": 918,
 					"name": "removeValue",
 					"kind": 64,
 					"kindString": "Function",
@@ -10747,7 +11097,7 @@
 					},
 					"signatures": [
 						{
-							"id": 903,
+							"id": 919,
 							"name": "removeValue",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10759,7 +11109,7 @@
 							},
 							"parameters": [
 								{
-									"id": 904,
+									"id": 920,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10776,7 +11126,7 @@
 									}
 								},
 								{
-									"id": 905,
+									"id": 921,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10790,7 +11140,7 @@
 									}
 								},
 								{
-									"id": 906,
+									"id": 922,
 									"name": "remove_all",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10823,7 +11173,7 @@
 					]
 				},
 				{
-					"id": 907,
+					"id": 923,
 					"name": "reverse",
 					"kind": 64,
 					"kindString": "Function",
@@ -10832,7 +11182,7 @@
 					},
 					"signatures": [
 						{
-							"id": 908,
+							"id": 924,
 							"name": "reverse",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10843,7 +11193,7 @@
 							},
 							"parameters": [
 								{
-									"id": 909,
+									"id": 925,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10878,7 +11228,7 @@
 					]
 				},
 				{
-					"id": 916,
+					"id": 932,
 					"name": "slice",
 					"kind": 64,
 					"kindString": "Function",
@@ -10887,7 +11237,7 @@
 					},
 					"signatures": [
 						{
-							"id": 917,
+							"id": 933,
 							"name": "slice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10898,7 +11248,7 @@
 							},
 							"parameters": [
 								{
-									"id": 918,
+									"id": 934,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10915,7 +11265,7 @@
 									}
 								},
 								{
-									"id": 919,
+									"id": 935,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10929,7 +11279,7 @@
 									}
 								},
 								{
-									"id": 920,
+									"id": 936,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10961,7 +11311,7 @@
 					]
 				},
 				{
-					"id": 910,
+					"id": 926,
 					"name": "sortAlpha",
 					"kind": 64,
 					"kindString": "Function",
@@ -10970,7 +11320,7 @@
 					},
 					"signatures": [
 						{
-							"id": 911,
+							"id": 927,
 							"name": "sortAlpha",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10982,7 +11332,7 @@
 							},
 							"parameters": [
 								{
-									"id": 912,
+									"id": 928,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11017,7 +11367,7 @@
 					]
 				},
 				{
-					"id": 913,
+					"id": 929,
 					"name": "sortNum",
 					"kind": 64,
 					"kindString": "Function",
@@ -11026,7 +11376,7 @@
 					},
 					"signatures": [
 						{
-							"id": 914,
+							"id": 930,
 							"name": "sortNum",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11037,7 +11387,7 @@
 							},
 							"parameters": [
 								{
-									"id": 915,
+									"id": 931,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11072,7 +11422,7 @@
 					]
 				},
 				{
-					"id": 921,
+					"id": 937,
 					"name": "splice",
 					"kind": 64,
 					"kindString": "Function",
@@ -11081,7 +11431,7 @@
 					},
 					"signatures": [
 						{
-							"id": 922,
+							"id": 938,
 							"name": "splice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11093,7 +11443,7 @@
 							},
 							"parameters": [
 								{
-									"id": 923,
+									"id": 939,
 									"name": "list",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11110,7 +11460,7 @@
 									}
 								},
 								{
-									"id": 924,
+									"id": 940,
 									"name": "index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11124,7 +11474,7 @@
 									}
 								},
 								{
-									"id": 925,
+									"id": 941,
 									"name": "num_to_remove",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11138,7 +11488,7 @@
 									}
 								},
 								{
-									"id": 926,
+									"id": 942,
 									"name": "items_to_add",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11178,21 +11528,21 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						869,
-						872,
-						879,
-						883,
-						887,
-						891,
+						885,
+						888,
 						895,
-						876,
-						898,
-						902,
+						899,
+						903,
 						907,
-						916,
-						910,
-						913,
-						921
+						911,
+						892,
+						914,
+						918,
+						923,
+						932,
+						926,
+						929,
+						937
 					]
 				}
 			],
@@ -11205,7 +11555,7 @@
 			]
 		},
 		{
-			"id": 927,
+			"id": 943,
 			"name": "\"math\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -11215,7 +11565,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/math.ts",
 			"children": [
 				{
-					"id": 932,
+					"id": 948,
 					"name": "NEG_INF",
 					"kind": 64,
 					"kindString": "Function",
@@ -11224,7 +11574,7 @@
 					},
 					"signatures": [
 						{
-							"id": 933,
+							"id": 949,
 							"name": "NEG_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11248,7 +11598,7 @@
 					]
 				},
 				{
-					"id": 928,
+					"id": 944,
 					"name": "PI",
 					"kind": 64,
 					"kindString": "Function",
@@ -11257,7 +11607,7 @@
 					},
 					"signatures": [
 						{
-							"id": 929,
+							"id": 945,
 							"name": "PI",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11281,7 +11631,7 @@
 					]
 				},
 				{
-					"id": 930,
+					"id": 946,
 					"name": "POS_INF",
 					"kind": 64,
 					"kindString": "Function",
@@ -11290,7 +11640,7 @@
 					},
 					"signatures": [
 						{
-							"id": 931,
+							"id": 947,
 							"name": "POS_INF",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11314,7 +11664,7 @@
 					]
 				},
 				{
-					"id": 962,
+					"id": 978,
 					"name": "abs",
 					"kind": 64,
 					"kindString": "Function",
@@ -11323,7 +11673,7 @@
 					},
 					"signatures": [
 						{
-							"id": 963,
+							"id": 979,
 							"name": "abs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11335,7 +11685,7 @@
 							},
 							"parameters": [
 								{
-									"id": 964,
+									"id": 980,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11364,7 +11714,7 @@
 					]
 				},
 				{
-					"id": 937,
+					"id": 953,
 					"name": "acos",
 					"kind": 64,
 					"kindString": "Function",
@@ -11373,7 +11723,7 @@
 					},
 					"signatures": [
 						{
-							"id": 938,
+							"id": 954,
 							"name": "acos",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11384,7 +11734,7 @@
 							},
 							"parameters": [
 								{
-									"id": 939,
+									"id": 955,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11413,7 +11763,7 @@
 					]
 				},
 				{
-					"id": 943,
+					"id": 959,
 					"name": "asin",
 					"kind": 64,
 					"kindString": "Function",
@@ -11422,7 +11772,7 @@
 					},
 					"signatures": [
 						{
-							"id": 944,
+							"id": 960,
 							"name": "asin",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11433,7 +11783,7 @@
 							},
 							"parameters": [
 								{
-									"id": 945,
+									"id": 961,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11462,7 +11812,7 @@
 					]
 				},
 				{
-					"id": 949,
+					"id": 965,
 					"name": "atan",
 					"kind": 64,
 					"kindString": "Function",
@@ -11471,7 +11821,7 @@
 					},
 					"signatures": [
 						{
-							"id": 950,
+							"id": 966,
 							"name": "atan",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11482,7 +11832,7 @@
 							},
 							"parameters": [
 								{
-									"id": 951,
+									"id": 967,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11511,7 +11861,7 @@
 					]
 				},
 				{
-					"id": 956,
+					"id": 972,
 					"name": "ceiling",
 					"kind": 64,
 					"kindString": "Function",
@@ -11520,7 +11870,7 @@
 					},
 					"signatures": [
 						{
-							"id": 957,
+							"id": 973,
 							"name": "ceiling",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11531,7 +11881,7 @@
 							},
 							"parameters": [
 								{
-									"id": 958,
+									"id": 974,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11560,7 +11910,7 @@
 					]
 				},
 				{
-					"id": 934,
+					"id": 950,
 					"name": "cos",
 					"kind": 64,
 					"kindString": "Function",
@@ -11569,7 +11919,7 @@
 					},
 					"signatures": [
 						{
-							"id": 935,
+							"id": 951,
 							"name": "cos",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11580,7 +11930,7 @@
 							},
 							"parameters": [
 								{
-									"id": 936,
+									"id": 952,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11609,7 +11959,7 @@
 					]
 				},
 				{
-					"id": 959,
+					"id": 975,
 					"name": "floor",
 					"kind": 64,
 					"kindString": "Function",
@@ -11618,7 +11968,7 @@
 					},
 					"signatures": [
 						{
-							"id": 960,
+							"id": 976,
 							"name": "floor",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11629,7 +11979,7 @@
 							},
 							"parameters": [
 								{
-									"id": 961,
+									"id": 977,
 									"name": "num",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11658,7 +12008,7 @@
 					]
 				},
 				{
-					"id": 965,
+					"id": 981,
 					"name": "max",
 					"kind": 64,
 					"kindString": "Function",
@@ -11667,7 +12017,7 @@
 					},
 					"signatures": [
 						{
-							"id": 966,
+							"id": 982,
 							"name": "max",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11678,7 +12028,7 @@
 							},
 							"parameters": [
 								{
-									"id": 967,
+									"id": 983,
 									"name": "nums",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11710,7 +12060,7 @@
 					]
 				},
 				{
-					"id": 968,
+					"id": 984,
 					"name": "min",
 					"kind": 64,
 					"kindString": "Function",
@@ -11719,7 +12069,7 @@
 					},
 					"signatures": [
 						{
-							"id": 969,
+							"id": 985,
 							"name": "min",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11730,7 +12080,7 @@
 							},
 							"parameters": [
 								{
-									"id": 970,
+									"id": 986,
 									"name": "nums",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11759,7 +12109,7 @@
 					]
 				},
 				{
-					"id": 952,
+					"id": 968,
 					"name": "pow",
 					"kind": 64,
 					"kindString": "Function",
@@ -11768,7 +12118,7 @@
 					},
 					"signatures": [
 						{
-							"id": 953,
+							"id": 969,
 							"name": "pow",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11779,7 +12129,7 @@
 							},
 							"parameters": [
 								{
-									"id": 954,
+									"id": 970,
 									"name": "base",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11793,7 +12143,7 @@
 									}
 								},
 								{
-									"id": 955,
+									"id": 971,
 									"name": "exponent",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11822,7 +12172,7 @@
 					]
 				},
 				{
-					"id": 971,
+					"id": 987,
 					"name": "rand",
 					"kind": 64,
 					"kindString": "Function",
@@ -11831,7 +12181,7 @@
 					},
 					"signatures": [
 						{
-							"id": 972,
+							"id": 988,
 							"name": "rand",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11855,7 +12205,7 @@
 					]
 				},
 				{
-					"id": 977,
+					"id": 993,
 					"name": "randFloat",
 					"kind": 64,
 					"kindString": "Function",
@@ -11864,7 +12214,7 @@
 					},
 					"signatures": [
 						{
-							"id": 978,
+							"id": 994,
 							"name": "randFloat",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11875,7 +12225,7 @@
 							},
 							"parameters": [
 								{
-									"id": 979,
+									"id": 995,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11889,7 +12239,7 @@
 									}
 								},
 								{
-									"id": 980,
+									"id": 996,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11918,7 +12268,7 @@
 					]
 				},
 				{
-					"id": 973,
+					"id": 989,
 					"name": "randInt",
 					"kind": 64,
 					"kindString": "Function",
@@ -11927,7 +12277,7 @@
 					},
 					"signatures": [
 						{
-							"id": 974,
+							"id": 990,
 							"name": "randInt",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -11939,7 +12289,7 @@
 							},
 							"parameters": [
 								{
-									"id": 975,
+									"id": 991,
 									"name": "min",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11953,7 +12303,7 @@
 									}
 								},
 								{
-									"id": 976,
+									"id": 992,
 									"name": "max",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -11982,7 +12332,7 @@
 					]
 				},
 				{
-					"id": 940,
+					"id": 956,
 					"name": "sin",
 					"kind": 64,
 					"kindString": "Function",
@@ -11991,7 +12341,7 @@
 					},
 					"signatures": [
 						{
-							"id": 941,
+							"id": 957,
 							"name": "sin",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12002,7 +12352,7 @@
 							},
 							"parameters": [
 								{
-									"id": 942,
+									"id": 958,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12031,7 +12381,7 @@
 					]
 				},
 				{
-					"id": 946,
+					"id": 962,
 					"name": "tan",
 					"kind": 64,
 					"kindString": "Function",
@@ -12040,7 +12390,7 @@
 					},
 					"signatures": [
 						{
-							"id": 947,
+							"id": 963,
 							"name": "tan",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12051,7 +12401,7 @@
 							},
 							"parameters": [
 								{
-									"id": 948,
+									"id": 964,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12085,24 +12435,24 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						932,
-						928,
-						930,
-						962,
-						937,
-						943,
-						949,
-						956,
-						934,
+						948,
+						944,
+						946,
+						978,
+						953,
 						959,
 						965,
+						972,
+						950,
+						975,
+						981,
+						984,
 						968,
-						952,
-						971,
-						977,
-						973,
-						940,
-						946
+						987,
+						993,
+						989,
+						956,
+						962
 					]
 				}
 			],
@@ -12115,7 +12465,7 @@
 			]
 		},
 		{
-			"id": 504,
+			"id": 520,
 			"name": "\"model\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -12128,7 +12478,7 @@
 			},
 			"children": [
 				{
-					"id": 505,
+					"id": 521,
 					"name": "New",
 					"kind": 64,
 					"kindString": "Function",
@@ -12137,7 +12487,7 @@
 					},
 					"signatures": [
 						{
-							"id": 506,
+							"id": 522,
 							"name": "New",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12161,7 +12511,7 @@
 					]
 				},
 				{
-					"id": 511,
+					"id": 527,
 					"name": "exportObj",
 					"kind": 64,
 					"kindString": "Function",
@@ -12170,7 +12520,7 @@
 					},
 					"signatures": [
 						{
-							"id": 512,
+							"id": 528,
 							"name": "exportObj",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12181,7 +12531,7 @@
 							},
 							"parameters": [
 								{
-									"id": 513,
+									"id": 529,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12195,7 +12545,7 @@
 									}
 								},
 								{
-									"id": 514,
+									"id": 530,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12221,7 +12571,7 @@
 					]
 				},
 				{
-					"id": 507,
+					"id": 523,
 					"name": "merge",
 					"kind": 64,
 					"kindString": "Function",
@@ -12230,7 +12580,7 @@
 					},
 					"signatures": [
 						{
-							"id": 508,
+							"id": 524,
 							"name": "merge",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12241,7 +12591,7 @@
 							},
 							"parameters": [
 								{
-									"id": 509,
+									"id": 525,
 									"name": "model1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12255,7 +12605,7 @@
 									}
 								},
 								{
-									"id": 510,
+									"id": 526,
 									"name": "model2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12289,9 +12639,9 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						505,
-						511,
-						507
+						521,
+						527,
+						523
 					]
 				}
 			],
@@ -12304,7 +12654,7 @@
 			]
 		},
 		{
-			"id": 515,
+			"id": 531,
 			"name": "\"object\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -12314,7 +12664,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/object.ts",
 			"children": [
 				{
-					"id": 516,
+					"id": 532,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -12323,7 +12673,7 @@
 					},
 					"signatures": [
 						{
-							"id": 517,
+							"id": 533,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12334,7 +12684,7 @@
 							},
 							"parameters": [
 								{
-									"id": 518,
+									"id": 534,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12348,7 +12698,7 @@
 									}
 								},
 								{
-									"id": 519,
+									"id": 535,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12377,7 +12727,7 @@
 					]
 				},
 				{
-					"id": 524,
+					"id": 540,
 					"name": "GetFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -12386,7 +12736,7 @@
 					},
 					"signatures": [
 						{
-							"id": 525,
+							"id": 541,
 							"name": "GetFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12397,7 +12747,7 @@
 							},
 							"parameters": [
 								{
-									"id": 526,
+									"id": 542,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12411,7 +12761,7 @@
 									}
 								},
 								{
-									"id": 527,
+									"id": 543,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12443,7 +12793,7 @@
 					]
 				},
 				{
-					"id": 520,
+					"id": 536,
 					"name": "Gets",
 					"kind": 64,
 					"kindString": "Function",
@@ -12452,7 +12802,7 @@
 					},
 					"signatures": [
 						{
-							"id": 521,
+							"id": 537,
 							"name": "Gets",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12463,7 +12813,7 @@
 							},
 							"parameters": [
 								{
-									"id": 522,
+									"id": 538,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12477,7 +12827,7 @@
 									}
 								},
 								{
-									"id": 523,
+									"id": 539,
 									"name": "ids",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12523,7 +12873,7 @@
 					]
 				},
 				{
-					"id": 583,
+					"id": 599,
 					"name": "addToGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -12532,7 +12882,7 @@
 					},
 					"signatures": [
 						{
-							"id": 584,
+							"id": 600,
 							"name": "addToGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12543,7 +12893,7 @@
 							},
 							"parameters": [
 								{
-									"id": 585,
+									"id": 601,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12569,7 +12919,7 @@
 									}
 								},
 								{
-									"id": 586,
+									"id": 602,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12595,7 +12945,7 @@
 					]
 				},
 				{
-					"id": 576,
+					"id": 592,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -12604,7 +12954,7 @@
 					},
 					"signatures": [
 						{
-							"id": 577,
+							"id": 593,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12615,7 +12965,7 @@
 							},
 							"parameters": [
 								{
-									"id": 578,
+									"id": 594,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12641,7 +12991,7 @@
 									}
 								},
 								{
-									"id": 579,
+									"id": 595,
 									"name": "keep_points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12671,7 +13021,7 @@
 					]
 				},
 				{
-					"id": 570,
+					"id": 586,
 					"name": "mirror",
 					"kind": 64,
 					"kindString": "Function",
@@ -12680,7 +13030,7 @@
 					},
 					"signatures": [
 						{
-							"id": 571,
+							"id": 587,
 							"name": "mirror",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12691,7 +13041,7 @@
 							},
 							"parameters": [
 								{
-									"id": 572,
+									"id": 588,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12717,7 +13067,7 @@
 									}
 								},
 								{
-									"id": 573,
+									"id": 589,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12740,7 +13090,7 @@
 									}
 								},
 								{
-									"id": 574,
+									"id": 590,
 									"name": "normal",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12754,7 +13104,7 @@
 									}
 								},
 								{
-									"id": 575,
+									"id": 591,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12796,7 +13146,7 @@
 					]
 				},
 				{
-					"id": 528,
+					"id": 544,
 					"name": "move",
 					"kind": 64,
 					"kindString": "Function",
@@ -12805,7 +13155,7 @@
 					},
 					"signatures": [
 						{
-							"id": 529,
+							"id": 545,
 							"name": "move",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12816,7 +13166,7 @@
 							},
 							"parameters": [
 								{
-									"id": 530,
+									"id": 546,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12842,7 +13192,7 @@
 									}
 								},
 								{
-									"id": 531,
+									"id": 547,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12856,7 +13206,7 @@
 									}
 								},
 								{
-									"id": 532,
+									"id": 548,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12898,7 +13248,7 @@
 					]
 				},
 				{
-					"id": 587,
+					"id": 603,
 					"name": "removeFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -12907,7 +13257,7 @@
 					},
 					"signatures": [
 						{
-							"id": 588,
+							"id": 604,
 							"name": "removeFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12918,7 +13268,7 @@
 							},
 							"parameters": [
 								{
-									"id": 589,
+									"id": 605,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12944,7 +13294,7 @@
 									}
 								},
 								{
-									"id": 590,
+									"id": 606,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12970,7 +13320,7 @@
 					]
 				},
 				{
-					"id": 533,
+					"id": 549,
 					"name": "rotate",
 					"kind": 64,
 					"kindString": "Function",
@@ -12979,7 +13329,7 @@
 					},
 					"signatures": [
 						{
-							"id": 534,
+							"id": 550,
 							"name": "rotate",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12990,7 +13340,7 @@
 							},
 							"parameters": [
 								{
-									"id": 535,
+									"id": 551,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13016,7 +13366,7 @@
 									}
 								},
 								{
-									"id": 536,
+									"id": 552,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13039,7 +13389,7 @@
 									}
 								},
 								{
-									"id": 537,
+									"id": 553,
 									"name": "axis",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13053,7 +13403,7 @@
 									}
 								},
 								{
-									"id": 538,
+									"id": 554,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13067,7 +13417,7 @@
 									}
 								},
 								{
-									"id": 539,
+									"id": 555,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13109,7 +13459,7 @@
 					]
 				},
 				{
-					"id": 540,
+					"id": 556,
 					"name": "scale",
 					"kind": 64,
 					"kindString": "Function",
@@ -13118,7 +13468,7 @@
 					},
 					"signatures": [
 						{
-							"id": 541,
+							"id": 557,
 							"name": "scale",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13129,7 +13479,7 @@
 							},
 							"parameters": [
 								{
-									"id": 542,
+									"id": 558,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13155,7 +13505,7 @@
 									}
 								},
 								{
-									"id": 543,
+									"id": 559,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13178,7 +13528,7 @@
 									}
 								},
 								{
-									"id": 544,
+									"id": 560,
 									"name": "factor",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13192,7 +13542,7 @@
 									}
 								},
 								{
-									"id": 545,
+									"id": 561,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13234,7 +13584,7 @@
 					]
 				},
 				{
-					"id": 580,
+					"id": 596,
 					"name": "unweld",
 					"kind": 64,
 					"kindString": "Function",
@@ -13243,7 +13593,7 @@
 					},
 					"signatures": [
 						{
-							"id": 581,
+							"id": 597,
 							"name": "unweld",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13254,7 +13604,7 @@
 							},
 							"parameters": [
 								{
-									"id": 582,
+									"id": 598,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13298,7 +13648,7 @@
 					]
 				},
 				{
-					"id": 546,
+					"id": 562,
 					"name": "xformGcs2Lcs",
 					"kind": 64,
 					"kindString": "Function",
@@ -13307,7 +13657,7 @@
 					},
 					"signatures": [
 						{
-							"id": 547,
+							"id": 563,
 							"name": "xformGcs2Lcs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13318,7 +13668,7 @@
 							},
 							"parameters": [
 								{
-									"id": 548,
+									"id": 564,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13344,7 +13694,7 @@
 									}
 								},
 								{
-									"id": 549,
+									"id": 565,
 									"name": "target_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13367,7 +13717,7 @@
 									}
 								},
 								{
-									"id": 550,
+									"id": 566,
 									"name": "target_vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13381,7 +13731,7 @@
 									}
 								},
 								{
-									"id": 551,
+									"id": 567,
 									"name": "target_vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13395,7 +13745,7 @@
 									}
 								},
 								{
-									"id": 552,
+									"id": 568,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13437,7 +13787,7 @@
 					]
 				},
 				{
-					"id": 553,
+					"id": 569,
 					"name": "xformLcs2Gcs",
 					"kind": 64,
 					"kindString": "Function",
@@ -13446,7 +13796,7 @@
 					},
 					"signatures": [
 						{
-							"id": 554,
+							"id": 570,
 							"name": "xformLcs2Gcs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13457,7 +13807,7 @@
 							},
 							"parameters": [
 								{
-									"id": 555,
+									"id": 571,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13483,7 +13833,7 @@
 									}
 								},
 								{
-									"id": 556,
+									"id": 572,
 									"name": "source_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13506,7 +13856,7 @@
 									}
 								},
 								{
-									"id": 557,
+									"id": 573,
 									"name": "source_vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13520,7 +13870,7 @@
 									}
 								},
 								{
-									"id": 558,
+									"id": 574,
 									"name": "source_vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13534,7 +13884,7 @@
 									}
 								},
 								{
-									"id": 559,
+									"id": 575,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13576,7 +13926,7 @@
 					]
 				},
 				{
-					"id": 560,
+					"id": 576,
 					"name": "xformLcs2Lcs",
 					"kind": 64,
 					"kindString": "Function",
@@ -13585,7 +13935,7 @@
 					},
 					"signatures": [
 						{
-							"id": 561,
+							"id": 577,
 							"name": "xformLcs2Lcs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13596,7 +13946,7 @@
 							},
 							"parameters": [
 								{
-									"id": 562,
+									"id": 578,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13622,7 +13972,7 @@
 									}
 								},
 								{
-									"id": 563,
+									"id": 579,
 									"name": "source_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13645,7 +13995,7 @@
 									}
 								},
 								{
-									"id": 564,
+									"id": 580,
 									"name": "source_vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13659,7 +14009,7 @@
 									}
 								},
 								{
-									"id": 565,
+									"id": 581,
 									"name": "source_vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13673,7 +14023,7 @@
 									}
 								},
 								{
-									"id": 566,
+									"id": 582,
 									"name": "target_origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13696,7 +14046,7 @@
 									}
 								},
 								{
-									"id": 567,
+									"id": 583,
 									"name": "target_vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13710,7 +14060,7 @@
 									}
 								},
 								{
-									"id": 568,
+									"id": 584,
 									"name": "target_vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13724,7 +14074,7 @@
 									}
 								},
 								{
-									"id": 569,
+									"id": 585,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13771,20 +14121,20 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						516,
-						524,
-						520,
-						583,
-						576,
-						570,
-						528,
-						587,
-						533,
+						532,
 						540,
-						580,
-						546,
-						553,
-						560
+						536,
+						599,
+						592,
+						586,
+						544,
+						603,
+						549,
+						556,
+						596,
+						562,
+						569,
+						576
 					]
 				}
 			],
@@ -13797,7 +14147,7 @@
 			]
 		},
 		{
-			"id": 591,
+			"id": 607,
 			"name": "\"plane\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -13810,7 +14160,7 @@
 			},
 			"children": [
 				{
-					"id": 596,
+					"id": 612,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -13819,7 +14169,7 @@
 					},
 					"signatures": [
 						{
-							"id": 597,
+							"id": 613,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13830,7 +14180,7 @@
 							},
 							"parameters": [
 								{
-									"id": 598,
+									"id": 614,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13844,7 +14194,7 @@
 									}
 								},
 								{
-									"id": 599,
+									"id": 615,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13875,7 +14225,7 @@
 					]
 				},
 				{
-					"id": 600,
+					"id": 616,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -13884,7 +14234,7 @@
 					},
 					"signatures": [
 						{
-							"id": 601,
+							"id": 617,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13895,7 +14245,7 @@
 							},
 							"parameters": [
 								{
-									"id": 602,
+									"id": 618,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13909,7 +14259,7 @@
 									}
 								},
 								{
-									"id": 603,
+									"id": 619,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13938,7 +14288,7 @@
 					]
 				},
 				{
-					"id": 623,
+					"id": 639,
 					"name": "FromCircle",
 					"kind": 64,
 					"kindString": "Function",
@@ -13947,7 +14297,7 @@
 					},
 					"signatures": [
 						{
-							"id": 624,
+							"id": 640,
 							"name": "FromCircle",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -13958,7 +14308,7 @@
 							},
 							"parameters": [
 								{
-									"id": 625,
+									"id": 641,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -13987,7 +14337,7 @@
 					]
 				},
 				{
-					"id": 618,
+					"id": 634,
 					"name": "FromOriginPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -13996,7 +14346,7 @@
 					},
 					"signatures": [
 						{
-							"id": 619,
+							"id": 635,
 							"name": "FromOriginPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14007,7 +14357,7 @@
 							},
 							"parameters": [
 								{
-									"id": 620,
+									"id": 636,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14021,7 +14371,7 @@
 									}
 								},
 								{
-									"id": 621,
+									"id": 637,
 									"name": "point1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14035,7 +14385,7 @@
 									}
 								},
 								{
-									"id": 622,
+									"id": 638,
 									"name": "point2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14064,7 +14414,7 @@
 					]
 				},
 				{
-					"id": 604,
+					"id": 620,
 					"name": "FromOriginVectors",
 					"kind": 64,
 					"kindString": "Function",
@@ -14073,7 +14423,7 @@
 					},
 					"signatures": [
 						{
-							"id": 605,
+							"id": 621,
 							"name": "FromOriginVectors",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14084,7 +14434,7 @@
 							},
 							"parameters": [
 								{
-									"id": 606,
+									"id": 622,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14098,7 +14448,7 @@
 									}
 								},
 								{
-									"id": 607,
+									"id": 623,
 									"name": "vec_x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14112,7 +14462,7 @@
 									}
 								},
 								{
-									"id": 608,
+									"id": 624,
 									"name": "vec",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14141,7 +14491,7 @@
 					]
 				},
 				{
-					"id": 609,
+					"id": 625,
 					"name": "FromOriginXY",
 					"kind": 64,
 					"kindString": "Function",
@@ -14150,7 +14500,7 @@
 					},
 					"signatures": [
 						{
-							"id": 610,
+							"id": 626,
 							"name": "FromOriginXY",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14161,7 +14511,7 @@
 							},
 							"parameters": [
 								{
-									"id": 611,
+									"id": 627,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14190,7 +14540,7 @@
 					]
 				},
 				{
-					"id": 612,
+					"id": 628,
 					"name": "FromOriginYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -14199,7 +14549,7 @@
 					},
 					"signatures": [
 						{
-							"id": 613,
+							"id": 629,
 							"name": "FromOriginYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14210,7 +14560,7 @@
 							},
 							"parameters": [
 								{
-									"id": 614,
+									"id": 630,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14239,7 +14589,7 @@
 					]
 				},
 				{
-					"id": 615,
+					"id": 631,
 					"name": "FromOriginZX",
 					"kind": 64,
 					"kindString": "Function",
@@ -14248,7 +14598,7 @@
 					},
 					"signatures": [
 						{
-							"id": 616,
+							"id": 632,
 							"name": "FromOriginZX",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14259,7 +14609,7 @@
 							},
 							"parameters": [
 								{
-									"id": 617,
+									"id": 633,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14288,7 +14638,7 @@
 					]
 				},
 				{
-					"id": 592,
+					"id": 608,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -14297,7 +14647,7 @@
 					},
 					"signatures": [
 						{
-							"id": 593,
+							"id": 609,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14308,7 +14658,7 @@
 							},
 							"parameters": [
 								{
-									"id": 594,
+									"id": 610,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14322,7 +14672,7 @@
 									}
 								},
 								{
-									"id": 595,
+									"id": 611,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14356,15 +14706,15 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						596,
-						600,
-						623,
-						618,
-						604,
-						609,
 						612,
-						615,
-						592
+						616,
+						639,
+						634,
+						620,
+						625,
+						628,
+						631,
+						608
 					]
 				}
 			],
@@ -14377,7 +14727,7 @@
 			]
 		},
 		{
-			"id": 626,
+			"id": 642,
 			"name": "\"pline\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -14390,7 +14740,7 @@
 			},
 			"children": [
 				{
-					"id": 631,
+					"id": 647,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -14399,7 +14749,7 @@
 					},
 					"signatures": [
 						{
-							"id": 632,
+							"id": 648,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14410,7 +14760,7 @@
 							},
 							"parameters": [
 								{
-									"id": 633,
+									"id": 649,
 									"name": "polyline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14424,7 +14774,7 @@
 									}
 								},
 								{
-									"id": 634,
+									"id": 650,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14454,7 +14804,7 @@
 					]
 				},
 				{
-					"id": 635,
+					"id": 651,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -14463,7 +14813,7 @@
 					},
 					"signatures": [
 						{
-							"id": 636,
+							"id": 652,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14474,7 +14824,7 @@
 							},
 							"parameters": [
 								{
-									"id": 637,
+									"id": 653,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14488,7 +14838,7 @@
 									}
 								},
 								{
-									"id": 638,
+									"id": 654,
 									"name": "polyline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14517,7 +14867,7 @@
 					]
 				},
 				{
-					"id": 647,
+					"id": 663,
 					"name": "From2Points",
 					"kind": 64,
 					"kindString": "Function",
@@ -14526,7 +14876,7 @@
 					},
 					"signatures": [
 						{
-							"id": 648,
+							"id": 664,
 							"name": "From2Points",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14537,7 +14887,7 @@
 							},
 							"parameters": [
 								{
-									"id": 649,
+									"id": 665,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14551,7 +14901,7 @@
 									}
 								},
 								{
-									"id": 650,
+									"id": 666,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14580,7 +14930,7 @@
 					]
 				},
 				{
-					"id": 643,
+					"id": 659,
 					"name": "FromCircle",
 					"kind": 64,
 					"kindString": "Function",
@@ -14589,7 +14939,7 @@
 					},
 					"signatures": [
 						{
-							"id": 644,
+							"id": 660,
 							"name": "FromCircle",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14601,7 +14951,7 @@
 							},
 							"parameters": [
 								{
-									"id": 645,
+									"id": 661,
 									"name": "circle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14615,7 +14965,7 @@
 									}
 								},
 								{
-									"id": 646,
+									"id": 662,
 									"name": "segments",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14644,7 +14994,7 @@
 					]
 				},
 				{
-					"id": 639,
+					"id": 655,
 					"name": "FromPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -14653,7 +15003,7 @@
 					},
 					"signatures": [
 						{
-							"id": 640,
+							"id": 656,
 							"name": "FromPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14665,7 +15015,7 @@
 							},
 							"parameters": [
 								{
-									"id": 641,
+									"id": 657,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14682,7 +15032,7 @@
 									}
 								},
 								{
-									"id": 642,
+									"id": 658,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14712,7 +15062,7 @@
 					]
 				},
 				{
-					"id": 627,
+					"id": 643,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -14721,7 +15071,7 @@
 					},
 					"signatures": [
 						{
-							"id": 628,
+							"id": 644,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14732,7 +15082,7 @@
 							},
 							"parameters": [
 								{
-									"id": 629,
+									"id": 645,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14746,7 +15096,7 @@
 									}
 								},
 								{
-									"id": 630,
+									"id": 646,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14775,7 +15125,7 @@
 					]
 				},
 				{
-					"id": 678,
+					"id": 694,
 					"name": "divide",
 					"kind": 64,
 					"kindString": "Function",
@@ -14784,7 +15134,7 @@
 					},
 					"signatures": [
 						{
-							"id": 679,
+							"id": 695,
 							"name": "divide",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14795,7 +15145,7 @@
 							},
 							"parameters": [
 								{
-									"id": 680,
+									"id": 696,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14809,7 +15159,7 @@
 									}
 								},
 								{
-									"id": 681,
+									"id": 697,
 									"name": "num_segments",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14847,7 +15197,7 @@
 					]
 				},
 				{
-					"id": 674,
+					"id": 690,
 					"name": "divideMaxLength",
 					"kind": 64,
 					"kindString": "Function",
@@ -14856,7 +15206,7 @@
 					},
 					"signatures": [
 						{
-							"id": 675,
+							"id": 691,
 							"name": "divideMaxLength",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14868,7 +15218,7 @@
 							},
 							"parameters": [
 								{
-									"id": 676,
+									"id": 692,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14882,7 +15232,7 @@
 									}
 								},
 								{
-									"id": 677,
+									"id": 693,
 									"name": "max_length",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14923,7 +15273,7 @@
 					]
 				},
 				{
-					"id": 670,
+					"id": 686,
 					"name": "evalParam",
 					"kind": 64,
 					"kindString": "Function",
@@ -14932,7 +15282,7 @@
 					},
 					"signatures": [
 						{
-							"id": 671,
+							"id": 687,
 							"name": "evalParam",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -14943,7 +15293,7 @@
 							},
 							"parameters": [
 								{
-									"id": 672,
+									"id": 688,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14957,7 +15307,7 @@
 									}
 								},
 								{
-									"id": 673,
+									"id": 689,
 									"name": "t",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -14986,7 +15336,7 @@
 					]
 				},
 				{
-					"id": 685,
+					"id": 701,
 					"name": "explode",
 					"kind": 64,
 					"kindString": "Function",
@@ -14995,7 +15345,7 @@
 					},
 					"signatures": [
 						{
-							"id": 686,
+							"id": 702,
 							"name": "explode",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15006,7 +15356,7 @@
 							},
 							"parameters": [
 								{
-									"id": 687,
+									"id": 703,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15038,7 +15388,7 @@
 					]
 				},
 				{
-					"id": 688,
+					"id": 704,
 					"name": "extract",
 					"kind": 64,
 					"kindString": "Function",
@@ -15047,7 +15397,7 @@
 					},
 					"signatures": [
 						{
-							"id": 689,
+							"id": 705,
 							"name": "extract",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15059,7 +15409,7 @@
 							},
 							"parameters": [
 								{
-									"id": 690,
+									"id": 706,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15073,7 +15423,7 @@
 									}
 								},
 								{
-									"id": 691,
+									"id": 707,
 									"name": "segment_index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15108,7 +15458,7 @@
 					]
 				},
 				{
-					"id": 692,
+					"id": 708,
 					"name": "extrude",
 					"kind": 64,
 					"kindString": "Function",
@@ -15117,7 +15467,7 @@
 					},
 					"signatures": [
 						{
-							"id": 693,
+							"id": 709,
 							"name": "extrude",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15129,7 +15479,7 @@
 							},
 							"parameters": [
 								{
-									"id": 694,
+									"id": 710,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15143,7 +15493,7 @@
 									}
 								},
 								{
-									"id": 695,
+									"id": 711,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15157,7 +15507,7 @@
 									}
 								},
 								{
-									"id": 696,
+									"id": 712,
 									"name": "cap",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15187,7 +15537,7 @@
 					]
 				},
 				{
-					"id": 667,
+					"id": 683,
 					"name": "getEndPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -15196,7 +15546,7 @@
 					},
 					"signatures": [
 						{
-							"id": 668,
+							"id": 684,
 							"name": "getEndPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15207,7 +15557,7 @@
 							},
 							"parameters": [
 								{
-									"id": 669,
+									"id": 685,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15239,7 +15589,7 @@
 					]
 				},
 				{
-					"id": 664,
+					"id": 680,
 					"name": "getPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -15248,7 +15598,7 @@
 					},
 					"signatures": [
 						{
-							"id": 665,
+							"id": 681,
 							"name": "getPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15259,7 +15609,7 @@
 							},
 							"parameters": [
 								{
-									"id": 666,
+									"id": 682,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15291,7 +15641,7 @@
 					]
 				},
 				{
-					"id": 651,
+					"id": 667,
 					"name": "isClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -15300,7 +15650,7 @@
 					},
 					"signatures": [
 						{
-							"id": 652,
+							"id": 668,
 							"name": "isClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15311,7 +15661,7 @@
 							},
 							"parameters": [
 								{
-									"id": 653,
+									"id": 669,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15340,7 +15690,7 @@
 					]
 				},
 				{
-					"id": 682,
+					"id": 698,
 					"name": "join",
 					"kind": 64,
 					"kindString": "Function",
@@ -15349,7 +15699,7 @@
 					},
 					"signatures": [
 						{
-							"id": 683,
+							"id": 699,
 							"name": "join",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15360,7 +15710,7 @@
 							},
 							"parameters": [
 								{
-									"id": 684,
+									"id": 700,
 									"name": "plines",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15395,7 +15745,7 @@
 					]
 				},
 				{
-					"id": 697,
+					"id": 713,
 					"name": "loft",
 					"kind": 64,
 					"kindString": "Function",
@@ -15404,7 +15754,7 @@
 					},
 					"signatures": [
 						{
-							"id": 698,
+							"id": 714,
 							"name": "loft",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15416,7 +15766,7 @@
 							},
 							"parameters": [
 								{
-									"id": 699,
+									"id": 715,
 									"name": "plines",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15433,7 +15783,7 @@
 									}
 								},
 								{
-									"id": 700,
+									"id": 716,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15463,7 +15813,7 @@
 					]
 				},
 				{
-					"id": 658,
+					"id": 674,
 					"name": "numEdges",
 					"kind": 64,
 					"kindString": "Function",
@@ -15472,7 +15822,7 @@
 					},
 					"signatures": [
 						{
-							"id": 659,
+							"id": 675,
 							"name": "numEdges",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15483,7 +15833,7 @@
 							},
 							"parameters": [
 								{
-									"id": 660,
+									"id": 676,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15512,7 +15862,7 @@
 					]
 				},
 				{
-					"id": 661,
+					"id": 677,
 					"name": "numVertices",
 					"kind": 64,
 					"kindString": "Function",
@@ -15521,7 +15871,7 @@
 					},
 					"signatures": [
 						{
-							"id": 662,
+							"id": 678,
 							"name": "numVertices",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15532,7 +15882,7 @@
 							},
 							"parameters": [
 								{
-									"id": 663,
+									"id": 679,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15561,7 +15911,7 @@
 					]
 				},
 				{
-					"id": 654,
+					"id": 670,
 					"name": "setIsClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -15570,7 +15920,7 @@
 					},
 					"signatures": [
 						{
-							"id": 655,
+							"id": 671,
 							"name": "setIsClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15581,7 +15931,7 @@
 							},
 							"parameters": [
 								{
-									"id": 656,
+									"id": 672,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15595,7 +15945,7 @@
 									}
 								},
 								{
-									"id": 657,
+									"id": 673,
 									"name": "is_closed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15629,26 +15979,26 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						631,
-						635,
 						647,
-						643,
-						639,
-						627,
-						678,
-						674,
-						670,
-						685,
-						688,
-						692,
-						667,
-						664,
 						651,
-						682,
-						697,
-						658,
-						661,
-						654
+						663,
+						659,
+						655,
+						643,
+						694,
+						690,
+						686,
+						701,
+						704,
+						708,
+						683,
+						680,
+						667,
+						698,
+						713,
+						674,
+						677,
+						670
 					]
 				}
 			],
@@ -15661,7 +16011,7 @@
 			]
 		},
 		{
-			"id": 701,
+			"id": 717,
 			"name": "\"pmesh\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -15674,7 +16024,7 @@
 			},
 			"children": [
 				{
-					"id": 706,
+					"id": 722,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -15683,7 +16033,7 @@
 					},
 					"signatures": [
 						{
-							"id": 707,
+							"id": 723,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15694,7 +16044,7 @@
 							},
 							"parameters": [
 								{
-									"id": 708,
+									"id": 724,
 									"name": "polymesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15708,7 +16058,7 @@
 									}
 								},
 								{
-									"id": 709,
+									"id": 725,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15739,7 +16089,7 @@
 					]
 				},
 				{
-					"id": 710,
+					"id": 726,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -15748,7 +16098,7 @@
 					},
 					"signatures": [
 						{
-							"id": 711,
+							"id": 727,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15759,7 +16109,7 @@
 							},
 							"parameters": [
 								{
-									"id": 712,
+									"id": 728,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15773,7 +16123,7 @@
 									}
 								},
 								{
-									"id": 713,
+									"id": 729,
 									"name": "polymesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15802,7 +16152,7 @@
 					]
 				},
 				{
-					"id": 717,
+					"id": 733,
 					"name": "FromPline",
 					"kind": 64,
 					"kindString": "Function",
@@ -15811,7 +16161,7 @@
 					},
 					"signatures": [
 						{
-							"id": 718,
+							"id": 734,
 							"name": "FromPline",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15822,7 +16172,7 @@
 							},
 							"parameters": [
 								{
-									"id": 719,
+									"id": 735,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15851,7 +16201,7 @@
 					]
 				},
 				{
-					"id": 714,
+					"id": 730,
 					"name": "FromPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -15860,7 +16210,7 @@
 					},
 					"signatures": [
 						{
-							"id": 715,
+							"id": 731,
 							"name": "FromPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15871,7 +16221,7 @@
 							},
 							"parameters": [
 								{
-									"id": 716,
+									"id": 732,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15906,7 +16256,7 @@
 					]
 				},
 				{
-					"id": 702,
+					"id": 718,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -15915,7 +16265,7 @@
 					},
 					"signatures": [
 						{
-							"id": 703,
+							"id": 719,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15926,7 +16276,7 @@
 							},
 							"parameters": [
 								{
-									"id": 704,
+									"id": 720,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15940,7 +16290,7 @@
 									}
 								},
 								{
-									"id": 705,
+									"id": 721,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15969,7 +16319,7 @@
 					]
 				},
 				{
-					"id": 720,
+					"id": 736,
 					"name": "TriStripFromPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -15978,7 +16328,7 @@
 					},
 					"signatures": [
 						{
-							"id": 721,
+							"id": 737,
 							"name": "TriStripFromPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15989,7 +16339,7 @@
 							},
 							"parameters": [
 								{
-									"id": 722,
+									"id": 738,
 									"name": "points1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16006,7 +16356,7 @@
 									}
 								},
 								{
-									"id": 723,
+									"id": 739,
 									"name": "points2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16038,7 +16388,7 @@
 					]
 				},
 				{
-					"id": 746,
+					"id": 762,
 					"name": "explode",
 					"kind": 64,
 					"kindString": "Function",
@@ -16047,7 +16397,7 @@
 					},
 					"signatures": [
 						{
-							"id": 747,
+							"id": 763,
 							"name": "explode",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16058,7 +16408,7 @@
 							},
 							"parameters": [
 								{
-									"id": 748,
+									"id": 764,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16090,7 +16440,7 @@
 					]
 				},
 				{
-					"id": 749,
+					"id": 765,
 					"name": "extractFaces",
 					"kind": 64,
 					"kindString": "Function",
@@ -16099,7 +16449,7 @@
 					},
 					"signatures": [
 						{
-							"id": 750,
+							"id": 766,
 							"name": "extractFaces",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16111,7 +16461,7 @@
 							},
 							"parameters": [
 								{
-									"id": 751,
+									"id": 767,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16125,7 +16475,7 @@
 									}
 								},
 								{
-									"id": 752,
+									"id": 768,
 									"name": "face_index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16160,7 +16510,7 @@
 					]
 				},
 				{
-					"id": 753,
+					"id": 769,
 					"name": "extractWires",
 					"kind": 64,
 					"kindString": "Function",
@@ -16169,7 +16519,7 @@
 					},
 					"signatures": [
 						{
-							"id": 754,
+							"id": 770,
 							"name": "extractWires",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16181,7 +16531,7 @@
 							},
 							"parameters": [
 								{
-									"id": 755,
+									"id": 771,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16195,7 +16545,7 @@
 									}
 								},
 								{
-									"id": 756,
+									"id": 772,
 									"name": "wire_index",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16230,7 +16580,7 @@
 					]
 				},
 				{
-					"id": 742,
+					"id": 758,
 					"name": "extrude",
 					"kind": 64,
 					"kindString": "Function",
@@ -16239,7 +16589,7 @@
 					},
 					"signatures": [
 						{
-							"id": 743,
+							"id": 759,
 							"name": "extrude",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16251,7 +16601,7 @@
 							},
 							"parameters": [
 								{
-									"id": 744,
+									"id": 760,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16265,7 +16615,7 @@
 									}
 								},
 								{
-									"id": 745,
+									"id": 761,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16294,7 +16644,7 @@
 					]
 				},
 				{
-					"id": 739,
+					"id": 755,
 					"name": "getPoints",
 					"kind": 64,
 					"kindString": "Function",
@@ -16303,7 +16653,7 @@
 					},
 					"signatures": [
 						{
-							"id": 740,
+							"id": 756,
 							"name": "getPoints",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16314,7 +16664,7 @@
 							},
 							"parameters": [
 								{
-									"id": 741,
+									"id": 757,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16346,7 +16696,7 @@
 					]
 				},
 				{
-					"id": 724,
+					"id": 740,
 					"name": "isClosed",
 					"kind": 64,
 					"kindString": "Function",
@@ -16355,7 +16705,7 @@
 					},
 					"signatures": [
 						{
-							"id": 725,
+							"id": 741,
 							"name": "isClosed",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16366,7 +16716,7 @@
 							},
 							"parameters": [
 								{
-									"id": 726,
+									"id": 742,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16395,7 +16745,7 @@
 					]
 				},
 				{
-					"id": 733,
+					"id": 749,
 					"name": "numEdges",
 					"kind": 64,
 					"kindString": "Function",
@@ -16404,7 +16754,7 @@
 					},
 					"signatures": [
 						{
-							"id": 734,
+							"id": 750,
 							"name": "numEdges",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16415,7 +16765,7 @@
 							},
 							"parameters": [
 								{
-									"id": 735,
+									"id": 751,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16453,7 +16803,7 @@
 					]
 				},
 				{
-					"id": 727,
+					"id": 743,
 					"name": "numFaces",
 					"kind": 64,
 					"kindString": "Function",
@@ -16462,7 +16812,7 @@
 					},
 					"signatures": [
 						{
-							"id": 728,
+							"id": 744,
 							"name": "numFaces",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16473,7 +16823,7 @@
 							},
 							"parameters": [
 								{
-									"id": 729,
+									"id": 745,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16502,7 +16852,7 @@
 					]
 				},
 				{
-					"id": 736,
+					"id": 752,
 					"name": "numVertices",
 					"kind": 64,
 					"kindString": "Function",
@@ -16511,7 +16861,7 @@
 					},
 					"signatures": [
 						{
-							"id": 737,
+							"id": 753,
 							"name": "numVertices",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16522,7 +16872,7 @@
 							},
 							"parameters": [
 								{
-									"id": 738,
+									"id": 754,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16560,7 +16910,7 @@
 					]
 				},
 				{
-					"id": 730,
+					"id": 746,
 					"name": "numWires",
 					"kind": 64,
 					"kindString": "Function",
@@ -16569,7 +16919,7 @@
 					},
 					"signatures": [
 						{
-							"id": 731,
+							"id": 747,
 							"name": "numWires",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16580,7 +16930,7 @@
 							},
 							"parameters": [
 								{
-									"id": 732,
+									"id": 748,
 									"name": "pmesh",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16614,22 +16964,22 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						706,
-						710,
-						717,
-						714,
-						702,
-						720,
-						746,
-						749,
-						753,
-						742,
-						739,
-						724,
+						722,
+						726,
 						733,
-						727,
+						730,
+						718,
 						736,
-						730
+						762,
+						765,
+						769,
+						758,
+						755,
+						740,
+						749,
+						743,
+						752,
+						746
 					]
 				}
 			],
@@ -16642,7 +16992,7 @@
 			]
 		},
 		{
-			"id": 757,
+			"id": 773,
 			"name": "\"point\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -16655,7 +17005,7 @@
 			},
 			"children": [
 				{
-					"id": 773,
+					"id": 789,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -16664,7 +17014,7 @@
 					},
 					"signatures": [
 						{
-							"id": 774,
+							"id": 790,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16675,7 +17025,7 @@
 							},
 							"parameters": [
 								{
-									"id": 775,
+									"id": 791,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16704,7 +17054,7 @@
 					]
 				},
 				{
-					"id": 776,
+					"id": 792,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -16713,7 +17063,7 @@
 					},
 					"signatures": [
 						{
-							"id": 777,
+							"id": 793,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16724,7 +17074,7 @@
 							},
 							"parameters": [
 								{
-									"id": 778,
+									"id": 794,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16738,7 +17088,7 @@
 									}
 								},
 								{
-									"id": 779,
+									"id": 795,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16764,7 +17114,7 @@
 					]
 				},
 				{
-					"id": 788,
+					"id": 804,
 					"name": "FromPointsMean",
 					"kind": 64,
 					"kindString": "Function",
@@ -16773,7 +17123,7 @@
 					},
 					"signatures": [
 						{
-							"id": 789,
+							"id": 805,
 							"name": "FromPointsMean",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16784,7 +17134,7 @@
 							},
 							"parameters": [
 								{
-									"id": 790,
+									"id": 806,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16816,7 +17166,7 @@
 					]
 				},
 				{
-					"id": 780,
+					"id": 796,
 					"name": "FromXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -16825,7 +17175,7 @@
 					},
 					"signatures": [
 						{
-							"id": 781,
+							"id": 797,
 							"name": "FromXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16836,7 +17186,7 @@
 							},
 							"parameters": [
 								{
-									"id": 782,
+									"id": 798,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16850,7 +17200,7 @@
 									}
 								},
 								{
-									"id": 783,
+									"id": 799,
 									"name": "xyz",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16879,7 +17229,7 @@
 					]
 				},
 				{
-					"id": 784,
+					"id": 800,
 					"name": "FromXYZs",
 					"kind": 64,
 					"kindString": "Function",
@@ -16888,7 +17238,7 @@
 					},
 					"signatures": [
 						{
-							"id": 785,
+							"id": 801,
 							"name": "FromXYZs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16899,7 +17249,7 @@
 							},
 							"parameters": [
 								{
-									"id": 786,
+									"id": 802,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16913,7 +17263,7 @@
 									}
 								},
 								{
-									"id": 787,
+									"id": 803,
 									"name": "xyzs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16948,7 +17298,7 @@
 					]
 				},
 				{
-					"id": 758,
+					"id": 774,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -16957,7 +17307,7 @@
 					},
 					"signatures": [
 						{
-							"id": 759,
+							"id": 775,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -16968,7 +17318,7 @@
 							},
 							"parameters": [
 								{
-									"id": 760,
+									"id": 776,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -16982,7 +17332,7 @@
 									}
 								},
 								{
-									"id": 761,
+									"id": 777,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17011,7 +17361,7 @@
 					]
 				},
 				{
-					"id": 766,
+					"id": 782,
 					"name": "GetFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -17020,7 +17370,7 @@
 					},
 					"signatures": [
 						{
-							"id": 767,
+							"id": 783,
 							"name": "GetFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17031,7 +17381,7 @@
 							},
 							"parameters": [
 								{
-									"id": 768,
+									"id": 784,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17045,7 +17395,7 @@
 									}
 								},
 								{
-									"id": 769,
+									"id": 785,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17077,7 +17427,7 @@
 					]
 				},
 				{
-					"id": 770,
+					"id": 786,
 					"name": "GetFromObjs",
 					"kind": 64,
 					"kindString": "Function",
@@ -17086,7 +17436,7 @@
 					},
 					"signatures": [
 						{
-							"id": 771,
+							"id": 787,
 							"name": "GetFromObjs",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17097,7 +17447,7 @@
 							},
 							"parameters": [
 								{
-									"id": 772,
+									"id": 788,
 									"name": "objs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17141,7 +17491,7 @@
 					]
 				},
 				{
-					"id": 762,
+					"id": 778,
 					"name": "Gets",
 					"kind": 64,
 					"kindString": "Function",
@@ -17150,7 +17500,7 @@
 					},
 					"signatures": [
 						{
-							"id": 763,
+							"id": 779,
 							"name": "Gets",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17161,7 +17511,7 @@
 							},
 							"parameters": [
 								{
-									"id": 764,
+									"id": 780,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17175,7 +17525,7 @@
 									}
 								},
 								{
-									"id": 765,
+									"id": 781,
 									"name": "ids",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17221,7 +17571,7 @@
 					]
 				},
 				{
-					"id": 826,
+					"id": 842,
 					"name": "addToGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -17230,7 +17580,7 @@
 					},
 					"signatures": [
 						{
-							"id": 827,
+							"id": 843,
 							"name": "addToGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17241,7 +17591,7 @@
 							},
 							"parameters": [
 								{
-									"id": 828,
+									"id": 844,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17267,7 +17617,7 @@
 									}
 								},
 								{
-									"id": 829,
+									"id": 845,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17296,7 +17646,7 @@
 					]
 				},
 				{
-					"id": 809,
+					"id": 825,
 					"name": "del",
 					"kind": 64,
 					"kindString": "Function",
@@ -17305,7 +17655,7 @@
 					},
 					"signatures": [
 						{
-							"id": 810,
+							"id": 826,
 							"name": "del",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17316,7 +17666,7 @@
 							},
 							"parameters": [
 								{
-									"id": 811,
+									"id": 827,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17357,7 +17707,7 @@
 					]
 				},
 				{
-					"id": 812,
+					"id": 828,
 					"name": "getXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -17366,7 +17716,7 @@
 					},
 					"signatures": [
 						{
-							"id": 813,
+							"id": 829,
 							"name": "getXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17377,7 +17727,7 @@
 							},
 							"parameters": [
 								{
-									"id": 814,
+									"id": 830,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17406,7 +17756,7 @@
 					]
 				},
 				{
-					"id": 823,
+					"id": 839,
 					"name": "merge",
 					"kind": 64,
 					"kindString": "Function",
@@ -17415,7 +17765,7 @@
 					},
 					"signatures": [
 						{
-							"id": 824,
+							"id": 840,
 							"name": "merge",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17426,7 +17776,7 @@
 							},
 							"parameters": [
 								{
-									"id": 825,
+									"id": 841,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17458,7 +17808,7 @@
 					]
 				},
 				{
-					"id": 819,
+					"id": 835,
 					"name": "mergeByTol",
 					"kind": 64,
 					"kindString": "Function",
@@ -17467,7 +17817,7 @@
 					},
 					"signatures": [
 						{
-							"id": 820,
+							"id": 836,
 							"name": "mergeByTol",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17478,7 +17828,7 @@
 							},
 							"parameters": [
 								{
-									"id": 821,
+									"id": 837,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17495,7 +17845,7 @@
 									}
 								},
 								{
-									"id": 822,
+									"id": 838,
 									"name": "tolerance",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17524,7 +17874,7 @@
 					]
 				},
 				{
-					"id": 791,
+					"id": 807,
 					"name": "move",
 					"kind": 64,
 					"kindString": "Function",
@@ -17533,7 +17883,7 @@
 					},
 					"signatures": [
 						{
-							"id": 792,
+							"id": 808,
 							"name": "move",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17544,7 +17894,7 @@
 							},
 							"parameters": [
 								{
-									"id": 793,
+									"id": 809,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17570,7 +17920,7 @@
 									}
 								},
 								{
-									"id": 794,
+									"id": 810,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17584,7 +17934,7 @@
 									}
 								},
 								{
-									"id": 795,
+									"id": 811,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17626,7 +17976,7 @@
 					]
 				},
 				{
-					"id": 830,
+					"id": 846,
 					"name": "removeFromGroup",
 					"kind": 64,
 					"kindString": "Function",
@@ -17635,7 +17985,7 @@
 					},
 					"signatures": [
 						{
-							"id": 831,
+							"id": 847,
 							"name": "removeFromGroup",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17646,7 +17996,7 @@
 							},
 							"parameters": [
 								{
-									"id": 832,
+									"id": 848,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17669,7 +18019,7 @@
 									}
 								},
 								{
-									"id": 833,
+									"id": 849,
 									"name": "group_name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17695,7 +18045,7 @@
 					]
 				},
 				{
-					"id": 796,
+					"id": 812,
 					"name": "rotate",
 					"kind": 64,
 					"kindString": "Function",
@@ -17704,7 +18054,7 @@
 					},
 					"signatures": [
 						{
-							"id": 797,
+							"id": 813,
 							"name": "rotate",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17715,7 +18065,7 @@
 							},
 							"parameters": [
 								{
-									"id": 798,
+									"id": 814,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17741,7 +18091,7 @@
 									}
 								},
 								{
-									"id": 799,
+									"id": 815,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17755,7 +18105,7 @@
 									}
 								},
 								{
-									"id": 800,
+									"id": 816,
 									"name": "axis",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17769,7 +18119,7 @@
 									}
 								},
 								{
-									"id": 801,
+									"id": 817,
 									"name": "angle",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17783,7 +18133,7 @@
 									}
 								},
 								{
-									"id": 802,
+									"id": 818,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17825,7 +18175,7 @@
 					]
 				},
 				{
-					"id": 803,
+					"id": 819,
 					"name": "scale",
 					"kind": 64,
 					"kindString": "Function",
@@ -17834,7 +18184,7 @@
 					},
 					"signatures": [
 						{
-							"id": 804,
+							"id": 820,
 							"name": "scale",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17845,7 +18195,7 @@
 							},
 							"parameters": [
 								{
-									"id": 805,
+									"id": 821,
 									"name": "points",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17871,7 +18221,7 @@
 									}
 								},
 								{
-									"id": 806,
+									"id": 822,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17885,7 +18235,7 @@
 									}
 								},
 								{
-									"id": 807,
+									"id": 823,
 									"name": "factor",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17899,7 +18249,7 @@
 									}
 								},
 								{
-									"id": 808,
+									"id": 824,
 									"name": "copy",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17941,7 +18291,7 @@
 					]
 				},
 				{
-					"id": 815,
+					"id": 831,
 					"name": "setXYZ",
 					"kind": 64,
 					"kindString": "Function",
@@ -17950,7 +18300,7 @@
 					},
 					"signatures": [
 						{
-							"id": 816,
+							"id": 832,
 							"name": "setXYZ",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -17961,7 +18311,7 @@
 							},
 							"parameters": [
 								{
-									"id": 817,
+									"id": 833,
 									"name": "point",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -17975,7 +18325,7 @@
 									}
 								},
 								{
-									"id": 818,
+									"id": 834,
 									"name": "xyz",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18009,25 +18359,25 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						773,
-						776,
-						788,
-						780,
-						784,
-						758,
-						766,
-						770,
-						762,
-						826,
-						809,
-						812,
-						823,
-						819,
-						791,
-						830,
+						789,
+						792,
+						804,
 						796,
-						803,
-						815
+						800,
+						774,
+						782,
+						786,
+						778,
+						842,
+						825,
+						828,
+						839,
+						835,
+						807,
+						846,
+						812,
+						819,
+						831
 					]
 				}
 			],
@@ -18040,7 +18390,7 @@
 			]
 		},
 		{
-			"id": 834,
+			"id": 850,
 			"name": "\"query\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -18053,7 +18403,7 @@
 			},
 			"children": [
 				{
-					"id": 835,
+					"id": 851,
 					"name": "x",
 					"kind": 32,
 					"kindString": "Variable",
@@ -18078,7 +18428,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						835
+						851
 					]
 				}
 			],
@@ -18091,7 +18441,7 @@
 			]
 		},
 		{
-			"id": 836,
+			"id": 852,
 			"name": "\"ray\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -18101,7 +18451,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/ray.ts",
 			"children": [
 				{
-					"id": 841,
+					"id": 857,
 					"name": "Copy",
 					"kind": 64,
 					"kindString": "Function",
@@ -18110,7 +18460,7 @@
 					},
 					"signatures": [
 						{
-							"id": 842,
+							"id": 858,
 							"name": "Copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18121,7 +18471,7 @@
 							},
 							"parameters": [
 								{
-									"id": 843,
+									"id": 859,
 									"name": "ray",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18135,7 +18485,7 @@
 									}
 								},
 								{
-									"id": 844,
+									"id": 860,
 									"name": "copy_attribs",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18163,7 +18513,7 @@
 					]
 				},
 				{
-					"id": 845,
+					"id": 861,
 					"name": "CopyToModel",
 					"kind": 64,
 					"kindString": "Function",
@@ -18172,7 +18522,7 @@
 					},
 					"signatures": [
 						{
-							"id": 846,
+							"id": 862,
 							"name": "CopyToModel",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18183,7 +18533,7 @@
 							},
 							"parameters": [
 								{
-									"id": 847,
+									"id": 863,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18194,7 +18544,7 @@
 									}
 								},
 								{
-									"id": 848,
+									"id": 864,
 									"name": "ray",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18223,7 +18573,7 @@
 					]
 				},
 				{
-					"id": 849,
+					"id": 865,
 					"name": "FromOriginVector",
 					"kind": 64,
 					"kindString": "Function",
@@ -18232,7 +18582,7 @@
 					},
 					"signatures": [
 						{
-							"id": 850,
+							"id": 866,
 							"name": "FromOriginVector",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18243,7 +18593,7 @@
 							},
 							"parameters": [
 								{
-									"id": 851,
+									"id": 867,
 									"name": "origin",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18257,7 +18607,7 @@
 									}
 								},
 								{
-									"id": 852,
+									"id": 868,
 									"name": "vector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18286,7 +18636,7 @@
 					]
 				},
 				{
-					"id": 837,
+					"id": 853,
 					"name": "Get",
 					"kind": 64,
 					"kindString": "Function",
@@ -18295,7 +18645,7 @@
 					},
 					"signatures": [
 						{
-							"id": 838,
+							"id": 854,
 							"name": "Get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18306,7 +18656,7 @@
 							},
 							"parameters": [
 								{
-									"id": 839,
+									"id": 855,
 									"name": "model",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18320,7 +18670,7 @@
 									}
 								},
 								{
-									"id": 840,
+									"id": 856,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18354,10 +18704,10 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						841,
-						845,
-						849,
-						837
+						857,
+						861,
+						865,
+						853
 					]
 				}
 			],
@@ -18370,7 +18720,7 @@
 			]
 		},
 		{
-			"id": 853,
+			"id": 869,
 			"name": "\"split\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -18383,7 +18733,7 @@
 			},
 			"children": [
 				{
-					"id": 854,
+					"id": 870,
 					"name": "circleCircle2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -18392,7 +18742,7 @@
 					},
 					"signatures": [
 						{
-							"id": 855,
+							"id": 871,
 							"name": "circleCircle2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18403,7 +18753,7 @@
 							},
 							"parameters": [
 								{
-									"id": 856,
+									"id": 872,
 									"name": "circle1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18417,7 +18767,7 @@
 									}
 								},
 								{
-									"id": 857,
+									"id": 873,
 									"name": "circle2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18449,7 +18799,7 @@
 					]
 				},
 				{
-					"id": 858,
+					"id": 874,
 					"name": "polylinePlane3D",
 					"kind": 64,
 					"kindString": "Function",
@@ -18458,7 +18808,7 @@
 					},
 					"signatures": [
 						{
-							"id": 859,
+							"id": 875,
 							"name": "polylinePlane3D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18469,7 +18819,7 @@
 							},
 							"parameters": [
 								{
-									"id": 860,
+									"id": 876,
 									"name": "pline",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18483,7 +18833,7 @@
 									}
 								},
 								{
-									"id": 861,
+									"id": 877,
 									"name": "plane",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18515,7 +18865,7 @@
 					]
 				},
 				{
-					"id": 862,
+					"id": 878,
 					"name": "polylinePolyline2D",
 					"kind": 64,
 					"kindString": "Function",
@@ -18524,7 +18874,7 @@
 					},
 					"signatures": [
 						{
-							"id": 863,
+							"id": 879,
 							"name": "polylinePolyline2D",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18535,7 +18885,7 @@
 							},
 							"parameters": [
 								{
-									"id": 864,
+									"id": 880,
 									"name": "pline1",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18549,7 +18899,7 @@
 									}
 								},
 								{
-									"id": 865,
+									"id": 881,
 									"name": "pline2",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18589,9 +18939,9 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						854,
-						858,
-						862
+						870,
+						874,
+						878
 					]
 				}
 			],
@@ -18604,7 +18954,7 @@
 			]
 		},
 		{
-			"id": 981,
+			"id": 997,
 			"name": "\"string\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -18614,7 +18964,7 @@
 			"originalName": "D:/Dropbox/Files/Software/GitHub/gs-modelling/src/typescript/string.ts",
 			"children": [
 				{
-					"id": 986,
+					"id": 1002,
 					"name": "endsWith",
 					"kind": 64,
 					"kindString": "Function",
@@ -18623,7 +18973,7 @@
 					},
 					"signatures": [
 						{
-							"id": 987,
+							"id": 1003,
 							"name": "endsWith",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18634,7 +18984,7 @@
 							},
 							"parameters": [
 								{
-									"id": 988,
+									"id": 1004,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18648,7 +18998,7 @@
 									}
 								},
 								{
-									"id": 989,
+									"id": 1005,
 									"name": "end_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18677,7 +19027,7 @@
 					]
 				},
 				{
-					"id": 990,
+					"id": 1006,
 					"name": "includes",
 					"kind": 64,
 					"kindString": "Function",
@@ -18686,7 +19036,7 @@
 					},
 					"signatures": [
 						{
-							"id": 991,
+							"id": 1007,
 							"name": "includes",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18697,7 +19047,7 @@
 							},
 							"parameters": [
 								{
-									"id": 992,
+									"id": 1008,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18711,7 +19061,7 @@
 									}
 								},
 								{
-									"id": 993,
+									"id": 1009,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18740,7 +19090,7 @@
 					]
 				},
 				{
-					"id": 994,
+					"id": 1010,
 					"name": "len",
 					"kind": 64,
 					"kindString": "Function",
@@ -18749,7 +19099,7 @@
 					},
 					"signatures": [
 						{
-							"id": 995,
+							"id": 1011,
 							"name": "len",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18760,7 +19110,7 @@
 							},
 							"parameters": [
 								{
-									"id": 996,
+									"id": 1012,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18789,7 +19139,7 @@
 					]
 				},
 				{
-					"id": 997,
+					"id": 1013,
 					"name": "replace",
 					"kind": 64,
 					"kindString": "Function",
@@ -18798,7 +19148,7 @@
 					},
 					"signatures": [
 						{
-							"id": 998,
+							"id": 1014,
 							"name": "replace",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18809,7 +19159,7 @@
 							},
 							"parameters": [
 								{
-									"id": 999,
+									"id": 1015,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18823,7 +19173,7 @@
 									}
 								},
 								{
-									"id": 1000,
+									"id": 1016,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18837,7 +19187,7 @@
 									}
 								},
 								{
-									"id": 1001,
+									"id": 1017,
 									"name": "new_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18866,7 +19216,7 @@
 					]
 				},
 				{
-					"id": 1002,
+					"id": 1018,
 					"name": "search",
 					"kind": 64,
 					"kindString": "Function",
@@ -18875,7 +19225,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1003,
+							"id": 1019,
 							"name": "search",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18886,7 +19236,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1004,
+									"id": 1020,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18900,7 +19250,7 @@
 									}
 								},
 								{
-									"id": 1005,
+									"id": 1021,
 									"name": "search_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18929,7 +19279,7 @@
 					]
 				},
 				{
-					"id": 1006,
+					"id": 1022,
 					"name": "split",
 					"kind": 64,
 					"kindString": "Function",
@@ -18938,7 +19288,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1007,
+							"id": 1023,
 							"name": "split",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -18949,7 +19299,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1008,
+									"id": 1024,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18963,7 +19313,7 @@
 									}
 								},
 								{
-									"id": 1009,
+									"id": 1025,
 									"name": "separator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -18995,7 +19345,7 @@
 					]
 				},
 				{
-					"id": 982,
+					"id": 998,
 					"name": "startsWith",
 					"kind": 64,
 					"kindString": "Function",
@@ -19004,7 +19354,7 @@
 					},
 					"signatures": [
 						{
-							"id": 983,
+							"id": 999,
 							"name": "startsWith",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -19015,7 +19365,7 @@
 							},
 							"parameters": [
 								{
-									"id": 984,
+									"id": 1000,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -19029,7 +19379,7 @@
 									}
 								},
 								{
-									"id": 985,
+									"id": 1001,
 									"name": "start_str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -19058,7 +19408,7 @@
 					]
 				},
 				{
-					"id": 1010,
+					"id": 1026,
 					"name": "substring",
 					"kind": 64,
 					"kindString": "Function",
@@ -19067,7 +19417,7 @@
 					},
 					"signatures": [
 						{
-							"id": 1011,
+							"id": 1027,
 							"name": "substring",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -19078,7 +19428,7 @@
 							},
 							"parameters": [
 								{
-									"id": 1012,
+									"id": 1028,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -19092,7 +19442,7 @@
 									}
 								},
 								{
-									"id": 1013,
+									"id": 1029,
 									"name": "start",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -19106,7 +19456,7 @@
 									}
 								},
 								{
-									"id": 1014,
+									"id": 1030,
 									"name": "end",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -19140,14 +19490,14 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						986,
-						990,
-						994,
-						997,
 						1002,
 						1006,
-						982,
-						1010
+						1010,
+						1013,
+						1018,
+						1022,
+						998,
+						1026
 					]
 				}
 			],
@@ -19160,7 +19510,7 @@
 			]
 		},
 		{
-			"id": 866,
+			"id": 882,
 			"name": "\"topo\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -19173,7 +19523,7 @@
 			},
 			"children": [
 				{
-					"id": 867,
+					"id": 883,
 					"name": "x",
 					"kind": 32,
 					"kindString": "Variable",
@@ -19198,7 +19548,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						867
+						883
 					]
 				}
 			],
@@ -19218,39 +19568,39 @@
 			"children": [
 				1,
 				266,
-				314,
-				1089,
-				1091,
-				1018,
-				1074,
-				1041,
-				1065,
-				1086,
-				1015,
-				411,
-				1093,
-				482,
+				322,
+				1107,
+				1109,
+				1034,
+				1092,
+				1059,
+				1083,
+				1104,
+				1031,
+				427,
+				1111,
+				498,
 				50,
 				281,
 				275,
-				499,
-				399,
-				441,
-				86,
-				1134,
-				868,
-				927,
-				504,
 				515,
-				591,
-				626,
-				701,
-				757,
-				834,
-				836,
-				853,
-				981,
-				866
+				415,
+				457,
+				86,
+				1152,
+				884,
+				943,
+				520,
+				531,
+				607,
+				642,
+				717,
+				773,
+				850,
+				852,
+				869,
+				997,
+				882
 			]
 		}
 	]

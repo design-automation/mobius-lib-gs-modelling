@@ -379,3 +379,32 @@ export function evalPoint(circle: gs.ICircle, point: gs.IPoint): number {
     error.checkPoint(point);
     return circle.evalPoint(point);
 }
+
+/**
+ * Returns two polylines that are tangential (inner tangents) to two coplanar circles.
+ *
+ * @param circle1 The first circle.
+ * @param circle2 The second circle.
+ * @returns Two polylines, or null if inner tangents cannot be calculated.
+ */
+export function tangentPlinesInner2D(circle1: gs.ICircle, circle2: gs.ICircle, ): [gs.IPolyline, gs.IPolyline] {
+    error.checkObj(circle1, gs.EObjType.circle);
+    error.checkObj(circle2, gs.EObjType.circle);
+    error.checkObjsSameModel([circle1, circle2]);
+    return math_conic.innerTangentsCircleCircle2D(circle1, circle2);
+}
+
+/**
+ * Returns two polylines that are tangential (outer tangents) to two coplanar circles.
+ *
+ * @param circle1 The first circle.
+ * @param circle2 The second circle.
+ * @returns Two polylines, or null if outer tangents cannot be calculated.
+ */
+export function tangentPlinesOuter2D(circle1: gs.ICircle, circle2: gs.ICircle, ): [gs.IPolyline, gs.IPolyline] {
+    error.checkObj(circle1, gs.EObjType.circle);
+    error.checkObj(circle2, gs.EObjType.circle);
+    error.checkObjsSameModel([circle1, circle2]);
+    return math_conic.outerTangentsCircleCircle2D(circle1, circle2);
+}
+

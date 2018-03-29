@@ -15,6 +15,9 @@ describe("Tests for Pline Module", () => {
     it("test_circle_testToJson", () => {
         expect( test_circle_testToJson() ).toBe(true);
     });
+    it("test_circle_tangentPlinesInner2D", () => {
+        expect( test_circle_tangentPlinesInner2D() ).toBe(true);
+    });
 });
 
 export function test_circle_FromOriginVectors(): boolean {
@@ -63,3 +66,25 @@ export function test_circle_testToJson(): boolean {
     return true;
 }
 
+export function test_circle_tangentPlinesInner2D(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    {
+        const p1: gs.IPoint = gsm.point.FromXYZ(m, [-10.234, 0, 8]);
+        const circle1: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [1, 0, 2], [-3, 0, 3], null);
+        const p2: gs.IPoint = gsm.point.FromXYZ(m, [11, 0, -2.345]);
+        const circle2: gs.ICircle = gsm.circle.FromOrigin2Vectors(p2, [2, 0, 7], [-1, 0, 1], null);
+        const plines: gs.IPolyline[] = gsm.circle.tangentPlinesInner2D(circle1, circle2);
+        if (plines === null) {return false;}
+        if (plines[1] === undefined) {return false;}
+    }
+    {
+        const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+        const circle1: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [1, 0, 0], [0, 1, 0], null);
+        const p2: gs.IPoint = gsm.point.FromXYZ(m, [10,0,0]);
+        const circle2: gs.ICircle = gsm.circle.FromOrigin2Vectors(p2, [3, 0, 0], [0, 1, 0], null);
+        const plines: gs.IPolyline[] = gsm.circle.tangentPlinesInner2D(circle1, circle2);
+        if (plines === null) {return false;}
+        if (plines[1] === undefined) {return false;}
+    }
+    return true;
+}

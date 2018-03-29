@@ -240,3 +240,14 @@ export function genModelTest8(): gs.IModel {
     gsm.point.del([p1, p2, p3]);
     return m;
 }
+
+export function genModelTest9(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [-10.234, 0, 8]);
+    const circle1: gs.ICircle = gsm.circle.FromOrigin2Vectors(p1, [7, 0, 7], [-3, 0, 3], null);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [11, 0, -2.345]);
+    const circle2: gs.ICircle = gsm.circle.FromOrigin2Vectors(p2, [2, 0, 2], [-1, 0, 1], null);
+    const plines: gs.IPolyline[] = gsm.circle.tangentPlinesInner2D(circle1, circle2);
+    const plines2: gs.IPolyline[] = gsm.circle.tangentPlinesOuter2D(circle1, circle2);
+    return m;
+}
