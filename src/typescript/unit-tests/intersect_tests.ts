@@ -10,6 +10,9 @@ describe("Tests for Intersect Module", () => {
     it("test_intersect_polylinePolyline2D_v2", () => {
         expect( test_intersect_polylinePolyline2D_v2() ).toBe(true);
     });
+    it("test_intersect_polylinePolyline2D_v3", () => {
+        expect( test_intersect_polylinePolyline2D_v3() ).toBe(true);
+    });
     it("test_intersect_polylinePlane3D", () => {
         expect( test_intersect_polylinePlane3D() ).toBe(true);
     });
@@ -39,7 +42,19 @@ export function test_intersect_polylinePolyline2D_v2(): boolean {
     const c2: gs.ICircle = gsm.circle.FromOriginXY(p2, 5, null);
     const pl2: gs.IPolyline = gsm.pline.FromCircle(c2, 6);
     const res: gs.IPoint[] = gsm.intersect.polylinePolyline2D(pl1, pl2);
-    //console.log(res.map((p) => p.getPosition()));
+    if (res.length !== 2) {return false;}
+    return true;
+}
+
+export function test_intersect_polylinePolyline2D_v3(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const c1: gs.ICircle = gsm.circle.FromOriginXY(p1, 5, null);
+    const pl1: gs.IPolyline = gsm.pline.FromCircle(c1, 6);
+    const pnts: gs.IPoint[] = gsm.point.FromXYZs(m, [[-10,-1,0], [10,1,0]]);
+    const pl2: gs.IPolyline = gsm.pline.FromPoints(pnts);
+    const res: gs.IPoint[] = gsm.intersect.polylinePolyline2D(pl1, pl2);
+    if (res.length !== 2) {return false;}
     return true;
 }
 

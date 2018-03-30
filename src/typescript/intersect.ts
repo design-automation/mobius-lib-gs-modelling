@@ -75,7 +75,6 @@ export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoin
     return poly.isectPolylinePlane3D(pline, plane);
 }
 
-
     // get the points on the polyline
     // let pline_xyz: gs.XYZ[] = pline.getPointsArr().map((p) => p.getPosition());
     // if (pline.isClosed()) {pline_xyz.push(pline_xyz[0]);}

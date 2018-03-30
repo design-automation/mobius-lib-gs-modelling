@@ -125,6 +125,10 @@ export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
     const model: gs.IModel = pline1.getModel();
     const points1: gs.IPoint[] = pline1.getPointsArr();
     const points2: gs.IPoint[] = pline2.getPointsArr();
+    // Add points for closed polylines
+    if (pline1.isClosed()) {points1.push(points1[0]);}
+    if (pline2.isClosed()) {points2.push(points2[0]);}
+    // Create vpoints
     const points1_vec: three.Vector3[] = points1.map((p) => new three.Vector3(...p.getPosition()));
     const points2_vec: three.Vector3[] = points2.map((p) => new three.Vector3(...p.getPosition()));
     const ortho_vecs: [three.Vector3, three.Vector3] = threex.orthoVectorsFromPlanarVPoints(
@@ -137,9 +141,6 @@ export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
         points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
     const matrix_pos: three.Matrix4 = threex.xformMatrixPos(
         points1_vec[0], ortho_vecs[0], ortho_vecs[1]);
-    // Add points for closed polylines
-    if (pline1.isClosed()) {points1_vec.push(points1_vec[0]);}
-    if (pline2.isClosed()) {points2_vec.push(points2_vec[0]);}
     // Make the polyline points 2D, and also check that they really are 2d
     for (const point of points1_vec) {
         point.applyMatrix4(matrix_neg);
@@ -162,11 +163,11 @@ export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
             if (result !== null) {
                 const xyz: gs.XYZ = result.isect_point.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
                 const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
+                // add the point
                 isect_points.push(isect_point);
             }
         }
     }
-
     return isect_points;
 }
 
@@ -241,7 +242,13 @@ export function _splitPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
         // add the next point
         new_points1[new_points1.length - 1].push(points1[i + 1]);
     }
-
+    // if the polyline was closed, then merge first and last lists
+    if (pline1.isClosed()) {
+        const last: gs.IPoint[] = new_points1[new_points1.length - 1];
+        last.push(...new_points1[0])
+        new_points1[0] = last;
+        new_points1.pop();
+    }
     // make the list of points for pline 2
     const new_points2: gs.IPoint[][] = [[points2[0]]];
     for (let i = 0; i < points2.length - 1; i++) {
@@ -257,6 +264,13 @@ export function _splitPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
         }
         // add the next point
         new_points2[new_points2.length - 1].push(points2[i + 1]);
+    }
+    // if the polyline was closed, then merge first and last lists
+    if (pline2.isClosed()) {
+        const last: gs.IPoint[] = new_points2[new_points2.length - 1];
+        last.push(...new_points2[0])
+        new_points2[0] = last;
+        new_points2.pop();
     }
     // delete the old plines
     model.getGeom().delObjs([pline1, pline2], true);
