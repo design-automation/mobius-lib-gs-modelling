@@ -113,6 +113,65 @@ export function _circleFrom3Points(xyz1: gs.XYZ, xyz2: gs.XYZ, xyz3: gs.XYZ, is_
 }
 
 /**
+ * Check if a points is within the circle arc
+ * @param circle
+ * @param point
+ * @returns True is it is inside
+ */
+function _pointInCircle(circle: gs.ICircle, point: gs.IPoint) {
+    if (circle.isClosed()) {return true;}
+    // create matrix to map from the 3D plane for circle into the XY plane
+    const origin: gs.XYZ = circle.getOrigin().getPosition();
+    const axes: [gs.XYZ, gs.XYZ, gs.XYZ] = circle.getAxes();
+    const matrix: three.Matrix4 = threex.xformMatrixFromXYZAxes(origin, axes, true);
+    // map the point onto the XY plane
+    const vpoint: three.Vector3 = new three.Vector3(...point.getPosition());
+    vpoint.applyMatrix4(matrix);
+    // calculate the angle between the point vector and the x axis, in radians
+    let angle_rad = Math.atan2(vpoint.y, vpoint.x);
+    if (angle_rad < 0) {angle_rad += (2 * Math.PI); }
+    const angle_deg: number = angle_rad * (180 / Math.PI);
+    // mow check angle
+    return _angleInCircle(circle, angle_deg);
+}
+
+/**
+ * Check if a t value (for closed circle) is within the circle arc
+ * @param circle
+ * @param t
+ * @returns True is it is inside
+ */
+function _tInCircle(circle: gs.ICircle, t: number) {
+    if (circle.isClosed()) {return true;}
+    const angle: number = t * (180 / Math.PI);
+    return _angleInCircle(circle, angle);
+}
+
+/**
+ * Check if an angle (in degrees) isf within the circle arc
+ * @param circle
+ * @param angle
+ * @returns True is it is inside
+ */
+function _angleInCircle(circle: gs.ICircle, angle: number) {
+    if (circle.isClosed()) {return true;}
+    // convert angle to 0 to 360
+    if (angle < 0) {angle = 360 + (angle % 360);}
+    if (angle > 360) {angle = angle % 360;}
+    // get the angles, calc start and end, incl EPS
+    const angles: [number, number] = circle.getAngles();
+    const start: number = angles[0] - EPS;
+    const end: number = angles[1] + EPS;
+    // return result
+    if (angles[0] < angles[1]) {
+        if ((angle > start) && (angle < end)) {return true;}
+    } else {
+        if ((angle < start) || (angle > end)) {return true;}
+    }
+    return false;
+}
+
+/**
  * Circle-circle intersection
  * @param circle1
  * @param circle2
@@ -238,7 +297,7 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     const m: gs.IModel = circle.getModel();
     const eps: number = 1e-7;
     if (plane.getModel() !== m) {
-        throw new Error("Identical models are required for the circle and the plane");
+        throw new Error("The circle and the plane must be in teh same model.");
     }
     // get plane
     const PO: number[] = plane.getOrigin().getPosition();
@@ -256,20 +315,11 @@ export function _isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IP
     const _t: number[] = trigo._solve_trigo(A, B, C);
     if (_t === null) { return []; }
     const result: gs.IPoint[] = [];
-
+    // create intersection points
     for (const t of _t) {
         if (t !== null) {
-            let ok: boolean = false;
-            if (circle.isClosed()) {
-                ok = true;
-            } else {
-                let angle: number = t * (180 / Math.PI);
-                if (t < 0) { angle = angle + 360; }
-                const circle_angles: [number, number] = circle.getAngles();
-                if (angle >= circle_angles[0] && angle < circle_angles[1]) { ok = true; }
-            }
-            if (ok) {
-
+            const angle: number = t * (180 / Math.PI);
+            if (_angleInCircle(circle, angle)) {
                 const point1: three.Vector3 = new three.Vector3(
                     C0[0] + Math.cos(t) * U1.x + Math.sin(t) * V1.x - PO[0],
                     C0[1] + Math.cos(t) * U1.y + Math.sin(t) * V1.y - PO[1],

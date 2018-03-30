@@ -131,3 +131,33 @@ export function genModelTest10(): gs.IModel {
     gsm.object.del([pline1, pline2]);
     return m;
 }
+
+export function genModelTest11(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const p1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const c1: gs.ICircle = gsm.circle.FromOriginXY(p1, 5, null);
+    const pl1: gs.IPolyline = gsm.pline.FromCircle(c1, 6);
+    const p2: gs.IPoint = gsm.point.FromXYZ(m, [4.1,0.1,0]);
+    const c2: gs.ICircle = gsm.circle.FromOriginXY(p2, 5, null);
+    const pl2: gs.IPolyline = gsm.pline.FromCircle(c2, 6);
+    const res: gs.IPoint[] = gsm.intersect.polylinePolyline2D(pl1, pl2);
+    return m;
+}
+
+export function genModelTest12(): gs.IModel {
+    const m: gs.IModel = gsm.model.New();
+    const points: gs.IPoint[] = gsm.point.FromXYZs(m, [[0,0,0],[2,2,5],[-1,-2,10],[1.1,2.2,15]]);
+    const pline1: gs.IPolyline = gsm.pline.FromPoints(points, false);
+    const o: gs.IPoint = gsm.point.FromXYZ(m, [0,0,9]);
+    const plane: gs.IPlane = gsm.plane.FromOriginXY(o);
+    const isect_points: gs.IPoint[] = gsm.intersect.polylinePlane3D(pline1, plane);
+
+    const o2: gs.IPoint = gsm.point.FromXYZ(m, [0,0,12]);
+    const plane2: gs.IPlane = gsm.plane.FromOriginXY(o2);
+    const isect_points2: gs.IPoint[] = gsm.intersect.polylinePlane3D(pline1, plane2);
+
+    const o3: gs.IPoint = gsm.point.FromXYZ(m, [0,0,16]);
+    const plane3: gs.IPlane = gsm.plane.FromOriginXY(o3);
+    const isect_points3: gs.IPoint[] = gsm.intersect.polylinePlane3D(pline1, plane3);
+    return m;
+}

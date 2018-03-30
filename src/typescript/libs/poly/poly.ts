@@ -4,7 +4,6 @@ import * as threex from "../threex/threex";
 
 const EPS: number = 1e-6;
 
-
 /**
  * Get a normal from a face vertex
  */
@@ -167,6 +166,7 @@ export function _isectPolylinePolyline2D(pline1: gs.IPolyline, pline2: gs.IPolyl
             }
         }
     }
+
     return isect_points;
 }
 
@@ -286,13 +286,64 @@ function _isectLineLine2D(line1_start: three.Vector3, line1_end: three.Vector3,
     t1 = numerator1 / denominator;
     t2 = numerator2 / denominator;
     // check intersection point is on both line segments
-    if (t1 < 0 && t1 >= 1) {return null;}
-    if (t2 < 0 && t2 >= 1) {return null;}
+    if ((t1 <= 0) || (t1 > 1)) {return null;}
+    if ((t2 <= 0) || (t2 > 1)) {return null;}
     // intersection point
     const result_x: number = line1_start.x + (t1 * (line1_end.x - line1_start.x));
     const result_y: number = line1_start.y + (t1 * (line1_end.y - line1_start.y));
     // return the result
     return {isect_point: new three.Vector3(result_x, result_y, 0), t1: t1, t2: t2} ;
+}
+
+/**
+ * Isect polylines with a plane.
+ */
+export function isectPolylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoint[] {
+    const model: gs.IModel = pline.getModel();
+    const points: gs.IPoint[] = pline.getPointsArr();
+    const origin: gs.IPoint = plane.getOrigin();
+    const axes: [gs.XYZ, gs.XYZ, gs.XYZ] = plane.getAxes();
+    // Add points for closed polylines
+    if (pline.isClosed()) {points.push(points[0]);}
+    // Create vpoints
+    const vpoints: three.Vector3[] = points.map((p) => new three.Vector3(...p.getPosition()));
+    const vaxes: three.Vector3[] = axes.map((a) => new three.Vector3(...a));
+    const vorigin: three.Vector3 = new three.Vector3(...origin.getPosition());
+    // Create the matrixes to transform between 3d and 2d
+    const matrix_neg: three.Matrix4 = threex.xformMatrixNeg(vorigin, vaxes[0], vaxes[1]);
+    const matrix_pos: three.Matrix4 = threex.xformMatrixPos(vorigin, vaxes[0], vaxes[1]);
+    // Project the polyline points
+    for (const vpoint of vpoints) {
+        vpoint.applyMatrix4(matrix_neg);
+    }
+    // Loop through each edge and check for intersections
+    const isect_points: gs.IPoint[] = [];
+    for (let i = 0; i < vpoints.length - 1; i++) {
+        const line1_start: three.Vector3 = vpoints[i];
+        const line1_end: three.Vector3 = vpoints[i+1];
+        const result: three.Vector3 =_isectLineXYPlane3D(line1_start, line1_end);
+        if (result !== null) {
+            const xyz: gs.XYZ = result.applyMatrix4(matrix_pos).toArray() as gs.XYZ;
+            const isect_point: gs.IPoint = model.getGeom().addPoint(xyz);
+            isect_points.push(isect_point);
+        }
+    }
+    return isect_points;
+}
+
+/**
+ * Intersect line with XY plane.
+ */
+function _isectLineXYPlane3D(line_start: three.Vector3, line_end: three.Vector3): three.Vector3 {
+    if (line_start.z === 0) {return  line_start.clone();}
+    if (line_end.z === 0) {return  line_end.clone();}
+    if ((line_start.z * line_end.z) > 0) {return null;}
+    const start_z: number = Math.abs(line_start.z);
+    const end_z: number = Math.abs(line_end.z);
+    const scalar_z: number = start_z / (start_z + end_z);
+    const line_vec: three.Vector3 = new three.Vector3()
+        .subVectors(line_end, line_start).multiplyScalar(scalar_z);
+    return new three.Vector3().addVectors(line_start, line_vec);
 }
 
 // /**
