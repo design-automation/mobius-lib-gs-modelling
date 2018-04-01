@@ -16,7 +16,7 @@ import * as gs from "gs-json";
 import * as util from "./circle_dev";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
-import * as math_conic from "./libs/conics/circles";
+import * as circles from "./libs/conics/circles";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -212,7 +212,7 @@ export function FromPlane(plane: gs.IPlane, radius: number, angles: [number, num
 export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPoint, is_closed: boolean): gs.ICircle {
     const model: gs.IModel = error.checkPointList([point1, point2, point3], 3);
     // do the maths
-    const result = math_conic._circleFrom3Points(
+    const result = circles.circleFrom3Points(
         point1.getPosition(), point2.getPosition(), point3.getPosition(), is_closed);
     const origin: gs.IPoint = model.getGeom().addPoint(result.origin);
     // make the circle or arc
@@ -391,7 +391,7 @@ export function tangentPlinesInner2D(circle1: gs.ICircle, circle2: gs.ICircle, )
     error.checkObj(circle1, gs.EObjType.circle);
     error.checkObj(circle2, gs.EObjType.circle);
     error.checkObjsSameModel([circle1, circle2]);
-    return math_conic.innerTangentsCircleCircle2D(circle1, circle2);
+    return circles.innerTangentsCircleCircle2D(circle1, circle2);
 }
 
 /**
@@ -405,6 +405,6 @@ export function tangentPlinesOuter2D(circle1: gs.ICircle, circle2: gs.ICircle, )
     error.checkObj(circle1, gs.EObjType.circle);
     error.checkObj(circle2, gs.EObjType.circle);
     error.checkObjsSameModel([circle1, circle2]);
-    return math_conic.outerTangentsCircleCircle2D(circle1, circle2);
+    return circles.outerTangentsCircleCircle2D(circle1, circle2);
 }
 

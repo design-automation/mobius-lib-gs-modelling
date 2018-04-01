@@ -3,7 +3,9 @@ import * as gsm from "../_export_dev";
 import {} from "jasmine";
 
 describe("Tests for Intersect Module", () => {
-
+    it("test_intersect_circlePlane3D", () => {
+        expect( test_intersect_circlePlane3D() ).toBe(true);
+    });
     it("test_intersect_polylinePolyline2D", () => {
         expect( test_intersect_polylinePolyline2D() ).toBe(true);
     });
@@ -20,6 +22,17 @@ describe("Tests for Intersect Module", () => {
         expect( test_intersect_polylinePlane3D_v2() ).toBe(true);
     });
 });
+
+export function test_intersect_circlePlane3D(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const point1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const point2: gs.IPoint = gsm.point.FromXYZ(m, [4,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginYZ(point1, 10, [270, 90]);
+    const plane: gs.IPlane = gsm.plane.FromOriginXY(point2);
+    const isect_points: gs.IPoint[] = gsm.intersect.circlePlane3D(circle, plane);
+    if(isect_points.length !== 1) {return false;}
+    return true;
+}
 
 export function test_intersect_polylinePolyline2D(): boolean {
     const m: gs.IModel = gsm.model.New();

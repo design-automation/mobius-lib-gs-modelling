@@ -12,7 +12,7 @@
 import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
-import * as conics from "./libs/conics/circles";
+import * as circles from "./libs/conics/circles";
 import * as poly from "./libs/poly/poly";
 import * as error from "./_error_msgs_dev";
 
@@ -29,7 +29,7 @@ import * as error from "./_error_msgs_dev";
  */
 export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.IPoint[] {
     error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
-    return conics._isectCircleCircle2D(circle1, circle2);
+    return circles.isectCircleCircle2D(circle1, circle2);
 }
 
 /**
@@ -57,7 +57,7 @@ export function circlePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPoint[]
     error.checkObj(circle, gs.EObjType.circle);
     error.checkObj(plane, gs.EObjType.plane);
     error.checkObjsSameModel([circle, plane]);
-    return conics._isectCirclePlane3D(circle, plane);
+    return circles.isectCirclePlane3D(circle, plane);
 }
 
 /**
@@ -75,30 +75,4 @@ export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoin
     return poly.isectPolylinePlane3D(pline, plane);
 }
 
-    // get the points on the polyline
-    // let pline_xyz: gs.XYZ[] = pline.getPointsArr().map((p) => p.getPosition());
-    // if (pline.isClosed()) {pline_xyz.push(pline_xyz[0]);}
-    // // make array to store isect points
-    // const isect_points: gs.IPoint[] = [];
-    // // convert plane into three plane
-    // const three_plane: three.Plane = new three.Plane(
-    //     new three.Vector3(...plane.getNormal()),
-    //     new three.Vector3(...plane.getOrigin().getPosition()).length()
-    // );
-    // // loop through each edge, and check for intersections
-    // for (let i=0; i<pline_xyz.length - 1; i++) {
-    //     const three_line: three.Line3 = new three.Line3(
-    //         new three.Vector3(...pline_xyz[i]),
-    //         new three.Vector3(...pline_xyz[i + 1])
-    //     );
-
-    //     const result: three.Vector3 = three_plane.intersectLine(three_line);
-    //     //console.log(result, three_line, three_plane);
-    //     if (result !== undefined) {
-    //         const isect_point: gs.IPoint = model.getGeom().addPoint([result.x, result.y, result.z]);
-    //         isect_points.push(isect_point);
-    //     }
-    // }
-    // // return an array of intersection points
-    // return isect_points;
 

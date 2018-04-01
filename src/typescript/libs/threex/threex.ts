@@ -386,6 +386,32 @@ export function makeVertices2D(vertices: gs.IVertex[]): three.Vector3[] {
 //  Query ======================================================================================================
 
 /**
+ * Check planes are parallel.
+ * The plane is represented by an origin and a normal.
+ */
+export function planesAreParallel(normal1: three.Vector3|gs.XYZ,
+                                  normal2: three.Vector3|gs.XYZ): boolean {
+    // args
+    let normal1_v: three.Vector3;
+    if (Array.isArray(normal1)) {
+        normal1_v = new three.Vector3(...normal1);
+    } else {
+        normal1_v = normal1;
+    }
+    normal1_v.normalize();
+    let normal2_v: three.Vector3;
+    if (Array.isArray(normal2)) {
+        normal2_v = new three.Vector3(...normal2);
+    } else {
+        normal2_v = normal2;
+    }
+    normal2_v.normalize();
+    // check is vectors are same
+    if (Math.abs(1- normal1_v.dot(normal2_v)) > EPS) {return false; }
+    return true;
+}
+
+/**
  * Check a point is on a plane.
  * The plane is represented by an origin and a normal.
  */

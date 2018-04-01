@@ -1,7 +1,7 @@
 import * as gs from "gs-json";
 import * as threex from "./libs/threex/threex";
 import * as three from "three";
-import * as math_conic from "./libs/conics/circles";
+import * as circles from "./libs/conics/circles";
 import { Arr } from "./libs/arr/arr";
 
 //  ==========================================================================================================
@@ -54,7 +54,7 @@ export function From3Points(point1: gs.IPoint, point2: gs.IPoint, point3: gs.IPo
     if (point2.getModel() !== model) { throw new Error("Error: Points must all be in same model."); }
     if (point3.getModel() !== model) { throw new Error("Error: Points must all be in same model."); }
     // do the maths
-    const result = math_conic._circleFrom3Points(
+    const result = circles.circleFrom3Points(
         point1.getPosition(), point2.getPosition(), point3.getPosition(), is_closed);
     const origin: gs.IPoint = model.getGeom().addPoint(result.origin);
     const vec_x: gs.XYZ = result.vec_x;
@@ -94,8 +94,8 @@ export function ArcFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint): 
     const circle_1: gs.ICircle = g.addCircle(pt1, [radius, 0, 0], [0, radius, 0]);
     const circle_2: gs.ICircle = g.addCircle(pt2, [radius, 0, 0], [0, radius, 0]);
     const circle_3: gs.ICircle = g.addCircle(pt3, [radius, 0, 0], [0, radius, 0]);
-    const c1: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1, circle_2);
-    const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1, circle_3);
+    const c1: gs.IPoint[] = circles.isectCircleCircle2D(circle_1, circle_2);
+    const c2: gs.IPoint[] = circles.isectCircleCircle2D(circle_1, circle_3);
 
     let center: gs.IPoint = null;
     if (Arr.equal(c1[0].getPosition(), c2[0].getPosition())) {
@@ -184,8 +184,8 @@ export function CircleFrom3Points(pt1: gs.IPoint, pt2: gs.IPoint, pt3: gs.IPoint
     const circle_1: gs.ICircle = g.addCircle(pt1, [radius, 0, 0], [0, radius, 0], [0, 360]);
     const circle_2: gs.ICircle = g.addCircle(pt2, [radius, 0, 0], [0, radius, 0], [0, 360]);
     const circle_3: gs.ICircle = g.addCircle(pt3, [radius, 0, 0], [0, radius, 0], [0, 360]);
-    const c1: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1, circle_2);
-    const c2: gs.IPoint[] = math_conic._isectCircleCircle2D(circle_1, circle_3);
+    const c1: gs.IPoint[] = circles.isectCircleCircle2D(circle_1, circle_2);
+    const c2: gs.IPoint[] = circles.isectCircleCircle2D(circle_1, circle_3);
     const g1: gs.IGeom = m1.getGeom();
     if (Arr.equal(c1[0].getPosition(), c2[0].getPosition())) {
         return g1.addCircle(g1.addPoint(c1[0].getPosition()), [radius, 0, 0], [0, radius, 0], [0, 360]);

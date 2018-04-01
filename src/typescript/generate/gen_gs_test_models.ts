@@ -21,6 +21,7 @@ if (require.main === module) {
     writeGsToJSONFile(circles.genModelTest1(), path + "circles_test1.gs");
     writeGsToJSONFile(circles.genModelTest1b(), path + "circles_test1b.gs");
     writeGsToJSONFile(circles.genModelTest1c(), path + "circles_test1c.gs");
+    writeGsToJSONFile(circles.genModelTest1d(), path + "circles_test1d.gs");
     writeGsToJSONFile(circles.genModelTest2(), path + "circles_test2.gs");
     writeGsToJSONFile(circles.genModelTest3(), path + "circles_test3.gs");
     writeGsToJSONFile(circles.genModelTest4(), path + "circles_circles_test4.gs");

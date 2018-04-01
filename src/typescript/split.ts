@@ -12,7 +12,7 @@ import * as gs from "gs-json";
 import * as gsm from "./_export_dev";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
-import * as conics from "./libs/conics/circles";
+import * as circles from "./libs/conics/circles";
 import * as poly from "./libs/poly/poly";
 import * as error from "./_error_msgs_dev";
 
@@ -38,7 +38,7 @@ export function circleCircle2D(circle1: gs.ICircle, circle2: gs.ICircle): gs.ICi
     const model: gs.IModel = error.checkObjList([circle1, circle2], 2, gs.EObjType.circle);
     const geom: gs.IGeom = model.getGeom();
     // do intersection
-    let points: gs.IPoint[] = conics._isectCircleCircle2D(circle1, circle2);
+    let points: gs.IPoint[] = circles.isectCircleCircle2D(circle1, circle2);
     if (points === null) {return null;}
     if (points.length !== 2) {return null;}
     const circle1_origin: gs.IPoint = circle1.getOrigin();
