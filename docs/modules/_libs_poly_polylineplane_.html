@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;calc&quot; | gs-modelling</title>
+	<title>&quot;libs/poly/polylinePlane&quot; | gs-modelling</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,112 +54,142 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_calc_.html">&quot;calc&quot;</a>
+					<a href="_libs_poly_polylineplane_.html">&quot;libs/poly/polylinePlane&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;calc&quot;</h1>
+			<h1>External module &quot;libs/poly/polylinePlane&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Function for doing various geometric calculations.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_poly_polylineplane_.html#eps" class="tsd-kind-icon">EPS</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_calc_.html#distbetweenpoints" class="tsd-kind-icon">dist<wbr>Between<wbr>Points</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_calc_.html#vectorbetweenpoints" class="tsd-kind-icon">vector<wbr>Between<wbr>Points</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_libs_poly_polylineplane_.html#_isectlinexyplane3d" class="tsd-kind-icon">_isect<wbr>LineXYPlane3D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_polylineplane_.html#isectpolylineplane3d" class="tsd-kind-icon">isect<wbr>Polyline<wbr>Plane3D</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_libs_poly_polylineplane_.html#splitpolylineplane3d" class="tsd-kind-icon">split<wbr>Polyline<wbr>Plane3D</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="eps" class="tsd-anchor"></a>
+					<h3>EPS</h3>
+					<div class="tsd-signature tsd-kind-icon">EPS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.000001</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/libs/poly/polylinePlane.ts#L5">libs/poly/polylinePlane.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="distbetweenpoints" class="tsd-anchor"></a>
-					<h3>dist<wbr>Between<wbr>Points</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">dist<wbr>Between<wbr>Points<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="_isectlinexyplane3d" class="tsd-anchor"></a>
+					<h3>_isect<wbr>LineXYPlane3D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_isect<wbr>LineXYPlane3D<span class="tsd-signature-symbol">(</span>line_start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span>, line_end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vector3</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/calc.ts#L25">calc.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/libs/poly/polylinePlane.ts#L97">libs/poly/polylinePlane.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Calculate the distance between two points.</p>
+									<p>Intersect line with XY plane.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point1: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The first point.</p>
-									</div>
+									<h5>line_start: <span class="tsd-signature-type">Vector3</span></h5>
 								</li>
 								<li>
-									<h5>point2: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The second point.</p>
-									</div>
+									<h5>line_end: <span class="tsd-signature-type">Vector3</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The distance.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Vector3</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="vectorbetweenpoints" class="tsd-anchor"></a>
-					<h3>vector<wbr>Between<wbr>Points</h3>
+					<a name="isectpolylineplane3d" class="tsd-anchor"></a>
+					<h3>isect<wbr>Polyline<wbr>Plane3D</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">vector<wbr>Between<wbr>Points<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span>, point2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">gs.XYZ</span></li>
+						<li class="tsd-signature tsd-kind-icon">isect<wbr>Polyline<wbr>Plane3D<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/calc.ts#L39">calc.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/libs/poly/polylinePlane.ts#L61">libs/poly/polylinePlane.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a vector (a list of 3 numbers) from point 1 to point 2.</p>
+									<p>Isect polylines with a plane.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point1: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The first point.</p>
-									</div>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
 								</li>
 								<li>
-									<h5>point2: <span class="tsd-signature-type">IPoint</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The second point.</p>
-									</div>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">gs.XYZ</span></h4>
-							<p>A list of three numbers.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPoint</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="splitpolylineplane3d" class="tsd-anchor"></a>
+					<h3>split<wbr>Polyline<wbr>Plane3D</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">split<wbr>Polyline<wbr>Plane3D<span class="tsd-signature-symbol">(</span>pline<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span>, plane<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPlane</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/phtj/gs-modelling/blob/6154e58/src/typescript/libs/poly/polylinePlane.ts#L10">libs/poly/polylinePlane.ts:10</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Split polylines with a plane.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pline: <span class="tsd-signature-type">IPolyline</span></h5>
+								</li>
+								<li>
+									<h5>plane: <span class="tsd-signature-type">IPlane</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IPolyline</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -172,17 +202,23 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_calc_.html">"calc"</a>
+						<a href="_libs_poly_polylineplane_.html">"libs/poly/polyline<wbr>Plane"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_calc_.html#distbetweenpoints" class="tsd-kind-icon">dist<wbr>Between<wbr>Points</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_libs_poly_polylineplane_.html#eps" class="tsd-kind-icon">EPS</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_libs_poly_polylineplane_.html#_isectlinexyplane3d" class="tsd-kind-icon">_isect<wbr>LineXYPlane3D</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_calc_.html#vectorbetweenpoints" class="tsd-kind-icon">vector<wbr>Between<wbr>Points</a>
+						<a href="_libs_poly_polylineplane_.html#isectpolylineplane3d" class="tsd-kind-icon">isect<wbr>Polyline<wbr>Plane3D</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_libs_poly_polylineplane_.html#splitpolylineplane3d" class="tsd-kind-icon">split<wbr>Polyline<wbr>Plane3D</a>
 					</li>
 				</ul>
 			</nav>

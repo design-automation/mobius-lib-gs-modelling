@@ -491,9 +491,9 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPoly
 /**
  * Create a new polymesh by piping a polyline.
  *
- * @param polyline Polyline to pipe (in order).
+ * @param polyline Polyline to pipe.
  * @param radius The radius of the pipe.
- * @param segments The number of polygon segment around the cicumference of the pipe.
+ * @param segments The number of polygon segments around the cicumference of the pipe.
  * @returns Polymesh object.
  */
 export function pipe(pline: gs.IPolyline, radius: number, segments: number): gs.IPolymesh {
