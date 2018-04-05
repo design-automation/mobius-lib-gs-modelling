@@ -14,6 +14,7 @@ import * as three from "three";
 import * as threex from "./libs/threex/threex";
 import * as circles from "./libs/conics/circles";
 import * as poly from "./libs/poly/poly";
+import * as polylinePlane from "./libs/poly/polylinePlane";
 import * as error from "./_error_msgs_dev";
 
 //  ===============================================================================================================
@@ -72,7 +73,5 @@ export function polylinePlane3D(pline: gs.IPolyline, plane: gs.IPlane): gs.IPoin
     const model: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
     error.checkObj(plane, gs.EObjType.plane);
     error.checkObjsSameModel([pline, plane]);
-    return poly.isectPolylinePlane3D(pline, plane);
+    return polylinePlane.isectPolylinePlane3D(pline, plane);
 }
-
-

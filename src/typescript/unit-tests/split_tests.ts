@@ -10,6 +10,10 @@ describe("Tests for Split", () => {
     it("test_polylinePolyline2D", () => {
         expect( test_polylinePolyline2D() ).toBe(true);
     });
+    it("test_polylinePlane3D", () => {
+        expect( test_polylinePlane3D() ).toBe(true);
+    });
+
 });
 
 export function test_circleCircle2D(): boolean {
@@ -64,5 +68,17 @@ export function test_polylinePolyline2D(): boolean {
     if(result[0].length !== 3) {return false;}
     if(m.getGeom().numObjs() !== 6) {return false;}
     console.log(m);
+    return true;
+}
+
+export function test_polylinePlane3D(): boolean {
+    const m: gs.IModel = new gs.Model();
+    const pt1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(pt1, 9, null);
+    const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 24);
+    const pt2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0]);
+    const plane: gs.IPlane = gsm.plane.FromOriginYZ(pt2);
+    const split_plines: gs.IPolyline[] = gsm.split.polylinePlane3D(pline, plane);
+    if (split_plines.length !== 2){return false;}
     return true;
 }

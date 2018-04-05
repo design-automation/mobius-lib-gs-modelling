@@ -173,3 +173,16 @@ export function genModelTest13(): gs.IModel {
     const res: gs.IPolyline[][] = gsm.split.polylinePolyline2D(pl1, pl2);
     return m;
 }
+
+export function genModelTest14(): gs.IModel {
+    const m: gs.IModel = new gs.Model();
+    const pt1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(pt1, 9, null);
+    const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 24);
+    const pt2: gs.IPoint = gsm.point.FromXYZ(m, [5,0,0]);
+    const plane: gs.IPlane = gsm.plane.FromOriginYZ(pt2);
+    const split_plines: gs.IPolyline[] = gsm.split.polylinePlane3D(pline, plane);
+    //gsm.object.move(split_plines[0], [1,0,0]);
+    //gsm.object.move(split_plines[1], [-1,0,0]);
+    return m;
+}
