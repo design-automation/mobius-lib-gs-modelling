@@ -36,7 +36,7 @@ export function isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPo
     if (Math.abs(Math.abs(_t[0] - _t[1]) - Math.PI) < EPS ) {delete _t[0];}
 
     for (const t of _t) {
-        if (t !== null) {
+        if ((t !== null) && (t != undefined)) {
             let ok1: boolean = false;
             let ok2: boolean = false;
             if (circle.isClosed()) {
@@ -55,6 +55,7 @@ export function isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPo
                     C0[1] + Math.cos(t) * U1.y + Math.sin(t) * V1.y - PO[1],
                     C0[2] + Math.cos(t) * U1.z + Math.sin(t) * V1.z - PO[2],
                 );
+                //console.log("point1", t, point1);
                 if (Math.abs(_n1.dot(point1)) < eps) {
                     result.push(m.getGeom().addPoint([
                         C0[0] + Math.cos(t) * U1.x + Math.sin(t) * V1.x,
@@ -69,6 +70,7 @@ export function isectCirclePlane3D(circle: gs.ICircle, plane: gs.IPlane): gs.IPo
                     C0[1] + Math.cos(t + Math.PI) * U1.y + Math.sin(t + Math.PI) * V1.y - PO[1],
                     C0[2] + Math.cos(t + Math.PI) * U1.z + Math.sin(t + Math.PI) * V1.z - PO[2],
                 );
+                //console.log("point2", t, point2);
                 if (Math.abs(_n1.dot(point2)) < eps) {
                     result.push(m.getGeom().addPoint([
                         C0[0] + Math.cos(t + Math.PI) * U1.x + Math.sin(t + Math.PI) * V1.x,

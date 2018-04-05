@@ -21,6 +21,9 @@ describe("Tests for Intersect Module", () => {
     it("test_intersect_polylinePlane3D_v2", () => {
         expect( test_intersect_polylinePlane3D_v2() ).toBe(true);
     });
+    it("test_intersect_circlePlane3D_v2", () => {
+        expect( test_intersect_circlePlane3D_v2() ).toBe(true);
+    });
 });
 
 export function test_intersect_circlePlane3D(): boolean {
@@ -93,6 +96,16 @@ export function test_intersect_polylinePlane3D_v2(): boolean {
     const plane: gs.IPlane = gsm.plane.FromOriginVectors(origin, [1,0,0], [0,1,0]);
     const isect_points: gs.IPoint[] = gsm.intersect.polylinePlane3D(pline, plane);
     //console.log("num isect = ", isect_points.length);
+    if(isect_points.length !== 2) {return false;}
+    return true;
+}
+
+export function test_intersect_circlePlane3D_v2(): boolean {
+    const m: gs.IModel = gsm.model.New();
+    const point1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(point1, 10, null);
+    const plane: gs.IPlane = gsm.plane.FromOriginZX(point1);
+    const isect_points: gs.IPoint[] = gsm.intersect.circlePlane3D(circle, plane);
     if(isect_points.length !== 2) {return false;}
     return true;
 }
