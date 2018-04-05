@@ -333,7 +333,7 @@ export function distSquPointToPoint(p1: gs.IPoint, p2: gs.IPoint): number {
 }
 
 export function distManPointToPoint(p1: gs.IPoint, p2: gs.IPoint): number {
-    return (new three.Vector3(...p1.getPosition())).distanceToManhattan(new three.Vector3(...p2.getPosition()));
+    return (new three.Vector3(...p1.getPosition())).manhattanDistanceTo(new three.Vector3(...p2.getPosition()));
 }
 
 //  Vertices ======================================================================================================

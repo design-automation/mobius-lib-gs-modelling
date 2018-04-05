@@ -186,3 +186,39 @@ export function genModelTest14(): gs.IModel {
     //gsm.object.move(split_plines[1], [-1,0,0]);
     return m;
 }
+
+export function genModelTest15(): gs.IModel {
+    const m: gs.IModel = new gs.Model();
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+        const circle: gs.ICircle = gsm.circle.FromOriginXY(pt1, 9, null);
+        const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 3);
+        const pipe: gs.IPolymesh = gsm.pline.pipe(pline, 2, 4);
+    }
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [20,0,0]);
+        const pt2: gs.IPoint = gsm.point.FromXYZ(m, [20,0,20]);
+        const pline: gs.IPolyline = gsm.pline.FromPoints([pt1, pt2], false);
+        const pipe: gs.IPolymesh = gsm.pline.pipe(pline, 3, 7);
+    }
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [30,0,0]);
+        const pt2: gs.IPoint = gsm.point.FromXYZ(m, [30,0,20]);
+        const pline: gs.IPolyline = gsm.pline.FromPoints([pt1, pt2], false);
+        const pline2: gs.IPolyline = gsm.pline.divide(pline, 5);
+        const pipe: gs.IPolymesh = gsm.pline.pipe(pline2, 3, 7);
+    }
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [50,0,0]);
+        const circle: gs.ICircle = gsm.circle.FromOriginZX(pt1, 9, [200, 80]);
+        const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 12);
+        const pipe: gs.IPolymesh = gsm.pline.pipe(pline, 2, 4);
+    }
+    {
+        const pt1: gs.IPoint = gsm.point.FromXYZ(m, [70,0,0]);
+        const circle: gs.ICircle = gsm.circle.FromOriginYZ(pt1, 9, [300, 150]);
+        const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 12);
+        const pipe: gs.IPolymesh = gsm.pline.pipe(pline, 2, 4);
+    }
+    return m;
+}

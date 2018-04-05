@@ -37,6 +37,11 @@ describe("Tests for Pline Module", () => {
     it("test_pline_divideMaxLength", () => {
         expect( test_pline_divideMaxLength() ).toBe(true);
     });
+
+    it("test_pline_pipe", () => {
+        expect( test_pline_pipe() ).toBe(true);
+    });
+
 });
 
 export function test_pline_fromPoints(): boolean {
@@ -225,3 +230,15 @@ export function test_pline_divideMaxLength(): boolean {
     }
     return true;
 }
+
+export function test_pline_pipe(): boolean {
+
+    const m: gs.IModel = new gs.Model();
+    const pt1: gs.IPoint = gsm.point.FromXYZ(m, [0,0,0]);
+    const circle: gs.ICircle = gsm.circle.FromOriginXY(pt1, 9, null);
+    const pline: gs.IPolyline = gsm.pline.FromCircle(circle, 3);
+    const pipe: gs.IPolymesh = gsm.pline.pipe(pline, 2, 12);
+
+    return true;
+}
+

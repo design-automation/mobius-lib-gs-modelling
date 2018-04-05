@@ -14,6 +14,7 @@ import * as gs from "gs-json";
 import * as three from "three";
 import * as threex from "./libs/threex/threex";
 import * as poly from "./libs/poly/poly";
+import * as polylinePipe from "./libs/poly/polylinePipe";
 import * as utils from "./_utils_dev";
 import * as error from "./_error_msgs_dev";
 import {Arr} from "./libs/arr/arr";
@@ -485,4 +486,18 @@ export function loft(plines: gs.IPolyline[], is_closed: boolean=false): gs.IPoly
     }
     // make polymesh from points and return it
     return g.addPolymesh(poly.pointsLoft(points, plines_closed));
+}
+
+/**
+ * Create a new polymesh by piping a polyline.
+ *
+ * @param polyline Polyline to pipe (in order).
+ * @param radius The radius of the pipe.
+ * @param segments The number of polygon segment around the cicumference of the pipe.
+ * @returns Polymesh object.
+ */
+export function pipe(pline: gs.IPolyline, radius: number, segments: number): gs.IPolymesh {
+    const m: gs.IModel = error.checkObj(pline, gs.EObjType.polyline);
+    // make polymesh
+    return polylinePipe.pipe(pline, radius, segments);
 }
