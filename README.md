@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/phtj/gs-json.svg?branch=master)]
+
+REPO HAS BEEN ARCHIVED
+
 # gs-modelling
 A TypeScript modelling library using the gs-JSON format
 
